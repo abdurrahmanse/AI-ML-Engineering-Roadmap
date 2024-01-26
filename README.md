@@ -1,4 +1,6 @@
 ACCOUNTS MANAGER (SASS) is Software as a Service (SaaS) base complete accounts solution. It is Financial Accounts Software & multiple language supported. It’s developed by React.js, Next.js, Bootstrap CSS, HTML5 on Frontend and Rest API integration with Node.js, Express.js and MySQL Database Sequelize ORM on Backend. This software has unlimited Company, Branch, Users and multiple Role base Super Admin, System Admin, Company Admin and Accounts User. You can get all types of Financial Accounts Reports in this Software.
+
+
 ONLINE DEMO:
 Demo Link: URL
 
