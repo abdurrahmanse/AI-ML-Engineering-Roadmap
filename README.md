@@ -3,42 +3,42 @@ ONLINE DEMO:
 Demo Link: URL
 
 #### Super Admin:
-Username: sadmin
-Password: 123456
+  Username: sadmin
+  Password: 123456
 
 #### System Admin:
-Username: admin
-Password: 123456
+  Username: admin
+  Password: 123456
 
 #### Company Admin:
-Username: company
-Password: 123456
+  Username: company
+  Password: 123456
 
 #### Accounts User:
 #### Brach1
-Username: user1
-Password: 123456
-Username: user2
-Password: 123456
+  Username: user1
+  Password: 123456
+  Username: user2
+  Password: 123456
 
 #### Brach2
-Username: user3
-Password: 123456
-Username: user4
-Password: 123456
+  Username: user3
+  Password: 123456
+  Username: user4
+  Password: 123456
 
 #### TECHNOLOGY USED:
-Node.js: Node.js is an open source server environment. Node.js runs on various platforms (Windows, Linux, Unix, Mac OS X, etc.), Node.js uses JavaScript on the server.
+  Node.js: Node.js is an open source server environment. Node.js runs on various platforms (Windows, Linux, Unix, Mac OS X, etc.), Node.js uses JavaScript on the server.
 
-React.js V-18: React.js is a free and open-source front-end JavaScript library for building interfaces single-page applications. React allows us to create reusable UI components.
+  React.js V-18: React.js is a free and open-source front-end JavaScript library for building interfaces single-page applications. React allows us to create reusable UI components.
 
-Next.js V-14.0.3 Next.js is a React.js Framework, Used latest Version to build Template. It’s the Easiest and fast way to create an app with next.js with some awesome Next.js features like Routing, SSG, SSR, and many more.
-BootStrap V-5.3.2: Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains HTML, CSS and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.
+  Next.js V-14.0.3 Next.js is a React.js Framework, Used latest Version to build Template. It’s the Easiest and fast way to create an app with next.js with some awesome Next.js features like Routing, SSG, SSR, and many more.
+  BootStrap V-5.3.2: Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains HTML, CSS and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.
 
-Express.js V- 4.18.2: Express.js is a back end web application framework for building RESTful APIs with Node.js, it’s free and open-source.
-MySQL: MySQL is a widely used relational database management system (RDBMS),  MySQL is free and open-source, MySQL is ideal for both small and large applications.
+  Express.js V- 4.18.2: Express.js is a back end web application framework for building RESTful APIs with Node.js, it’s free and open-source.
+  MySQL: MySQL is a widely used relational database management system (RDBMS),  MySQL is free and open-source, MySQL is ideal for both small and large applications.
 
-Sequelize ORM V- 6.34.0: Sequelize is an easy to use and promise-based Node.js ORM tool for Postgres, MySQL, MariaDB, SQLite, Microsoft SQL Server, Amazon Redshift and Snowflake’s Data Cloud.
+  Sequelize ORM V- 6.34.0: Sequelize is an easy to use and promise-based Node.js ORM tool for Postgres, MySQL, MariaDB, SQLite, Microsoft SQL Server, Amazon Redshift and Snowflake’s Data Cloud.
 
 #### MAIN FEATURES:
   Multiple Company
