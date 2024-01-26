@@ -41,26 +41,26 @@ MySQL: MySQL is a widely used relational database management system (RDBMS),  My
 Sequelize ORM V- 6.34.0: Sequelize is an easy to use and promise-based Node.js ORM tool for Postgres, MySQL, MariaDB, SQLite, Microsoft SQL Server, Amazon Redshift and Snowflake’s Data Cloud.
 
 #### MAIN FEATURES:
-Multiple Company
-Unlimited Branch
-Unlimited Users
-Multiple Language
-Chart of Accounts
-Financial Year
-Receive Voucher
-Payment Voucher
-Journal Voucher
-Contra Voucher
-Ledger Report
-Balance Sheet
-Income & Expenditure
-Trial Balance
-Receipts & Payments
-Balance Sheet Note
-Income & Expenditure Note
-Cash Book
-Bank Book
-Changes in Equity
+  Multiple Company
+  Unlimited Branch
+  Unlimited Users
+  Multiple Language
+  Chart of Accounts
+  Financial Year
+  Receive Voucher
+  Payment Voucher
+  Journal Voucher
+  Contra Voucher
+  Ledger Report
+  Balance Sheet
+  Income & Expenditure
+  Trial Balance
+  Receipts & Payments
+  Balance Sheet Note
+  Income & Expenditure Note
+  Cash Book
+  Bank Book
+  Changes in Equity
 
 ####  SOFTWARE MODULE:
 
@@ -70,25 +70,25 @@ Changes in Equity
   Company Package (Add/Edit/Delete)
   Branch (Add/Edit/Delete)
 ####  Accounts
-Chart of Accounts (Add/Edit/Delete)
-Accounts Type (Add/Edit/Delete)
-Accounts Link (Add/Edit)
-Financial Year (Add/Edit)
+  Chart of Accounts (Add/Edit/Delete)
+  Accounts Type (Add/Edit/Delete)
+  Accounts Link (Add/Edit)
+  Financial Year (Add/Edit)
 Voucher
-New Voucher
-Voucher List (Edit/Delete)
-Voucher Search
-Accounts Report
-Ledger Report
-Balance Sheet
-Income & Expenditure
-Trial Balance
-Receipts & Payments
-Balance Sheet Note
-Income & Expenditure Note
-Cash Book
-Bank Book
-Changes in Equity
+  New Voucher
+  Voucher List (Edit/Delete)
+  Voucher Search
+  Accounts Report
+  Ledger Report
+  Balance Sheet
+  Income & Expenditure
+  Trial Balance
+  Receipts & Payments
+  Balance Sheet Note
+  Income & Expenditure Note
+  Cash Book
+  Bank Book
+  Changes in Equity
 
 #### Users
 User List (Add/Edit/Delete)
@@ -104,101 +104,101 @@ Company Package (Add/Edit)
 Branch (Add/Edit)
 
 #### Accounts
-Chart of Accounts (Add/Edit)
-Accounts Type (Add/Edit)
-Accounts Link (Add/Edit)
-Financial Year (Add/Edit)
-Voucher
-New Voucher
-Voucher List (Edit)
-Voucher Search
-Accounts Report
-Ledger Report
-Balance Sheet
-Income & Expenditure
-Trial Balance
-Receipts & Payments
-Balance Sheet Note
-Income & Expenditure Note
-Cash Book
-Bank Book
-Changes in Equity
+  Chart of Accounts (Add/Edit)
+  Accounts Type (Add/Edit)
+  Accounts Link (Add/Edit)
+  Financial Year (Add/Edit)
+  Voucher
+  New Voucher
+  Voucher List (Edit)
+  Voucher Search
+  Accounts Report
+  Ledger Report
+  Balance Sheet
+  Income & Expenditure
+  Trial Balance
+  Receipts & Payments
+  Balance Sheet Note
+  Income & Expenditure Note
+  Cash Book
+  Bank Book
+  Changes in Equity
 
 #### Users
-User List (Add/Edit/)
-User Group (Add/Edit)
+  User List (Add/Edit/)
+  User Group (Add/Edit)
 
 #### My Profile
-Profile Picture
-Change Password
+  Profile Picture
+  Change Password
 
 ####  COMPANY ADMIN:
-Company & Branch
-Company (Edit)
-Branch (Add/Edit)
+  Company & Branch
+  Company (Edit)
+  Branch (Add/Edit)
 
 ####  Accounts
-Chart of Accounts (Add/Edit)
-Accounts Link (Add/Edit)
-Financial Year (Add/Edit)
+  Chart of Accounts (Add/Edit)
+  Accounts Link (Add/Edit)
+  Financial Year (Add/Edit)
 
 #### Voucher
-New Voucher
-Voucher List (Edit)
-Voucher Search
-Accounts Report
-Ledger Report
-Balance Sheet
-Income & Expenditure
-Trial Balance
-Receipts & Payments
-Balance Sheet Note
-Income & Expenditure Note
-Cash Book
-Bank Book
-Changes in Equity
+  New Voucher
+  Voucher List (Edit)
+  Voucher Search
+  Accounts Report
+  Ledger Report
+  Balance Sheet
+  Income & Expenditure
+  Trial Balance
+  Receipts & Payments
+  Balance Sheet Note
+  Income & Expenditure Note
+  Cash Book
+  Bank Book
+  Changes in Equity
 
 
 #### Users
-User List (Add/Edit/)
-My Profile
-Profile Picture
-Change Password
-ACCOUNTS USER:
-Company & Branch
-Branch
-Accounts
-Chart of Accounts
-Financial Year
+  User List (Add/Edit/)
+  My Profile
+  Profile Picture
+  Change Password
+  ACCOUNTS USER:
+  Company & Branch
+  Branch
+  Accounts
+  Chart of Accounts
+  Financial Year
 
 
 #### Voucher
-New Voucher
-Voucher List
-Voucher Search
-Accounts Report
-Ledger Report
-Balance Sheet
-Income & Expenditure
-Trial Balance
-Receipts & Payments
-Balance Sheet Note
-Income & Expenditure Note
-Cash Book
-Bank Book
-Changes in Equity
+  New Voucher
+  Voucher List
+  Voucher Search
+  Accounts Report
+  Ledger Report
+  Balance Sheet
+  Income & Expenditure
+  Trial Balance
+  Receipts & Payments
+  Balance Sheet Note
+  Income & Expenditure Note
+  Cash Book
+  Bank Book
+  Changes in Equity
 
 
 #### Users
-My Profile
-Profile Picture
-Change Password
-INCLUDED FILES:
-Frontend Files
-Backend (API) Files
-API CD (Postman JSON)
-Database.sql File
-Documentation Files
+  My Profile
+  Profile Picture
+  Change Password
+  INCLUDED FILES:
+  Frontend Files
+  Backend (API) Files
+  API CD (Postman JSON)
+  Database.sql File
+  Documentation Files
 
 #### CREDITS:
 #### Fonts & Icons:
