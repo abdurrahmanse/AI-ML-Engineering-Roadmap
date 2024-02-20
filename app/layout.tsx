@@ -1,29 +1,29 @@
-import { Theme } from "@radix-ui/themes";
-import "@radix-ui/themes/styles.css";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Theme } from '@radix-ui/themes'
+import '@radix-ui/themes/styles.css'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "SAAS Application",
-  description: "SAAS Application: Software as a Service",
-};
+  title: 'SAAS Application',
+  description: 'SAAS Application: Software as a Service',
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body className={inter.className}>
-        <Theme appearance="dark" accentColor="sky" radius="small">
+        <Theme appearance='dark' accentColor='sky' radius='small'>
           <main>{children}</main>
           {/* <ThemePanel /> */}
         </Theme>
       </body>
     </html>
-  );
+  )
 }
