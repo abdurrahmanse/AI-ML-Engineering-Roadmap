@@ -29,7 +29,7 @@ for (const level of data.levels) {
 const labelFor = (text) => {
   const clean = text.replace(/^[-•]\s*/, '').replace(/[.;:,]$/, '');
   const words = clean.split(/\s+/);
-  return words.length <= 7 ? clean : `${words.slice(0, 7).join(' ')}…`;
+  return words.length <= 7 ? clean : `${words.slice(0, 7).join(' ')}...`;
 };
 
 const byLevel = [...modules.entries()].sort((a, b) => {

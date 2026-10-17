@@ -334,8 +334,12 @@ function parseLevel(file, raw) {
     else if (/\.$/.test(line)) inColonList = false;
 
     // Everything after the module's Outcome: is commentary, not an objective.
-    if (cur.outcome || cur.finalResult) cur.notes.push(line);
-    else cur.objectives.push(group ? { text: line, group } : { text: line });
+    if (cur.outcome || cur.finalResult) {
+      cur.notes.push(line);
+    } else {
+      const objective = line.replace(/^[-•]\s+/, '');
+      cur.objectives.push(group ? { text: objective, group } : { text: objective });
+    }
   };
 
   for (const line of lines) {

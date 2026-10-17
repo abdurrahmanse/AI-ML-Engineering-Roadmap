@@ -100,27 +100,27 @@
           "icon": "book-open",
           "objectives": [
             {
-              "text": "- Explain how files, folders, programs, memory, and networks work together.",
+              "text": "Explain how files, folders, programs, memory, and networks work together.",
               "group": "Files, processes, and the web"
             },
             {
-              "text": "- Navigate a terminal, create files, inspect processes, and read error messages.",
+              "text": "Navigate a terminal, create files, inspect processes, and read error messages.",
               "group": "Files, processes, and the web"
             },
             {
-              "text": "- Use a Linux shell, SSH, environment variables, and a remote notebook safely.",
+              "text": "Use a Linux shell, SSH, environment variables, and a remote notebook safely.",
               "group": "Linux and remote work"
             },
             {
-              "text": "- Organize research notes, downloads, datasets, and code with predictable names.",
+              "text": "Organize research notes, downloads, datasets, and code with predictable names.",
               "group": "Linux and remote work"
             },
             {
-              "text": "- Protect credentials, recognize unsafe commands, and keep private data out of repositories.",
+              "text": "Protect credentials, recognize unsafe commands, and keep private data out of repositories.",
               "group": "Safe and responsible computing"
             },
             {
-              "text": "- Describe licenses, attribution, accessibility, and responsible use of AI tools.",
+              "text": "Describe licenses, attribution, accessibility, and responsible use of AI tools.",
               "group": "Safe and responsible computing"
             }
           ],
@@ -145,35 +145,35 @@
           "icon": "terminal",
           "objectives": [
             {
-              "text": "- Use variables, strings, numbers, booleans, conditionals, loops, and functions.",
+              "text": "Use variables, strings, numbers, booleans, conditionals, loops, and functions.",
               "group": "Values and control flow"
             },
             {
-              "text": "- Break a task into small functions and test each function with simple examples.",
+              "text": "Break a task into small functions and test each function with simple examples.",
               "group": "Values and control flow"
             },
             {
-              "text": "- Work with lists, dictionaries, sets, tuples, CSV files, and JSON documents.",
+              "text": "Work with lists, dictionaries, sets, tuples, CSV files, and JSON documents.",
               "group": "Collections and files"
             },
             {
-              "text": "- Handle missing files and malformed input with clear, user-facing errors.",
+              "text": "Handle missing files and malformed input with clear, user-facing errors.",
               "group": "Collections and files"
             },
             {
-              "text": "- Import standard-library modules, read tracebacks, and debug with a small reproducible example.",
+              "text": "Import standard-library modules, read tracebacks, and debug with a small reproducible example.",
               "group": "Modules and debugging"
             },
             {
-              "text": "- Use type hints and docstrings to make beginner code understandable to collaborators.",
+              "text": "Use type hints and docstrings to make beginner code understandable to collaborators.",
               "group": "Modules and debugging"
             },
             {
-              "text": "- Write a script that loads a dataset, computes summary statistics, and saves a report.",
+              "text": "Write a script that loads a dataset, computes summary statistics, and saves a report.",
               "group": "First data script"
             },
             {
-              "text": "- Run the same script from a clean terminal and record its inputs and outputs.",
+              "text": "Run the same script from a clean terminal and record its inputs and outputs.",
               "group": "First data script"
             }
           ],
@@ -199,27 +199,27 @@
           "icon": "git-branch",
           "objectives": [
             {
-              "text": "- Initialize a Git repository, make focused commits, inspect diffs, and recover from mistakes.",
+              "text": "Initialize a Git repository, make focused commits, inspect diffs, and recover from mistakes.",
               "group": "Version control"
             },
             {
-              "text": "- Use branches and pull requests to ask for review without losing working code.",
+              "text": "Use branches and pull requests to ask for review without losing working code.",
               "group": "Version control"
             },
             {
-              "text": "- Write a README with purpose, setup, usage, limitations, and an example result.",
+              "text": "Write a README with purpose, setup, usage, limitations, and an example result.",
               "group": "Technical communication"
             },
             {
-              "text": "- Turn a confusing error or experiment into a concise issue containing evidence and a question.",
+              "text": "Turn a confusing error or experiment into a concise issue containing evidence and a question.",
               "group": "Technical communication"
             },
             {
-              "text": "- Plan weekly study blocks, use retrieval practice, and maintain a questions-and-evidence log.",
+              "text": "Plan weekly study blocks, use retrieval practice, and maintain a questions-and-evidence log.",
               "group": "Learning system"
             },
             {
-              "text": "- Distinguish understanding a concept from recognizing a familiar code pattern.",
+              "text": "Distinguish understanding a concept from recognizing a familiar code pattern.",
               "group": "Learning system"
             }
           ],
@@ -244,13 +244,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Choose a small open dataset and state one descriptive question without claiming causation."
+              "text": "Choose a small open dataset and state one descriptive question without claiming causation."
             },
             {
-              "text": "- Build a Python analysis with a clean README, requirements file, validation checks, and a results table."
+              "text": "Build a Python analysis with a clean README, requirements file, validation checks, and a results table."
             },
             {
-              "text": "- Add a short reflection describing what changed between the first and final version."
+              "text": "Add a short reflection describing what changed between the first and final version."
             }
           ],
           "notes": [],
@@ -306,13 +306,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Manipulate equations, ratios, inequalities, powers, logarithms, and summations."
+              "text": "Manipulate equations, ratios, inequalities, powers, logarithms, and summations."
             },
             {
-              "text": "- Read a function as an input-output rule and interpret slope, curvature, and scale."
+              "text": "Read a function as an input-output rule and interpret slope, curvature, and scale."
             },
             {
-              "text": "- Use units, orders of magnitude, and dimensional checks to catch impossible results."
+              "text": "Use units, orders of magnitude, and dimensional checks to catch impossible results."
             }
           ],
           "notes": [],
@@ -334,13 +334,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Represent vectors, matrices, tensors, basis changes, dot products, norms, and projections."
+              "text": "Represent vectors, matrices, tensors, basis changes, dot products, norms, and projections."
             },
             {
-              "text": "- Derive matrix multiplication dimensions and use geometric language to explain distance and similarity."
+              "text": "Derive matrix multiplication dimensions and use geometric language to explain distance and similarity."
             },
             {
-              "text": "- Implement a small neural layer with NumPy and verify it against hand-calculated examples."
+              "text": "Implement a small neural layer with NumPy and verify it against hand-calculated examples."
             }
           ],
           "notes": [],
@@ -364,13 +364,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Interpret derivatives, partial derivatives, gradients, Jacobians, and Hessians."
+              "text": "Interpret derivatives, partial derivatives, gradients, Jacobians, and Hessians."
             },
             {
-              "text": "- Apply the chain rule to a small computation graph and check gradients numerically."
+              "text": "Apply the chain rule to a small computation graph and check gradients numerically."
             },
             {
-              "text": "- Explain learning rate, local minima, conditioning, and why normalization affects optimization."
+              "text": "Explain learning rate, local minima, conditioning, and why normalization affects optimization."
             }
           ],
           "notes": [],
@@ -394,13 +394,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Derive ordinary least squares from a clearly stated objective and assumptions."
+              "text": "Derive ordinary least squares from a clearly stated objective and assumptions."
             },
             {
-              "text": "- Implement the solution with NumPy and compare it with a trusted library."
+              "text": "Implement the solution with NumPy and compare it with a trusted library."
             },
             {
-              "text": "- Include plots, dimensional checks, numerical-gradient checks, and a plain-language explanation."
+              "text": "Include plots, dimensional checks, numerical-gradient checks, and a plain-language explanation."
             }
           ],
           "notes": [],
@@ -455,13 +455,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Work with events, conditional probability, independence, Bayes' rule, and random variables."
+              "text": "Work with events, conditional probability, independence, Bayes' rule, and random variables."
             },
             {
-              "text": "- Interpret expectation, variance, covariance, common distributions, and sampling."
+              "text": "Interpret expectation, variance, covariance, common distributions, and sampling."
             },
             {
-              "text": "- Simulate probability experiments and compare empirical frequencies with theoretical values."
+              "text": "Simulate probability experiments and compare empirical frequencies with theoretical values."
             }
           ],
           "notes": [],
@@ -485,13 +485,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Construct point estimates, bootstrap intervals, confidence intervals, and practical effect sizes."
+              "text": "Construct point estimates, bootstrap intervals, confidence intervals, and practical effect sizes."
             },
             {
-              "text": "- State null and alternative hypotheses, choose a test, and report assumptions and limitations."
+              "text": "State null and alternative hypotheses, choose a test, and report assumptions and limitations."
             },
             {
-              "text": "- Separate statistical significance, practical importance, and the number of comparisons being made."
+              "text": "Separate statistical significance, practical importance, and the number of comparisons being made."
             }
           ],
           "notes": [],
@@ -514,13 +514,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Use pandas and visualization to inspect distributions, missingness, outliers, and subgroup differences."
+              "text": "Use pandas and visualization to inspect distributions, missingness, outliers, and subgroup differences."
             },
             {
-              "text": "- Detect selection bias, confounding, leakage, survivorship bias, and Simpson's paradox."
+              "text": "Detect selection bias, confounding, leakage, survivorship bias, and Simpson's paradox."
             },
             {
-              "text": "- Choose train, validation, and test splits before looking at test outcomes."
+              "text": "Choose train, validation, and test splits before looking at test outcomes."
             }
           ],
           "notes": [],
@@ -546,13 +546,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Select a public dataset and define a population, sampling process, outcome, and estimand."
+              "text": "Select a public dataset and define a population, sampling process, outcome, and estimand."
             },
             {
-              "text": "- Produce an exploratory report with uncertainty intervals, subgroup checks, and a pre-analysis plan."
+              "text": "Produce an exploratory report with uncertainty intervals, subgroup checks, and a pre-analysis plan."
             },
             {
-              "text": "- Explain which conclusions are supported, which are tentative, and which cannot be made."
+              "text": "Explain which conclusions are supported, which are tentative, and which cannot be made."
             }
           ],
           "notes": [],
@@ -610,13 +610,13 @@
           "icon": "telescope",
           "objectives": [
             {
-              "text": "- Search scholarly databases, follow citation graphs, and record inclusion and exclusion decisions."
+              "text": "Search scholarly databases, follow citation graphs, and record inclusion and exclusion decisions."
             },
             {
-              "text": "- Read papers in passes: claim and structure, method and evidence, then limitations and reproduction details."
+              "text": "Read papers in passes: claim and structure, method and evidence, then limitations and reproduction details."
             },
             {
-              "text": "- Maintain a literature matrix containing question, data, method, comparison, result, and unresolved issue."
+              "text": "Maintain a literature matrix containing question, data, method, comparison, result, and unresolved issue."
             }
           ],
           "notes": [],
@@ -643,13 +643,13 @@
           "icon": "telescope",
           "objectives": [
             {
-              "text": "- Turn a broad interest into a specific, measurable, falsifiable research question."
+              "text": "Turn a broad interest into a specific, measurable, falsifiable research question."
             },
             {
-              "text": "- Define variables, estimands, baselines, success criteria, and plausible alternative explanations."
+              "text": "Define variables, estimands, baselines, success criteria, and plausible alternative explanations."
             },
             {
-              "text": "- Match exploratory, observational, experimental, and qualitative designs to the question."
+              "text": "Match exploratory, observational, experimental, and qualitative designs to the question."
             }
           ],
           "notes": [],
@@ -672,13 +672,13 @@
           "icon": "scale",
           "objectives": [
             {
-              "text": "- Use research logs, data statements, code review, preregistration, and artifact checklists."
+              "text": "Use research logs, data statements, code review, preregistration, and artifact checklists."
             },
             {
-              "text": "- Explain informed consent, privacy, intellectual property, authorship, conflicts of interest, and dual use."
+              "text": "Explain informed consent, privacy, intellectual property, authorship, conflicts of interest, and dual use."
             },
             {
-              "text": "- Give and receive feedback using a claim-evidence-limitation structure."
+              "text": "Give and receive feedback using a claim-evidence-limitation structure."
             }
           ],
           "notes": [],
@@ -703,13 +703,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Select a tractable data-science question and synthesize at least ten relevant sources."
+              "text": "Select a tractable data-science question and synthesize at least ten relevant sources."
             },
             {
-              "text": "- Write a proposal containing motivation, gap, hypotheses, data plan, methods, evaluation, risks, and timeline."
+              "text": "Write a proposal containing motivation, gap, hypotheses, data plan, methods, evaluation, risks, and timeline."
             },
             {
-              "text": "- Defend the proposal in a short presentation and revise it from recorded feedback."
+              "text": "Defend the proposal in a short presentation and revise it from recorded feedback."
             }
           ],
           "notes": [],
@@ -767,13 +767,13 @@
           "icon": "database",
           "objectives": [
             {
-              "text": "- Query relational data with SELECT, JOIN, GROUP BY, window functions, and common table expressions."
+              "text": "Query relational data with SELECT, JOIN, GROUP BY, window functions, and common table expressions."
             },
             {
-              "text": "- Retrieve data from documented APIs with pagination, retries, rate limits, and schema validation."
+              "text": "Retrieve data from documented APIs with pagination, retries, rate limits, and schema validation."
             },
             {
-              "text": "- Record source, access date, version, license, and transformation history for every input."
+              "text": "Record source, access date, version, license, and transformation history for every input."
             }
           ],
           "notes": [],
@@ -796,13 +796,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Diagnose missing values, duplicates, inconsistent units, outliers, label noise, and schema drift."
+              "text": "Diagnose missing values, duplicates, inconsistent units, outliers, label noise, and schema drift."
             },
             {
-              "text": "- Design annotation guidelines, adjudication workflows, and inter-rater agreement checks."
+              "text": "Design annotation guidelines, adjudication workflows, and inter-rater agreement checks."
             },
             {
-              "text": "- Prevent train-test leakage during preprocessing, deduplication, feature selection, and augmentation."
+              "text": "Prevent train-test leakage during preprocessing, deduplication, feature selection, and augmentation."
             }
           ],
           "notes": [],
@@ -825,13 +825,13 @@
           "icon": "lock",
           "objectives": [
             {
-              "text": "- Apply data minimization, de-identification, access control, retention, and secure storage principles."
+              "text": "Apply data minimization, de-identification, access control, retention, and secure storage principles."
             },
             {
-              "text": "- Write a datasheet describing motivation, composition, collection, preprocessing, uses, risks, and limitations."
+              "text": "Write a datasheet describing motivation, composition, collection, preprocessing, uses, risks, and limitations."
             },
             {
-              "text": "- Explain when consent, review, licensing, or domain expertise is required before analysis."
+              "text": "Explain when consent, review, licensing, or domain expertise is required before analysis."
             }
           ],
           "notes": [],
@@ -855,13 +855,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Acquire a public dataset, version its raw and processed forms, and define a leakage-safe split."
+              "text": "Acquire a public dataset, version its raw and processed forms, and define a leakage-safe split."
             },
             {
-              "text": "- Implement validation checks, a dataset card, a feature dictionary, and a reproducible benchmark loader."
+              "text": "Implement validation checks, a dataset card, a feature dictionary, and a reproducible benchmark loader."
             },
             {
-              "text": "- Publish a small sample and an audit report rather than exposing restricted records."
+              "text": "Publish a small sample and an audit report rather than exposing restricted records."
             }
           ],
           "notes": [],
@@ -919,13 +919,13 @@
           "icon": "clipboard-check",
           "objectives": [
             {
-              "text": "- Fit and interpret linear models, logistic regression, regularized models, trees, and gradient boosting."
+              "text": "Fit and interpret linear models, logistic regression, regularized models, trees, and gradient boosting."
             },
             {
-              "text": "- Design features from domain meaning while separating training-only transformations from evaluation data."
+              "text": "Design features from domain meaning while separating training-only transformations from evaluation data."
             },
             {
-              "text": "- Compare calibration, discrimination, ranking, and error costs instead of relying on accuracy alone."
+              "text": "Compare calibration, discrimination, ranking, and error costs instead of relying on accuracy alone."
             }
           ],
           "notes": [],
@@ -950,13 +950,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Use clustering, dimensionality reduction, anomaly detection, and similarity search appropriately."
+              "text": "Use clustering, dimensionality reduction, anomaly detection, and similarity search appropriately."
             },
             {
-              "text": "- Compare stability and usefulness of discovered groups across seeds, samples, and feature choices."
+              "text": "Compare stability and usefulness of discovered groups across seeds, samples, and feature choices."
             },
             {
-              "text": "- Explain why visualization is exploratory evidence rather than proof of a natural cluster."
+              "text": "Explain why visualization is exploratory evidence rather than proof of a natural cluster."
             }
           ],
           "notes": [],
@@ -979,13 +979,13 @@
           "icon": "cpu",
           "objectives": [
             {
-              "text": "- Use cross-validation, nested selection, learning curves, hyperparameter search, and calibration."
+              "text": "Use cross-validation, nested selection, learning curves, hyperparameter search, and calibration."
             },
             {
-              "text": "- Create an error taxonomy and inspect representative false positives, false negatives, and edge cases."
+              "text": "Create an error taxonomy and inspect representative false positives, false negatives, and edge cases."
             },
             {
-              "text": "- Compare models with confidence intervals and subgroup metrics tied to the deployment question."
+              "text": "Compare models with confidence intervals and subgroup metrics tied to the deployment question."
             }
           ],
           "notes": [],
@@ -1007,13 +1007,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Reproduce a classical ML result on an open dataset with an explicit split and pre-analysis plan."
+              "text": "Reproduce a classical ML result on an open dataset with an explicit split and pre-analysis plan."
             },
             {
-              "text": "- Compare at least three model families, report uncertainty, calibration, cost-sensitive metrics, and failures."
+              "text": "Compare at least three model families, report uncertainty, calibration, cost-sensitive metrics, and failures."
             },
             {
-              "text": "- Package the code, configuration, data statement, and results table for another person to rerun."
+              "text": "Package the code, configuration, data statement, and results table for another person to rerun."
             }
           ],
           "notes": [],
@@ -1070,13 +1070,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Implement affine layers, activations, losses, backpropagation, and minibatch training."
+              "text": "Implement affine layers, activations, losses, backpropagation, and minibatch training."
             },
             {
-              "text": "- Trace tensor shapes, device placement, gradients, and parameter updates in PyTorch."
+              "text": "Trace tensor shapes, device placement, gradients, and parameter updates in PyTorch."
             },
             {
-              "text": "- Explain initialization, normalization, dropout, weight decay, and overfitting."
+              "text": "Explain initialization, normalization, dropout, weight decay, and overfitting."
             }
           ],
           "notes": [],
@@ -1098,13 +1098,13 @@
           "icon": "eye",
           "objectives": [
             {
-              "text": "- Explain convolution, receptive fields, pooling, augmentation, residual connections, and transfer learning."
+              "text": "Explain convolution, receptive fields, pooling, augmentation, residual connections, and transfer learning."
             },
             {
-              "text": "- Build image classification and segmentation pipelines with correct spatial transforms and evaluation."
+              "text": "Build image classification and segmentation pipelines with correct spatial transforms and evaluation."
             },
             {
-              "text": "- Inspect saliency and failure cases without treating visual explanations as causal proof."
+              "text": "Inspect saliency and failure cases without treating visual explanations as causal proof."
             }
           ],
           "notes": [],
@@ -1129,13 +1129,13 @@
           "icon": "graduation-cap",
           "objectives": [
             {
-              "text": "- Use learning-rate schedules, mixed precision, gradient clipping, checkpoint recovery, and early stopping."
+              "text": "Use learning-rate schedules, mixed precision, gradient clipping, checkpoint recovery, and early stopping."
             },
             {
-              "text": "- Detect underfitting, overfitting, data bugs, unstable loss, and silent label or preprocessing errors."
+              "text": "Detect underfitting, overfitting, data bugs, unstable loss, and silent label or preprocessing errors."
             },
             {
-              "text": "- Profile memory and throughput so training choices are tied to measured bottlenecks."
+              "text": "Profile memory and throughput so training choices are tied to measured bottlenecks."
             }
           ],
           "notes": [],
@@ -1160,13 +1160,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Reimplement a published neural baseline from its paper and public code."
+              "text": "Reimplement a published neural baseline from its paper and public code."
             },
             {
-              "text": "- Match its data split, preprocessing, metric, training budget, and reported uncertainty as closely as possible."
+              "text": "Match its data split, preprocessing, metric, training budget, and reported uncertainty as closely as possible."
             },
             {
-              "text": "- Explain every mismatch and propose one follow-up experiment that would meaningfully test the method."
+              "text": "Explain every mismatch and propose one follow-up experiment that would meaningfully test the method."
             }
           ],
           "notes": [],
@@ -1227,13 +1227,13 @@
           "icon": "brain-circuit",
           "objectives": [
             {
-              "text": "- Represent sequences with windows, masks, positional information, recurrence, convolution, and attention."
+              "text": "Represent sequences with windows, masks, positional information, recurrence, convolution, and attention."
             },
             {
-              "text": "- Forecast or classify time-dependent data using time-aware splits and horizon-specific metrics."
+              "text": "Forecast or classify time-dependent data using time-aware splits and horizon-specific metrics."
             },
             {
-              "text": "- Identify temporal leakage caused by random splits, future features, and duplicated entities."
+              "text": "Identify temporal leakage caused by random splits, future features, and duplicated entities."
             }
           ],
           "notes": [],
@@ -1257,13 +1257,13 @@
           "icon": "brain-circuit",
           "objectives": [
             {
-              "text": "- Explain tokenization, embeddings, self-attention, masking, positional information, and next-token prediction."
+              "text": "Explain tokenization, embeddings, self-attention, masking, positional information, and next-token prediction."
             },
             {
-              "text": "- Implement a small transformer and inspect attention, loss, context length, and scaling behavior."
+              "text": "Implement a small transformer and inspect attention, loss, context length, and scaling behavior."
             },
             {
-              "text": "- Evaluate language models with task metrics, calibration, qualitative error analysis, and contamination awareness."
+              "text": "Evaluate language models with task metrics, calibration, qualitative error analysis, and contamination awareness."
             }
           ],
           "notes": [],
@@ -1288,13 +1288,13 @@
           "icon": "network",
           "objectives": [
             {
-              "text": "- Represent nodes, edges, attributes, graph splits, message passing, and inductive versus transductive settings."
+              "text": "Represent nodes, edges, attributes, graph splits, message passing, and inductive versus transductive settings."
             },
             {
-              "text": "- Compare graph convolution, graph attention, and simple non-graph baselines."
+              "text": "Compare graph convolution, graph attention, and simple non-graph baselines."
             },
             {
-              "text": "- Choose an architecture by data structure and scientific question rather than novelty alone."
+              "text": "Choose an architecture by data structure and scientific question rather than novelty alone."
             }
           ],
           "notes": [],
@@ -1318,13 +1318,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Define one task that can be represented as tabular, sequential, or relational data."
+              "text": "Define one task that can be represented as tabular, sequential, or relational data."
             },
             {
-              "text": "- Compare appropriate model families under matched data, compute, and tuning budgets."
+              "text": "Compare appropriate model families under matched data, compute, and tuning budgets."
             },
             {
-              "text": "- Connect each performance difference to an inductive bias, failure mode, or data property."
+              "text": "Connect each performance difference to an inductive bias, failure mode, or data property."
             }
           ],
           "notes": [],
@@ -1380,13 +1380,13 @@
           "icon": "flask-conical",
           "objectives": [
             {
-              "text": "- Define the construct being measured and select metrics that reflect the real decision or scientific claim."
+              "text": "Define the construct being measured and select metrics that reflect the real decision or scientific claim."
             },
             {
-              "text": "- Build baselines, holdout sets, challenge sets, and subgroup slices before tuning on results."
+              "text": "Build baselines, holdout sets, challenge sets, and subgroup slices before tuning on results."
             },
             {
-              "text": "- Report confidence intervals, calibration, ranking uncertainty, and clinically or operationally meaningful thresholds."
+              "text": "Report confidence intervals, calibration, ranking uncertainty, and clinically or operationally meaningful thresholds."
             }
           ],
           "notes": [],
@@ -1409,13 +1409,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Isolate components with controlled ablations, matched budgets, seed repeats, and sensitivity analyses."
+              "text": "Isolate components with controlled ablations, matched budgets, seed repeats, and sensitivity analyses."
             },
             {
-              "text": "- Separate tuning data from final evidence and report unsuccessful configurations."
+              "text": "Separate tuning data from final evidence and report unsuccessful configurations."
             },
             {
-              "text": "- Use experiment registries and configuration files to make every comparison auditable."
+              "text": "Use experiment registries and configuration files to make every comparison auditable."
             }
           ],
           "notes": [],
@@ -1438,13 +1438,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Draw causal diagrams and identify confounders, mediators, selection effects, and interventions."
+              "text": "Draw causal diagrams and identify confounders, mediators, selection effects, and interventions."
             },
             {
-              "text": "- Distinguish prediction, association, and causal effect claims in model reports."
+              "text": "Distinguish prediction, association, and causal effect claims in model reports."
             },
             {
-              "text": "- Test robustness across sites, time periods, populations, and plausible distribution shifts."
+              "text": "Test robustness across sites, time periods, populations, and plausible distribution shifts."
             }
           ],
           "notes": [],
@@ -1468,13 +1468,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Build a benchmark suite with preregistered hypotheses, strong baselines, ablations, repeated seeds, and error analysis."
+              "text": "Build a benchmark suite with preregistered hypotheses, strong baselines, ablations, repeated seeds, and error analysis."
             },
             {
-              "text": "- Include compute, data, metric, and limitation disclosures."
+              "text": "Include compute, data, metric, and limitation disclosures."
             },
             {
-              "text": "- Have a peer review the protocol before running the final experiments and record all changes."
+              "text": "Have a peer review the protocol before running the final experiments and record all changes."
             }
           ],
           "notes": [],
@@ -1531,13 +1531,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Explain autoregressive, variational, energy-based, diffusion, and flow-matching perspectives."
+              "text": "Explain autoregressive, variational, energy-based, diffusion, and flow-matching perspectives."
             },
             {
-              "text": "- Implement a small generative model and inspect likelihood, sampling, conditioning, and failure modes."
+              "text": "Implement a small generative model and inspect likelihood, sampling, conditioning, and failure modes."
             },
             {
-              "text": "- Compare fidelity, diversity, calibration, utility, and memorization rather than relying on visual appeal."
+              "text": "Compare fidelity, diversity, calibration, utility, and memorization rather than relying on visual appeal."
             }
           ],
           "notes": [],
@@ -1560,13 +1560,13 @@
           "icon": "flask-conical",
           "objectives": [
             {
-              "text": "- Use model cards, tokenizers, prompts, structured outputs, retrieval, citations, and abstention patterns."
+              "text": "Use model cards, tokenizers, prompts, structured outputs, retrieval, citations, and abstention patterns."
             },
             {
-              "text": "- Evaluate factuality, robustness, contamination, and sensitivity to prompts and context."
+              "text": "Evaluate factuality, robustness, contamination, and sensitivity to prompts and context."
             },
             {
-              "text": "- Keep retrieved evidence separate from model-generated claims in an analysis pipeline."
+              "text": "Keep retrieved evidence separate from model-generated claims in an analysis pipeline."
             }
           ],
           "notes": [],
@@ -1589,13 +1589,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Compare zero-shot, few-shot, supervised fine-tuning, adapters, LoRA, and prompt-based adaptation."
+              "text": "Compare zero-shot, few-shot, supervised fine-tuning, adapters, LoRA, and prompt-based adaptation."
             },
             {
-              "text": "- Track data provenance, trainable parameters, compute, checkpoints, and evaluation leakage."
+              "text": "Track data provenance, trainable parameters, compute, checkpoints, and evaluation leakage."
             },
             {
-              "text": "- Decide when adaptation is justified over retrieval, better data, or a simpler baseline."
+              "text": "Decide when adaptation is justified over retrieval, better data, or a simpler baseline."
             }
           ],
           "notes": [],
@@ -1619,13 +1619,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Define a real use case, threat model, permitted data, and success criteria before implementation."
+              "text": "Define a real use case, threat model, permitted data, and success criteria before implementation."
             },
             {
-              "text": "- Compare a generative baseline, retrieval system, and adapted model with human or domain checks."
+              "text": "Compare a generative baseline, retrieval system, and adapted model with human or domain checks."
             },
             {
-              "text": "- Publish prompts, evaluation examples, failure cases, costs, and known unsafe or unsupported uses."
+              "text": "Publish prompts, evaluation examples, failure cases, costs, and known unsafe or unsupported uses."
             }
           ],
           "notes": [],
@@ -1683,13 +1683,13 @@
           "icon": "network",
           "objectives": [
             {
-              "text": "- Package a research project with locked dependencies, configuration, unit tests, data checks, and continuous integration."
+              "text": "Package a research project with locked dependencies, configuration, unit tests, data checks, and continuous integration."
             },
             {
-              "text": "- Separate exploration, reusable library code, training, evaluation, and reporting."
+              "text": "Separate exploration, reusable library code, training, evaluation, and reporting."
             },
             {
-              "text": "- Make pipelines resumable, cacheable, observable, and safe to rerun."
+              "text": "Make pipelines resumable, cacheable, observable, and safe to rerun."
             }
           ],
           "notes": [],
@@ -1714,13 +1714,13 @@
           "icon": "ship",
           "objectives": [
             {
-              "text": "- Track datasets, configurations, runs, artifacts, checkpoints, and lineage in an experiment registry."
+              "text": "Track datasets, configurations, runs, artifacts, checkpoints, and lineage in an experiment registry."
             },
             {
-              "text": "- Measure latency, throughput, memory, cost, and reliability for batch and online inference."
+              "text": "Measure latency, throughput, memory, cost, and reliability for batch and online inference."
             },
             {
-              "text": "- Add data validation, model monitoring, rollback, and incident documentation."
+              "text": "Add data validation, model monitoring, rollback, and incident documentation."
             }
           ],
           "notes": [],
@@ -1743,13 +1743,13 @@
           "icon": "graduation-cap",
           "objectives": [
             {
-              "text": "- Profile input pipelines, memory, communication, utilization, and numerical precision."
+              "text": "Profile input pipelines, memory, communication, utilization, and numerical precision."
             },
             {
-              "text": "- Explain data parallelism, gradient accumulation, checkpointing, and distributed failure recovery."
+              "text": "Explain data parallelism, gradient accumulation, checkpointing, and distributed failure recovery."
             },
             {
-              "text": "- Design scaling experiments that vary data, parameters, compute, and context without confounding them."
+              "text": "Design scaling experiments that vary data, parameters, compute, and context without confounding them."
             }
           ],
           "notes": [],
@@ -1774,13 +1774,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Build a template that provisions an environment, validates data, launches a tracked run, evaluates it, and exports a report."
+              "text": "Build a template that provisions an environment, validates data, launches a tracked run, evaluates it, and exports a report."
             },
             {
-              "text": "- Add failure recovery, resource limits, tests, and documentation for a new collaborator."
+              "text": "Add failure recovery, resource limits, tests, and documentation for a new collaborator."
             },
             {
-              "text": "- Demonstrate reproduction on a second machine or clean environment."
+              "text": "Demonstrate reproduction on a second machine or clean environment."
             }
           ],
           "notes": [],
@@ -1837,13 +1837,13 @@
           "icon": "cpu",
           "objectives": [
             {
-              "text": "- Compare feature attribution, counterfactuals, probing, concept methods, and mechanistic analyses."
+              "text": "Compare feature attribution, counterfactuals, probing, concept methods, and mechanistic analyses."
             },
             {
-              "text": "- Test explanation faithfulness, stability, usefulness, and sensitivity to baselines."
+              "text": "Test explanation faithfulness, stability, usefulness, and sensitivity to baselines."
             },
             {
-              "text": "- Treat an explanation as a hypothesis about computation that requires independent validation."
+              "text": "Treat an explanation as a hypothesis about computation that requires independent validation."
             }
           ],
           "notes": [],
@@ -1868,13 +1868,13 @@
           "icon": "shield",
           "objectives": [
             {
-              "text": "- Test corruption, perturbation, distribution shift, prompt injection, data poisoning, and model extraction risks."
+              "text": "Test corruption, perturbation, distribution shift, prompt injection, data poisoning, and model extraction risks."
             },
             {
-              "text": "- Define threat models, attacker capabilities, budgets, and realistic success criteria."
+              "text": "Define threat models, attacker capabilities, budgets, and realistic success criteria."
             },
             {
-              "text": "- Compare robust training, input validation, uncertainty, monitoring, and abstention mitigations."
+              "text": "Compare robust training, input validation, uncertainty, monitoring, and abstention mitigations."
             }
           ],
           "notes": [],
@@ -1897,13 +1897,13 @@
           "icon": "lock",
           "objectives": [
             {
-              "text": "- Measure subgroup performance, calibration, allocation effects, privacy risk, and representational harms."
+              "text": "Measure subgroup performance, calibration, allocation effects, privacy risk, and representational harms."
             },
             {
-              "text": "- Explain why fairness metrics can conflict and why context and stakeholder participation matter."
+              "text": "Explain why fairness metrics can conflict and why context and stakeholder participation matter."
             },
             {
-              "text": "- Document intended use, excluded use, affected groups, recourse, and residual risk."
+              "text": "Document intended use, excluded use, affected groups, recourse, and residual risk."
             }
           ],
           "notes": [],
@@ -1929,13 +1929,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Audit one model across interpretability, robustness, fairness, privacy, and documentation dimensions."
+              "text": "Audit one model across interpretability, robustness, fairness, privacy, and documentation dimensions."
             },
             {
-              "text": "- Prioritize risks by severity and likelihood, then test whether mitigations improve the stated risk."
+              "text": "Prioritize risks by severity and likelihood, then test whether mitigations improve the stated risk."
             },
             {
-              "text": "- Present unresolved risks plainly to a technical and non-technical audience."
+              "text": "Present unresolved risks plainly to a technical and non-technical audience."
             }
           ],
           "notes": [],
@@ -1993,13 +1993,13 @@
           "icon": "audio-lines",
           "objectives": [
             {
-              "text": "- Align image, text, audio, tabular, and temporal representations with suitable encoders and objectives."
+              "text": "Align image, text, audio, tabular, and temporal representations with suitable encoders and objectives."
             },
             {
-              "text": "- Compare early fusion, late fusion, cross-attention, contrastive learning, and missing-modality strategies."
+              "text": "Compare early fusion, late fusion, cross-attention, contrastive learning, and missing-modality strategies."
             },
             {
-              "text": "- Evaluate whether a multimodal gain comes from useful interaction or simply additional information."
+              "text": "Evaluate whether a multimodal gain comes from useful interaction or simply additional information."
             }
           ],
           "notes": [],
@@ -2024,13 +2024,13 @@
           "icon": "git-branch",
           "objectives": [
             {
-              "text": "- Translate a domain workflow into labels, constraints, outcomes, and reviewable decision points."
+              "text": "Translate a domain workflow into labels, constraints, outcomes, and reviewable decision points."
             },
             {
-              "text": "- Use domain interviews, annotation pilots, disagreement analysis, and expert validation."
+              "text": "Use domain interviews, annotation pilots, disagreement analysis, and expert validation."
             },
             {
-              "text": "- Distinguish benchmark success from usefulness, safety, and adoption in the real workflow."
+              "text": "Distinguish benchmark success from usefulness, safety, and adoption in the real workflow."
             }
           ],
           "notes": [],
@@ -2056,13 +2056,13 @@
           "icon": "ship",
           "objectives": [
             {
-              "text": "- Design prospective, retrospective, offline, and human-in-the-loop evaluations."
+              "text": "Design prospective, retrospective, offline, and human-in-the-loop evaluations."
             },
             {
-              "text": "- Measure workflow time, error costs, calibration, accessibility, adoption barriers, and unintended effects."
+              "text": "Measure workflow time, error costs, calibration, accessibility, adoption barriers, and unintended effects."
             },
             {
-              "text": "- Write a deployment decision record with monitoring, rollback, and ownership."
+              "text": "Write a deployment decision record with monitoring, rollback, and ownership."
             }
           ],
           "notes": [],
@@ -2085,13 +2085,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Partner with a domain expert or use a documented public workflow and formulate one measurable question."
+              "text": "Partner with a domain expert or use a documented public workflow and formulate one measurable question."
             },
             {
-              "text": "- Build a multimodal baseline, run modality and stakeholder-informed ablations, and report limitations."
+              "text": "Build a multimodal baseline, run modality and stakeholder-informed ablations, and report limitations."
             },
             {
-              "text": "- Deliver a technical report, domain-facing briefing, data statement, and reproducible artifact."
+              "text": "Deliver a technical report, domain-facing briefing, data statement, and reproducible artifact."
             }
           ],
           "notes": [],
@@ -2150,13 +2150,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Map a field's established findings, open problems, competing explanations, and available resources."
+              "text": "Map a field's established findings, open problems, competing explanations, and available resources."
             },
             {
-              "text": "- Test whether a proposed contribution is novel, feasible, important, and distinguishable from prior work."
+              "text": "Test whether a proposed contribution is novel, feasible, important, and distinguishable from prior work."
             },
             {
-              "text": "- Define a minimal publishable question and a sequence of risk-reducing pilot studies."
+              "text": "Define a minimal publishable question and a sequence of risk-reducing pilot studies."
             }
           ],
           "notes": [],
@@ -2180,13 +2180,13 @@
           "icon": "route",
           "objectives": [
             {
-              "text": "- Break a project into hypotheses, work packages, milestones, dependencies, and decision gates."
+              "text": "Break a project into hypotheses, work packages, milestones, dependencies, and decision gates."
             },
             {
-              "text": "- Assign roles, maintain meeting notes, manage review cycles, and resolve disagreements with evidence."
+              "text": "Assign roles, maintain meeting notes, manage review cycles, and resolve disagreements with evidence."
             },
             {
-              "text": "- Track compute, data, ethics, authorship, and schedule risks before they become blockers."
+              "text": "Track compute, data, ethics, authorship, and schedule risks before they become blockers."
             }
           ],
           "notes": [],
@@ -2209,13 +2209,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Explain a contribution to a beginner, peer, domain expert, reviewer, and hiring panel."
+              "text": "Explain a contribution to a beginner, peer, domain expert, reviewer, and hiring panel."
             },
             {
-              "text": "- Design a talk around question, insight, evidence, limitations, and next experiment."
+              "text": "Design a talk around question, insight, evidence, limitations, and next experiment."
             },
             {
-              "text": "- Give constructive code, paper, and presentation feedback while preserving the author's agency."
+              "text": "Give constructive code, paper, and presentation feedback while preserving the author's agency."
             }
           ],
           "notes": [],
@@ -2240,13 +2240,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Produce a six-to-twelve-week study plan with literature, hypotheses, pilot, evaluation, risks, and deliverables."
+              "text": "Produce a six-to-twelve-week study plan with literature, hypotheses, pilot, evaluation, risks, and deliverables."
             },
             {
-              "text": "- Complete a pilot that can falsify the main idea before committing to full implementation."
+              "text": "Complete a pilot that can falsify the main idea before committing to full implementation."
             },
             {
-              "text": "- Present a go/no-go decision supported by evidence and a revised project schedule."
+              "text": "Present a go/no-go decision supported by evidence and a revised project schedule."
             }
           ],
           "notes": [],
@@ -2302,13 +2302,13 @@
           "icon": "scale",
           "objectives": [
             {
-              "text": "- Finalize the question, hypotheses, related work, data plan, risk assessment, and success criteria."
+              "text": "Finalize the question, hypotheses, related work, data plan, risk assessment, and success criteria."
             },
             {
-              "text": "- Complete required permissions, consent or licensing checks, and a reproducibility plan."
+              "text": "Complete required permissions, consent or licensing checks, and a reproducibility plan."
             },
             {
-              "text": "- Run a pilot that tests feasibility, data quality, compute needs, and the possibility of a meaningful result."
+              "text": "Run a pilot that tests feasibility, data quality, compute needs, and the possibility of a meaningful result."
             }
           ],
           "notes": [],
@@ -2333,13 +2333,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Implement the method, baselines, data pipeline, logging, tests, and evaluation scripts as one tracked project."
+              "text": "Implement the method, baselines, data pipeline, logging, tests, and evaluation scripts as one tracked project."
             },
             {
-              "text": "- Run planned experiments before exploratory analyses, then label post-hoc discoveries clearly."
+              "text": "Run planned experiments before exploratory analyses, then label post-hoc discoveries clearly."
             },
             {
-              "text": "- Preserve raw artifacts, configurations, seeds, compute logs, and negative results."
+              "text": "Preserve raw artifacts, configurations, seeds, compute logs, and negative results."
             }
           ],
           "notes": [],
@@ -2363,13 +2363,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Analyze effect sizes, uncertainty, subgroup behavior, robustness, and failure cases."
+              "text": "Analyze effect sizes, uncertainty, subgroup behavior, robustness, and failure cases."
             },
             {
-              "text": "- Separate primary, secondary, exploratory, and unsupported findings."
+              "text": "Separate primary, secondary, exploratory, and unsupported findings."
             },
             {
-              "text": "- Package code, environment, data access instructions, model cards, and an artifact checklist."
+              "text": "Package code, environment, data access instructions, model cards, and an artifact checklist."
             }
           ],
           "notes": [],
@@ -2394,13 +2394,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Deliver a paper-style manuscript, public or restricted artifact, presentation, and plain-language summary."
+              "text": "Deliver a paper-style manuscript, public or restricted artifact, presentation, and plain-language summary."
             },
             {
-              "text": "- Defend the work through a mock committee review covering novelty, methods, evidence, limitations, and future work."
+              "text": "Defend the work through a mock committee review covering novelty, methods, evidence, limitations, and future work."
             },
             {
-              "text": "- Revise the project after feedback and record the final contribution statement."
+              "text": "Revise the project after feedback and record the final contribution statement."
             }
           ],
           "notes": [],
@@ -2456,13 +2456,13 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Write an abstract, introduction, related work, methods, results, limitations, and conclusion around one contribution."
+              "text": "Write an abstract, introduction, related work, methods, results, limitations, and conclusion around one contribution."
             },
             {
-              "text": "- Create accessible figures, uncertainty-aware tables, citations, supplementary material, and a reproducibility checklist."
+              "text": "Create accessible figures, uncertainty-aware tables, citations, supplementary material, and a reproducibility checklist."
             },
             {
-              "text": "- Select a venue by scope, audience, review model, ethics policy, page limits, and realistic contribution fit."
+              "text": "Select a venue by scope, audience, review model, ethics policy, page limits, and realistic contribution fit."
             }
           ],
           "notes": [],
@@ -2485,13 +2485,13 @@
           "icon": "eye",
           "objectives": [
             {
-              "text": "- Review a paper for novelty, correctness, evidence, clarity, significance, ethics, and reproducibility."
+              "text": "Review a paper for novelty, correctness, evidence, clarity, significance, ethics, and reproducibility."
             },
             {
-              "text": "- Respond to reviews with a change table, evidence, clarifications, and respectful boundaries."
+              "text": "Respond to reviews with a change table, evidence, clarifications, and respectful boundaries."
             },
             {
-              "text": "- Revise claims when evidence is weaker than the original narrative and preserve a decision history."
+              "text": "Revise claims when evidence is weaker than the original narrative and preserve a decision history."
             }
           ],
           "notes": [],
@@ -2516,13 +2516,13 @@
           "icon": "telescope",
           "objectives": [
             {
-              "text": "- Defend motivation, novelty, design, results, limitations, and future work under unpredictable questions."
+              "text": "Defend motivation, novelty, design, results, limitations, and future work under unpredictable questions."
             },
             {
-              "text": "- Build a research talk, one-page research statement, academic CV, portfolio, and project walkthrough."
+              "text": "Build a research talk, one-page research statement, academic CV, portfolio, and project walkthrough."
             },
             {
-              "text": "- Practice coding, statistics, ML system design, paper discussion, behavioral, and collaboration interviews."
+              "text": "Practice coding, statistics, ML system design, paper discussion, behavioral, and collaboration interviews."
             }
           ],
           "notes": [],
@@ -2547,13 +2547,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Compare research assistant, data scientist, ML engineer, PhD, postdoctoral, and research scientist pathways."
+              "text": "Compare research assistant, data scientist, ML engineer, PhD, postdoctoral, and research scientist pathways."
             },
             {
-              "text": "- Build a targeted application list, networking message, reference plan, and portfolio evidence for each path."
+              "text": "Build a targeted application list, networking message, reference plan, and portfolio evidence for each path."
             },
             {
-              "text": "- Set a twelve-month learning and publication plan with feedback, health, ethics, and sustainable work practices."
+              "text": "Set a twelve-month learning and publication plan with feedback, health, ethics, and sustainable work practices."
             }
           ],
           "notes": [],
@@ -2577,13 +2577,13 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Submit the final manuscript or thesis package, artifact documentation, defense slides, and research statement."
+              "text": "Submit the final manuscript or thesis package, artifact documentation, defense slides, and research statement."
             },
             {
-              "text": "- Complete a recorded defense and a full research interview loop, then revise from the rubric."
+              "text": "Complete a recorded defense and a full research interview loop, then revise from the rubric."
             },
             {
-              "text": "- Publish a personal roadmap naming the next question, collaborators, skills, and evidence you will pursue."
+              "text": "Publish a personal roadmap naming the next question, collaborators, skills, and evidence you will pursue."
             }
           ],
           "notes": [],
