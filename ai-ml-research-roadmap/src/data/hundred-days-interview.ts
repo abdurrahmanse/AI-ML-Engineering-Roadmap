@@ -163,3 +163,44 @@ export const questionGroups: QuestionGroup[] = [
     ['Concept', 'What is Goodhart’s law in machine learning evaluation, and how do dynamic benchmarks combat it?', 'Goodhart\'s law states that when a metric becomes an optimization target, it ceases to be a reliable measure; dynamic benchmarks (like LMSYS Chatbot Arena or SWE-bench) combat this by continuously generating novel, private, and human-grounded evaluation instances.'],
   ], { module: 6 }),
 ];
+
+export const practiceSteps: { title: string; body: string }[] = [
+  {
+    title: 'Derive from first principles.',
+    body: 'Derive key mathematical equations and explain algorithmic mechanisms out loud, then compare with the canonical reference outline.',
+  },
+  {
+    title: 'Ground with empirical citations.',
+    body: 'For every question, anchor your answer with canonical papers (e.g. Kaplan, Chinchilla, Vaswani, He, DPO) and empirical baseline trade-offs.',
+  },
+  {
+    title: 'Sketch architectures on a whiteboard.',
+    body: 'Give yourself 30 minutes per design question to diagram neural layers, tensor communication patterns, loss objectives, and ablation matrices.',
+  },
+  {
+    title: 'Run a mock research defense.',
+    body: 'Ask a peer, mentor, or AI model to interview you across three realistic research evaluation rounds:',
+  },
+  { title: 'Score yourself after each round,', body: 'from 1 (weak) to 4 (rigorous), on:' },
+  { title: 'Iterate', body: 'until you consistently score 3 or higher on every dimension across all interview rounds.' },
+];
+
+export const mockRounds: { title: string; body: string }[] = [
+  {
+    title: 'Round 1, Theory, Math & Debugging:',
+    body: 'three questions from statistical theory, loss divergence, and distributed GPU training stragglers.',
+  },
+  { title: 'Round 2, Research System Design:', body: 'one comprehensive question from foundation model architectures and scaling studies.' },
+  { title: 'Round 3, Paper & Project Defense:', body: 'questions defending your research methodologies, ablation validity, and contributions against skeptical reviewers.' },
+];
+
+export const rubric: { title: string; body: string }[] = [
+  { title: 'Theoretical Rigor:', body: 'did you ground your explanation in sound mathematics, proofs, or inductive biases?' },
+  { title: 'Empirical Soundness:', body: 'did you define controlled baselines, ablation studies, and statistical significance?' },
+  { title: 'System Trade-offs:', body: 'did you balance FLOPs, memory footprint (MFU), latency, and parameter scaling?' },
+  { title: 'Limitations & Failure Modes:', body: 'did you honestly acknowledge out-of-distribution pitfalls and hardware bounds?' },
+  { title: 'Communication & Defense:', body: 'was your defense structured, precise, and conference-ready?' },
+];
+
+export const questionAnchor = (n: number) => `q-${n}`;
+
