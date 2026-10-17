@@ -7,6 +7,7 @@ import SectionHeader from '../components/SectionHeader.astro';
 import HeroPath from '../components/HeroPath.astro';
 import RoadmapMap from '../components/RoadmapMap.astro';
 import { AbdurRahman_ONE_URL } from '../data/courses';
+import { journalTypes, researchGuide } from '../data/research-guide';
 import {
   levels,
   phases,
@@ -218,6 +219,57 @@ const howItWorks = [
         class="map-section__head"
       />
       <RoadmapMap />
+    </div>
+  </section>
+
+  <!-- ───────────────────────── research field guide ───────────────────────── -->
+  <section class="section guide" id="field-guide">
+    <div class="wrap">
+      <SectionHeader
+        eyebrow="Researcher's field guide"
+        title="Everything around the experiment."
+        subhead="The roadmap teaches the craft end to end: how to enter research, read critically, make defensible evidence, publish responsibly, prepare for assessment, and build a career."
+        class="guide__head"
+      />
+
+      <div class="guide__grid">
+        {researchGuide.map((section) => (
+          <article class="guide__card reveal" id={section.id}>
+            <div class="guide__card-top">
+              <span class="guide__icon"><Icon name={section.icon} size={18} /></span>
+              <span class="guide__eyebrow">{section.eyebrow}</span>
+            </div>
+            <h3 class="guide__title">{section.title}</h3>
+            <p class="guide__summary">{section.summary}</p>
+            <ul class="guide__steps">
+              {section.steps.map((step) => <li>{step}</li>)}
+            </ul>
+            <a class="guide__link" href={section.href}>
+              <span>{section.linkLabel}</span>
+              <Icon name="arrow-right" size={15} />
+            </a>
+          </article>
+        ))}
+      </div>
+
+      <div class="venues">
+        <div class="venues__copy">
+          <span class="eyebrow">Publication map</span>
+          <h2 class="h2">Not every result belongs in the same venue.</h2>
+          <p class="lede">Learn the difference between a journal, conference, workshop, preprint, and artifact release before you submit. Venue fit is part of research strategy.</p>
+        </div>
+        <div class="venues__list">
+          {journalTypes.map(([name, description], index) => (
+            <div class="venue">
+              <span class="venue__number">{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <h3 class="venue__name">{name}</h3>
+                <p class="venue__description">{description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 
@@ -915,5 +967,107 @@ const howItWorks = [
   @media (prefers-reduced-motion: reduce) {
     .ships__item a { transition: border-color 0.18s ease; }
     .ships__item a:hover { transform: none; }
+  }
+
+  /* ── Researcher's field guide ── */
+  .guide { background: var(--cx-gray); border-block: 1px solid var(--cx-border); }
+  .guide__head { max-width: 720px; }
+  .guide__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 30px;
+  }
+  .guide__card {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: 22px;
+    background: var(--cx-surface);
+    border: 1px solid var(--cx-border);
+    border-radius: var(--cx-r-card);
+    box-shadow: var(--cx-shadow-card);
+  }
+  .guide__card-top { display: flex; align-items: center; gap: 9px; }
+  .guide__icon {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    flex: none;
+    color: var(--cx-brand);
+    background: var(--p-blue-bg);
+    border: 1px solid var(--p-blue-br);
+    border-radius: 10px;
+  }
+  .guide__eyebrow {
+    font-family: var(--cx-font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--cx-brand);
+  }
+  .guide__title { margin-top: 18px; font-size: 20px; }
+  .guide__summary { margin-top: 10px; color: var(--cx-g600); font-size: 14px; line-height: 1.55; }
+  .guide__steps {
+    display: grid;
+    gap: 8px;
+    margin: 17px 0 20px;
+    padding: 0;
+    list-style: none;
+    color: var(--cx-g700);
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .guide__steps li { display: grid; grid-template-columns: 12px 1fr; gap: 7px; }
+  .guide__steps li::before { content: '·'; color: var(--cx-brand); font-weight: 700; }
+  .guide__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: auto;
+    padding-top: 13px;
+    border-top: 1px solid var(--cx-border);
+    color: var(--cx-brand);
+    font-family: var(--cx-font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .04em;
+  }
+  .guide__link svg { transition: transform .2s ease; }
+  .guide__link:hover svg { transform: translateX(3px); }
+
+  .venues {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: clamp(28px, 6vw, 84px);
+    align-items: start;
+    margin-top: 72px;
+    padding: clamp(22px, 4vw, 38px);
+    background: var(--cx-surface);
+    border: 1px solid var(--cx-border);
+    border-radius: var(--cx-r-card);
+  }
+  .venues__copy { position: sticky; top: 90px; }
+  .venues__copy .h2 { margin-top: 12px; }
+  .venues__copy .lede { margin-top: 14px; font-size: 15px; }
+  .venues__list { display: grid; gap: 0; }
+  .venue { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 15px 0; border-bottom: 1px solid var(--cx-border); }
+  .venue:first-child { padding-top: 0; }
+  .venue:last-child { padding-bottom: 0; border-bottom: 0; }
+  .venue__number { padding-top: 2px; color: var(--cx-brand); font-family: var(--cx-font-mono); font-size: 11px; font-weight: 600; }
+  .venue__name { font-size: 16px; }
+  .venue__description { margin-top: 4px; color: var(--cx-g600); font-size: 13px; line-height: 1.5; }
+
+  @media (max-width: 900px) {
+    .guide__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .venues { grid-template-columns: 1fr; }
+    .venues__copy { position: static; }
+  }
+  @media (max-width: 560px) {
+    .guide__grid { grid-template-columns: 1fr; }
+    .guide__card { padding: 19px; }
+    .venues { margin-top: 48px; }
   }
 </style>

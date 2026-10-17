@@ -501,11 +501,13 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M15.1': {
-    sig: '51d5611d',
+    sig: '9e378978',
     labels: [
       "Write an abstract, introduction, related work, methods,...",
       "Create accessible figures, uncertainty-aware tables, citations, supplementary...",
+      "Distinguish flagship and society journals, transactions, application...",
       "Select a venue by scope, audience, review...",
+      "Prepare a submission package with a cover...",
     ],
   },
   'M15.2': {
@@ -517,9 +519,11 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M15.3': {
-    sig: '6fed0ecc',
+    sig: '76cb683f',
     labels: [
       "Defend motivation, novelty, design, results, limitations, and...",
+      "Prepare for qualifying exams and comprehensive exams...",
+      "Practice a viva voce with chapter-level questions,...",
       "Build a research talk, one-page research statement,...",
       "Practice coding, statistics, ML system design, paper...",
     ],

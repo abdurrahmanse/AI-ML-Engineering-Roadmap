@@ -2462,7 +2462,13 @@
               "text": "Create accessible figures, uncertainty-aware tables, citations, supplementary material, and a reproducibility checklist."
             },
             {
-              "text": "Select a venue by scope, audience, review model, ethics policy, page limits, and realistic contribution fit."
+              "text": "Distinguish flagship and society journals, transactions, application journals, methods or survey journals, conferences, workshops, preprints, and artifact tracks."
+            },
+            {
+              "text": "Select a venue by scope, audience, review model, ethics policy, page limits, publication timeline, and realistic contribution fit."
+            },
+            {
+              "text": "Prepare a submission package with a cover letter, author contributions, conflict-of-interest statement, data/code availability, and responsible-use disclosure."
             }
           ],
           "notes": [],
@@ -2475,6 +2481,7 @@
           "evidence": "Rewrite the project as a six-page paper and ask a reader to summarize its claim without your help.",
           "competencyTags": [
             "research infrastructure",
+            "data stewardship",
             "research career"
           ]
         },
@@ -2519,10 +2526,16 @@
               "text": "Defend motivation, novelty, design, results, limitations, and future work under unpredictable questions."
             },
             {
+              "text": "Prepare for qualifying exams and comprehensive exams with a concept map spanning mathematics, statistics, machine learning, research methods, and ethics."
+            },
+            {
+              "text": "Practice a viva voce with chapter-level questions, contribution defense, limitations, and an examiner response protocol."
+            },
+            {
               "text": "Build a research talk, one-page research statement, academic CV, portfolio, and project walkthrough."
             },
             {
-              "text": "Practice coding, statistics, ML system design, paper discussion, behavioral, and collaboration interviews."
+              "text": "Practice coding, statistics, ML system design, paper discussion, research proposal, behavioral, and collaboration interviews."
             }
           ],
           "notes": [],
@@ -2536,6 +2549,7 @@
           "competencyTags": [
             "research communication",
             "mathematical reasoning",
+            "modeling",
             "model interpretability",
             "research career"
           ]
@@ -2599,7 +2613,7 @@
       ],
       "project": "M15.5",
       "moduleCount": 5,
-      "objectiveCount": 15,
+      "objectiveCount": 19,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 24,

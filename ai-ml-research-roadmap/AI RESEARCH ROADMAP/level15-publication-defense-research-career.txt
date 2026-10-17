@@ -8,7 +8,9 @@ Scope: Convert research evidence into a clear manuscript, survive review and def
 M15.1 · Manuscript, Figures and Open Science — (sessions: 5)
 - Write an abstract, introduction, related work, methods, results, limitations, and conclusion around one contribution.
 - Create accessible figures, uncertainty-aware tables, citations, supplementary material, and a reproducibility checklist.
-- Select a venue by scope, audience, review model, ethics policy, page limits, and realistic contribution fit.
+- Distinguish flagship and society journals, transactions, application journals, methods or survey journals, conferences, workshops, preprints, and artifact tracks.
+- Select a venue by scope, audience, review model, ethics policy, page limits, publication timeline, and realistic contribution fit.
+- Prepare a submission package with a cover letter, author contributions, conflict-of-interest statement, data/code availability, and responsible-use disclosure.
 Mental model: A paper is a compressed argument whose reader must be able to recover the question, evidence, and limits.
 Try: Rewrite the project as a six-page paper and ask a reader to summarize its claim without your help.
 Outcome: You can produce a clear, honest, submission-ready manuscript and artifact package.
@@ -23,8 +25,10 @@ Outcome: You can improve research through criticism without becoming defensive o
 
 M15.3 · Thesis Defense, Job Talk and Research Interviews — (sessions: 5)
 - Defend motivation, novelty, design, results, limitations, and future work under unpredictable questions.
+- Prepare for qualifying exams and comprehensive exams with a concept map spanning mathematics, statistics, machine learning, research methods, and ethics.
+- Practice a viva voce with chapter-level questions, contribution defense, limitations, and an examiner response protocol.
 - Build a research talk, one-page research statement, academic CV, portfolio, and project walkthrough.
-- Practice coding, statistics, ML system design, paper discussion, behavioral, and collaboration interviews.
+- Practice coding, statistics, ML system design, paper discussion, research proposal, behavioral, and collaboration interviews.
 Mental model: A defense or interview tests reasoning under uncertainty, not memorization of every fact.
 Try: Record a twenty-minute job talk and complete a mock interview using follow-up questions and a structured rubric.
 Outcome: You can explain your research, solve unfamiliar problems, and show how you work with others.
