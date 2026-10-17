@@ -1,7 +1,7 @@
 Level 4 · Data Collection, SQL & Data Stewardship
 
 Phase: Data Curation & Modeling Paradigms
-Suggested duration: 20 sessions (~5 weeks)
+Suggested duration: 26 sessions (~6 weeks)
 Prerequisites: Level 3
 Scope: Build reliable datasets from messy sources while preserving provenance, privacy, meaning, and the ability to audit every transformation.
 
@@ -35,7 +35,21 @@ Mental model: Useful data is not automatically permissible data.
 Try: Complete a data card and risk register before downloading or sharing a sensitive dataset.
 Outcome: You can steward data responsibly and explain who may use it, how, and under which limits.
 
-M4.4 · Capstone: Auditable Dataset and Benchmark Pipeline — (sessions: 6)
+M4.4 · Data Validation, Splits and Leakage Audits — (sessions: 3)
+- Test schema, ranges, duplicates, missingness, label consistency, and temporal or group-based splits.
+- Detect identity, temporal, preprocessing, and benchmark contamination before fitting a model.
+Mental model: A benchmark can be precise and still be invalid if its data-generating process leaks the answer.
+Try: Write a leakage audit that fails loudly when a prohibited field or duplicate crosses a split.
+Outcome: You can establish whether a dataset is fit for a stated research question.
+
+M4.5 · Data Statements, Licensing and Privacy — (sessions: 3)
+- Document provenance, consent, population coverage, annotation procedures, licenses, and known gaps.
+- Minimize sensitive data, control access, and explain retention and release decisions.
+Mental model: Data stewardship is part of scientific validity and human accountability.
+Try: Publish a datasheet and a risk register for a small public dataset.
+Outcome: You can share data responsibly without hiding its limitations.
+
+M4.6 · Capstone: Auditable Dataset and Benchmark Pipeline — (sessions: 6)
 - Acquire a public dataset, version its raw and processed forms, and define a leakage-safe split.
 - Implement validation checks, a dataset card, a feature dictionary, and a reproducible benchmark loader.
 - Publish a small sample and an audit report rather than exposing restricted records.

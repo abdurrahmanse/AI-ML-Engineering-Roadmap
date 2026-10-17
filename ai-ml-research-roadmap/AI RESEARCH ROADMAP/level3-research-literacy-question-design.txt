@@ -1,7 +1,7 @@
 Level 3 · Research Literacy and Problem Formulation
 
 Phase: Research Foundations & Lab Onboarding
-Suggested duration: 20 sessions (~5 weeks)
+Suggested duration: 26 sessions (~6 weeks)
 Prerequisites: Level 2
 Scope: Learn how research questions are discovered, evaluated, scoped, and communicated before a model is selected.
 
@@ -35,7 +35,21 @@ Mental model: Trust is an engineering property built through transparent choices
 Try: Review a peer's project proposal and request evidence for every major claim.
 Outcome: You can participate in a research group with ethical judgment and reproducible habits.
 
-M3.4 · Capstone: Literature Review and Research Proposal — (sessions: 6)
+M3.4 · Scholarly Search, Synthesis and Citation Practice — (sessions: 3)
+- Search scholarly databases with controlled vocabulary, citation chaining, and explicit inclusion criteria.
+- Synthesize disagreements by comparing claims, data, methods, assumptions, and evidence instead of counting citations.
+Mental model: A literature review is an argument about evidence, not a catalogue of paper summaries.
+Try: Build a claim-evidence matrix for one research question and identify three unresolved tensions.
+Outcome: You can explain the state of knowledge and the gap your study addresses.
+
+M3.5 · Research Proposal, Preregistration and Ethics — (sessions: 3)
+- Write hypotheses, estimands, primary outcomes, risks, analysis choices, and decision gates before data collection.
+- Identify consent, privacy, authorship, conflicts, dual use, and responsible-release requirements.
+Mental model: A proposal is a contract between the question, the evidence, and the people affected by the study.
+Try: Have a peer challenge your protocol and record every revision and reason.
+Outcome: You can start a study with a feasible, ethical, and reviewable protocol.
+
+M3.6 · Capstone: Literature Review and Research Proposal — (sessions: 6)
 - Select a tractable data-science question and synthesize at least ten relevant sources.
 - Write a proposal containing motivation, gap, hypotheses, data plan, methods, evaluation, risks, and timeline.
 - Defend the proposal in a short presentation and revise it from recorded feedback.

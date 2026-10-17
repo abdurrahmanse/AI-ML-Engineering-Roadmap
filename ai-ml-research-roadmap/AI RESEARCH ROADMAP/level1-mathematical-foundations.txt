@@ -1,7 +1,7 @@
 Level 1 · Mathematics for Data Science
 
 Phase: Research Foundations & Lab Onboarding
-Suggested duration: 20 sessions (~5 weeks)
+Suggested duration: 26 sessions (~6 weeks)
 Prerequisites: Level 0
 Scope: Develop the algebra, functions, calculus, and linear algebra intuition required to understand models instead of treating libraries as magic.
 
@@ -35,7 +35,21 @@ Mental model: Training adjusts parameters in directions that reduce a chosen err
 Try: Implement gradient descent for a one-variable and two-variable function and compare step sizes.
 Outcome: You can explain and verify the calculus used to train predictive models.
 
-M1.4 · Capstone: Mathematical Model Notebook — (sessions: 6)
+M1.4 · Matrix Calculus and Automatic Differentiation — (sessions: 3)
+- Express Jacobians, Hessians, vector-Jacobian products, and matrix derivatives with correct shapes.
+- Verify an automatic-differentiation result with finite differences and diagnose numerical error.
+Mental model: Shape checks and independent derivatives are mathematical unit tests.
+Try: Derive and verify gradients for a two-layer network with a scalar loss.
+Outcome: You can inspect the calculus behind a training implementation.
+
+M1.5 · Optimization Algorithms and Numerical Stability — (sessions: 3)
+- Compare batch, stochastic, and mini-batch gradient descent under different conditioning and step sizes.
+- Explain exploding updates, vanishing gradients, normalization, regularization, and stable log-domain computation.
+Mental model: Optimization is an experiment whose assumptions and failure modes must be measured.
+Try: Compare optimizers on a controlled loss surface and report convergence, sensitivity, and failure cases.
+Outcome: You can connect mathematical assumptions to optimization behavior.
+
+M1.6 · Capstone: Mathematical Model Notebook — (sessions: 6)
 - Derive ordinary least squares from a clearly stated objective and assumptions.
 - Implement the solution with NumPy and compare it with a trusted library.
 - Include plots, dimensional checks, numerical-gradient checks, and a plain-language explanation.

@@ -1,7 +1,7 @@
 Level 6 · Deep Learning Foundations
 
 Phase: Data Curation & Modeling Paradigms
-Suggested duration: 24 sessions (~6 weeks)
+Suggested duration: 30 sessions (~7 weeks)
 Prerequisites: Level 5
 Scope: Understand neural networks from tensor operations through training, regularization, debugging, and responsible use of pretrained models.
 
@@ -35,7 +35,21 @@ Mental model: Most failed experiments are diagnosed by checking data, shapes, ta
 Try: Intentionally introduce three training bugs, diagnose them from logs, and document the fixes.
 Outcome: You can run reliable neural-network experiments and explain why a training run succeeded or failed.
 
-M6.4 · Capstone: Deep Learning Reproduction — (sessions: 9)
+M6.4 · Initialization, Normalization and Optimization Dynamics — (sessions: 3)
+- Diagnose initialization, gradient flow, normalization, optimizer, batch-size, and learning-rate effects.
+- Read learning curves and activation statistics to distinguish underfitting, overfitting, instability, and data bugs.
+Mental model: Training curves are measurements of a dynamical system, not just progress indicators.
+Try: Create controlled failures and use logged evidence to identify their causes.
+Outcome: You can debug neural training from observable behavior.
+
+M6.5 · Reproduction Engineering and Ablation Hygiene — (sessions: 3)
+- Translate a paper specification into code, configs, tests, checkpoints, and a documented deviation log.
+- Reproduce a result across seeds and isolate one implementation choice at a time.
+Mental model: Reproduction earns trust by exposing differences, not by forcing agreement with a headline number.
+Try: Reproduce one table from a paper and publish the exact commands and deviations.
+Outcome: You can turn a neural paper into an inspectable reproduction study.
+
+M6.6 · Capstone: Deep Learning Reproduction — (sessions: 9)
 - Reimplement a published neural baseline from its paper and public code.
 - Match its data split, preprocessing, metric, training budget, and reported uncertainty as closely as possible.
 - Explain every mismatch and propose one follow-up experiment that would meaningfully test the method.

@@ -1,7 +1,7 @@
 Level 12 · Multimodal and Domain Research
 
 Phase: Scaled Systems, Trustworthy AI & Alignment
-Suggested duration: 24 sessions (~6 weeks)
+Suggested duration: 30 sessions (~7 weeks)
 Prerequisites: Level 11
 Scope: Translate research methods across images, text, audio, tables, and domain workflows while working with experts who understand the problem better than the model builder.
 
@@ -35,7 +35,21 @@ Mental model: A research prototype becomes an applied contribution only when its
 Try: Create an evaluation plan for a domain partner that includes technical and human success criteria.
 Outcome: You can connect a model result to a defensible applied research decision.
 
-M12.4 · Capstone: Cross-Disciplinary Multimodal Study — (sessions: 9)
+M12.4 · Alignment, Fusion and Missing-Modality Analysis — (sessions: 3)
+- Compare early, intermediate, late, and cross-attention fusion under matched data and compute budgets.
+- Test missing modalities, noisy annotations, domain shift, and modality-specific failure modes.
+Mental model: More modalities add opportunities for evidence and more ways for a model to fail silently.
+Try: Create a modality ablation matrix with expert-approved failure categories.
+Outcome: You can evaluate whether multimodal fusion adds reliable information.
+
+M12.5 · Expert Review and Domain Validity — (sessions: 3)
+- Co-design outcomes, annotation protocols, error taxonomies, and acceptable thresholds with domain experts.
+- Document what the model can support operationally and what still requires human judgment.
+Mental model: Domain expertise changes the question, not just the label quality.
+Try: Run an expert review session and revise the evaluation protocol from disagreement.
+Outcome: You can communicate technical evidence in the language and constraints of a real domain.
+
+M12.6 · Capstone: Cross-Disciplinary Multimodal Study — (sessions: 9)
 - Partner with a domain expert or use a documented public workflow and formulate one measurable question.
 - Build a multimodal baseline, run modality and stakeholder-informed ablations, and report limitations.
 - Deliver a technical report, domain-facing briefing, data statement, and reproducible artifact.

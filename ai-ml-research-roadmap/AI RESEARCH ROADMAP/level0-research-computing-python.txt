@@ -1,7 +1,7 @@
 Level 0 · Computing, Python & Learning Habits
 
 Phase: Research Foundations & Lab Onboarding
-Suggested duration: 16 sessions (~4 weeks)
+Suggested duration: 22 sessions (~5 weeks)
 Prerequisites: None; designed for a complete beginner
 Scope: Build the everyday computing, Python, communication, and study habits needed to learn data science without relying on copy-paste tutorials.
 
@@ -54,7 +54,29 @@ Mental model: A research career compounds small, documented improvements rather 
 Try: Publish a beginner-friendly repository with a README, changelog, issue, and three meaningful commits.
 Outcome: You can learn in public, collaborate with version control, and communicate technical work clearly.
 
-M0.4 · Capstone: Reproducible Beginner Data Project — (sessions: 6)
+M0.4 · Research Environments and Experiment Records — (sessions: 3)
+Session 1 · Reproducible setup
+- Create a locked environment file and record interpreter, package, hardware, and operating-system versions.
+- Separate source code, raw data, derived data, configurations, logs, and generated figures.
+Session 2 · Experiment records
+- Keep a dated research log with hypotheses, commands, decisions, failures, and next actions.
+- Use deterministic seeds and machine-readable configuration files for small experiments.
+Session 3 · Verification habits
+- Add smoke tests, input validation, and a clean-run checklist to a research repository.
+- Re-run a result from a fresh environment and compare the output with a stored reference.
+Mental model: Reproducibility starts with ordinary habits long before a paper is written.
+Try: Recreate one analysis on a second machine using only the repository and its setup instructions.
+Outcome: You can create a research environment another person can inspect and reproduce.
+
+M0.5 · Data Literacy and Scientific Communication — (sessions: 3)
+- Inspect tabular data, missing values, units, distributions, and obvious collection errors.
+- Make a small figure with a caption that states what the data supports and what it does not.
+- Explain a result to a technical peer and a non-specialist without changing its meaning.
+Mental model: A clear artifact is part of the evidence, not decoration added at the end.
+Try: Turn one dataset summary into a notebook, a figure, and a five-sentence research briefing.
+Outcome: You can communicate beginner analysis with accurate scope and limitations.
+
+M0.6 · Capstone: Reproducible Beginner Data Project — (sessions: 6)
 - Choose a small open dataset and state one descriptive question without claiming causation.
 - Build a Python analysis with a clean README, requirements file, validation checks, and a results table.
 - Add a short reflection describing what changed between the first and final version.

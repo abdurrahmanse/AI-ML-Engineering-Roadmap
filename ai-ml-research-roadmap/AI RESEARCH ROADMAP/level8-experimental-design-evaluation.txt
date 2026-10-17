@@ -1,7 +1,7 @@
 Level 8 · Experimental Design, Evaluation & Causal Reasoning
 
 Phase: Generative Models & Experimental Science
-Suggested duration: 20 sessions (~5 weeks)
+Suggested duration: 26 sessions (~6 weeks)
 Prerequisites: Level 7
 Scope: Turn model ideas into experiments whose comparisons, metrics, uncertainty, and limitations can withstand skeptical review.
 
@@ -35,7 +35,21 @@ Mental model: Better prediction does not automatically explain why an outcome ha
 Try: Write a causal diagram for a deployed prediction system and list the assumptions needed for each claim.
 Outcome: You can state what an experiment identifies and where its conclusions may not transfer.
 
-M8.4 · Capstone: Peer-Review-Ready Benchmark — (sessions: 6)
+M8.4 · Statistical Comparisons and Uncertainty Reporting — (sessions: 3)
+- Choose paired tests, effect sizes, intervals, and multiplicity controls that match the comparison design.
+- Report practical significance, uncertainty, negative results, and the number of comparisons made.
+Mental model: A smaller but certain effect can be more useful than a larger unstable one.
+Try: Rewrite a benchmark table so a reader can see both improvement and uncertainty.
+Outcome: You can make quantitative claims with calibrated statistical support.
+
+M8.5 · Benchmark Governance and External Validity — (sessions: 3)
+- Audit contamination, hidden tuning, metric incentives, reproducibility, and representativeness.
+- State which populations, tasks, environments, and deployment conditions the evidence does not cover.
+Mental model: Generalization is a claim about a target population, not a synonym for test-set performance.
+Try: Write a benchmark limitations section that proposes a concrete follow-up study.
+Outcome: You can evaluate whether a result travels beyond its original experiment.
+
+M8.6 · Capstone: Peer-Review-Ready Benchmark — (sessions: 6)
 - Build a benchmark suite with preregistered hypotheses, strong baselines, ablations, repeated seeds, and error analysis.
 - Include compute, data, metric, and limitation disclosures.
 - Have a peer review the protocol before running the final experiments and record all changes.

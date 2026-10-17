@@ -1,7 +1,7 @@
 Level 9 · Generative Models and Foundation-Model Use
 
 Phase: Generative Models & Experimental Science
-Suggested duration: 24 sessions (~6 weeks)
+Suggested duration: 30 sessions (~7 weeks)
 Prerequisites: Level 8
 Scope: Understand how generative models are trained, evaluated, adapted, and used responsibly for research rather than treating generated text or images as evidence.
 
@@ -35,7 +35,21 @@ Mental model: Adaptation changes a model's behavior through a data and optimizat
 Try: Adapt a small open model with LoRA and compare it with retrieval and prompting under a fixed budget.
 Outcome: You can choose and evaluate an adaptation strategy with transparent trade-offs.
 
-M9.4 · Capstone: Generative System Evaluation — (sessions: 9)
+M9.4 · Generative Quality, Diversity and Calibration — (sessions: 3)
+- Measure fidelity, diversity, calibration, memorization, mode collapse, and human or expert agreement.
+- Compare automatic metrics with task-based and qualitative evaluation using a predefined protocol.
+Mental model: Generative quality is multidimensional and can improve on one axis while degrading another.
+Try: Build an evaluation matrix that makes those trade-offs visible across model settings.
+Outcome: You can characterize generative behavior with more than one headline metric.
+
+M9.5 · Contamination, Safety and Responsible Release — (sessions: 3)
+- Test training or benchmark contamination, privacy leakage, unsafe generations, and unsupported uses.
+- Document prompts, sampling, model version, access controls, limitations, and escalation procedures.
+Mental model: A generative result is incomplete until its failure surface and release conditions are known.
+Try: Write a model card and red-team report for a small open model.
+Outcome: You can evaluate and communicate generative-model risk responsibly.
+
+M9.6 · Capstone: Generative System Evaluation — (sessions: 9)
 - Define a real use case, threat model, permitted data, and success criteria before implementation.
 - Compare a generative baseline, retrieval system, and adapted model with human or domain checks.
 - Publish prompts, evaluation examples, failure cases, costs, and known unsafe or unsupported uses.

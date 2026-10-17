@@ -1,7 +1,7 @@
 Level 13 · Independent Research and Project Leadership
 
 Phase: Cross-Disciplinary Research & Capstones
-Suggested duration: 24 sessions (~6 weeks)
+Suggested duration: 30 sessions (~7 weeks)
 Prerequisites: Level 12
 Scope: Move from completing exercises to leading a defensible research program with milestones, collaborators, risks, and a clear contribution.
 
@@ -35,7 +35,21 @@ Mental model: If the claim cannot survive a change in audience, it probably has 
 Try: Deliver the same five-minute result briefing to technical and non-technical listeners and revise it from questions.
 Outcome: You can communicate evidence and mentor others through a research process.
 
-M13.4 · Capstone: Independent Study Plan — (sessions: 9)
+M13.4 · Milestones, Risk Registers and Decision Gates — (sessions: 3)
+- Convert a research question into milestones with evidence criteria, dependencies, owners, and stop conditions.
+- Maintain a risk register for data, ethics, compute, validity, collaboration, and publication risks.
+Mental model: Research leadership makes uncertainty visible early enough for a team to act.
+Try: Hold a project review at the first decision gate and document a changed plan.
+Outcome: You can manage a research project without hiding uncertainty until the deadline.
+
+M13.5 · Collaboration, Mentorship and Research Culture — (sessions: 3)
+- Define authorship expectations, contribution records, meeting notes, code review, and escalation paths.
+- Give feedback on claims, evidence, and limitations while preserving psychological safety and intellectual honesty.
+Mental model: Collaboration quality is part of the reproducibility of a research program.
+Try: Create a contributor guide and a decision log for a small research team.
+Outcome: You can lead a healthy, accountable research collaboration.
+
+M13.6 · Capstone: Independent Study Plan — (sessions: 9)
 - Produce a six-to-twelve-week study plan with literature, hypotheses, pilot, evaluation, risks, and deliverables.
 - Complete a pilot that can falsify the main idea before committing to full implementation.
 - Present a go/no-go decision supported by evidence and a revised project schedule.

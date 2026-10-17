@@ -17,15 +17,14 @@ A standalone marketing-grade website that presents the AI/ML Research roadmap as
 All level content exists as flat files in `./AI RESEARCH ROADMAP/`. Parse these — never fabricate level content. Filenames are canonical:
 
 ```
-level0-computing-python-learning.txt              level8-experimental-design-evaluation-causal-reasoning.txt
-level1-mathematics-data-science.txt               level9-generative-models-foundation-model-use.txt
-level2-probability-statistics-uncertainty.txt    level10-research-systems-mlops-scaling.txt
-level3-research-literacy-problem-formulation.txt level11-interpretability-robustness-fairness.txt
-level4-data-collection-sql-stewardship.txt       level12-multimodal-domain-research.txt
-level5-classical-machine-learning-baselines.txt  level13-independent-research-project-leadership.txt
-level6-deep-learning-foundations.txt             level14-thesis-grade-research-portfolio.txt
-level7-modern-architectures-sequences-graphs-transformers.txt
-                                                   level15-publication-defense-research-career.txt
+                                                   level0-research-computing-python.txt             level8-experimental-design-evaluation.txt
+                                                   level1-mathematical-foundations.txt              level9-generative-models-evaluation.txt
+                                                   level2-statistics-uncertainty-inference.txt      level10-research-systems-mlops.txt
+                                                   level3-research-literacy-question-design.txt     level11-interpretability-robustness-trust.txt
+                                                   level4-data-acquisition-stewardship.txt          level12-multimodal-domain-studies.txt
+                                                   level5-classical-ml-baselines.txt                level13-independent-research-leadership.txt
+                                                   level6-deep-learning-reproduction.txt            level14-thesis-research-portfolio.txt
+                                                   level7-architectures-sequences-graphs.txt        level15-publishing-defense-careers.txt
 ```
 
 **Expected content model per level** (parse into this shape; adapt if a file's structure differs, and flag any level that can't be parsed rather than guessing):

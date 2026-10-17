@@ -49,6 +49,25 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M0.4': {
+    sig: 'af3db5da',
+    labels: [
+      "Create a locked environment file and record...",
+      "Separate source code, raw data, derived data,...",
+      "Keep a dated research log with hypotheses,...",
+      "Use deterministic seeds and machine-readable configuration files...",
+      "Add smoke tests, input validation, and a...",
+      "Re-run a result from a fresh environment...",
+    ],
+  },
+  'M0.5': {
+    sig: '8a3c8025',
+    labels: [
+      "Inspect tabular data, missing values, units, distributions,...",
+      "Make a small figure with a caption...",
+      "Explain a result to a technical peer...",
+    ],
+  },
+  'M0.6': {
     sig: '54f359a9',
     labels: [
       "Choose a small open dataset and state...",
@@ -87,6 +106,20 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M1.4': {
+    sig: '049199d2',
+    labels: [
+      "Express Jacobians, Hessians, vector-Jacobian products, and matrix...",
+      "Verify an automatic-differentiation result with finite differences...",
+    ],
+  },
+  'M1.5': {
+    sig: '950652ab',
+    labels: [
+      "Compare batch, stochastic, and mini-batch gradient descent...",
+      "Explain exploding updates, vanishing gradients, normalization, regularization,...",
+    ],
+  },
+  'M1.6': {
     sig: 'faa4fd83',
     labels: [
       "Derive ordinary least squares from a clearly...",
@@ -125,6 +158,20 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M2.4': {
+    sig: 'b62d68da',
+    labels: [
+      "Explain sampling frames, selection bias, clustered observations,...",
+      "Use bootstrap, permutation, and simulation to understand...",
+    ],
+  },
+  'M2.5': {
+    sig: '08728934',
+    labels: [
+      "Use priors, likelihoods, posterior uncertainty, and posterior...",
+      "Compare Bayesian and frequentist interpretations without treating...",
+    ],
+  },
+  'M2.6': {
     sig: 'ee82b7a2',
     labels: [
       "Select a public dataset and define a...",
@@ -163,6 +210,20 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M3.4': {
+    sig: 'c2ed028f',
+    labels: [
+      "Search scholarly databases with controlled vocabulary, citation...",
+      "Synthesize disagreements by comparing claims, data, methods,...",
+    ],
+  },
+  'M3.5': {
+    sig: '42a2dbfd',
+    labels: [
+      "Write hypotheses, estimands, primary outcomes, risks, analysis...",
+      "Identify consent, privacy, authorship, conflicts, dual use,...",
+    ],
+  },
+  'M3.6': {
     sig: '14ef6135',
     labels: [
       "Select a tractable data-science question and synthesize...",
@@ -201,6 +262,20 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M4.4': {
+    sig: '5cb20200',
+    labels: [
+      "Test schema, ranges, duplicates, missingness, label consistency,...",
+      "Detect identity, temporal, preprocessing, and benchmark contamination...",
+    ],
+  },
+  'M4.5': {
+    sig: '1c89b4c6',
+    labels: [
+      "Document provenance, consent, population coverage, annotation procedures,...",
+      "Minimize sensitive data, control access, and explain...",
+    ],
+  },
+  'M4.6': {
     sig: '5549499a',
     labels: [
       "Acquire a public dataset, version its raw...",
@@ -239,6 +314,20 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M5.4': {
+    sig: '7ae0705c',
+    labels: [
+      "Choose validation schemes that respect groups, time,...",
+      "Measure calibration, uncertainty, class imbalance, and threshold...",
+    ],
+  },
+  'M5.5': {
+    sig: '05fb312e',
+    labels: [
+      "Slice errors by meaningful subgroups, inputs, confidence,...",
+      "Report features, preprocessing, tuning budget, compute, seeds,...",
+    ],
+  },
+  'M5.6': {
     sig: 'cc2cfed2',
     labels: [
       "Reproduce a classical ML result on an...",
@@ -277,6 +366,20 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M6.4': {
+    sig: '504cc8b9',
+    labels: [
+      "Diagnose initialization, gradient flow, normalization, optimizer, batch-size,...",
+      "Read learning curves and activation statistics to...",
+    ],
+  },
+  'M6.5': {
+    sig: '3258903e',
+    labels: [
+      "Translate a paper specification into code, configs,...",
+      "Reproduce a result across seeds and isolate...",
+    ],
+  },
+  'M6.6': {
     sig: 'ea8bb19d',
     labels: [
       "Reimplement a published neural baseline from its...",
@@ -315,6 +418,20 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M7.4': {
+    sig: '76fce8b0',
+    labels: [
+      "Compare time, memory, parameter, data, and communication...",
+      "Measure throughput, latency, context behavior, and quality...",
+    ],
+  },
+  'M7.5': {
+    sig: '8a580daf',
+    labels: [
+      "Design synthetic probes for long-range dependence, compositionality,...",
+      "Separate a representation failure from an optimization,...",
+    ],
+  },
+  'M7.6': {
     sig: '364c2c4b',
     labels: [
       "Define one task that can be represented...",
@@ -353,6 +470,20 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M8.4': {
+    sig: '2a8549e3',
+    labels: [
+      "Choose paired tests, effect sizes, intervals, and...",
+      "Report practical significance, uncertainty, negative results, and...",
+    ],
+  },
+  'M8.5': {
+    sig: '67c63ff1',
+    labels: [
+      "Audit contamination, hidden tuning, metric incentives, reproducibility,...",
+      "State which populations, tasks, environments, and deployment...",
+    ],
+  },
+  'M8.6': {
     sig: 'dd6b75ea',
     labels: [
       "Build a benchmark suite with preregistered hypotheses,...",
@@ -391,6 +522,20 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M9.4': {
+    sig: '6a5d2816',
+    labels: [
+      "Measure fidelity, diversity, calibration, memorization, mode collapse,...",
+      "Compare automatic metrics with task-based and qualitative...",
+    ],
+  },
+  'M9.5': {
+    sig: 'bc169edb',
+    labels: [
+      "Test training or benchmark contamination, privacy leakage,...",
+      "Document prompts, sampling, model version, access controls,...",
+    ],
+  },
+  'M9.6': {
     sig: '53baaeb1',
     labels: [
       "Define a real use case, threat model,...",
@@ -429,6 +574,20 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M10.4': {
+    sig: 'ed2ae356',
+    labels: [
+      "Use queues, resource requests, checkpointing, retries, and...",
+      "Separate data, model, and parallelism decisions and...",
+    ],
+  },
+  'M10.5': {
+    sig: 'e1d83b9b',
+    labels: [
+      "Report hardware, wall-clock time, memory, energy or...",
+      "Build dashboards for run status, data lineage,...",
+    ],
+  },
+  'M10.6': {
     sig: 'd69990ed',
     labels: [
       "Build a template that provisions an environment,...",
@@ -467,6 +626,20 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M11.4': {
+    sig: 'e15d763a',
+    labels: [
+      "Distinguish feature attribution, probing, explanation, and causal...",
+      "Test explanation stability, faithfulness, localization, and sensitivity...",
+    ],
+  },
+  'M11.5': {
+    sig: '3219d7de',
+    labels: [
+      "Evaluate distribution shift, adversarial assumptions, subgroup performance,...",
+      "Report who benefits, who bears residual risk,...",
+    ],
+  },
+  'M11.6': {
     sig: 'efc08fa1',
     labels: [
       "Audit one model across interpretability, robustness, fairness,...",
@@ -505,6 +678,20 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M12.4': {
+    sig: 'e2638c3c',
+    labels: [
+      "Compare early, intermediate, late, and cross-attention fusion...",
+      "Test missing modalities, noisy annotations, domain shift,...",
+    ],
+  },
+  'M12.5': {
+    sig: '62d34b8f',
+    labels: [
+      "Co-design outcomes, annotation protocols, error taxonomies, and...",
+      "Document what the model can support operationally...",
+    ],
+  },
+  'M12.6': {
     sig: 'e6e419bf',
     labels: [
       "Partner with a domain expert or use...",
@@ -543,6 +730,20 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M13.4': {
+    sig: 'c6391959',
+    labels: [
+      "Convert a research question into milestones with...",
+      "Maintain a risk register for data, ethics,...",
+    ],
+  },
+  'M13.5': {
+    sig: '47cade62',
+    labels: [
+      "Define authorship expectations, contribution records, meeting notes,...",
+      "Give feedback on claims, evidence, and limitations...",
+    ],
+  },
+  'M13.6': {
     sig: '21925540',
     labels: [
       "Produce a six-to-twelve-week study plan with literature,...",
@@ -581,6 +782,13 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M14.4': {
+    sig: '419efe9e',
+    labels: [
+      "Structure chapters around claims, methods, evidence, limitations,...",
+      "Design accessible figures, tables, slides, and a...",
+    ],
+  },
+  'M14.5': {
     sig: 'd1ac6119',
     labels: [
       "Deliver a paper-style manuscript, public or restricted...",
@@ -609,6 +817,13 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M15.3': {
+    sig: '63b77349',
+    labels: [
+      "Prepare author contributions, conflicts, funding, data and...",
+      "Manage versions, supplementary files, anonymization, cover letters,...",
+    ],
+  },
+  'M15.4': {
     sig: '76cb683f',
     labels: [
       "Defend motivation, novelty, design, results, limitations, and...",
@@ -618,7 +833,7 @@ export const topics: Record<string, TopicSet> = {
       "Practice coding, statistics, ML system design, paper...",
     ],
   },
-  'M15.4': {
+  'M15.5': {
     sig: '92baf0b9',
     labels: [
       "Compare research assistant, data scientist, ML engineer,...",
@@ -628,7 +843,7 @@ export const topics: Record<string, TopicSet> = {
       "Prepare a research statement, academic CV, portfolio...",
     ],
   },
-  'M15.5': {
+  'M15.6': {
     sig: 'b19ebd50',
     labels: [
       "Submit the final manuscript or thesis package,...",

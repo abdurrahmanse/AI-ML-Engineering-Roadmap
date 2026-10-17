@@ -1,7 +1,7 @@
 Level 2 · Probability, Statistics & Uncertainty
 
 Phase: Research Foundations & Lab Onboarding
-Suggested duration: 20 sessions (~5 weeks)
+Suggested duration: 26 sessions (~6 weeks)
 Prerequisites: Level 1
 Scope: Learn to describe variation, estimate uncertainty, and distinguish a useful pattern from an accidental result.
 
@@ -35,7 +35,21 @@ Mental model: Analysis decisions are part of the experiment and must be recorded
 Try: Audit a public dataset, create a data-quality report, and list threats to validity before modeling.
 Outcome: You can turn raw observations into a defensible exploratory and statistical analysis.
 
-M2.4 · Capstone: Uncertainty and Bias Audit — (sessions: 6)
+M2.4 · Sampling, Resampling and Power — (sessions: 3)
+- Explain sampling frames, selection bias, clustered observations, dependence, and statistical power.
+- Use bootstrap, permutation, and simulation to understand uncertainty when parametric assumptions are weak.
+Mental model: Precision is limited by the information in the sample, not by the confidence of the analyst.
+Try: Simulate a small study and show how sample size, effect size, and variance change its conclusions.
+Outcome: You can design an analysis that makes uncertainty and power visible.
+
+M2.5 · Bayesian Reasoning and Decision Analysis — (sessions: 3)
+- Use priors, likelihoods, posterior uncertainty, and posterior predictive checks for research decisions.
+- Compare Bayesian and frequentist interpretations without treating either as a universal substitute.
+Mental model: Inference updates what is plausible; it does not turn assumptions into facts.
+Try: Build a simple posterior model and explain how its conclusion changes under reasonable priors.
+Outcome: You can communicate uncertainty as a decision-relevant distribution.
+
+M2.6 · Capstone: Uncertainty and Bias Audit — (sessions: 6)
 - Select a public dataset and define a population, sampling process, outcome, and estimand.
 - Produce an exploratory report with uncertainty intervals, subgroup checks, and a pre-analysis plan.
 - Explain which conclusions are supported, which are tentative, and which cannot be made.

@@ -1,7 +1,7 @@
 Level 11 · Interpretability, Robustness and Fairness
 
 Phase: Scaled Systems, Trustworthy AI & Alignment
-Suggested duration: 20 sessions (~5 weeks)
+Suggested duration: 26 sessions (~6 weeks)
 Prerequisites: Level 10
 Scope: Study model behavior, failure, distribution shift, security, and social impact with methods that support actionable claims.
 
@@ -35,7 +35,21 @@ Mental model: Responsible AI is a design and governance process, not a single me
 Try: Produce an impact assessment with stakeholder questions and a mitigation trade-off table.
 Outcome: You can connect technical evaluation to human consequences and governance decisions.
 
-M11.4 · Capstone: Trustworthy-AI Evaluation — (sessions: 6)
+M11.4 · Explanation Validity and Causal Probes — (sessions: 3)
+- Distinguish feature attribution, probing, explanation, and causal intervention claims.
+- Test explanation stability, faithfulness, localization, and sensitivity to baselines or perturbations.
+Mental model: An explanation method is another model whose validity must be evaluated.
+Try: Compare two explanation methods on the same controlled intervention and report disagreement.
+Outcome: You can avoid treating plausible explanations as causal proof.
+
+M11.5 · Robustness, Fairness and Privacy Trade-offs — (sessions: 3)
+- Evaluate distribution shift, adversarial assumptions, subgroup performance, privacy leakage, and mitigation costs.
+- Report who benefits, who bears residual risk, and which fairness or privacy definition was chosen.
+Mental model: Trustworthy AI is a negotiated evidence and governance problem, not a single score.
+Try: Build a risk register that connects each mitigation to a measurable trade-off.
+Outcome: You can make trustworthy-AI claims with explicit scope and accountability.
+
+M11.6 · Capstone: Trustworthy-AI Evaluation — (sessions: 6)
 - Audit one model across interpretability, robustness, fairness, privacy, and documentation dimensions.
 - Prioritize risks by severity and likelihood, then test whether mitigations improve the stated risk.
 - Present unresolved risks plainly to a technical and non-technical audience.

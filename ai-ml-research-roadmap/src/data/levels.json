@@ -1,8 +1,8 @@
 {
   "generatedFrom": "./AI RESEARCH ROADMAP",
   "totalLevels": 16,
-  "totalSessions": 356,
-  "totalModules": 65,
+  "totalSessions": 446,
+  "totalModules": 95,
   "phases": [
     {
       "id": "foundations",
@@ -96,7 +96,7 @@
       "number": 0,
       "slug": "level-0",
       "title": "Computing, Python & Learning Habits",
-      "sourceFile": "level0-computing-python-learning.txt",
+      "sourceFile": "level0-research-computing-python.txt",
       "scope": "Build the everyday computing, Python, communication, and study habits needed to learn data science without relying on copy-paste tutorials.",
       "prereqStated": "None; designed for a complete beginner",
       "prerequisites": [],
@@ -266,6 +266,82 @@
         },
         {
           "id": "M0.4",
+          "name": "Research Environments and Experiment Records",
+          "sessionCount": 3,
+          "icon": "telescope",
+          "objectives": [
+            {
+              "text": "Create a locked environment file and record interpreter, package, hardware, and operating-system versions.",
+              "group": "Reproducible setup"
+            },
+            {
+              "text": "Separate source code, raw data, derived data, configurations, logs, and generated figures.",
+              "group": "Reproducible setup"
+            },
+            {
+              "text": "Keep a dated research log with hypotheses, commands, decisions, failures, and next actions.",
+              "group": "Experiment records"
+            },
+            {
+              "text": "Use deterministic seeds and machine-readable configuration files for small experiments.",
+              "group": "Experiment records"
+            },
+            {
+              "text": "Add smoke tests, input validation, and a clean-run checklist to a research repository.",
+              "group": "Verification habits"
+            },
+            {
+              "text": "Re-run a result from a fresh environment and compare the output with a stored reference.",
+              "group": "Verification habits"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Build research systems",
+          "mentalModel": "Reproducibility starts with ordinary habits long before a paper is written.",
+          "tryIt": "Recreate one analysis on a second machine using only the repository and its setup instructions.",
+          "outcome": "You can create a research environment another person can inspect and reproduce.",
+          "evidence": "Recreate one analysis on a second machine using only the repository and its setup instructions.",
+          "competencyTags": [
+            "research infrastructure",
+            "research communication",
+            "data stewardship",
+            "empirical evaluation",
+            "model interpretability"
+          ]
+        },
+        {
+          "id": "M0.5",
+          "name": "Data Literacy and Scientific Communication",
+          "sessionCount": 3,
+          "icon": "circle-dot",
+          "objectives": [
+            {
+              "text": "Inspect tabular data, missing values, units, distributions, and obvious collection errors."
+            },
+            {
+              "text": "Make a small figure with a caption that states what the data supports and what it does not."
+            },
+            {
+              "text": "Explain a result to a technical peer and a non-specialist without changing its meaning."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Prepare evidence",
+          "mentalModel": "A clear artifact is part of the evidence, not decoration added at the end.",
+          "tryIt": "Turn one dataset summary into a notebook, a figure, and a five-sentence research briefing.",
+          "outcome": "You can communicate beginner analysis with accurate scope and limitations.",
+          "evidence": "Turn one dataset summary into a notebook, a figure, and a five-sentence research briefing.",
+          "competencyTags": [
+            "data stewardship",
+            "model interpretability"
+          ]
+        },
+        {
+          "id": "M0.6",
           "name": "Capstone: Reproducible Beginner Data Project",
           "sessionCount": 6,
           "icon": "flag",
@@ -292,14 +368,14 @@
           ]
         }
       ],
-      "project": "M0.4",
-      "moduleCount": 4,
-      "objectiveCount": 27,
+      "project": "M0.6",
+      "moduleCount": 6,
+      "objectiveCount": 36,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 16,
-      "statedSessions": 16,
-      "estimatedWeeks": 4,
+      "totalSessions": 22,
+      "statedSessions": 22,
+      "estimatedWeeks": 5,
       "proficiency": "Beginner",
       "researchStage": "Become technically independent",
       "lifecycle": "Compute → code → document",
@@ -309,6 +385,8 @@
         "You can work safely in a computing environment and explain what your tools are doing.",
         "You can write, run, debug, and explain small Python programs for data tasks.",
         "You can learn in public, collaborate with version control, and communicate technical work clearly.",
+        "You can create a research environment another person can inspect and reproduce.",
+        "You can communicate beginner analysis with accurate scope and limitations.",
         "A public, reproducible repository demonstrating safe computing, beginner Python, Git, documentation, and honest interpretation."
       ],
       "todos": []
@@ -317,7 +395,7 @@
       "number": 1,
       "slug": "level-1",
       "title": "Mathematics for Data Science",
-      "sourceFile": "level1-mathematics-data-science.txt",
+      "sourceFile": "level1-mathematical-foundations.txt",
       "scope": "Develop the algebra, functions, calculus, and linear algebra intuition required to understand models instead of treating libraries as magic.",
       "prereqStated": "Level 0",
       "prerequisites": [
@@ -440,6 +518,58 @@
         },
         {
           "id": "M1.4",
+          "name": "Matrix Calculus and Automatic Differentiation",
+          "sessionCount": 3,
+          "icon": "circle-dot",
+          "objectives": [
+            {
+              "text": "Express Jacobians, Hessians, vector-Jacobian products, and matrix derivatives with correct shapes."
+            },
+            {
+              "text": "Verify an automatic-differentiation result with finite differences and diagnose numerical error."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "Shape checks and independent derivatives are mathematical unit tests.",
+          "tryIt": "Derive and verify gradients for a two-layer network with a scalar loss.",
+          "outcome": "You can inspect the calculus behind a training implementation.",
+          "evidence": "Derive and verify gradients for a two-layer network with a scalar loss.",
+          "competencyTags": [
+            "mathematical reasoning",
+            "model interpretability"
+          ]
+        },
+        {
+          "id": "M1.5",
+          "name": "Optimization Algorithms and Numerical Stability",
+          "sessionCount": 3,
+          "icon": "circle-dot",
+          "objectives": [
+            {
+              "text": "Compare batch, stochastic, and mini-batch gradient descent under different conditioning and step sizes."
+            },
+            {
+              "text": "Explain exploding updates, vanishing gradients, normalization, regularization, and stable log-domain computation."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "Optimization is an experiment whose assumptions and failure modes must be measured.",
+          "tryIt": "Compare optimizers on a controlled loss surface and report convergence, sensitivity, and failure cases.",
+          "outcome": "You can connect mathematical assumptions to optimization behavior.",
+          "evidence": "Compare optimizers on a controlled loss surface and report convergence, sensitivity, and failure cases.",
+          "competencyTags": [
+            "mathematical reasoning",
+            "model interpretability"
+          ]
+        },
+        {
+          "id": "M1.6",
           "name": "Capstone: Mathematical Model Notebook",
           "sessionCount": 6,
           "icon": "flag",
@@ -465,14 +595,14 @@
           ]
         }
       ],
-      "project": "M1.4",
-      "moduleCount": 4,
-      "objectiveCount": 18,
+      "project": "M1.6",
+      "moduleCount": 6,
+      "objectiveCount": 22,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 20,
-      "statedSessions": 20,
-      "estimatedWeeks": 5,
+      "totalSessions": 26,
+      "statedSessions": 26,
+      "estimatedWeeks": 6,
       "proficiency": "Beginner",
       "researchStage": "Build mathematical intuition",
       "lifecycle": "Equations → geometry → optimization",
@@ -482,6 +612,8 @@
         "You can translate common quantitative statements between words, equations, plots, and Python.",
         "You can follow the linear-algebra operations behind regression, embeddings, and neural networks.",
         "You can explain and verify the calculus used to train predictive models.",
+        "You can inspect the calculus behind a training implementation.",
+        "You can connect mathematical assumptions to optimization behavior.",
         "A mathematical notebook that connects equations, geometry, optimization, code, and model behavior."
       ],
       "todos": []
@@ -490,7 +622,7 @@
       "number": 2,
       "slug": "level-2",
       "title": "Probability, Statistics & Uncertainty",
-      "sourceFile": "level2-probability-statistics-uncertainty.txt",
+      "sourceFile": "level2-statistics-uncertainty-inference.txt",
       "scope": "Learn to describe variation, estimate uncertainty, and distinguish a useful pattern from an accidental result.",
       "prereqStated": "Level 1",
       "prerequisites": [
@@ -612,6 +744,59 @@
         },
         {
           "id": "M2.4",
+          "name": "Sampling, Resampling and Power",
+          "sessionCount": 3,
+          "icon": "sigma",
+          "objectives": [
+            {
+              "text": "Explain sampling frames, selection bias, clustered observations, dependence, and statistical power."
+            },
+            {
+              "text": "Use bootstrap, permutation, and simulation to understand uncertainty when parametric assumptions are weak."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "Precision is limited by the information in the sample, not by the confidence of the analyst.",
+          "tryIt": "Simulate a small study and show how sample size, effect size, and variance change its conclusions.",
+          "outcome": "You can design an analysis that makes uncertainty and power visible.",
+          "evidence": "Simulate a small study and show how sample size, effect size, and variance change its conclusions.",
+          "competencyTags": [
+            "mathematical reasoning",
+            "empirical evaluation",
+            "model interpretability",
+            "trustworthy AI"
+          ]
+        },
+        {
+          "id": "M2.5",
+          "name": "Bayesian Reasoning and Decision Analysis",
+          "sessionCount": 3,
+          "icon": "workflow",
+          "objectives": [
+            {
+              "text": "Use priors, likelihoods, posterior uncertainty, and posterior predictive checks for research decisions."
+            },
+            {
+              "text": "Compare Bayesian and frequentist interpretations without treating either as a universal substitute."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "Inference updates what is plausible; it does not turn assumptions into facts.",
+          "tryIt": "Build a simple posterior model and explain how its conclusion changes under reasonable priors.",
+          "outcome": "You can communicate uncertainty as a decision-relevant distribution.",
+          "evidence": "Build a simple posterior model and explain how its conclusion changes under reasonable priors.",
+          "competencyTags": [
+            "model interpretability"
+          ]
+        },
+        {
+          "id": "M2.6",
           "name": "Capstone: Uncertainty and Bias Audit",
           "sessionCount": 6,
           "icon": "flag",
@@ -640,14 +825,14 @@
           ]
         }
       ],
-      "project": "M2.4",
-      "moduleCount": 4,
-      "objectiveCount": 18,
+      "project": "M2.6",
+      "moduleCount": 6,
+      "objectiveCount": 22,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 20,
-      "statedSessions": 20,
-      "estimatedWeeks": 5,
+      "totalSessions": 26,
+      "statedSessions": 26,
+      "estimatedWeeks": 6,
       "proficiency": "Beginner",
       "researchStage": "Reason about uncertainty",
       "lifecycle": "Probability → estimation → inference",
@@ -657,6 +842,8 @@
         "You can model uncertainty and explain conditional reasoning without relying on slogans.",
         "You can quantify uncertainty and report statistical comparisons responsibly.",
         "You can turn raw observations into a defensible exploratory and statistical analysis.",
+        "You can design an analysis that makes uncertainty and power visible.",
+        "You can communicate uncertainty as a decision-relevant distribution.",
         "A transparent statistical audit that demonstrates scientific caution, reproducible analysis, and honest limits."
       ],
       "todos": []
@@ -665,7 +852,7 @@
       "number": 3,
       "slug": "level-3",
       "title": "Research Literacy and Problem Formulation",
-      "sourceFile": "level3-research-literacy-problem-formulation.txt",
+      "sourceFile": "level3-research-literacy-question-design.txt",
       "scope": "Learn how research questions are discovered, evaluated, scoped, and communicated before a model is selected.",
       "prereqStated": "Level 2",
       "prerequisites": [
@@ -791,6 +978,61 @@
         },
         {
           "id": "M3.4",
+          "name": "Scholarly Search, Synthesis and Citation Practice",
+          "sessionCount": 3,
+          "icon": "quote",
+          "objectives": [
+            {
+              "text": "Search scholarly databases with controlled vocabulary, citation chaining, and explicit inclusion criteria."
+            },
+            {
+              "text": "Synthesize disagreements by comparing claims, data, methods, assumptions, and evidence instead of counting citations."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Ship evidence",
+          "mentalModel": "A literature review is an argument about evidence, not a catalogue of paper summaries.",
+          "tryIt": "Build a claim-evidence matrix for one research question and identify three unresolved tensions.",
+          "outcome": "You can explain the state of knowledge and the gap your study addresses.",
+          "evidence": "Build a claim-evidence matrix for one research question and identify three unresolved tensions.",
+          "competencyTags": [
+            "data stewardship",
+            "generative modeling",
+            "model interpretability",
+            "research career"
+          ]
+        },
+        {
+          "id": "M3.5",
+          "name": "Research Proposal, Preregistration and Ethics",
+          "sessionCount": 3,
+          "icon": "scale",
+          "objectives": [
+            {
+              "text": "Write hypotheses, estimands, primary outcomes, risks, analysis choices, and decision gates before data collection."
+            },
+            {
+              "text": "Identify consent, privacy, authorship, conflicts, dual use, and responsible-release requirements."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Prepare evidence",
+          "mentalModel": "A proposal is a contract between the question, the evidence, and the people affected by the study.",
+          "tryIt": "Have a peer challenge your protocol and record every revision and reason.",
+          "outcome": "You can start a study with a feasible, ethical, and reviewable protocol.",
+          "evidence": "Have a peer challenge your protocol and record every revision and reason.",
+          "competencyTags": [
+            "research communication",
+            "data stewardship",
+            "research career"
+          ]
+        },
+        {
+          "id": "M3.6",
           "name": "Capstone: Literature Review and Research Proposal",
           "sessionCount": 6,
           "icon": "flag",
@@ -819,14 +1061,14 @@
           ]
         }
       ],
-      "project": "M3.4",
-      "moduleCount": 4,
-      "objectiveCount": 18,
+      "project": "M3.6",
+      "moduleCount": 6,
+      "objectiveCount": 22,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 20,
-      "statedSessions": 20,
-      "estimatedWeeks": 5,
+      "totalSessions": 26,
+      "statedSessions": 26,
+      "estimatedWeeks": 6,
       "proficiency": "Developing",
       "researchStage": "Learn how research works",
       "lifecycle": "Literature → question → proposal",
@@ -836,6 +1078,8 @@
         "You can find relevant literature and explain what a paper actually establishes.",
         "You can formulate research questions that are feasible, meaningful, and testable.",
         "You can participate in a research group with ethical judgment and reproducible habits.",
+        "You can explain the state of knowledge and the gap your study addresses.",
+        "You can start a study with a feasible, ethical, and reviewable protocol.",
         "A research proposal that turns a beginner's interest into a feasible, evidence-aware study."
       ],
       "todos": []
@@ -844,7 +1088,7 @@
       "number": 4,
       "slug": "level-4",
       "title": "Data Collection, SQL & Data Stewardship",
-      "sourceFile": "level4-data-collection-sql-stewardship.txt",
+      "sourceFile": "level4-data-acquisition-stewardship.txt",
       "scope": "Build reliable datasets from messy sources while preserving provenance, privacy, meaning, and the ability to audit every transformation.",
       "prereqStated": "Level 3",
       "prerequisites": [
@@ -961,6 +1205,58 @@
         },
         {
           "id": "M4.4",
+          "name": "Data Validation, Splits and Leakage Audits",
+          "sessionCount": 3,
+          "icon": "circle-dot",
+          "objectives": [
+            {
+              "text": "Test schema, ranges, duplicates, missingness, label consistency, and temporal or group-based splits."
+            },
+            {
+              "text": "Detect identity, temporal, preprocessing, and benchmark contamination before fitting a model."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Evaluate claims",
+          "mentalModel": "A benchmark can be precise and still be invalid if its data-generating process leaks the answer.",
+          "tryIt": "Write a leakage audit that fails loudly when a prohibited field or duplicate crosses a split.",
+          "outcome": "You can establish whether a dataset is fit for a stated research question.",
+          "evidence": "Write a leakage audit that fails loudly when a prohibited field or duplicate crosses a split.",
+          "competencyTags": [
+            "data stewardship",
+            "empirical evaluation"
+          ]
+        },
+        {
+          "id": "M4.5",
+          "name": "Data Statements, Licensing and Privacy",
+          "sessionCount": 3,
+          "icon": "lock",
+          "objectives": [
+            {
+              "text": "Document provenance, consent, population coverage, annotation procedures, licenses, and known gaps."
+            },
+            {
+              "text": "Minimize sensitive data, control access, and explain retention and release decisions."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Prepare evidence",
+          "mentalModel": "Data stewardship is part of scientific validity and human accountability.",
+          "tryIt": "Publish a datasheet and a risk register for a small public dataset.",
+          "outcome": "You can share data responsibly without hiding its limitations.",
+          "evidence": "Publish a datasheet and a risk register for a small public dataset.",
+          "competencyTags": [
+            "data stewardship",
+            "model interpretability"
+          ]
+        },
+        {
+          "id": "M4.6",
           "name": "Capstone: Auditable Dataset and Benchmark Pipeline",
           "sessionCount": 6,
           "icon": "flag",
@@ -989,14 +1285,14 @@
           ]
         }
       ],
-      "project": "M4.4",
-      "moduleCount": 4,
-      "objectiveCount": 18,
+      "project": "M4.6",
+      "moduleCount": 6,
+      "objectiveCount": 22,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 20,
-      "statedSessions": 20,
-      "estimatedWeeks": 5,
+      "totalSessions": 26,
+      "statedSessions": 26,
+      "estimatedWeeks": 6,
       "proficiency": "Developing",
       "researchStage": "Make data research-ready",
       "lifecycle": "Acquire → govern → document",
@@ -1006,6 +1302,8 @@
         "You can acquire structured data reproducibly and query it to answer precise questions.",
         "You can make a dataset model-ready without hiding uncertainty or silently changing its meaning.",
         "You can steward data responsibly and explain who may use it, how, and under which limits.",
+        "You can establish whether a dataset is fit for a stated research question.",
+        "You can share data responsibly without hiding its limitations.",
         "A documented, governed, queryable dataset pipeline ready for honest modeling experiments."
       ],
       "todos": []
@@ -1014,7 +1312,7 @@
       "number": 5,
       "slug": "level-5",
       "title": "Classical Machine Learning and Baselines",
-      "sourceFile": "level5-classical-machine-learning-baselines.txt",
+      "sourceFile": "level5-classical-ml-baselines.txt",
       "scope": "Learn the supervised, unsupervised, and time-aware modeling families that form the baseline for nearly every applied data-science investigation.",
       "prereqStated": "Level 4",
       "prerequisites": [
@@ -1133,6 +1431,59 @@
         },
         {
           "id": "M5.4",
+          "name": "Cross-Validation, Calibration and Model Selection",
+          "sessionCount": 3,
+          "icon": "cpu",
+          "objectives": [
+            {
+              "text": "Choose validation schemes that respect groups, time, and repeated observations in the data."
+            },
+            {
+              "text": "Measure calibration, uncertainty, class imbalance, and threshold trade-offs rather than only ranking accuracy."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "Model selection is part of the experiment and must be separated from final evaluation.",
+          "tryIt": "Compare two validation strategies and show how the chosen split changes the conclusion.",
+          "outcome": "You can select and calibrate a baseline without contaminating the test set.",
+          "evidence": "Compare two validation strategies and show how the chosen split changes the conclusion.",
+          "competencyTags": [
+            "data stewardship",
+            "empirical evaluation"
+          ]
+        },
+        {
+          "id": "M5.5",
+          "name": "Error Analysis and Baseline Reporting",
+          "sessionCount": 3,
+          "icon": "circle-dot",
+          "objectives": [
+            {
+              "text": "Slice errors by meaningful subgroups, inputs, confidence, and failure mechanism."
+            },
+            {
+              "text": "Report features, preprocessing, tuning budget, compute, seeds, metrics, and limitations so the baseline is reusable."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "A strong baseline is a control condition that makes later claims interpretable.",
+          "tryIt": "Produce an error taxonomy and a one-page baseline report for a real dataset.",
+          "outcome": "You can explain where a model works, fails, and what a new method must improve.",
+          "evidence": "Produce an error taxonomy and a one-page baseline report for a real dataset.",
+          "competencyTags": [
+            "data stewardship",
+            "empirical evaluation",
+            "model interpretability"
+          ]
+        },
+        {
+          "id": "M5.6",
           "name": "Capstone: Reproducible Baseline Study",
           "sessionCount": 6,
           "icon": "flag",
@@ -1160,14 +1511,14 @@
           ]
         }
       ],
-      "project": "M5.4",
-      "moduleCount": 4,
-      "objectiveCount": 18,
+      "project": "M5.6",
+      "moduleCount": 6,
+      "objectiveCount": 22,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 20,
-      "statedSessions": 20,
-      "estimatedWeeks": 5,
+      "totalSessions": 26,
+      "statedSessions": 26,
+      "estimatedWeeks": 6,
       "proficiency": "Developing",
       "researchStage": "Establish trustworthy baselines",
       "lifecycle": "Feature → model → error analysis",
@@ -1177,6 +1528,8 @@
         "You can establish strong, interpretable baselines for structured prediction problems.",
         "You can use unsupervised tools without overinterpreting attractive plots.",
         "You can select models using evidence, constraints, and failure analysis.",
+        "You can select and calibrate a baseline without contaminating the test set.",
+        "You can explain where a model works, fails, and what a new method must improve.",
         "A baseline paper-style report proving that you can make a credible first claim before using deep learning."
       ],
       "todos": []
@@ -1185,7 +1538,7 @@
       "number": 6,
       "slug": "level-6",
       "title": "Deep Learning Foundations",
-      "sourceFile": "level6-deep-learning-foundations.txt",
+      "sourceFile": "level6-deep-learning-reproduction.txt",
       "scope": "Understand neural networks from tensor operations through training, regularization, debugging, and responsible use of pretrained models.",
       "prereqStated": "Level 5",
       "prerequisites": [
@@ -1309,6 +1662,61 @@
         },
         {
           "id": "M6.4",
+          "name": "Initialization, Normalization and Optimization Dynamics",
+          "sessionCount": 3,
+          "icon": "circle-dot",
+          "objectives": [
+            {
+              "text": "Diagnose initialization, gradient flow, normalization, optimizer, batch-size, and learning-rate effects."
+            },
+            {
+              "text": "Read learning curves and activation statistics to distinguish underfitting, overfitting, instability, and data bugs."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "Training curves are measurements of a dynamical system, not just progress indicators.",
+          "tryIt": "Create controlled failures and use logged evidence to identify their causes.",
+          "outcome": "You can debug neural training from observable behavior.",
+          "evidence": "Create controlled failures and use logged evidence to identify their causes.",
+          "competencyTags": [
+            "mathematical reasoning",
+            "data stewardship",
+            "generative modeling"
+          ]
+        },
+        {
+          "id": "M6.5",
+          "name": "Reproduction Engineering and Ablation Hygiene",
+          "sessionCount": 3,
+          "icon": "circle-dot",
+          "objectives": [
+            {
+              "text": "Translate a paper specification into code, configs, tests, checkpoints, and a documented deviation log."
+            },
+            {
+              "text": "Reproduce a result across seeds and isolate one implementation choice at a time."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Evaluate claims",
+          "mentalModel": "Reproduction earns trust by exposing differences, not by forcing agreement with a headline number.",
+          "tryIt": "Reproduce one table from a paper and publish the exact commands and deviations.",
+          "outcome": "You can turn a neural paper into an inspectable reproduction study.",
+          "evidence": "Reproduce one table from a paper and publish the exact commands and deviations.",
+          "competencyTags": [
+            "research infrastructure",
+            "research communication",
+            "empirical evaluation",
+            "research career"
+          ]
+        },
+        {
+          "id": "M6.6",
           "name": "Capstone: Deep Learning Reproduction",
           "sessionCount": 9,
           "icon": "flag",
@@ -1340,14 +1748,14 @@
           ]
         }
       ],
-      "project": "M6.4",
-      "moduleCount": 4,
-      "objectiveCount": 18,
+      "project": "M6.6",
+      "moduleCount": 6,
+      "objectiveCount": 22,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 24,
-      "statedSessions": 24,
-      "estimatedWeeks": 6,
+      "totalSessions": 30,
+      "statedSessions": 30,
+      "estimatedWeeks": 7,
       "proficiency": "Intermediate",
       "researchStage": "Build neural models",
       "lifecycle": "Tensor → gradient → training",
@@ -1357,6 +1765,8 @@
         "You can inspect and debug the complete training loop of a neural network.",
         "You can build and evaluate reproducible computer-vision baselines.",
         "You can run reliable neural-network experiments and explain why a training run succeeded or failed.",
+        "You can debug neural training from observable behavior.",
+        "You can turn a neural paper into an inspectable reproduction study.",
         "A reproducibility report demonstrating implementation skill, scientific skepticism, and transparent comparison."
       ],
       "todos": []
@@ -1365,7 +1775,7 @@
       "number": 7,
       "slug": "level-7",
       "title": "Modern Architectures: Sequences, Graphs and Transformers",
-      "sourceFile": "level7-modern-architectures-sequences-graphs-transformers.txt",
+      "sourceFile": "level7-architectures-sequences-graphs.txt",
       "scope": "Select and adapt architectures for language, time series, relational data, and long-context problems while connecting design choices to inductive bias.",
       "prereqStated": "Level 6",
       "prerequisites": [
@@ -1489,6 +1899,59 @@
         },
         {
           "id": "M7.4",
+          "name": "Complexity, Memory and Scaling Analysis",
+          "sessionCount": 3,
+          "icon": "save",
+          "objectives": [
+            {
+              "text": "Compare time, memory, parameter, data, and communication complexity across architecture families."
+            },
+            {
+              "text": "Measure throughput, latency, context behavior, and quality under matched hardware and data budgets."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "An architecture is a set of scientific trade-offs, not a leaderboard label.",
+          "tryIt": "Create a scaling table that shows where each candidate becomes preferable.",
+          "outcome": "You can justify architecture choices with evidence beyond task accuracy.",
+          "evidence": "Create a scaling table that shows where each candidate becomes preferable.",
+          "competencyTags": [
+            "data stewardship",
+            "systems scaling"
+          ]
+        },
+        {
+          "id": "M7.5",
+          "name": "Failure Modes and Structural Probes",
+          "sessionCount": 3,
+          "icon": "triangle-alert",
+          "objectives": [
+            {
+              "text": "Design synthetic probes for long-range dependence, compositionality, graph structure, order sensitivity, and extrapolation."
+            },
+            {
+              "text": "Separate a representation failure from an optimization, data, or evaluation failure."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "A targeted probe makes a model’s inductive bias observable.",
+          "tryIt": "Build two probes that distinguish memorization from structural generalization.",
+          "outcome": "You can test what an architecture has learned, not only whether it scores well.",
+          "evidence": "Build two probes that distinguish memorization from structural generalization.",
+          "competencyTags": [
+            "data stewardship",
+            "architecture design",
+            "empirical evaluation"
+          ]
+        },
+        {
+          "id": "M7.6",
           "name": "Capstone: Architecture Selection Study",
           "sessionCount": 9,
           "icon": "flag",
@@ -1515,14 +1978,14 @@
           ]
         }
       ],
-      "project": "M7.4",
-      "moduleCount": 4,
-      "objectiveCount": 18,
+      "project": "M7.6",
+      "moduleCount": 6,
+      "objectiveCount": 22,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 24,
-      "statedSessions": 24,
-      "estimatedWeeks": 6,
+      "totalSessions": 30,
+      "statedSessions": 30,
+      "estimatedWeeks": 7,
       "proficiency": "Intermediate",
       "researchStage": "Choose modern architectures",
       "lifecycle": "Structure → architecture → validation",
@@ -1532,6 +1995,8 @@
         "You can design honest experiments for sequential and time-dependent data.",
         "You can implement and reason about the core transformer training loop.",
         "You can adapt modern architectures to relational and structured data.",
+        "You can justify architecture choices with evidence beyond task accuracy.",
+        "You can test what an architecture has learned, not only whether it scores well.",
         "A comparative study that demonstrates architecture reasoning instead of architecture collecting."
       ],
       "todos": []
@@ -1540,7 +2005,7 @@
       "number": 8,
       "slug": "level-8",
       "title": "Experimental Design, Evaluation & Causal Reasoning",
-      "sourceFile": "level8-experimental-design-evaluation-causal-reasoning.txt",
+      "sourceFile": "level8-experimental-design-evaluation.txt",
       "scope": "Turn model ideas into experiments whose comparisons, metrics, uncertainty, and limitations can withstand skeptical review.",
       "prereqStated": "Level 7",
       "prerequisites": [
@@ -1668,6 +2133,57 @@
         },
         {
           "id": "M8.4",
+          "name": "Statistical Comparisons and Uncertainty Reporting",
+          "sessionCount": 3,
+          "icon": "circle-dot",
+          "objectives": [
+            {
+              "text": "Choose paired tests, effect sizes, intervals, and multiplicity controls that match the comparison design."
+            },
+            {
+              "text": "Report practical significance, uncertainty, negative results, and the number of comparisons made."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "A smaller but certain effect can be more useful than a larger unstable one.",
+          "tryIt": "Rewrite a benchmark table so a reader can see both improvement and uncertainty.",
+          "outcome": "You can make quantitative claims with calibrated statistical support.",
+          "evidence": "Rewrite a benchmark table so a reader can see both improvement and uncertainty.",
+          "competencyTags": [
+            "mathematical reasoning"
+          ]
+        },
+        {
+          "id": "M8.5",
+          "name": "Benchmark Governance and External Validity",
+          "sessionCount": 3,
+          "icon": "scale",
+          "objectives": [
+            {
+              "text": "Audit contamination, hidden tuning, metric incentives, reproducibility, and representativeness."
+            },
+            {
+              "text": "State which populations, tasks, environments, and deployment conditions the evidence does not cover."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Evaluate claims",
+          "mentalModel": "Generalization is a claim about a target population, not a synonym for test-set performance.",
+          "tryIt": "Write a benchmark limitations section that proposes a concrete follow-up study.",
+          "outcome": "You can evaluate whether a result travels beyond its original experiment.",
+          "evidence": "Write a benchmark limitations section that proposes a concrete follow-up study.",
+          "competencyTags": [
+            "research infrastructure",
+            "empirical evaluation"
+          ]
+        },
+        {
+          "id": "M8.6",
           "name": "Capstone: Peer-Review-Ready Benchmark",
           "sessionCount": 6,
           "icon": "flag",
@@ -1695,14 +2211,14 @@
           ]
         }
       ],
-      "project": "M8.4",
-      "moduleCount": 4,
-      "objectiveCount": 18,
+      "project": "M8.6",
+      "moduleCount": 6,
+      "objectiveCount": 22,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 20,
-      "statedSessions": 20,
-      "estimatedWeeks": 5,
+      "totalSessions": 26,
+      "statedSessions": 26,
+      "estimatedWeeks": 6,
       "proficiency": "Advanced",
       "researchStage": "Design defensible experiments",
       "lifecycle": "Measure → ablate → identify",
@@ -1712,6 +2228,8 @@
         "You can design evaluation protocols that measure the claim rather than a convenient proxy.",
         "You can distinguish a real contribution from tuning luck or an unfair comparison.",
         "You can state what an experiment identifies and where its conclusions may not transfer.",
+        "You can make quantitative claims with calibrated statistical support.",
+        "You can evaluate whether a result travels beyond its original experiment.",
         "A fair, auditable evaluation package suitable for the results section of a research paper."
       ],
       "todos": []
@@ -1720,7 +2238,7 @@
       "number": 9,
       "slug": "level-9",
       "title": "Generative Models and Foundation-Model Use",
-      "sourceFile": "level9-generative-models-foundation-model-use.txt",
+      "sourceFile": "level9-generative-models-evaluation.txt",
       "scope": "Understand how generative models are trained, evaluated, adapted, and used responsibly for research rather than treating generated text or images as evidence.",
       "prereqStated": "Level 8",
       "prerequisites": [
@@ -1843,6 +2361,60 @@
         },
         {
           "id": "M9.4",
+          "name": "Generative Quality, Diversity and Calibration",
+          "sessionCount": 3,
+          "icon": "circle-dot",
+          "objectives": [
+            {
+              "text": "Measure fidelity, diversity, calibration, memorization, mode collapse, and human or expert agreement."
+            },
+            {
+              "text": "Compare automatic metrics with task-based and qualitative evaluation using a predefined protocol."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "Generative quality is multidimensional and can improve on one axis while degrading another.",
+          "tryIt": "Build an evaluation matrix that makes those trade-offs visible across model settings.",
+          "outcome": "You can characterize generative behavior with more than one headline metric.",
+          "evidence": "Build an evaluation matrix that makes those trade-offs visible across model settings.",
+          "competencyTags": [
+            "generative modeling",
+            "empirical evaluation"
+          ]
+        },
+        {
+          "id": "M9.5",
+          "name": "Contamination, Safety and Responsible Release",
+          "sessionCount": 3,
+          "icon": "scale",
+          "objectives": [
+            {
+              "text": "Test training or benchmark contamination, privacy leakage, unsafe generations, and unsupported uses."
+            },
+            {
+              "text": "Document prompts, sampling, model version, access controls, limitations, and escalation procedures."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "A generative result is incomplete until its failure surface and release conditions are known.",
+          "tryIt": "Write a model card and red-team report for a small open model.",
+          "outcome": "You can evaluate and communicate generative-model risk responsibly.",
+          "evidence": "Write a model card and red-team report for a small open model.",
+          "competencyTags": [
+            "data stewardship",
+            "generative modeling",
+            "empirical evaluation",
+            "trustworthy AI"
+          ]
+        },
+        {
+          "id": "M9.6",
           "name": "Capstone: Generative System Evaluation",
           "sessionCount": 9,
           "icon": "flag",
@@ -1871,14 +2443,14 @@
           ]
         }
       ],
-      "project": "M9.4",
-      "moduleCount": 4,
-      "objectiveCount": 18,
+      "project": "M9.6",
+      "moduleCount": 6,
+      "objectiveCount": 22,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 24,
-      "statedSessions": 24,
-      "estimatedWeeks": 6,
+      "totalSessions": 30,
+      "statedSessions": 30,
+      "estimatedWeeks": 7,
       "proficiency": "Advanced",
       "researchStage": "Use generative systems responsibly",
       "lifecycle": "Generate → adapt → evaluate",
@@ -1888,6 +2460,8 @@
         "You can explain and evaluate the basic families of generative models.",
         "You can use pretrained models as research instruments without confusing fluency with truth.",
         "You can choose and evaluate an adaptation strategy with transparent trade-offs.",
+        "You can characterize generative behavior with more than one headline metric.",
+        "You can evaluate and communicate generative-model risk responsibly.",
         "A responsible generative-AI research report grounded in evidence rather than demos."
       ],
       "todos": []
@@ -1896,7 +2470,7 @@
       "number": 10,
       "slug": "level-10",
       "title": "Research Systems, MLOps and Scaling",
-      "sourceFile": "level10-research-systems-mlops-scaling.txt",
+      "sourceFile": "level10-research-systems-mlops.txt",
       "scope": "Move from notebooks to reliable research systems that can run, scale, observe, and be reproduced by a team.",
       "prereqStated": "Level 9",
       "prerequisites": [
@@ -2018,6 +2592,60 @@
         },
         {
           "id": "M10.4",
+          "name": "Cluster Scheduling and Distributed Experiment Design",
+          "sessionCount": 3,
+          "icon": "circle-dot",
+          "objectives": [
+            {
+              "text": "Use queues, resource requests, checkpointing, retries, and artifact stores on shared compute."
+            },
+            {
+              "text": "Separate data, model, and parallelism decisions and measure communication and utilization overhead."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Build research systems",
+          "mentalModel": "Scale increases the cost of ambiguity, so operational design is part of experimental design.",
+          "tryIt": "Run a small parameter sweep with resumable jobs and a summary of failed and completed trials.",
+          "outcome": "You can run experiments efficiently without losing provenance.",
+          "evidence": "Run a small parameter sweep with resumable jobs and a summary of failed and completed trials.",
+          "competencyTags": [
+            "data stewardship",
+            "empirical evaluation",
+            "systems scaling"
+          ]
+        },
+        {
+          "id": "M10.5",
+          "name": "Compute, Energy and Research Operations",
+          "sessionCount": 3,
+          "icon": "telescope",
+          "objectives": [
+            {
+              "text": "Report hardware, wall-clock time, memory, energy or cost assumptions, and carbon or access constraints."
+            },
+            {
+              "text": "Build dashboards for run status, data lineage, metrics, alerts, and reproducibility checks."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Build research systems",
+          "mentalModel": "A research system should make expensive evidence easier to inspect, not merely faster to produce.",
+          "tryIt": "Create an experiment operations review that identifies one reliability and one efficiency improvement.",
+          "outcome": "You can operate a research platform with transparent resource trade-offs.",
+          "evidence": "Create an experiment operations review that identifies one reliability and one efficiency improvement.",
+          "competencyTags": [
+            "research infrastructure",
+            "data stewardship",
+            "empirical evaluation"
+          ]
+        },
+        {
+          "id": "M10.6",
           "name": "Capstone: Reproducible Research Platform",
           "sessionCount": 9,
           "icon": "flag",
@@ -2045,14 +2673,14 @@
           ]
         }
       ],
-      "project": "M10.4",
-      "moduleCount": 4,
-      "objectiveCount": 18,
+      "project": "M10.6",
+      "moduleCount": 6,
+      "objectiveCount": 22,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 24,
-      "statedSessions": 24,
-      "estimatedWeeks": 6,
+      "totalSessions": 30,
+      "statedSessions": 30,
+      "estimatedWeeks": 7,
       "proficiency": "Advanced",
       "researchStage": "Scale research software",
       "lifecycle": "Package → operate → scale",
@@ -2062,6 +2690,8 @@
         "You can turn exploratory code into maintainable research software.",
         "You can operate a model experiment and report its engineering as well as scientific performance.",
         "You can scale an experiment while preserving evidence about what changed and why.",
+        "You can run experiments efficiently without losing provenance.",
+        "You can operate a research platform with transparent resource trade-offs.",
         "A dependable research platform that supports collaboration, scaling, and artifact evaluation."
       ],
       "todos": []
@@ -2070,7 +2700,7 @@
       "number": 11,
       "slug": "level-11",
       "title": "Interpretability, Robustness and Fairness",
-      "sourceFile": "level11-interpretability-robustness-fairness.txt",
+      "sourceFile": "level11-interpretability-robustness-trust.txt",
       "scope": "Study model behavior, failure, distribution shift, security, and social impact with methods that support actionable claims.",
       "prereqStated": "Level 10",
       "prerequisites": [
@@ -2196,6 +2826,58 @@
         },
         {
           "id": "M11.4",
+          "name": "Explanation Validity and Causal Probes",
+          "sessionCount": 3,
+          "icon": "circle-dot",
+          "objectives": [
+            {
+              "text": "Distinguish feature attribution, probing, explanation, and causal intervention claims."
+            },
+            {
+              "text": "Test explanation stability, faithfulness, localization, and sensitivity to baselines or perturbations."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "An explanation method is another model whose validity must be evaluated.",
+          "tryIt": "Compare two explanation methods on the same controlled intervention and report disagreement.",
+          "outcome": "You can avoid treating plausible explanations as causal proof.",
+          "evidence": "Compare two explanation methods on the same controlled intervention and report disagreement.",
+          "competencyTags": [
+            "empirical evaluation",
+            "model interpretability"
+          ]
+        },
+        {
+          "id": "M11.5",
+          "name": "Robustness, Fairness and Privacy Trade-offs",
+          "sessionCount": 3,
+          "icon": "lock",
+          "objectives": [
+            {
+              "text": "Evaluate distribution shift, adversarial assumptions, subgroup performance, privacy leakage, and mitigation costs."
+            },
+            {
+              "text": "Report who benefits, who bears residual risk, and which fairness or privacy definition was chosen."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Prepare evidence",
+          "mentalModel": "Trustworthy AI is a negotiated evidence and governance problem, not a single score.",
+          "tryIt": "Build a risk register that connects each mitigation to a measurable trade-off.",
+          "outcome": "You can make trustworthy-AI claims with explicit scope and accountability.",
+          "evidence": "Build a risk register that connects each mitigation to a measurable trade-off.",
+          "competencyTags": [
+            "data stewardship",
+            "trustworthy AI"
+          ]
+        },
+        {
+          "id": "M11.6",
           "name": "Capstone: Trustworthy-AI Evaluation",
           "sessionCount": 6,
           "icon": "flag",
@@ -2224,14 +2906,14 @@
           ]
         }
       ],
-      "project": "M11.4",
-      "moduleCount": 4,
-      "objectiveCount": 18,
+      "project": "M11.6",
+      "moduleCount": 6,
+      "objectiveCount": 22,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 20,
-      "statedSessions": 20,
-      "estimatedWeeks": 5,
+      "totalSessions": 26,
+      "statedSessions": 26,
+      "estimatedWeeks": 6,
       "proficiency": "Advanced",
       "researchStage": "Make systems trustworthy",
       "lifecycle": "Explain → attack → mitigate",
@@ -2241,6 +2923,8 @@
         "You can make cautious, testable interpretability claims.",
         "You can evaluate and mitigate realistic reliability and security failures.",
         "You can connect technical evaluation to human consequences and governance decisions.",
+        "You can avoid treating plausible explanations as causal proof.",
+        "You can make trustworthy-AI claims with explicit scope and accountability.",
         "A trustworthy-AI audit that demonstrates measurement, threat modeling, stakeholder awareness, and responsible communication."
       ],
       "todos": []
@@ -2249,7 +2933,7 @@
       "number": 12,
       "slug": "level-12",
       "title": "Multimodal and Domain Research",
-      "sourceFile": "level12-multimodal-domain-research.txt",
+      "sourceFile": "level12-multimodal-domain-studies.txt",
       "scope": "Translate research methods across images, text, audio, tables, and domain workflows while working with experts who understand the problem better than the model builder.",
       "prereqStated": "Level 11",
       "prerequisites": [
@@ -2371,6 +3055,59 @@
         },
         {
           "id": "M12.4",
+          "name": "Alignment, Fusion and Missing-Modality Analysis",
+          "sessionCount": 3,
+          "icon": "circle-dot",
+          "objectives": [
+            {
+              "text": "Compare early, intermediate, late, and cross-attention fusion under matched data and compute budgets."
+            },
+            {
+              "text": "Test missing modalities, noisy annotations, domain shift, and modality-specific failure modes."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "More modalities add opportunities for evidence and more ways for a model to fail silently.",
+          "tryIt": "Create a modality ablation matrix with expert-approved failure categories.",
+          "outcome": "You can evaluate whether multimodal fusion adds reliable information.",
+          "evidence": "Create a modality ablation matrix with expert-approved failure categories.",
+          "competencyTags": [
+            "data stewardship",
+            "architecture design",
+            "foundation models",
+            "applied research"
+          ]
+        },
+        {
+          "id": "M12.5",
+          "name": "Expert Review and Domain Validity",
+          "sessionCount": 3,
+          "icon": "circle-dot",
+          "objectives": [
+            {
+              "text": "Co-design outcomes, annotation protocols, error taxonomies, and acceptable thresholds with domain experts."
+            },
+            {
+              "text": "Document what the model can support operationally and what still requires human judgment."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Evaluate claims",
+          "mentalModel": "Domain expertise changes the question, not just the label quality.",
+          "tryIt": "Run an expert review session and revise the evaluation protocol from disagreement.",
+          "outcome": "You can communicate technical evidence in the language and constraints of a real domain.",
+          "evidence": "Run an expert review session and revise the evaluation protocol from disagreement.",
+          "competencyTags": [
+            "research career"
+          ]
+        },
+        {
+          "id": "M12.6",
           "name": "Capstone: Cross-Disciplinary Multimodal Study",
           "sessionCount": 9,
           "icon": "flag",
@@ -2400,14 +3137,14 @@
           ]
         }
       ],
-      "project": "M12.4",
-      "moduleCount": 4,
-      "objectiveCount": 18,
+      "project": "M12.6",
+      "moduleCount": 6,
+      "objectiveCount": 22,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 24,
-      "statedSessions": 24,
-      "estimatedWeeks": 6,
+      "totalSessions": 30,
+      "statedSessions": 30,
+      "estimatedWeeks": 7,
       "proficiency": "Advanced",
       "researchStage": "Translate across domains",
       "lifecycle": "Fuse → collaborate → deploy",
@@ -2417,6 +3154,8 @@
         "You can design multimodal experiments that expose the source of a claimed improvement.",
         "You can conduct cross-disciplinary research without flattening domain knowledge.",
         "You can connect a model result to a defensible applied research decision.",
+        "You can evaluate whether multimodal fusion adds reliable information.",
+        "You can communicate technical evidence in the language and constraints of a real domain.",
         "A complete cross-disciplinary study showing scientific, technical, and communication maturity."
       ],
       "todos": []
@@ -2425,7 +3164,7 @@
       "number": 13,
       "slug": "level-13",
       "title": "Independent Research and Project Leadership",
-      "sourceFile": "level13-independent-research-project-leadership.txt",
+      "sourceFile": "level13-independent-research-leadership.txt",
       "scope": "Move from completing exercises to leading a defensible research program with milestones, collaborators, risks, and a clear contribution.",
       "prereqStated": "Level 12",
       "prerequisites": [
@@ -2546,6 +3285,58 @@
         },
         {
           "id": "M13.4",
+          "name": "Milestones, Risk Registers and Decision Gates",
+          "sessionCount": 3,
+          "icon": "circle-dot",
+          "objectives": [
+            {
+              "text": "Convert a research question into milestones with evidence criteria, dependencies, owners, and stop conditions."
+            },
+            {
+              "text": "Maintain a risk register for data, ethics, compute, validity, collaboration, and publication risks."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "Research leadership makes uncertainty visible early enough for a team to act.",
+          "tryIt": "Hold a project review at the first decision gate and document a changed plan.",
+          "outcome": "You can manage a research project without hiding uncertainty until the deadline.",
+          "evidence": "Hold a project review at the first decision gate and document a changed plan.",
+          "competencyTags": [
+            "data stewardship"
+          ]
+        },
+        {
+          "id": "M13.5",
+          "name": "Collaboration, Mentorship and Research Culture",
+          "sessionCount": 3,
+          "icon": "flag",
+          "objectives": [
+            {
+              "text": "Define authorship expectations, contribution records, meeting notes, code review, and escalation paths."
+            },
+            {
+              "text": "Give feedback on claims, evidence, and limitations while preserving psychological safety and intellectual honesty."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Formulate questions",
+          "mentalModel": "Collaboration quality is part of the reproducibility of a research program.",
+          "tryIt": "Create a contributor guide and a decision log for a small research team.",
+          "outcome": "You can lead a healthy, accountable research collaboration.",
+          "evidence": "Create a contributor guide and a decision log for a small research team.",
+          "competencyTags": [
+            "research communication",
+            "trustworthy AI",
+            "research career"
+          ]
+        },
+        {
+          "id": "M13.6",
           "name": "Capstone: Independent Study Plan",
           "sessionCount": 9,
           "icon": "flag",
@@ -2572,14 +3363,14 @@
           ]
         }
       ],
-      "project": "M13.4",
-      "moduleCount": 4,
-      "objectiveCount": 18,
+      "project": "M13.6",
+      "moduleCount": 6,
+      "objectiveCount": 22,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 24,
-      "statedSessions": 24,
-      "estimatedWeeks": 6,
+      "totalSessions": 30,
+      "statedSessions": 30,
+      "estimatedWeeks": 7,
       "proficiency": "Research-ready",
       "researchStage": "Lead independent work",
       "lifecycle": "Gap → plan → pilot",
@@ -2589,6 +3380,8 @@
         "You can turn a literature gap into a bounded contribution with a credible plan.",
         "You can coordinate a research project without losing scientific ownership.",
         "You can communicate evidence and mentor others through a research process.",
+        "You can manage a research project without hiding uncertainty until the deadline.",
+        "You can lead a healthy, accountable research collaboration.",
         "A leadership-ready research plan that protects time, compute, collaborators, and scientific validity."
       ],
       "todos": []
@@ -2597,7 +3390,7 @@
       "number": 14,
       "slug": "level-14",
       "title": "Thesis-Grade Research Portfolio",
-      "sourceFile": "level14-thesis-grade-research-portfolio.txt",
+      "sourceFile": "level14-thesis-research-portfolio.txt",
       "scope": "Execute one substantial research project from question and ethics review through implementation, evaluation, writing, presentation, and artifact release.",
       "prereqStated": "Level 13",
       "prerequisites": [
@@ -2719,6 +3512,31 @@
         },
         {
           "id": "M14.4",
+          "name": "Thesis Writing, Figures and Oral Communication",
+          "sessionCount": 3,
+          "icon": "circle-dot",
+          "objectives": [
+            {
+              "text": "Structure chapters around claims, methods, evidence, limitations, and contributions rather than a chronological lab diary."
+            },
+            {
+              "text": "Design accessible figures, tables, slides, and a plain-language summary for different audiences."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Ship evidence",
+          "mentalModel": "A thesis is a durable explanation of evidence that another researcher can interrogate.",
+          "tryIt": "Give a ten-minute talk, record questions, and revise one figure that caused confusion.",
+          "outcome": "You can communicate a substantial study clearly in writing and speech.",
+          "evidence": "Give a ten-minute talk, record questions, and revise one figure that caused confusion.",
+          "competencyTags": [
+            "research career"
+          ]
+        },
+        {
+          "id": "M14.5",
           "name": "Capstone: Thesis or Conference Research Portfolio",
           "sessionCount": 9,
           "icon": "flag",
@@ -2745,14 +3563,14 @@
           ]
         }
       ],
-      "project": "M14.4",
-      "moduleCount": 4,
-      "objectiveCount": 18,
+      "project": "M14.5",
+      "moduleCount": 5,
+      "objectiveCount": 20,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 32,
-      "statedSessions": 32,
-      "estimatedWeeks": 8,
+      "totalSessions": 35,
+      "statedSessions": 35,
+      "estimatedWeeks": 9,
       "proficiency": "Research-ready",
       "researchStage": "Produce thesis-grade evidence",
       "lifecycle": "Protocol → evidence → portfolio",
@@ -2762,6 +3580,7 @@
         "You can begin a thesis-grade project with a defensible protocol and explicit decision gates.",
         "You can execute a large study without losing the link between claims and evidence.",
         "You can audit your own conclusions and make a study usable by another researcher.",
+        "You can communicate a substantial study clearly in writing and speech.",
         "A thesis-grade portfolio demonstrating independent research from initial question to defensible communication."
       ],
       "todos": []
@@ -2770,7 +3589,7 @@
       "number": 15,
       "slug": "level-15",
       "title": "Publication, Defense and Research Career",
-      "sourceFile": "level15-publication-defense-research-career.txt",
+      "sourceFile": "level15-publishing-defense-careers.txt",
       "scope": "Convert research evidence into a clear manuscript, survive review and defense, and build the portfolio, interview skill, and professional habits needed for research employment.",
       "prereqStated": "Level 14",
       "prerequisites": [
@@ -2854,6 +3673,32 @@
         },
         {
           "id": "M15.3",
+          "name": "Publication Ethics and Submission Operations",
+          "sessionCount": 3,
+          "icon": "scale",
+          "objectives": [
+            {
+              "text": "Prepare author contributions, conflicts, funding, data and code availability, ethics review, and responsible-use statements."
+            },
+            {
+              "text": "Manage versions, supplementary files, anonymization, cover letters, deadlines, and venue-specific formatting."
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Ship evidence",
+          "mentalModel": "Publication is a transparent record of how a contribution was made and what it can support.",
+          "tryIt": "Assemble a complete submission package and audit it against a venue checklist.",
+          "outcome": "You can submit research professionally without hiding process or limitations.",
+          "evidence": "Assemble a complete submission package and audit it against a venue checklist.",
+          "competencyTags": [
+            "data stewardship",
+            "research career"
+          ]
+        },
+        {
+          "id": "M15.4",
           "name": "Thesis Defense, Job Talk and Research Interviews",
           "sessionCount": 5,
           "icon": "telescope",
@@ -2891,7 +3736,7 @@
           ]
         },
         {
-          "id": "M15.4",
+          "id": "M15.5",
           "name": "Career Strategy, Mentorship and Long-Term Growth",
           "sessionCount": 4,
           "icon": "flag",
@@ -2927,7 +3772,7 @@
           ]
         },
         {
-          "id": "M15.5",
+          "id": "M15.6",
           "name": "Capstone: Research Scientist Launch Portfolio",
           "sessionCount": 5,
           "icon": "flag",
@@ -2953,14 +3798,14 @@
           ]
         }
       ],
-      "project": "M15.5",
-      "moduleCount": 5,
-      "objectiveCount": 23,
+      "project": "M15.6",
+      "moduleCount": 6,
+      "objectiveCount": 25,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 24,
-      "statedSessions": 24,
-      "estimatedWeeks": 6,
+      "totalSessions": 27,
+      "statedSessions": 27,
+      "estimatedWeeks": 7,
       "proficiency": "Career-ready",
       "researchStage": "Publish, defend, and launch",
       "lifecycle": "Write → review → defend → interview",
@@ -2969,6 +3814,7 @@
       "completionOutcomes": [
         "You can produce a clear, honest, submission-ready manuscript and artifact package.",
         "You can improve research through criticism without becoming defensive or overstating results.",
+        "You can submit research professionally without hiding process or limitations.",
         "You can explain your research, solve unfamiliar problems, and show how you work with others.",
         "You can choose a next step and present evidence that you are ready to grow into it.",
         "A complete research scientist portfolio connecting foundational learning, data science practice, independent evidence, publication, defense, and employment."

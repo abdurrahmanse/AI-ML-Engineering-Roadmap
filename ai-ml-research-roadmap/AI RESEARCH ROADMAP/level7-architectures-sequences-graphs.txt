@@ -1,7 +1,7 @@
 Level 7 · Modern Architectures: Sequences, Graphs and Transformers
 
 Phase: Data Curation & Modeling Paradigms
-Suggested duration: 24 sessions (~6 weeks)
+Suggested duration: 30 sessions (~7 weeks)
 Prerequisites: Level 6
 Scope: Select and adapt architectures for language, time series, relational data, and long-context problems while connecting design choices to inductive bias.
 
@@ -35,7 +35,21 @@ Mental model: An architecture is a prior about which relationships should influe
 Try: Build a graph benchmark with a leakage-safe edge or node split and compare it to feature-only models.
 Outcome: You can adapt modern architectures to relational and structured data.
 
-M7.4 · Capstone: Architecture Selection Study — (sessions: 9)
+M7.4 · Complexity, Memory and Scaling Analysis — (sessions: 3)
+- Compare time, memory, parameter, data, and communication complexity across architecture families.
+- Measure throughput, latency, context behavior, and quality under matched hardware and data budgets.
+Mental model: An architecture is a set of scientific trade-offs, not a leaderboard label.
+Try: Create a scaling table that shows where each candidate becomes preferable.
+Outcome: You can justify architecture choices with evidence beyond task accuracy.
+
+M7.5 · Failure Modes and Structural Probes — (sessions: 3)
+- Design synthetic probes for long-range dependence, compositionality, graph structure, order sensitivity, and extrapolation.
+- Separate a representation failure from an optimization, data, or evaluation failure.
+Mental model: A targeted probe makes a model’s inductive bias observable.
+Try: Build two probes that distinguish memorization from structural generalization.
+Outcome: You can test what an architecture has learned, not only whether it scores well.
+
+M7.6 · Capstone: Architecture Selection Study — (sessions: 9)
 - Define one task that can be represented as tabular, sequential, or relational data.
 - Compare appropriate model families under matched data, compute, and tuning budgets.
 - Connect each performance difference to an inductive bias, failure mode, or data property.

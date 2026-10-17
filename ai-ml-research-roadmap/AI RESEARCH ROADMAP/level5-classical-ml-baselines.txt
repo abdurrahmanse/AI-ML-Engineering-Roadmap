@@ -1,7 +1,7 @@
 Level 5 · Classical Machine Learning and Baselines
 
 Phase: Data Curation & Modeling Paradigms
-Suggested duration: 20 sessions (~5 weeks)
+Suggested duration: 26 sessions (~6 weeks)
 Prerequisites: Level 4
 Scope: Learn the supervised, unsupervised, and time-aware modeling families that form the baseline for nearly every applied data-science investigation.
 
@@ -35,7 +35,21 @@ Mental model: Model development is an investigation of failure, not a leaderboar
 Try: Produce an error-analysis report that changes one modeling decision based on observed failures.
 Outcome: You can select models using evidence, constraints, and failure analysis.
 
-M5.4 · Capstone: Reproducible Baseline Study — (sessions: 6)
+M5.4 · Cross-Validation, Calibration and Model Selection — (sessions: 3)
+- Choose validation schemes that respect groups, time, and repeated observations in the data.
+- Measure calibration, uncertainty, class imbalance, and threshold trade-offs rather than only ranking accuracy.
+Mental model: Model selection is part of the experiment and must be separated from final evaluation.
+Try: Compare two validation strategies and show how the chosen split changes the conclusion.
+Outcome: You can select and calibrate a baseline without contaminating the test set.
+
+M5.5 · Error Analysis and Baseline Reporting — (sessions: 3)
+- Slice errors by meaningful subgroups, inputs, confidence, and failure mechanism.
+- Report features, preprocessing, tuning budget, compute, seeds, metrics, and limitations so the baseline is reusable.
+Mental model: A strong baseline is a control condition that makes later claims interpretable.
+Try: Produce an error taxonomy and a one-page baseline report for a real dataset.
+Outcome: You can explain where a model works, fails, and what a new method must improve.
+
+M5.6 · Capstone: Reproducible Baseline Study — (sessions: 6)
 - Reproduce a classical ML result on an open dataset with an explicit split and pre-analysis plan.
 - Compare at least three model families, report uncertainty, calibration, cost-sensitive metrics, and failures.
 - Package the code, configuration, data statement, and results table for another person to rerun.
