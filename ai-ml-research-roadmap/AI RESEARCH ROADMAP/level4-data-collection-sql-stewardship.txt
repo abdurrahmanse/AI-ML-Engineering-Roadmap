@@ -1,0 +1,36 @@
+Level 4 · Data Collection, SQL & Data Stewardship
+
+Phase: Data Curation & Modeling Paradigms
+Suggested duration: 20 sessions (~5 weeks)
+Prerequisites: Level 3
+Scope: Build reliable datasets from messy sources while preserving provenance, privacy, meaning, and the ability to audit every transformation.
+
+M4.1 · SQL, APIs & Data Acquisition — (sessions: 5)
+- Query relational data with SELECT, JOIN, GROUP BY, window functions, and common table expressions.
+- Retrieve data from documented APIs with pagination, retries, rate limits, and schema validation.
+- Record source, access date, version, license, and transformation history for every input.
+Mental model: A dataset is a claim about the world plus a chain of decisions that produced it.
+Try: Build a small ingestion job that loads API data into SQLite with validation and provenance logs.
+Outcome: You can acquire structured data reproducibly and query it to answer precise questions.
+
+M4.2 · Cleaning, Labels & Data Quality — (sessions: 5)
+- Diagnose missing values, duplicates, inconsistent units, outliers, label noise, and schema drift.
+- Design annotation guidelines, adjudication workflows, and inter-rater agreement checks.
+- Prevent train-test leakage during preprocessing, deduplication, feature selection, and augmentation.
+Mental model: Cleaning changes the measurement process, so every cleaning rule is a research decision.
+Try: Create a data-quality dashboard and a label handbook for a small supervised-learning dataset.
+Outcome: You can make a dataset model-ready without hiding uncertainty or silently changing its meaning.
+
+M4.3 · Privacy, Governance & Dataset Documentation — (sessions: 4)
+- Apply data minimization, de-identification, access control, retention, and secure storage principles.
+- Write a datasheet describing motivation, composition, collection, preprocessing, uses, risks, and limitations.
+- Explain when consent, review, licensing, or domain expertise is required before analysis.
+Mental model: Useful data is not automatically permissible data.
+Try: Complete a data card and risk register before downloading or sharing a sensitive dataset.
+Outcome: You can steward data responsibly and explain who may use it, how, and under which limits.
+
+M4.4 · Capstone: Auditable Dataset and Benchmark Pipeline — (sessions: 6)
+- Acquire a public dataset, version its raw and processed forms, and define a leakage-safe split.
+- Implement validation checks, a dataset card, a feature dictionary, and a reproducible benchmark loader.
+- Publish a small sample and an audit report rather than exposing restricted records.
+Final result: A documented, governed, queryable dataset pipeline ready for honest modeling experiments.

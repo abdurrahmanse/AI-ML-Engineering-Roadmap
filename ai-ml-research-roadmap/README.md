@@ -1,6 +1,6 @@
 # AI/ML Research Roadmap
 
-> A comprehensive, interactive 16-level curriculum and structured research roadmap for modern AI/ML — covering extensive model training from basics to advanced, multi-domain datasets (medical, cybersecurity, science), Explainable AI (XAI), Trustworthy AI, robust benchmarking, thesis defense, and publishing in premier journals and conferences.
+> A comprehensive, interactive 16-level journey from complete beginner to proficient data scientist and research scientist — covering computing, mathematics, statistics, data stewardship, machine learning, experimentation, trustworthy AI, publication, thesis defense, interviews, and employment.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-abdurrahmans.vercel.app-6c5ce7?style=flat-square&logo=vercel)](https://abdurrahmans.vercel.app)
 [![Astro](https://img.shields.io/badge/Astro-7.0+-BC52EE?style=flat-square&logo=astro)](https://astro.build)
@@ -12,26 +12,26 @@
 
 ## Overview
 
-**AI/ML Research Roadmap** provides an end-to-end pedagogical blueprint designed for beginners, undergraduate researchers (BSc), graduate students (MSc/PhD), and research scientists pursuing fundamental and applied AI/ML research. It maps **16 progressive levels**, **99 modules**, and **224 structured sessions** across six research phases, accompanied by conference-grade empirical capstone projects, automated progress tracking, and an accelerated **100 Days of AI/ML Research** track.
+**AI/ML Research Roadmap** provides an end-to-end pedagogical blueprint designed for complete beginners, undergraduate researchers, graduate students, aspiring data scientists, and future research scientists. It maps **16 progressive levels**, source-authored modules, structured sessions, practical capstones, and an accelerated **100 Days of AI/ML Research** track across the complete research lifecycle.
 
 - **Live Platform:** [https://abdurrahmans.vercel.app](https://abdurrahmans.vercel.app)
 - **Primary Roadmap:** 16 progressive levels spanning the complete scientific research lifecycle:
-  0. Scientific Computing, Research Tooling & Reproducibility
-  1. Research Problem Formulation, Mentorship & Lab Onboarding
-  2. Scholarly Literature Search, Paper Reading & Reference Management
-  3. Research Mathematics & Applied Statistical Testing
-  4. Dataset Discovery, Curation & Multi-Domain Adaptation (Medical, Cybersecurity & Science)
-  5. Classical Machine Learning & Deep Learning Paradigms (Tabular GBDTs, 2D/3D CNNs)
-  6. Sequence Models, Graph Neural Networks & Transformers
-  7. Generative Modeling & Probabilistic Machine Learning (Diffusion, Flow Matching & Synthesis)
-  8. Experimental Design, Ablation Studies & Fair Benchmarking
-  9. High-Performance Computing (HPC) & Scaled Research Systems (SLURM, FSDP, MFU)
-  10. Foundation Models, Fine-Tuning & Domain Specialization (Scaling Laws, DAPT & PEFT)
-  11. Explainability, Interpretability & Trustworthy AI (SHAP, Circuits & SAEs)
-  12. AI Alignment, Robustness & Adversarial Defense (PGD, Malware Evasion & DPO)
-  13. Multimodal & Cross-Disciplinary Research Methodologies (CLIP, Medical VLMs & Threat Fusion)
-  14. Comprehensive Research Capstones (Thesis Flagships & Conference Submissions)
-  15. Academic Publishing, Peer Review, Thesis Defense & Career (IEEE TPAMI, JMLR, Nature, Rebuttals)
+  0. Computing, Python & Learning Habits
+  1. Mathematics for Data Science
+  2. Probability, Statistics & Uncertainty
+  3. Research Literacy and Problem Formulation
+  4. Data Collection, SQL & Data Stewardship
+  5. Classical Machine Learning and Baselines
+  6. Deep Learning Foundations
+  7. Modern Architectures: Sequences, Graphs and Transformers
+  8. Experimental Design, Evaluation & Causal Reasoning
+  9. Generative Models and Foundation-Model Use
+  10. Research Systems, MLOps and Scaling
+  11. Interpretability, Robustness and Fairness
+  12. Multimodal and Domain Research
+  13. Independent Research and Project Leadership
+  14. Thesis-Grade Research Portfolio
+  15. Publication, Defense and Research Career
 - **Source data:** All level content is read from the canonical roadmap folder available at build time (`AI RESEARCH ROADMAP/`, or `AI-ml RESEARCH ROADMAP/` when present) and emitted into `src/data/levels.json`.
 - **Accelerated Route:** Curated 100-Day companion research curriculum with empirical research study projects and research interview defense preparation.
 
@@ -55,7 +55,7 @@
 | **Framework** | [Astro](https://astro.build) | Static Site Generator (SSG) with zero-JS default |
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com) + CSS Tokens | Modern CSS variables with `@theme` token binding |
 | **Icons** | [Lucide](https://lucide.dev) (`@iconify-json/lucide`) | Inlined SVG icons compiled statically at build time |
-| **Typography** | Space Grotesk, DM Sans & JetBrains Mono | Optimized via Google Fonts with display swap |
+| **Typography** | Rajdhani | Used consistently across the roadmap with display swap |
 | **Social Images** | `@resvg/resvg-js` + Sharp | Headless build-time Open Graph image generation |
 
 ---
@@ -124,7 +124,7 @@ npm run preview
 
 ## Content Pipeline
 
-All curriculum data originates strictly from the available `AI RESEARCH ROADMAP/level*.txt` files (or the tagged `AI-ml RESEARCH ROADMAP/` folder when present). The build pipeline parses these files into type-safe JSON schemas:
+All curriculum data originates strictly from the available `AI RESEARCH ROADMAP/level*.txt` files (or the tagged `AI-ml RESEARCH ROADMAP/` folder when present). Filenames describe the learner journey, while stable module IDs (`M{level}.{module}` and `P{level}.{project}`) keep progress and deep links durable. The build pipeline parses these files into type-safe JSON schemas:
 
 ```
 level*.txt ──► npm run parse ──► src/data/levels.json ──► src/data/levels.ts ──► Static Pages

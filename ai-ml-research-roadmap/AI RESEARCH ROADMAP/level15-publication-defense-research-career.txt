@@ -1,0 +1,44 @@
+Level 15 · Publication, Defense and Research Career
+
+Phase: Publishing, Thesis Defense & Research Careers
+Suggested duration: 24 sessions (~6 weeks)
+Prerequisites: Level 14
+Scope: Convert research evidence into a clear manuscript, survive review and defense, and build the portfolio, interview skill, and professional habits needed for research employment.
+
+M15.1 · Manuscript, Figures and Open Science — (sessions: 5)
+- Write an abstract, introduction, related work, methods, results, limitations, and conclusion around one contribution.
+- Create accessible figures, uncertainty-aware tables, citations, supplementary material, and a reproducibility checklist.
+- Select a venue by scope, audience, review model, ethics policy, page limits, and realistic contribution fit.
+Mental model: A paper is a compressed argument whose reader must be able to recover the question, evidence, and limits.
+Try: Rewrite the project as a six-page paper and ask a reader to summarize its claim without your help.
+Outcome: You can produce a clear, honest, submission-ready manuscript and artifact package.
+
+M15.2 · Peer Review, Rebuttal and Revision — (sessions: 5)
+- Review a paper for novelty, correctness, evidence, clarity, significance, ethics, and reproducibility.
+- Respond to reviews with a change table, evidence, clarifications, and respectful boundaries.
+- Revise claims when evidence is weaker than the original narrative and preserve a decision history.
+Mental model: Peer review is a structured conversation about the strength and limits of evidence.
+Try: Conduct a mock review and rebuttal round with three reviewers who disagree about the main claim.
+Outcome: You can improve research through criticism without becoming defensive or overstating results.
+
+M15.3 · Thesis Defense, Job Talk and Research Interviews — (sessions: 5)
+- Defend motivation, novelty, design, results, limitations, and future work under unpredictable questions.
+- Build a research talk, one-page research statement, academic CV, portfolio, and project walkthrough.
+- Practice coding, statistics, ML system design, paper discussion, behavioral, and collaboration interviews.
+Mental model: A defense or interview tests reasoning under uncertainty, not memorization of every fact.
+Try: Record a twenty-minute job talk and complete a mock interview using follow-up questions and a structured rubric.
+Outcome: You can explain your research, solve unfamiliar problems, and show how you work with others.
+
+M15.4 · Career Strategy, Mentorship and Long-Term Growth — (sessions: 4)
+- Compare research assistant, data scientist, ML engineer, PhD, postdoctoral, and research scientist pathways.
+- Build a targeted application list, networking message, reference plan, and portfolio evidence for each path.
+- Set a twelve-month learning and publication plan with feedback, health, ethics, and sustainable work practices.
+Mental model: A research career is a sequence of credible collaborations and questions, not a single title or publication count.
+Try: Create three role-specific application packets and request feedback from a mentor or experienced researcher.
+Outcome: You can choose a next step and present evidence that you are ready to grow into it.
+
+M15.5 · Capstone: Research Scientist Launch Portfolio — (sessions: 5)
+- Submit the final manuscript or thesis package, artifact documentation, defense slides, and research statement.
+- Complete a recorded defense and a full research interview loop, then revise from the rubric.
+- Publish a personal roadmap naming the next question, collaborators, skills, and evidence you will pursue.
+Final result: A complete research scientist portfolio connecting foundational learning, data science practice, independent evidence, publication, defense, and employment.

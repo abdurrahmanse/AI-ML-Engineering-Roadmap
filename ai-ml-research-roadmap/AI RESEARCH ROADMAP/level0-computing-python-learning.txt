@@ -1,0 +1,57 @@
+Level 0 · Computing, Python & Learning Habits
+
+Phase: Research Foundations & Lab Onboarding
+Suggested duration: 16 sessions (~4 weeks)
+Prerequisites: None; designed for a complete beginner
+Scope: Build the everyday computing, Python, communication, and study habits needed to learn data science without relying on copy-paste tutorials.
+
+M0.1 · Computer and Command-Line Foundations — (sessions: 3)
+Session 1 · Files, processes, and the web
+- Explain how files, folders, programs, memory, and networks work together.
+- Navigate a terminal, create files, inspect processes, and read error messages.
+Session 2 · Linux and remote work
+- Use a Linux shell, SSH, environment variables, and a remote notebook safely.
+- Organize research notes, downloads, datasets, and code with predictable names.
+Session 3 · Safe and responsible computing
+- Protect credentials, recognize unsafe commands, and keep private data out of repositories.
+- Describe licenses, attribution, accessibility, and responsible use of AI tools.
+Mental model: The command line is a precise laboratory instrument, not a mysterious black box.
+Try: Create a small project folder, document every command in a lab notebook, and reproduce the setup on a second machine.
+Outcome: You can work safely in a computing environment and explain what your tools are doing.
+
+M0.2 · Python Programming for Data Work — (sessions: 4)
+Session 1 · Values and control flow
+- Use variables, strings, numbers, booleans, conditionals, loops, and functions.
+- Break a task into small functions and test each function with simple examples.
+Session 2 · Collections and files
+- Work with lists, dictionaries, sets, tuples, CSV files, and JSON documents.
+- Handle missing files and malformed input with clear, user-facing errors.
+Session 3 · Modules and debugging
+- Import standard-library modules, read tracebacks, and debug with a small reproducible example.
+- Use type hints and docstrings to make beginner code understandable to collaborators.
+Session 4 · First data script
+- Write a script that loads a dataset, computes summary statistics, and saves a report.
+- Run the same script from a clean terminal and record its inputs and outputs.
+Mental model: Programming is the practice of turning an explicit procedure into repeatable instructions.
+Try: Build a command-line dataset summary tool with tests for empty, missing, and malformed inputs.
+Outcome: You can write, run, debug, and explain small Python programs for data tasks.
+
+M0.3 · Git, Documentation & Deliberate Learning — (sessions: 3)
+Session 1 · Version control
+- Initialize a Git repository, make focused commits, inspect diffs, and recover from mistakes.
+- Use branches and pull requests to ask for review without losing working code.
+Session 2 · Technical communication
+- Write a README with purpose, setup, usage, limitations, and an example result.
+- Turn a confusing error or experiment into a concise issue containing evidence and a question.
+Session 3 · Learning system
+- Plan weekly study blocks, use retrieval practice, and maintain a questions-and-evidence log.
+- Distinguish understanding a concept from recognizing a familiar code pattern.
+Mental model: A research career compounds small, documented improvements rather than isolated bursts of motivation.
+Try: Publish a beginner-friendly repository with a README, changelog, issue, and three meaningful commits.
+Outcome: You can learn in public, collaborate with version control, and communicate technical work clearly.
+
+M0.4 · Capstone: Reproducible Beginner Data Project — (sessions: 6)
+- Choose a small open dataset and state one descriptive question without claiming causation.
+- Build a Python analysis with a clean README, requirements file, validation checks, and a results table.
+- Add a short reflection describing what changed between the first and final version.
+Final result: A public, reproducible repository demonstrating safe computing, beginner Python, Git, documentation, and honest interpretation.

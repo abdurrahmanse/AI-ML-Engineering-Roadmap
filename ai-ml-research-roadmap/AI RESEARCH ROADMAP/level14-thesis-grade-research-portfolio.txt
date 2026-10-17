@@ -1,0 +1,36 @@
+Level 14 · Thesis-Grade Research Portfolio
+
+Phase: Cross-Disciplinary Research & Capstones
+Suggested duration: 32 sessions (~8 weeks)
+Prerequisites: Level 13
+Scope: Execute one substantial research project from question and ethics review through implementation, evaluation, writing, presentation, and artifact release.
+
+M14.1 · Proposal, Ethics and Pilot — (sessions: 7)
+- Finalize the question, hypotheses, related work, data plan, risk assessment, and success criteria.
+- Complete required permissions, consent or licensing checks, and a reproducibility plan.
+- Run a pilot that tests feasibility, data quality, compute needs, and the possibility of a meaningful result.
+Mental model: The pilot is valuable even when it disproves the original plan because it prevents expensive invalid work.
+Try: Hold a proposal defense with two reviewers and revise the protocol before collecting final evidence.
+Outcome: You can begin a thesis-grade project with a defensible protocol and explicit decision gates.
+
+M14.2 · Implementation and Evidence Collection — (sessions: 9)
+- Implement the method, baselines, data pipeline, logging, tests, and evaluation scripts as one tracked project.
+- Run planned experiments before exploratory analyses, then label post-hoc discoveries clearly.
+- Preserve raw artifacts, configurations, seeds, compute logs, and negative results.
+Mental model: Evidence is only interpretable when its provenance and selection process are visible.
+Try: Run a complete experiment batch from a clean environment and reconstruct one result from stored artifacts.
+Outcome: You can execute a large study without losing the link between claims and evidence.
+
+M14.3 · Analysis, Limitations and Reproducibility — (sessions: 7)
+- Analyze effect sizes, uncertainty, subgroup behavior, robustness, and failure cases.
+- Separate primary, secondary, exploratory, and unsupported findings.
+- Package code, environment, data access instructions, model cards, and an artifact checklist.
+Mental model: Limitations are part of the result because they define where the evidence stops.
+Try: Ask an independent reader to reproduce one table and one figure using only the released artifact.
+Outcome: You can audit your own conclusions and make a study usable by another researcher.
+
+M14.4 · Capstone: Thesis or Conference Research Portfolio — (sessions: 9)
+- Deliver a paper-style manuscript, public or restricted artifact, presentation, and plain-language summary.
+- Defend the work through a mock committee review covering novelty, methods, evidence, limitations, and future work.
+- Revise the project after feedback and record the final contribution statement.
+Final result: A thesis-grade portfolio demonstrating independent research from initial question to defensible communication.

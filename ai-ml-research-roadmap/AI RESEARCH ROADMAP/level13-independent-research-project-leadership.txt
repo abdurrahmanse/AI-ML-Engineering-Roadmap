@@ -1,0 +1,36 @@
+Level 13 · Independent Research and Project Leadership
+
+Phase: Cross-Disciplinary Research & Capstones
+Suggested duration: 24 sessions (~6 weeks)
+Prerequisites: Level 12
+Scope: Move from completing exercises to leading a defensible research program with milestones, collaborators, risks, and a clear contribution.
+
+M13.1 · From Literature Gap to Contribution — (sessions: 5)
+- Map a field's established findings, open problems, competing explanations, and available resources.
+- Test whether a proposed contribution is novel, feasible, important, and distinguishable from prior work.
+- Define a minimal publishable question and a sequence of risk-reducing pilot studies.
+Mental model: A contribution is a new, reliable answer to a meaningful question, not just a new implementation.
+Try: Write a novelty matrix comparing a proposed study with ten closest papers.
+Outcome: You can turn a literature gap into a bounded contribution with a credible plan.
+
+M13.2 · Research Planning and Collaboration — (sessions: 5)
+- Break a project into hypotheses, work packages, milestones, dependencies, and decision gates.
+- Assign roles, maintain meeting notes, manage review cycles, and resolve disagreements with evidence.
+- Track compute, data, ethics, authorship, and schedule risks before they become blockers.
+Mental model: Research leadership makes uncertainty visible early enough for a team to act.
+Try: Run a weekly research meeting using a decision log, risk register, and next-evidence checklist.
+Outcome: You can coordinate a research project without losing scientific ownership.
+
+M13.3 · Scientific Presentation and Mentorship — (sessions: 5)
+- Explain a contribution to a beginner, peer, domain expert, reviewer, and hiring panel.
+- Design a talk around question, insight, evidence, limitations, and next experiment.
+- Give constructive code, paper, and presentation feedback while preserving the author's agency.
+Mental model: If the claim cannot survive a change in audience, it probably has not been understood deeply enough.
+Try: Deliver the same five-minute result briefing to technical and non-technical listeners and revise it from questions.
+Outcome: You can communicate evidence and mentor others through a research process.
+
+M13.4 · Capstone: Independent Study Plan — (sessions: 9)
+- Produce a six-to-twelve-week study plan with literature, hypotheses, pilot, evaluation, risks, and deliverables.
+- Complete a pilot that can falsify the main idea before committing to full implementation.
+- Present a go/no-go decision supported by evidence and a revised project schedule.
+Final result: A leadership-ready research plan that protects time, compute, collaborators, and scientific validity.

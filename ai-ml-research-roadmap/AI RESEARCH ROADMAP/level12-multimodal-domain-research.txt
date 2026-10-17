@@ -1,0 +1,36 @@
+Level 12 · Multimodal and Domain Research
+
+Phase: Scaled Systems, Trustworthy AI & Alignment
+Suggested duration: 24 sessions (~6 weeks)
+Prerequisites: Level 11
+Scope: Translate research methods across images, text, audio, tables, and domain workflows while working with experts who understand the problem better than the model builder.
+
+M12.1 · Multimodal Representation and Fusion — (sessions: 5)
+- Align image, text, audio, tabular, and temporal representations with suitable encoders and objectives.
+- Compare early fusion, late fusion, cross-attention, contrastive learning, and missing-modality strategies.
+- Evaluate whether a multimodal gain comes from useful interaction or simply additional information.
+Mental model: Combining modalities is a measurement and alignment problem before it is an architecture problem.
+Try: Build a two-modality classifier with modality ablations and inspect performance when one modality is missing.
+Outcome: You can design multimodal experiments that expose the source of a claimed improvement.
+
+M12.2 · Domain Adaptation and Expert Collaboration — (sessions: 5)
+- Translate a domain workflow into labels, constraints, outcomes, and reviewable decision points.
+- Use domain interviews, annotation pilots, disagreement analysis, and expert validation.
+- Distinguish benchmark success from usefulness, safety, and adoption in the real workflow.
+Mental model: Domain experts are research partners who define validity, not merely label providers.
+Try: Run an annotation pilot with a domain reviewer and revise the codebook from disagreements.
+Outcome: You can conduct cross-disciplinary research without flattening domain knowledge.
+
+M12.3 · Applied Research and Deployment Evidence — (sessions: 5)
+- Design prospective, retrospective, offline, and human-in-the-loop evaluations.
+- Measure workflow time, error costs, calibration, accessibility, adoption barriers, and unintended effects.
+- Write a deployment decision record with monitoring, rollback, and ownership.
+Mental model: A research prototype becomes an applied contribution only when its context and limits are demonstrated.
+Try: Create an evaluation plan for a domain partner that includes technical and human success criteria.
+Outcome: You can connect a model result to a defensible applied research decision.
+
+M12.4 · Capstone: Cross-Disciplinary Multimodal Study — (sessions: 9)
+- Partner with a domain expert or use a documented public workflow and formulate one measurable question.
+- Build a multimodal baseline, run modality and stakeholder-informed ablations, and report limitations.
+- Deliver a technical report, domain-facing briefing, data statement, and reproducible artifact.
+Final result: A complete cross-disciplinary study showing scientific, technical, and communication maturity.

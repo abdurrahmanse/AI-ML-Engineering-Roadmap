@@ -1,0 +1,36 @@
+Level 8 · Experimental Design, Evaluation & Causal Reasoning
+
+Phase: Generative Models & Experimental Science
+Suggested duration: 20 sessions (~5 weeks)
+Prerequisites: Level 7
+Scope: Turn model ideas into experiments whose comparisons, metrics, uncertainty, and limitations can withstand skeptical review.
+
+M8.1 · Measurement and Evaluation Design — (sessions: 5)
+- Define the construct being measured and select metrics that reflect the real decision or scientific claim.
+- Build baselines, holdout sets, challenge sets, and subgroup slices before tuning on results.
+- Report confidence intervals, calibration, ranking uncertainty, and clinically or operationally meaningful thresholds.
+Mental model: A metric is an instrument; its reading is only useful when its validity and failure modes are understood.
+Try: Replace a single accuracy score with an evaluation plan that measures utility, harm, calibration, and subgroup behavior.
+Outcome: You can design evaluation protocols that measure the claim rather than a convenient proxy.
+
+M8.2 · Ablations, Sensitivity and Compute Matching — (sessions: 5)
+- Isolate components with controlled ablations, matched budgets, seed repeats, and sensitivity analyses.
+- Separate tuning data from final evidence and report unsuccessful configurations.
+- Use experiment registries and configuration files to make every comparison auditable.
+Mental model: A contribution is credible only when its claimed cause is isolated from confounding changes.
+Try: Reproduce a headline result with an ablation matrix and identify which component actually matters.
+Outcome: You can distinguish a real contribution from tuning luck or an unfair comparison.
+
+M8.3 · Causal Thinking and External Validity — (sessions: 4)
+- Draw causal diagrams and identify confounders, mediators, selection effects, and interventions.
+- Distinguish prediction, association, and causal effect claims in model reports.
+- Test robustness across sites, time periods, populations, and plausible distribution shifts.
+Mental model: Better prediction does not automatically explain why an outcome happens or what an intervention will change.
+Try: Write a causal diagram for a deployed prediction system and list the assumptions needed for each claim.
+Outcome: You can state what an experiment identifies and where its conclusions may not transfer.
+
+M8.4 · Capstone: Peer-Review-Ready Benchmark — (sessions: 6)
+- Build a benchmark suite with preregistered hypotheses, strong baselines, ablations, repeated seeds, and error analysis.
+- Include compute, data, metric, and limitation disclosures.
+- Have a peer review the protocol before running the final experiments and record all changes.
+Final result: A fair, auditable evaluation package suitable for the results section of a research paper.
