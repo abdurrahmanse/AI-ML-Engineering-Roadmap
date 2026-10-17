@@ -1,6 +1,6 @@
 /**
- * Academic courses, seminal research lecture series, and foundational textbooks
- * mapped per level for the AI/ML Research Roadmap.
+ * Academic courses, seminal research lecture series, premier publication journals,
+ * and foundational textbooks mapped per level for the AI/ML Research Roadmap.
  */
 
 export interface Course {
@@ -25,33 +25,51 @@ export const coursesByLevel: Record<number, Course[]> = {
     {
       title: "Reproducible Data Science & Environment Management",
       status: "live",
+      url: "https://the-turing-way.netlify.app/",
       source: "The Turing Way Handbook for Reproducible Research",
     },
     {
-      title: "Experiment Tracking & Laboratory Hygiene",
+      title: "Scientific Experiment Tracking & Laboratory Hygiene",
       status: "live",
       source: "Weights & Biases / MLflow Research Guide",
     },
   ],
   1: [
     {
-      title: "How to Read a Paper (The Three-Pass Method)",
+      title: "How to Join a Research Lab as a Student",
       status: "live",
-      url: "http://ccr.sigcomm.org/online/files/p83-keshav.pdf",
-      source: "S. Keshav (ACM SIGCOMM)",
+      source: "Stanford Computer Science Department Guide",
     },
     {
-      title: "Research Methodology in Computer Science",
+      title: "Securing a Research Assistantship & Academic Networking",
       status: "live",
-      source: "Stanford CS Research Methodology Seminar",
+      source: "CRA-WP Graduate & Undergraduate Research Guidance",
     },
     {
-      title: "Systematic Literature Review & Taxonomy Formulation",
+      title: "Formulating Research Proposals & Identifying Open Gaps",
       status: "live",
-      source: "ACM / IEEE Academic Survey Writing Guide",
+      source: "National Science Foundation (NSF) Graduate Research Guide",
     },
   ],
   2: [
+    {
+      title: "How to Read an Academic Paper (The Three-Pass Method)",
+      status: "live",
+      url: "http://ccr.sigcomm.org/online/files/p83-keshav.pdf",
+      source: "S. Keshav (ACM SIGCOMM Computer Communication Review)",
+    },
+    {
+      title: "Navigating Scholarly Databases: IEEE Xplore, ACM DL & PubMed",
+      status: "live",
+      source: "IEEE / ACM / PubMed Bibliographic Search Masterclass",
+    },
+    {
+      title: "Systematic Literature Review (SLR) & Reference Management with Zotero",
+      status: "live",
+      source: "ACM Computing Surveys (CSUR) Methodology Standards",
+    },
+  ],
+  3: [
     {
       title: "Mathematics for Machine Learning",
       status: "live",
@@ -59,63 +77,65 @@ export const coursesByLevel: Record<number, Course[]> = {
       source: "Deisenroth, Faisal & Ong (Cambridge University Press)",
     },
     {
-      title: "All of Statistics: Statistical Inference for ML",
+      title: "All of Statistics: A Concise Course in Statistical Inference",
       status: "live",
+      url: "https://link.springer.com/book/10.1007/978-0-387-21736-9",
       source: "Larry Wasserman (Springer Texts in Statistics)",
     },
     {
-      title: "Statistical Hypothesis Testing & Power Analysis for AI",
+      title: "Statistical Hypothesis Testing & Power Analysis for AI Experiments",
       status: "live",
-      source: "Empirical Methods for Artificial Intelligence (Cohen)",
-    },
-  ],
-  3: [
-    {
-      title: "Experimental Design & Scientific Benchmarking",
-      status: "live",
-      source: "NeurIPS Reproducibility & Evaluation Standards",
-    },
-    {
-      title: "Ablation Study Methodology in Deep Learning",
-      status: "live",
-      source: "Empirical Rigor in Computer Science (ACM Computing Surveys)",
-    },
-    {
-      title: "Hyperparameter Optimization & Validation Protocols",
-      status: "live",
-      source: "Automated Machine Learning (Frank Hutter et al.)",
+      source: "Empirical Methods for Artificial Intelligence (Paul R. Cohen, MIT Press)",
     },
   ],
   4: [
     {
-      title: "Deep Learning Systems: Algorithms & Implementation",
+      title: "Clinical Healthcare Datasets & PhysioNet Credentialing",
       status: "live",
-      url: "https://dlsyscourse.org/",
-      source: "Tianqi Chen & Zico Kolter (CMU / Stanford)",
+      url: "https://physionet.org/about/citi-training/",
+      source: "MIT Laboratory for Computational Physiology (MIMIC-IV / CITI)",
     },
     {
-      title: "Advanced PyTorch Research Internals & Custom Operators",
+      title: "Cybersecurity Telemetry & Benchmark Dataset Extraction",
       status: "live",
-      source: "PyTorch Core Autograd Architecture Guide",
+      source: "Canadian Institute for Cybersecurity (CIC-IDS) & Ember Malware",
     },
     {
-      title: "Numerical Stability & Mixed Precision Training",
+      title: "Datasheets for Datasets & Research Ethics Governance",
       status: "live",
-      source: "NVIDIA Deep Learning Performance Documentation",
+      url: "https://arxiv.org/abs/1803.09010",
+      source: "Timnit Gebru et al. (Communications of the ACM)",
     },
   ],
   5: [
     {
-      title: "Transformers United & Attention Mechanics",
+      title: "Machine Learning: Tree Ensembles to Deep Architectures",
       status: "live",
-      url: "https://web.stanford.edu/class/cs25/",
-      source: "Stanford CS25",
+      source: "Stanford CS229 (Machine Learning / Andrew Ng)",
     },
     {
-      title: "Natural Language Processing with Deep Learning",
+      title: "Deep Learning for Medical Computer Vision & Volumetric Segmentation",
       status: "live",
-      url: "https://web.stanford.edu/class/cs224n/",
-      source: "Stanford CS224N (Manning)",
+      source: "Medical Segmentation Decathlon & MONAI Research Consortium",
+    },
+    {
+      title: "Self-Supervised Representation Learning (SimCLR, MoCo & MAE)",
+      status: "live",
+      source: "Meta AI Research & Berkeley EECS Advanced Vision Seminars",
+    },
+  ],
+  6: [
+    {
+      title: "Machine Learning with Graphs (CS224W)",
+      status: "live",
+      url: "https://web.stanford.edu/class/cs224w/",
+      source: "Stanford CS224W (Jure Leskovec - GNNs for Security & Science)",
+    },
+    {
+      title: "Transformers United & Attention Mechanics (CS25)",
+      status: "live",
+      url: "https://web.stanford.edu/class/cs25/",
+      source: "Stanford CS25 (Transformers & Attention Innovations)",
     },
     {
       title: "Geometric Deep Learning: Grids, Groups, Graphs & Geodesics",
@@ -124,99 +144,82 @@ export const coursesByLevel: Record<number, Course[]> = {
       source: "Bronstein, Bruna, Cohen & Veličković",
     },
   ],
-  6: [
-    {
-      title: "Deep Generative Models",
-      status: "live",
-      url: "https://deepgenerativemodels.github.io/",
-      source: "Stanford CS236 (Stefano Ermon)",
-    },
-    {
-      title: "Generative AI: Diffusion & Flow Matching",
-      status: "live",
-      source: "Berkeley CS294 / MIT Generative Modeling Lecture Series",
-    },
-    {
-      title: "Empirical Distribution Evaluation (FID, Precision & Recall)",
-      status: "live",
-      source: "Foundations of Generative Evaluation (Bińkowski et al.)",
-    },
-  ],
   7: [
     {
-      title: "Deep Reinforcement Learning",
+      title: "Deep Generative Models (CS236)",
       status: "live",
-      url: "https://rail.eecs.berkeley.edu/deeprlcourse/",
-      source: "Berkeley CS285 (Sergey Levine)",
+      url: "https://deepgenerativemodels.github.io/",
+      source: "Stanford CS236 (Stefano Ermon - Diffusion, VAEs, SDEs)",
     },
     {
-      title: "Reinforcement Learning: An Introduction",
+      title: "Continuous Normalizing Flows & Optimal Transport Flow Matching",
       status: "live",
-      source: "Richard S. Sutton & Andrew G. Barto (MIT Press)",
+      source: "Yaron Lipman et al. (Meta AI / Weizmann Institute)",
     },
     {
-      title: "Test-Time Search & Reasoning in Foundation Models",
+      title: "Privacy-Preserving Synthetic Data & Membership Inference Audits",
       status: "live",
-      source: "Frontier Reasoning & Tree Search Seminars",
+      source: "Harvard Privacy Tools Project & Differential Privacy Research",
     },
   ],
   8: [
     {
-      title: "Benchmark Creation, Datasets & Evaluation Science",
+      title: "Empirical Experimental Design & Ablation Methodologies",
       status: "live",
-      source: "NeurIPS Track on Datasets and Benchmarks Guidelines",
+      source: "NeurIPS Reproducibility Challenge & Guidelines",
     },
     {
-      title: "Datasheets for Datasets & Human Annotation Reliability",
+      title: "Fair Baseline Selection & Mitigating the Weak Baseline Fallacy",
       status: "live",
-      source: "Timnit Gebru et al. (Communications of the ACM)",
+      source: "ACM Computing Surveys (CSUR) Experimental Rigor Protocol",
     },
     {
-      title: "LLM-as-a-Judge Calibration & Contamination Auditing",
+      title: "Benchmark De-Contamination & Evaluation Science",
       status: "live",
-      source: "LMSYS Organization & Chatbot Arena Research",
+      source: "LMSYS Organization & EleutherAI Evaluation Standards",
     },
   ],
   9: [
     {
-      title: "Language Modeling from Scratch (HPC Systems & Architecture)",
+      title: "Language Modeling from Scratch (HPC Systems & Supercomputing)",
       status: "live",
       url: "https://stanford-cs336.github.io/spring2024/",
-      source: "Stanford CS336",
+      source: "Stanford CS336 (Distributed Systems, SLURM & MFU Profiling)",
     },
     {
-      title: "High Performance Computing for Deep Learning",
+      title: "High Performance Computing for Deep Learning (11-868)",
       status: "live",
-      source: "CMU 11-868 / Supercomputing Cluster Architecture",
+      source: "Carnegie Mellon University (CMU 11-868 / Supercomputing)",
     },
     {
-      title: "Distributed Training at Scale (Megatron & FSDP)",
+      title: "Distributed Training at Scale (Megatron-LM & PyTorch FSDP)",
       status: "live",
-      source: "NVIDIA Developer & Meta AI Research Systems Documentation",
+      source: "NVIDIA Developer & PyTorch Core Distributed Team",
     },
   ],
   10: [
     {
-      title: "Large Language Model Pre-Training Dynamics",
+      title: "Large Language Model Pre-Training Dynamics (CS324)",
       status: "live",
       url: "https://stanford-cs324.github.io/winter2022/",
-      source: "Stanford CS324 (Percy Liang)",
+      source: "Stanford CS324 (Percy Liang - Scaling Laws & Training Dynamics)",
     },
     {
-      title: "Scaling Laws for Neural Language Models",
+      title: "Domain-Adaptive Pre-Training (DAPT) in Specialized Sectors",
       status: "live",
-      source: "Kaplan et al. (OpenAI) & Hoffmann et al. (DeepMind Chinchilla)",
+      source: "Allen Institute for AI (AI2) & BioMedNLP Research",
     },
     {
-      title: "Tokenizer Information Theory & Pre-Training Stability",
+      title: "Parameter-Efficient Fine-Tuning: LoRA, QLoRA & DoRA",
       status: "live",
-      source: "EleutherAI & Hugging Face Research Papers",
+      source: "Tim Dettmers et al. (University of Washington / Meta AI)",
     },
   ],
   11: [
     {
       title: "Mechanistic Interpretability of Neural Networks",
       status: "live",
+      url: "https://transformer-circuits.pub/",
       source: "Anthropic Research (Transformer Circuits / Elhage et al.)",
     },
     {
@@ -226,79 +229,80 @@ export const coursesByLevel: Record<number, Course[]> = {
       source: "Neel Nanda (ARENA Interpretability Curriculum)",
     },
     {
-      title: "Representation Engineering & Monosemantic Dictionary Learning",
+      title: "Axiomatic Feature Attribution: SHAP & Integrated Gradients",
       status: "live",
-      source: "Center for AI Safety / Anthropic SAE Research",
+      source: "Lundberg (Nature Biomedical Engineering) & Sundararajan (ICML)",
     },
   ],
   12: [
     {
-      title: "AI Safety, Ethics and Society",
-      status: "live",
-      url: "https://course.aisafetybook.com/",
-      source: "Dan Hendrycks (Center for AI Safety / UC Berkeley)",
-    },
-    {
-      title: "Mathematical Foundations of Alignment & Preference Optimization",
-      status: "live",
-      source: "Rafailov et al. (Direct Preference Optimization, Stanford)",
-    },
-    {
       title: "Adversarial Machine Learning & Robust Optimization",
       status: "live",
-      source: "Aleksander Mądry (MIT EECS)",
+      source: "Aleksander Mądry (MIT EECS / Center for Deployable Machine Learning)",
+    },
+    {
+      title: "Preference Alignment: Direct Preference Optimization (DPO)",
+      status: "live",
+      source: "Rafael Rafailov et al. (Stanford University AI Lab)",
+    },
+    {
+      title: "Algorithmic Fairness, Demographic Disparity & Bias Auditing",
+      status: "live",
+      url: "https://fairmlclass.github.io/",
+      source: "Moritz Hardt (UC Berkeley / Max Planck Institute)",
     },
   ],
   13: [
     {
-      title: "Multimodal Foundation Models & Vision-Language",
+      title: "Visual Recognition and Multimodal Foundations (CS231N)",
       status: "live",
-      source: "Stanford CS231N (Fei-Fei Li) / LLaVA Research Papers",
+      source: "Stanford CS231N (Fei-Fei Li / Vision-Language Models)",
     },
     {
-      title: "AI for Structural Biology & Protein Design",
+      title: "Multimodal Clinical AI & Radiology Foundation Models",
       status: "live",
-      source: "AlphaFold2 (DeepMind) & ESM-2 (Meta AI Research)",
+      source: "Nature Medicine / Lancet Digital Health Research Reviews",
     },
     {
-      title: "Physics-Informed Neural Networks & Neural Operators",
+      title: "Multimodal Cybersecurity & Threat Intelligence Correlation",
       status: "live",
-      source: "George Karniadakis (Brown University / Nature Reviews)",
+      source: "USENIX Security / IEEE Symposium on Security and Privacy (S&P)",
     },
   ],
   14: [
     {
-      title: "Mastering the AI/ML Doctoral Dissertation",
+      title: "Mastering the AI/ML Doctoral Dissertation & Honors Thesis",
       status: "live",
       source: "MIT EECS / Stanford CS Doctoral Thesis Handbook",
     },
     {
-      title: "Conference-Grade Experimental Replication",
+      title: "Conference-Grade Experimental Replication & Artifact Evaluation",
       status: "live",
-      source: "ML Reproducibility Challenge & Papers with Code",
+      source: "ML Reproducibility Challenge & ACM Artifact Evaluation",
     },
     {
-      title: "Flagship Research Project Design",
+      title: "Flagship Research Capstone Execution Protocol",
       status: "live",
       source: "OpenReview Premier Track Proceedings",
     },
   ],
   15: [
     {
-      title: "Whitesides' Group: Writing a Paper",
+      title: "Whitesides' Group: Writing a Scientific Paper",
       status: "live",
       url: "https://doi.org/10.1002/adma.200400767",
-      source: "George M. Whitesides (Advanced Materials)",
+      source: "George M. Whitesides (Harvard University / Advanced Materials)",
     },
     {
       title: "How to Write a Great Research Paper & Give a Great Talk",
       status: "live",
-      source: "Simon Peyton Jones (Microsoft Research / Cambridge)",
+      url: "https://www.microsoft.com/en-us/research/academic-program/write-great-research-paper/",
+      source: "Simon Peyton Jones (Microsoft Research / University of Cambridge)",
     },
     {
-      title: "Academic Career & Industry Research Scientist Interview Guide",
+      title: "Navigating Premier Journals & OpenReview Author Rebuttals",
       status: "live",
-      source: "CRA (Computing Research Association) Academic Careers",
+      source: "IEEE TPAMI, JMLR & Nature Machine Intelligence Author Guides",
     },
   ],
 };
@@ -310,6 +314,7 @@ export interface Book {
   title: string;
   author: string;
   url?: string;
+  venue?: string;
 }
 
 export const booksByLevel: Record<number, Book[]> = {
@@ -318,72 +323,101 @@ export const booksByLevel: Record<number, Book[]> = {
       title: "The Turing Way: A Handbook for Reproducible Data Science",
       author: "The Turing Way Community",
       url: "https://the-turing-way.netlify.app/",
+      venue: "Open Science Monograph",
     },
   ],
   1: [
     {
-      title: "How to Read a Paper",
-      author: "S. Keshav (ACM SIGCOMM)",
-      url: "http://ccr.sigcomm.org/online/files/p83-keshav.pdf",
+      title: "Tomorrow's Professor: Preparing for Academic Careers in Science & Engineering",
+      author: "Richard M. Reis (Stanford University)",
+      url: "https://tomprof.stanford.edu/",
+      venue: "IEEE Press / Wiley",
     },
   ],
   2: [
     {
-      title: "Mathematics for Machine Learning",
-      author: "Marc Peter Deisenroth, A. Aldo Faisal, Cheng Soon Ong",
-      url: "https://mml-book.github.io/",
+      title: "How to Read a Paper",
+      author: "S. Keshav (University of Waterloo)",
+      url: "http://ccr.sigcomm.org/online/files/p83-keshav.pdf",
+      venue: "ACM SIGCOMM Computer Communication Review",
     },
     {
-      title: "All of Statistics: A Concise Course in Statistical Inference",
-      author: "Larry Wasserman",
-      url: "https://link.springer.com/book/10.1007/978-0-387-21736-9",
+      title: "Writing for Computer Science (3rd ed.)",
+      author: "Justin Zobel (University of Melbourne)",
+      url: "https://link.springer.com/book/10.1007/978-1-4471-6639-9",
+      venue: "Springer Texts in Computer Science",
     },
   ],
   3: [
     {
-      title: "Empirical Methods for Artificial Intelligence",
-      author: "Paul R. Cohen (MIT Press)",
-      url: "https://mitpress.mit.edu/9780262032254/empirical-methods-for-artificial-intelligence/",
+      title: "Mathematics for Machine Learning",
+      author: "Marc Peter Deisenroth, A. Aldo Faisal, Cheng Soon Ong",
+      url: "https://mml-book.github.io/",
+      venue: "Cambridge University Press",
+    },
+    {
+      title: "All of Statistics: A Concise Course in Statistical Inference",
+      author: "Larry Wasserman (Carnegie Mellon University)",
+      url: "https://link.springer.com/book/10.1007/978-0-387-21736-9",
+      venue: "Springer Texts in Statistics",
     },
   ],
   4: [
     {
-      title: "Deep Learning Systems",
-      author: "Tianqi Chen & Zico Kolter",
-      url: "https://dlsyscourse.org/",
+      title: "Datasheets for Datasets",
+      author: "Timnit Gebru, Jamie Morgenstern, Briana Vecchione, et al.",
+      url: "https://arxiv.org/abs/1803.09010",
+      venue: "Communications of the ACM (CACM)",
+    },
+    {
+      title: "MIMIC-IV, a Freely Accessible Electronic Health Record Dataset",
+      author: "Alistair Johnson, Lucas Bulgarelli, Tom Pollard, et al.",
+      url: "https://www.nature.com/articles/s41597-023-01988-w",
+      venue: "Nature Scientific Data",
     },
   ],
   5: [
     {
-      title: "Speech and Language Processing (3rd ed.)",
-      author: "Dan Jurafsky, James H. Martin",
-      url: "https://web.stanford.edu/~jurafsky/slp3/",
+      title: "Deep Learning",
+      author: "Ian Goodfellow, Yoshua Bengio, Aaron Courville",
+      url: "https://www.deeplearningbook.org/",
+      venue: "MIT Press",
     },
     {
-      title: "Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges",
-      author: "Michael M. Bronstein, Joan Bruna, Taco Cohen, Petar Veličković",
-      url: "https://geometricdeeplearning.com/",
+      title: "The Elements of Statistical Learning: Data Mining, Inference, and Prediction",
+      author: "Trevor Hastie, Robert Tibshirani, Jerome Friedman",
+      url: "https://hastie.su.domains/ElemStatLearn/",
+      venue: "Springer Series in Statistics",
     },
   ],
   6: [
     {
-      title: "Probabilistic Machine Learning: Advanced Topics",
-      author: "Kevin P. Murphy (MIT Press)",
-      url: "https://probml.github.io/pml-book/book2.html",
+      title: "Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges",
+      author: "Michael M. Bronstein, Joan Bruna, Taco Cohen, Petar Veličković",
+      url: "https://geometricdeeplearning.com/",
+      venue: "MIT Press / Cambridge",
+    },
+    {
+      title: "Speech and Language Processing (3rd ed.)",
+      author: "Dan Jurafsky, James H. Martin (Stanford University)",
+      url: "https://web.stanford.edu/~jurafsky/slp3/",
+      venue: "Pearson / Prentice Hall",
     },
   ],
   7: [
     {
-      title: "Reinforcement Learning: An Introduction (2nd ed.)",
-      author: "Richard S. Sutton, Andrew G. Barto",
-      url: "http://incompleteideas.net/book/the-book-2nd.html",
+      title: "Probabilistic Machine Learning: Advanced Topics",
+      author: "Kevin P. Murphy (Google DeepMind)",
+      url: "https://probml.github.io/pml-book/book2.html",
+      venue: "MIT Press",
     },
   ],
   8: [
     {
-      title: "Datasheets for Datasets",
-      author: "Timnit Gebru, Jamie Morgenstern, Briana Vecchione, et al.",
-      url: "https://arxiv.org/abs/1803.09010",
+      title: "Empirical Methods for Artificial Intelligence",
+      author: "Paul R. Cohen (University of Massachusetts)",
+      url: "https://mitpress.mit.edu/9780262032254/empirical-methods-for-artificial-intelligence/",
+      venue: "MIT Press",
     },
   ],
   9: [
@@ -391,6 +425,7 @@ export const booksByLevel: Record<number, Book[]> = {
       title: "High Performance Python: Practical Performant Programming for Humans",
       author: "Micha Gorelick, Ian Ozsvald",
       url: "https://www.oreilly.com/library/view/high-performance-python/9781492055013/",
+      venue: "O'Reilly Media",
     },
   ],
   10: [
@@ -398,6 +433,13 @@ export const booksByLevel: Record<number, Book[]> = {
       title: "Scaling Laws for Neural Language Models",
       author: "Jared Kaplan, Sam McCandlish, Tom Henighan, et al. (OpenAI)",
       url: "https://arxiv.org/abs/2001.08361",
+      venue: "ArXiv / OpenAI Research",
+    },
+    {
+      title: "Training Compute-Optimal Large Language Models (Chinchilla)",
+      author: "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, et al. (DeepMind)",
+      url: "https://arxiv.org/abs/2203.15556",
+      venue: "NeurIPS Best Paper Track",
     },
   ],
   11: [
@@ -405,20 +447,41 @@ export const booksByLevel: Record<number, Book[]> = {
       title: "A Mathematical Framework for Transformer Circuits",
       author: "Nelson Elhage, Neel Nanda, Catherine Olsson, et al. (Anthropic)",
       url: "https://transformer-circuits.pub/2021/framework/index.html",
+      venue: "Transformer Circuits Publishing",
+    },
+    {
+      title: "A Unified Approach to Interpreting Model Predictions (SHAP)",
+      author: "Scott M. Lundberg, Su-In Lee",
+      url: "https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html",
+      venue: "Advances in Neural Information Processing Systems (NeurIPS)",
     },
   ],
   12: [
     {
-      title: "An Introduction to AI Safety, Ethics, and Society",
-      author: "Dan Hendrycks (Center for AI Safety)",
-      url: "https://course.aisafetybook.com/",
+      title: "Towards Deep Learning Models Resistant to Adversarial Attacks",
+      author: "Aleksander Mądry, Aleksandar Makelov, Ludwig Schmidt, et al. (MIT)",
+      url: "https://arxiv.org/abs/1706.06083",
+      venue: "International Conference on Learning Representations (ICLR)",
+    },
+    {
+      title: "Direct Preference Optimization: Your Language Model Is Secretly a Reward Model",
+      author: "Rafael Rafailov, Archit Sharma, Eric Mitchell, et al. (Stanford)",
+      url: "https://arxiv.org/abs/2305.18290",
+      venue: "NeurIPS Oral Presentation",
     },
   ],
   13: [
     {
-      title: "Deep Learning for the Life Sciences",
-      author: "Bharath Ramsundar, Peter Eastman, Pat Walters, Vijay Pande",
-      url: "https://www.oreilly.com/library/view/deep-learning-for/9781492039822/",
+      title: "Learning Transferable Visual Models From Natural Language Supervision (CLIP)",
+      author: "Alec Radford, Jong Wook Kim, Chris Hallacy, et al. (OpenAI)",
+      url: "https://arxiv.org/abs/2103.00020",
+      venue: "International Conference on Machine Learning (ICML)",
+    },
+    {
+      title: "Visual Instruction Tuning (LLaVA)",
+      author: "Haotian Liu, Chunyuan Li, Qingyang Wu, Yong Jae Lee",
+      url: "https://arxiv.org/abs/2304.08485",
+      venue: "Advances in Neural Information Processing Systems (NeurIPS)",
     },
   ],
   14: [
@@ -426,21 +489,41 @@ export const booksByLevel: Record<number, Book[]> = {
       title: "The Craft of Research (4th ed.)",
       author: "Wayne C. Booth, Gregory G. Colomb, Joseph M. Williams",
       url: "https://press.uchicago.edu/ucp/books/book/chicago/C/bo23521678.html",
+      venue: "The University of Chicago Press",
     },
   ],
   15: [
     {
-      title: "Whitesides' Group: Writing a Paper",
-      author: "George M. Whitesides (Advanced Materials)",
-      url: "https://doi.org/10.1002/adma.200400767",
+      title: "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)",
+      author: "IEEE Computer Society",
+      url: "https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34",
+      venue: "Premier Computer Science Journal (Impact Factor: 20.8)",
     },
     {
-      title: "How to Write a Great Research Paper",
-      author: "Simon Peyton Jones (Microsoft Research / Cambridge)",
-      url: "https://www.microsoft.com/en-us/research/academic-program/write-great-research-paper/",
+      title: "Journal of Machine Learning Research (JMLR)",
+      author: "JMLR Editorial Board",
+      url: "https://www.jmlr.org/",
+      venue: "Premier Open-Access Machine Learning Journal",
+    },
+    {
+      title: "Nature Machine Intelligence",
+      author: "Nature Portfolio",
+      url: "https://www.nature.com/natmachintell/",
+      venue: "High-Impact Interdisciplinary AI Research Journal",
+    },
+    {
+      title: "Lancet Digital Health",
+      author: "The Lancet Publishing Group",
+      url: "https://www.thelancet.com/journals/landig/home",
+      venue: "Top Medical AI & Clinical Informatics Journal",
+    },
+    {
+      title: "IEEE Transactions on Information Forensics and Security (TIFS)",
+      author: "IEEE Signal Processing Society",
+      url: "https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=10206",
+      venue: "Top Cybersecurity & Forensic Machine Learning Journal",
     },
   ],
 };
 
 export const booksFor = (level: number): Book[] => booksByLevel[level] ?? [];
-
