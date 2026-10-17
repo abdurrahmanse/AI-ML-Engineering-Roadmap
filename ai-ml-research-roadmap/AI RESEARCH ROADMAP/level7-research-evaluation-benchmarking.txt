@@ -1,94 +1,101 @@
-Level 7 · Research Evaluation Methodology & Benchmarking Science
+Level 7 · Reinforcement Learning, Search & Test-Time Reasoning
 
-Scope: master scientific rigor in artificial intelligence evaluation: statistical hypothesis testing, confidence intervals, benchmark contamination detection, Elo rating systems, automated evaluation theory, and reproducibility protocols.
+Phase: Reasoning, Benchmarks & Rigor
+Suggested duration: 13 sessions (~3 weeks)
+Prerequisites: Level 6 (Generative Modeling & Probabilistic Machine Learning)
+Scope: Master reinforcement learning, planning, and test-time reasoning in AI research: Markov Decision Processes (MDPs), policy optimization (PPO, SAC), search algorithms (MCTS, Tree-of-Thoughts), Process Reward Models (PRMs), and test-time compute scaling laws.
 
-Prerequisites: Level 6
+M7.1 · Markov Decision Processes, Dynamic Programming & Bellman Optimality — (sessions: 2)
+Session 1 · Mathematical Foundations of Reinforcement Learning
+- Formulate the reinforcement learning problem as a Markov Decision Process (MDP): state space S, action space A, transition probability P, reward function R, and discount factor gamma.
+- Formalize policies pi(a|s), state-value functions V^pi(s), and action-value functions Q^pi(s, a) under infinite-horizon discounted return objectives.
+- Derive the Bellman Expectation Equations for V^pi and Q^pi by unrolling the recursive definition of expected discounted return.
+Session 2 · Bellman Optimality & Contraction Mappings
+- State and prove the Bellman Contraction Mapping theorem under the L-infinity norm, establishing the existence and uniqueness of the optimal value function Q*.
+- Implement exact dynamic programming algorithms: Policy Iteration (alternating policy evaluation and policy improvement) and Value Iteration.
+- Analyze the curse of dimensionality in continuous state and action spaces, motivating deep parametric function approximation.
+Mental model: The Bellman equation is a recursive consistency constraint; dynamic programming contracts arbitrary value guesses toward the true optimal policy.
+Try: Implement Value Iteration in Python for a discrete gridworld MDP, verify contraction mapping convergence rates, and extract the optimal deterministic policy.
+Outcome: Formulate sequential decision-making problems as MDPs and derive the fundamental convergence proofs of dynamic programming.
 
-M7.1 · Statistical Hypothesis Testing & Significance in ML — (sessions: 3)
+M7.2 · Deep Q-Networks & Value Function Approximation Stability — (sessions: 2)
+Session 1 · Q-Learning with Deep Neural Networks
+- Approximate action-value functions using deep neural networks Q_theta(s, a) and formulate the temporal difference (TD) loss objective.
+- Identify the root causes of instability in non-linear value approximation: non-stationary target distributions, correlated data streams, and policy oscillations.
+- Implement the core Deep Q-Network (DQN) stabilizing mechanisms: experience replay buffer sampling and decoupled frozen target networks Q_target.
+Session 2 · Advanced Value Function Enhancements
+- Mitigate overestimation bias in action-value updates using Double DQN (DDQN), decoupling action selection from value evaluation.
+- Implement Dueling DQN architectures, decomposing Q(s, a) into independent state value V(s) and state-dependent action advantage A(s, a) streams.
+- Master Prioritized Experience Replay (PER), sampling historical transitions according to TD-error magnitudes with importance-sampling correction weights.
+Mental model: Double DQN prevents maximization bias: the main network nominates the best action, while the target network calculates its honest value.
+Try: Implement a Deep Q-Network from scratch in PyTorch with experience replay and target networks, training it to solve the CartPole-v1 benchmark environment.
+Outcome: Build stable deep Q-learning architectures and eliminate maximization bias using Double DQN and dueling streams.
 
-Understand why raw metric differences (e.g. 0.8% accuracy improvement) are scientifically meaningless without statistical significance testing.
-Formulate Null Hypothesis Significance Testing (NHST): null hypothesis H_0, alternative hypothesis H_1, Type I error rate alpha, and Type II error rate beta (statistical power).
-Analyze parametric tests (paired Student's t-test) and explain why their normality assumptions are frequently violated in machine learning benchmarks.
-Master non-parametric tests: Wilcoxon signed-rank test for paired model comparisons and Mann-Whitney U test for independent samples.
-Master Bootstrapping: non-parametric bootstrap resampling, constructing empirical bootstrap distributions, and computing 95% studentized bootstrap confidence intervals.
-Understand Permutation Tests: exact non-parametric tests through random label permutation under the null hypothesis.
-Address the Multiple Hypothesis Testing problem: family-wise error rate (FWER) inflation, Bonferroni correction, and Benjamini-Hochberg False Discovery Rate (FDR) control.
-Outcome: implement non-parametric bootstrap confidence interval estimation and perform Benjamini-Hochberg corrections across multi-model benchmark results.
+M7.3 · Policy Gradients, Trust Region Policy Optimization (TRPO) & PPO — (sessions: 2)
+Session 1 · The Policy Gradient Theorem & REINFORCE
+- Derive the Policy Gradient Theorem analytically: \nabla_theta J(theta) = E_{tau ~ pi_theta}[\sum_t \nabla_theta log pi_theta(a_t|s_t) G_t].
+- Implement the REINFORCE algorithm with baseline subtraction to reduce gradient variance without introducing estimator bias.
+- Formulate Generalized Advantage Estimation (GAE), balancing the bias-variance trade-off in temporal difference returns using the exponential decay factor lambda.
+Session 2 · Trust Region Methods & Proximal Policy Optimization (PPO)
+- Understand policy collapse: small parameter updates in neural policies can cause catastrophic performance degradation from which the agent cannot recover.
+- Formulate the Trust Region Policy Optimization (TRPO) objective enforcing a Kullback-Leibler (KL) divergence constraint D_KL(pi_old || pi) <= delta.
+- Implement Proximal Policy Optimization (PPO): the clipped surrogate objective L_CLIP(theta) bounding policy probability ratios without expensive second-order Hessian computation.
+Mental model: PPO's clipped objective is an insurance policy: it forbids the policy from changing too dramatically in a single update step.
+Try: Implement the PPO clipped objective function in PyTorch, verify that gradient updates are zeroed out when probability ratios exceed 1 + epsilon or 1 - epsilon.
+Outcome: Derive the policy gradient theorem, implement Generalized Advantage Estimation, and master Proximal Policy Optimization.
 
-M7.2 · Benchmark Design, Goodhart's Law & Dataset Contamination — (sessions: 4)
+M7.4 · Test-Time Reasoning: Chain-of-Thought, Tree-of-Thoughts & MCTS Search — (sessions: 2)
+Session 1 · Circuit Complexity of Reasoning & Chain-of-Thought
+- Analyze the computational expressivity of autoregressive Transformers: constant-depth circuit limitations on complex multi-step reasoning tasks.
+- Formalize Chain-of-Thought (CoT) prompting as allocating additional dynamic runtime token steps, increasing effective computational circuit depth.
+- Differentiate between zero-shot CoT ("Let's think step by step"), few-shot exemplar demonstrations, and self-consistency voting across multiple sampled traces.
+Session 2 · Structured Search Over Latent Thought Spaces
+- Formulate reasoning as explicit search over a state space of intermediate thoughts: the Tree of Thoughts (ToT) framework.
+- Implement graph search heuristics over thought trees: breadth-first search (BFS), depth-first search (DFS) with backtracking, and beam search.
+- Master Monte Carlo Tree Search (MCTS) for language model reasoning: Selection (PUCT formula), Expansion, Rollout/Evaluation, and Backpropagation.
+Mental model: Autoregressive decoding is a single greedy walk through thought space; MCTS explores a branching tree of alternative deduction paths.
+Try: Implement a Tree of Thoughts search controller in Python using an LLM API, solving a complex mathematical puzzle via systematic branching and pruning.
+Outcome: Formalize test-time reasoning as computational search, implement Tree-of-Thoughts, and integrate Monte Carlo Tree Search.
 
-Examine Goodhart's Law and Campbell's Law in AI evaluation: "When a measure becomes a target, it ceases to be a good measure."
-Study Benchmark Saturation: how rapid community overfitting and hill-climbing render benchmarks (GLUE, SuperGLUE, SQuAD) obsolete.
-Analyze Benchmark Contamination: test set leakage into web-scraped pre-training corpora via verbatim overlap, paraphrased overlap, or token translation.
-Master Contamination Detection Techniques: n-gram decontamination (13-gram overlap filtering, Brown et al.), min-hash LSH deduplication, and perplexity anomaly analysis.
-Study Memorization vs Generalization Probing: Carlini et al. prefix-probing techniques to detect whether a model has memorized specific benchmark questions.
-Design Contamination-Robust Benchmarks: dynamic test sets, private holdouts, programmatic question generators, and continuous evaluation suites (e.g. Chatbot Arena, SWE-bench).
-Analyze Evaluation Suite Methodologies: holistic evaluation frameworks like HELM (Holistic Evaluation of Language Models) balancing accuracy, calibration, robustness, bias, and efficiency.
-Outcome: implement an n-gram decontamination pipeline that scans a pre-training corpus for exact and fuzzy benchmark overlaps, reporting contamination percentage.
+M7.5 · Process vs. Outcome Supervision: Training Process Reward Models (PRMs) — (sessions: 2)
+Session 1 · The Limits of Outcome Reward Models (ORMs)
+- Analyze Outcome Reward Models (ORMs): assigning a single binary scalar reward at the conclusion of a multi-step reasoning trajectory.
+- Identify the credit assignment problem in ORMs: intermediate logical errors receive positive credit if the final answer is accidentally correct (false positives).
+- Understand step-level reward hacking where models generate degenerate or repetitive intermediate derivations to satisfy coarse outcome signals.
+Session 2 · Process Reward Models & Step-Level Verification
+- Formulate Process Reward Models (PRMs): predicting the step-by-step correctness probability r_t \in [0, 1] for every individual deduction step.
+- Implement step-level synthetic data collection protocols: automated verification rollouts, Monte Carlo value estimation, and active learning annotation.
+- Evaluate search efficiency: compare Best-of-N selection and guided beam search steered by PRMs versus standard ORMs on mathematical reasoning benchmarks (MATH, GSM8K).
+Mental model: An ORM only checks the final destination; a PRM acts as an experienced mathematician grading every individual step on the chalkboard.
+Try: Train a step-level verification classifier on mathematical solutions, score multi-step traces, and use PRM scores to guide a beam search decoder.
+Outcome: Implement Process Reward Models from scratch, solve credit assignment in multi-step reasoning, and steer test-time search.
 
-M7.3 · Elo Rating Systems & Pairwise Comparative Evaluation — (sessions: 3)
+M7.6 · Capstone Project: Policy Optimization Benchmark & Guided Tree Search Engine — (sessions: 3)
+Session 1 · Reinforcement Learning Core & Reasoning Search Architecture
+- Implement a modular, vectorized implementation of Proximal Policy Optimization (PPO) in PyTorch with Generalized Advantage Estimation.
+- Construct a test-time search controller combining an autoregressive policy model with a step-level Process Reward Model (PRM).
+- Implement the Upper Confidence Bound for Trees (PUCT) algorithm to balance exploration and exploitation across intermediate reasoning branches.
+Session 2 · Test-Time Scaling Law Profiling & Empirical Defense
+- Benchmark reasoning performance across test-time compute budgets: evaluate accuracy as a function of search rollout samples and tree expansions.
+- Plot empirical test-time compute scaling curves comparing greedy decoding, Best-of-N sampling, and MCTS tree search.
+- Author a research report documenting empirical findings, ablation studies on tree search parameters, and comparative reasoning accuracy.
+Mental model: Test-time compute scaling demonstrates that additional inference compute can substitute for orders of magnitude more pre-training parameters.
+Try: Run the guided MCTS search engine across 50 challenging reasoning problems, and plot the accuracy curve as search budget increases from 1 to 64 samples.
+Outcome: Build state-of-the-art reinforcement learning and guided tree-search algorithms and analyze test-time compute scaling laws empirically.
 
-Understand pairwise comparison evaluation: why ranking outputs comparatively is significantly more reliable and discriminative than absolute Likert scale scoring.
-Derive the Elo Rating System: logistic win probability formula P(A wins) = 1 / (1 + 10^((R_B - R_A)/400)), rating update rules, and K-factor dynamics.
-Study the Bradley-Terry-Luce (BTL) Model for paired comparisons: maximum likelihood estimation of underlying latent quality parameters from observed pairwise victories.
-Analyze Bradley-Terry MLE estimation via logistic regression and iteratively reweighted least squares (IRLS).
-Master Crowdsourced Evaluation Platforms: LMSYS Chatbot Arena methodology, handling tie games, length bias, conversational turn length, and user demographic bias.
-Analyze Win-Rate Metrics: head-to-head win matrices, style-controlled win rates (adjusting for response length, markdown formatting, and tone), and bootstrap confidence intervals over Elo ranks.
-Outcome: implement the Bradley-Terry model in Python and estimate latent model Elo ratings with 95% bootstrap confidence intervals from pairwise match records.
-
-M7.4 · Automated Evaluation Theory & Judge Model Biases — (sessions: 4)
-
-Analyze LLM-as-a-Judge: using large foundation models to automate evaluation of complex, open-ended, and non-deterministic model outputs (Zheng et al., MT-Bench).
-Categorize and quantify systematic biases in judge models:
-Session 1 · Positional & Length Biases
-Position bias: the tendency of LLM judges to favor the first presented candidate response (Option A vs Option B).
-Mitigating position bias: swapping candidate order and requiring consistency, or averaging bidirectional scores.
-Length bias: the systematic tendency of judge models to score longer, more verbose answers higher regardless of factual density or accuracy.
-Session 2 · Self-Enhancement & Egocentric Biases
-Self-enhancement bias: foundation models rating responses generated by their own family or architecture systematically higher than competitor models.
-Authority and formatting biases: models over-indexing on markdown styling, polite conversational disclaimers, and authoritative tone over logical correctness.
-Session 3 · Calibration & Agreement Metrics
-Measure inter-annotator agreement: Cohen's Kappa, Fleiss' Kappa, and Krippendorff's Alpha between human experts and LLM judges.
-Calibration and error bars: calculating judge model calibration curves and Expected Calibration Error (ECE) for classification and grading tasks.
-Outcome: construct a swap-paired evaluation protocol that measures and cancels out positional bias and quantifies length bias in automated judges.
-
-M7.5 · Reproducibility Protocols, Artifact Packaging & Open Science — (sessions: 2)
-
-Understand the AI Reproducibility Crisis: missing random seeds, undocumented hardware environments, unpinned library versions, and non-deterministic CUDA operations.
-Analyze sources of non-determinism in deep learning: CUDA atomic operations, cuDNN benchmark algorithms, multi-threaded data loaders, and floating point non-associativity.
-Establish gold-standard reproducibility protocols: deterministic seed setting (Python, NumPy, PyTorch, CUDA), environment containerization (Docker, Nix), and code release standards.
-Master Artifact Packaging for Conferences (NeurIPS, ICML, ICLR): open-source code repositories, model weight checkpoints, training logs, evaluation scripts, and reproducible notebooks.
-Understand Scientific Reporting Standards: clear reporting of total compute budget (GPU hours, hardware specifications, estimated carbon footprint), negative results, and failure modes.
-Outcome: package a machine learning project into a fully reproducible, one-click artifact verifying identical evaluation scores across different machines.
-
-M7.6 · Capstone: Build a Contamination-Robust Reasoning Benchmark with Statistical Significance Testing — (sessions: 2)
-
-Design and build a scientifically rigorous evaluation benchmark suite for assessing mathematical and scientific reasoning.
-Construct a dataset of novel, human-curated or programmatically generated reasoning problems with verifiable ground-truth solutions.
-Implement an automated contamination detection scan that verifies zero leakage against public training corpora using 13-gram overlap and embedding cosine similarity checks.
-Evaluate at least four distinct open-weight foundation models across zero-shot and chain-of-thought prompting configurations.
-Perform pairwise comparison evaluation across all model outputs using both human evaluation and a debiased, position-swapped LLM-as-a-Judge.
-Fit a Bradley-Terry model to the pairwise matchup outcomes and calculate Elo ratings with 95% bootstrap confidence intervals.
-Conduct rigorous non-parametric hypothesis testing (Wilcoxon signed-rank test with Benjamini-Hochberg FDR correction) to establish whether observed performance gaps are statistically significant.
-Produce a comprehensive academic evaluation report (NeurIPS benchmark track formatting) complete with reliability metrics (Fleiss' Kappa), length bias ablation, and contamination certificates.
-Final result: an open-source, contamination-free evaluation benchmark with statistical significance verification and automated debiased judge tooling.
-
-Level 7 completion outcome
-
-By the end of this level, you should be able to:
-
-Formulate null hypothesis significance testing for machine learning model comparisons.
-Implement non-parametric bootstrap resampling to calculate rigorous 95% confidence intervals.
-Apply Benjamini-Hochberg False Discovery Rate corrections across multiple hypothesis test runs.
-Explain Goodhart's law in the context of AI benchmarks and public leaderboards.
-Implement n-gram overlap algorithms to detect benchmark contamination in pre-training data.
-Probe model memorization using prefix-matching and perplexity anomaly analysis.
-Derive the Bradley-Terry-Luce model and calculate maximum likelihood Elo ratings.
-Analyze systematic biases in LLM judges including position bias, length bias, and self-enhancement bias.
-Implement position-swapping protocols to eliminate positional preference in automated evaluations.
-Calculate Cohen's Kappa, Fleiss' Kappa, and Krippendorff's Alpha to measure inter-annotator agreement.
-Quantify Expected Calibration Error (ECE) for probabilistic classification and judging models.
-Identify and mitigate sources of non-determinism in PyTorch and CUDA operations.
-Create gold-standard reproducible scientific artifacts conforming to NeurIPS / ICML standards.
-Critique published AI research papers for statistical flaws, cherry-picked baselines, or contaminated test sets.
-Progression: Statistical Significance & Bootstrapping → Benchmark Contamination & Memorization → Pairwise Comparison & Elo Ratings → Automated Judge Biases → Reproducibility Standards → Contamination-Robust Benchmark Capstone.
+CAPSTONE PROJECT: Policy Optimization Benchmark & Guided Tree Search Engine
+BRIEF: Implement a modular PyTorch research framework combining a vectorized Proximal Policy Optimization (PPO) training pipeline with an inference-time guided Monte Carlo Tree Search (MCTS) engine driven by a step-level Process Reward Model (PRM), demonstrating empirical test-time compute scaling.
+Build an RL & search testbed that:
+- Implements a vectorized PPO algorithm from scratch in PyTorch, featuring actor and critic networks, clipped surrogate objectives, and GAE advantage estimation.
+- Solves a standardized continuous control or discrete decision benchmark environment with verified learning curves across 5 random seeds.
+- Implements an inference-time reasoning search engine that treats token sequences as a Tree of Thoughts, decomposing solutions into distinct steps.
+- Integrates a step-level Process Reward Model (PRM) that outputs probability scores for the logical validity of each individual step.
+- Implements Monte Carlo Tree Search (MCTS) guided by the PUCT selection rule to explore, evaluate, and prune candidate reasoning branches.
+- Evaluates test-time compute scaling: systematically varies search budget (number of tree rollouts per problem) and records accuracy on a multi-step benchmark.
+- Compares guided MCTS search against standard greedy decoding and Best-of-N rejection sampling under compute-matched evaluation budgets.
+- Emits formatted LaTeX tables and publication-ready vector plots illustrating test-time compute scaling curves and pass@k improvements.
+Deliverables:
+- Modular Python repository containing rl/ppo.py, search/mcts_tree.py, and models/prm_verifier.py.
+- Publication-quality vector plots (PDF) depicting test-time scaling curves (Accuracy vs. Inference FLOPs / Rollouts).
+- Complete 4-page research report PDF formatted in LaTeX detailing the algorithmic formulation and empirical findings.
+Outcome: You can design and evaluate reinforcement learning systems, build guided reasoning tree search engines, and quantify test-time compute scaling laws.

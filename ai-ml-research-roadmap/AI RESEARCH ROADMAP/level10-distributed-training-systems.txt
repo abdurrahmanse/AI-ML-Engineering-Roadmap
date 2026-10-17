@@ -1,94 +1,101 @@
-Level 10 · Distributed ML Systems & High-Performance Training
+Level 10 · Pre-Training Dynamics, Scaling Laws & Empirical Science
 
-Scope: master large-scale computational systems for deep learning research: modern GPU/accelerator architectures, 3D parallelism (tensor, pipeline, data), ZeRO and FSDP memory optimization, collective communication algorithms, and mixed-precision dynamics.
+Phase: HPC, Scaling & Interpretability
+Suggested duration: 13 sessions (~3 weeks)
+Prerequisites: Level 9 (High-Performance Computing & Scaled Research Systems)
+Scope: Master the empirical science of foundation model pre-training: deriving and fitting scaling laws (Kaplan vs. Chinchilla), diagnosing pre-training loss dynamics and loss spikes, data mixture optimization, the scientific debate surrounding emergent abilities, and tokenizer information theory.
 
-Prerequisites: Level 9
+M10.1 · Empirical Scaling Laws: Kaplan vs. Chinchilla Power-Law Fitting Methodologies — (sessions: 2)
+Session 1 · Kaplan Power Laws & Model-Centric Scaling
+- Formulate the empirical scaling hypothesis: cross-entropy loss scales as a smooth power-law function of compute budget C, dataset size D, and parameter count N.
+- Analyze the OpenAI scaling laws (Kaplan et al., 2020): L(N) = (N_c / N)^{alpha_N}, predicting that allocating compute primarily to model size N is optimal.
+- Understand the methodology of fitting power laws: running series of small compute-budget models and extrapolating performance across orders of magnitude.
+Session 2 · Chinchilla Scaling Laws & Compute-Optimal Frontiers
+- Deconstruct the DeepMind Chinchilla scaling laws (Hoffmann et al., 2022): L(N, D) = E + A / N^alpha + B / D^beta under compute constraint C \approx 6 * N * D.
+- Derive the compute-optimal scaling frontier using the method of Lagrange multipliers, proving that parameters N and tokens D should scale equally (alpha \approx beta \approx 0.5).
+- Analyze inference-optimal over-training: why open-source foundation models (Llama, Mistral) train on 15T+ tokens far past the Chinchilla compute-optimal point.
+Mental model: Scaling laws turn speculative pre-training into predictable engineering; fitting curves on 10M models predicts the exact loss of a 70B model.
+Try: Implement a non-linear least squares optimization function in SciPy, fitting the Chinchilla parametric loss equation to a synthetic matrix of (N, D, Loss) runs.
+Outcome: Derive and fit empirical scaling laws, calculate compute-optimal parameter allocations, and extrapolate performance across compute budgets.
 
-M10.1 · GPU Microarchitecture, Memory Hierarchy & Roofline Modeling — (sessions: 3)
+M10.2 · Pre-Training Optimization Dynamics: Loss Spikes, QK-Norm & z-loss Mitigations — (sessions: 2)
+Session 1 · Pre-Training Loss Trajectories & Phase Transitions
+- Analyze normal pre-training loss trajectories: rapid initial power-law descent, steady power-law decay, and asymptotic learning saturation.
+- Understand optimization schedules: cosine decay schedules, warmup duration, linear decay, and constant learning rate with cooldown phases (MiniCPM, WSD schedule).
+- Monitor gradient norms, weight norm growth, and learning rate dynamics across hundreds of thousands of pre-training optimizer steps.
+Session 2 · Diagnosing & Preventing Loss Spikes
+- Identify the root physical causes of catastrophic loss spikes during pre-training: attention logit growth causing extreme Softmax values and gradient explosions.
+- Implement Query-Key Normalization (QK-Norm): applying LayerNorm or RMSNorm directly to Q and K tensors before computing scaled dot products.
+- Master auxiliary stabilizing loss terms: the z-loss penalty (log^2 \sum e^{z_i}) that explicitly penalizes large unnormalized logits in the output vocabulary head.
+Mental model: A loss spike is a numerical tsunami in the attention layers; QK-Norm acts as a breakwater, bounding logit amplitudes regardless of scale.
+Try: Simulate an unstable pre-training run with exploding attention logits, observe the loss spike, apply QK-Norm, and verify smooth, spike-free convergence.
+Outcome: Diagnose pre-training optimization instabilities, eliminate catastrophic loss spikes using QK-Norm, and deploy robust learning rate schedules.
 
-Understand modern AI accelerator architectures: Streaming Multiprocessors (SMs), Tensor Cores, warp scheduling, and register file allocation.
-Analyze the GPU memory hierarchy: registers, shared memory / L1 cache, L2 cache, and High Bandwidth Memory (HBM2e / HBM3e).
-Master the Roofline Model: compute bound vs memory bandwidth bound regimes, operational arithmetic intensity (FLOPs per byte transferred).
-Analyze hardware interconnects: NVLink bandwidth (up to 900 GB/s per GPU), NVSwitch topologies, PCIe Gen4/Gen5 constraints, and inter-node InfiniBand (HDR/NDR) fabrics.
-Understand Triton and CUDA kernel programming conceptually: writing custom fused operators to avoid materializing intermediate activation tensors to global HBM.
-Measure Model FLOPs Utilization (MFU) and Hardware FLOPs Utilization (HFU): calculating real hardware efficiency against theoretical peak specs.
-Outcome: calculate the operational intensity of attention and linear layers, and measure MFU for a training run on a modern GPU.
+M10.3 · Data Mixture Science: Domain Weighting, Synthetic Data Annealing & Curriculum Learning — (sessions: 2)
+Session 1 · Data Mixture Optimization & Ablations
+- Analyze the composition of web-scale pre-training mixtures: web text (Common Crawl), code (GitHub), academic papers (arXiv), and structured knowledge (Wikipedia).
+- Conduct data mixture ablation studies: evaluate downstream reasoning, coding, and factual recall as a function of domain mixture percentages.
+- Implement automated data weighting: compute gradient alignment between candidate data domains and target evaluation benchmarks (DoReMi methodology).
+Session 2 · Curriculum Learning & Annealing Phases
+- Implement curriculum learning in pre-training: transitioning from broad web scrapes to high-quality textbooks, code, and synthetic reasoning datasets.
+- Master learning rate cooldown and data annealing: injecting specialized high-quality math and code tokens during the final 10-20% of the training run.
+- Evaluate the impact of data freshness, deduplication thresholds, and quality filtering on downstream pre-training sample efficiency.
+Mental model: Model weights are an empirical compression of the data mixture; changing the mixture percentage reshapes the model's fundamental cognitive abilities.
+Try: Train small language models on three contrasting data mixtures (100% web, 50/50 web-code, code-dense), benchmarking downstream reasoning accuracy.
+Outcome: Formulate data mixture strategies, optimize domain proportions systematically, and deploy data annealing during pre-training cooldown.
 
-M10.2 · Distributed Parallelism: DP, DDP, TP, PP & Sequence Parallelism — (sessions: 4)
+M10.4 · The Emergence Debate: Smooth Metrics vs. Step Discontinuities in Model Capabilities — (sessions: 2)
+Session 1 · Emergent Abilities in Large Language Models
+- Review the historical literature on emergent abilities (Wei et al., 2022): the claim that certain capabilities appear abruptly and discontinuously at specific scales.
+- Analyze the counter-argument (Schaeffer et al., 2023, "Are Emergent Abilities of Large Language Models a Mirage?"): emergence as an artifact of non-linear metrics.
+- Compare discontinuous step-function metrics (accuracy, exact match) against continuous, smooth metrics (token cross-entropy loss, Brier score).
+Session 2 · Mathematical Modeling of Metric Non-Linearities
+- Prove mathematically that a smooth, linear decrease in token error probability produces a sharp, non-linear step-function increase on multi-token sequence accuracy.
+- Differentiate between genuine qualitative phase shifts (circuit formation, in-context learning emergence) versus measurement artifacts.
+- Design rigorous evaluation protocols that report both smooth continuous metrics and discrete milestone accuracy to avoid deceptive claims.
+Mental model: If you measure a student's knowledge using pass/fail on a 10-step math problem, a 10% skill increase looks like a sudden miracle; the underlying learning is continuous.
+Try: Simulate a model whose per-token error rate decreases linearly, plot the multi-token sequence accuracy curve, and demonstrate the mathematical illusion of emergence.
+Outcome: Critically evaluate claims of emergent capabilities in foundation models, distinguish measurement artifacts, and report calibrated metrics.
 
-Master Data Parallelism: DistributedDataParallel (DDP), gradient all-reduce synchronization, bucketed communication, and overlap of backward computation with communication.
-Master Tensor Parallelism (Megatron-LM, Shoeybi et al.): intra-layer weight splitting across GPUs for ColumnParallelLinear and RowParallelLinear in attention and MLP blocks.
-Analyze communications in Tensor Parallelism: Forward pass All-Gather / All-Reduce and Backward pass All-Reduce, and why TP requires ultra-high bandwidth NVLink interconnects.
-Master Pipeline Parallelism (GPipe, PipeDream): partitioning network layers across stages, managing the pipeline bubble problem, and 1F1B (one-forward-one-backward) scheduling.
-Analyze Sequence Parallelism (Korthikanti et al., DeepSpeed Ulysses, RingAttention): splitting the sequence dimension across GPUs to overcome single-device context limits.
-Understand 3D Parallelism: combining Data Parallelism (DP), Tensor Parallelism (TP), and Pipeline Parallelism (PP) to train models exceeding 100 billion parameters.
-Outcome: implement a manual 2-GPU Tensor Parallel linear layer in PyTorch using torch.distributed primitives (All-Reduce).
+M10.5 · Tokenizer Science: Byte-Pair Encoding, Vocabulary Entropy & Cross-Lingual Compression — (sessions: 2)
+Session 1 · Tokenization Algorithms & Vocabulary Construction
+- Master the mathematics of Byte-Pair Encoding (BPE), WordPiece, and Unigram Language Model tokenization algorithms.
+- Train tokenizers from scratch using Byte-Level BPE (Hugging Face Tokenizers) with custom normalization rules and regex pre-tokenization splits.
+- Analyze the trade-offs of vocabulary size V: larger vocabularies increase embedding parameter count but improve sequence compression and inference speed.
+Session 2 · Tokenization Pathologies & Information Theory
+- Measure tokenizer efficiency using bytes-per-token compression ratios and Shannon entropy across multilingual and code domains.
+- Identify tokenization pathologies: arithmetic token fragmentation, capitalization sensitivity, and whitespace sensitivity in downstream reasoning.
+- Evaluate the "fertility" metric: the average number of tokens required to represent a single word across low-resource languages, quantifying linguistic fairness.
+Mental model: The tokenizer is the sensory organ of the language model; if numbers are chopped into arbitrary digit fragments, the model struggles with arithmetic.
+Try: Train a custom 32k vocabulary BPE tokenizer, calculate bytes-per-token compression ratios across code, English, and low-resource text, and analyze fertility.
+Outcome: Build and evaluate custom tokenizers, analyze cross-lingual compression efficiency, and eliminate tokenization pathologies.
 
-M10.3 · Memory-Efficient Training: ZeRO & Fully Sharded Data Parallelism — (sessions: 4)
+M10.6 · Capstone Project: Compute-Optimal Scaling Curve Estimation & Loss Spike Diagnostics — (sessions: 3)
+Session 1 · Multi-Scale Pre-Training Grid Execution
+- Train a grid of language models across 5 parameter scales (10M to 150M) and varying token budgets on an HPC cluster.
+- Track precise training loss trajectories, token FLOPs, and gradient norms across all grid experiments using real-time experiment logging.
+- Fit both Kaplan and Chinchilla power-law scaling models to the empirical loss data using non-linear curve fitting.
+Session 2 · Extrapolation Verification & Instability Diagnostics
+- Extrapolate the fitted scaling law to predict the exact loss and downstream performance of an unseen larger model scale (300M parameters).
+- Evaluate prediction accuracy: train the 300M model and compare empirical loss against the scaling law's predicted confidence interval.
+- Author an empirical research paper in LaTeX containing fitted scaling plots, compute-optimal parameter frontier curves, and loss stability analyses.
+Mental model: Predicting the exact loss of a large model before launching training is the hallmark of modern empirical AI science.
+Try: Fit a Chinchilla power law on small training runs, predict the final loss of a larger model within 2% error margin, and document the findings.
+Outcome: Master the empirical science of scaling laws, predict model performance across compute budgets, and diagnose pre-training optimization dynamics.
 
-Analyze the memory footprint of training a deep neural network:
-Session 1 · Model States Breakdown
-Model parameters (4 bytes per parameter in FP32, 2 bytes in FP16/BF16).
-Gradients (4 bytes in FP32 or 2 bytes in mixed precision).
-Optimizer states (Adam stores FP32 master weights, momentum, and variance: 16 bytes per parameter).
-Session 2 · Residual Memory Breakdown
-Activations (scales with batch size, sequence length, layers, hidden dimension, and attention heads).
-Activation checkpointing / gradient checkpointing: recomputing activations in backward pass to reduce memory footprint by 5-10x at the cost of a 30% compute overhead.
-Temporary buffers and memory fragmentation.
-Session 3 · The ZeRO Memory Abstraction
-Master Zero Redundancy Optimizer (ZeRO, Rajbhandari et al.):
-ZeRO-Stage 1: sharding optimizer states across data-parallel ranks (4x memory reduction with zero communication overhead).
-ZeRO-Stage 2: sharding optimizer states and gradients (further 2x reduction).
-ZeRO-Stage 3: sharding optimizer states, gradients, and model parameters across all ranks (linear memory scaling with DP world size).
-Master Fully Sharded Data Parallel (FSDP, PyTorch): native implementation of ZeRO-3, forward all-gather, backward all-gather, and reduce-scatter mechanics.
-Outcome: compute the exact memory footprint of a 7B model under DDP vs ZeRO-1 vs ZeRO-3, and train an over-sized model on single-node GPUs using PyTorch FSDP.
-
-M10.4 · Collective Communications & Ring All-Reduce Algorithms — (sessions: 3)
-
-Understand collective communication primitives: Broadcast, Scatter, Gather, All-Gather, Reduce, Reduce-Scatter, and All-Reduce.
-Analyze naive communication algorithms (parameter server, centralized hub) and their linear bandwidth bottlenecks O(N) with cluster size.
-Master the Ring All-Reduce algorithm (Baidu, Gibiansky): dividing communication into Ring Reduce-Scatter followed by Ring All-Gather.
-Derive Ring All-Reduce communication volume: 2 * ((N - 1) / N) * S bytes transferred per GPU, proving communication time is independent of the number of GPUs N.
-Study Tree-based All-Reduce and Recursive Halving-Doubling algorithms for multi-node network topologies.
-Analyze NCCL (NVIDIA Collective Communications Library): hierarchical ring algorithms routing intra-node traffic via NVLink and inter-node traffic via InfiniBand.
-Outcome: implement Ring All-Reduce from scratch in Python using peer-to-peer point-to-point send/recv calls and verify correct gradient averaging.
-
-M10.5 · Low-Precision Representations: FP16, BF16, FP8 & Quantization Science — (sessions: 3)
-
-Analyze floating-point number formats: sign bit, exponent bits (dynamic range), and mantissa bits (precision).
-Compare FP16 (5 exponent, 10 mantissa) and BF16 (8 exponent, 7 mantissa): why BF16 matches FP32 dynamic range and prevents underflow without loss scaling.
-Master Mixed Precision Training (Micikevicius et al.): keeping FP32 master weights, casting forward/backward passes to FP16/BF16, and dynamic loss scaling.
-Analyze FP8 Training (Micikevicius et al. 2022): E4M3 (higher precision for forward activations/weights) vs E5M2 (higher dynamic range for backward gradients) formats.
-Study Post-Training Quantization (PTQ): INT8, INT4, weight-only quantization (AWQ, GPTQ), and activation outliers in LLMs (LLM.int8(), Dettmers et al.).
-Explore Quantization-Aware Training (QAT): straight-through estimator (STE) and modeling quantization noise during forward passes.
-Outcome: implement an automatic mixed-precision training loop using torch.cuda.amp with custom dynamic loss scaling and gradient clipping.
-
-M10.6 · Capstone: Scale a Multi-Billion Parameter Model using FSDP with Profiling & MFU Analysis — (sessions: 2)
-
-Configure a distributed training pipeline to train a multi-billion parameter foundation model across multiple GPUs using PyTorch Fully Sharded Data Parallel (FSDP).
-Implement backward activation checkpointing and CPU offloading to maximize permissible batch size and context window length.
-Configure FSDP sharding strategy (FULL_SHARD vs SHARD_GRAD_OP) and auto-wrap policy targeting custom Transformer decoder layers.
-Implement mixed precision training using BF16 / FP16 with native PyTorch torch.distributed operations.
-Profile execution using PyTorch Profiler and NVIDIA Nsight Systems: inspect SM utilization, memory allocations, communication vs computation overlap, and kernel execution timelines.
-Calculate theoretical peak FLOPs for the hardware cluster and compute the empirical Model FLOPs Utilization (MFU) of the training run.
-Conduct an ablation study measuring training throughput (tokens per second) and memory savings across: (1) standard DDP, (2) FSDP without activation checkpointing, and (3) FSDP with activation checkpointing and operator fusion.
-Draft a systems research report detailing the scaling efficiency, communication overhead, MFU benchmarks, and memory allocation profiles.
-Final result: a production-grade distributed training codebase, complete with profiling traces and a systems paper evaluating high-performance scaling efficiency.
-
-Level 10 completion outcome
-
-By the end of this level, you should be able to:
-
-Apply the Roofline model to determine whether a neural network layer is compute-bound or memory-bound.
-Calculate Model FLOPs Utilization (MFU) to measure empirical training efficiency on GPUs.
-Derive the communication and computational mechanics of Megatron-LM Tensor Parallelism.
-Explain the pipeline bubble problem in Pipeline Parallelism and how 1F1B scheduling mitigates idle time.
-Calculate the exact memory breakdown of model weights, gradients, optimizer states, and activations.
-Explain the three stages of the Zero Redundancy Optimizer (ZeRO) and their impact on memory footprint.
-Configure PyTorch Fully Sharded Data Parallel (FSDP) for multi-billion parameter model training.
-Derive the Ring All-Reduce communication complexity and prove its independence from the number of devices.
-Explain the architectural difference between FP16 and BF16 and why BF16 prevents underflow.
-Implement automatic mixed precision training with dynamic loss scaling.
-Use PyTorch Profiler and NVIDIA Nsight to identify communication bottlenecks and memory fragmentation.
-Analyze activation outliers and explain their impact on INT8/INT4 post-training quantization.
-Progression: GPU Microarchitecture & Roofline Modeling → 3D Parallelism (DP, TP, PP, SP) → ZeRO & FSDP Memory Optimization → Collective Communications & Ring All-Reduce → Low-Precision FP8/BF16 Science → Distributed Scaling Capstone.
+CAPSTONE PROJECT: Compute-Optimal Scaling Curve Estimation & Loss Spike Diagnostics
+BRIEF: Train a systematic grid of small language models across parameter scales and token budgets, fit empirical Chinchilla scaling law curves using non-linear regression, extrapolate the predicted loss of an unseen larger model, and evaluate pre-training stability with and without QK-Norm.
+Build a scaling law research suite that:
+- Pre-trains a family of language models spanning multiple parameter scales (e.g., 10M, 25M, 60M, 125M) across strictly controlled token budgets.
+- Records exact training FLOPs (using analytical 6*N*D calculations) and validation cross-entropy loss values for every run.
+- Implements non-linear least-squares fitting (using SciPy or PyTorch optimization) to estimate the Chinchilla scaling parameters: E, A, B, alpha, and beta.
+- Solves the Lagrange multiplier problem to compute the optimal parameter-to-token allocation ratio N_opt(C) and D_opt(C).
+- Extrapolates the scaling law to predict the final loss of an unseen larger model (e.g., 250M), evaluating prediction error against empirical validation.
+- Simulates an extreme learning rate condition, demonstrating how Query-Key Normalization (QK-Norm) prevents attention logit explosion and loss spikes.
+- Computes tokenizer compression ratios (bytes per token) and vocabulary fertility across multiple linguistic domains.
+- Generates publication-quality scaling law figures (log-log Loss vs. Compute plots with fitted power-law contours) and formatted LaTeX tables.
+Deliverables:
+- Python codebase featuring scaling/curve_fit.py, models/stable_transformer.py, and bench/scaling_grid.py.
+- Publication-quality vector plots (PDF) depicting fitted scaling frontiers and loss spike diagnostic comparisons.
+- Complete 5-page empirical research paper PDF formatted in LaTeX detailing the experimental scaling methodology and extrapolation accuracy.
+Outcome: You can formulate, fit, and extrapolate empirical scaling laws, design compute-optimal pre-training runs, and guarantee optimization stability.

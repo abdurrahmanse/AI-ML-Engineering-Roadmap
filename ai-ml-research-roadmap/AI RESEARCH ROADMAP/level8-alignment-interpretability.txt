@@ -1,90 +1,101 @@
-Level 8 · Alignment Theory, Robustness & Interpretability
+Level 8 · Benchmark Creation, Data Curation & Evaluation Science
 
-Scope: investigate the mathematical foundations of AI alignment, adversarial robustness, and mechanistic interpretability: preference optimization theory, reward hacking, linear representation hypothesis, circuits, induction heads, and activation steering.
+Phase: Reasoning, Benchmarks & Rigor
+Suggested duration: 13 sessions (~3 weeks)
+Prerequisites: Level 7 (Reinforcement Learning, Search & Test-Time Reasoning)
+Scope: Master the scientific discipline of dataset curation, benchmark construction, and evaluation rigor: construct validity, annotation agreement statistics (Kappa, Alpha), contamination detection, LLM-as-a-judge calibration, and adversarial robustness testing.
 
-Prerequisites: Level 7
+M8.1 · Designing Novel Academic Benchmarks: Construct Validity & Hardness Curves — (sessions: 2)
+Session 1 · Benchmark Design & Construct Validity
+- Understand construct validity: ensuring that a benchmark quantitatively measures the intended cognitive or computational capability rather than superficial surface correlations.
+- Avoid common benchmark failure modes: shortcut learning, dataset artifact exploitation, and uncalibrated multiple-choice guessing.
+- Structure multi-task benchmark suites across distinct difficulty tiers (easy, intermediate, frontier) with clear task stratification.
+Session 2 · Hardness Curves & Discriminative Power
+- Measure the discriminative power of individual benchmark evaluation items using Item Response Theory (IRT) and difficulty curves.
+- Detect ceiling effects (where SOTA models saturate performance) and floor effects (where all models perform at random chance).
+- Design dynamic, living benchmarks that continuously evolve to prevent model overfitting to static benchmark distributions over time.
+Mental model: A benchmark is a scientific instrument; if the instrument is calibrated on spurious artifacts, all subsequent scientific discoveries are illusions.
+Try: Analyze a popular benchmark dataset, identify five examples where a model could predict the correct label using spurious surface heuristics, and fix them.
+Outcome: Author novel, robust academic benchmarks with verified construct validity and calibrated discriminative hardness curves.
 
-M8.1 · Preference Learning Theory: RLHF, DPO & Beyond — (sessions: 4)
+M8.2 · Data Curation Protocols: Deduplication, Quality Classifiers & Synthetic Generation — (sessions: 2)
+Session 1 · Pre-Training & Fine-Tuning Corpus Curation
+- Implement large-scale text preprocessing pipelines: language identification, rule-based heuristic filtering, and toxic content masking.
+- Train high-precision domain quality classifiers (fastText, shallow Transformer classifiers) to filter noisy web crawls into textbook-quality corpora.
+- Master scalable document deduplication: MinHash locality-sensitive hashing (LSH) and exact substring deduplication to prevent memorization.
+Session 2 · Synthetic Data Generation & Data Contamination Risk
+- Design synthetic data generation workflows using frontier LLMs: prompt inversion, seed task expansion, and tree-structured problem generation.
+- Implement automated verification and filtering pipelines: discard hallucinated synthetic reasoning traces using symbolic verifiers and Python sandboxes.
+- Monitor model collapse dynamics: quantify the degradation in linguistic diversity and tail-distribution collapse when models train recursively on synthetic data.
+Mental model: High-quality data is the primary driver of capability; filtering out 80% of low-quality tokens yields superior models with lower compute.
+Try: Build a data curation pipeline implementing MinHash LSH deduplication and a fastText quality classifier, filtering a raw dataset into a clean research corpus.
+Outcome: Curate high-quality scientific datasets, execute massive-scale deduplication, and generate robust synthetic data with automated verification.
 
-Formulate the Reinforcement Learning from Human Feedback (RLHF) objective: maximizing expected reward while penalizing divergence from reference policy via KL divergence D_KL(pi_theta || pi_ref).
-Analyze Reward Model Training: Bradley-Terry pairwise preference loss log sigma(r(x, y_w) - r(x, y_l)) and margin calibration.
-Analyze Reward Hacking and Overoptimization: Goodhart's law in RLHF, where the policy exploits flaws in the learned reward model to achieve high reward without satisfying true human intent (Gao et al.).
-Derive Direct Preference Optimization (DPO, Rafailov et al.) mathematically: expressing the optimal policy analytically in terms of ground-truth reward and substituting into the Bradley-Terry objective.
-Prove that DPO implicitly optimizes the exact same objective as PPO-based RLHF without training a separate reward model or executing reinforcement learning loops.
-Analyze generalizations and variants of DPO: Identity Preference Optimization (IPO, Azar et al.), Kahneman-Tversky Optimization (KTO, Ethayarajh et al.), and Simple Preference Optimization (SimPO).
-Investigate Online and Iterative DPO: on-policy negative sampling, self-play preference tuning, and preventing off-policy distribution shift.
-Outcome: derive the closed-form relationship between reward functions and optimal policies in DPO, and implement DPO loss from scratch in PyTorch.
+M8.3 · Human Annotation Science: Inter-Annotator Agreement (Kappa, Alpha) & Quality Control — (sessions: 2)
+Session 1 · Annotation Guidelines & Human Reliability
+- Author exhaustive, unambiguous annotation codebooks specifying label definitions, positive examples, edge cases, and tie-breaking rules.
+- Compute pairwise inter-annotator agreement metrics: Cohen’s kappa for two raters and Fleiss’ kappa for multiple fixed raters.
+- Apply Krippendorff’s alpha for flexible reliability estimation across arbitrary numbers of raters, missing data, and non-nominal scale types.
+Session 2 · Crowdsourcing Quality Control & Resolving Disagreements
+- Implement qualification screening tests, attention-check honey-pot instances, and rater velocity monitoring to detect low-effort crowd workers.
+- Differentiate between genuine task ambiguity (high epistemic uncertainty) versus low rater competence when resolving annotation disagreements.
+- Aggregate multi-annotator distributions using Dawid-Skene latent truth modeling rather than naive majority voting.
+Mental model: Inter-annotator agreement quantifies the objective reality of your task; if expert humans cannot agree (alpha < 0.67), a machine cannot learn it.
+Try: Conduct an annotation pilot with three raters on 100 complex domain examples, calculate Krippendorff's alpha, and revise the guidelines to resolve ambiguities.
+Outcome: Design rigorous human annotation protocols, compute statistical agreement metrics, and resolve labeling disagreements with latent truth models.
 
-M8.2 · Adversarial Robustness, Jailbreaks & Safety Bounds — (sessions: 3)
+M8.4 · Benchmark Contamination Auditing: Suffix Arrays, n-gram Overlap & Decontamination — (sessions: 2)
+Session 1 · The Mechanism of Test-Set Contamination
+- Understand how test-set contamination occurs when benchmark questions, test splits, or solutions leak into web-scale pre-training or fine-tuning corpora.
+- Distinguish between verbatim contamination (exact character overlap) versus paraphrased or synthetic contamination.
+- Analyze the catastrophic impact of contamination on scientific progress: inflated benchmark scores, false capabilities, and invalid scaling claims.
+Session 2 · Scalable Contamination Detection & Decontamination
+- Implement scalable n-gram contamination detection algorithms (e.g., 13-gram exact match scanning) across massive multi-terabyte corpora.
+- Build suffix arrays and inverted indices to identify verbatim substring overlaps between evaluation test sets and training token sets.
+- Execute automated decontamination protocols: remove contaminated documents or generate clean, private benchmark test splits with verified zero overlap.
+Mental model: Benchmark contamination is the AI equivalent of leaking the final exam before the semester starts; clean science requires strict quarantine.
+Try: Build a 13-gram contamination scanner using a suffix array, index a training corpus, and measure the exact contamination rate against a benchmark test set.
+Outcome: Audit research corpora for benchmark contamination, build scalable n-gram detectors, and guarantee pristine evaluation splits.
 
-Formulate adversarial attacks as constrained optimization problems: finding minimal perturbation delta under L_p norm bound that changes model output.
-Analyze classical adversarial attacks on vision models: Fast Gradient Sign Method (FGSM, Goodfellow et al.), Projected Gradient Descent (PGD, Madry et al.), and Carlini-Wagner (CW) attacks.
-Study Adversarial Training: minimax optimization min_theta E[max_{||delta||<=epsilon} L(theta, x + delta, y)] and its robustness guarantees.
-Analyze Adversarial Vulnerabilities in Language Models: token-level gradient attacks (Greedy Coordinate Gradient, GCG, Zou et al.), suffix optimization, and universal transferable jailbreaks.
-Examine Multimodal Jailbreaks: exploiting vision encoders with imperceptible adversarial perturbations that bypass text-based safety guardrails.
-Analyze the Safety Alignment Tax: trade-offs where aggressive refusal training reduces model helpfulness, reasoning ability, or mathematical competence.
-Outcome: implement Projected Gradient Descent (PGD) adversarial attack on neural representations and evaluate model accuracy drops under bounded perturbations.
+M8.5 · LLM-as-a-Judge Evaluation: Calibrating Biases, Win-Rates & Bradley-Terry Elo — (sessions: 2)
+Session 1 · Automated Evaluation via LLM Judges
+- Understand the methodology of using frontier models as automated evaluators (LLM-as-a-Judge) for open-ended generation, reasoning, and alignment.
+- Implement structured pairwise comparison and single-answer scoring prompts with detailed rubrics and chain-of-thought justification.
+- Quantify human-to-LLM judge correlation (Spearman rank correlation, Kendall’s tau) to validate judge reliability against human ground truth.
+Session 2 · Identifying & Mitigating Judge Biases
+- Identify systematic failure modes in LLM judges: position bias (favoring candidate A), verbosity bias (favoring longer responses), and self-enhancement bias.
+- Implement mitigation protocols: bidirectional evaluation (averaging swapped A/B orderings), length-normalized scoring, and multi-model judge ensembles.
+- Compute global competitive rankings using the Bradley-Terry probabilistic model and maximum likelihood Elo rating systems (LMSYS Chatbot Arena methodology).
+Mental model: An LLM judge is a biased human surrogate; swapping candidate order and controlling for token length prevents superficial vanity scoring.
+Try: Implement a pairwise LLM evaluation script with bidirectional order swapping, compute candidate win-rates, and estimate Bradley-Terry Elo ratings.
+Outcome: Deploy calibrated LLM-as-a-judge pipelines, eliminate position and verbosity biases, and calculate robust Bradley-Terry Elo rankings.
 
-M8.3 · Mechanistic Interpretability: Circuits & Induction Heads — (sessions: 4)
+M8.6 · Capstone Project: Decontaminated Domain Benchmark with Human Agreement Calibration — (sessions: 3)
+Session 1 · Benchmark Construction & Quality Annotation
+- Construct a novel, multi-task domain-specific evaluation benchmark comprising 500+ curated reasoning questions with calibrated difficulty tiers.
+- Formulate an exhaustive annotation codebook, collect multi-annotator judgments, and verify high inter-annotator reliability (Krippendorff’s alpha > 0.80).
+- Implement a suffix-array contamination auditing pipeline, verifying that zero evaluation instances leak into standard pre-training sets.
+Session 2 · Multi-Model Benchmarking & LLM-as-a-Judge Calibration
+- Evaluate a diverse suite of open-source and proprietary foundation models on the decontaminated benchmark across multiple random seeds.
+- Implement a bidirectional LLM-as-a-Judge pipeline, calibrating automated judgments against human expert consensus via Kendall’s tau correlation.
+- Author an academic benchmark release paper in LaTeX containing dataset statistics, baseline comparison tables, and error distribution analyses.
+Mental model: Releasing a pristine, decontaminated benchmark with verified human agreement provides an enduring standard that drives an entire research community forward.
+Try: Release your benchmark dataset on Hugging Face Datasets with complete metadata, contamination audit reports, and a verified evaluation harness.
+Outcome: Construct, validate, decontaminate, and publish an academic machine learning benchmark that establishes a new gold standard in a scientific domain.
 
-Understand the goal of Mechanistic Interpretability: reverse-engineering deep neural network weights and activations into human-understandable computational algorithms and circuits (Olah et al.).
-Study the Linear Representation Hypothesis: high-level semantic concepts are represented as linear directions (one-dimensional subspaces) in activation space (Elhage et al.).
-Analyze the Transformer as a Residual Stream: viewing layers as reading from and writing to a shared communication bus rather than transforming representations sequentially.
-Decompose Self-Attention Mathematically: QK-circuit (determining where information moves) and OV-circuit (determining what information is written to the residual stream).
-Master Induction Heads (Olsson et al.): two-layer attention circuit that detects and continues repeated token sequences [A][B] ... [A] -> [B], forming the fundamental mechanism of in-context learning.
-Study Polysemanticity and Superposition (Anthropic): models representing more features than they have dimensions by packing non-orthogonal vectors into high-dimensional space.
-Analyze Sparse Autoencoders (SAEs): training L1-regularized overcomplete autoencoders on MLP activations to disentangle superposed representations into monosemantic features.
-Outcome: implement an attention circuit visualization script that identifies induction heads in a small transformer model through copy-score metrics.
-
-M8.4 · Representation Engineering & Activation Steering — (sessions: 3)
-
-Understand Representation Engineering (RepE, Zou et al.): directly inspecting and manipulating the latent cognitive state of models rather than relying purely on prompt instructions.
-Analyze Linear Artificial Tomography (LAT): extracting contrastive activation vectors for concepts like truthfulness, toxicity, sycophancy, or utility.
-Master Activation Addition / Steering Vectors: adding a scaled concept direction vector (e.g. + alpha * v_truthful) to residual stream activations during inference.
-Compare Steering Vectors versus Prompting: stability across long conversations, resistance to adversarial jailbreaking, and low computational overhead.
-Examine Concept Erasing: null-space projections (Iterative Nullspace Projection, INLP, Ravfogel et al.) that completely remove sensitive concept directions from representations.
-Analyze the trade-offs of representation steering: unintended collateral damage to language fluency, perplexity degradation, and concept leakage across related topics.
-Outcome: extract a truthfulness steering vector by contrastive activation subtraction and demonstrate steerable suppression or elevation of honesty during text generation.
-
-M8.5 · Formal Verification & Auditing for Frontier AI Safety — (sessions: 2)
-
-Analyze Formal Verification of Neural Networks: proving mathematical guarantees that an input within a bounded region epsilon will never produce an unsafe output.
-Study Interval Bound Propagation (IBP) and Crown: computing upper and lower bounds on layer activations to certify robustness.
-Understand Scalability Limits of Formal Verification: why exact verification is NP-complete and remains intractable for billion-parameter foundation models.
-Examine Red Teaming Methodologies: automated red-teaming agents, reinforcement learning for diverse vulnerability discovery (Perez et al.), and human expert evaluation loops.
-Study Dangerous Capability Evaluations: autonomous replication benchmarks, cyberattack exploitation capabilities, chemical/biological weapon knowledge elicitation, and power-seeking behavior metrics.
-Outcome: implement Interval Bound Propagation (IBP) for a multi-layer network and compute certified robustness bounds against bounded input perturbations.
-
-M8.6 · Capstone: Mechanistic Probing of Latent Truthfulness and Steering Vector Intervention — (sessions: 2)
-
-Design an empirical research project in mechanistic interpretability and alignment: investigating whether an open-weight foundation model internally represents truthfulness when it outputs false statements.
-Curate a contrastive dataset of paired statements (True vs False across common misconceptions, factual trivia, and sycophantic traps).
-Extract intermediate residual stream activations across all layers and token positions during forward passes.
-Train linear probes (Logistic Regression / Ridge) on intermediate activations to classify truthfulness; identify the layers with maximum probe accuracy.
-Extract a global Truthfulness Steering Vector using Contrastive Activation Addition (CAA): v = Mean(A_true) - Mean(A_false).
-Inject the extracted steering vector into the residual stream at target layers during generation on hallucination-prone questions.
-Measure the quantitative impact of activation steering across: (1) truthfulness accuracy, (2) refusal rate, and (3) generation perplexity and coherence.
-Visualize attention head contributions and perform attribution patching to locate which specific attention heads write to the truthfulness subspace.
-Draft a rigorous academic research paper detailing the linear representation hypothesis findings, ablation of steering magnitudes alpha, and limitations of activation editing.
-Final result: an open-source mechanistic interpretability notebook and paper demonstrating extraction of truthfulness representations and activation steering intervention.
-
-Level 8 completion outcome
-
-By the end of this level, you should be able to:
-
-Formulate the RLHF objective and explain the role of the KL penalty against the reference policy.
-Explain reward hacking and why overoptimizing a proxy reward degrades true model alignment.
-Derive the Direct Preference Optimization (DPO) loss function mathematically from the Bradley-Terry model.
-Explain the differences between DPO, IPO, and KTO in handling implicit reward constraints.
-Implement Projected Gradient Descent (PGD) and explain adversarial perturbation bounds in L_p norm spaces.
-Explain the mechanics of token-level gradient jailbreak attacks (such as GCG) on language models.
-State the Linear Representation Hypothesis and describe how concepts are represented in activation space.
-Decompose a Transformer layer into its QK-circuit and OV-circuit components.
-Explain the function and mechanism of induction heads in in-context learning.
-Explain the phenomenon of superposition and why models pack polysemantic features into activations.
-Train a Sparse Autoencoder (SAE) to extract monosemantic dictionary features from residual stream activations.
-Extract concept steering vectors using contrastive activation analysis.
-Perform inference-time activation steering to modulate model behavior without fine-tuning weights.
-Apply Interval Bound Propagation (IBP) to certify neural network robustness bounds.
-Conduct red teaming audits to identify safety vulnerabilities and capability limits in foundation models.
-Progression: Preference Learning Theory & DPO → Adversarial Robustness & Jailbreaks → Mechanistic Interpretability & Circuits → Activation Steering & Representation Engineering → Formal Safety Bounds → Truthfulness Probing Capstone.
+CAPSTONE PROJECT: Decontaminated Domain Benchmark with Human Agreement Calibration
+BRIEF: Design, curate, and publish a novel domain-specific evaluation benchmark dataset in AI/ML, conduct human annotation with verified inter-annotator agreement (Krippendorff’s alpha), execute an automated 13-gram contamination audit against standard pre-training corpora, and benchmark leading open-source models using a calibrated LLM-as-a-judge pipeline.
+Build an academic benchmark that:
+- Curates at least 500 novel, multi-step domain-specific problem instances spanning at least three stratified difficulty levels.
+- Authors comprehensive, peer-reviewed annotation guidelines detailing edge cases, multi-step scoring criteria, and negative examples.
+- Collects multi-annotator judgments across a representative pilot subset, computing Krippendorff’s alpha and Fleiss’ kappa to prove high reliability.
+- Implements an automated 13-gram contamination auditing tool using suffix arrays or inverted indices to verify zero contamination in common pre-training corpora.
+- Evaluates at least four open-source foundation models (e.g., Llama, Mistral, Qwen variants) under standardized prompting protocols.
+- Implements a bidirectional LLM-as-a-Judge evaluation harness with position-bias correction and verbosity normalization.
+- Computes human-to-judge alignment metrics (Kendall’s tau and Spearman rank correlation), confirming statistically significant judge calibration.
+- Emits formatted LaTeX dataset documentation, datasheets for datasets (Gebru et al.), and automated leaderboards with bootstrap confidence intervals.
+Deliverables:
+- Formally documented dataset package formatted for Hugging Face Datasets with complete data loading scripts and checksum manifests.
+- Benchmark evaluation harness codebase (evaluate_benchmark.py) with automated scoring and contamination verification.
+- Complete 6-page academic benchmark paper PDF formatted in NeurIPS Datasets & Benchmarks track style.
+Outcome: You can design, curate, decontaminate, and publish standardized evaluation benchmarks that provide rigorous, cheat-proof metrics for scientific AI research.

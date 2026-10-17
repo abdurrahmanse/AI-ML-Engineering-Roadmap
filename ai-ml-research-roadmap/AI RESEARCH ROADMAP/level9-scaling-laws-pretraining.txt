@@ -1,87 +1,101 @@
-Level 9 · Foundation Model Pre-Training & Scaling Laws
+Level 9 · High-Performance Computing (HPC) & Scaled Research Systems
 
-Scope: explore the empirical science of large-scale foundation model pre-training: Kaplan versus Chinchilla scaling laws, compute-optimal allocation, synthetic data curation, pre-training loss dynamics, and tokenization frontiers.
+Phase: HPC, Scaling & Interpretability
+Suggested duration: 13 sessions (~3 weeks)
+Prerequisites: Level 8 (Benchmark Creation, Data Curation & Evaluation Science)
+Scope: Master the computational infrastructure of modern large-scale machine learning research: operating on HPC supercomputing clusters with SLURM, distributed communication primitives (NCCL), multi-GPU training (DDP, FSDP), 3D parallelism (Megatron-LM, ZeRO-3), and measuring Model FLOPs Utilization (MFU).
 
-Prerequisites: Level 8
+M9.1 · Supercomputing Cluster Architecture: SLURM Schedulers, Modules & InfiniBand Fabrics — (sessions: 2)
+Session 1 · Supercomputing Cluster Architecture & SLURM
+- Understand high-performance computing (HPC) cluster topologies: login nodes, compute nodes, shared Lustre/GPFS parallel filesystems, and scratch storage.
+- Manage cluster resource allocation using the SLURM workload manager: sbatch scripts, srun interactive allocations, squeue monitoring, and scancel.
+- Configure SLURM job submission parameters: GPU counts (--gpus-per-node), CPU cores, memory limits, job arrays, and dependency chains.
+Session 2 · Environment Modules & High-Speed Interconnects
+- Load and configure environment modules (Lmod) to access specific CUDA toolkits, cuDNN libraries, OpenMPI distributions, and compiler toolchains.
+- Understand high-speed cluster networking fabrics: InfiniBand (HDR, NDR), RoCE, Non-Uniform Memory Access (NUMA), and PCIe Gen4/Gen5 lane topology.
+- Measure inter-node and intra-node network latency and bandwidth using nccl-tests and InfiniBand diagnostics (ibv_devinfo, ib_write_bw).
+Mental model: A supercomputer is not just many servers; it is a single, tightly coupled distributed instrument synchronized across a low-latency network fabric.
+Try: Write a multi-GPU SLURM batch submission script requesting 4 GPUs on a single node, redirecting stdout/stderr, and verifying environment module initialization.
+Outcome: Operate on university and national supercomputing clusters using SLURM, manage HPC modules, and diagnose interconnect topologies.
 
-M9.1 · Empirical Scaling Laws: Kaplan vs Chinchilla — (sessions: 4)
+M9.2 · Collective Communication Primitives: Ring All-Reduce, NCCL & Hardware Topologies — (sessions: 2)
+Session 1 · Distributed Communication Primitives
+- Formalize distributed collective communication operations: Broadcast, Scatter, Gather, All-Gather, Reduce, Reduce-Scatter, and All-Reduce.
+- Derive the communication volume and time complexity of the Ring All-Reduce algorithm across N participating compute ranks.
+- Prove that Ring All-Reduce transfers exactly 2 * ((N - 1) / N) * S bytes per GPU, making communication bandwidth independent of cluster size N.
+Session 2 · NVIDIA Collective Communications Library (NCCL)
+- Understand the role of NCCL as the high-performance communication backbone for multi-GPU PyTorch training.
+- Configure NCCL ring and tree communication topologies across NVLink bridges within nodes and InfiniBand adapters between nodes.
+- Debug distributed communication stalls and deadlocks using NCCL debug environment variables (NCCL_DEBUG=INFO, NCCL_DEBUG_SUBSYS=ALL).
+Mental model: Ring All-Reduce splits gradient tensors into chunks that flow in a circle; every GPU sends and receives simultaneously without a master bottleneck.
+Try: Run an nccl-tests all_reduce_perf benchmark across multiple GPUs, measure effective bus bandwidth (GB/s), and verify near-theoretical saturation.
+Outcome: Derive collective communication algorithms analytically, configure NCCL parameters, and diagnose distributed communication bottlenecks.
 
-Understand the concept of empirical scaling laws in deep learning: power-law relationships L = (N_c / N)^alpha_N between loss, compute, data, and parameters.
-Analyze Kaplan et al. (OpenAI 2020) scaling laws: power laws for cross-entropy loss as a function of model parameter count N, dataset size D, and training compute budget C.
-Examine Kaplan's conclusion favoring scaling parameters over data: allocating compute primarily to model size while training on relatively small datasets.
-Master Chinchilla Scaling Laws (Hoffmann et al., DeepMind 2022): identifying the suboptimal learning rate schedule and under-training flaw in Kaplan's methodology.
-Analyze Hoffmann's three parametric fitting approaches: minimum loss envelopes, varying parameter count curves, and parametric loss modeling.
-Derive the Chinchilla compute-optimal scaling rule: model parameters N and training tokens D should scale in equal proportion: N proportional to C^0.5, D proportional to C^0.5.
-Understand Inference-Optimal vs Compute-Optimal Training: why frontier open-source models (Llama series) train on 15T+ tokens (far beyond Chinchilla optimal) to amortize inference serving costs.
-Outcome: fit Chinchilla power-law parameters using non-linear least squares optimization over empirical loss checkpoints and compute optimal N and D for a target FLOP budget.
+M9.3 · Distributed Data Parallel (DDP) & Fully Sharded Data Parallel (FSDP) — (sessions: 2)
+Session 1 · Distributed Data Parallel (DDP) Internals
+- Master the execution mechanics of torch.nn.parallel.DistributedDataParallel (DDP): process forking, rank assignments, and local rank mapping.
+- Understand gradient bucketing and overlapping: how DDP initiates asynchronous Ring All-Reduce operations while earlier layers are still computing gradients.
+- Implement robust distributed initialization with torch.distributed.init_process_group() using the NCCL backend and DistributedSampler.
+Session 2 · Fully Sharded Data Parallel (FSDP)
+- Analyze the memory wall of standard DDP: redundant replication of model weights, optimizer states, and gradients across every GPU rank.
+- Implement Fully Sharded Data Parallel (FSDP): sharding model parameters, gradients, and optimizer states across ranks, reconstructing weights on the fly.
+- Configure FSDP sharding strategies (FULL_SHARD, SHARD_GRAD_OP, NO_SHARD), CPU offloading, and mixed-precision communication policies.
+Mental model: DDP replicates the model everywhere and syncs gradients; FSDP shreds the model across GPUs and gathers layers just in time for execution.
+Try: Convert a standard PyTorch training loop into a multi-GPU FSDP script, and train a model whose parameter count exceeds single-GPU VRAM capacity.
+Outcome: Deploy multi-GPU training with PyTorch DDP and FSDP, overlapping compute with communication and breaking single-GPU memory barriers.
 
-M9.2 · Pre-Training Data Curation, Deduplication & Quality Filtering — (sessions: 4)
+M9.4 · 3D Parallelism: Tensor Parallelism, Pipeline Parallelism & ZeRO-1/2/3 Memory Sharding — (sessions: 2)
+Session 1 · Zero Redundancy Optimizer (DeepSpeed ZeRO)
+- Deconstruct the exact memory consumption of AdamW optimizer states (16 bytes per parameter in mixed precision).
+- Differentiate the three stages of ZeRO: ZeRO-1 (shards optimizer states), ZeRO-2 (shards optimizer states + gradients), and ZeRO-3 (shards everything).
+- Implement ZeRO memory reduction using DeepSpeed or native PyTorch FSDP, calculating exact per-GPU memory footprints across cluster sizes.
+Session 2 · 3D Parallelism: Tensor & Pipeline Parallelism (Megatron-LM)
+- Master Megatron-LM Tensor Parallelism: column-parallel linear projections for Q, K, V and row-parallel projections for output matrices.
+- Master Pipeline Parallelism: partitioning model layers sequentially across GPU stages with micro-batching to minimize pipeline bubbles (1F1B schedule).
+- Understand 3D Parallelism combinations: uniting Data Parallelism (DP), Tensor Parallelism (TP), and Pipeline Parallelism (PP) for frontier model scales.
+Mental model: Tensor Parallelism splits individual matrices across fast NVLink; Pipeline Parallelism splits layers across nodes; Data Parallelism scales across clusters.
+Try: Calculate the theoretical memory footprint of a 20B parameter model under ZeRO-1, ZeRO-2, and ZeRO-3 across an 8-GPU node.
+Outcome: Architect large-scale 3D distributed training configurations combining Tensor, Pipeline, and Sharded Data Parallelism.
 
-Analyze the composition of frontier pre-training datasets (Common Crawl, RefinedWeb, FineWeb, RedPajama, The Stack): web text, books, papers, code, and conversations.
-Study the impact of data quality on downstream performance: why filtering out low-quality web text improves model capability more than scaling model size by 2x.
-Master Quality Filtering Algorithms: fastText heuristic classifiers trained on curated high-quality text (Wikipedia, textbooks) versus raw web scrapes.
-Analyze Line-Level and Document-Level Heuristics: filtering based on word length distribution, punctuation ratios, repetition patterns, stop-word frequency, and perplexity filtering.
-Master Text Deduplication: MinHash Locality-Sensitive Hashing (LSH), Jaccard similarity thresholds, and suffix array exact substring deduplication (Lee et al.).
-Analyze the mathematical consequences of duplicate data: memorization risks, double-counting gradient updates, and loss of model generalization.
-Examine Domain Mixing and Data Curricula: balancing web text, code, mathematics, and multilingual data, and scheduling high-quality tokens toward the end of training.
-Outcome: implement a MinHash LSH deduplication pipeline and train a fastText quality filtering model to process and score raw web text.
+M9.5 · Compute Efficiency Metrics: Model FLOPs Utilization (MFU) & Hardware Profiling — (sessions: 2)
+Session 1 · Theoretical vs. Hardware FLOPs Utilization
+- Compute theoretical minimum FLOPs required for forward and backward passes of a Transformer: 6 * N * D (where N is parameters, D is tokens).
+- Define Hardware FLOPs Utilization (HFU): the percentage of raw hardware peak floating-point capacity achieved by the cluster during execution.
+- Define Model FLOPs Utilization (MFU, Chowdhery et al.): the ratio of theoretical model FLOPs to peak hardware capacity, penalizing recomputation overhead.
+Session 2 · Profiling Distributed Training Efficiency
+- Instrument distributed training runs to calculate and log real-time MFU, achieving target research efficiency benchmarks (MFU > 45-55%).
+- Identify causes of low MFU: communication bubbles, activation recomputation overhead, CPU data loading starvation, and memory bandwidth throttling.
+- Monitor power consumption, thermal throttling, and calculate the carbon footprint (CO2 equivalent) of large-scale scientific training experiments.
+Mental model: MFU is the supreme benchmark of research systems engineering: it tells you what percentage of your expensive compute budget was genuinely useful math.
+Try: Write an MFU tracking callback that calculates floating-point throughput at every step, and measure the exact MFU of a distributed training run.
+Outcome: Compute MFU and HFU rigorously, profile distributed cluster efficiency, and optimize GPU utilization to maximize scientific output per dollar.
 
-M9.3 · Synthetic Data Generation & Quality Filtering Science — (sessions: 3)
+M9.6 · Capstone Project: Multi-Node Distributed Training Harness with MFU Benchmarking — (sessions: 3)
+Session 1 · Distributed Harness Architecture & SLURM Integration
+- Construct an industrial-grade distributed training framework supporting PyTorch FSDP and Megatron-style Tensor Parallelism across multiple nodes.
+- Author robust SLURM job submission scripts with automated node discovery, master address extraction, and environment variable initialization.
+- Implement fault-tolerant distributed checkpointing using PyTorch Distributed Checkpoint (torch.distributed.checkpoint) with asynchronous saving.
+Session 2 · Benchmarking, Scaling Studies & Efficiency Profiling
+- Execute a weak scaling and strong scaling benchmark study across 1, 2, 4, and 8 GPUs on an HPC supercomputing cluster.
+- Measure and plot exact MFU, throughput (tokens/second), and communication-to-computation ratios across increasing cluster node counts.
+- Author a systems research report in LaTeX detailing scaling efficiency, communication overhead, and optimal distributed configurations.
+Mental model: A master of scaled systems turns raw hardware clusters into a transparent scientific accelerator, executing experiments that smaller labs cannot attempt.
+Try: Launch a multi-GPU FSDP training job on a compute cluster, achieve an MFU exceeding 45%, and verify distributed checkpoint resumption.
+Outcome: Deploy, optimize, and profile large-scale distributed training on HPC supercomputing clusters, achieving state-of-the-art computational efficiency.
 
-Understand the impending web data exhaustion wall (Villalobos et al.) and the strategic role of synthetic data in foundation model training.
-Analyze Synthetic Data Methodologies: self-instruct, evol-instruct (WizardLM), textbook generation (Textbooks Are All You Need, Phi series), and synthetic reasoning chains.
-Study Synthetic Data Failure Modes: model collapse (Shumailov et al.), where training models iteratively on recursive generations leads to loss of rare tail knowledge and degenerative entropy collapse.
-Examine Quality Filtering for Synthetic Data: using execution-based verifiers (unit tests for code, formal solvers for math), model judges, and diversity clustering.
-Analyze Instruction-Backtranslation: using models to generate prompts for high-quality unlabelled web documents to produce synthetic instruction-response pairs at scale.
-Outcome: design a synthetic question-answer generation pipeline with execution verification that avoids synthetic repetition collapse.
-
-M9.4 · Tokenization Frontiers & Vocabulary Science — (sessions: 3)
-
-Understand why tokenization is a critical inductive bias affecting arithmetic, code, multilingual performance, and safety.
-Analyze Byte-Pair Encoding (BPE, Sennrich et al.): greedy frequency-based subword vocabulary construction and merge rules.
-Analyze WordPiece (Schuster & Nakajima) and Unigram Language Model (Kudo, SentencePiece): probabilistic vocabulary pruning via language model likelihood reduction.
-Examine Byte-Level Tokenization (BBPE): fallback to raw bytes to eliminate out-of-vocabulary (OOV) tokens completely.
-Study Tokenization Failure Modes: digit tokenization causing arithmetic inability (tokenizing "1234" as single tokens vs individual digits), whitespace sensitivity, and prompt injection attacks in token space.
-Explore Token-Free Architectures: character-level and byte-level foundation models (Megabyte, ByT5) and their trade-offs in context length and computational FLOPs.
-Outcome: train a custom BPE tokenizer from raw text, inspect its merge table, and compare compression ratios across English, non-Latin scripts, and code.
-
-M9.5 · Pre-Training Dynamics, Loss Spikes & Numerical Stability — (sessions: 3)
-
-Analyze the loss curve trajectory during large-scale pre-training: power-law descent, plateauing, and learning rate decay phases.
-Study Loss Spikes in Large-Scale Training: sudden divergence in loss accompanied by gradient norm explosion, and methods for mitigation.
-Analyze the root causes of loss spikes: batch composition anomalies, attention logit growth, outlier features in hidden states, and FP16 underflow/overflow.
-Master Numerical Stability Guards: QK-Norm (applying LayerNorm to queries and keys before dot-product attention, Dehghani et al.), z-loss regularization, and gradient clipping.
-Understand Checkpointing and Rollback Strategies: automated anomaly detection, checkpoint frequency, saving optimizer states, and rolling back with modified data shuffle seeds.
-Study Learning Rate Warmup and Decay: why linear warmup prevents destructive updates in randomly initialized representations, and comparing cosine vs WSD (Warmup-Stable-Decay) schedules.
-Outcome: implement QK-Norm and z-loss regularization in a Transformer architecture and demonstrate suppression of attention logit explosion during training.
-
-M9.6 · Capstone: Compute-Optimal Pre-Training Experiment and Scaling Law Curve Fitting — (sessions: 2)
-
-Design an empirical pre-training experiment to fit Kaplan and Chinchilla scaling laws across a micro-cluster.
-Construct a cleaned, deduplicated, and filtered training corpus with balanced domain mixing (code, mathematics, general prose).
-Train a family of 5 decoder-only Transformer models spanning parameters from 10M to 150M across varied token allocations (10M to 1B tokens).
-Log training loss, validation perplexity, gradient norms, and cumulative floating point operations (FLOPs) accurately using theoretical FLOP formulas: 6 * N * D per training step.
-Fit parametric scaling law equations: L(N, D) = E + A / N^alpha + B / D^beta using non-linear curve fitting (SciPy optimize curve_fit).
-Extract the optimal parameter-to-token ratio and compare empirical findings against Chinchilla predictions (alpha approx 0.34, beta approx 0.28).
-Evaluate the downstream zero-shot capability of the models on standard language evaluation benchmarks to test whether loss scaling correlates with task performance.
-Draft an academic research paper documenting the pre-training pipeline, dataset preparation, loss spike mitigation strategies, and scaling law exponent derivations.
-Final result: a reproducible pre-training codebase, fitted scaling law power-law parameters, and academic paper analyzing empirical loss scaling dynamics.
-
-Level 9 completion outcome
-
-By the end of this level, you should be able to:
-
-Derive the theoretical floating point operations (FLOPs) required for forward and backward passes of a Transformer: 6 * N * D.
-Explain the mathematical difference between Kaplan and Chinchilla scaling laws.
-Derive the compute-optimal parameter-to-token allocation under a fixed compute budget constraint.
-Explain why modern open-weight models are intentionally trained far past the Chinchilla compute-optimal frontier.
-Implement MinHash and Locality-Sensitive Hashing (LSH) for large-scale text deduplication.
-Train fastText quality classifiers to score web-scraped documents against high-quality reference corpora.
-Explain the phenomenon of model collapse when recursively training on synthetic data.
-Implement Byte-Pair Encoding (BPE) from scratch and inspect the vocabulary merge tree.
-Identify tokenization failure modes affecting arithmetic, code indentation, and multilingual representations.
-Analyze the structural causes of pre-training loss spikes and attention logit growth.
-Implement QK-Norm and z-loss to ensure numerical stability during multi-billion parameter pre-training.
-Formulate and execute a multi-model scaling law experiment and fit power-law coefficients.
-Explain the Warmup-Stable-Decay (WSD) learning rate schedule and its advantages over standard cosine decay.
-Progression: Scaling Laws & Chinchilla Optimality → Pre-Training Data Curation & Deduplication → Synthetic Data & Model Collapse → Tokenization Frontiers → Pre-Training Stability & Loss Spikes → Scaling Law Curve Fitting Capstone.
+CAPSTONE PROJECT: Multi-Node Distributed Training Harness with MFU Benchmarking
+BRIEF: Build a production-grade distributed deep learning research harness in PyTorch that executes scalable multi-GPU training via Fully Sharded Data Parallel (FSDP), integrates seamlessly with SLURM cluster schedulers, measures real-time Model FLOPs Utilization (MFU), and provides an automated scaling benchmark report.
+Build a distributed research harness that:
+- Implements a modern Transformer architecture trained using PyTorch Fully Sharded Data Parallel (FSDP) with configurable sharding strategies.
+- Operates seamlessly across multi-GPU and multi-node clusters via torchrun and SLURM batch job scripts with dynamic rank and address resolution.
+- Integrates asynchronous distributed checkpointing (torch.distributed.checkpoint), saving and loading sharded model weights without gathering to a single rank.
+- Computes theoretical model FLOPs per step analytically (6*N*D + attention FLOPs) and logs real-time MFU and HFU to Weights & Biases.
+- Implements an automated scaling benchmark suite that evaluates throughput (tokens/second) across 1, 2, 4, and 8+ GPUs under both strong and weak scaling.
+- Detects straggling GPU workers and communication bottlenecks by recording detailed NCCL timing telemetry and memory snapshots.
+- Implements mixed-precision communication policies (reducing inter-node gradient communication bandwidth with BF16 gradients).
+- Generates publication-ready scaling plots (linear speedup vs. ideal scaling) and a LaTeX systems engineering summary table.
+Deliverables:
+- Modular distributed codebase featuring distributed/fsdp_wrapper.py, metrics/mfu_tracker.py, and slurm/submit_multinode.sh.
+- Scalability benchmark report with vector plots illustrating strong and weak scaling efficiency and MFU across cluster sizes.
+- Detailed technical runbook documenting SLURM deployment, NCCL troubleshooting, and optimal batch-size/sharding configurations.
+Outcome: You can orchestrate large-scale deep learning experiments on supercomputing clusters, achieve high MFU efficiency, and break through computational limits.
