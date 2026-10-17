@@ -42,10 +42,10 @@
   --cx-amber-bg: #fffbeb;
 
   /* Typographic System */
-  --cx-font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --cx-font-serif: "Space Grotesk", sans-serif;
-  --cx-font-body: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --cx-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --cx-font-display: "Rajdhani", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --cx-font-serif: "Rajdhani", sans-serif;
+  --cx-font-body: "Rajdhani", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --cx-font-mono: "Rajdhani", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Precision Architectural Radii */
   --cx-r-card: 12px;
