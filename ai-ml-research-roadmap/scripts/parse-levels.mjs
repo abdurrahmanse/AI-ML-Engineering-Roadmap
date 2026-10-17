@@ -17,7 +17,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT_DIRS = [join(root, 'AI RESEARCH ROADMAP'), join(root, 'AI ENGINEER ROADMAP'), root];
 
 const PHASES = [
-  { id: 'foundations', name: 'Research Foundations & RA Onboarding', levels: [0, 1, 2, 3],  theme: 'scientific computing, finding an advisor, securing RA positions, literature search & applied statistics', color: 'violet',  icon: 'terminal' },
+  { id: 'foundations', name: 'Research Foundations & Lab Onboarding', levels: [0, 1, 2, 3],  theme: 'scientific computing, problem formulation, literature search & applied statistics', color: 'violet',  icon: 'terminal' },
   { id: 'retrieval',   name: 'Datasets & Domain Exploration',       levels: [4],           theme: 'medical, cybersecurity & scientific dataset curation, preprocessing & domain adaptation', color: 'blue',    icon: 'database' },
   { id: 'agentic',     name: 'Model Architectures & Paradigms',     levels: [5, 6],        theme: 'classical ML, deep learning, vision CNNs, graph neural networks & transformers across domains', color: 'emerald', icon: 'layers' },
   { id: 'trust',       name: 'Generative Models & Benchmarking',    levels: [7, 8],        theme: 'diffusion, flow matching, privacy synthesis, experimental design & multi-factor ablation studies', color: 'amber',   icon: 'sliders-horizontal' },

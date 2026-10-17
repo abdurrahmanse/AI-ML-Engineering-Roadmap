@@ -6,14 +6,14 @@
   "phases": [
     {
       "id": "foundations",
-      "name": "Research Foundations & RA Onboarding",
+      "name": "Research Foundations & Lab Onboarding",
       "levels": [
         0,
         1,
         2,
         3
       ],
-      "theme": "scientific computing, finding an advisor, securing RA positions, literature search & applied statistics",
+      "theme": "scientific computing, problem formulation, literature search & applied statistics",
       "color": "violet",
       "icon": "terminal"
     },
@@ -103,7 +103,7 @@
           "icon": "activity",
           "objectives": [
             {
-              "text": "- Connect to university and laboratory GPU compute servers via SSH using public-key cryptography, custom config hosts, and SSH agent forwarding.",
+              "text": "- Connect to institutional and laboratory GPU compute servers via SSH using public-key cryptography, custom config hosts, and SSH agent forwarding.",
               "group": "Remote Linux Compute Environments & Process Persistence"
             },
             {
@@ -350,9 +350,9 @@
     {
       "number": 1,
       "slug": "level-1",
-      "title": "Finding an Advisor, Securing an RA Position & Academic Networking",
+      "title": "Research Problem Formulation, Mentorship & Lab Onboarding",
       "sourceFile": "level1-statistical-learning-theory.txt",
-      "scope": "Master the path of entering an academic research laboratory as a Computer Science student (BSc, MSc, or prospective PhD): identifying research advisors, analyzing laboratory publications, crafting high-conversion cold emails, pitching concrete research ideas, passing technical RA interviews, and integrating into an active lab culture.",
+      "scope": "Master the essential path of entering an active AI/ML research laboratory as an aspiring researcher: identifying active research groups and Principal Investigators (PIs), analyzing recent laboratory publications, formulating tailored research proposals, executing high-signal researcher outreach, passing technical Research Assistant (RA) screening, and establishing productive collaborative laboratory workflows.",
       "prereqStated": "Level 0 (Scientific Computing, Research Tooling & Reproducibility)",
       "prerequisites": [
         0
@@ -362,12 +362,12 @@
       "modules": [
         {
           "id": "M1.1",
-          "name": "Mapping Academic Laboratories, PIs & Research Group Trajectories",
+          "name": "Mapping Research Laboratories, PIs & Active Research Trajectories",
           "sessionCount": 2,
           "icon": "telescope",
           "objectives": [
             {
-              "text": "- Survey university computer science departments, research institutes, and corporate labs (e.g., DeepMind, FAIR, Microsoft Research) in your area of interest.",
+              "text": "- Survey AI research institutes, national laboratories, and corporate research labs (e.g., DeepMind, Meta FAIR, Microsoft Research) in your area of interest.",
               "group": "Discovering Research Labs & Active Grants"
             },
             {
@@ -375,49 +375,49 @@
               "group": "Discovering Research Labs & Active Grants"
             },
             {
-              "text": "- Analyze laboratory publication velocity: identify whether a lab publishes primarily in top-tier conferences (NeurIPS, ICML, CVPR, ACL, KDD) or specialized venues.",
+              "text": "- Analyze laboratory publication velocity: identify whether a lab publishes primarily in top-tier conferences (NeurIPS, ICML, CVPR, ACL, KDD) or specialized journals.",
               "group": "Discovering Research Labs & Active Grants"
             },
             {
-              "text": "- Distinguish between advisory styles: hands-on junior tenure-track faculty versus hands-off senior chaired professors.",
-              "group": "Evaluating Laboratory Culture & Advisor Styles"
+              "text": "- Distinguish between advisory styles: hands-on junior group leaders versus hands-off senior research directors.",
+              "group": "Evaluating Laboratory Culture & Mentorship Styles"
             },
             {
-              "text": "- Connect with current PhD students and postdocs in the target lab to inquire about mentorship availability, computational resources, and graduation timelines.",
-              "group": "Evaluating Laboratory Culture & Advisor Styles"
+              "text": "- Connect with current doctoral researchers and postdocs in the target lab to inquire about mentorship availability, computational resources, and project autonomy.",
+              "group": "Evaluating Laboratory Culture & Mentorship Styles"
             },
             {
-              "text": "- Identify active multi-disciplinary collaborations (e.g., computer science labs collaborating with medical hospitals, oncology centers, or cybersecurity centers).",
-              "group": "Evaluating Laboratory Culture & Advisor Styles"
+              "text": "- Identify active multi-disciplinary collaborations (e.g., computer science labs collaborating with medical hospitals, oncology centers, or cybersecurity defense centers).",
+              "group": "Evaluating Laboratory Culture & Mentorship Styles"
             }
           ],
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "mentalModel": "Joining a lab is an intellectual apprenticeship; choosing an advisor who actively mentors and has compute resources matters more than institutional prestige.",
-          "tryIt": "Build an academic spreadsheet profiling 10 research laboratories in your target domain, noting their PI, recent top-tier papers, active grants, and student ratio.",
-          "outcome": "Systematically identify high-impact research laboratories and select advisors aligned with your research ambitions."
+          "mentalModel": "Joining a lab is an intellectual apprenticeship; choosing a mentor who actively engages and has compute resources matters more than institutional branding.",
+          "tryIt": "Build a research spreadsheet profiling 10 research laboratories in your target domain, noting their PI, recent top-tier papers, active grants, and student ratio.",
+          "outcome": "Systematically identify high-impact research laboratories and select scientific mentors aligned with your research ambitions."
         },
         {
           "id": "M1.2",
-          "name": "Reading Advisor Publications & Formulating Tailored Research Pitches",
+          "name": "Reading Laboratory Publications & Formulating Tailored Research Pitches",
           "sessionCount": 2,
           "icon": "telescope",
           "objectives": [
             {
-              "text": "- Select the 3 most recent conference or journal papers published by the target PI and their senior doctoral students.",
-              "group": "Deep Dissection of Advisor Papers"
+              "text": "- Select the 3 most recent conference or journal papers published by the target PI and their senior doctoral researchers.",
+              "group": "Deep Dissection of Laboratory Publications"
             },
             {
               "text": "- Analyze the \"Limitations and Future Work\" sections of these papers to identify immediate, unresolved problems the lab is currently investigating.",
-              "group": "Deep Dissection of Advisor Papers"
+              "group": "Deep Dissection of Laboratory Publications"
             },
             {
               "text": "- Formulate a precise understanding of the lab's technical stack, baseline benchmarks, and primary methodological paradigms.",
-              "group": "Deep Dissection of Advisor Papers"
+              "group": "Deep Dissection of Laboratory Publications"
             },
             {
-              "text": "- Develop a 1-page research pitch proposing a concrete extension or solution to an open problem identified in the PI’s recent work.",
+              "text": "- Develop a 1-page research pitch proposing a concrete extension or solution to an open problem identified in the lab’s recent work.",
               "group": "Formulating a Targeted Research Pitch"
             },
             {
@@ -432,47 +432,47 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "mentalModel": "A generic email asks for an opportunity; a tailored research pitch demonstrates that you are already contributing solutions to their active problems.",
-          "tryIt": "Read two recent papers from a target professor, identify an unaddressed limitation, and write a concise 3-paragraph research extension proposal.",
-          "outcome": "Deconstruct prospective advisors' papers and formulate high-value research pitches that demonstrate immediate intellectual compatibility."
+          "mentalModel": "A generic inquiry asks for an opportunity; a tailored research pitch demonstrates that you are already contributing solutions to their active problems.",
+          "tryIt": "Read two recent papers from a target research group, identify an unaddressed limitation, and write a concise 3-paragraph research extension proposal.",
+          "outcome": "Deconstruct prospective mentors' papers and formulate high-value research pitches that demonstrate immediate intellectual compatibility."
         },
         {
           "id": "M1.3",
-          "name": "Crafting High-Conversion Academic Cold Emails & Professor Outreach",
+          "name": "High-Signal Research Outreach & Scientific Mentorship Proposals",
           "sessionCount": 2,
-          "icon": "circle-dot",
+          "icon": "telescope",
           "objectives": [
             {
-              "text": "- Analyze why professors ignore 95% of generic student emails (lengthy generic CV dumps, copy-pasted flattery, vague requests for \"any project\").",
-              "group": "The Anatomy of an Academic Cold Email"
+              "text": "- Analyze why research directors ignore 95% of generic student emails (lengthy generic CV dumps, copy-pasted flattery, vague requests for \"any project\").",
+              "group": "The Anatomy of a High-Signal Cold Outreach"
             },
             {
               "text": "- Master the concise 4-paragraph email structure: who you are, specific citation of their recent work, proposed technical contribution, and polite call to action.",
-              "group": "The Anatomy of an Academic Cold Email"
+              "group": "The Anatomy of a High-Signal Cold Outreach"
             },
             {
-              "text": "- Craft professional, high-signal subject lines that stand out in crowded academic inboxes (e.g., \"Prospective RA: Extending [Paper Title] with [Method]\").",
-              "group": "The Anatomy of an Academic Cold Email"
+              "text": "- Craft professional, high-signal subject lines that stand out in crowded inboxes (e.g., \"Prospective RA: Extending [Paper Title] with [Method]\").",
+              "group": "The Anatomy of a High-Signal Cold Outreach"
             },
             {
-              "text": "- Optimize email delivery timing around academic conference deadlines (avoiding the week before NeurIPS/ICML submissions or major grant deadlines).",
-              "group": "Timing, Persistence & Academic Etiquette"
+              "text": "- Optimize outreach timing around major conference submission deadlines (avoiding the week before NeurIPS/ICML submissions or major grant deadlines).",
+              "group": "Timing, Persistence & Professional Research Etiquette"
             },
             {
               "text": "- Execute respectful, value-additive follow-up sequences after 7 to 10 days if no response is received, sharing a new insight or reproduction result.",
-              "group": "Timing, Persistence & Academic Etiquette"
+              "group": "Timing, Persistence & Professional Research Etiquette"
             },
             {
-              "text": "- Leverage university office hours, departmental seminars, and student reading groups to initiate in-person academic conversations.",
-              "group": "Timing, Persistence & Academic Etiquette"
+              "text": "- Leverage open scientific webinars, reading groups, and virtual workshops to initiate meaningful technical conversations.",
+              "group": "Timing, Persistence & Professional Research Etiquette"
             }
           ],
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "mentalModel": "Professors are starved for time but hungry for self-directed, technically capable students who take initiative without constant hand-holding.",
-          "tryIt": "Draft a 200-word cold outreach email to a target professor referencing a specific equation or figure from their latest paper, followed by a polite follow-up template.",
-          "outcome": "Author high-conversion academic outreach emails that secure research interviews and avoid common applicant blunders."
+          "mentalModel": "Research leads are starved for time but hungry for self-directed, technically capable researchers who take initiative without constant hand-holding.",
+          "tryIt": "Draft a 200-word cold outreach email to a target laboratory lead referencing a specific equation or figure from their latest paper, followed by a polite follow-up template.",
+          "outcome": "Author high-signal research outreach emails that secure technical interviews and avoid common applicant blunders."
         },
         {
           "id": "M1.4",
@@ -501,7 +501,7 @@
               "group": "Scientific Proof-of-Work & GitHub Portfolios"
             },
             {
-              "text": "- Document course projects and seminar term papers as ArXiv-formatted technical reports rather than basic homework assignments.",
+              "text": "- Document independent projects and exploratory studies as ArXiv-formatted technical reports rather than basic scripts.",
               "group": "Scientific Proof-of-Work & GitHub Portfolios"
             }
           ],
@@ -514,96 +514,95 @@
         },
         {
           "id": "M1.5",
-          "name": "Passing the Research Assistant (RA) Technical Interview & Screening",
+          "name": "Passing the Research Assistant (RA) & Technical Lab Screening",
           "sessionCount": 2,
           "icon": "telescope",
           "objectives": [
             {
-              "text": "- Prepare for standard RA interview questions: deriving gradients, explaining model failure modes, and analyzing statistical trade-offs on a whiteboard.",
-              "group": "Technical Screening & Whiteboard Problem Solving"
+              "text": "- Prepare for standard lab screening technical rounds: live implementation of neural network layers, custom loss functions, and data pipelines in PyTorch.",
+              "group": "Technical Coding & PyTorch Architecture Tests"
             },
             {
-              "text": "- Explain past projects with scientific depth: clearly distinguishing what you personally implemented versus what was borrowed from existing libraries.",
-              "group": "Technical Screening & Whiteboard Problem Solving"
+              "text": "- Demonstrate mastery of tensor manipulation: implementing batched matrix multiplication, Einstein summation (torch.einsum), and masking without loops.",
+              "group": "Technical Coding & PyTorch Architecture Tests"
             },
             {
-              "text": "- Walk through your code live: demonstrating modular architecture, deterministic seeds, and efficient PyTorch tensor operations without for-loops.",
-              "group": "Technical Screening & Whiteboard Problem Solving"
+              "text": "- Debug deliberately corrupted models: diagnosing exploding gradients, dimension mismatches, and silent broadcasting errors in real time.",
+              "group": "Technical Coding & PyTorch Architecture Tests"
             },
             {
-              "text": "- Approach take-home research tasks (e.g., reproducing a baseline in 48 hours or analyzing a novel dataset) with rigorous scientific hygiene.",
-              "group": "The Take-Home Research Trial & Advisor Alignment"
+              "text": "- Master the live paper presentation format: summarizing a assigned paper’s core hypothesis, mathematical derivation, and empirical limitations in 10 minutes.",
+              "group": "Live Paper Discussion & Research Aptitude Interviews"
             },
             {
-              "text": "- Document assumptions, failure cases, and unexpected empirical findings transparently rather than hiding imperfect results.",
-              "group": "The Take-Home Research Trial & Advisor Alignment"
+              "text": "- Defend against probing technical questions: explaining why the authors chose specific loss terms, baselines, or hyperparameter schedules.",
+              "group": "Live Paper Discussion & Research Aptitude Interviews"
             },
             {
-              "text": "- Evaluate funding structures: understanding graduate Research Assistantships (tuition remission + stipend), undergraduate fellowships, and hourly funding.",
-              "group": "The Take-Home Research Trial & Advisor Alignment"
+              "text": "- Articulate clear intellectual curiosity and resilience: discussing how you navigate dead-end experiments, negative results, and ambiguous research directions.",
+              "group": "Live Paper Discussion & Research Aptitude Interviews"
             }
           ],
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "mentalModel": "The PI wants to know: Can this student read a paper, write clean code without supervision, and report honest empirical numbers when experiments fail?",
-          "tryIt": "Simulate a 30-minute research interview walkthrough explaining the methodology, ablations, and limitations of a deep learning project you implemented.",
-          "outcome": "Excel in academic research interviews, demonstrate technical competence under pressure, and secure funded Research Assistant positions."
+          "mentalModel": "The RA interview is not a LeetCode contest; it tests whether you can read papers critically, implement custom math in PyTorch, and think like a scientist.",
+          "tryIt": "Conduct a mock 15-minute paper walkthrough of a NeurIPS paper, explaining the primary mathematical equation and identifying two empirical weaknesses.",
+          "outcome": "Excel in technical coding evaluations and live paper defense discussions to secure coveted research positions."
         },
         {
           "id": "M1.6",
-          "name": "Capstone Project: Research Assistantship (RA) Application & Professor Research Pitch Portfolio",
+          "name": "Capstone Project: Research Proposal & Laboratory Onboarding Portfolio",
           "sessionCount": 3,
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Select 3 active research laboratories in your domain of interest (e.g., medical imaging, cybersecurity, or foundation models) with active funding.",
-              "group": "Target Lab Selection & Deep Technical Dossier"
+              "text": "- Select a target research laboratory and synthesize their recent research trajectory into a comprehensive 3-page research proposal in LaTeX.",
+              "group": "Comprehensive Research Proposal Formulation"
             },
             {
-              "text": "- Deconstruct the latest publication from each lab, identifying open research gaps and formulating a tailored, novel research proposal for each.",
-              "group": "Target Lab Selection & Deep Technical Dossier"
+              "text": "- Formulate 2 to 3 formal Research Questions (RQs) proposing a novel algorithmic extension, benchmark evaluation, or domain adaptation.",
+              "group": "Comprehensive Research Proposal Formulation"
             },
             {
-              "text": "- Assemble a professional academic portfolio including a LaTeX academic CV, GitHub proof-of-work repository, and reproducible baseline script.",
-              "group": "Target Lab Selection & Deep Technical Dossier"
+              "text": "- Detail the proposed experimental methodology: baseline architectures, public datasets, evaluation metrics, and expected computational requirements.",
+              "group": "Comprehensive Research Proposal Formulation"
             },
             {
-              "text": "- Author personalized 4-paragraph cold outreach emails tailored to the PIs of the target labs, accompanied by a 1-page formal research pitch.",
-              "group": "Pitch Synthesis & Outreach Simulation"
+              "text": "- Compile the complete application package: tailored 4-paragraph outreach email, LaTeX academic CV, 3-page research proposal, and GitHub portfolio links.",
+              "group": "Application Package Assembly & Verification"
             },
             {
-              "text": "- Package a clean demonstration codebase implementing a toy baseline related to the target lab's recent research focus.",
-              "group": "Pitch Synthesis & Outreach Simulation"
+              "text": "- Set up a clean, open-source reproduction repository demonstrating your ability to implement and benchmark a foundational baseline model.",
+              "group": "Application Package Assembly & Verification"
             },
             {
-              "text": "- Rehearse technical interview defenses addressing potential PI questions regarding methodology, compute feasibility, and experimental timelines.",
-              "group": "Pitch Synthesis & Outreach Simulation"
+              "text": "- Conduct a peer review of the complete application package to verify professional tone, typographic elegance, and zero grammatical errors.",
+              "group": "Application Package Assembly & Verification"
             }
           ],
           "notes": [
-            "CAPSTONE PROJECT: Research Assistantship (RA) Application & Professor Research Pitch Portfolio",
-            "BRIEF: Build a complete, professional Research Assistantship (RA) application package targeted at a top academic or industrial research laboratory. The package must include a tailored academic CV in LaTeX, a technical dossier deconstructing a recent paper from the target lab, a 1-page novel research proposal, and a reproducible GitHub proof-of-work repository.",
-            "Build an RA application portfolio that:",
-            "- Profiles an active research laboratory (PI, active grants, recent conference publications, and current PhD student roster).",
-            "- Deconstructs a recent top-tier conference paper from the lab, summarizing its core contribution, methodological formulation, and limitations.",
-            "- Formulates a 1-page structured Research Proposal (LaTeX formatted) proposing a novel extension, domain application (e.g., medical or cyber), or ablation study.",
-            "- Authors an academic Curriculum Vitae (CV) in LaTeX emphasizing mathematical coursework, research experience, publications, and technical skills.",
-            "- Implements a clean, reproducible PyTorch baseline implementation related to the target lab's work on GitHub, complete with W&B logging and a verified README.",
-            "- Drafts a high-impact, personalized 200-word cold outreach email to the Principal Investigator following the proven 4-paragraph academic structure.",
-            "- Prepares a slide deck (5 slides) outlining your proposed research project, computational feasibility budget, and preliminary experimental milestones.",
-            "- Simulates an oral technical screening interview, demonstrating mastery of the underlying mathematics, baselines, and implementation details.",
+            "CAPSTONE PROJECT: Research Proposal & Laboratory Onboarding Portfolio",
+            "BRIEF: Assemble a complete, professional research application package targeting a top-tier AI/ML laboratory: author a 3-page research proposal in LaTeX, compile an academic CV, write a tailored outreach email referencing recent papers, and establish a public GitHub repository with a reproducible baseline implementation.",
+            "Build a research application portfolio that:",
+            "- Identifies an active research laboratory and deconstructs their 3 most recent top-tier publications.",
+            "- Authors a 3-page research proposal in LaTeX (NeurIPS style) formulating 2-3 precise Research Questions and an experimental methodology.",
+            "- Typesets a professional 2-page Academic CV in LaTeX highlighting technical proficiencies, mathematical background, and project outcomes.",
+            "- Drafts a tailored 4-paragraph cold outreach email citing specific mathematical mechanisms and proposing concrete technical contributions.",
+            "- Establishes a public GitHub repository reproducing a core baseline model with deterministic seeding and Weights & Biases logging.",
+            "- Includes an execution plan detailing required compute budgets (GPU hours), benchmark datasets, and timeline milestones.",
+            "- Demonstrates thorough familiarity with the lab's research agenda and articulates immediate collaborative value.",
             "Deliverables:",
-            "- Formally compiled Academic CV PDF typeset in LaTeX.",
-            "- 1-Page Research Proposal PDF formatted in NeurIPS/ICLR style proposing a novel project for the target laboratory.",
-            "- Public GitHub repository link containing a clean, reproducible baseline implementation with experiment tracking.",
-            "- Complete Professor Outreach Email text and tailored follow-up template."
+            "- Formally compiled 3-page Research Proposal PDF in LaTeX with verified BibTeX citations.",
+            "- Clean, professionally typeset 2-page Academic CV PDF in LaTeX.",
+            "- Complete Outreach Email text and tailored follow-up template.",
+            "- Public GitHub repository link with clean, documented PyTorch reproduction code."
           ],
           "isCapstone": true,
           "isGap": false,
-          "mentalModel": "Securing an RA position is your official initiation into the global scientific community; treating it with professional rigor unlocks your research career.",
-          "tryIt": "Compile your complete RA application dossier into a clean PDF package, including your LaTeX CV, 1-page research pitch, and verified GitHub reproduction links.",
-          "outcome": "You can systematically discover top academic laboratories, craft compelling scientific research pitches, and successfully secure funded Research Assistant positions."
+          "mentalModel": "A fully assembled research portfolio proves you are not merely looking for an opportunity, but are already prepared to execute publication-quality research on day one.",
+          "tryIt": "Assemble your complete application portfolio in LaTeX, linking a verified GitHub reproduction repository, and review against the rubric.",
+          "outcome": "You can systematically approach, pitch, and secure Research Assistant and Fellow positions at premier AI/ML research laboratories."
         }
       ],
       "project": "M1.6",
@@ -2466,7 +2465,7 @@
       "slug": "level-9",
       "title": "High-Performance Computing (HPC) & Scaled Research Systems",
       "sourceFile": "level9-scaling-laws-pretraining.txt",
-      "scope": "Transition research codebases from single-GPU workstations to university and supercomputing HPC clusters: navigating SLURM batch job schedulers, environment modules, distributed multi-node execution with PyTorch Fully Sharded Data Parallel (FSDP), DeepSpeed ZeRO-3, and Megatron tensor parallelism; profiling Model FLOPs Utilization (MFU), optimizing NCCL communication collectives, and overcoming out-of-memory (OOM) bottlenecks.",
+      "scope": "Transition research codebases from single-GPU workstations to institutional and supercomputing HPC clusters: navigating SLURM batch job schedulers, environment modules, distributed multi-node execution with PyTorch Fully Sharded Data Parallel (FSDP), DeepSpeed ZeRO-3, and Megatron tensor parallelism; profiling Model FLOPs Utilization (MFU), optimizing NCCL communication collectives, and overcoming out-of-memory (OOM) bottlenecks.",
       "prereqStated": "Level 8 (Experimental Design, Ablation Studies & Fair Benchmarking)",
       "prerequisites": [
         8
@@ -2481,7 +2480,7 @@
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Master university and national supercomputing job scheduling using SLURM (Simple Linux Utility for Resource Management).",
+              "text": "- Master institutional and national supercomputing job scheduling using SLURM (Simple Linux Utility for Resource Management).",
               "group": "SLURM Workload Management & Batch Scheduling"
             },
             {
@@ -2510,7 +2509,7 @@
           "isGap": false,
           "mentalModel": "SLURM is the traffic controller of the supercomputer; precise resource specifications prevent jobs from failing due to memory or time preemption.",
           "tryIt": "Write a SLURM batch submission script requesting 2 nodes and 8 GPUs with automated checkpoint recovery and email alerts upon job completion.",
-          "outcome": "Navigate university and laboratory supercomputing environments, submit multi-node batch scripts, and leverage high-speed interconnects."
+          "outcome": "Navigate institutional and laboratory supercomputing environments, submit multi-node batch scripts, and leverage high-speed interconnects."
         },
         {
           "id": "M9.2",
@@ -2671,7 +2670,7 @@
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Build an automated, production-ready distributed training harness designed for multi-GPU and multi-node university HPC clusters.",
+              "text": "- Build an automated, production-ready distributed training harness designed for multi-GPU and multi-node institutional HPC clusters.",
               "group": "Multi-Node SLURM Architecture & Distributed Launcher"
             },
             {
@@ -2716,7 +2715,7 @@
           "isGap": false,
           "mentalModel": "Research institutions evaluate PhD candidates and RAs on their ability to command supercomputing clusters efficiently without wasting compute allocations.",
           "tryIt": "Execute the distributed training run across multiple GPUs, generate the scaling efficiency curve, and calculate final MFU metrics.",
-          "outcome": "You can scale complex deep learning models across university and supercomputing clusters with verified systems efficiency and reproducible performance."
+          "outcome": "You can scale complex deep learning models across institutional and supercomputing clusters with verified systems efficiency and reproducible performance."
         }
       ],
       "project": "M9.6",
@@ -4023,7 +4022,7 @@
       "slug": "level-15",
       "title": "Academic Publishing, Peer Review, Thesis Defense & Career",
       "sourceFile": "level15-research-publication-prep.txt",
-      "scope": "Master the complete dissemination, evaluation, defense, and career trajectory of an AI/ML and Data Science research scientist: publishing in premier journals (IEEE TPAMI, JMLR, Nature Machine Intelligence, Lancet Digital Health, IEEE TIFS) and top conferences (NeurIPS, ICML, CVPR, USENIX Security, MICCAI); academic LaTeX typesetting and vector illustration; serving as a peer reviewer; navigating OpenReview author rebuttals; writing and defending BSc/MSc theses and PhD dissertations; and securing positions as Research Assistants, Postdoctoral Fellows, University Professors, or Industrial Research Scientists.",
+      "scope": "Master the complete dissemination, evaluation, defense, and career trajectory of an AI/ML and Data Science research scientist: publishing in premier journals (IEEE TPAMI, JMLR, Nature Machine Intelligence, Lancet Digital Health, IEEE TIFS) and top conferences (NeurIPS, ICML, CVPR, USENIX Security, MICCAI); academic LaTeX typesetting and vector illustration; serving as a peer reviewer; navigating OpenReview author rebuttals; writing and defending BSc/MSc theses and PhD dissertations; and securing positions as Research Assistants, Postdoctoral Fellows, Staff Scientists, or Industrial Research Scientists.",
       "prereqStated": "Level 14 (Comprehensive Research Capstones)",
       "prerequisites": [
         14
@@ -4261,12 +4260,12 @@
         },
         {
           "id": "M15.7",
-          "name": "The Research Job Talk: Faculty & Industrial Research Scientist Loops",
+          "name": "The Research Job Talk: Research Scientist & Lab Director Loops",
           "sessionCount": 2,
           "icon": "telescope",
           "objectives": [
             {
-              "text": "- Master the research job talk format required for tenure-track faculty and industrial research scientist roles (Google DeepMind, Meta FAIR, Microsoft Research, OpenAI).",
+              "text": "- Master the research job talk format required for independent scientific fellow and industrial research scientist roles (Google DeepMind, Meta FAIR, Microsoft Research, OpenAI).",
               "group": "The 45-Minute Research Job Talk"
             },
             {
@@ -4295,7 +4294,7 @@
           "isGap": false,
           "mentalModel": "The job talk is not a summary of your papers; it is a demonstration of how you think, how you inspire peers, and what new field you plan to build.",
           "tryIt": "Deliver the first 10 minutes of a research job talk, establishing a compelling research vision and framing your contributions for a general scientific audience.",
-          "outcome": "Structure and deliver high-impact research job talks and excel in technical interview loops at top industrial AI labs and university faculty searches."
+          "outcome": "Structure and deliver high-impact research job talks and excel in technical interview loops at premier AI research institutes and industrial labs."
         },
         {
           "id": "M15.8",
@@ -4336,7 +4335,7 @@
             "- Packages an accompanying open-source reproducibility repository on GitHub featuring Dockerfile manifests, pinned dependencies, pre-trained weights, and reproduction scripts.",
             "- Solves an explicit theoretical or empirical problem in AI/ML, supported by multi-seed statistical significance tests (p < 0.05) and multi-factor ablation tables.",
             "- Crafts an author rebuttal responding to three simulated critical peer reviews (addressing a missing baseline, an unstated assumption, and a compute budget question).",
-            "- Formulates a 45-minute Research Job Talk slide deck suitable for top industrial AI research labs (DeepMind, FAIR, Microsoft Research) or tenure-track faculty interviews.",
+            "- Formulates a 45-minute Research Job Talk slide deck suitable for premier AI research labs (DeepMind, FAIR, Microsoft Research, OpenAI) or research directorate interviews.",
             "- Drafts a 2-page Future Research Statement outlining a 3-to-5 year scientific research agenda, detailing proposed work packages, methodology, and societal impact.",
             "- Completes the official conference reproducibility checklist and ethics statement with transparent compute and limitation disclosures.",
             "- Presents the work in a simulated public defense, handling expert committee interrogation with technical precision and intellectual honesty.",

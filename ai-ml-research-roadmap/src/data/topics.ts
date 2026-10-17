@@ -11,9 +11,9 @@ export interface TopicSet {
 export const topics: Record<string, TopicSet> = {
   /* ---------------------------------------------------------------- level 0 */
   'M0.1': {
-    sig: '3844c792',
+    sig: '876eed8f',
     labels: [
-      "University and laboratory GPU compute",
+      "Institutional and laboratory GPU compute",
       "Persistent long-running research jobs",
       "Active server processes, memory consumption",
       "Real-time GPU hardware metrics, VRAM",
@@ -78,18 +78,18 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 1 */
   'M1.1': {
-    sig: 'fd24fe7b',
+    sig: 'a32613a0',
     labels: [
-      "University computer science departments, research",
+      "AI research institutes, national laboratories",
       "Principal Investigator (PI) profiles: evaluate",
       "Analyze laboratory publication velocity",
       "Distinguish between advisory styles",
-      "Connect with current PhD students",
+      "Connect with current doctoral researchers",
       "Identify active multi-disciplinary collaborations",
     ],
   },
   'M1.2': {
-    sig: '1ca8e474',
+    sig: '89a5d8c5',
     labels: [
       "The 3 most recent conference",
       "The \"Limitations and Future Work\"",
@@ -100,47 +100,47 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M1.3': {
-    sig: 'a992ff6b',
+    sig: 'be99d04c',
     labels: [
-      "Why professors ignore 95%",
+      "Why research directors ignore 95%",
       "The concise 4-paragraph email structure",
       "Craft professional, high-signal subject lines",
-      "Optimize email delivery timing around",
+      "Optimize outreach timing around major",
       "Respectful, value-additive follow-up sequences after",
-      "Leverage university office hours, departmental",
+      "Leverage open scientific webinars, reading",
     ],
   },
   'M1.4': {
-    sig: 'b7cb7014',
+    sig: '1b45c6fd',
     labels: [
       "Format a professional academic CV",
       "Structure standard academic sections",
       "Highlight quantitative impact in past",
       "A research-oriented GitHub profile featuring",
       "Interactive Weights & Biases experiment",
-      "Document course projects and seminar",
+      "Document independent projects and exploratory",
     ],
   },
   'M1.5': {
-    sig: '76defe96',
+    sig: '059f3e53',
     labels: [
-      "Prepare for standard RA interview",
-      "Explain past projects with scientific",
-      "Walk through your code live",
-      "Approach take-home research tasks",
-      "Document assumptions, failure cases",
-      "Evaluate funding structures",
+      "Prepare for standard lab screening",
+      "Demonstrate mastery of tensor manipulation",
+      "Debug deliberately corrupted models",
+      "The live paper presentation format",
+      "Defend against probing technical questions",
+      "Articulate clear intellectual curiosity",
     ],
   },
   'M1.6': {
-    sig: '6165c61b',
+    sig: 'c70acda6',
     labels: [
-      "3 active research laboratories",
-      "The latest publication from each",
-      "A professional academic portfolio including",
-      "Personalized 4-paragraph cold outreach emails",
-      "A clean demonstration codebase implementing",
-      "Rehearse technical interview defenses addressing",
+      "A target research laboratory",
+      "2 to 3 formal Research",
+      "Detail the proposed experimental methodology",
+      "Compile the complete application package",
+      "Set up a clean, open-source",
+      "Conduct a peer review",
     ],
   },
   /* ---------------------------------------------------------------- level 2 */
@@ -614,9 +614,9 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 9 */
   'M9.1': {
-    sig: '64979ad5',
+    sig: 'd36799e8',
     labels: [
-      "University and national supercomputing job",
+      "Institutional and national supercomputing job",
       "Modular SLURM batch scripts",
       "Large-scale hyperparameter searches and multi-seed",
       "Navigate HPC software module systems",
@@ -669,7 +669,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M9.6': {
-    sig: 'e013c263',
+    sig: 'fadaa1be',
     labels: [
       "An automated, production-ready distributed training",
       "Robust SLURM submission scripts featuring",
@@ -1093,7 +1093,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M15.7': {
-    sig: 'ef69f781',
+    sig: '6fb7e310',
     labels: [
       "The research job talk format",
       "Structure the presentation",

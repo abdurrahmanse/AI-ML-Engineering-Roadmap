@@ -3,11 +3,11 @@ Level 9 · High-Performance Computing (HPC) & Scaled Research Systems
 Phase: HPC Clusters, Scaling & Explainability
 Suggested duration: 13 sessions (~3 weeks)
 Prerequisites: Level 8 (Experimental Design, Ablation Studies & Fair Benchmarking)
-Scope: Transition research codebases from single-GPU workstations to university and supercomputing HPC clusters: navigating SLURM batch job schedulers, environment modules, distributed multi-node execution with PyTorch Fully Sharded Data Parallel (FSDP), DeepSpeed ZeRO-3, and Megatron tensor parallelism; profiling Model FLOPs Utilization (MFU), optimizing NCCL communication collectives, and overcoming out-of-memory (OOM) bottlenecks.
+Scope: Transition research codebases from single-GPU workstations to institutional and supercomputing HPC clusters: navigating SLURM batch job schedulers, environment modules, distributed multi-node execution with PyTorch Fully Sharded Data Parallel (FSDP), DeepSpeed ZeRO-3, and Megatron tensor parallelism; profiling Model FLOPs Utilization (MFU), optimizing NCCL communication collectives, and overcoming out-of-memory (OOM) bottlenecks.
 
 M9.1 · Supercomputing Infrastructure: SLURM, Environment Modules & Interconnects — (sessions: 2)
 Session 1 · SLURM Workload Management & Batch Scheduling
-- Master university and national supercomputing job scheduling using SLURM (Simple Linux Utility for Resource Management).
+- Master institutional and national supercomputing job scheduling using SLURM (Simple Linux Utility for Resource Management).
 - Author modular SLURM batch scripts (#SBATCH directives): configuring nodes, tasks-per-node, GPU partitions, time limits, and memory requests.
 - Manage large-scale hyperparameter searches and multi-seed sweeps efficiently using SLURM job arrays (--array) with automated output redirection.
 Session 2 · HPC Software Modules & High-Speed Network Fabrics
@@ -16,7 +16,7 @@ Session 2 · HPC Software Modules & High-Speed Network Fabrics
 - Leverage GPUDirect RDMA (Remote Direct Memory Access) to enable zero-copy GPU-to-GPU data transfers across physical server nodes.
 Mental model: SLURM is the traffic controller of the supercomputer; precise resource specifications prevent jobs from failing due to memory or time preemption.
 Try: Write a SLURM batch submission script requesting 2 nodes and 8 GPUs with automated checkpoint recovery and email alerts upon job completion.
-Outcome: Navigate university and laboratory supercomputing environments, submit multi-node batch scripts, and leverage high-speed interconnects.
+Outcome: Navigate institutional and laboratory supercomputing environments, submit multi-node batch scripts, and leverage high-speed interconnects.
 
 M9.2 · Distributed Data Parallelism: DDP, FSDP & DeepSpeed ZeRO — (sessions: 2)
 Session 1 · DistributedDataParallel (DDP) & Ring All-Reduce
@@ -72,7 +72,7 @@ Outcome: Quantify Model FLOPs Utilization (MFU) and systematically evaluate stro
 
 M9.6 · Capstone Project: Distributed Multi-Node HPC Training & Scaling Benchmark Harness — (sessions: 3)
 Session 1 · Multi-Node SLURM Architecture & Distributed Launcher
-- Build an automated, production-ready distributed training harness designed for multi-GPU and multi-node university HPC clusters.
+- Build an automated, production-ready distributed training harness designed for multi-GPU and multi-node institutional HPC clusters.
 - Author robust SLURM submission scripts featuring dynamic rendezvous (torchrun with master node IP/port discovery and SLURM environment variables).
 - Implement PyTorch FSDP with mixed-precision (BF16), activation checkpointing, and backward prefetching configured for scalable execution.
 Session 2 · Scaling Benchmark, MFU Profiling & Scientific Reporting
@@ -98,4 +98,4 @@ Deliverables:
 - Automated profiling report generated via PyTorch Profiler with Chrome trace exports.
 - High-resolution vector plot displaying weak and strong scaling efficiency alongside ideal linear scaling lines.
 - Formal 3-page HPC systems report detailing cluster specifications, MFU calculations, and distributed scaling analysis.
-Outcome: You can scale complex deep learning models across university and supercomputing clusters with verified systems efficiency and reproducible performance.
+Outcome: You can scale complex deep learning models across institutional and supercomputing clusters with verified systems efficiency and reproducible performance.

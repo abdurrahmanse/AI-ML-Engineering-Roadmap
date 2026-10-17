@@ -22,7 +22,7 @@ export const interviewWeights: Record<number, LevelWeight> = {
   1: {
     score: 9,
     reason:
-      'The definitive prerequisite for joining an academic lab: **deconstructing faculty publications, formulating research pitches, passing RA technical screening, and integrating into an active lab**.',
+      'The definitive prerequisite for joining a research team: **deconstructing laboratory publications, formulating research pitches, passing RA technical screening, and onboarding into an active lab**.',
   },
   2: {
     score: 9,
@@ -106,7 +106,7 @@ export const jobWeights: Record<number, LevelWeight> = {
   1: {
     score: 10,
     reason:
-      'The gateway to productive research: **securing laboratory funding, establishing clear faculty mentorship, and executing collaborative scientific workflows**.',
+      'The gateway to productive research: **securing laboratory funding, establishing clear scientific mentorship, and executing collaborative research workflows**.',
   },
   2: {
     score: 9,

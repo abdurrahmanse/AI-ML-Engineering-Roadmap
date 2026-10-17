@@ -246,7 +246,7 @@ export const projects: Project[] = [
       'Evaluate alignment on conversational benchmark suites while monitoring general-capability retention.',
     ],
     stretch: 'Compare DPO against IPO and KTO; analyze sensitivity to reference policy temperature scaling.',
-    data: 'Standard preference datasets (Anthropic HH-RLHF, UltraFeedback, Stanford SHP).',
+    data: 'Standard preference datasets (Anthropic HH-RLHF, UltraFeedback, Open SHP).',
     done: 'Implicit reward trajectories, win-rate evaluations, and length-bias ablation figures are reported.',
   },
 ];

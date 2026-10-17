@@ -7,7 +7,7 @@ Scope: Establish the core computing and software environment required for scient
 
 M0.1 · The Research Computing Stack: Linux, Remote Servers & GPU Monitoring — (sessions: 2)
 Session 1 · Remote Linux Compute Environments & Process Persistence
-- Connect to university and laboratory GPU compute servers via SSH using public-key cryptography, custom config hosts, and SSH agent forwarding.
+- Connect to institutional and laboratory GPU compute servers via SSH using public-key cryptography, custom config hosts, and SSH agent forwarding.
 - Manage persistent long-running research jobs across network drops using terminal multiplexers (tmux, screen) with multi-window workflows.
 - Monitor active server processes, memory consumption, and CPU core affinity using htop, ps, and process kill signals (SIGTERM, SIGKILL).
 Session 2 · Hardware Diagnostics & GPU Telemetry
@@ -38,7 +38,7 @@ Session 1 · Research Repository Architecture & Branching
 - Manage external baseline codebases and upstream research libraries cleanly using Git submodules and subtree merges.
 Session 2 · Open-Source Release Standards & Scientific Hygiene
 - Author comprehensive academic README files featuring installation commands, pretrained checkpoint links, and minimal reproduction snippets.
-- Include open-source research licensing (MIT, Apache 2.0, CC-BY) and BibTeX citation blocks formatted for Google Scholar and ArXiv indexing.
+- Include open-source research licensing (Apache 2.0, BSD 3-Clause, CC-BY) and BibTeX citation blocks formatted for Google Scholar and ArXiv indexing.
 - Prevent confidential dataset leakage and credential exposure by strictly configuring .gitignore for checkpoints, logs, raw data, and API keys.
 Mental model: Git tags in research serve as immutable cryptographic stamps linking paper figures and tables directly to specific commit hashes.
 Try: Create a research template repository with a structured module layout, automated linter, .gitignore, and standardized BibTeX citation header.

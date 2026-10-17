@@ -1,6 +1,6 @@
-# AI/ML Research Roadmap
+# Thesis & Research Publication Track — AI/ML Research Roadmap
 
-> A comprehensive, interactive 16-level curriculum and structured learning path for modern AI/ML Research — from mathematical foundations, statistical learning theory, and deep learning optimization to scaling laws, alignment, diffusion, multimodal foundation models, and conference publication.
+> A comprehensive, interactive 16-level curriculum and structured research roadmap for modern AI/ML — covering extensive model training from basics to advanced, multi-domain datasets (medical, cybersecurity, science), Explainable AI (XAI), Trustworthy AI, robust benchmarking, thesis defense, and publishing in premier journals and conferences.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-abdurrahmans.vercel.app-6c5ce7?style=flat-square&logo=vercel)](https://abdurrahmans.vercel.app)
 [![Astro](https://img.shields.io/badge/Astro-7.0+-BC52EE?style=flat-square&logo=astro)](https://astro.build)
@@ -12,12 +12,12 @@
 
 ## Overview
 
-**AI/ML Research Roadmap** provides an end-to-end pedagogical blueprint designed for undergraduate researchers (BSc), graduate students (MSc/PhD), and research scientists pursuing fundamental and applied AI/ML research. It maps **16 progressive levels**, **99 modules**, and **224 structured sessions** across seven distinct research phases, accompanied by conference-grade empirical capstone projects, automated progress tracking, and an accelerated **100 Days of AI/ML Research** track.
+**Thesis & Research Publication Track** provides an end-to-end pedagogical blueprint designed for undergraduate researchers (BSc), graduate students (MSc/PhD), and research scientists pursuing fundamental and applied AI/ML research. It maps **16 progressive levels**, **99 modules**, and **224 structured sessions** across seven distinct research phases, accompanied by conference-grade empirical capstone projects, automated progress tracking, and an accelerated **100 Days of AI/ML Research** track.
 
 - **Live Platform:** [https://abdurrahmans.vercel.app](https://abdurrahmans.vercel.app)
 - **Primary Roadmap:** 16 progressive levels spanning the complete scientific research lifecycle:
   0. Scientific Computing, Research Tooling & Reproducibility
-  1. Finding an Advisor, Securing an RA Position & Academic Networking
+  1. Research Problem Formulation, Mentorship & Lab Onboarding
   2. Scholarly Literature Search, Paper Reading & Reference Management
   3. Research Mathematics & Applied Statistical Testing
   4. Dataset Discovery, Curation & Multi-Domain Adaptation (Medical, Cybersecurity & Science)

@@ -3,7 +3,7 @@ Level 15 · Academic Publishing, Peer Review, Thesis Defense & Career
 Phase: Publishing, Peer Review & Career
 Suggested duration: 17 sessions (~4 weeks)
 Prerequisites: Level 14 (Comprehensive Research Capstones)
-Scope: Master the complete dissemination, evaluation, defense, and career trajectory of an AI/ML and Data Science research scientist: publishing in premier journals (IEEE TPAMI, JMLR, Nature Machine Intelligence, Lancet Digital Health, IEEE TIFS) and top conferences (NeurIPS, ICML, CVPR, USENIX Security, MICCAI); academic LaTeX typesetting and vector illustration; serving as a peer reviewer; navigating OpenReview author rebuttals; writing and defending BSc/MSc theses and PhD dissertations; and securing positions as Research Assistants, Postdoctoral Fellows, University Professors, or Industrial Research Scientists.
+Scope: Master the complete dissemination, evaluation, defense, and career trajectory of an AI/ML and Data Science research scientist: publishing in premier journals (IEEE TPAMI, JMLR, Nature Machine Intelligence, Lancet Digital Health, IEEE TIFS) and top conferences (NeurIPS, ICML, CVPR, USENIX Security, MICCAI); academic LaTeX typesetting and vector illustration; serving as a peer reviewer; navigating OpenReview author rebuttals; writing and defending BSc/MSc theses and PhD dissertations; and securing positions as Research Assistants, Postdoctoral Fellows, Staff Scientists, or Industrial Research Scientists.
 
 M15.1 · Scientific Paper Anatomy: Crafting High-Impact Introductions, Abstracts & Narrative Arcs — (sessions: 2)
 Session 1 · High-Impact Paper Anatomy & The Abstract
@@ -83,9 +83,9 @@ Mental model: The thesis defense is a rite of passage where you transition from 
 Try: Create a 20-slide thesis defense deck synthesizing your research contributions, and rehearse answering three aggressive theoretical committee questions.
 Outcome: Structure, write, and successfully defend a bachelor's, master’s, or doctoral thesis in Computer Science before an academic examination committee.
 
-M15.7 · The Research Job Talk: Faculty & Industrial Research Scientist Loops — (sessions: 2)
+M15.7 · The Research Job Talk: Research Scientist & Lab Director Loops — (sessions: 2)
 Session 1 · The 45-Minute Research Job Talk
-- Master the research job talk format required for tenure-track faculty and industrial research scientist roles (Google DeepMind, Meta FAIR, Microsoft Research, OpenAI).
+- Master the research job talk format required for independent scientific fellow and industrial research scientist roles (Google DeepMind, Meta FAIR, Microsoft Research, OpenAI).
 - Structure the presentation: broad scientific vision accessible to general computer scientists (10 min), deep technical breakthrough for experts (25 min), future 5-year agenda (10 min).
 - Deliver high-engagement presentations: clear vocal pacing, minimal slide clutter, intuitive visual diagrams, and memorable take-home messages.
 Session 2 · 1-on-1 Interviews & Research Leadership
@@ -94,7 +94,7 @@ Session 2 · 1-on-1 Interviews & Research Leadership
 - Evaluate offers and institutional fit: computational resources, lab culture, research autonomy, publication freedom, and compensation/startup packages.
 Mental model: The job talk is not a summary of your papers; it is a demonstration of how you think, how you inspire peers, and what new field you plan to build.
 Try: Deliver the first 10 minutes of a research job talk, establishing a compelling research vision and framing your contributions for a general scientific audience.
-Outcome: Structure and deliver high-impact research job talks and excel in technical interview loops at top industrial AI labs and university faculty searches.
+Outcome: Structure and deliver high-impact research job talks and excel in technical interview loops at premier AI research institutes and industrial labs.
 
 M15.8 · Capstone Project: Complete Conference Manuscript, OpenReview Rebuttal & Job Talk Package — (sessions: 3)
 Session 1 · Full Manuscript Compilation & Open-Source Artifact Release
@@ -116,7 +116,7 @@ Build a research publication & defense suite that:
 - Packages an accompanying open-source reproducibility repository on GitHub featuring Dockerfile manifests, pinned dependencies, pre-trained weights, and reproduction scripts.
 - Solves an explicit theoretical or empirical problem in AI/ML, supported by multi-seed statistical significance tests (p < 0.05) and multi-factor ablation tables.
 - Crafts an author rebuttal responding to three simulated critical peer reviews (addressing a missing baseline, an unstated assumption, and a compute budget question).
-- Formulates a 45-minute Research Job Talk slide deck suitable for top industrial AI research labs (DeepMind, FAIR, Microsoft Research) or tenure-track faculty interviews.
+- Formulates a 45-minute Research Job Talk slide deck suitable for premier AI research labs (DeepMind, FAIR, Microsoft Research, OpenAI) or research directorate interviews.
 - Drafts a 2-page Future Research Statement outlining a 3-to-5 year scientific research agenda, detailing proposed work packages, methodology, and societal impact.
 - Completes the official conference reproducibility checklist and ethics statement with transparent compute and limitation disclosures.
 - Presents the work in a simulated public defense, handling expert committee interrogation with technical precision and intellectual honesty.
