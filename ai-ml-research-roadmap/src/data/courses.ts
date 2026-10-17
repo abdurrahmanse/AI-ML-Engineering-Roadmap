@@ -353,7 +353,7 @@ export const booksByLevel: Record<number, Book[]> = {
       title: "Mathematics for Machine Learning",
       author: "Marc Peter Deisenroth, A. Aldo Faisal, Cheng Soon Ong",
       url: "https://mml-book.github.io/",
-      venue: "Cambridge Press",
+      venue: "Academic Press",
     },
     {
       title: "All of Statistics: A Concise Course in Statistical Inference",

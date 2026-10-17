@@ -26,10 +26,10 @@ const prerequisites = [
 
 /* Where the full roadmap goes deeper than this track. */
 const after = [
-  { title: 'Managed platforms and self-hosting', levels: [11] },
-  { title: 'Multimodal and voice', levels: [12] },
-  { title: 'Fine-tuning', levels: [13] },
-  { title: 'Advanced RAG and multi-agent systems', levels: [4, 5] },
+  { title: 'Explainability & Trustworthy AI', levels: [11] },
+  { title: 'AI Alignment & Adversarial Robustness', levels: [12] },
+  { title: 'Multimodal & Cross-Disciplinary Research', levels: [13] },
+  { title: 'Controlled Ablation & Scaled Systems', levels: [8, 9] },
 ].map((a) => ({ ...a, refs: a.levels.map((n) => getLevel(n)!) }));
 
 const unitCount = hundredDaysModules.reduce((n, m) => n + m.units.length, 0);

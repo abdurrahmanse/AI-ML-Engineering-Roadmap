@@ -59,13 +59,12 @@ If a level file is prose, extract this structure from it. Keep a single `levels.
 
 | Phase              | Levels | Theme                                                                         |
 | ------------------ | ------ | ----------------------------------------------------------------------------- |
-| Foundations        | 0–3    | linear algebra, probability, optimization, statistical learning & transformers |
-| Representation     | 4      | metric learning, high-dimensional geometries, latent spaces & dense retrieval  |
-| Reasoning & Agency | 5–6    | reinforcement learning, thought trees, search, PRMs & test-time compute       |
-| Evaluation & Trust | 7–8    | statistical testing, benchmarking, preference optimization & interpretability |
-| Scaling & Systems  | 9–11   | scaling laws, pre-training, distributed systems (3D/ZeRO) & diffusion theory  |
-| Frontier & Proof   | 12–14  | multimodal architectures, PEFT spectral dynamics & scientific reproduction     |
-| Research Career    | 15     | paper writing, peer review, OpenReview rebuttals & research defense           |
+| Research Foundations & Lab Onboarding | 0–3    | scientific computing, lab onboarding, literature search & applied statistics |
+| Data Curation & Modeling Paradigms    | 4–6    | domain datasets (medical/cyber), classical ML/CNNs, GNNs & Transformers       |
+| Generative Models & Experimental Science | 7–9    | generative diffusion/flow, controlled OFAT ablations & HPC cluster training  |
+| Scaled Systems, Trustworthy AI & Alignment | 10–12 | foundation models, XAI & interpretability, adversarial defense & safety     |
+| Cross-Disciplinary Research & Capstones | 13–14  | multimodal cross-domain methodologies & 7 flagship thesis research projects   |
+| Publishing, Thesis Defense & Research Careers | 15 | premier journals (TPAMI/JMLR), CORE A* conferences, rebuttals & thesis defense |
 
 ---
 
@@ -204,20 +203,22 @@ Keep each level page skimmable in ~20 seconds; depth lives behind expanders.
 
 - Persistent primary CTA to **AbdurRahman One** (`#cxo-pricing` on the main site) — but soft, not salesy. Open external links in a new tab.
 - On each level, **map to relevant reference lectures & textbook chapters** as recommended study cards. Example mapping:
-  - L0 → Math for ML, Linear Algebra (Strang), Matrix Calculus
-  - L1 → Statistical Learning Theory (Hastie/Tibshirani/Wainwright)
-  - L2 → Deep Learning Optimization (Goodfellow/Bengio/Courville)
-  - L3 → Transformers & Attention Mechanisms (Stanford CS25 / CS224N)
-  - L4 → Self-Supervised & Representation Learning
-  - L5 → Reinforcement Learning (Sutton & Barto / Berkeley CS285)
-  - L6 → Reasoning & Search (Tree of Thoughts, MCTS, PRMs)
-  - L7 → Empirical Evaluation & Statistical Benchmarking
-  - L8 → Alignment, Interpretability & Safety
-  - L9 → Pre-Training Dynamics & Scaling Laws
-  - L10 → Distributed Systems & High-Performance Training
-  - L11 → Generative Diffusion & Flow Matching
-  - L12 → Multimodal Foundation Models (Vision-Language)
-  - L13 → Parameter-Efficient Fine-Tuning & Representation Steering
+  - L0 → Scientific Computing, Linux Tooling & Laboratory Reproducibility
+  - L1 → Research Problem Formulation, Scientific Mentorship & Lab Onboarding
+  - L2 → Scholarly Literature Search, Three-Pass Reading & BibTeX Reference Management
+  - L3 → Research Mathematics, Matrix Calculus & Applied Statistical Testing
+  - L4 → Dataset Discovery, Multi-Domain Curation (MIMIC-IV, CheXpert, CIC-IDS-2017)
+  - L5 → Classical Machine Learning & Deep Learning Paradigms (XGBoost, TabNet, 2D/3D CNNs)
+  - L6 → Sequence Models, Graph Neural Networks & Transformers (FlashAttention-2, GAT, Mamba)
+  - L7 → Generative Modeling & Probabilistic ML (Continuous Flow Matching, DDPM, score SDEs)
+  - L8 → Experimental Design, OFAT Ablation Studies & Fair Benchmarking
+  - L9 → High-Performance Computing (HPC), SLURM & Scaled Systems Profiling (MFU)
+  - L10 → Foundation Models, Pre-Training Dynamics, Kaplan/Chinchilla Scaling & DAPT
+  - L11 → Explainability (XAI), Mechanistic Interpretability & Trustworthy AI (SHAP, SAEs)
+  - L12 → AI Alignment, Robustness & Adversarial Defense (PGD, DPO, Demographic Parity)
+  - L13 → Multimodal & Cross-Disciplinary Research Methodologies (CLIP, LLaVA, Cross-Domain)
+  - L14 → Comprehensive Research Capstones (7 Flagship Empirical Studies)
+  - L15 → Academic Publishing (IEEE TPAMI/JMLR/Nature), Peer Review, Thesis Defense & Career
 - Maintain consistent design tokens and research-grade academic rigor across all levels.
 
 ---

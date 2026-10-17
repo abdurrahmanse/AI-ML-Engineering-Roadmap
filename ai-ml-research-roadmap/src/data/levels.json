@@ -195,7 +195,7 @@
               "group": "Open-Source Release Standards & Scientific Hygiene"
             },
             {
-              "text": "- Include open-source research licensing (MIT, Apache 2.0, CC-BY) and BibTeX citation blocks formatted for Google Scholar and ArXiv indexing.",
+              "text": "- Include open-source research licensing (Apache 2.0, BSD 3-Clause, CC-BY) and BibTeX citation blocks formatted for Google Scholar and ArXiv indexing.",
               "group": "Open-Source Release Standards & Scientific Hygiene"
             },
             {

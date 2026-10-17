@@ -33,7 +33,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M0.3': {
-    sig: 'e11aded1',
+    sig: '62c520c7',
     labels: [
       "Research codebases separating reusable library",
       "Feature branches and semantic Git",
