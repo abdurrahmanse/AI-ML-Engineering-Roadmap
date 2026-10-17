@@ -32,6 +32,8 @@
   13. Independent Research and Project Leadership
   14. Thesis-Grade Research Portfolio
   15. Publication, Defense and Research Career
+- **Research phases:** The visual progression follows the same data-driven phase model as the engineering roadmap:
+  Foundations → Data & modeling → Generative research → Trustworthy AI → Cross-disciplinary research → Thesis portfolio → Publishing, defense & careers.
 - **Source data:** All level content is read from the canonical roadmap folder available at build time (`AI RESEARCH ROADMAP/`, or `AI-ml RESEARCH ROADMAP/` when present) and emitted into `src/data/levels.json`.
 - **Accelerated Route:** Curated 100-Day companion research curriculum with empirical research study projects and research interview defense preparation.
 

@@ -9,7 +9,7 @@ import { topics } from './topics';
 import { signature } from '../lib/sig.mjs';
 
 export type PhaseId =
-  | 'foundations' | 'retrieval' | 'agentic' | 'trust' | 'production' | 'frontier';
+  | 'foundations' | 'retrieval' | 'agentic' | 'trust' | 'production' | 'frontier' | 'interview';
 
 export interface Phase {
   id: PhaseId;

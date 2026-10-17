@@ -22,6 +22,9 @@ const ships = levels.flatMap((level) =>
   capstonesOf(level).map((capstone) => ({ level, capstone })),
 );
 const shipLevelCount = levels.filter((level) => capstonesOf(level).length > 0).length;
+const shipCountByPhase = Object.fromEntries(
+  phases.map((phase) => [phase.id, ships.filter(({ level }) => level.phase === phase.id).length]),
+);
 
 const projectMeta: Record<number, { domain: string; tags: string[]; summary: string }> = {
   0: {
@@ -304,12 +307,11 @@ const howItWorks = [
       <!-- Filter Bar -->
       <div class="ships__filters" role="tablist" aria-label="Filter by phase">
         <button type="button" class="ships__filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All <span class="ships__filter-count">{ships.length}</span></button>
-        <button type="button" class="ships__filter-btn" data-filter="foundations" role="tab" aria-selected="false">Foundations <span class="ships__filter-count">4</span></button>
-        <button type="button" class="ships__filter-btn" data-filter="retrieval" role="tab" aria-selected="false">Data &amp; modeling <span class="ships__filter-count">3</span></button>
-        <button type="button" class="ships__filter-btn" data-filter="agentic" role="tab" aria-selected="false">Generative science <span class="ships__filter-count">3</span></button>
-        <button type="button" class="ships__filter-btn" data-filter="trust" role="tab" aria-selected="false">Trustworthy AI <span class="ships__filter-count">3</span></button>
-        <button type="button" class="ships__filter-btn" data-filter="production" role="tab" aria-selected="false">Cross-disciplinary <span class="ships__filter-count">1</span></button>
-        <button type="button" class="ships__filter-btn" data-filter="frontier-interview" role="tab" aria-selected="false">Publishing &amp; careers <span class="ships__filter-count">1</span></button>
+        {phases.map((phase) => (
+          <button type="button" class="ships__filter-btn" data-filter={phase.id} role="tab" aria-selected="false">
+            {phase.name} <span class="ships__filter-count">{shipCountByPhase[phase.id]}</span>
+          </button>
+        ))}
       </div>
 
       <!-- Simple Project Cards Grid -->
@@ -323,7 +325,7 @@ const howItWorks = [
             };
             const phase = phaseOfLevel(level.number);
             const cleanName = capstone.name.replace(/^(Capstone Project|Capstone):\s*/i, '');
-            const filterGroup = level.phase === 'frontier' ? 'frontier-interview' : level.phase;
+            const filterGroup = level.phase;
 
             return (
               <li class="ships__item reveal" data-phase={level.phase} data-filter-group={filterGroup}>

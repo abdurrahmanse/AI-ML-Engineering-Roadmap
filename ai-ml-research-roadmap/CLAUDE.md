@@ -63,8 +63,9 @@ If a level file is prose, extract this structure from it. Keep a single `levels.
 | Data Curation & Modeling Paradigms    | 4–6    | domain datasets (medical/cyber), classical ML/CNNs, GNNs & Transformers       |
 | Generative Models & Experimental Science | 7–9    | generative diffusion/flow, controlled OFAT ablations & HPC cluster training  |
 | Scaled Systems, Trustworthy AI & Alignment | 10–12 | foundation models, XAI & interpretability, adversarial defense & safety     |
-| Cross-Disciplinary Research & Capstones | 13–14  | multimodal cross-domain methodologies & 7 flagship thesis research projects   |
-| Publishing, Thesis Defense & Research Careers | 15 | premier journals (TPAMI/JMLR), CORE A* conferences, rebuttals & thesis defense |
+| Cross-Disciplinary Research | 13 | multimodal cross-domain methodologies and collaborative studies |
+| Thesis & Research Portfolio | 14 | thesis-grade evidence, reproducibility, and research communication |
+| Publishing, Defense & Careers | 15 | journals, conferences, peer review, viva, interviews, and research careers |
 
 ---
 

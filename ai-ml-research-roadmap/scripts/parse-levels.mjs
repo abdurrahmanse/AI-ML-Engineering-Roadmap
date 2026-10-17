@@ -14,15 +14,16 @@ import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
-const CONTENT_DIRS = [join(root, 'AI-ml RESEARCH ROADMAP'), join(root, 'AI RESEARCH ROADMAP'), join(root, 'AI ENGINEER ROADMAP'), root];
+const CONTENT_DIRS = [join(root, 'AI RESEARCH ROADMAP'), join(root, 'AI-ml RESEARCH ROADMAP')];
 
 const PHASES = [
   { id: 'foundations', name: 'Research Foundations & Lab Onboarding', levels: [0, 1, 2, 3], theme: 'scientific computing, problem formulation, literature search & applied statistics', purpose: 'Become a reliable contributor who can enter a lab, find a gap, and make defensible claims.', color: 'blue', icon: 'terminal' },
   { id: 'retrieval', name: 'Data Curation & Modeling Paradigms', levels: [4, 5, 6], theme: 'domain datasets, classical ML, deep learning, computer vision, graphs and sequence models', purpose: 'Turn real-world data and model architectures into testable research baselines.', color: 'cyan', icon: 'database' },
   { id: 'agentic', name: 'Generative Models & Experimental Science', levels: [7, 8, 9], theme: 'generative modeling, controlled ablations, fair benchmarks and scaled experimental systems', purpose: 'Design controlled experiments and scale them far enough to reveal meaningful behavior.', color: 'violet', icon: 'flask-conical' },
   { id: 'trust', name: 'Scaled Systems, Trustworthy AI & Alignment', levels: [10, 11, 12], theme: 'foundation models, interpretability, robustness, fairness and alignment for high-impact domains', purpose: 'Study powerful models critically and evaluate their behavior, risks, and limits.', color: 'emerald', icon: 'shield-check' },
-  { id: 'production', name: 'Cross-Disciplinary Research & Capstones', levels: [13, 14], theme: 'multimodal methods and thesis-grade projects that turn questions into defensible evidence', purpose: 'Lead a complete, cross-disciplinary research project from question to evidence.', color: 'rose', icon: 'microscope' },
-  { id: 'frontier', name: 'Publishing, Thesis Defense & Research Careers', levels: [15], theme: 'manuscripts, peer review, rebuttals, thesis defense, job talks and research scientist pathways', purpose: 'Communicate, defend, publish, and carry research into academic or industrial employment.', color: 'slate', icon: 'graduation-cap' },
+  { id: 'production', name: 'Cross-Disciplinary Research', levels: [13], theme: 'multimodal methods and domain collaboration', purpose: 'Translate research questions across disciplines and lead collaborative studies.', color: 'rose', icon: 'microscope' },
+  { id: 'frontier', name: 'Thesis & Research Portfolio', levels: [14], theme: 'thesis-grade evidence, reproducibility, and research communication', purpose: 'Own a substantial study from protocol through evidence and portfolio.', color: 'pink', icon: 'trophy' },
+  { id: 'interview', name: 'Publishing, Defense & Careers', levels: [15], theme: 'journals, conferences, peer review, viva, interviews, and research careers', purpose: 'Publish, defend, and carry research into academic or industrial employment.', color: 'slate', icon: 'graduation-cap' },
 ];
 
 /* One Lucide icon per level for AI/ML research. */
