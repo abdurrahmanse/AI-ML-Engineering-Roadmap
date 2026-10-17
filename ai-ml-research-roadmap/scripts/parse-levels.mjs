@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
-const CONTENT_DIRS = [join(root, 'AI RESEARCH ROADMAP'), join(root, 'AI ENGINEER ROADMAP'), root];
+const CONTENT_DIRS = [join(root, 'AI-ml RESEARCH ROADMAP'), join(root, 'AI RESEARCH ROADMAP'), join(root, 'AI ENGINEER ROADMAP'), root];
 
 const PHASES = [
   { id: 'foundations', name: 'Research Foundations & Lab Onboarding', levels: [0, 1, 2, 3],  theme: 'scientific computing, problem formulation, literature search & applied statistics', color: 'blue',     icon: 'terminal' },
@@ -247,6 +247,15 @@ const LABELS = [
   ['finalResult', /^Final result:\s*/i],
 ];
 
+function researchModeFor(name) {
+  if (/capstone|project|portfolio|publication|manuscript|thesis|defense|job talk/i.test(name)) return 'Ship evidence';
+  if (/evaluation|benchmark|ablation|testing|review|audit|statistics|hypothesis/i.test(name)) return 'Evaluate claims';
+  if (/dataset|data|curat|privacy|ethic|governance/i.test(name)) return 'Prepare evidence';
+  if (/literature|paper|reference|research problem|proposal|mentorship|outreach/i.test(name)) return 'Formulate questions';
+  if (/deploy|system|hpc|distributed|parallel|compute|infrastructure|environment|tooling/i.test(name)) return 'Build research systems';
+  return 'Study and implement';
+}
+
 function findContentDir() {
   for (const dir of CONTENT_DIRS) {
     if (existsSync(dir) && readdirSync(dir).some((f) => /^level\d+.*\.txt$/i.test(f))) return dir;
@@ -329,6 +338,7 @@ function parseLevel(file, raw) {
         isCapstone: /capstone/i.test(name),
         isGap: Boolean(gap),
       };
+      cur.researchMode = researchModeFor(name);
       group = null;
       inColonList = false;
       modules.push(cur);
@@ -346,6 +356,7 @@ function parseLevel(file, raw) {
         isCapstone: true,
         isGap: false,
       };
+      cur.researchMode = 'Ship evidence';
       group = null;
       inColonList = false;
       modules.push(cur);
@@ -368,6 +379,9 @@ function parseLevel(file, raw) {
     .map((module) => module.outcome || module.finalResult)
     .filter(Boolean);
   const exitOutcomes = [...new Set([...completionOutcomes, ...authoredModuleOutcomes])];
+  for (const module of modules) {
+    module.evidence = module.tryIt || module.finalResult || module.outcome || null;
+  }
 
   const capstone = modules.find((m) => m.isCapstone) || null;
   /* A projects level is entirely P-prefixed builds, so it has no separate

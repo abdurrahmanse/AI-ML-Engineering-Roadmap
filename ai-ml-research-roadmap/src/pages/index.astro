@@ -157,7 +157,7 @@ const howItWorks = [
         </div>
         <div class="hero__stat-div" aria-hidden="true"></div>
         <div class="hero__stat" role="listitem">
-          <span class="hero__stat-val">15</span>
+          <span class="hero__stat-val">{ships.length}</span>
           <span class="hero__stat-label">Capstones</span>
         </div>
         <div class="hero__stat-div" aria-hidden="true"></div>
@@ -251,7 +251,7 @@ const howItWorks = [
 
       <!-- Filter Bar -->
       <div class="ships__filters" role="tablist" aria-label="Filter by phase">
-        <button type="button" class="ships__filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All <span class="ships__filter-count">15</span></button>
+        <button type="button" class="ships__filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All <span class="ships__filter-count">{ships.length}</span></button>
         <button type="button" class="ships__filter-btn" data-filter="foundations" role="tab" aria-selected="false">Foundations <span class="ships__filter-count">4</span></button>
         <button type="button" class="ships__filter-btn" data-filter="retrieval" role="tab" aria-selected="false">Data &amp; modeling <span class="ships__filter-count">3</span></button>
         <button type="button" class="ships__filter-btn" data-filter="agentic" role="tab" aria-selected="false">Generative science <span class="ships__filter-count">3</span></button>

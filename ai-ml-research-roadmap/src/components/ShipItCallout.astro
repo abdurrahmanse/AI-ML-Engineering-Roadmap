@@ -79,6 +79,11 @@ const twoCol = items.filter((i) => !i.heading).length > 8;
     </ul>
   )}
 
+  <p class="ship__mode">
+    <Icon name="route" size={15} />
+    <span><b>Research mode</b> · {module.researchMode}</span>
+  </p>
+
   {(module.finalResult || module.outcome) && (
     <p class="ship__result">
       <Icon name="package-check" size={16} />
@@ -237,4 +242,13 @@ const twoCol = items.filter((i) => !i.heading).length > 8;
     color: var(--p-amber-ac);
   }
   .ship__result :global(svg) { flex: none; margin-top: 2px; color: var(--p-amber-ac); }
+  .ship__mode {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: var(--p-amber-ac);
+    font-size: 13.5px;
+  }
+  .ship__mode b { font-weight: 600; }
 </style>

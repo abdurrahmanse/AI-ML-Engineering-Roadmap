@@ -14,7 +14,7 @@ A standalone marketing-grade website that presents the AI/ML Research roadmap as
 
 ## 2. Content source (do not invent content)
 
-All level content exists as flat files in `./AI RESEARCH ROADMAP/`. Parse these — never fabricate level content. Filenames are canonical:
+All level content exists as flat files in `./AI RESEARCH ROADMAP/` (or the tagged `./AI-ml RESEARCH ROADMAP/` folder when present). Parse these — never fabricate level content. Filenames are canonical:
 
 ```
 level0-mathematical-foundations.txt          level8-alignment-interpretability.txt

@@ -121,9 +121,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "The remote compute server is an automated laboratory workbench; persistent tmux sessions safeguard long-running experiments from network disconnects.",
           "tryIt": "Connect to a remote compute instance, launch a long-running simulation inside a named tmux session, detach, and inspect GPU memory allocation with nvidia-smi.",
-          "outcome": "Navigate remote Linux research environments, manage persistent background experiments, and diagnose hardware compute bottlenecks."
+          "outcome": "Navigate remote Linux research environments, manage persistent background experiments, and diagnose hardware compute bottlenecks.",
+          "evidence": "Connect to a remote compute instance, launch a long-running simulation inside a named tmux session, detach, and inspect GPU memory allocation with nvidia-smi."
         },
         {
           "id": "M0.2",
@@ -159,9 +161,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Build research systems",
           "mentalModel": "A research environment must be an immutable, containerized artifact so that any researcher can reproduce exact numerical results five years later.",
           "tryIt": "Build a reproducible Docker image pinning PyTorch and CUDA runtime dependencies, mounting an external dataset volume with non-root permissions.",
-          "outcome": "Eliminate dependency drift, resolve CUDA library mismatches, and package research experiments into containerized scientific artifacts."
+          "outcome": "Eliminate dependency drift, resolve CUDA library mismatches, and package research experiments into containerized scientific artifacts.",
+          "evidence": "Build a reproducible Docker image pinning PyTorch and CUDA runtime dependencies, mounting an external dataset volume with non-root permissions."
         },
         {
           "id": "M0.3",
@@ -197,9 +201,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Git tags in research serve as immutable cryptographic stamps linking paper figures and tables directly to specific commit hashes.",
           "tryIt": "Create a research template repository with a structured module layout, automated linter, .gitignore, and standardized BibTeX citation header.",
-          "outcome": "Structure academic research repositories to meet top-tier conference artifact evaluation and reproducibility standards."
+          "outcome": "Structure academic research repositories to meet top-tier conference artifact evaluation and reproducibility standards.",
+          "evidence": "Create a research template repository with a structured module layout, automated linter, .gitignore, and standardized BibTeX citation header."
         },
         {
           "id": "M0.4",
@@ -235,9 +241,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "An experiment tracker is a digital laboratory notebook capturing the exact relationship between configuration deltas and empirical outcomes.",
           "tryIt": "Instrument a PyTorch training loop with Weights & Biases, logging scalar metrics, gradient norm histograms, and validation sample predictions.",
-          "outcome": "Systematically track hundreds of experimental runs, visualize metric trajectories, and maintain a centralized model registry."
+          "outcome": "Systematically track hundreds of experimental runs, visualize metric trajectories, and maintain a centralized model registry.",
+          "evidence": "Instrument a PyTorch training loop with Weights & Biases, logging scalar metrics, gradient norm histograms, and validation sample predictions."
         },
         {
           "id": "M0.5",
@@ -273,9 +281,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Prepare evidence",
           "mentalModel": "True scientific reproducibility requires that rerunning a script with seed 42 produces identical bitwise loss values across epochs.",
           "tryIt": "Write a deterministic seed utility function, verify that two independent training runs produce identical loss curves, and benchmark data loader throughput.",
-          "outcome": "Eliminate stochastic noise between runs, guarantee experimental determinism, and design high-throughput scientific data pipelines."
+          "outcome": "Eliminate stochastic noise between runs, guarantee experimental determinism, and design high-throughput scientific data pipelines.",
+          "evidence": "Write a deterministic seed utility function, verify that two independent training runs produce identical loss curves, and benchmark data loader throughput."
         },
         {
           "id": "M0.6",
@@ -327,9 +337,11 @@
           ],
           "isCapstone": true,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "A battle-tested research harness is a scientist's primary laboratory apparatus, reducing the time from new hypothesis to empirical result from weeks to hours.",
           "tryIt": "Run the experiment harness with multiple configuration overrides, simulate a mid-training process termination, and verify seamless resumption from checkpoint.",
-          "outcome": "You can scaffold any machine learning research project with industrial-grade scientific rigor, guaranteed reproducibility, and frictionless collaboration."
+          "outcome": "You can scaffold any machine learning research project with industrial-grade scientific rigor, guaranteed reproducibility, and frictionless collaboration.",
+          "evidence": "Run the experiment harness with multiple configuration overrides, simulate a mid-training process termination, and verify seamless resumption from checkpoint."
         }
       ],
       "project": "M0.6",
@@ -398,9 +410,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Joining a lab is an intellectual apprenticeship; choosing a mentor who actively engages and has compute resources matters more than institutional branding.",
           "tryIt": "Build a research spreadsheet profiling 10 research laboratories in your target domain, noting their PI, recent top-tier papers, active grants, and student ratio.",
-          "outcome": "Systematically identify high-impact research laboratories and select scientific mentors aligned with your research ambitions."
+          "outcome": "Systematically identify high-impact research laboratories and select scientific mentors aligned with your research ambitions.",
+          "evidence": "Build a research spreadsheet profiling 10 research laboratories in your target domain, noting their PI, recent top-tier papers, active grants, and student ratio."
         },
         {
           "id": "M1.2",
@@ -436,9 +450,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "A generic inquiry asks for an opportunity; a tailored research pitch demonstrates that you are already contributing solutions to their active problems.",
           "tryIt": "Read two recent papers from a target research group, identify an unaddressed limitation, and write a concise 3-paragraph research extension proposal.",
-          "outcome": "Deconstruct prospective mentors' papers and formulate high-value research pitches that demonstrate immediate intellectual compatibility."
+          "outcome": "Deconstruct prospective mentors' papers and formulate high-value research pitches that demonstrate immediate intellectual compatibility.",
+          "evidence": "Read two recent papers from a target research group, identify an unaddressed limitation, and write a concise 3-paragraph research extension proposal."
         },
         {
           "id": "M1.3",
@@ -474,9 +490,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Formulate questions",
           "mentalModel": "Research leads are starved for time but hungry for self-directed, technically capable researchers who take initiative without constant hand-holding.",
           "tryIt": "Draft a 200-word cold outreach email to a target laboratory lead referencing a specific equation or figure from their latest paper, followed by a polite follow-up template.",
-          "outcome": "Author high-signal research outreach emails that secure technical interviews and avoid common applicant blunders."
+          "outcome": "Author high-signal research outreach emails that secure technical interviews and avoid common applicant blunders.",
+          "evidence": "Draft a 200-word cold outreach email to a target laboratory lead referencing a specific equation or figure from their latest paper, followed by a polite follow-up template."
         },
         {
           "id": "M1.4",
@@ -512,9 +530,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "An academic CV establishes your credentials; a public, reproducible GitHub implementation provides indisputable proof of your research competence.",
           "tryIt": "Typeset your academic CV in LaTeX using a clean academic template, linking a public GitHub repository that reproduces a published ML baseline.",
-          "outcome": "Build a stellar academic CV and proof-of-work portfolio that immediately distinguishes you from hundreds of applicant candidates."
+          "outcome": "Build a stellar academic CV and proof-of-work portfolio that immediately distinguishes you from hundreds of applicant candidates.",
+          "evidence": "Typeset your academic CV in LaTeX using a clean academic template, linking a public GitHub repository that reproduces a published ML baseline."
         },
         {
           "id": "M1.5",
@@ -550,9 +570,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "The RA interview is not a LeetCode contest; it tests whether you can read papers critically, implement custom math in PyTorch, and think like a scientist.",
           "tryIt": "Conduct a mock 15-minute paper walkthrough of a NeurIPS paper, explaining the primary mathematical equation and identifying two empirical weaknesses.",
-          "outcome": "Excel in technical coding evaluations and live paper defense discussions to secure coveted research positions."
+          "outcome": "Excel in technical coding evaluations and live paper defense discussions to secure coveted research positions.",
+          "evidence": "Conduct a mock 15-minute paper walkthrough of a NeurIPS paper, explaining the primary mathematical equation and identifying two empirical weaknesses."
         },
         {
           "id": "M1.6",
@@ -604,9 +626,11 @@
           ],
           "isCapstone": true,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "A fully assembled research portfolio proves you are not merely looking for an opportunity, but are already prepared to execute publication-quality research on day one.",
           "tryIt": "Assemble your complete application portfolio in LaTeX, linking a verified GitHub reproduction repository, and review against the rubric.",
-          "outcome": "You can systematically approach, pitch, and secure Research Assistant and Fellow positions at premier AI/ML research laboratories."
+          "outcome": "You can systematically approach, pitch, and secure Research Assistant and Fellow positions at premier AI/ML research laboratories.",
+          "evidence": "Assemble your complete application portfolio in LaTeX, linking a verified GitHub reproduction repository, and review against the rubric."
         }
       ],
       "project": "M1.6",
@@ -675,9 +699,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Prepare evidence",
           "mentalModel": "The academic literature is a sprawling directed graph; following incoming and outgoing citation edges reveals how paradigms form and diverge.",
           "tryIt": "Construct an advanced boolean search query on IEEE Xplore and PubMed for deep learning in medical image segmentation, mapping the top 10 most cited papers.",
-          "outcome": "Systematically discover scholarly literature across major computer science and domain-specific bibliographic databases."
+          "outcome": "Systematically discover scholarly literature across major computer science and domain-specific bibliographic databases.",
+          "evidence": "Construct an advanced boolean search query on IEEE Xplore and PubMed for deep learning in medical image segmentation, mapping the top 10 most cited papers."
         },
         {
           "id": "M2.2",
@@ -713,9 +739,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Top conferences deliver fast, cutting-edge breakthroughs; prestigious journals publish comprehensive, foundational reference works.",
           "tryIt": "Identify the top 3 conferences and top 3 Q1 journals in your target research domain (e.g., medical AI or cybersecurity), noting their h5-index and review cycles.",
-          "outcome": "Navigate the academic publishing ecosystem, evaluate venue prestige, and distinguish predatory publishers from reputable venues."
+          "outcome": "Navigate the academic publishing ecosystem, evaluate venue prestige, and distinguish predatory publishers from reputable venues.",
+          "evidence": "Identify the top 3 conferences and top 3 Q1 journals in your target research domain (e.g., medical AI or cybersecurity), noting their h5-index and review cycles."
         },
         {
           "id": "M2.3",
@@ -751,9 +779,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Formulate questions",
           "mentalModel": "Reading an academic paper is not passive consumption; it is an active peer review where you cross-examine every claim against the empirical data.",
           "tryIt": "Execute a 3-pass reading of a recent top-tier conference paper, writing a 1-page structured critique evaluating its core claims and baseline fairness.",
-          "outcome": "Read research papers efficiently, extract core insights rapidly, and critically evaluate the validity of scientific claims."
+          "outcome": "Read research papers efficiently, extract core insights rapidly, and critically evaluate the validity of scientific claims.",
+          "evidence": "Execute a 3-pass reading of a recent top-tier conference paper, writing a 1-page structured critique evaluating its core claims and baseline fairness."
         },
         {
           "id": "M2.4",
@@ -789,9 +819,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Formulate questions",
           "mentalModel": "A disorganized researcher forgets 80% of what they read; an automated Zotero library turns reading into a searchable intellectual database.",
           "tryIt": "Build a 30-paper library in Zotero with Better BibTeX keys, sync it to an Overleaf document, and cite three papers with formatted \\cite{} commands.",
-          "outcome": "Manage thousands of scholarly references effortlessly, maintain pristine BibTeX registries, and streamline academic LaTeX authoring."
+          "outcome": "Manage thousands of scholarly references effortlessly, maintain pristine BibTeX registries, and streamline academic LaTeX authoring.",
+          "evidence": "Build a 30-paper library in Zotero with Better BibTeX keys, sync it to an Overleaf document, and cite three papers with formatted \\cite{} commands."
         },
         {
           "id": "M2.5",
@@ -827,9 +859,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "A literature survey is not a summary of what has been done; it is a map that highlights the unexplored territory waiting for your paper.",
           "tryIt": "Create a comparative synthesis matrix of 10 papers in a subfield, identify an unaddressed limitation, and write a 3-paragraph Related Work narrative.",
-          "outcome": "Synthesize complex literature into comparative taxonomies, isolate significant research gaps, and frame scientific novelty compellingly."
+          "outcome": "Synthesize complex literature into comparative taxonomies, isolate significant research gaps, and frame scientific novelty compellingly.",
+          "evidence": "Create a comparative synthesis matrix of 10 papers in a subfield, identify an unaddressed limitation, and write a 3-paragraph Related Work narrative."
         },
         {
           "id": "M2.6",
@@ -881,9 +915,11 @@
           ],
           "isCapstone": true,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "A systematic literature review establishes you as an authoritative domain expert; it is often the first major publication of an MSc or PhD student.",
           "tryIt": "Compile your complete SLR manuscript into a clean LaTeX PDF, complete with a PRISMA flow diagram, comparative taxonomy table, and 30+ BibTeX citations.",
-          "outcome": "You can systematically discover, critically analyze, and synthesize scientific literature to produce publication-grade survey papers and establish research authority."
+          "outcome": "You can systematically discover, critically analyze, and synthesize scientific literature to produce publication-grade survey papers and establish research authority.",
+          "evidence": "Compile your complete SLR manuscript into a clean LaTeX PDF, complete with a PRISMA flow diagram, comparative taxonomy table, and 30+ BibTeX citations."
         }
       ],
       "project": "M2.6",
@@ -952,9 +988,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Prepare evidence",
           "mentalModel": "SVD decomposes complex high-dimensional transformations into orthogonal coordinate rotations and scaling axes, revealing intrinsic data dimensionality.",
           "tryIt": "Implement SVD from scratch in NumPy, project a high-dimensional dataset onto its top 3 singular vectors, and calculate the cumulative explained variance ratio.",
-          "outcome": "Apply fundamental matrix decompositions, compute spectral graph invariants, and mathematically justify dimensionality reduction in research papers."
+          "outcome": "Apply fundamental matrix decompositions, compute spectral graph invariants, and mathematically justify dimensionality reduction in research papers.",
+          "evidence": "Implement SVD from scratch in NumPy, project a high-dimensional dataset onto its top 3 singular vectors, and calculate the cumulative explained variance ratio."
         },
         {
           "id": "M3.2",
@@ -990,9 +1028,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "The gradient indicates the direction of steepest ascent, while the Hessian eigenvalues determine whether the terrain is a flat basin, a steep ravine, or an unstable saddle point.",
           "tryIt": "Compute the Hessian matrix of a non-linear loss function analytically and numerically, verify positive semi-definiteness, and compute its condition number.",
-          "outcome": "Analyze the geometric curvature of loss surfaces, derive custom matrix derivatives, and diagnose numerical optimization difficulties in deep learning models."
+          "outcome": "Analyze the geometric curvature of loss surfaces, derive custom matrix derivatives, and diagnose numerical optimization difficulties in deep learning models.",
+          "evidence": "Compute the Hessian matrix of a non-linear loss function analytically and numerically, verify positive semi-definiteness, and compute its condition number."
         },
         {
           "id": "M3.3",
@@ -1028,9 +1068,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Minimizing cross-entropy is mathematically equivalent to minimizing the KL divergence between true empirical data and your model's predicted distribution.",
           "tryIt": "Implement KL divergence and Jensen-Shannon divergence between two multivariate Gaussian distributions and plot the divergence as variance parameters change.",
-          "outcome": "Apply formal information-theoretic metrics, formulate probabilistic model objectives, and interpret loss functions from first principles."
+          "outcome": "Apply formal information-theoretic metrics, formulate probabilistic model objectives, and interpret loss functions from first principles.",
+          "evidence": "Implement KL divergence and Jensen-Shannon divergence between two multivariate Gaussian distributions and plot the divergence as variance parameters change."
         },
         {
           "id": "M3.4",
@@ -1066,9 +1108,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "A p-value does not measure superiority; it measures how rarely you would observe such performance divergence if both algorithms were identical.",
           "tryIt": "Take validation results from two model architectures across 10 random seeds, run Shapiro-Wilk tests for normality, and execute paired Wilcoxon signed-rank tests.",
-          "outcome": "Select and execute appropriate parametric and non-parametric hypothesis tests to statistically validate performance improvements over baseline models."
+          "outcome": "Select and execute appropriate parametric and non-parametric hypothesis tests to statistically validate performance improvements over baseline models.",
+          "evidence": "Take validation results from two model architectures across 10 random seeds, run Shapiro-Wilk tests for normality, and execute paired Wilcoxon signed-rank tests."
         },
         {
           "id": "M3.5",
@@ -1104,9 +1148,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Evaluate claims",
           "mentalModel": "Reporting a 95% bootstrap confidence interval communicates both the magnitude of improvement and the empirical certainty of the measurement.",
           "tryIt": "Write a Python utility that takes benchmark scores across 15 sub-tasks, computes Cohen's d effect sizes, and applies Benjamini-Hochberg FDR adjustments.",
-          "outcome": "Report effect sizes alongside confidence intervals and eliminate false positive claims caused by uncorrected multiple statistical comparisons."
+          "outcome": "Report effect sizes alongside confidence intervals and eliminate false positive claims caused by uncorrected multiple statistical comparisons.",
+          "evidence": "Write a Python utility that takes benchmark scores across 15 sub-tasks, computes Cohen's d effect sizes, and applies Benjamini-Hochberg FDR adjustments."
         },
         {
           "id": "M3.6",
@@ -1158,9 +1204,11 @@
           ],
           "isCapstone": true,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "Reviewers respect papers where every performance claim is backed by formal confidence intervals, effect sizes, and statistical hypothesis tests.",
           "tryIt": "Execute the audit package on a simulated research experiment with 5 baselines and 10 seeds, generating a formatted LaTeX table ready for paper insertion.",
-          "outcome": "You can statistically validate any empirical AI/ML research finding, guaranteeing that published results are mathematically sound and reproducible."
+          "outcome": "You can statistically validate any empirical AI/ML research finding, guaranteeing that published results are mathematically sound and reproducible.",
+          "evidence": "Execute the audit package on a simulated research experiment with 5 baselines and 10 seeds, generating a formatted LaTeX table ready for paper insertion."
         }
       ],
       "project": "M3.6",
@@ -1229,9 +1277,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Prepare evidence",
           "mentalModel": "Medical data represents human lives; strict privacy protocols and ontology alignment are essential before applying any machine learning model.",
           "tryIt": "Download a de-identified sample of MIMIC-IV clinical events, map ICD-10 diagnostic codes to high-level clinical categories, and construct patient admission timelines.",
-          "outcome": "Acquire credentialed access to leading medical research databases and preprocess heterogeneous clinical, radiological, and genomic data."
+          "outcome": "Acquire credentialed access to leading medical research databases and preprocess heterogeneous clinical, radiological, and genomic data.",
+          "evidence": "Download a de-identified sample of MIMIC-IV clinical events, map ICD-10 diagnostic codes to high-level clinical categories, and construct patient admission timelines."
         },
         {
           "id": "M4.2",
@@ -1267,9 +1317,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Prepare evidence",
           "mentalModel": "In cybersecurity research, adversaries actively adapt to evade detection; static benchmark distributions decay rapidly across temporal horizons.",
           "tryIt": "Parse a raw PCAP file using Python Scapy, extract bidirectional flow statistics for benign and malicious traffic, and format feature vectors for ML ingestion.",
-          "outcome": "Process raw network packet captures and binary malware datasets, extracting domain-specific features for intrusion detection research."
+          "outcome": "Process raw network packet captures and binary malware datasets, extracting domain-specific features for intrusion detection research.",
+          "evidence": "Parse a raw PCAP file using Python Scapy, extract bidirectional flow statistics for benign and malicious traffic, and format feature vectors for ML ingestion."
         },
         {
           "id": "M4.3",
@@ -1305,9 +1357,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "The fact that a clinical test or network sensor log was NOT recorded is itself a powerful predictive signal that must not be discarded.",
           "tryIt": "Take an EHR dataset with 30% missing lab values, introduce missingness indicator masks, and compare MICE imputation against forward-fill baselines.",
-          "outcome": "Implement robust strategies to overcome extreme class imbalance and missing data without introducing distribution bias."
+          "outcome": "Implement robust strategies to overcome extreme class imbalance and missing data without introducing distribution bias.",
+          "evidence": "Take an EHR dataset with 30% missing lab values, introduce missingness indicator masks, and compare MICE imputation against forward-fill baselines."
         },
         {
           "id": "M4.4",
@@ -1343,9 +1397,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Prepare evidence",
           "mentalModel": "If your test split contains a single record from a patient or machine present in training, your published accuracy is an illusion.",
           "tryIt": "Take a clinical dataset with multiple visits per patient, demonstrate the inflated performance of random splitting, and correct it using patient-level GroupKFold.",
-          "outcome": "Audit research pipelines to eliminate patient-level, feature engineering, and temporal data leakage that invalidates published research findings."
+          "outcome": "Audit research pipelines to eliminate patient-level, feature engineering, and temporal data leakage that invalidates published research findings.",
+          "evidence": "Take a clinical dataset with multiple visits per patient, demonstrate the inflated performance of random splitting, and correct it using patient-level GroupKFold."
         },
         {
           "id": "M4.5",
@@ -1381,9 +1437,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Prepare evidence",
           "mentalModel": "A dataset without comprehensive provenance documentation is a black box that risks propagating harmful demographic bias and regulatory violations.",
           "tryIt": "Author a formal 2-page Datasheet for Datasets document for an open-source medical or cybersecurity dataset, detailing collection protocols and known limitations.",
-          "outcome": "Comply with international privacy regulations, implement rigorous de-identification, and author academic Datasheets for Datasets."
+          "outcome": "Comply with international privacy regulations, implement rigorous de-identification, and author academic Datasheets for Datasets.",
+          "evidence": "Author a formal 2-page Datasheet for Datasets document for an open-source medical or cybersecurity dataset, detailing collection protocols and known limitations."
         },
         {
           "id": "M4.6",
@@ -1435,9 +1493,11 @@
           ],
           "isCapstone": true,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "High-impact AI/ML research begins with pristine, leak-free data curation; a flawless benchmark pipeline provides the foundation for valid scientific discoveries.",
           "tryIt": "Run the full curation pipeline end-to-end on raw data, verifying zero patient overlap and exporting a complete metadata manifest.",
-          "outcome": "You can ingest, sanitize, partition, and document complex domain-specific research datasets with zero data leakage, ready for peer-reviewed publication."
+          "outcome": "You can ingest, sanitize, partition, and document complex domain-specific research datasets with zero data leakage, ready for peer-reviewed publication.",
+          "evidence": "Run the full curation pipeline end-to-end on raw data, verifying zero patient overlap and exporting a complete metadata manifest."
         }
       ],
       "project": "M4.6",
@@ -1506,9 +1566,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "GBDTs partition feature space along orthogonal hyperplanes, making them the gold-standard baseline for non-spatial, unrotated tabular data.",
           "tryIt": "Train an XGBoost baseline and a TabNet model on a clinical tabular dataset, comparing AUROC, parameter count, and training wall-clock time.",
-          "outcome": "Select, tune, and evaluate state-of-the-art tree ensembles and deep tabular models across medical and cybersecurity benchmarks."
+          "outcome": "Select, tune, and evaluate state-of-the-art tree ensembles and deep tabular models across medical and cybersecurity benchmarks.",
+          "evidence": "Train an XGBoost baseline and a TabNet model on a clinical tabular dataset, comparing AUROC, parameter count, and training wall-clock time."
         },
         {
           "id": "M5.2",
@@ -1544,9 +1606,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Skip connections in U-Net act as spatial bridges, allowing fine-grained anatomical edge details to bypass the bottleneck directly to the decoder.",
           "tryIt": "Implement a 3D U-Net in PyTorch, apply Soft Dice Loss on a volumetric brain tumor segmentation dataset, and compute the Dice Similarity Coefficient (DSC).",
-          "outcome": "Design and train 2D and 3D convolutional neural networks for medical radiological classification and volumetric anatomical segmentation."
+          "outcome": "Design and train 2D and 3D convolutional neural networks for medical radiological classification and volumetric anatomical segmentation.",
+          "evidence": "Implement a 3D U-Net in PyTorch, apply Soft Dice Loss on a volumetric brain tumor segmentation dataset, and compute the Dice Similarity Coefficient (DSC)."
         },
         {
           "id": "M5.3",
@@ -1582,9 +1646,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Dilated causal convolutions expand receptive field exponentially without increasing parameter count, offering a parallelizable alternative to recurrence.",
           "tryIt": "Build a Temporal Convolutional Network with dilated causal residual blocks in PyTorch, training it on raw network packet sequence data to detect intrusion anomalies.",
-          "outcome": "Model time-series physiological waveforms and sequential cybersecurity telemetry using 1D convolutional and recurrent deep learning architectures."
+          "outcome": "Model time-series physiological waveforms and sequential cybersecurity telemetry using 1D convolutional and recurrent deep learning architectures.",
+          "evidence": "Build a Temporal Convolutional Network with dilated causal residual blocks in PyTorch, training it on raw network packet sequence data to detect intrusion anomalies."
         },
         {
           "id": "M5.4",
@@ -1620,9 +1686,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Self-supervised learning exploits massive unlabeled datasets to build rich geometric representation spaces before a single task-specific label is seen.",
           "tryIt": "Pre-train a convolutional encoder using SimCLR on unlabelled chest X-rays, freeze the backbone, and evaluate linear probe classification accuracy against supervised training.",
-          "outcome": "Pre-train domain-specific visual and sequential encoders using self-supervised contrastive and reconstruction objectives without manual labels."
+          "outcome": "Pre-train domain-specific visual and sequential encoders using self-supervised contrastive and reconstruction objectives without manual labels.",
+          "evidence": "Pre-train a convolutional encoder using SimCLR on unlabelled chest X-rays, freeze the backbone, and evaluate linear probe classification accuracy against supervised training."
         },
         {
           "id": "M5.5",
@@ -1658,9 +1726,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "High within-distribution test accuracy is easy; true scientific robustness requires generalization across different hospitals, scanner protocols, and enterprise networks.",
           "tryIt": "Train a classifier on data from one institution, test on a secondary institution to measure out-of-distribution performance drop, and mitigate the drop using DANN.",
-          "outcome": "Detect and mitigate domain shift, evaluate out-of-distribution generalization, and apply transfer learning across distinct scientific environments."
+          "outcome": "Detect and mitigate domain shift, evaluate out-of-distribution generalization, and apply transfer learning across distinct scientific environments.",
+          "evidence": "Train a classifier on data from one institution, test on a secondary institution to measure out-of-distribution performance drop, and mitigate the drop using DANN."
         },
         {
           "id": "M5.6",
@@ -1712,9 +1782,11 @@
           ],
           "isCapstone": true,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "Rigorous research avoids paradigm dogmatism; systematically comparing classical and deep models on equal footing reveals genuine empirical trade-offs.",
           "tryIt": "Run the cross-paradigm benchmark, execute statistical significance tests, and produce an empirical comparison table ready for paper insertion.",
-          "outcome": "You can rigorously compare classical machine learning algorithms and deep neural networks on real-world scientific datasets with peer-review rigor."
+          "outcome": "You can rigorously compare classical machine learning algorithms and deep neural networks on real-world scientific datasets with peer-review rigor.",
+          "evidence": "Run the cross-paradigm benchmark, execute statistical significance tests, and produce an empirical comparison table ready for paper insertion."
         }
       ],
       "project": "M5.6",
@@ -1783,9 +1855,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Standard attention is memory-bandwidth bound, not compute-bound; FlashAttention reorganizes matrix multiplications to fit within fast on-chip GPU SRAM.",
           "tryIt": "Implement scaled dot-product attention in PyTorch from scratch, verify output equivalence with torch.nn.functional.scaled_dot_product_attention, and benchmark memory scaling.",
-          "outcome": "Build, optimize, and mathematically analyze modern attention mechanisms and hardware-aware Transformer layers."
+          "outcome": "Build, optimize, and mathematically analyze modern attention mechanisms and hardware-aware Transformer layers.",
+          "evidence": "Implement scaled dot-product attention in PyTorch from scratch, verify output equivalence with torch.nn.functional.scaled_dot_product_attention, and benchmark memory scaling."
         },
         {
           "id": "M6.2",
@@ -1821,9 +1895,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "ViTs treat images as sentences of visual words; Swin Transformers reintroduce hierarchical spatial pyramids while maintaining attention flexibility.",
           "tryIt": "Implement a patch embedding module in PyTorch, construct a Vision Transformer backbone, and visualize attention weights across a medical chest X-ray image.",
-          "outcome": "Apply Vision Transformers and hierarchical attention models to medical radiological imaging and high-resolution spatial data."
+          "outcome": "Apply Vision Transformers and hierarchical attention models to medical radiological imaging and high-resolution spatial data.",
+          "evidence": "Implement a patch embedding module in PyTorch, construct a Vision Transformer backbone, and visualize attention weights across a medical chest X-ray image."
         },
         {
           "id": "M6.3",
@@ -1859,9 +1935,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "A GNN is a generalized convolution where each node dynamically aggregates information from its arbitrary topological neighborhood.",
           "tryIt": "Build a 2-layer Graph Attention Network (GAT) with multi-head neighborhood attention in PyTorch Geometric, training it on a node classification benchmark.",
-          "outcome": "Master the Message Passing paradigm and implement state-of-the-art spatial and attention-based Graph Neural Networks."
+          "outcome": "Master the Message Passing paradigm and implement state-of-the-art spatial and attention-based Graph Neural Networks.",
+          "evidence": "Build a 2-layer Graph Attention Network (GAT) with multi-head neighborhood attention in PyTorch Geometric, training it on a node classification benchmark."
         },
         {
           "id": "M6.4",
@@ -1897,9 +1975,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Cyber threats operate across distributed networks; graph neural networks capture relational attack topologies invisible to isolated log analyzers.",
           "tryIt": "Construct an enterprise network communication graph from network flow logs in PyG, train a GNN to detect compromised lateral-movement host nodes.",
-          "outcome": "Formulate cybersecurity threat detection problems as graph neural network tasks, modeling network flow graphs and malware binary control flow topologies."
+          "outcome": "Formulate cybersecurity threat detection problems as graph neural network tasks, modeling network flow graphs and malware binary control flow topologies.",
+          "evidence": "Construct an enterprise network communication graph from network flow logs in PyG, train a GNN to detect compromised lateral-movement host nodes."
         },
         {
           "id": "M6.5",
@@ -1935,9 +2015,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Mamba achieves the parallel training efficiency of Transformers and the constant-memory O(1) inference speed of recurrent neural networks.",
           "tryIt": "Implement a 1D selective state space layer in PyTorch, compare training wall-clock time and memory consumption against standard attention across sequence length N=16,384.",
-          "outcome": "Apply sub-quadratic linear attention and selective state space models (Mamba) to long-sequence scientific and telemetry data."
+          "outcome": "Apply sub-quadratic linear attention and selective state space models (Mamba) to long-sequence scientific and telemetry data.",
+          "evidence": "Implement a 1D selective state space layer in PyTorch, compare training wall-clock time and memory consumption against standard attention across sequence length N=16,384."
         },
         {
           "id": "M6.6",
@@ -1989,9 +2071,11 @@
           ],
           "isCapstone": true,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "Implementing modern non-standard architectures like GNNs or State Space Models demonstrates deep technical mastery in high-impact research areas.",
           "tryIt": "Run the full comparative pipeline, logging training curves, memory consumption profiles, and statistical significance tests comparing against baselines.",
-          "outcome": "You can design, implement, and scientifically validate modern Graph Neural Networks and State Space Models for complex relational and sequential research problems."
+          "outcome": "You can design, implement, and scientifically validate modern Graph Neural Networks and State Space Models for complex relational and sequential research problems.",
+          "evidence": "Run the full comparative pipeline, logging training curves, memory consumption profiles, and statistical significance tests comparing against baselines."
         }
       ],
       "project": "M6.6",
@@ -2060,9 +2144,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "The reparameterization trick isolates the stochastic sampling into an external noise parameter, enabling end-to-end gradient flow.",
           "tryIt": "Implement a Conditional VAE in PyTorch, train it on mixed-type tabular records, and generate synthetic samples conditioned on specific disease labels.",
-          "outcome": "Derive the ELBO, implement the reparameterization trick, and generate conditioned tabular samples using Variational Autoencoders."
+          "outcome": "Derive the ELBO, implement the reparameterization trick, and generate conditioned tabular samples using Variational Autoencoders.",
+          "evidence": "Implement a Conditional VAE in PyTorch, train it on mixed-type tabular records, and generate synthetic samples conditioned on specific disease labels."
         },
         {
           "id": "M7.2",
@@ -2098,9 +2184,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Diffusion reverses entropy; by training a neural network to predict noise at every scale, we can trace a trajectory from pure noise back to the data manifold.",
           "tryIt": "Train a 2D Denoising Diffusion Probabilistic Model (DDPM) on a radiological imaging dataset in PyTorch, implementing the full reverse sampling loop.",
-          "outcome": "Master the mathematics of discrete and continuous diffusion, train denoising backbones, and generate high-fidelity samples from pure noise."
+          "outcome": "Master the mathematics of discrete and continuous diffusion, train denoising backbones, and generate high-fidelity samples from pure noise.",
+          "evidence": "Train a 2D Denoising Diffusion Probabilistic Model (DDPM) on a radiological imaging dataset in PyTorch, implementing the full reverse sampling loop."
         },
         {
           "id": "M7.3",
@@ -2136,9 +2224,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Flow matching straightens the generative trajectories into straight lines, enabling dramatically faster deterministic sampling with fewer ODE solver steps.",
           "tryIt": "Implement an Optimal Transport Flow Matching model in PyTorch on a 2D synthetic dataset, visualize the learned velocity vector fields, and integrate trajectories.",
-          "outcome": "Formulate continuous normalizing flows and implement Optimal Transport Flow Matching for fast, deterministic generative sampling."
+          "outcome": "Formulate continuous normalizing flows and implement Optimal Transport Flow Matching for fast, deterministic generative sampling.",
+          "evidence": "Implement an Optimal Transport Flow Matching model in PyTorch on a 2D synthetic dataset, visualize the learned velocity vector fields, and integrate trajectories."
         },
         {
           "id": "M7.4",
@@ -2174,9 +2264,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "Generative models can solve extreme domain data scarcity by synthesizing high-fidelity, physically consistent rare pathological lesions and cyber threats.",
           "tryIt": "Train a conditioned diffusion model to synthesize realistic rare pathology samples, and verify that training a downstream classifier with augmented data improves AUROC.",
-          "outcome": "Deploy state-of-the-art diffusion and flow models to synthesize high-utility medical images and cybersecurity telemetry."
+          "outcome": "Deploy state-of-the-art diffusion and flow models to synthesize high-utility medical images and cybersecurity telemetry.",
+          "evidence": "Train a conditioned diffusion model to synthesize realistic rare pathology samples, and verify that training a downstream classifier with augmented data improves AUROC."
         },
         {
           "id": "M7.5",
@@ -2212,9 +2304,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Evaluate claims",
           "mentalModel": "High visual fidelity is meaningless if the generative model simply memorized and reproduced confidential patient scans; privacy auditing is mandatory.",
           "tryIt": "Calculate FID, Precision, and Recall on synthetic samples, and implement a shadow-model membership inference attack to verify that training patient data is not leaked.",
-          "outcome": "Evaluate generative fidelity, diversity, and distributional realism, and conduct empirical privacy audits to prevent training data memorization."
+          "outcome": "Evaluate generative fidelity, diversity, and distributional realism, and conduct empirical privacy audits to prevent training data memorization.",
+          "evidence": "Calculate FID, Precision, and Recall on synthetic samples, and implement a shadow-model membership inference attack to verify that training patient data is not leaked."
         },
         {
           "id": "M7.6",
@@ -2266,9 +2360,11 @@
           ],
           "isCapstone": true,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "The ultimate test of synthetic data research is downstream clinical or security utility combined with mathematical privacy guarantees.",
           "tryIt": "Run the full synthesis pipeline, train a downstream model on synthetic data, evaluate on real test data, and produce a publication-ready evaluation report.",
-          "outcome": "You can design, train, evaluate, and mathematically audit state-of-the-art generative diffusion and flow models for sensitive scientific and enterprise domains."
+          "outcome": "You can design, train, evaluate, and mathematically audit state-of-the-art generative diffusion and flow models for sensitive scientific and enterprise domains.",
+          "evidence": "Run the full synthesis pipeline, train a downstream model on synthetic data, evaluate on real test data, and produce a publication-ready evaluation report."
         }
       ],
       "project": "M7.6",
@@ -2337,9 +2433,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "If your model outperforms the baseline simply because it had 25% more parameters or a longer warmup schedule, your scientific claim is invalid.",
           "tryIt": "Design an experimental protocol comparing two attention mechanisms where total parameter count, FLOP budget, and training token count are strictly equalized.",
-          "outcome": "Structure scientifically controlled computer science experiments that isolate genuine algorithmic contributions from confounding factors."
+          "outcome": "Structure scientifically controlled computer science experiments that isolate genuine algorithmic contributions from confounding factors.",
+          "evidence": "Design an experimental protocol comparing two attention mechanisms where total parameter count, FLOP budget, and training token count are strictly equalized."
         },
         {
           "id": "M8.2",
@@ -2375,9 +2473,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Evaluate claims",
           "mentalModel": "An ablation study is an empirical post-mortem showing the exact quantitative degradation incurred when any piece of your innovation is removed.",
           "tryIt": "Construct an ablation matrix for a model with three new components (loss penalty, novel attention, custom normalization), detailing all 2^3 configurations.",
-          "outcome": "Design rigorous ablation matrices that withstand peer review scrutiny and scientifically justify every architectural design choice."
+          "outcome": "Design rigorous ablation matrices that withstand peer review scrutiny and scientifically justify every architectural design choice.",
+          "evidence": "Construct an ablation matrix for a model with three new components (loss penalty, novel attention, custom normalization), detailing all 2^3 configurations."
         },
         {
           "id": "M8.3",
@@ -2413,9 +2513,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Reviewers will instantly reject a paper that claims superiority over an untuned, outdated, or strawman baseline.",
           "tryIt": "Re-implement a published baseline model, tune its hyperparameters on your target dataset, and compare the tuned baseline against default settings.",
-          "outcome": "Select, tune, and evaluate competitive baseline models, eliminating the weak-baseline fallacy from your research papers."
+          "outcome": "Select, tune, and evaluate competitive baseline models, eliminating the weak-baseline fallacy from your research papers.",
+          "evidence": "Re-implement a published baseline model, tune its hyperparameters on your target dataset, and compare the tuned baseline against default settings."
         },
         {
           "id": "M8.4",
@@ -2451,9 +2553,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Evaluate claims",
           "mentalModel": "Testing a model on data it has already seen during pre-training is not an evaluation of generalization; it is an evaluation of memorization.",
           "tryIt": "Scan an evaluation benchmark against a simulated pre-training text corpus using n-gram overlap matching, identify contaminated samples, and compute decontaminated accuracy.",
-          "outcome": "Detect and eliminate benchmark test-set contamination, ensuring evaluation integrity in foundation model research."
+          "outcome": "Detect and eliminate benchmark test-set contamination, ensuring evaluation integrity in foundation model research.",
+          "evidence": "Scan an evaluation benchmark against a simulated pre-training text corpus using n-gram overlap matching, identify contaminated samples, and compute decontaminated accuracy."
         },
         {
           "id": "M8.5",
@@ -2489,9 +2593,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "An algorithm that achieves peak performance only on a single magical random seed is a fragile artifact, not a scientific contribution.",
           "tryIt": "Run an Optuna Bayesian hyperparameter sweep across learning rates and weight decays under a fixed 20-trial budget, then evaluate the best model across 5 random seeds.",
-          "outcome": "Implement disciplined hyperparameter optimization protocols with equal compute budgets and report multi-seed variance."
+          "outcome": "Implement disciplined hyperparameter optimization protocols with equal compute budgets and report multi-seed variance.",
+          "evidence": "Run an Optuna Bayesian hyperparameter sweep across learning rates and weight decays under a fixed 20-trial budget, then evaluate the best model across 5 random seeds."
         },
         {
           "id": "M8.6",
@@ -2544,9 +2650,11 @@
           ],
           "isCapstone": true,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "A rock-solid empirical section features competitive baselines, equal compute tuning, a thorough ablation study, and statistical significance tests.",
           "tryIt": "Execute the complete benchmarking and ablation suite, producing the final comparative table and ablation chart ready for inclusion in a paper.",
-          "outcome": "You can design, execute, and present empirical machine learning experiments that satisfy the highest standards of top-tier peer review."
+          "outcome": "You can design, execute, and present empirical machine learning experiments that satisfy the highest standards of top-tier peer review.",
+          "evidence": "Execute the complete benchmarking and ablation suite, producing the final comparative table and ablation chart ready for inclusion in a paper."
         }
       ],
       "project": "M8.6",
@@ -2615,9 +2723,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Build research systems",
           "mentalModel": "SLURM is the traffic controller of the supercomputer; precise resource specifications prevent jobs from failing due to memory or time preemption.",
           "tryIt": "Write a SLURM batch submission script requesting 2 nodes and 8 GPUs with automated checkpoint recovery and email alerts upon job completion.",
-          "outcome": "Navigate institutional and laboratory supercomputing environments, submit multi-node batch scripts, and leverage high-speed interconnects."
+          "outcome": "Navigate institutional and laboratory supercomputing environments, submit multi-node batch scripts, and leverage high-speed interconnects.",
+          "evidence": "Write a SLURM batch submission script requesting 2 nodes and 8 GPUs with automated checkpoint recovery and email alerts upon job completion."
         },
         {
           "id": "M9.2",
@@ -2653,9 +2763,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Prepare evidence",
           "mentalModel": "Standard DDP duplicates the entire model on every GPU; FSDP shards model parameters and optimizer states across the cluster, reconstituting them on-the-fly.",
           "tryIt": "Convert a standard PyTorch training loop to PyTorch FSDP, training a multi-billion parameter model across multiple GPUs with mixed precision.",
-          "outcome": "Implement and scale distributed data-parallel training across multi-GPU and multi-node clusters using DDP and FSDP."
+          "outcome": "Implement and scale distributed data-parallel training across multi-GPU and multi-node clusters using DDP and FSDP.",
+          "evidence": "Convert a standard PyTorch training loop to PyTorch FSDP, training a multi-billion parameter model across multiple GPUs with mixed precision."
         },
         {
           "id": "M9.3",
@@ -2691,9 +2803,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Build research systems",
           "mentalModel": "Tensor parallelism splits individual layers horizontally across GPUs; pipeline parallelism stacks layers vertically across a chain of GPUs.",
           "tryIt": "Implement column-parallel and row-parallel linear layers in PyTorch using distributed communication collectives, verifying numerical equivalence with a monolithic layer.",
-          "outcome": "Design and execute 3D parallelism (Data + Tensor + Pipeline Parallelism) to train ultra-large models exceeding single-device memory limits."
+          "outcome": "Design and execute 3D parallelism (Data + Tensor + Pipeline Parallelism) to train ultra-large models exceeding single-device memory limits.",
+          "evidence": "Implement column-parallel and row-parallel linear layers in PyTorch using distributed communication collectives, verifying numerical equivalence with a monolithic layer."
         },
         {
           "id": "M9.4",
@@ -2729,9 +2843,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "A distributed cluster is only as fast as its slowest worker; profiling traces expose hidden synchronization barriers where GPUs sit idle.",
           "tryIt": "Profile a multi-GPU training run using PyTorch Profiler, export the JSON trace, and identify the exact percentage of time spent in NCCL communication.",
-          "outcome": "Profile distributed multi-GPU training runs, diagnose communication bottlenecks, and optimize computation-communication overlapping."
+          "outcome": "Profile distributed multi-GPU training runs, diagnose communication bottlenecks, and optimize computation-communication overlapping.",
+          "evidence": "Profile a multi-GPU training run using PyTorch Profiler, export the JSON trace, and identify the exact percentage of time spent in NCCL communication."
         },
         {
           "id": "M9.5",
@@ -2767,9 +2883,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "MFU is the definitive research metric of systems efficiency, proving whether your codebase is actually extracting hardware capability.",
           "tryIt": "Write a Python script that calculates the exact theoretical MFU of a Transformer training run based on logged tokens-per-second and GPU hardware specs.",
-          "outcome": "Quantify Model FLOPs Utilization (MFU) and systematically evaluate strong and weak scaling efficiency on research supercomputers."
+          "outcome": "Quantify Model FLOPs Utilization (MFU) and systematically evaluate strong and weak scaling efficiency on research supercomputers.",
+          "evidence": "Write a Python script that calculates the exact theoretical MFU of a Transformer training run based on logged tokens-per-second and GPU hardware specs."
         },
         {
           "id": "M9.6",
@@ -2821,9 +2939,11 @@
           ],
           "isCapstone": true,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "Research institutions evaluate PhD candidates and RAs on their ability to command supercomputing clusters efficiently without wasting compute allocations.",
           "tryIt": "Execute the distributed training run across multiple GPUs, generate the scaling efficiency curve, and calculate final MFU metrics.",
-          "outcome": "You can scale complex deep learning models across institutional and supercomputing clusters with verified systems efficiency and reproducible performance."
+          "outcome": "You can scale complex deep learning models across institutional and supercomputing clusters with verified systems efficiency and reproducible performance.",
+          "evidence": "Execute the distributed training run across multiple GPUs, generate the scaling efficiency curve, and calculate final MFU metrics."
         }
       ],
       "project": "M9.6",
@@ -2892,9 +3012,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Scaling laws transform AI pre-training from trial-and-error into a predictive engineering science, allowing researchers to predict giant-model loss from small pilot runs.",
           "tryIt": "Fit Chinchilla power-law parameters to empirical training runs from 5 small models, and project the optimal parameter-token split for a 10^21 FLOP compute budget.",
-          "outcome": "Derive and apply empirical scaling laws to predict loss frontiers and compute-optimal resource allocations for pre-training."
+          "outcome": "Derive and apply empirical scaling laws to predict loss frontiers and compute-optimal resource allocations for pre-training.",
+          "evidence": "Fit Chinchilla power-law parameters to empirical training runs from 5 small models, and project the optimal parameter-token split for a 10^21 FLOP compute budget."
         },
         {
           "id": "M10.2",
@@ -2930,9 +3052,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Pre-training stability requires continuous vigilance; small architectural hygiene fixes like QK-Norm and z-loss prevent multi-thousand-dollar training runs from diverging.",
           "tryIt": "Simulate an unstable training loop with high learning rates, diagnose the activation outlier pathology, and stabilize the loss trajectory using QK-Norm and z-loss.",
-          "outcome": "Diagnose and resolve training instabilities, prevent loss spikes, and tune advanced optimization schedules for stable pre-training."
+          "outcome": "Diagnose and resolve training instabilities, prevent loss spikes, and tune advanced optimization schedules for stable pre-training.",
+          "evidence": "Simulate an unstable training loop with high learning rates, diagnose the activation outlier pathology, and stabilize the loss trajectory using QK-Norm and z-loss."
         },
         {
           "id": "M10.3",
@@ -2968,9 +3092,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Fine-tuning does not require modifying all 70 billion parameters; learning low-rank directional update vectors preserves knowledge while adapting to new tasks.",
           "tryIt": "Fine-tune a pre-trained open-weight language model on a specialized classification task using QLoRA in 4-bit precision, logging peak VRAM and convergence.",
-          "outcome": "Implement, optimize, and benchmark parameter-efficient fine-tuning techniques (LoRA, QLoRA, DoRA) on hardware-constrained research systems."
+          "outcome": "Implement, optimize, and benchmark parameter-efficient fine-tuning techniques (LoRA, QLoRA, DoRA) on hardware-constrained research systems.",
+          "evidence": "Fine-tune a pre-trained open-weight language model on a specialized classification task using QLoRA in 4-bit precision, logging peak VRAM and convergence."
         },
         {
           "id": "M10.4",
@@ -3006,9 +3132,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "DAPT teaches a generalist model the specialized vocabulary, syntax, and relational knowledge of a scientific domain without erasing its foundational intellect.",
           "tryIt": "Perform Continual Pre-Training of a small language model on a curated corpus of clinical abstracts, tracking both clinical perplexity and general reasoning benchmarks.",
-          "outcome": "Execute Domain-Adaptive Pre-Training for specialized sectors while mitigating catastrophic forgetting through corpus blending."
+          "outcome": "Execute Domain-Adaptive Pre-Training for specialized sectors while mitigating catastrophic forgetting through corpus blending.",
+          "evidence": "Perform Continual Pre-Training of a small language model on a curated corpus of clinical abstracts, tracking both clinical perplexity and general reasoning benchmarks."
         },
         {
           "id": "M10.5",
@@ -3044,9 +3172,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "A foundation model trained on raw text predicts the next word; instruction tuning aligns its behavioral interface to act as a structured domain expert.",
           "tryIt": "Format a dataset of 1,000 domain-specific clinical or cybersecurity scenarios with completion-only loss masking, and instruction-tune a base model.",
-          "outcome": "Curate high-quality domain instruction datasets, apply completion-only loss masking, and align models for multi-turn scientific reasoning."
+          "outcome": "Curate high-quality domain instruction datasets, apply completion-only loss masking, and align models for multi-turn scientific reasoning.",
+          "evidence": "Format a dataset of 1,000 domain-specific clinical or cybersecurity scenarios with completion-only loss masking, and instruction-tune a base model."
         },
         {
           "id": "M10.6",
@@ -3098,9 +3228,11 @@
           ],
           "isCapstone": true,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "Domain adaptation is the premier methodology for creating state-of-the-art scientific models that outperform massive generalist LLMs on specialized tasks.",
           "tryIt": "Run the full DAPT + SFT pipeline, evaluate domain task accuracy against the base model, and generate an automated comparative benchmark table.",
-          "outcome": "You can specialize large foundation models for high-stakes scientific, clinical, and cybersecurity domains with peer-reviewed empirical rigor."
+          "outcome": "You can specialize large foundation models for high-stakes scientific, clinical, and cybersecurity domains with peer-reviewed empirical rigor.",
+          "evidence": "Run the full DAPT + SFT pipeline, evaluate domain task accuracy against the base model, and generate an automated comparative benchmark table."
         }
       ],
       "project": "M10.6",
@@ -3169,9 +3301,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Integrated Gradients traces a straight-line interpolation between a neutral baseline and the input, measuring how every feature contributes to the final logit.",
           "tryIt": "Compute Integrated Gradients on a medical image classifier in PyTorch, verify that attributions sum to the difference between output and baseline logits, and plot the heatmap.",
-          "outcome": "Compute theoretically grounded feature attributions (SHAP, Integrated Gradients) across tabular and imaging models to satisfy clinical and security standards."
+          "outcome": "Compute theoretically grounded feature attributions (SHAP, Integrated Gradients) across tabular and imaging models to satisfy clinical and security standards.",
+          "evidence": "Compute Integrated Gradients on a medical image classifier in PyTorch, verify that attributions sum to the difference between output and baseline logits, and plot the heatmap."
         },
         {
           "id": "M11.2",
@@ -3207,9 +3341,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "A linear probe is a scientific stethoscope listening to hidden activations; if a concept cannot be extracted linearly, the model has not explicitly disentangled it.",
           "tryIt": "Extract hidden states across all layers of a pre-trained Transformer on clinical notes, train linear probes for mortality prediction, and plot probe accuracy across depth.",
-          "outcome": "Execute rigorous linear probing experiments, evaluate concept emergence across layer depth, and validate probe selectivity using control tasks."
+          "outcome": "Execute rigorous linear probing experiments, evaluate concept emergence across layer depth, and validate probe selectivity using control tasks.",
+          "evidence": "Extract hidden states across all layers of a pre-trained Transformer on clinical notes, train linear probes for mortality prediction, and plot probe accuracy across depth."
         },
         {
           "id": "M11.3",
@@ -3245,9 +3381,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Mechanistic interpretability treats neural networks like biological brains, using targeted activation lesions to identify causal cognitive circuits.",
           "tryIt": "Perform activation patching on a small Transformer model solving an algorithmic task, isolating the exact attention heads that perform in-context copying.",
-          "outcome": "Trace causal computational circuits in neural networks using activation patching and identify specialized attention head mechanisms."
+          "outcome": "Trace causal computational circuits in neural networks using activation patching and identify specialized attention head mechanisms.",
+          "evidence": "Perform activation patching on a small Transformer model solving an algorithmic task, isolating the exact attention heads that perform in-context copying."
         },
         {
           "id": "M11.4",
@@ -3283,9 +3421,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Sparse autoencoders untangle the entangled web of polysemantic neurons into an expanded dictionary of clean, interpretable monosemantic concepts.",
           "tryIt": "Train a small Sparse Autoencoder on the intermediate residual stream of a Transformer, enforce TopK sparsity, and inspect the top-activating dataset tokens for learned latents.",
-          "outcome": "Train overcomplete Sparse Autoencoders, resolve polysemantic superposition, and discover monosemantic interpretable features in foundation models."
+          "outcome": "Train overcomplete Sparse Autoencoders, resolve polysemantic superposition, and discover monosemantic interpretable features in foundation models.",
+          "evidence": "Train a small Sparse Autoencoder on the intermediate residual stream of a Transformer, enforce TopK sparsity, and inspect the top-activating dataset tokens for learned latents."
         },
         {
           "id": "M11.5",
@@ -3321,9 +3461,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "A counterfactual answer does not just explain why a model made a decision; it shows what must change in the real world to alter the outcome.",
           "tryIt": "Implement a counterfactual optimization algorithm using gradient descent on a clinical tabular classifier, finding the minimal actionable lifestyle change to reduce cardiac risk.",
-          "outcome": "Formulate and optimize plausible counterfactual explanations with domain-specific feasibility constraints for healthcare and cybersecurity applications."
+          "outcome": "Formulate and optimize plausible counterfactual explanations with domain-specific feasibility constraints for healthcare and cybersecurity applications.",
+          "evidence": "Implement a counterfactual optimization algorithm using gradient descent on a clinical tabular classifier, finding the minimal actionable lifestyle change to reduce cardiac risk."
         },
         {
           "id": "M11.6",
@@ -3375,9 +3517,11 @@
           ],
           "isCapstone": true,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "In high-stakes domains, interpretability is not an optional post-hoc visualization; it is the scientific prerequisite for real-world clinical and security deployment.",
           "tryIt": "Run the full interpretability audit on a trained model, extracting feature attributions, probing representations, and generating a 4-page scientific interpretability report.",
-          "outcome": "You can unpack black-box deep learning models, conduct rigorous mechanistic interpretability audits, and scientifically defend AI trustworthiness for peer review and regulatory clearance."
+          "outcome": "You can unpack black-box deep learning models, conduct rigorous mechanistic interpretability audits, and scientifically defend AI trustworthiness for peer review and regulatory clearance.",
+          "evidence": "Run the full interpretability audit on a trained model, extracting feature attributions, probing representations, and generating a 4-page scientific interpretability report."
         }
       ],
       "project": "M11.6",
@@ -3446,9 +3590,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Deep neural networks have linear behavior in high-dimensional spaces; tiny aligned perturbations across thousands of dimensions accumulate into massive logit swings.",
           "tryIt": "Implement a PGD L_infinity attack in PyTorch against a pre-trained radiological classifier, plot the perturbation noise image, and record the accuracy drop.",
-          "outcome": "Implement first-order and optimization-based adversarial attacks to evaluate the adversarial vulnerability of deep learning models."
+          "outcome": "Implement first-order and optimization-based adversarial attacks to evaluate the adversarial vulnerability of deep learning models.",
+          "evidence": "Implement a PGD L_infinity attack in PyTorch against a pre-trained radiological classifier, plot the perturbation noise image, and record the accuracy drop."
         },
         {
           "id": "M12.2",
@@ -3484,9 +3630,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Empirical defenses patch specific attack tools; certified robustness provides a mathematical guarantee of safety within a defined perturbation sphere.",
           "tryIt": "Train a model using PGD adversarial training in PyTorch, evaluate robust accuracy against increasing perturbation epsilon, and compute certified radii via randomized smoothing.",
-          "outcome": "Formulate robust optimization objectives, implement adversarial training, and compute mathematically certified robustness bounds."
+          "outcome": "Formulate robust optimization objectives, implement adversarial training, and compute mathematically certified robustness bounds.",
+          "evidence": "Train a model using PGD adversarial training in PyTorch, evaluate robust accuracy against increasing perturbation epsilon, and compute certified radii via randomized smoothing."
         },
         {
           "id": "M12.3",
@@ -3522,9 +3670,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "In cybersecurity research, adversaries modify executable files, not abstract numbers; an attack is only valid if the malware payload still detonates.",
           "tryIt": "Modify a Windows PE executable using Python lief to alter non-functional byte headers, verify that the binary still executes, and test classifier evasion.",
-          "outcome": "Execute problem-space evasion attacks on cybersecurity malware classifiers and design robust detection systems resilient to binary manipulation."
+          "outcome": "Execute problem-space evasion attacks on cybersecurity malware classifiers and design robust detection systems resilient to binary manipulation.",
+          "evidence": "Modify a Windows PE executable using Python lief to alter non-functional byte headers, verify that the binary still executes, and test classifier evasion."
         },
         {
           "id": "M12.4",
@@ -3560,9 +3710,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Formulate questions",
           "mentalModel": "DPO proves that the optimal policy implicitly defines its own reward function, allowing direct preference alignment via standard cross-entropy loss.",
           "tryIt": "Implement the DPO loss function in PyTorch from scratch, train a small language model on a pairwise preference dataset, and track implicit reward margins.",
-          "outcome": "Formulate and implement preference alignment objectives (RLHF, DPO, KTO) to align foundation models with human values and domain criteria."
+          "outcome": "Formulate and implement preference alignment objectives (RLHF, DPO, KTO) to align foundation models with human values and domain criteria.",
+          "evidence": "Implement the DPO loss function in PyTorch from scratch, train a small language model on a pairwise preference dataset, and track implicit reward margins."
         },
         {
           "id": "M12.5",
@@ -3598,9 +3750,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Evaluate claims",
           "mentalModel": "Aggregate accuracy hides systemic failures; a medical AI that achieves 95% overall accuracy but fails consistently on minority subgroups is unsafe.",
           "tryIt": "Audit a clinical diagnostic model across demographic subgroups, calculate Equalized Odds ratios, and mitigate disparities using fair threshold optimization.",
-          "outcome": "Audit machine learning models for demographic bias, quantify fairness trade-offs, and implement algorithmic mitigation strategies."
+          "outcome": "Audit machine learning models for demographic bias, quantify fairness trade-offs, and implement algorithmic mitigation strategies.",
+          "evidence": "Audit a clinical diagnostic model across demographic subgroups, calculate Equalized Odds ratios, and mitigate disparities using fair threshold optimization."
         },
         {
           "id": "M12.6",
@@ -3652,9 +3806,11 @@
           ],
           "isCapstone": true,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "Publishing top-tier safety research requires proving both that an attack is empirically devastating and that your proposed defense provides genuine mitigation.",
           "tryIt": "Run the complete adversarial and fairness stress-testing suite, generating an automated safety audit report and mitigation trade-off curves.",
-          "outcome": "You can systematically evaluate, stress-test, and fortify machine learning systems against adversarial attacks and algorithmic bias for high-impact publication."
+          "outcome": "You can systematically evaluate, stress-test, and fortify machine learning systems against adversarial attacks and algorithmic bias for high-impact publication.",
+          "evidence": "Run the complete adversarial and fairness stress-testing suite, generating an automated safety audit report and mitigation trade-off curves."
         }
       ],
       "project": "M12.6",
@@ -3723,9 +3879,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Joint contrastive pre-training embeds disparate modalities into a shared geometric space where semantically related concepts cluster together regardless of origin.",
           "tryIt": "Implement a miniature CLIP contrastive loss module in PyTorch, calculate similarity matrices between image embeddings and text embeddings, and compute zero-shot accuracy.",
-          "outcome": "Implement and train contrastive vision-language models, perform zero-shot domain classification, and execute cross-modal semantic retrieval."
+          "outcome": "Implement and train contrastive vision-language models, perform zero-shot domain classification, and execute cross-modal semantic retrieval.",
+          "evidence": "Implement a miniature CLIP contrastive loss module in PyTorch, calculate similarity matrices between image embeddings and text embeddings, and compute zero-shot accuracy."
         },
         {
           "id": "M13.2",
@@ -3761,9 +3919,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "A VLM translates visual patches into foreign language tokens, allowing the text decoder to reason over visual concepts as if they were written words.",
           "tryIt": "Fine-tune a Vision-Language Model on a medical VQA dataset using LoRA, evaluating clinical factual accuracy and report generation quality.",
-          "outcome": "Design and fine-tune Vision-Language foundation models for domain-specific visual reasoning and automated scientific report generation."
+          "outcome": "Design and fine-tune Vision-Language foundation models for domain-specific visual reasoning and automated scientific report generation.",
+          "evidence": "Fine-tune a Vision-Language Model on a medical VQA dataset using LoRA, evaluating clinical factual accuracy and report generation quality."
         },
         {
           "id": "M13.3",
@@ -3799,9 +3959,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Intermediate cross-attention allows dense physiological telemetry to ground the ambiguous descriptions found in human-written clinical progress notes.",
           "tryIt": "Build a cross-attention fusion module in PyTorch that ingests tabular lab values and unstructured text embeddings, predicting patient ICU readmission risk.",
-          "outcome": "Design and train intermediate fusion architectures that combine heterogeneous tabular, continuous time-series, and unstructured text data."
+          "outcome": "Design and train intermediate fusion architectures that combine heterogeneous tabular, continuous time-series, and unstructured text data.",
+          "evidence": "Build a cross-attention fusion module in PyTorch that ingests tabular lab values and unstructured text embeddings, predicting patient ICU readmission risk."
         },
         {
           "id": "M13.4",
@@ -3837,9 +3999,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "A network anomaly in isolation is just noise; correlated with an endpoint process execution and a CVE exploit pattern, it becomes verified threat intelligence.",
           "tryIt": "Build a joint embedding model that maps raw network flow anomaly vectors to corresponding MITRE ATT&CK tactic descriptions in a shared latent space.",
-          "outcome": "Formulate and implement cross-modal cybersecurity fusion systems linking raw network telemetry to high-level threat intelligence corpora."
+          "outcome": "Formulate and implement cross-modal cybersecurity fusion systems linking raw network telemetry to high-level threat intelligence corpora.",
+          "evidence": "Build a joint embedding model that maps raw network flow anomaly vectors to corresponding MITRE ATT&CK tactic descriptions in a shared latent space."
         },
         {
           "id": "M13.5",
@@ -3875,9 +4039,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "An algorithm with 99% accuracy is useless if it disrupts clinical workflow or creates alert fatigue; co-designing with practitioners ensures real-world impact.",
           "tryIt": "Conduct a Decision Curve Analysis (DCA) on a diagnostic model in Python, plotting net clinical benefit across diagnostic threshold probabilities.",
-          "outcome": "Establish interdisciplinary research collaborations, navigate IRB protocols, and co-design domain-grounded evaluation metrics with expert practitioners."
+          "outcome": "Establish interdisciplinary research collaborations, navigate IRB protocols, and co-design domain-grounded evaluation metrics with expert practitioners.",
+          "evidence": "Conduct a Decision Curve Analysis (DCA) on a diagnostic model in Python, plotting net clinical benefit across diagnostic threshold probabilities."
         },
         {
           "id": "M13.6",
@@ -3929,9 +4095,11 @@
           ],
           "isCapstone": true,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "High-impact cross-disciplinary research proves that combining modalities solves problems that no single modality could solve alone.",
           "tryIt": "Run the full multimodal pipeline, log training metrics and cross-modal attention weights, and generate a 4-page interdisciplinary conference paper draft.",
-          "outcome": "You can design, implement, and scientifically validate cross-disciplinary multimodal AI systems that bridge disparate data modalities for top-tier publication."
+          "outcome": "You can design, implement, and scientifically validate cross-disciplinary multimodal AI systems that bridge disparate data modalities for top-tier publication.",
+          "evidence": "Run the full multimodal pipeline, log training metrics and cross-modal attention weights, and generate a 4-page interdisciplinary conference paper draft."
         }
       ],
       "project": "M13.6",
@@ -4001,7 +4169,9 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "outcome": "A scientifically verified 3D medical image segmentation research codebase and clinical biomarker evaluation report meeting peer-reviewed medical imaging standards."
+          "researchMode": "Ship evidence",
+          "outcome": "A scientifically verified 3D medical image segmentation research codebase and clinical biomarker evaluation report meeting peer-reviewed medical imaging standards.",
+          "evidence": "A scientifically verified 3D medical image segmentation research codebase and clinical biomarker evaluation report meeting peer-reviewed medical imaging standards."
         },
         {
           "id": "P14.2",
@@ -4031,7 +4201,9 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "outcome": "A novel graph-based cybersecurity threat detection framework that identifies coordinated attack campaigns across complex enterprise network topologies."
+          "researchMode": "Ship evidence",
+          "outcome": "A novel graph-based cybersecurity threat detection framework that identifies coordinated attack campaigns across complex enterprise network topologies.",
+          "evidence": "A novel graph-based cybersecurity threat detection framework that identifies coordinated attack campaigns across complex enterprise network topologies."
         },
         {
           "id": "P14.3",
@@ -4061,7 +4233,9 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "outcome": "A pristine, decontaminated domain evaluation benchmark established as an open-source standard for assessing domain-specific foundation model reasoning."
+          "researchMode": "Ship evidence",
+          "outcome": "A pristine, decontaminated domain evaluation benchmark established as an open-source standard for assessing domain-specific foundation model reasoning.",
+          "evidence": "A pristine, decontaminated domain evaluation benchmark established as an open-source standard for assessing domain-specific foundation model reasoning."
         },
         {
           "id": "P14.4",
@@ -4091,7 +4265,9 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "outcome": "An end-to-end mechanistic interpretability discovery identifying the internal computational circuit and demonstrating precise latent steering in clinical AI."
+          "researchMode": "Ship evidence",
+          "outcome": "An end-to-end mechanistic interpretability discovery identifying the internal computational circuit and demonstrating precise latent steering in clinical AI.",
+          "evidence": "An end-to-end mechanistic interpretability discovery identifying the internal computational circuit and demonstrating precise latent steering in clinical AI."
         },
         {
           "id": "P14.5",
@@ -4121,7 +4297,9 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "outcome": "A state-of-the-art continuous flow matching framework generating privacy-preserving synthetic patient cohorts with proven clinical utility and privacy guarantees."
+          "researchMode": "Ship evidence",
+          "outcome": "A state-of-the-art continuous flow matching framework generating privacy-preserving synthetic patient cohorts with proven clinical utility and privacy guarantees.",
+          "evidence": "A state-of-the-art continuous flow matching framework generating privacy-preserving synthetic patient cohorts with proven clinical utility and privacy guarantees."
         },
         {
           "id": "P14.6",
@@ -4151,7 +4329,9 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "outcome": "A rigorous problem-space adversarial attack and defense framework published with binary manipulation algorithms and empirical robustness proofs."
+          "researchMode": "Ship evidence",
+          "outcome": "A rigorous problem-space adversarial attack and defense framework published with binary manipulation algorithms and empirical robustness proofs.",
+          "evidence": "A rigorous problem-space adversarial attack and defense framework published with binary manipulation algorithms and empirical robustness proofs."
         },
         {
           "id": "P14.7",
@@ -4181,7 +4361,9 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "outcome": "A complete, publication-grade academic conference submission package ready for submission to a premier peer-reviewed AI venue or inclusion as a thesis chapter."
+          "researchMode": "Ship evidence",
+          "outcome": "A complete, publication-grade academic conference submission package ready for submission to a premier peer-reviewed AI venue or inclusion as a thesis chapter.",
+          "evidence": "A complete, publication-grade academic conference submission package ready for submission to a premier peer-reviewed AI venue or inclusion as a thesis chapter."
         }
       ],
       "project": null,
@@ -4251,9 +4433,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Formulate questions",
           "mentalModel": "The introduction is the most important section of your paper; reviewers form 80% of their judgment before finishing Page 2.",
           "tryIt": "Draft a 1-page introduction following the structured narrative arc for a recent research project, complete with a sketched Figure 1 concept.",
-          "outcome": "Write compelling academic abstracts and introductions that captivate reviewers and clearly articulate scientific significance."
+          "outcome": "Write compelling academic abstracts and introductions that captivate reviewers and clearly articulate scientific significance.",
+          "evidence": "Draft a 1-page introduction following the structured narrative arc for a recent research project, complete with a sketched Figure 1 concept."
         },
         {
           "id": "M15.2",
@@ -4289,9 +4473,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Conferences in Computer Science provide rapid, archival peer review; premier journals provide exhaustive, archival multi-round evaluations with no page limits.",
           "tryIt": "Build a target venue decision matrix for a research project, evaluating whether it is best suited for NeurIPS, IEEE TPAMI, or a specialized domain venue like MICCAI or USENIX Security.",
-          "outcome": "Strategically select target publication venues across premier computer science conferences and top-tier academic journals."
+          "outcome": "Strategically select target publication venues across premier computer science conferences and top-tier academic journals.",
+          "evidence": "Build a target venue decision matrix for a research project, evaluating whether it is best suited for NeurIPS, IEEE TPAMI, or a specialized domain venue like MICCAI or USENIX Security."
         },
         {
           "id": "M15.3",
@@ -4327,9 +4513,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Study and implement",
           "mentalModel": "Pristine LaTeX formatting and beautiful vector figures signal meticulous scientific precision; sloppy formatting invites skeptical reviews.",
           "tryIt": "Build a multi-panel publication plot in Python using Matplotlib with LaTeX font rendering and colorblind-safe palettes, exporting as a crisp vector PDF.",
-          "outcome": "Author professional, publication-ready LaTeX manuscripts with standardized mathematical notation and high-impact vector graphics."
+          "outcome": "Author professional, publication-ready LaTeX manuscripts with standardized mathematical notation and high-impact vector graphics.",
+          "evidence": "Build a multi-panel publication plot in Python using Matplotlib with LaTeX font rendering and colorblind-safe palettes, exporting as a crisp vector PDF."
         },
         {
           "id": "M15.4",
@@ -4365,9 +4553,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Evaluate claims",
           "mentalModel": "A great review is not an adversarial teardown; it is an expert consultation that helps authors elevate good work into great science.",
           "tryIt": "Write a formal 2-page peer review of a published preprint using the official NeurIPS review form, evaluating strengths, weaknesses, and scoring.",
-          "outcome": "Conduct expert peer reviews for premier AI/ML conferences, identify critical technical flaws, and understand reviewer decision criteria."
+          "outcome": "Conduct expert peer reviews for premier AI/ML conferences, identify critical technical flaws, and understand reviewer decision criteria.",
+          "evidence": "Write a formal 2-page peer review of a published preprint using the official NeurIPS review form, evaluating strengths, weaknesses, and scoring."
         },
         {
           "id": "M15.5",
@@ -4403,9 +4593,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Evaluate claims",
           "mentalModel": "The rebuttal is a negotiation with the Area Chair; your goal is to give the AC the empirical ammunition needed to champion your paper.",
           "tryIt": "Take a mock critical review raising two baseline objections and one theoretical concern, and draft a persuasive, respectful 1-page author rebuttal.",
-          "outcome": "Navigate OpenReview rebuttals effectively, execute targeted counter-ablations rapidly, and convert skeptical reviewers into paper champions."
+          "outcome": "Navigate OpenReview rebuttals effectively, execute targeted counter-ablations rapidly, and convert skeptical reviewers into paper champions.",
+          "evidence": "Take a mock critical review raising two baseline objections and one theoretical concern, and draft a persuasive, respectful 1-page author rebuttal."
         },
         {
           "id": "M15.6",
@@ -4441,9 +4633,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "The thesis defense is a rite of passage where you transition from a supervised student into an independent, peer colleague of your committee.",
           "tryIt": "Create a 20-slide thesis defense deck synthesizing your research contributions, and rehearse answering three aggressive theoretical committee questions.",
-          "outcome": "Structure, write, and successfully defend a bachelor's, master’s, or doctoral thesis in Computer Science before an academic examination committee."
+          "outcome": "Structure, write, and successfully defend a bachelor's, master’s, or doctoral thesis in Computer Science before an academic examination committee.",
+          "evidence": "Create a 20-slide thesis defense deck synthesizing your research contributions, and rehearse answering three aggressive theoretical committee questions."
         },
         {
           "id": "M15.7",
@@ -4479,9 +4673,11 @@
           "notes": [],
           "isCapstone": false,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "The job talk is not a summary of your papers; it is a demonstration of how you think, how you inspire peers, and what new field you plan to build.",
           "tryIt": "Deliver the first 10 minutes of a research job talk, establishing a compelling research vision and framing your contributions for a general scientific audience.",
-          "outcome": "Structure and deliver high-impact research job talks and excel in technical interview loops at premier AI research institutes and industrial labs."
+          "outcome": "Structure and deliver high-impact research job talks and excel in technical interview loops at premier AI research institutes and industrial labs.",
+          "evidence": "Deliver the first 10 minutes of a research job talk, establishing a compelling research vision and framing your contributions for a general scientific audience."
         },
         {
           "id": "M15.8",
@@ -4534,9 +4730,11 @@
           ],
           "isCapstone": true,
           "isGap": false,
+          "researchMode": "Ship evidence",
           "mentalModel": "The culmination of research training is autonomy: the ability to conceive, execute, publish, defend, and lead world-class scientific inquiry.",
           "tryIt": "Deliver your final research presentation, defend your methodology against peer critiques, and finalize your complete conference submission package.",
-          "outcome": "You possess the complete technical, empirical, rhetorical, and leadership mastery of an elite AI/ML Research Scientist ready to lead breakthroughs in academic or industrial research labs."
+          "outcome": "You possess the complete technical, empirical, rhetorical, and leadership mastery of an elite AI/ML Research Scientist ready to lead breakthroughs in academic or industrial research labs.",
+          "evidence": "Deliver your final research presentation, defend your methodology against peer critiques, and finalize your complete conference submission package."
         }
       ],
       "project": "M15.8",

@@ -153,6 +153,11 @@ const objectiveCount = module.objectives.length;
       </p>
     )}
 
+    <p class="mod__aside mod__aside--mode">
+      <Icon name="route" size={15} />
+      <span><b>Research mode</b> · {module.researchMode}</span>
+    </p>
+
     {module.tryIt && (
       <p class="mod__aside mod__aside--try">
         <Icon name="beaker" size={15} />
@@ -447,6 +452,8 @@ const objectiveCount = module.objectives.length;
 
   .mod__aside--model { background: var(--p-violet-bg); border-color: var(--p-violet-br); color: var(--p-violet-ac); }
   .mod__aside--model b { color: var(--p-violet-ac); }
+  .mod__aside--mode { background: var(--p-blue-bg); border-color: var(--p-blue-br); color: var(--p-blue-ac); }
+  .mod__aside--mode b { color: var(--p-blue-ac); }
 
   .mod__notes {
     margin: 2px 0 0;

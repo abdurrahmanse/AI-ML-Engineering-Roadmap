@@ -1,4 +1,4 @@
-# Thesis & Research Publication Track — AI/ML Research Roadmap
+# AI/ML Research Roadmap
 
 > A comprehensive, interactive 16-level curriculum and structured research roadmap for modern AI/ML — covering extensive model training from basics to advanced, multi-domain datasets (medical, cybersecurity, science), Explainable AI (XAI), Trustworthy AI, robust benchmarking, thesis defense, and publishing in premier journals and conferences.
 
@@ -12,7 +12,7 @@
 
 ## Overview
 
-**Thesis & Research Publication Track** provides an end-to-end pedagogical blueprint designed for undergraduate researchers (BSc), graduate students (MSc/PhD), and research scientists pursuing fundamental and applied AI/ML research. It maps **16 progressive levels**, **99 modules**, and **224 structured sessions** across seven distinct research phases, accompanied by conference-grade empirical capstone projects, automated progress tracking, and an accelerated **100 Days of AI/ML Research** track.
+**AI/ML Research Roadmap** provides an end-to-end pedagogical blueprint designed for beginners, undergraduate researchers (BSc), graduate students (MSc/PhD), and research scientists pursuing fundamental and applied AI/ML research. It maps **16 progressive levels**, **99 modules**, and **224 structured sessions** across six research phases, accompanied by conference-grade empirical capstone projects, automated progress tracking, and an accelerated **100 Days of AI/ML Research** track.
 
 - **Live Platform:** [https://abdurrahmans.vercel.app](https://abdurrahmans.vercel.app)
 - **Primary Roadmap:** 16 progressive levels spanning the complete scientific research lifecycle:
@@ -32,13 +32,14 @@
   13. Multimodal & Cross-Disciplinary Research Methodologies (CLIP, Medical VLMs & Threat Fusion)
   14. Comprehensive Research Capstones (Thesis Flagships & Conference Submissions)
   15. Academic Publishing, Peer Review, Thesis Defense & Career (IEEE TPAMI, JMLR, Nature, Rebuttals)
+- **Source data:** All level content is read from the canonical roadmap folder available at build time (`AI RESEARCH ROADMAP/`, or `AI-ml RESEARCH ROADMAP/` when present) and emitted into `src/data/levels.json`.
 - **Accelerated Route:** Curated 100-Day companion research curriculum with empirical research study projects and research interview defense preparation.
 
 ---
 
 ## Key Features
 
-- **Interactive 16-Level Curriculum:** Visual phase-mapped roadmap with hierarchical module trees, session meters, and verifiable research learning objectives.
+- **Interactive 16-Level Curriculum:** Visual phase-mapped roadmap with hierarchical module trees, session meters, research modes, evidence artifacts, and verifiable learning objectives.
 - **Dynamic Dual-Theme System:** Curated Light & Dark themes with theme-reactive gradient typography, glassmorphism navigation, and smooth CSS transitions.
 - **Client-Side Progress Tracking:** Completion persistence via `localStorage` with real-time multi-tab synchronization and visual completion indicators.
 - **Conference-Grade Research Capstones:** Rigorous project briefs with empirical methodologies, theoretical derivations, baseline comparisons, and outcome criteria.
@@ -54,7 +55,7 @@
 | **Framework** | [Astro](https://astro.build) | Static Site Generator (SSG) with zero-JS default |
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com) + CSS Tokens | Modern CSS variables with `@theme` token binding |
 | **Icons** | [Lucide](https://lucide.dev) (`@iconify-json/lucide`) | Inlined SVG icons compiled statically at build time |
-| **Typography** | Rajdhani & JetBrains Mono | Optimized via Google Fonts with display swap |
+| **Typography** | Space Grotesk, DM Sans & JetBrains Mono | Optimized via Google Fonts with display swap |
 | **Social Images** | `@resvg/resvg-js` + Sharp | Headless build-time Open Graph image generation |
 
 ---
@@ -123,7 +124,7 @@ npm run preview
 
 ## Content Pipeline
 
-All curriculum data originates strictly from `AI RESEARCH ROADMAP/level*.txt`. The build pipeline parses these files into type-safe JSON schemas:
+All curriculum data originates strictly from the available `AI RESEARCH ROADMAP/level*.txt` files (or the tagged `AI-ml RESEARCH ROADMAP/` folder when present). The build pipeline parses these files into type-safe JSON schemas:
 
 ```
 level*.txt ──► npm run parse ──► src/data/levels.json ──► src/data/levels.ts ──► Static Pages
