@@ -14,7 +14,7 @@
         3
       ],
       "theme": "scientific computing, problem formulation, literature search & applied statistics",
-      "color": "violet",
+      "color": "blue",
       "icon": "terminal"
     },
     {
@@ -24,7 +24,7 @@
         4
       ],
       "theme": "medical, cybersecurity & scientific dataset curation, preprocessing & domain adaptation",
-      "color": "blue",
+      "color": "cyan",
       "icon": "database"
     },
     {
@@ -35,7 +35,7 @@
         6
       ],
       "theme": "classical ML, deep learning, vision CNNs, graph neural networks & transformers across domains",
-      "color": "emerald",
+      "color": "indigo",
       "icon": "layers"
     },
     {
@@ -46,7 +46,7 @@
         8
       ],
       "theme": "diffusion, flow matching, privacy synthesis, experimental design & multi-factor ablation studies",
-      "color": "amber",
+      "color": "violet",
       "icon": "sliders-horizontal"
     },
     {
@@ -58,7 +58,7 @@
         11
       ],
       "theme": "SLURM supercomputing, multi-GPU distributed training, domain PEFT & XAI interpretability",
-      "color": "cyan",
+      "color": "emerald",
       "icon": "cpu"
     },
     {

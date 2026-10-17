@@ -17,13 +17,13 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT_DIRS = [join(root, 'AI RESEARCH ROADMAP'), join(root, 'AI ENGINEER ROADMAP'), root];
 
 const PHASES = [
-  { id: 'foundations', name: 'Research Foundations & Lab Onboarding', levels: [0, 1, 2, 3],  theme: 'scientific computing, problem formulation, literature search & applied statistics', color: 'violet',  icon: 'terminal' },
-  { id: 'retrieval',   name: 'Datasets & Domain Exploration',       levels: [4],           theme: 'medical, cybersecurity & scientific dataset curation, preprocessing & domain adaptation', color: 'blue',    icon: 'database' },
-  { id: 'agentic',     name: 'Model Architectures & Paradigms',     levels: [5, 6],        theme: 'classical ML, deep learning, vision CNNs, graph neural networks & transformers across domains', color: 'emerald', icon: 'layers' },
-  { id: 'trust',       name: 'Generative Models & Benchmarking',    levels: [7, 8],        theme: 'diffusion, flow matching, privacy synthesis, experimental design & multi-factor ablation studies', color: 'amber',   icon: 'sliders-horizontal' },
-  { id: 'production',  name: 'HPC Clusters, Scaling & Explainability', levels: [9, 10, 11], theme: 'SLURM supercomputing, multi-GPU distributed training, domain PEFT & XAI interpretability', color: 'cyan',    icon: 'cpu' },
-  { id: 'frontier',    name: 'Frontier Robustness & Thesis Projects', levels: [12, 13, 14], theme: 'adversarial safety, multimodal clinical/cyber AI & comprehensive MSc/PhD thesis capstones', color: 'rose',    icon: 'shield-check' },
-  { id: 'interview',   name: 'Publishing, Peer Review & Career',     levels: [15],          theme: 'conference & journal papers (IEEE/ACM/Nature), rebuttals, thesis defense & research scientist career', color: 'slate',   icon: 'graduation-cap' },
+  { id: 'foundations', name: 'Research Foundations & Lab Onboarding', levels: [0, 1, 2, 3],  theme: 'scientific computing, problem formulation, literature search & applied statistics', color: 'blue',     icon: 'terminal' },
+  { id: 'retrieval',   name: 'Datasets & Domain Exploration',       levels: [4],           theme: 'medical, cybersecurity & scientific dataset curation, preprocessing & domain adaptation', color: 'cyan',     icon: 'database' },
+  { id: 'agentic',     name: 'Model Architectures & Paradigms',     levels: [5, 6],        theme: 'classical ML, deep learning, vision CNNs, graph neural networks & transformers across domains', color: 'indigo',   icon: 'layers' },
+  { id: 'trust',       name: 'Generative Models & Benchmarking',    levels: [7, 8],        theme: 'diffusion, flow matching, privacy synthesis, experimental design & multi-factor ablation studies', color: 'violet',   icon: 'sliders-horizontal' },
+  { id: 'production',  name: 'HPC Clusters, Scaling & Explainability', levels: [9, 10, 11], theme: 'SLURM supercomputing, multi-GPU distributed training, domain PEFT & XAI interpretability', color: 'emerald',  icon: 'cpu' },
+  { id: 'frontier',    name: 'Frontier Robustness & Thesis Projects', levels: [12, 13, 14], theme: 'adversarial safety, multimodal clinical/cyber AI & comprehensive MSc/PhD thesis capstones', color: 'rose',     icon: 'shield-check' },
+  { id: 'interview',   name: 'Publishing, Peer Review & Career',     levels: [15],          theme: 'conference & journal papers (IEEE/ACM/Nature), rebuttals, thesis defense & research scientist career', color: 'slate',    icon: 'graduation-cap' },
 ];
 
 /* One Lucide icon per level for AI/ML research. */

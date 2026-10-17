@@ -127,10 +127,10 @@ const description = `Level ${level.number} of the Thesis & Research Publication 
         {(interviewWeight || jobWeight) && (
           <div class="lh__weights">
             {interviewWeight && (
-              <WeightCard title="Interview weight" icon="briefcase-business" score={interviewWeight.score} max={WEIGHT_MAX} reason={interviewWeight.reason} />
+              <WeightCard title="Technical Screening" icon="microscope" score={interviewWeight.score} max={WEIGHT_MAX} reason={interviewWeight.reason} />
             )}
             {jobWeight && (
-              <WeightCard title="On-the-job weight" icon="wrench" score={jobWeight.score} max={WEIGHT_MAX} reason={jobWeight.reason} />
+              <WeightCard title="Lab & Thesis Execution" icon="flask-conical" score={jobWeight.score} max={WEIGHT_MAX} reason={jobWeight.reason} />
             )}
           </div>
         )}

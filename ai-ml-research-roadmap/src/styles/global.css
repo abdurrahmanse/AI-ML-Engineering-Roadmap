@@ -5,9 +5,12 @@
    never drift apart (Tailwind v4 CSS-first config). */
 @theme inline {
   --font-display: var(--cx-font-display);
+  --font-serif: var(--cx-font-serif);
   --font-body: var(--cx-font-body);
   --font-mono: var(--cx-font-mono);
 
+  --color-brand: var(--cx-brand);
+  --color-brand-deep: var(--cx-brand-deep);
   --color-purple: var(--cx-purple);
   --color-purple-deep: var(--cx-purple-deep);
   --color-purple-hover: var(--cx-purple-hover);
@@ -27,6 +30,8 @@
   --color-line-2: var(--cx-border-2);
   --color-green: var(--cx-green);
   --color-green-bg: var(--cx-green-bg);
+  --color-amber: var(--cx-amber);
+  --color-amber-bg: var(--cx-amber-bg);
 
   --radius-card: var(--cx-r-card);
   --radius-card-sm: var(--cx-r-card-sm);
@@ -61,21 +66,21 @@ html.theme-transitioning *,
 html.theme-transitioning *::before,
 html.theme-transitioning *::after {
   transition:
-    background-color 0.3s ease,
-    background 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease !important;
+    background-color 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease !important;
 }
 
 body {
   margin: 0;
   background: var(--cx-white);
-  color: var(--cx-ink);
+  color: var(--cx-g700);
   font-family: var(--cx-font-body);
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.6;
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: clip;
@@ -86,12 +91,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   color: var(--cx-ink);
   margin: 0;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
   text-wrap: balance;
 }
 
-/* Premium gradient on major headings — h1 and h2 get the full treatment */
+/* Authoritative gradient on major research headings */
 h1, h2, .h1, .h2 {
   background: var(--cx-title-grad);
   -webkit-background-clip: text;
@@ -115,11 +120,16 @@ a { color: inherit; text-decoration: none; }
 img, svg { max-width: 100%; }
 svg { display: block; }
 
-/* Visible, on-brand focus ring everywhere (WCAG 2.4.7). */
+code, pre, kbd, samp {
+  font-family: var(--cx-font-mono);
+  font-feature-settings: 'calt' 1, 'zero' 1;
+}
+
+/* Precision research focus ring (WCAG 2.4.7) */
 :focus-visible {
-  outline: 3px solid var(--cx-purple);
-  outline-offset: 3px;
-  border-radius: 6px;
+  outline: 2px solid var(--cx-brand);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .skip-link {
@@ -131,7 +141,8 @@ svg { display: block; }
   background: var(--cx-ink);
   color: #fff;
   border-radius: var(--cx-r-pill);
-  font-size: 14px;
+  font-size: 13.5px;
+  font-weight: 500;
   transition: top 0.15s ease;
 }
 .skip-link:focus { top: 12px; }
@@ -140,7 +151,7 @@ svg { display: block; }
 
 .wrap {
   width: 100%;
-  max-width: 1120px;
+  max-width: 1140px;
   margin-inline: auto;
   padding-inline: 16px;
 }
@@ -159,42 +170,46 @@ svg { display: block; }
 .eyebrow {
   font-family: var(--cx-font-mono);
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--cx-purple);
+  color: var(--cx-brand);
   margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
 }
-@media (min-width: 480px) { .eyebrow { font-size: 12px; letter-spacing: 0.18em; } }
-@media (min-width: 768px) { .eyebrow { font-size: 13px; } }
+@media (min-width: 480px) { .eyebrow { font-size: 11.5px; letter-spacing: 0.16em; } }
+@media (min-width: 768px) { .eyebrow { font-size: 12px; } }
 
 .mono-label {
   font-family: var(--cx-font-mono);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--cx-g500);
 }
 
 .h1 {
-  font-size: clamp(30px, 7.2vw, 86px);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  font-size: clamp(30px, 6.5vw, 76px);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
 }
-.h2 { font-size: clamp(23px, 4.2vw, 42px); }
-.h3 { font-size: clamp(18px, 2.4vw, 22px); }
+.h2 { font-size: clamp(22px, 3.8vw, 38px); letter-spacing: -0.025em; }
+.h3 { font-size: clamp(17px, 2.2vw, 21px); letter-spacing: -0.02em; }
 
 .lede {
-  font-size: clamp(15px, 2vw, 19px);
-  line-height: 1.65;
+  font-size: clamp(15.5px, 1.8vw, 18.5px);
+  line-height: 1.7;
   color: var(--cx-g600);
+  font-weight: 400;
 }
-.body-muted { color: var(--cx-g600); font-size: 15px; line-height: 1.6; }
+.body-muted { color: var(--cx-g600); font-size: 14.5px; line-height: 1.6; }
 
 /* ---- gradient text utilities ---- */
 
-/* Matches the h1/h2 gradient — use on any element you want gradient-painted */
+/* Matches the h1/h2 gradient */
 .grad-text {
   background: var(--cx-title-grad);
   -webkit-background-clip: text;
@@ -212,18 +227,40 @@ svg { display: block; }
   -webkit-text-fill-color: transparent;
 }
 
+/* ---- Academic Badge Utilities ---- */
+
+.badge-research {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  font-family: var(--cx-font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: var(--cx-r-card-sm);
+  background: var(--cx-cream);
+  border: 1px solid var(--cx-border);
+  color: var(--cx-ink-2);
+}
+
+.badge-research--premier {
+  background: var(--p-blue-bg);
+  border-color: var(--p-blue-br);
+  color: var(--p-blue-ac);
+}
+
 /* ---------- motion ---------- */
 
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 0.55s ease, transform 0.55s ease;
+    transform: translateY(12px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
   }
   .reveal.is-in { opacity: 1; transform: none; }
 }
 
-/* Anything that animates must be inert when the user asks for less motion. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
@@ -243,16 +280,11 @@ svg { display: block; }
 
 /* ================================================================
    Dark-mode supplemental patches
-   Covers inline page styles not in standalone components.
    ================================================================ */
 
-/* Expose surface token to Tailwind */
 @theme inline {
   --color-surface: var(--cx-surface);
 }
 
-/* .how__ico lives inline in index.astro — patch it here */
 [data-theme='dark'] .how__ico { background: var(--cx-surface); }
-
-/* skip-link needs to stay readable on dark page bg */
 [data-theme='dark'] .skip-link { background: var(--cx-ink); }
