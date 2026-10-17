@@ -1,96 +1,230 @@
 /**
- * AbdurRahman One course cross-links, per CLAUDE.md §10.
- *
- * This mapping is editorial, not parsed from the level files — it is exactly
- * the mapping given in the brief. `status: 'soon'` marks catalog items the
- * brief flags as unreleased. Confirm titles and anchors against the live
- * catalog before launch; anything not listed here simply renders no card.
+ * Academic courses, seminal research lecture series, and foundational textbooks
+ * mapped per level for the AI/ML Research Roadmap.
  */
 
 export interface Course {
   title: string;
   status?: "live" | "soon";
-  /** Note shown under the title (e.g. the brief's "notes" qualifier). */
   note?: string;
-  /** Direct course link. Falls back to the AbdurRahman One pricing page. */
   url?: string;
-  /** Where the course lives, when it is not a AbdurRahman One catalog item. */
   source?: string;
 }
 
 export const AbdurRahman_ONE_URL = "https://abdurrahmans.vercel.app";
 export const AbdurRahman_URL = "https://abdurrahmans.vercel.app";
 
-/** Python, Git & GitHub and SQL are all covered by the DSMP 2.0 course. */
-const DSMP_URL = "https://abdurrahmans.vercel.app";
-
-/** The agentic-coding curriculum behind M0.6 — free, on YouTube. */
-const AGENTIC_CODING_URL =
-  "https://www.youtube.com/playlist?list=PLKnIA16_RmvaYH3poI0oJvbDF4zEvpq8W";
-
 export const coursesByLevel: Record<number, Course[]> = {
   0: [
-    { title: "Python", status: "live", url: DSMP_URL },
-    { title: "Git & GitHub", status: "live", url: DSMP_URL },
-    { title: "SQL", status: "live", url: DSMP_URL },
     {
-      title: "Docker",
+      title: "Linear Algebra & Matrix Decompositions",
       status: "live",
-      url: "https://abdurrahmans.vercel.app",
+      url: "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+      source: "MIT 18.06 (Gilbert Strang)",
     },
     {
-      title: "Advanced FastAPI",
+      title: "Multivariable Calculus & Differential Geometry",
       status: "live",
-      url: "https://abdurrahmans.vercel.app",
+      url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/",
+      source: "MIT 18.02",
     },
     {
-      title: "Flask",
+      title: "Probability & Stochastic Processes",
       status: "live",
-      url: "https://abdurrahmans.vercel.app",
+      url: "https://ocw.mit.edu/courses/6-041-probabilistic-systems-analysis-and-applied-probability-fall-2011/",
+      source: "MIT 6.041",
     },
     {
-      title: "Agentic Coding using Claude Code",
+      title: "Automatic Differentiation with JAX & PyTorch",
       status: "live",
-      url: AGENTIC_CODING_URL,
-      source: "YouTube playlist",
+      note: "autograd internals",
     },
   ],
-  1: [{ title: "LLM 101", status: "soon" }],
+  1: [
+    {
+      title: "Machine Learning & Statistical Learning Theory",
+      status: "live",
+      url: "https://cs229.stanford.edu/",
+      source: "Stanford CS229",
+    },
+    {
+      title: "Convex Optimization",
+      status: "live",
+      url: "https://web.stanford.edu/class/ee364a/",
+      source: "Stanford EE364A (Boyd)",
+    },
+    {
+      title: "Probabilistic Graphical Models",
+      status: "live",
+      source: "Stanford CS228",
+    },
+  ],
   2: [
-    { title: "GenAI using LangChain", status: "live" },
-    { title: "GenAI using Open Source Models", status: "live" },
-    { title: "GenAI using Gemini", status: "live" },
+    {
+      title: "Deep Learning Foundations & Theory",
+      status: "live",
+      url: "https://cs230.stanford.edu/",
+      source: "Stanford CS230",
+    },
+    {
+      title: "Optimization Dynamics in Deep Networks",
+      status: "soon",
+      note: "loss surfaces & NTK",
+    },
   ],
-  3: [{ title: "Prompt Engineering", status: "live" }],
-  4: [{ title: "Advanced RAG", status: "live" }],
+  3: [
+    {
+      title: "Transformers & Sequence Modeling",
+      status: "live",
+      url: "https://web.stanford.edu/class/cs25/",
+      source: "Stanford CS25",
+    },
+    {
+      title: "Hardware-Aware Attention (FlashAttention)",
+      status: "live",
+      note: "Tri Dao lectures",
+    },
+    {
+      title: "Structured State Space Models & Mamba",
+      status: "soon",
+    },
+  ],
+  4: [
+    {
+      title: "Self-Supervised Learning & Representation Theory",
+      status: "live",
+      source: "NYU Center for Data Science (LeCun)",
+    },
+    {
+      title: "Metric Learning & Dense Latent Spaces",
+      status: "live",
+    },
+  ],
   5: [
-    { title: "LangGraph", status: "live", note: "notes" },
-    { title: "CrewAI", status: "live" },
-    { title: "Agno", status: "live" },
-    { title: "MCP", status: "live", note: "notes" },
-    { title: "Building Multi-Agent Systems", status: "soon" },
-    { title: "AI Agents using Google ADK", status: "soon" },
-    { title: "Memory in LLMs", status: "soon" },
+    {
+      title: "Deep Reinforcement Learning",
+      status: "live",
+      url: "https://rail.eecs.berkeley.edu/deeprlcourse/",
+      source: "Berkeley CS285 (Levine)",
+    },
+    {
+      title: "Reinforcement Learning Foundations",
+      status: "live",
+      source: "UCL / DeepMind (David Silver)",
+    },
   ],
-  6: [{ title: "Context Engineering", status: "soon" }],
-  7: [{ title: "LLM Evaluations", status: "soon" }],
-  8: [{ title: "LLM Guardrails", status: "soon" }],
-  9: [{ title: "AI System Design", status: "soon" }],
-  10: [{ title: "LLMOps", status: "soon" }],
-  /* Level 12 is LLM 101 for the other modalities, so it maps to the same course. */
-  12: [{ title: "LLM 101", status: "soon" }],
-  15: [{ title: "AI Engineer Interview Prep", status: "live" }],
+  6: [
+    {
+      title: "Machine Reasoning & Test-Time Compute",
+      status: "live",
+      note: "CoT, PRMs & MCTS search",
+    },
+    {
+      title: "Search Algorithms & Thought Trees",
+      status: "soon",
+    },
+  ],
+  7: [
+    {
+      title: "Holistic Evaluation & Benchmarking Science",
+      status: "live",
+      note: "HELM & EleutherAI harness",
+    },
+    {
+      title: "Statistical Testing for Machine Learning",
+      status: "live",
+    },
+  ],
+  8: [
+    {
+      title: "AI Alignment & Preference Optimization",
+      status: "live",
+      note: "RLHF, DPO & KTO theory",
+    },
+    {
+      title: "Mechanistic Interpretability & Circuits",
+      status: "live",
+      url: "https://www.arena.education/",
+      source: "ARENA / Anthropic Interpretability",
+    },
+  ],
+  9: [
+    {
+      title: "Large-Scale Pre-Training & Scaling Laws",
+      status: "live",
+      note: "Chinchilla & Kaplan scaling",
+    },
+    {
+      title: "Synthetic Data Curation & Model Collapse",
+      status: "soon",
+    },
+  ],
+  10: [
+    {
+      title: "Language Modeling from Scratch & Distributed Systems",
+      status: "live",
+      url: "https://stanford-cs336.github.io/spring2024/",
+      source: "Stanford CS336",
+    },
+    {
+      title: "Megatron-LM & 3D Parallelism",
+      status: "live",
+      note: "NVIDIA High Performance Deep Learning",
+    },
+  ],
+  11: [
+    {
+      title: "Deep Generative Models: Diffusion & Flow Matching",
+      status: "live",
+      url: "https://deepgenerativemodels.github.io/",
+      source: "Stanford CS236",
+    },
+    {
+      title: "Score-Based SDEs & Continuous Dynamics",
+      status: "live",
+      note: "Yang Song lecture series",
+    },
+  ],
+  12: [
+    {
+      title: "Multimodal Foundation Models & Vision-Language",
+      status: "live",
+      note: "CLIP, SigLIP & LMMs",
+    },
+    {
+      title: "Spatiotemporal Video Dynamics & Diffusion",
+      status: "soon",
+    },
+  ],
+  13: [
+    {
+      title: "Parameter-Efficient Fine-Tuning & LoRA Spectral Theory",
+      status: "live",
+    },
+    {
+      title: "Continual Learning & Catastrophic Forgetting",
+      status: "soon",
+    },
+  ],
+  14: [
+    {
+      title: "Reproducible Deep Learning & Paper Replication",
+      status: "live",
+      source: "ML Reproducibility Challenge",
+    },
+  ],
+  15: [
+    {
+      title: "Scientific Paper Writing, Peer Review & Job Talks",
+      status: "live",
+      note: "NeurIPS / ICML publication prep",
+    },
+  ],
 };
 
 export const coursesFor = (level: number): Course[] =>
   coursesByLevel[level] ?? [];
 
-/**
- * Recommended reading. Deliberately separate from `Course`: these are not
- * AbdurRahman catalog items, so they must not carry the "On AbdurRahman One" label or
- * link to the pricing page. `url` is optional — a reference with no link still
- * renders, just without the outbound affordance.
- */
 export interface Book {
   title: string;
   author: string;
@@ -98,11 +232,46 @@ export interface Book {
 }
 
 export const booksByLevel: Record<number, Book[]> = {
-  9: [
+  0: [
     {
-      title: "AI Engineering",
-      author: "Chip Huyen",
-      url: "https://www.amazon.in/AI-Engineering-Building-Applications-Foundation/dp/9355426666",
+      title: "Mathematics for Machine Learning",
+      author: "Marc Peter Deisenroth, A. Aldo Faisal, Cheng Soon Ong",
+      url: "https://mml-book.github.io/",
+    },
+  ],
+  1: [
+    {
+      title: "The Elements of Statistical Learning",
+      author: "Trevor Hastie, Robert Tibshirani, Jerome Friedman",
+      url: "https://hastie.su.domains/ElemStatLearn/",
+    },
+  ],
+  2: [
+    {
+      title: "Deep Learning",
+      author: "Ian Goodfellow, Yoshua Bengio, Aaron Courville",
+      url: "https://www.deeplearningbook.org/",
+    },
+  ],
+  3: [
+    {
+      title: "Speech and Language Processing (3rd ed.)",
+      author: "Dan Jurafsky, James H. Martin",
+      url: "https://web.stanford.edu/~jurafsky/slp3/",
+    },
+  ],
+  5: [
+    {
+      title: "Reinforcement Learning: An Introduction",
+      author: "Richard S. Sutton, Andrew G. Barto",
+      url: "http://incompleteideas.net/book/the-book-2nd.html",
+    },
+  ],
+  11: [
+    {
+      title: "Probabilistic Machine Learning: Advanced Topics",
+      author: "Kevin P. Murphy",
+      url: "https://probml.github.io/pml-book/book2.html",
     },
   ],
 };

@@ -1,0 +1,93 @@
+Level 5 · Reinforcement Learning & Sequential Decision Theory
+
+Scope: explore the mathematical foundations of sequential decision making under uncertainty: Markov Decision Processes, Bellman equations, dynamic programming, policy gradients, actor-critic algorithms, and model-based reinforcement learning.
+
+Prerequisites: Level 4
+
+M5.1 · Markov Decision Processes & Bellman Optimality — (sessions: 3)
+
+Formulate the Reinforcement Learning problem as a Markov Decision Process (MDP): states S, actions A, transition probability function P(s'|s, a), reward function R(s, a), and discount factor gamma.
+Define trajectories, discounted return G_t, policy pi(a|s), state-value function V^pi(s), and action-value function Q^pi(s, a).
+Derive the Bellman Expectation Equations for V^pi(s) and Q^pi(s, a) using the law of total expectation.
+Define optimal policy pi^*, optimal state-value V^*(s), and optimal action-value Q^*(s, a).
+Derive the Bellman Optimality Equations: non-linear system of equations incorporating max operators over actions.
+Prove the Bellman operator is a contraction mapping in the supremum norm via Banach Fixed-Point Theorem, ensuring convergence to a unique fixed point.
+Implement Dynamic Programming algorithms for known MDPs: Policy Iteration (policy evaluation + policy improvement theorem) and Value Iteration.
+Outcome: prove the contraction mapping property of the Bellman optimality operator and implement exact Value Iteration for discrete MDP environments.
+
+M5.2 · Model-Free Value-Based Methods & Q-Learning — (sessions: 4)
+
+Understand the model-free setting where transition dynamics P(s'|s, a) and reward functions R(s, a) are unknown.
+Analyze Monte Carlo (MC) methods: first-visit vs every-visit MC, high variance, zero bias, and requiring complete episodes.
+Master Temporal Difference (TD) learning: TD(0) update rule, TD error delta_t, bootstrapping, and bias-variance trade-offs against Monte Carlo.
+Contrast on-policy learning (SARSA) and off-policy learning (Q-learning) and analyze their exploration-exploitation convergence guarantees.
+Study function approximation in Q-learning: linear function approximation, feature divergence, and the "deadly triad" (bootstrapping, off-policy learning, function approximation).
+Master Deep Q-Networks (DQN, Mnih et al.): using neural networks to approximate Q(s, a), experience replay buffers to break temporal correlation, and target networks to stabilize regression targets.
+Analyze improvements to DQN: Double DQN (mitigating maximization bias), Prioritized Experience Replay (PER), and Dueling DQN (decoupling state-value and advantage functions).
+Outcome: derive Double DQN mathematically to prove how decoupled action selection and evaluation eliminates overestimation bias, and train a DQN agent on a classic control environment.
+
+M5.3 · Policy Gradient Theorems & Actor-Critic Architectures — (sessions: 4)
+
+Understand parameterized policies pi_theta(a|s) and formulate the expected trajectory return objective J(theta).
+Derive the Policy Gradient Theorem analytically using the log-derivative trick (likelihood ratio): grad_theta J(theta) = E[grad_theta log pi_theta(a|s) * Q(s, a)].
+Analyze the REINFORCE algorithm (Williams): Monte Carlo policy gradient, empirical sample averages, and high variance limitations.
+Introduce baselines to policy gradients: proving mathematically that state-dependent baselines b(s) reduce variance without introducing any bias to the gradient estimate.
+Define the Advantage Function: A(s, a) = Q(s, a) - V(s), and formulate Advantage Actor-Critic (A2C/A3C) architectures.
+Analyze Generalized Advantage Estimation (GAE, Schulman et al.): compounding n-step TD errors via exponential decay parameter lambda to tune bias-variance trade-offs.
+Understand policy parameterization for continuous action spaces: Gaussian policies with learnable mean and state-independent or state-dependent log variance.
+Outcome: derive the Policy Gradient Theorem on paper and implement Generalized Advantage Estimation (GAE) with analytical variance analysis.
+
+M5.4 · Advanced Policy Optimization: TRPO, PPO & Soft Actor-Critic — (sessions: 4)
+
+Analyze the step-size problem in policy gradient methods: large parameter updates causing catastrophic policy collapse in non-stationary RL landscapes.
+Study Trust Region Policy Optimization (TRPO, Schulman et al.): surrogate objective, monotonic improvement guarantee, and enforcing a hard KL divergence constraint D_KL(pi_old || pi_new) <= delta.
+Understand natural policy gradients and Fisher Information Matrix approximations using conjugate gradient methods to compute trust-region steps.
+Master Proximal Policy Optimization (PPO, Schulman et al.): PPO-Clip surrogate objective with clipped probability ratios r_t(theta) to constrain updates without second-order Hessians.
+Analyze the entropy bonus in policy objectives to encourage exploration and prevent premature policy convergence to deterministic sub-optimal actions.
+Master Maximum Entropy Reinforcement Learning: Soft Actor-Critic (SAC, Haarnoja et al.), entropy-augmented reward, soft Bellman equation, and continuous off-policy stability.
+Compare on-policy (PPO) versus off-policy (SAC) sample efficiency, wall-clock compute requirements, and optimization stability.
+Outcome: derive the PPO clipped surrogate objective and implement a complete PPO actor-critic training pipeline in PyTorch.
+
+M5.5 · Model-Based Reinforcement Learning & Search — (sessions: 3)
+
+Understand Model-Based Reinforcement Learning (MBRL): learning transition dynamics models f_theta(s, a) = s' and planning via simulated rollouts.
+Analyze model bias and compounding error: why small inaccuracies in learned environment dynamics amplify exponentially over multi-step planning horizons.
+Master Model Predictive Control (MPC): shooting methods, cross-entropy method (CEM), and online replanning at every environmental time step.
+Study Dyna-Q architecture: interleaving real-world experience, model learning, and simulated experience replay for sample-efficient policy improvement.
+Analyze Monte Carlo Tree Search (MCTS): selection (PUCT algorithm), expansion, simulation / rollout, and backpropagation phases.
+Study AlphaZero and MuZero principles (Silver et al., Schrittwieser et al.): unifying deep neural networks with MCTS planning without explicit environment rules.
+Outcome: implement a learned transition model with Model Predictive Control (MPC) and evaluate compounding prediction error over varying rollout depths.
+
+M5.6 · Capstone: Benchmark PPO vs Soft Actor-Critic on Continuous Control with Ablation Analysis — (sessions: 2)
+
+Design an empirical research benchmark comparing on-policy Proximal Policy Optimization (PPO) against off-policy Soft Actor-Critic (SAC) on continuous control environments (e.g. Gymnasium HalfCheetah / Ant / InvertedPendulum).
+Implement PPO with Generalized Advantage Estimation (GAE), orthogonal weight initialization, gradient clipping, and value function clipping.
+Implement Soft Actor-Critic (SAC) with twin Q-networks (clipped double-Q trick), target smoothing (Polyak averaging tau), and automatic entropy temperature tuning (alpha).
+Conduct controlled experiments across at least 5 distinct random seeds to compute statistically sound learning curves with 95% confidence intervals.
+Perform systematic ablation studies on PPO: (1) effect of clipping epsilon (0.1, 0.2, 0.3), (2) GAE lambda trade-off between bias and variance, and (3) presence vs absence of value function clipping.
+Perform systematic ablation studies on SAC: (1) fixed entropy temperature vs automatic entropy adjustment, and (2) target update rate tau.
+Compare sample efficiency (environment steps to reach reward threshold) and wall-clock training time between PPO and SAC.
+Draft a comprehensive academic research paper summarizing findings, plotting reward trajectories with variance bands, and analyzing stability failure modes.
+Final result: a reproducible deep RL benchmark codebase and research paper evaluating on-policy vs off-policy policy optimization algorithms.
+
+Level 5 completion outcome
+
+By the end of this level, you should be able to:
+
+Formulate continuous and discrete decision problems as Markov Decision Processes.
+Derive the Bellman Expectation and Optimality equations from first principles.
+Prove that the Bellman optimality operator is a gamma-contraction mapping using the Banach Fixed-Point Theorem.
+Implement Policy Iteration and Value Iteration for discrete state-action spaces.
+Explain the deadly triad in reinforcement learning: bootstrapping, function approximation, and off-policy learning.
+Implement Deep Q-Networks (DQN) with experience replay and target networks.
+Derive Double DQN and explain how it resolves the maximization bias of standard Q-learning.
+Derive the Policy Gradient Theorem using the likelihood ratio trick.
+Prove that subtracting a state-dependent baseline from policy gradients introduces zero bias while reducing variance.
+Implement Generalized Advantage Estimation (GAE) and explain the role of the lambda parameter.
+Explain the mathematical motivation for Trust Region Policy Optimization (TRPO) and the KL constraint.
+Derive the clipped surrogate objective of Proximal Policy Optimization (PPO).
+Formulate the Maximum Entropy RL framework and explain how Soft Actor-Critic (SAC) balances exploration and exploitation.
+Explain compounding prediction error in model-based RL and how Model Predictive Control mitigates drift.
+Implement the four phases of Monte Carlo Tree Search (MCTS) with PUCT action selection.
+Conduct reproducible RL experiments with multiple random seeds, reporting mean returns and confidence intervals.
+Progression: MDPs & Bellman Contractions → Model-Free Q-Learning & DQN → Policy Gradients & Advantage Actor-Critic → PPO & Soft Actor-Critic → Model-Based RL & MCTS → Deep RL Benchmark Capstone.

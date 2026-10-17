@@ -1,0 +1,88 @@
+Level 11 · Generative Modeling: VAEs, GANs & Diffusion Theory
+
+Scope: explore the theoretical and mathematical foundations of deep generative modeling: variational inference, generative adversarial networks, score-based models, stochastic differential equations (SDEs), and continuous-time flow matching.
+
+Prerequisites: Level 10
+
+M11.1 · Variational Autoencoders & The Evidence Lower Bound — (sessions: 3)
+
+Formulate generative modeling as estimating the true data distribution p_data(x) and sampling novel instances x ~ p_theta(x).
+Analyze the intractability of marginal likelihood p_theta(x) = \int p_theta(x, z) dz in high-dimensional latent variable models.
+Derive the Evidence Lower Bound (ELBO) mathematically using Jensen's inequality: log p_theta(x) >= E_q[log p_theta(x|z)] - D_KL(q_phi(z|x) || p(z)).
+Decompose ELBO into reconstruction loss and latent KL divergence regularization against a standard isotropic Gaussian prior N(0, I).
+Master the Reparameterization Trick (Kingma & Welling): z = mu_phi(x) + sigma_phi(x) \odot epsilon, where epsilon ~ N(0, I), enabling backpropagation through stochastic nodes.
+Analyze posterior collapse: when the decoder ignores latent variables z and acts as an unconditional autoregressive model.
+Explore Hierarchical and Vector-Quantized VAEs (VQ-VAE, Van den Oord et al.): discrete latent representations and codebook learning without posterior collapse.
+Outcome: derive the analytical KL divergence between two multivariate Gaussian distributions and implement a VAE with the reparameterization trick in PyTorch.
+
+M11.2 · Generative Adversarial Networks & Minimax Game Theory — (sessions: 3)
+
+Formulate GANs as a two-player zero-sum minimax game: min_G max_D V(D, G) = E_{x~p_data}[log D(x)] + E_{z~p_z}[log(1 - D(G(z)))].
+Prove mathematically that the optimal discriminator for any fixed generator G is D^*(x) = p_data(x) / (p_data(x) + p_g(x)).
+Prove that substituting D^*(x) into the minimax objective reduces the generator loss to the Jensen-Shannon Divergence (JSD): 2 * JSD(p_data || p_g) - 2 * log(2).
+Analyze GAN Training Pathologies: vanishing gradients with saturated discriminators, non-convergence in non-convex game dynamics, and Mode Collapse.
+Study Wasserstein GANs (WGAN, Arjovsky et al.): using Earth Mover's Distance (Kantorovich-Rubinstein duality), 1-Lipschitz continuity constraints, and Gradient Penalty (WGAN-GP).
+Outcome: prove that the global minimum of the minimax GAN objective occurs if and only if p_g = p_data, and implement WGAN with gradient penalty.
+
+M11.3 · Score-Based Generative Modeling & Denoising Diffusion (DDPM) — (sessions: 4)
+
+Understand Score Matching (Hyvarinen): modeling the score function of data distribution: s_theta(x) = \nabla_x log p(x) without computing intractable partition functions Z.
+Analyze Langevin Dynamics: sampling from a distribution using its score function via gradient ascent with Gaussian noise perturbations.
+Master Denoising Diffusion Probabilistic Models (DDPM, Sohl-Dickstein et al., Ho et al.): forward noising process q(x_t|x_{t-1}) and reverse denoising process p_theta(x_{t-1}|x_t).
+Derive the closed-form forward marginal q(x_t|x_0) = N(x_t; sqrt(alpha_bar_t) * x_0, (1 - alpha_bar_t) * I) using Gaussian reproductive properties.
+Derive the simplified DDPM training objective: predicting the injected Gaussian noise epsilon_theta(x_t, t) using L2 mean squared error loss ||epsilon - epsilon_theta(x_t, t)||^2.
+Analyze Noise Schedules: linear, cosine (Nichol & Dhariwal), and continuous schedules, and their impact on sample quality and signal-to-noise ratio (SNR).
+Outcome: derive the closed-form forward sampling equation q(x_t|x_0) and implement an end-to-end DDPM training and sampling loop in PyTorch.
+
+M11.4 · Continuous SDEs & Probability Flow ODEs — (sessions: 4)
+
+Formulate the continuous-time generalization of diffusion models using Stochastic Differential Equations (Score-based SDEs, Song et al. 2020).
+Analyze Forward Itô SDEs: dx = f(x, t) dt + g(t) dw, transforming complex data distributions into isotropic Gaussian noise.
+Master Anderson's Reverse-Time SDE Theorem: dx = [f(x, t) - g(t)^2 * \nabla_x log p_t(x)] dt + g(t) dw_bar, proving reversal is an SDE guided by the score function.
+Derive the Probability Flow ODE: deterministic ordinary differential equation sharing the exact same marginal probability trajectories p_t(x) as the reverse SDE.
+Understand the benefits of the Probability Flow ODE: deterministic sampling, fast numerical ODE solvers (RK4, Euler), exact likelihood computation via instantaneous change of variables, and latent space inversion.
+Analyze Accelerated Samplers: DDIM (Denoising Diffusion Implicit Models, Song et al.), DPM-Solver (Lu et al.), reducing sampling steps from 1000 down to 15-20 steps.
+Outcome: formulate the probability flow ODE for a variance-preserving (VP) SDE and implement a DDIM deterministic sampler in PyTorch.
+
+M11.5 · Flow Matching & Optimal Transport in Latent Spaces — (sessions: 4)
+
+Understand Continuous Normalizing Flows (CNFs): learning time-dependent vector fields v_t(x) that transport a simple base distribution (e.g. standard Gaussian) to a target data distribution.
+Analyze the intractability of standard CNF maximum likelihood: requiring expensive ODE integration during every training step.
+Master Flow Matching (Lipman et al., Albergo & Vanden-Eijnden): training neural vector fields directly on conditional probability paths via simple regression without ODE simulation.
+Analyze Optimal Transport Flow Matching (OT-FM): straight-line displacement paths between noise x_0 and data x_1: x_t = (1 - t) * x_0 + t * x_1 with constant target velocity u_t(x|x_1, x_0) = x_1 - x_0.
+Prove that straight-line probability trajectories minimize kinetic energy, leading to significantly simpler ODE trajectories that can be solved in as few as 4-8 integration steps.
+Examine Latent Diffusion Models (LDM / Stable Diffusion, Rombach et al.): compressing high-dimensional images into lower-dimensional latent spaces using a pre-trained VAE before applying diffusion / flow matching.
+Study Classifier-Free Guidance (CFG, Ho & Salimans): interpolating between unconditional and conditional vector fields to dramatically improve generation fidelity and prompt adherence.
+Outcome: implement Optimal Transport Flow Matching from scratch and train a flow model on 2D synthetic distributions and images with straight-line trajectories.
+
+M11.6 · Capstone: Implement a Continuous Flow Matching Model from Mathematical First Principles — (sessions: 2)
+
+Build and train a continuous-time Flow Matching generative model from mathematical scratch on a dataset of images or complex scientific multi-modal trajectories.
+Implement the Optimal Transport interpolation path: x_t = (1 - (1 - sigma_min) * t) * x_0 + t * x_1, and derive the ground-truth target velocity field u_t(x_t|x_0, x_1).
+Implement a U-Net or Diffusion Transformer (DiT, Peebles & Xie) architecture to parameterize the time-dependent velocity field v_theta(x, t).
+Integrate adaptive layer normalization (AdaLN) conditioning on timestep t and class / text embeddings.
+Train the model by regressing v_theta(x_t, t) onto target velocity u_t using simple mean squared error loss with zero ODE simulation during training.
+Implement numerical ODE integration samplers (Euler method, Midpoint method, and Runge-Kutta 4th order RK4) to generate samples at inference time.
+Implement Classifier-Free Guidance (CFG) within the vector field sampling loop with guidance scale parameter w.
+Evaluate generation quality quantitatively: compute Fréchet Inception Distance (FID) and measure integration step requirements (evaluating performance at 4, 10, 25, and 50 steps).
+Draft an academic research paper comparing Flow Matching against DDPM in terms of training stability, trajectory curvature, and sample generation speed.
+Final result: a verified Flow Matching generative model codebase, sampling notebook, and academic paper dissecting optimal transport trajectories.
+
+Level 11 completion outcome
+
+By the end of this level, you should be able to:
+
+Derive the Evidence Lower Bound (ELBO) mathematically using Jensen's inequality.
+Explain why the reparameterization trick enables gradient backpropagation through stochastic latent nodes.
+Prove that the global optimum of the original GAN objective is achieved when the generator distribution equals the data distribution.
+Explain mode collapse in GANs and how Wasserstein distance (WGAN-GP) improves training stability.
+Derive the closed-form forward sampling formula q(x_t|x_0) for Denoising Diffusion Probabilistic Models (DDPM).
+Explain the difference between score matching and likelihood-based generative modeling.
+Formulate diffusion models as continuous Stochastic Differential Equations (SDEs) and reverse-time SDEs.
+Derive the Probability Flow ODE and explain how it enables deterministic sampling and exact likelihood computation.
+Explain the mathematical formulation of Flow Matching and why it avoids ODE simulation during training.
+Prove that Optimal Transport Flow Matching produces straight-line paths with minimal kinetic energy.
+Implement Classifier-Free Guidance (CFG) and explain its effect on sample fidelity and diversity.
+Build a Diffusion Transformer (DiT) architecture with adaptive layer normalization conditioning.
+Evaluate generative models using Fréchet Inception Distance (FID) and Inception Score (IS).
+Progression: VAEs & ELBO Foundations → GANs & Wasserstein Minimax → DDPM & Score Matching → Continuous SDEs & Probability Flow ODEs → Flow Matching & Optimal Transport → Continuous Flow Matching Capstone.

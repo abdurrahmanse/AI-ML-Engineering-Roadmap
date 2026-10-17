@@ -1,9 +1,8 @@
 /**
  * How much each level matters, scored out of 10 with a reason, from two angles:
- * getting hired (interviews) and doing the job (day-to-day work). Shown side by
- * side at the top of every level page. Keyed by level number; edit the text
- * here, not in the page. Wrap a phrase in **double asterisks** to show it in
- * bold.
+ * research interviews (PhD / Research Scientist screening) and day-to-day lab work.
+ * Shown side by side at the top of every level page. Keyed by level number.
+ * Wrap a phrase in **double asterisks** to show it in bold.
  */
 export interface LevelWeight {
   score: number;
@@ -12,170 +11,170 @@ export interface LevelWeight {
 
 export const WEIGHT_MAX = 10;
 
-/** How much the level matters in AI engineering interviews and screening. */
+/** How much the level matters in AI/ML research interviews and scientific screening. */
 export const interviewWeights: Record<number, LevelWeight> = {
   0: {
-    score: 9,
-    reason:
-      'Many AI engineer roles **screen candidates as software engineers first**, with coding rounds, backend questions, and API design. If you fail these, **you never reach the AI rounds**.',
-  },
-  1: {
-    score: 8,
-    reason:
-      'Conceptual questions are **very common in screening rounds**: tokens, attention, temperature, hallucination, context limits. Shaky answers here **end the interview early**, because they suggest you’ve only used LLMs, not understood them.',
-  },
-  2: {
-    score: 8,
-    reason:
-      '**Take-home assignments and live coding rounds** are usually built on this: call a model, get structured output, use a tool, handle failures. You show it more than you’re asked about it, so it matters **mainly through projects**.',
-  },
-  3: {
-    score: 5,
-    reason:
-      'Interviewers **rarely ask about it in depth**; they assume you can do it. It doesn’t set you apart, and listing it on a resume as a headline skill **can look junior**.',
-  },
-  4: {
     score: 10,
     reason:
-      'The **most frequently asked topic** and the most common requirement in job descriptions. Expect detailed questions on chunking, embeddings, hybrid search, reranking, and why retrieval fails. You need to be **very strong here**.',
+      'Top research labs (DeepMind, FAIR, OpenAI, top universities) **screen aggressively on linear algebra, multivariable calculus, and probability**. If you cannot derive gradients, handle SVD, or compute expectations on a whiteboard, **you will not pass research screening**.',
+  },
+  1: {
+    score: 9,
+    reason:
+      'Foundational ML theory is a **core pillar of research scientist interviews**. Expect rigorous questions on PAC learnability, bias-variance trade-offs, VC dimension, and convex optimization duality.',
+  },
+  2: {
+    score: 9,
+    reason:
+      'Top research rounds dive deeply into **optimization geometry and generalization**: AdamW vs SGD dynamics, Hessian spectrum, flat vs sharp minima, and double descent.',
+  },
+  3: {
+    score: 10,
+    reason:
+      'The **most interrogated architectural topic in modern AI research**. Expect whiteboard derivations of scaled dot-product attention, RoPE mechanics, and FlashAttention IO complexity.',
+  },
+  4: {
+    score: 8,
+    reason:
+      'Self-supervised learning and representation geometry are **major research evaluation topics**: contrastive loss (InfoNCE), collapse avoidance, and metric spaces (ArcFace, CKA).',
   },
   5: {
     score: 9,
     reason:
-      'One of the **hottest topics** in current job descriptions. Tool calling, MCP, LangGraph, and multi-agent setups are keywords that **pass resume filters** and come up often in interviews.',
+      'Reinforcement learning is **vital for modern foundation model alignment and reasoning research**. Interviewers probe Bellman optimality, policy gradients, and PPO mechanics.',
   },
   6: {
-    score: 6,
+    score: 10,
     reason:
-      '**Rarely asked as a topic by name**. It mostly helps you give better answers in RAG and agent questions, which can set you apart in **senior-level discussions**.',
+      'The **hottest frontier in AI research today**. Expect rigorous questions on process reward models (PRMs), tree search, test-time compute scaling laws, and self-correction bounds.',
   },
   7: {
-    score: 8,
+    score: 9,
     reason:
-      'Increasingly a decisive question: “**How would you know your system works?**” Most candidates answer weakly, so a concrete answer (test sets, LLM-as-judge, metrics) **sets you apart sharply**.',
+      'Distinguishes rigorous research scientists from casual practitioners: **statistical hypothesis testing, bootstrap confidence intervals, and benchmark contamination**.',
   },
   8: {
-    score: 5,
+    score: 8,
     reason:
-      '**Expect one question**, usually about prompt injection, and it’s rarely a deciding factor. **Knowing the basics is enough** unless you’re applying for security roles.',
+      'Research labs increasingly emphasize **mechanistic interpretability, circuits, and preference theory (DPO/KTO)**. Knowing how to steer models and identify induction heads sets you apart.',
   },
   9: {
     score: 9,
     reason:
-      'Mid-level and senior hiring usually includes a **dedicated round**, such as “design a chatbot over company documents.” It’s where **scope, trade-offs, and seniority** get judged.',
+      'Crucial for research scientists working on foundation models. Expect questions on **Kaplan vs Chinchilla scaling laws, compute-optimal allocation, and loss spike mitigation**.',
   },
   10: {
-    score: 7,
+    score: 8,
     reason:
-      'Saying you **deployed and monitored** something on your resume shows you’ve worked in production. Docker, AWS, and CI/CD keywords also help with **automated screening**. Interview questions on it are moderate: cost, monitoring, versioning.',
+      'Essential for large-scale research: **Megatron tensor parallelism, ZeRO/FSDP memory sharding, and Ring All-Reduce communication**.',
   },
   11: {
-    score: 6,
+    score: 9,
     reason:
-      'Matters a lot at enterprises and IT services companies, where Bedrock, Azure OpenAI, or Vertex experience is often a **hard filter**. **At startups it matters much less**.',
+      'Mathematical questions on **continuous SDEs, score matching, probability flow ODEs, and flow matching** are standard in generative AI research interviews.',
   },
   12: {
-    score: 4,
+    score: 8,
     reason:
-      '**Seldom asked** unless the role is specifically about vision, speech, or documents. **Low payoff** for general applications.',
+      'Perceptual research questions on **contrastive vision-language alignment (SigLIP), ViT tokenization, and cross-attention adapters**.',
   },
   13: {
-    score: 7,
+    score: 8,
     reason:
-      'You’ll rarely do it on the job, but interviewers love asking about “**fine-tuning vs RAG**” and LoRA basics, and it’s a common job-description keyword. **Knowing the concepts is worth more** than hands-on training experience.',
+      'Interviewers test your theoretical grasp of **LoRA singular value spectra, intrinsic dimensionality, and catastrophic forgetting mitigation (EWC)**.',
   },
   14: {
     score: 10,
     reason:
-      'The **biggest factor in getting shortlisted**. Without real, **deployed projects**, a resume from a new AI engineer usually gets no response, and most interview conversations are built around them.',
+      'The **single biggest factor in landing research positions**. Top labs evaluate you on your **reproducible research code, ablation rigor, and published preprints**.',
   },
   15: {
-    score: 9,
+    score: 10,
     reason:
-      'It directly **turns what you know into answers**. Being able to explain trade-offs and project decisions under pressure is a separate skill, and **strong candidates fail without practising it**.',
+      'Directly mirrors the **research job talk and defense**. Defending experimental choices, answering hostile reviewer critiques, and presenting your research vision.',
   },
 };
 
-/** How much the level matters in day-to-day AI engineering work. */
+/** How much the level matters in day-to-day AI/ML research lab work. */
 export const jobWeights: Record<number, LevelWeight> = {
   0: {
     score: 10,
     reason:
-      'Most of the work is **regular software engineering**: APIs, databases, testing, debugging, deployments. Most production incidents are **ordinary software bugs**, not model problems.',
+      'The mathematical bedrock **underpins every theoretical derivation and paper you read or write**. Every novel loss function or architecture begins with linear algebra and multivariable calculus.',
   },
   1: {
-    score: 7,
+    score: 8,
     reason:
-      'It shapes good decisions about **cost, latency, and model behaviour**, and helps you debug odd outputs. But you use it as **background knowledge**, not every day.',
+      'Provides the **formal language of generalization**. Helps you rigorously assess whether an empirical improvement is theoretically justified or an artifact of overfitting.',
   },
   2: {
     score: 10,
     reason:
-      'This is the **core of the daily work**: calling models, getting structured output, tool use, retries, streaming, handling rate limits and timeouts. **Almost every feature** you build goes through it.',
+      'Understanding loss surfaces and optimization is **essential for stabilizing deep training runs**. When large models diverge or plateau, optimization theory tells you what to adjust.',
   },
   3: {
-    score: 8,
+    score: 10,
     reason:
-      'You **write and revise prompts constantly**. Small changes to instructions often fix problems faster than code changes, so it **matters more on the job than in interviews**.',
+      'Transformers form the **foundation of modern foundation models**. Modifying attention blocks, caching KV states, and understanding sub-quadratic alternatives is daily research work.',
   },
   4: {
     score: 9,
     reason:
-      'Most business AI products need answers **grounded in company data**. A lot of real work goes into **fixing bad retrieval, stale data, and messy documents**.',
+      'High-quality representations are the **currency of pre-training and zero-shot transfer**. Knowing how to probe and align latent spaces determines success across modalities.',
   },
   5: {
-    score: 7,
+    score: 9,
     reason:
-      'More and more common, but many production tasks are better handled by **simple fixed workflows**. Knowing **when not to build an agent** is part of the skill.',
+      'From post-training alignment (RLHF/RLVR) to autonomous reasoning agents, **sequential decision theory governs frontier model optimization**.',
   },
   6: {
-    score: 8,
+    score: 10,
     reason:
-      'Once systems grow, quality depends heavily on **what goes into the model’s input**. It’s often the **hidden cause** of a system getting worse over time or becoming expensive.',
+      'Pioneering the shift from pure pre-training scale to **inference-time deliberative compute (System 2 reasoning)** is the core focus of frontier foundation model labs.',
   },
   7: {
     score: 10,
     reason:
-      'Without evals, **every change is a guess**. Teams that measure ship faster and with more confidence, and this is where much of the **senior-level work** happens.',
+      'Without scientific measurement, **machine learning research is blind**. Ensuring unpolluted benchmarks and statistical significance prevents publishing false empirical claims.',
   },
   8: {
-    score: 7,
+    score: 9,
     reason:
-      '**Prompt injection and data leaks** are real risks in any system that uses tools or private data. **One incident can be very costly**, but daily effort is moderate unless you’re in a regulated industry.',
+      'Fundamental to understanding what large models learn and **ensuring safe, reliable, and steerable AI systems** before frontier deployment.',
   },
   9: {
-    score: 8,
+    score: 10,
     reason:
-      'Matters for **every architecture decision**: which model, how much retrieval, cost vs quality. It grows in importance **as you become more senior**.',
+      'Directs **multi-million dollar compute budgets**. Knowing power-law scaling coefficients ensures optimal parameter-to-token trade-offs.',
   },
   10: {
     score: 9,
     reason:
-      'Monitoring, versioning, cost tracking, and safe rollouts take up a **large share of the work** once a product has real users.',
+      'Training frontier models requires **maximizing Model FLOPs Utilization (MFU)** and avoiding out-of-memory bottlenecks across GPU clusters.',
   },
   11: {
-    score: 7,
+    score: 9,
     reason:
-      'Often required, since companies frequently run AI inside their **existing cloud for compliance**. You mostly **learn the specific platform on the job**.',
+      'Flow matching and diffusion have **revolutionized generative media, scientific simulation, and robotics policies**.',
   },
   12: {
-    score: 5,
+    score: 9,
     reason:
-      '**Very important in some domains** (documents, speech, vision), **not needed in many others**.',
+      'Foundation models are intrinsically multimodal. **Bridging vision, audio, and language representations** is central to current lab roadmaps.',
   },
   13: {
-    score: 3,
+    score: 8,
     reason:
-      '**Rarely needed**. Better prompts, retrieval, or a different model usually solve the problem more cheaply. Mostly done by **specialist teams**.',
+      'Rapidly specializing foundation models and merging task vectors **enables fast experimental iteration without retraining from scratch**.',
   },
   14: {
-    score: 6,
+    score: 8,
     reason:
-      'Building end-to-end gives you the **instincts the job needs**, but once you’re employed, **real work replaces portfolio projects**.',
+      'Proven ability to take a research hypothesis from conception through controlled ablations to a published artifact **is the definition of the job**.',
   },
   15: {
-    score: 1,
+    score: 9,
     reason:
-      '**No direct use on the job**, apart from occasionally interviewing other candidates.',
+      'Writing accepted papers, conducting constructive peer reviews, and **directing a multi-year research program** determines your scientific trajectory.',
   },
 };

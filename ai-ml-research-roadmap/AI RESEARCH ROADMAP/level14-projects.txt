@@ -1,0 +1,60 @@
+Level 14 · Research Projects & Scientific Reproduction
+
+Scope: rigorous empirical research artifacts that compose earlier theoretical and practical levels. Execute conference-grade research experiments, reproducing seminal results, testing novel algorithmic hypotheses, and producing publication-quality scientific reports.
+Prerequisites: Level 3 (Transformers), Level 6 (Reasoning), Level 8 (Alignment), Level 11 (Diffusion), Level 12 (Multimodal)
+
+P14.1 · Self-Supervised Representation Reproduction on Scientific Domains — (sessions: 3)
+
+Implement and reproduce a seminal self-supervised learning architecture (SimCLR or Masked Autoencoder) on an unlabelled scientific benchmark.
+Construct a rigorous data augmentation pipeline tailored to the domain, verifying invariance properties.
+Execute linear probing evaluations on extracted representations, tracking validation classification accuracy against fully supervised baselines.
+Perform Centered Kernel Alignment (CKA) and t-SNE / UMAP latent space projections to probe representation geometry across network depth.
+Outcome: a verified reproduction repository and empirical ablation report demonstrating high-fidelity latent representations without supervision.
+
+P14.2 · Architectural Benchmark: Sub-Quadratic State Space vs Attention Hybrid — (sessions: 3)
+
+Design, implement, and benchmark a hybrid architecture combining local self-attention with Mamba selective state space layers.
+Evaluate long-context associative recall on needle-in-a-haystack synthetic probes and standard language modeling benchmarks.
+Profile wall-clock inference latency, KV cache memory footprint, and training throughput (TFLOPs/s) across sequence lengths from 2K to 64K tokens.
+Analyze the trade-offs between linear state space efficiency and multi-head attention associative recall accuracy.
+Outcome: a clean PyTorch implementation and empirical benchmark paper characterizing the Pareto frontier of hybrid sequence models.
+
+P14.3 · Scalable Synthetic Data Engine with Step-Level Symbolic Verification — (sessions: 3)
+
+Build an automated synthetic data curation engine that generates complex multi-step reasoning traces paired with automated symbolic verification.
+Implement execution-based verifiers (Python interpreters and formal logic solvers) to validate intermediate reasoning steps deterministically.
+Fine-tune a smaller student foundation model on the curated synthetic dataset, measuring task accuracy gains while monitoring for model collapse.
+Conduct ablation studies on data filtering thresholds, generation diversity parameters, and verification pass rates.
+Outcome: an end-to-end synthetic dataset generation pipeline and fine-tuned student checkpoint demonstrating empirical reasoning improvements.
+
+P14.4 · Mechanistic Dissection of In-Context Learning Circuits — (sessions: 2)
+
+Apply mechanistic interpretability techniques to locate, isolate, and analyze induction heads and attention circuits in an open-weight foundation model.
+Perform activation patching and path patching across attention layers to identify the exact causal circuit responsible for multi-token in-context retrieval.
+Extract concept steering vectors and test whether intervening on specific attention head outputs modulates target reasoning capabilities.
+Train a Sparse Autoencoder (SAE) on intermediate MLP activations to isolate monosemantic features associated with the identified circuit.
+Outcome: an interactive mechanistic interpretability notebook and circuit diagram report detailing the causal mechanics of in-context retrieval.
+
+P14.5 · Continuous Optimal Transport Flow Matching on Complex Manifolds — (sessions: 3)
+
+Train a continuous-time Flow Matching generative model with optimal transport displacement paths on scientific dynamical systems or image datasets.
+Implement adaptive layer normalization conditioning and a Diffusion Transformer (DiT) velocity backbone.
+Compare ODE integration trajectories and sample quality against standard Denoising Diffusion Probabilistic Models (DDPM) across 4, 10, and 50 sampling steps.
+Evaluate generative fidelity using Fréchet Inception Distance (FID) and trajectory kinetic energy integrals.
+Outcome: a high-performance flow matching training and sampling codebase with empirical benchmarks confirming straight-line velocity trajectories.
+
+P14.6 · Robust Preference Optimization with Spectral SVD Regularization — (sessions: 2)
+
+Implement Direct Preference Optimization (DPO) augmented with low-rank singular value decomposition (SVD) constraints on weight update matrices.
+Evaluate alignment performance on conversational preference benchmarks (MT-Bench, AlpacaEval) while tracking general-domain benchmark retention.
+Perform spectral analysis of weight update matrices Delta W to confirm preservation of pre-trained feature subspaces during preference optimization.
+Measure resistance to reward hacking and sycophancy compared to standard unconstrained DPO and PPO baselines.
+Outcome: a custom alignment training script and research report evaluating spectral constraints in preference optimization.
+
+P14.7 · Research Paper Draft, Code Release & Reproducibility Suite — (sessions: 2)
+
+Format empirical research findings into a complete, conference-ready scientific paper using the standard LaTeX template (NeurIPS / ICML / ICLR).
+Structure the paper following best academic practices: Introduction, Related Work, Methodological Formulation, Experimental Setup, Results & Discussion, and Limitations.
+Package the codebase into a clean, public GitHub repository with Dockerized environment configs, pinned dependencies, model weights, and reproduction scripts.
+Include detailed documentation of compute resources, random seeds, hyperparameters, negative results, and failure modes to ensure gold-standard reproducibility.
+Outcome: a polished, peer-review-ready academic paper draft and public reproducibility repository ready for conference submission.

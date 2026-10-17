@@ -1,0 +1,94 @@
+Level 10 · Distributed ML Systems & High-Performance Training
+
+Scope: master large-scale computational systems for deep learning research: modern GPU/accelerator architectures, 3D parallelism (tensor, pipeline, data), ZeRO and FSDP memory optimization, collective communication algorithms, and mixed-precision dynamics.
+
+Prerequisites: Level 9
+
+M10.1 · GPU Microarchitecture, Memory Hierarchy & Roofline Modeling — (sessions: 3)
+
+Understand modern AI accelerator architectures: Streaming Multiprocessors (SMs), Tensor Cores, warp scheduling, and register file allocation.
+Analyze the GPU memory hierarchy: registers, shared memory / L1 cache, L2 cache, and High Bandwidth Memory (HBM2e / HBM3e).
+Master the Roofline Model: compute bound vs memory bandwidth bound regimes, operational arithmetic intensity (FLOPs per byte transferred).
+Analyze hardware interconnects: NVLink bandwidth (up to 900 GB/s per GPU), NVSwitch topologies, PCIe Gen4/Gen5 constraints, and inter-node InfiniBand (HDR/NDR) fabrics.
+Understand Triton and CUDA kernel programming conceptually: writing custom fused operators to avoid materializing intermediate activation tensors to global HBM.
+Measure Model FLOPs Utilization (MFU) and Hardware FLOPs Utilization (HFU): calculating real hardware efficiency against theoretical peak specs.
+Outcome: calculate the operational intensity of attention and linear layers, and measure MFU for a training run on a modern GPU.
+
+M10.2 · Distributed Parallelism: DP, DDP, TP, PP & Sequence Parallelism — (sessions: 4)
+
+Master Data Parallelism: DistributedDataParallel (DDP), gradient all-reduce synchronization, bucketed communication, and overlap of backward computation with communication.
+Master Tensor Parallelism (Megatron-LM, Shoeybi et al.): intra-layer weight splitting across GPUs for ColumnParallelLinear and RowParallelLinear in attention and MLP blocks.
+Analyze communications in Tensor Parallelism: Forward pass All-Gather / All-Reduce and Backward pass All-Reduce, and why TP requires ultra-high bandwidth NVLink interconnects.
+Master Pipeline Parallelism (GPipe, PipeDream): partitioning network layers across stages, managing the pipeline bubble problem, and 1F1B (one-forward-one-backward) scheduling.
+Analyze Sequence Parallelism (Korthikanti et al., DeepSpeed Ulysses, RingAttention): splitting the sequence dimension across GPUs to overcome single-device context limits.
+Understand 3D Parallelism: combining Data Parallelism (DP), Tensor Parallelism (TP), and Pipeline Parallelism (PP) to train models exceeding 100 billion parameters.
+Outcome: implement a manual 2-GPU Tensor Parallel linear layer in PyTorch using torch.distributed primitives (All-Reduce).
+
+M10.3 · Memory-Efficient Training: ZeRO & Fully Sharded Data Parallelism — (sessions: 4)
+
+Analyze the memory footprint of training a deep neural network:
+Session 1 · Model States Breakdown
+Model parameters (4 bytes per parameter in FP32, 2 bytes in FP16/BF16).
+Gradients (4 bytes in FP32 or 2 bytes in mixed precision).
+Optimizer states (Adam stores FP32 master weights, momentum, and variance: 16 bytes per parameter).
+Session 2 · Residual Memory Breakdown
+Activations (scales with batch size, sequence length, layers, hidden dimension, and attention heads).
+Activation checkpointing / gradient checkpointing: recomputing activations in backward pass to reduce memory footprint by 5-10x at the cost of a 30% compute overhead.
+Temporary buffers and memory fragmentation.
+Session 3 · The ZeRO Memory Abstraction
+Master Zero Redundancy Optimizer (ZeRO, Rajbhandari et al.):
+ZeRO-Stage 1: sharding optimizer states across data-parallel ranks (4x memory reduction with zero communication overhead).
+ZeRO-Stage 2: sharding optimizer states and gradients (further 2x reduction).
+ZeRO-Stage 3: sharding optimizer states, gradients, and model parameters across all ranks (linear memory scaling with DP world size).
+Master Fully Sharded Data Parallel (FSDP, PyTorch): native implementation of ZeRO-3, forward all-gather, backward all-gather, and reduce-scatter mechanics.
+Outcome: compute the exact memory footprint of a 7B model under DDP vs ZeRO-1 vs ZeRO-3, and train an over-sized model on single-node GPUs using PyTorch FSDP.
+
+M10.4 · Collective Communications & Ring All-Reduce Algorithms — (sessions: 3)
+
+Understand collective communication primitives: Broadcast, Scatter, Gather, All-Gather, Reduce, Reduce-Scatter, and All-Reduce.
+Analyze naive communication algorithms (parameter server, centralized hub) and their linear bandwidth bottlenecks O(N) with cluster size.
+Master the Ring All-Reduce algorithm (Baidu, Gibiansky): dividing communication into Ring Reduce-Scatter followed by Ring All-Gather.
+Derive Ring All-Reduce communication volume: 2 * ((N - 1) / N) * S bytes transferred per GPU, proving communication time is independent of the number of GPUs N.
+Study Tree-based All-Reduce and Recursive Halving-Doubling algorithms for multi-node network topologies.
+Analyze NCCL (NVIDIA Collective Communications Library): hierarchical ring algorithms routing intra-node traffic via NVLink and inter-node traffic via InfiniBand.
+Outcome: implement Ring All-Reduce from scratch in Python using peer-to-peer point-to-point send/recv calls and verify correct gradient averaging.
+
+M10.5 · Low-Precision Representations: FP16, BF16, FP8 & Quantization Science — (sessions: 3)
+
+Analyze floating-point number formats: sign bit, exponent bits (dynamic range), and mantissa bits (precision).
+Compare FP16 (5 exponent, 10 mantissa) and BF16 (8 exponent, 7 mantissa): why BF16 matches FP32 dynamic range and prevents underflow without loss scaling.
+Master Mixed Precision Training (Micikevicius et al.): keeping FP32 master weights, casting forward/backward passes to FP16/BF16, and dynamic loss scaling.
+Analyze FP8 Training (Micikevicius et al. 2022): E4M3 (higher precision for forward activations/weights) vs E5M2 (higher dynamic range for backward gradients) formats.
+Study Post-Training Quantization (PTQ): INT8, INT4, weight-only quantization (AWQ, GPTQ), and activation outliers in LLMs (LLM.int8(), Dettmers et al.).
+Explore Quantization-Aware Training (QAT): straight-through estimator (STE) and modeling quantization noise during forward passes.
+Outcome: implement an automatic mixed-precision training loop using torch.cuda.amp with custom dynamic loss scaling and gradient clipping.
+
+M10.6 · Capstone: Scale a Multi-Billion Parameter Model using FSDP with Profiling & MFU Analysis — (sessions: 2)
+
+Configure a distributed training pipeline to train a multi-billion parameter foundation model across multiple GPUs using PyTorch Fully Sharded Data Parallel (FSDP).
+Implement backward activation checkpointing and CPU offloading to maximize permissible batch size and context window length.
+Configure FSDP sharding strategy (FULL_SHARD vs SHARD_GRAD_OP) and auto-wrap policy targeting custom Transformer decoder layers.
+Implement mixed precision training using BF16 / FP16 with native PyTorch torch.distributed operations.
+Profile execution using PyTorch Profiler and NVIDIA Nsight Systems: inspect SM utilization, memory allocations, communication vs computation overlap, and kernel execution timelines.
+Calculate theoretical peak FLOPs for the hardware cluster and compute the empirical Model FLOPs Utilization (MFU) of the training run.
+Conduct an ablation study measuring training throughput (tokens per second) and memory savings across: (1) standard DDP, (2) FSDP without activation checkpointing, and (3) FSDP with activation checkpointing and operator fusion.
+Draft a systems research report detailing the scaling efficiency, communication overhead, MFU benchmarks, and memory allocation profiles.
+Final result: a production-grade distributed training codebase, complete with profiling traces and a systems paper evaluating high-performance scaling efficiency.
+
+Level 10 completion outcome
+
+By the end of this level, you should be able to:
+
+Apply the Roofline model to determine whether a neural network layer is compute-bound or memory-bound.
+Calculate Model FLOPs Utilization (MFU) to measure empirical training efficiency on GPUs.
+Derive the communication and computational mechanics of Megatron-LM Tensor Parallelism.
+Explain the pipeline bubble problem in Pipeline Parallelism and how 1F1B scheduling mitigates idle time.
+Calculate the exact memory breakdown of model weights, gradients, optimizer states, and activations.
+Explain the three stages of the Zero Redundancy Optimizer (ZeRO) and their impact on memory footprint.
+Configure PyTorch Fully Sharded Data Parallel (FSDP) for multi-billion parameter model training.
+Derive the Ring All-Reduce communication complexity and prove its independence from the number of devices.
+Explain the architectural difference between FP16 and BF16 and why BF16 prevents underflow.
+Implement automatic mixed precision training with dynamic loss scaling.
+Use PyTorch Profiler and NVIDIA Nsight to identify communication bottlenecks and memory fragmentation.
+Analyze activation outliers and explain their impact on INT8/INT4 post-training quantization.
+Progression: GPU Microarchitecture & Roofline Modeling → 3D Parallelism (DP, TP, PP, SP) → ZeRO & FSDP Memory Optimization → Collective Communications & Ring All-Reduce → Low-Precision FP8/BF16 Science → Distributed Scaling Capstone.

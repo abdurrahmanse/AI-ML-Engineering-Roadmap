@@ -1,0 +1,87 @@
+Level 9 · Foundation Model Pre-Training & Scaling Laws
+
+Scope: explore the empirical science of large-scale foundation model pre-training: Kaplan versus Chinchilla scaling laws, compute-optimal allocation, synthetic data curation, pre-training loss dynamics, and tokenization frontiers.
+
+Prerequisites: Level 8
+
+M9.1 · Empirical Scaling Laws: Kaplan vs Chinchilla — (sessions: 4)
+
+Understand the concept of empirical scaling laws in deep learning: power-law relationships L = (N_c / N)^alpha_N between loss, compute, data, and parameters.
+Analyze Kaplan et al. (OpenAI 2020) scaling laws: power laws for cross-entropy loss as a function of model parameter count N, dataset size D, and training compute budget C.
+Examine Kaplan's conclusion favoring scaling parameters over data: allocating compute primarily to model size while training on relatively small datasets.
+Master Chinchilla Scaling Laws (Hoffmann et al., DeepMind 2022): identifying the suboptimal learning rate schedule and under-training flaw in Kaplan's methodology.
+Analyze Hoffmann's three parametric fitting approaches: minimum loss envelopes, varying parameter count curves, and parametric loss modeling.
+Derive the Chinchilla compute-optimal scaling rule: model parameters N and training tokens D should scale in equal proportion: N proportional to C^0.5, D proportional to C^0.5.
+Understand Inference-Optimal vs Compute-Optimal Training: why frontier open-source models (Llama series) train on 15T+ tokens (far beyond Chinchilla optimal) to amortize inference serving costs.
+Outcome: fit Chinchilla power-law parameters using non-linear least squares optimization over empirical loss checkpoints and compute optimal N and D for a target FLOP budget.
+
+M9.2 · Pre-Training Data Curation, Deduplication & Quality Filtering — (sessions: 4)
+
+Analyze the composition of frontier pre-training datasets (Common Crawl, RefinedWeb, FineWeb, RedPajama, The Stack): web text, books, papers, code, and conversations.
+Study the impact of data quality on downstream performance: why filtering out low-quality web text improves model capability more than scaling model size by 2x.
+Master Quality Filtering Algorithms: fastText heuristic classifiers trained on curated high-quality text (Wikipedia, textbooks) versus raw web scrapes.
+Analyze Line-Level and Document-Level Heuristics: filtering based on word length distribution, punctuation ratios, repetition patterns, stop-word frequency, and perplexity filtering.
+Master Text Deduplication: MinHash Locality-Sensitive Hashing (LSH), Jaccard similarity thresholds, and suffix array exact substring deduplication (Lee et al.).
+Analyze the mathematical consequences of duplicate data: memorization risks, double-counting gradient updates, and loss of model generalization.
+Examine Domain Mixing and Data Curricula: balancing web text, code, mathematics, and multilingual data, and scheduling high-quality tokens toward the end of training.
+Outcome: implement a MinHash LSH deduplication pipeline and train a fastText quality filtering model to process and score raw web text.
+
+M9.3 · Synthetic Data Generation & Quality Filtering Science — (sessions: 3)
+
+Understand the impending web data exhaustion wall (Villalobos et al.) and the strategic role of synthetic data in foundation model training.
+Analyze Synthetic Data Methodologies: self-instruct, evol-instruct (WizardLM), textbook generation (Textbooks Are All You Need, Phi series), and synthetic reasoning chains.
+Study Synthetic Data Failure Modes: model collapse (Shumailov et al.), where training models iteratively on recursive generations leads to loss of rare tail knowledge and degenerative entropy collapse.
+Examine Quality Filtering for Synthetic Data: using execution-based verifiers (unit tests for code, formal solvers for math), model judges, and diversity clustering.
+Analyze Instruction-Backtranslation: using models to generate prompts for high-quality unlabelled web documents to produce synthetic instruction-response pairs at scale.
+Outcome: design a synthetic question-answer generation pipeline with execution verification that avoids synthetic repetition collapse.
+
+M9.4 · Tokenization Frontiers & Vocabulary Science — (sessions: 3)
+
+Understand why tokenization is a critical inductive bias affecting arithmetic, code, multilingual performance, and safety.
+Analyze Byte-Pair Encoding (BPE, Sennrich et al.): greedy frequency-based subword vocabulary construction and merge rules.
+Analyze WordPiece (Schuster & Nakajima) and Unigram Language Model (Kudo, SentencePiece): probabilistic vocabulary pruning via language model likelihood reduction.
+Examine Byte-Level Tokenization (BBPE): fallback to raw bytes to eliminate out-of-vocabulary (OOV) tokens completely.
+Study Tokenization Failure Modes: digit tokenization causing arithmetic inability (tokenizing "1234" as single tokens vs individual digits), whitespace sensitivity, and prompt injection attacks in token space.
+Explore Token-Free Architectures: character-level and byte-level foundation models (Megabyte, ByT5) and their trade-offs in context length and computational FLOPs.
+Outcome: train a custom BPE tokenizer from raw text, inspect its merge table, and compare compression ratios across English, non-Latin scripts, and code.
+
+M9.5 · Pre-Training Dynamics, Loss Spikes & Numerical Stability — (sessions: 3)
+
+Analyze the loss curve trajectory during large-scale pre-training: power-law descent, plateauing, and learning rate decay phases.
+Study Loss Spikes in Large-Scale Training: sudden divergence in loss accompanied by gradient norm explosion, and methods for mitigation.
+Analyze the root causes of loss spikes: batch composition anomalies, attention logit growth, outlier features in hidden states, and FP16 underflow/overflow.
+Master Numerical Stability Guards: QK-Norm (applying LayerNorm to queries and keys before dot-product attention, Dehghani et al.), z-loss regularization, and gradient clipping.
+Understand Checkpointing and Rollback Strategies: automated anomaly detection, checkpoint frequency, saving optimizer states, and rolling back with modified data shuffle seeds.
+Study Learning Rate Warmup and Decay: why linear warmup prevents destructive updates in randomly initialized representations, and comparing cosine vs WSD (Warmup-Stable-Decay) schedules.
+Outcome: implement QK-Norm and z-loss regularization in a Transformer architecture and demonstrate suppression of attention logit explosion during training.
+
+M9.6 · Capstone: Compute-Optimal Pre-Training Experiment and Scaling Law Curve Fitting — (sessions: 2)
+
+Design an empirical pre-training experiment to fit Kaplan and Chinchilla scaling laws across a micro-cluster.
+Construct a cleaned, deduplicated, and filtered training corpus with balanced domain mixing (code, mathematics, general prose).
+Train a family of 5 decoder-only Transformer models spanning parameters from 10M to 150M across varied token allocations (10M to 1B tokens).
+Log training loss, validation perplexity, gradient norms, and cumulative floating point operations (FLOPs) accurately using theoretical FLOP formulas: 6 * N * D per training step.
+Fit parametric scaling law equations: L(N, D) = E + A / N^alpha + B / D^beta using non-linear curve fitting (SciPy optimize curve_fit).
+Extract the optimal parameter-to-token ratio and compare empirical findings against Chinchilla predictions (alpha approx 0.34, beta approx 0.28).
+Evaluate the downstream zero-shot capability of the models on standard language evaluation benchmarks to test whether loss scaling correlates with task performance.
+Draft an academic research paper documenting the pre-training pipeline, dataset preparation, loss spike mitigation strategies, and scaling law exponent derivations.
+Final result: a reproducible pre-training codebase, fitted scaling law power-law parameters, and academic paper analyzing empirical loss scaling dynamics.
+
+Level 9 completion outcome
+
+By the end of this level, you should be able to:
+
+Derive the theoretical floating point operations (FLOPs) required for forward and backward passes of a Transformer: 6 * N * D.
+Explain the mathematical difference between Kaplan and Chinchilla scaling laws.
+Derive the compute-optimal parameter-to-token allocation under a fixed compute budget constraint.
+Explain why modern open-weight models are intentionally trained far past the Chinchilla compute-optimal frontier.
+Implement MinHash and Locality-Sensitive Hashing (LSH) for large-scale text deduplication.
+Train fastText quality classifiers to score web-scraped documents against high-quality reference corpora.
+Explain the phenomenon of model collapse when recursively training on synthetic data.
+Implement Byte-Pair Encoding (BPE) from scratch and inspect the vocabulary merge tree.
+Identify tokenization failure modes affecting arithmetic, code indentation, and multilingual representations.
+Analyze the structural causes of pre-training loss spikes and attention logit growth.
+Implement QK-Norm and z-loss to ensure numerical stability during multi-billion parameter pre-training.
+Formulate and execute a multi-model scaling law experiment and fit power-law coefficients.
+Explain the Warmup-Stable-Decay (WSD) learning rate schedule and its advantages over standard cosine decay.
+Progression: Scaling Laws & Chinchilla Optimality → Pre-Training Data Curation & Deduplication → Synthetic Data & Model Collapse → Tokenization Frontiers → Pre-Training Stability & Loss Spikes → Scaling Law Curve Fitting Capstone.

@@ -14,34 +14,27 @@ import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
-/* Canonical location, per CLAUDE.md §2. The repo root is kept as a fallback so
-   a stray level*.txt dropped there is still picked up rather than silently
-   ignored — the first directory containing any level*.txt wins. */
-const CONTENT_DIRS = [join(root, 'AI ENGINEER ROADMAP'), root];
+const CONTENT_DIRS = [join(root, 'AI RESEARCH ROADMAP'), join(root, 'AI ENGINEER ROADMAP'), root];
 
 const PHASES = [
-  { id: 'foundations', name: 'Foundations',        levels: [0, 1, 2, 3],  theme: 'software, LLM 101, orchestration, prompting', color: 'violet',  icon: 'blocks' },
-  { id: 'retrieval',   name: 'Retrieval',          levels: [4],           theme: 'embeddings, vector search, RAG',              color: 'blue',    icon: 'search' },
-  { id: 'agentic',     name: 'Agentic',            levels: [5, 6],        theme: 'agents, context engineering',                 color: 'emerald', icon: 'bot' },
-  { id: 'trust',       name: 'Evaluation & Trust', levels: [7, 8],        theme: 'evals, security',                             color: 'amber',   icon: 'shield-check' },
-  { id: 'production',  name: 'Production',         levels: [9, 10, 11],   theme: 'system design, LLMOps, managed platforms',    color: 'cyan',    icon: 'server' },
-  { id: 'frontier',    name: 'Frontier & Proof',   levels: [12, 13, 14],  theme: 'multimodal, fine-tuning, projects',           color: 'rose',    icon: 'sparkles' },
-  { id: 'interview',   name: 'Interview',          levels: [15],          theme: 'positioning, scenarios, mock loops',           color: 'slate',   icon: 'handshake' },
+  { id: 'foundations', name: 'Foundations',        levels: [0, 1, 2, 3],  theme: 'linear algebra, probability, optimization, statistical learning & transformers', color: 'violet',  icon: 'sigma' },
+  { id: 'retrieval',   name: 'Representation',     levels: [4],           theme: 'metric learning, high-dimensional geometries, latent spaces & dense retrieval', color: 'blue',    icon: 'scan' },
+  { id: 'agentic',     name: 'Reasoning & Agency', levels: [5, 6],        theme: 'reinforcement learning, thought trees, search, PRMs & test-time compute',       color: 'emerald', icon: 'brain-circuit' },
+  { id: 'trust',       name: 'Evaluation & Trust', levels: [7, 8],        theme: 'statistical testing, benchmarking, preference optimization & interpretability', color: 'amber',   icon: 'shield-check' },
+  { id: 'production',  name: 'Scaling & Systems',  levels: [9, 10, 11],   theme: 'scaling laws, pre-training, distributed systems (3D/ZeRO) & diffusion theory',  color: 'cyan',    icon: 'cpu' },
+  { id: 'frontier',    name: 'Frontier & Proof',   levels: [12, 13, 14],  theme: 'multimodal architectures, PEFT spectral dynamics & scientific reproduction',   color: 'rose',    icon: 'sparkles' },
+  { id: 'interview',   name: 'Research Career',    levels: [15],          theme: 'paper writing, peer review, OpenReview rebuttals & research defense',           color: 'slate',   icon: 'graduation-cap' },
 ];
 
-/* One Lucide icon per level. Chosen to match the level's subject; the icon set
-   is fixed (Lucide, one weight) per the brand guardrails. */
+/* One Lucide icon per level for AI/ML research. */
 const LEVEL_ICONS = {
-  0: 'terminal', 1: 'brain', 2: 'plug', 3: 'message-square-code', 4: 'library-big',
-  5: 'bot', 6: 'layout-panel-left', 7: 'flask-conical', 8: 'shield-half', 9: 'network',
-  10: 'gauge', 11: 'cloud-cog', 12: 'audio-lines', 13: 'sliders-horizontal', 14: 'trophy',
-  15: 'briefcase-business',
+  0: 'sigma', 1: 'chart-scatter', 2: 'trending-up', 3: 'sparkles', 4: 'scan',
+  5: 'route', 6: 'workflow', 7: 'microscope', 8: 'shield-check', 9: 'scale',
+  10: 'cpu', 11: 'flame', 12: 'eye', 13: 'sliders-horizontal', 14: 'trophy',
+  15: 'graduation-cap',
 };
 
-/* Keyword -> Lucide icon for module rows. First match wins, so the list runs
-   most-specific first: broad words like "agent" or "model" appear near the end,
-   otherwise every module in the agents level would share one icon.
-   `circle-dot` is the fallback so a module never renders without an icon. */
+/* Keyword -> Lucide icon for module rows. */
 const MODULE_ICON_RULES = [
   // unmistakable, subject-defining terms
   [/capstone|ship a|ship it|portfolio & |portfolio and /i, 'flag'],

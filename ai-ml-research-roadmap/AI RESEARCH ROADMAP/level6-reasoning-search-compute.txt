@@ -1,0 +1,88 @@
+Level 6 · Reasoning, Planning & Test-Time Compute
+
+Scope: investigate the frontiers of machine reasoning in language and multimodal systems: chain-of-thought mechanics, search over thought spaces, outcome versus process reward models, test-time compute scaling laws, and self-correction dynamics.
+
+Prerequisites: Level 5
+
+M6.1 · Foundations of Machine Reasoning & Chain-of-Thought — (sessions: 3)
+
+Define reasoning in computational systems: deductive, inductive, abductive reasoning, and multi-step symbolic manipulation.
+Analyze Chain-of-Thought (CoT, Wei et al.): prompting models to produce intermediate computational tokens before emitting final answers.
+Theoretical analysis of CoT expressivity: why allowing models intermediate tokens increases the computational class of constant-depth Transformers (Merrill & Sabharwal).
+Examine reasoning capacity versus model scale: emergent reasoning abilities, phase changes, and non-linear accuracy jumps on complex benchmarks.
+Study Least-to-Most Prompting and Problem Decomposition: recursive reduction of hard reasoning problems into simpler sub-goals.
+Analyze Failure Modes of CoT: unfaithful reasoning (reasoning traces not matching actual underlying model computation), post-hoc rationalization, and error accumulation.
+Outcome: derive theoretical circuit complexity proofs demonstrating why chain-of-thought expands the computational capability of fixed-depth transformers.
+
+M6.2 · Search Over Thought Spaces & Tree Search Algorithms — (sessions: 4)
+
+Move beyond linear left-to-right generation: conceptualizing problem-solving as search over combinatorial thought spaces.
+Analyze Tree of Thoughts (ToT, Yao et al.): state evaluation, thought generation, and systematic tree exploration via Breadth-First Search (BFS) and Depth-First Search (DFS).
+Study Graph of Thoughts (GoT, Besta et al.): modeling reasoning as arbitrary directed acyclic graphs allowing thought combination, branching, and feedback loops.
+Integrate Monte Carlo Tree Search (MCTS) with language models: thought state evaluation, exploration-exploitation trade-offs (PUCT), and lookahead simulations.
+Analyze Search Heuristics: self-evaluation prompts, perplexity scoring, and external symbolic verifiers (Python interpreters, SMT solvers, Lean/Isabelle theorem provers).
+Study A* and Best-First Search on reasoning trees: designing admissible heuristic cost functions for language model search navigation.
+Outcome: implement a Tree of Thoughts search engine with backtracking and heuristic thought evaluation on complex algorithmic or mathematical puzzles.
+
+M6.3 · Verifiers, Reward Models & Process Supervision — (sessions: 4)
+
+Analyze the fundamental verification versus generation asymmetry: why verifying a proposed solution is often computationally easier than generating it (NP-completeness analogy).
+Master Outcome-based Reward Models (ORMs, Cobbe et al.): scoring complete reasoning trajectories based solely on final answer correctness.
+Analyze the credit assignment failure in ORMs: penalizing valid intermediate reasoning when a final minor arithmetic mistake occurs, and rewarding false reasoning that stumbles upon correct answers.
+Master Process-Supervised Reward Models (PRMs, Lightman et al., Let's Verify Step by Step): scoring every single intermediate reasoning step individually.
+Compare PRM versus ORM data collection: human step-level annotation costs vs automated synthetic step-level labeling (e.g. Monte Carlo rollouts from intermediate states).
+Formulate Best-of-N (Rejection Sampling) decoding with PRMs: generating N independent reasoning paths and selecting the trajectory that maximizes the cumulative or minimum PRM step score.
+Study Majority Voting (Self-Consistency, Wang et al.): sampling multiple temperature-varied reasoning paths and taking the modal final answer.
+Outcome: train a Process Reward Model on step-annotated mathematical reasoning data and compare Best-of-N selection accuracy against an Outcome Reward Model.
+
+M6.4 · Test-Time Compute & Inference Scaling Laws — (sessions: 4)
+
+Formulate the Test-Time Compute frontier: trading off training compute, pre-training parameter scale, and test-time evaluation compute.
+Analyze Inference-Time Scaling Laws (Snell et al., Brown et al.): empirical relationships between floating point operations expended at inference and final task accuracy.
+Study strategies for allocating test-time compute: (1) sampling-based search (Best-of-N, Beam Search), (2) iterative refinement and revision loops, and (3) adaptive compute allocation based on problem difficulty.
+Examine Test-Time Compute vs Pre-Training Compute efficiency: determining when expending 10x more test-time tokens outperforms scaling model parameters by 10x.
+Analyze System 1 (fast, intuitive autoregressive generation) versus System 2 (slow, deliberative search and verification) cognitive architectures in foundation models.
+Examine reasoning models trained with large-scale reinforcement learning over search chains (e.g. DeepSeek-R1, OpenAI o1 style): self-generated reflection tokens, backtrack tokens, and long-horizon exploration.
+Outcome: formulate mathematical scaling curves measuring accuracy improvements as a function of test-time sample budgets and fit Pareto frontiers.
+
+M6.5 · Self-Correction, Reflection & Reasoning Distillation — (sessions: 3)
+
+Analyze Intrinsic Self-Correction: can language models accurately identify and correct their own reasoning errors without external ground-truth feedback? (Huang et al., Kamoi et al.).
+Study the limitations of unassisted self-correction: model sycophancy, degradation of initially correct answers under self-critique, and over-confidence in hallucinations.
+Examine External-Feedback Self-Correction: incorporating compiler errors, unit test executions, and verifiable formal logic checks into iterative reflection loops (Reflexion, Shinn et al.).
+Study Reasoning Distillation: fine-tuning smaller student models on synthetic CoT and MCTS search traces generated by large frontier reasoning models.
+Analyze the risk of superficial pattern imitation during distillation: student models mimicking the linguistic style of reasoning without internalizing the underlying search and verification logic.
+Outcome: implement an automated reflection loop paired with a Python code execution verifier and measure the empirical rate of successful error correction versus degradation.
+
+M6.6 · Capstone: Train a Process Reward Model and Build a Tree-Search Reasoning Engine — (sessions: 2)
+
+Design an end-to-end research experiment developing a verified reasoning engine for challenging mathematical or competitive programming problems (e.g. GSM8K / MATH / Olympiad problems).
+Construct a step-by-step reasoning dataset containing both valid steps and synthetically introduced reasoning errors (divergence points).
+Train a Process Reward Model (PRM) by fine-tuning an open-weight foundation model to predict binary validity labels for each intermediate step delimiter.
+Implement Monte Carlo Tree Search (MCTS) decoding and Best-of-N rejection sampling guided by the trained PRM step scores.
+Conduct an empirical study measuring accuracy against inference compute budgets across: (1) Greedy decoding, (2) Self-Consistency with majority voting (N=1 to N=64), (3) Best-of-N with ORM, and (4) MCTS guided by PRM.
+Plot test-time compute scaling curves: accuracy vs total generation tokens and FLOPs expended per problem.
+Perform qualitative error analysis categorizing remaining failure modes: deceptive reasoning traces that fool the PRM, early tree search pruning errors, and calculation mistakes.
+Draft an academic research paper documenting the methodology, PRM training dynamics, empirical scaling laws, and reproducibility artifacts.
+Final result: a verified PRM model checkpoint, MCTS reasoning search engine codebase, and academic paper analyzing test-time compute scaling dynamics.
+
+Level 6 completion outcome
+
+By the end of this level, you should be able to:
+
+Explain how chain-of-thought increases the computational expressive power of constant-depth transformers.
+Analyze the difference between faithful reasoning traces and post-hoc rationalizations in LLMs.
+Implement the Tree of Thoughts (ToT) search algorithm with state evaluation and backtracking.
+Formulate Monte Carlo Tree Search (MCTS) over intermediate reasoning token sequences.
+Explain why solution verification exhibits favorable computational complexity compared to solution generation.
+Derive the credit assignment problem in Outcome-based Reward Models (ORMs).
+Train a Process-Supervised Reward Model (PRM) to score individual intermediate reasoning steps.
+Implement Best-of-N rejection sampling and evaluate the accuracy boost over greedy decoding.
+Explain the mathematical mechanics of Self-Consistency and modal answer aggregation.
+Formulate and fit empirical scaling laws relating test-time compute budget to reasoning accuracy.
+Contrast System 1 intuitive autoregressive generation with System 2 deliberative search architectures.
+Analyze the empirical limits of intrinsic self-correction without external environmental feedback.
+Implement iterative reflection loops coupled with external symbolic verifiers and interpreters.
+Distill high-compute reasoning traces into smaller, low-latency student models safely.
+Conduct rigorous experiments evaluating reasoning capability across verified benchmark suites.
+Progression: Chain-of-Thought Foundations → Search Over Thought Trees & MCTS → Outcome vs Process Reward Models → Test-Time Compute Scaling Laws → Self-Correction & Distillation → PRM & Tree Search Capstone.

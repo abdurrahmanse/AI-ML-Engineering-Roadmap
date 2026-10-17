@@ -1,0 +1,94 @@
+Level 0 · Mathematical & Computational Foundations
+
+Scope: master the core mathematical disciplines and numerical computing paradigms required for modern AI research: linear algebra, multivariable calculus, probability theory, information theory, and tensor automatic differentiation.
+
+M0.1 · Linear Algebra & Vector Spaces — (sessions: 4)
+
+Understand vector spaces, subspaces, linear independence, basis, dimension, and linear transformations from geometric and algebraic viewpoints.
+Master matrix operations, rank-nullity theorem, invertibility, determinants, and matrix inverses in computational and theoretical contexts.
+Analyze eigenvalues, eigenvectors, characteristic polynomials, and geometric versus algebraic multiplicity.
+Understand spectral decomposition, symmetric matrices, positive semi-definite (PSD) matrices, and quadratic forms.
+Master Singular Value Decomposition (SVD): compact SVD, thin SVD, truncated SVD, low-rank matrix approximation, and the Eckart-Young-Mirsky theorem.
+Understand vector norms (L1, L2, Lp, L-infinity) and matrix norms (Frobenius, spectral norm, nuclear norm) and their roles in regularization.
+Compute inner products, projections, orthogonal complements, and Gram-Schmidt orthogonalization.
+Explore condition numbers, ill-conditioned linear systems, matrix pseudo-inverses (Moore-Penrose), and numerical stability in high dimensions.
+Outcome: derive SVD decompositions, prove spectral properties of symmetric positive semi-definite matrices, and analyze high-dimensional linear mappings algebraically and geometrically.
+
+M0.2 · Multivariable Calculus & Automatic Differentiation — (sessions: 3)
+
+Compute partial derivatives, directional derivatives, gradients, Jacobian matrices, and Hessian matrices for scalar and vector-valued multivariable functions.
+Understand multivariate Taylor series expansions, quadratic approximations, and critical points (local minima, maxima, saddle points).
+Master the multivariate chain rule across nested vector-to-vector and matrix-to-matrix mappings.
+Derive backpropagation mathematically as a reverse-mode automatic differentiation algorithm over computational directed acyclic graphs (DAGs).
+Contrast forward-mode automatic differentiation (dual numbers) and reverse-mode automatic differentiation in terms of computational and memory complexity.
+Analyze matrix and tensor calculus: computing derivatives with respect to vectors, matrices, and multi-dimensional tensors using index notation and Einstein summation.
+Understand higher-order gradients: Hessian-vector products (HVPs), Fisher Information Matrix, and their applications in second-order optimization.
+Outcome: implement analytical tensor backpropagation manually on paper and verify gradients against numerical finite differences.
+
+M0.3 · Probability Theory & Stochastic Foundations — (sessions: 3)
+
+Understand probability spaces, sigma-algebras, random variables, cumulative distribution functions, and probability density functions.
+Analyze discrete distributions (Bernoulli, Binomial, Categorical, Poisson) and continuous distributions (Gaussian, Multivariate Normal, Uniform, Beta, Dirichlet).
+Master joint distributions, conditional distributions, marginalization, Bayes' theorem, independence, and conditional independence.
+Derive expectations, variances, covariances, correlation coefficients, covariance matrices, and moments of multidimensional distributions.
+Understand change of variables formula for continuous probability density functions, Jacobians of transformations, and normalizing flows foundations.
+Analyze law of large numbers (weak and strong), central limit theorem, and concentration inequalities (Markov, Chebyshev, Hoeffding, Chernoff bounds).
+Understand maximum likelihood estimation (MLE), maximum a posteriori (MAP) estimation, and their exact relations to loss functions in supervised learning.
+Outcome: manipulate multivariate Gaussian densities, derive MLE and MAP estimators analytically, and bound sample estimate deviations using concentration inequalities.
+
+M0.4 · Information Theory & Entropy — (sessions: 2)
+
+Define Shannon entropy as a measure of uncertainty and surprise for discrete and continuous (differential entropy) random variables.
+Compute joint entropy, conditional entropy, and derive the chain rule of entropy.
+Master Kullback-Leibler (KL) divergence (relative entropy): mathematical definition, non-negativity (Gibbs' inequality), asymmetry, and directionality (forward KL vs reverse KL).
+Understand cross-entropy loss, its relationship to Shannon entropy and KL divergence, and why it forms the standard surrogate loss in classification.
+Analyze mutual information, channel capacity, data processing inequality, and the information bottleneck principle in deep neural representations.
+Understand Wasserstein distance (Earth Mover's Distance) and optimal transport fundamentals versus f-divergences in probability distribution alignment.
+Outcome: prove Gibbs' inequality, compute analytical KL divergence between multivariate Gaussians, and contrast forward and reverse KL behavior on multi-modal targets.
+
+M0.5 · Numerical Scientific Computing & JAX/PyTorch Internals — (sessions: 3)
+
+Understand floating-point representation (IEEE 754: FP64, FP32, FP16, BF16, FP8), precision limits, machine epsilon, underflow, and overflow.
+Master numerically stable computation: log-sum-exp trick for Softmax, log-domain probabilities, and mitigating vanishing gradients.
+Implement vectorized and tensorized mathematical operations using NumPy, PyTorch, and JAX with zero Python-level loops.
+Understand computation graphs, tensor strides, views, contiguous memory layout, broadcasting rules, and inplace mutations.
+Master JAX functional programming primitives: pure functions, jit (XLA compilation), vmap (vectorized batching), and grad (algorithmic differentiation).
+Profile floating point operations (FLOPs), memory bandwidth, CPU-GPU data transfers, and tensor allocation bottlenecks.
+Outcome: write high-performance vectorized numerical code in PyTorch/JAX that runs stably in low-precision floating-point regimes without numerical underflow.
+
+M0.6 · Capstone: Build an Autograd Engine from Mathematical First Principles — (sessions: 2)
+
+Build a complete tensor-valued reverse-mode automatic differentiation engine from scratch in pure Python and NumPy with no deep learning frameworks.
+Implement a computational Tensor class supporting dynamic DAG graph construction, topological sorting, and reverse topological gradient accumulation.
+Implement forward and backward passes for fundamental mathematical operations: addition, subtraction, multiplication, matrix multiplication, transpose, power, log, and exp.
+Implement multi-dimensional tensor broadcasting mechanics and ensure gradient reduction over broadcasted dimensions during backward execution.
+Implement activation functions with numerical stability guards: Sigmoid, ReLU, GELU, and numerically stable Softmax with LogSumExp.
+Implement loss functions: Mean Squared Error, Binary Cross Entropy, and Categorical Cross Entropy with one-hot targets.
+Verify gradient correctness for every single primitive operation using numerical gradient checking (finite difference approximations) with a tolerance under 1e-5.
+Construct and train a multi-layer perceptron (MLP) on a non-linear dataset using purely your custom autograd engine and SGD optimizer.
+Document the exact mathematical Jacobian-vector products for each operator and analyze computational complexity of forward versus backward graph passes.
+Final result: a verified, documented tensor autograd engine written from first principles that executes arbitrary mathematical computation graphs and trains neural networks.
+
+Level 0 completion outcome
+
+By the end of this level, you should be able to:
+
+Solve multivariable linear algebra systems and derive singular value decompositions analytically.
+Analyze symmetric positive semi-definite matrices and compute spectral projections.
+Derive the multivariate chain rule across tensor mappings using index notation.
+Explain forward-mode versus reverse-mode automatic differentiation computational complexity.
+Calculate gradients, Jacobians, and Hessians of multivariable scalar and vector functions.
+Formulate loss functions as maximum likelihood or maximum a posteriori estimation problems.
+Calculate Shannon entropy, joint entropy, conditional entropy, and mutual information.
+Prove the non-negativity of Kullback-Leibler divergence and analyze mode-covering versus mode-seeking behavior.
+Explain the mathematical difference between KL divergence and Wasserstein distance.
+Handle floating-point precision issues and implement numerically stable operations like LogSumExp.
+Write vectorized and memory-contiguous tensor transformations in PyTorch and JAX.
+Use JAX functional primitives including pure functions, grad, vmap, and jit compilation.
+Construct a dynamic computational directed acyclic graph and perform topological sorting.
+Accumulate multivariable gradients backward through complex computational trees.
+Implement tensor broadcasting gradient reduction correctly in custom autograd passes.
+Derive analytical gradients for matrix multiplication and multi-layer neural network parameters.
+Verify empirical gradients against mathematical derivatives using finite differences.
+Read theoretical machine learning research papers containing rigorous linear algebra and probability proofs.
+Progression: Linear Algebra → Multivariable Calculus → Probability Theory → Information Theory → Numerical Computing → Custom Autograd Engine.

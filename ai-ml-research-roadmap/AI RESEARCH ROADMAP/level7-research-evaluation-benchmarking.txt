@@ -1,0 +1,94 @@
+Level 7 · Research Evaluation Methodology & Benchmarking Science
+
+Scope: master scientific rigor in artificial intelligence evaluation: statistical hypothesis testing, confidence intervals, benchmark contamination detection, Elo rating systems, automated evaluation theory, and reproducibility protocols.
+
+Prerequisites: Level 6
+
+M7.1 · Statistical Hypothesis Testing & Significance in ML — (sessions: 3)
+
+Understand why raw metric differences (e.g. 0.8% accuracy improvement) are scientifically meaningless without statistical significance testing.
+Formulate Null Hypothesis Significance Testing (NHST): null hypothesis H_0, alternative hypothesis H_1, Type I error rate alpha, and Type II error rate beta (statistical power).
+Analyze parametric tests (paired Student's t-test) and explain why their normality assumptions are frequently violated in machine learning benchmarks.
+Master non-parametric tests: Wilcoxon signed-rank test for paired model comparisons and Mann-Whitney U test for independent samples.
+Master Bootstrapping: non-parametric bootstrap resampling, constructing empirical bootstrap distributions, and computing 95% studentized bootstrap confidence intervals.
+Understand Permutation Tests: exact non-parametric tests through random label permutation under the null hypothesis.
+Address the Multiple Hypothesis Testing problem: family-wise error rate (FWER) inflation, Bonferroni correction, and Benjamini-Hochberg False Discovery Rate (FDR) control.
+Outcome: implement non-parametric bootstrap confidence interval estimation and perform Benjamini-Hochberg corrections across multi-model benchmark results.
+
+M7.2 · Benchmark Design, Goodhart's Law & Dataset Contamination — (sessions: 4)
+
+Examine Goodhart's Law and Campbell's Law in AI evaluation: "When a measure becomes a target, it ceases to be a good measure."
+Study Benchmark Saturation: how rapid community overfitting and hill-climbing render benchmarks (GLUE, SuperGLUE, SQuAD) obsolete.
+Analyze Benchmark Contamination: test set leakage into web-scraped pre-training corpora via verbatim overlap, paraphrased overlap, or token translation.
+Master Contamination Detection Techniques: n-gram decontamination (13-gram overlap filtering, Brown et al.), min-hash LSH deduplication, and perplexity anomaly analysis.
+Study Memorization vs Generalization Probing: Carlini et al. prefix-probing techniques to detect whether a model has memorized specific benchmark questions.
+Design Contamination-Robust Benchmarks: dynamic test sets, private holdouts, programmatic question generators, and continuous evaluation suites (e.g. Chatbot Arena, SWE-bench).
+Analyze Evaluation Suite Methodologies: holistic evaluation frameworks like HELM (Holistic Evaluation of Language Models) balancing accuracy, calibration, robustness, bias, and efficiency.
+Outcome: implement an n-gram decontamination pipeline that scans a pre-training corpus for exact and fuzzy benchmark overlaps, reporting contamination percentage.
+
+M7.3 · Elo Rating Systems & Pairwise Comparative Evaluation — (sessions: 3)
+
+Understand pairwise comparison evaluation: why ranking outputs comparatively is significantly more reliable and discriminative than absolute Likert scale scoring.
+Derive the Elo Rating System: logistic win probability formula P(A wins) = 1 / (1 + 10^((R_B - R_A)/400)), rating update rules, and K-factor dynamics.
+Study the Bradley-Terry-Luce (BTL) Model for paired comparisons: maximum likelihood estimation of underlying latent quality parameters from observed pairwise victories.
+Analyze Bradley-Terry MLE estimation via logistic regression and iteratively reweighted least squares (IRLS).
+Master Crowdsourced Evaluation Platforms: LMSYS Chatbot Arena methodology, handling tie games, length bias, conversational turn length, and user demographic bias.
+Analyze Win-Rate Metrics: head-to-head win matrices, style-controlled win rates (adjusting for response length, markdown formatting, and tone), and bootstrap confidence intervals over Elo ranks.
+Outcome: implement the Bradley-Terry model in Python and estimate latent model Elo ratings with 95% bootstrap confidence intervals from pairwise match records.
+
+M7.4 · Automated Evaluation Theory & Judge Model Biases — (sessions: 4)
+
+Analyze LLM-as-a-Judge: using large foundation models to automate evaluation of complex, open-ended, and non-deterministic model outputs (Zheng et al., MT-Bench).
+Categorize and quantify systematic biases in judge models:
+Session 1 · Positional & Length Biases
+Position bias: the tendency of LLM judges to favor the first presented candidate response (Option A vs Option B).
+Mitigating position bias: swapping candidate order and requiring consistency, or averaging bidirectional scores.
+Length bias: the systematic tendency of judge models to score longer, more verbose answers higher regardless of factual density or accuracy.
+Session 2 · Self-Enhancement & Egocentric Biases
+Self-enhancement bias: foundation models rating responses generated by their own family or architecture systematically higher than competitor models.
+Authority and formatting biases: models over-indexing on markdown styling, polite conversational disclaimers, and authoritative tone over logical correctness.
+Session 3 · Calibration & Agreement Metrics
+Measure inter-annotator agreement: Cohen's Kappa, Fleiss' Kappa, and Krippendorff's Alpha between human experts and LLM judges.
+Calibration and error bars: calculating judge model calibration curves and Expected Calibration Error (ECE) for classification and grading tasks.
+Outcome: construct a swap-paired evaluation protocol that measures and cancels out positional bias and quantifies length bias in automated judges.
+
+M7.5 · Reproducibility Protocols, Artifact Packaging & Open Science — (sessions: 2)
+
+Understand the AI Reproducibility Crisis: missing random seeds, undocumented hardware environments, unpinned library versions, and non-deterministic CUDA operations.
+Analyze sources of non-determinism in deep learning: CUDA atomic operations, cuDNN benchmark algorithms, multi-threaded data loaders, and floating point non-associativity.
+Establish gold-standard reproducibility protocols: deterministic seed setting (Python, NumPy, PyTorch, CUDA), environment containerization (Docker, Nix), and code release standards.
+Master Artifact Packaging for Conferences (NeurIPS, ICML, ICLR): open-source code repositories, model weight checkpoints, training logs, evaluation scripts, and reproducible notebooks.
+Understand Scientific Reporting Standards: clear reporting of total compute budget (GPU hours, hardware specifications, estimated carbon footprint), negative results, and failure modes.
+Outcome: package a machine learning project into a fully reproducible, one-click artifact verifying identical evaluation scores across different machines.
+
+M7.6 · Capstone: Build a Contamination-Robust Reasoning Benchmark with Statistical Significance Testing — (sessions: 2)
+
+Design and build a scientifically rigorous evaluation benchmark suite for assessing mathematical and scientific reasoning.
+Construct a dataset of novel, human-curated or programmatically generated reasoning problems with verifiable ground-truth solutions.
+Implement an automated contamination detection scan that verifies zero leakage against public training corpora using 13-gram overlap and embedding cosine similarity checks.
+Evaluate at least four distinct open-weight foundation models across zero-shot and chain-of-thought prompting configurations.
+Perform pairwise comparison evaluation across all model outputs using both human evaluation and a debiased, position-swapped LLM-as-a-Judge.
+Fit a Bradley-Terry model to the pairwise matchup outcomes and calculate Elo ratings with 95% bootstrap confidence intervals.
+Conduct rigorous non-parametric hypothesis testing (Wilcoxon signed-rank test with Benjamini-Hochberg FDR correction) to establish whether observed performance gaps are statistically significant.
+Produce a comprehensive academic evaluation report (NeurIPS benchmark track formatting) complete with reliability metrics (Fleiss' Kappa), length bias ablation, and contamination certificates.
+Final result: an open-source, contamination-free evaluation benchmark with statistical significance verification and automated debiased judge tooling.
+
+Level 7 completion outcome
+
+By the end of this level, you should be able to:
+
+Formulate null hypothesis significance testing for machine learning model comparisons.
+Implement non-parametric bootstrap resampling to calculate rigorous 95% confidence intervals.
+Apply Benjamini-Hochberg False Discovery Rate corrections across multiple hypothesis test runs.
+Explain Goodhart's law in the context of AI benchmarks and public leaderboards.
+Implement n-gram overlap algorithms to detect benchmark contamination in pre-training data.
+Probe model memorization using prefix-matching and perplexity anomaly analysis.
+Derive the Bradley-Terry-Luce model and calculate maximum likelihood Elo ratings.
+Analyze systematic biases in LLM judges including position bias, length bias, and self-enhancement bias.
+Implement position-swapping protocols to eliminate positional preference in automated evaluations.
+Calculate Cohen's Kappa, Fleiss' Kappa, and Krippendorff's Alpha to measure inter-annotator agreement.
+Quantify Expected Calibration Error (ECE) for probabilistic classification and judging models.
+Identify and mitigate sources of non-determinism in PyTorch and CUDA operations.
+Create gold-standard reproducible scientific artifacts conforming to NeurIPS / ICML standards.
+Critique published AI research papers for statistical flaws, cherry-picked baselines, or contaminated test sets.
+Progression: Statistical Significance & Bootstrapping → Benchmark Contamination & Memorization → Pairwise Comparison & Elo Ratings → Automated Judge Biases → Reproducibility Standards → Contamination-Robust Benchmark Capstone.

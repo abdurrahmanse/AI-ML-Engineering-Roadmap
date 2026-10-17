@@ -1,0 +1,91 @@
+Level 12 · Multimodal & Cross-Modal Representation Research
+
+Scope: investigate representation learning across perceptual modalities: contrastive vision-language alignment, visual tokenization, autoregressive multimodal foundation architectures, cross-attention fusion, speech representations, and video latent dynamics.
+
+Prerequisites: Level 11
+
+M12.1 · Contrastive Vision-Language Alignment: CLIP & SigLIP — (sessions: 3)
+
+Understand multimodal alignment: mapping heterogeneous data modalities (images and text) into a shared semantic latent space.
+Master CLIP (Contrastive Language-Image Pre-Training, Radford et al.): dual-encoder architecture (Vision Transformer image encoder + Transformer text encoder).
+Analyze the symmetric InfoNCE loss function: maximizing cosine similarity of matched image-text pairs along the diagonal while penalizing off-diagonal pairs.
+Study Zero-Shot Classification via CLIP: constructing prompt templates ("a photo of a {label}"), encoding candidate text labels, and computing cosine classification probabilities.
+Master SigLIP (Sigmoid Loss for Language Image Pre-Training, Zhai et al.): replacing the global Softmax normalization with pairwise sigmoid loss.
+Analyze the benefits of SigLIP: eliminating the global all-gather communication bottleneck across distributed GPUs, enabling larger batch sizes and stable scaling.
+Examine Modality Gap (Liang et al.): the geometric phenomenon where image embeddings and text embeddings occupy completely disjoint cones in latent space.
+Outcome: derive SigLIP loss mathematically and train a dual-encoder vision-language model with contrastive alignment on image-text pairs.
+
+M12.2 · Visual Tokenization & Discrete Representation Learning — (sessions: 4)
+
+Understand the difference between continuous visual representations (patches) and discrete visual tokens.
+Master the Vision Transformer (ViT, Dosovitskiy et al.): image patch extraction (e.g. 16x16 pixels), linear patch projection, learnable class token [CLS], and 2D positional encodings.
+Study Vector-Quantized Variational Autoencoders (VQ-VAE, Van den Oord et al.): continuous encoder, discrete codebook discretization via nearest-neighbor vector quantization, and straight-through estimator (STE).
+Master VQ-GAN (Esser et al.): augmenting VQ-VAE with adversarial perceptual loss and patch-based discriminator to generate crisp high-frequency textures without blurriness.
+Explore Continuous Patch Tokenization vs Discrete Tokens: analyzing why modern Vision-Language Models (VLMs) favor continuous patch representations over discrete codebooks.
+Analyze High-Resolution Image Processing: dynamic tiling, patch cropping, and spatial aspect-ratio preserving grids in modern Large Multimodal Models (LMMs).
+Outcome: implement a discrete vector quantization layer with Straight-Through Estimator (STE) gradient copying in PyTorch.
+
+M12.3 · Vision-Language Foundation Models & Multimodal Adapters — (sessions: 4)
+
+Analyze the architectural taxonomy of modern Vision-Language Models:
+Session 1 · Projection Adapters & Architecture Design
+Dual-encoder alignment (CLIP style) versus unified autoregressive multimodal generation (LLaVA, Flamingo, PaLM-E).
+Linear Projections and Multi-Layer Perceptrons (MLP adapters, LLaVA, Liu et al.): projecting visual patch tokens directly into the LLM text token embedding space.
+Cross-Attention Architectures (Flamingo, Alayrac et al.): gated cross-attention layers interleaved within frozen language model Transformer blocks.
+Resamplers and Bottlenecks (Q-Former in BLIP-2, Perceiver Resampler): using fixed-size query tokens to compress variable-length visual patches into a fixed number of tokens.
+Session 2 · Training Curricula for LMMs
+Stage 1: Pre-training for feature alignment on massive image-caption pairs (training only the projection adapter while keeping vision encoder and LLM frozen).
+Stage 2: Visual Instruction Tuning (fine-tuning the projection adapter and LLM on detailed multi-turn visual conversations, visual reasoning, and QA).
+Session 3 · Multimodal Hallucinations & Spatial Grounding
+Analyze Object Hallucination in LMMs: models claiming non-existent objects exist in images due to language prior bias overpowering visual features (POPE benchmark).
+Study Spatial Grounding and Coordinate Modeling: bounding box prediction ([x_min, y_min, x_max, y_max] normalized coordinates), visual pointing, and region-of-interest tokens.
+Outcome: implement an MLP projection adapter connecting a pre-trained Vision Transformer to an open-weight language model and perform end-to-end forward generation.
+
+M12.4 · Audio, Speech & Continuous Representation Research — (sessions: 3)
+
+Understand acoustic representations: audio waveforms, Fourier transforms, Short-Time Fourier Transform (STFT), and Mel-frequency spectrograms.
+Study Self-Supervised Speech Representation: wav2vec 2.0 (Baevski et al.), masked acoustic modeling, and contrastive loss over quantized latent representations.
+Master Whisper (Radford et al.): weakly supervised encoder-decoder Transformer trained on 680,000 hours of multilingual audio for robust speech-to-text transcription.
+Analyze Continuous Acoustic Tokenization: SoundStream and EnCodec (Défossez et al.), Residual Vector Quantization (RVQ), and neural audio codecs.
+Explore Speech-Language Foundation Models: unified tokenization of speech and text, zero-shot voice cloning, and real-time duplex speech generation.
+Outcome: implement a Mel-spectrogram feature extractor and inspect phonetic representations extracted from intermediate layers of a pre-trained speech model.
+
+M12.5 · Video Representation Learning & Spatiotemporal Dynamics — (sessions: 3)
+
+Understand the spatiotemporal challenges of video modeling: adding the temporal dimension T expands data dimensionality and computational complexity quadratically.
+Study Spatiotemporal Attention: factorized space-time attention (TimeSformer, Bertasius et al., Video Swin Transformer) separating spatial attention within frames from temporal attention across frames.
+Analyze 3D VAEs and Video Diffusion: inflating 2D spatial convolutions and attention layers to 3D spatiotemporal blocks for video generation (Sora, VideoLDM).
+Study Causal Video Tokenization: maintaining temporal causality so future frames cannot leak information into past frame token representations.
+Analyze Long-Form Video Understanding: memory caching, temporal pooling, and sparse sampling techniques to reason over hour-long video contexts.
+Outcome: implement factorized space-time self-attention in PyTorch and verify computational memory savings compared to full joint space-time attention.
+
+M12.6 · Capstone: Train a Vision-Language Adapter (LLaVA-Style) with Visual Grounding and Hallucination Probing — (sessions: 2)
+
+Build an end-to-end Large Multimodal Model (LMM) pipeline by training a vision-language projection adapter connecting a frozen Vision Transformer (CLIP-ViT) to a frozen decoder language model.
+Implement a two-layer MLP projection adapter with GELU non-linearity to align visual patch tokens with the language model embedding dimension.
+Curate an image-instruction dataset (e.g. LLaVA-Instruct subset or ChartQA/VQA subset) with conversational visual question answering examples.
+Execute Stage 1 Feature Alignment: train the projection adapter on image-caption pairs using autoregressive language modeling loss with frozen vision and LLM weights.
+Execute Stage 2 Visual Instruction Tuning: fine-tune the adapter and top Transformer layers of the LLM on multimodal instruction data.
+Conduct an empirical study on Multimodal Object Hallucination using the POPE (Polling-based Object Probing Evaluation) benchmark: measure precision, recall, and F1 across random, popular, and adversarial negative object questions.
+Implement attention rollout or cross-modal attention attribution to visualize which visual image patches the language model attends to when generating factual responses.
+Draft an academic research paper documenting the architecture, multimodal alignment loss dynamics, hallucination benchmark results, and attention heatmaps.
+Final result: a working vision-language foundation model checkpoint, training codebase, and research paper analyzing multimodal alignment and hallucination dynamics.
+
+Level 12 completion outcome
+
+By the end of this level, you should be able to:
+
+Formulate the contrastive vision-language alignment objective of CLIP.
+Derive SigLIP loss and explain how pairwise sigmoid loss eliminates all-gather communication bottlenecks.
+Explain the Modality Gap phenomenon in joint multimodal representation spaces.
+Implement the Vision Transformer (ViT) patch extraction and linear projection mechanics.
+Explain the Vector-Quantized VAE (VQ-VAE) codebook mechanism and the Straight-Through Estimator.
+Contrast linear projection adapters (LLaVA style) with cross-attention architectures (Flamingo style).
+Design a two-stage training curriculum for Large Multimodal Models (alignment followed by instruction tuning).
+Explain the root causes of visual object hallucination in vision-language models.
+Formulate spatial grounding using normalized coordinate tokens in language models.
+Transform raw audio waveforms into Mel-spectrograms and explain the wav2vec 2.0 self-supervised objective.
+Explain Residual Vector Quantization (RVQ) used in modern neural audio codecs.
+Implement factorized spatiotemporal attention for video understanding.
+Evaluate vision-language models on visual reasoning and object hallucination benchmarks (POPE, VQA).
+Progression: Contrastive Multimodal Alignment (CLIP/SigLIP) → Visual Tokenization & ViT → Large Multimodal Models (LLaVA/Flamingo) → Speech & Audio Representations → Video Spatiotemporal Dynamics → Vision-Language Adapter Capstone.

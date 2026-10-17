@@ -1,0 +1,104 @@
+Level 15 · Research Publication, Peer Review & Scientific Careers
+
+Scope: master professional scientific practice in artificial intelligence: research problem formulation, writing papers for top-tier conferences (NeurIPS, ICML, ICLR), OpenReview rebuttal strategy, peer-review methodology, research proposal defense, and lab interview loops (Research Scientist, Postdoc, PhD).
+
+Prerequisites: Level 14
+
+M15.1 · Research Problem Formulation & Scientific Taste — (sessions: 2)
+
+Develop scientific taste in machine learning: distinguishing incremental benchmark hacking from high-impact fundamental research.
+Formulate research questions with falsifiable hypotheses rather than open-ended tool applications.
+Conduct rigorous literature reviews: navigating arXiv, Semantic Scholar, and OpenReview to identify genuine research gaps versus saturated directions.
+Map competitive research landscapes: tracking parallel discoveries, pre-empting scoop risks, and positioning work distinctly against contemporaneous preprints.
+Decide when to kill a research project: recognizing flawed empirical assumptions early versus persevering through engineering bottlenecks.
+Outcome: write a formal one-page research proposal defining a novel hypothesis, required baselines, expected empirical validation, and failure contingency.
+
+M15.2 · Anatomy of a Top-Tier AI Research Paper — (sessions: 3)
+
+Deconstruct the structure and rhetoric of accepted papers at top AI venues (NeurIPS, ICML, ICLR, ACL, CVPR):
+Session 1 · Title, Abstract & Introduction
+Craft compelling, precise titles and 150-word abstracts summarizing problem, gap, methodological innovation, and quantified breakthrough.
+Structure the Introduction around the core narrative: context → challenge → existing limitations → key technical insight → clear summary of contributions.
+Session 2 · Methodological Rigor & Theoretical Formulation
+State mathematical definitions, theorems, and assumptions cleanly using standard notation.
+Write clean algorithmic pseudocode blocks (LaTeX algorithm2e / algorithmicx) with explicit time and space complexities.
+Session 3 · Experiments, Baselines & Ablations
+Design fair, uncompromised baselines: giving competitor methods equal tuning compute and hyperparameter optimization.
+Structure ablation studies isolating the contribution of each individual component or loss term.
+Outcome: draft a complete Introduction and Methodology section conforming to the official NeurIPS LaTeX conference style guidelines.
+
+M15.3 · Mathematical Typesetting, Figures & Scientific Visualization — (sessions: 2)
+
+Master professional LaTeX for machine learning: macro definitions, theorem environments, equation alignment, and vector notation conventions.
+Design publication-quality scientific diagrams: architecture schematics, computational DAGs, and concept illustrations using vector graphics (TikZ / Inkscape / Figma).
+Generate publication-ready empirical plots (Matplotlib / Seaborn / TikZ): consistent typography matching paper fonts, colorblind-safe palettes (Viridis, ColorBrewer), error bands, and zero chartjunk.
+Format clean, readable empirical tables: bolding statistically significant top results, reporting standard deviations, and avoiding vertical table lines (Booktabs package).
+Outcome: produce a polished two-column LaTeX figure incorporating vector graphics, empirical error bands, and a descriptive self-contained caption.
+
+M15.4 · Peer Review Methodology & Rebuttal Strategy on OpenReview — (sessions: 2)
+
+Understand the peer review process: reviewer assignments, bidding, area chairs, meta-reviews, and scoring rubrics (Soundness, Contribution, Presentation).
+Conduct constructive peer reviews: evaluating technical correctness, experimental validity, baseline fairness, and novelty objectively.
+Master the Rebuttal Process: responding professionally to critical, skeptical, or misunderstand reviewer feedback on OpenReview.
+Structure effective rebuttal responses: thanking reviewers, acknowledging valid critiques, providing clarifying experiments, and politely correcting factual misunderstandings.
+Execute rapid turnaround experiments during discussion windows: adding requested ablations and updating draft revisions under tight deadlines.
+Outcome: write a professional, persuasive rebuttal addressing negative reviewer scores and defending empirical contributions effectively.
+
+M15.5 · Research Defense & Job Talk Preparation — (sessions: 2)
+
+Structure an academic or industry research job talk (45-50 minutes): hook, problem motivation, deep technical dive into 1-2 major papers, broader research vision, and future directions.
+Anticipate skeptical technical questioning from principal scientists and faculty members during open Q&A sessions.
+Communicate complex mathematical ideas and empirical trade-offs intuitively on a whiteboard under pressure.
+Frame a compelling 3-5 year future research agenda demonstrating independence, scientific depth, and funding or impact viability.
+Outcome: deliver a 15-minute research presentation defending experimental methodology and fielding adversarial technical questions.
+
+M15.6 · AI Research Scientist & PhD Interview Scenarios — (sessions: 2)
+
+Navigate the technical interview loops for AI Research Scientist, Postdoc, and PhD fellowship roles (Google DeepMind, FAIR, OpenAI, Anthropic, top universities):
+Session 1 · Theoretical & Mathematical Screening
+Solve whiteboard derivations on linear algebra, probability, optimization dynamics, and generalization bounds.
+Debug convergence failures from theoretical perspectives: vanishing gradients, loss spikes, ill-conditioned Hessians, and numerical overflow.
+Session 2 · Research Problem-Solving & Brainstorming
+Tackle open-ended research prompts: "How would you design an architecture to learn from unlabelled video without text supervision?"
+Reason through hypotheses, minimal viable experiments, potential confounders, and scaling implications in real time.
+Outcome: formulate structured research plans for ambiguous scientific challenges while evaluating technical trade-offs live with an interviewer.
+
+M15.7 · Research Ethics, Responsible AI & Scientific Integrity — (sessions: 1)
+
+Uphold scientific integrity in machine learning: avoiding p-hacking, selective reporting of favorable runs, and post-hoc hypothesis generation (HARKing).
+Comply with Broader Impacts and Ethics statements: environmental compute costs, dual-use risks (cyber, bio, surveillance), and demographic representation.
+Navigate open-source code and model weight release governance: responsible disclosure of vulnerabilities, safety model audits, and licensing terms (Apache 2.0, OpenRAIL).
+Outcome: author a thorough Broader Impacts and Ethical Considerations statement evaluating societal risks and compute footprint for a research project.
+
+M15.8 · Capstone: Complete Conference-Ready Paper Draft, OpenReview-Style Defense & Job Talk — (sessions: 2)
+
+Simulate the complete peer review and research defense loop for a novel machine learning paper.
+
+Round 1 · Conference Paper Submission
+Assemble a complete 8-page LaTeX research paper (based on Level 14 capstone experiments) adhering strictly to NeurIPS / ICML formatting guidelines, complete with proofs, empirical ablations, and appendix.
+
+Round 2 · OpenReview Peer Review & Rebuttal
+Submit the paper to a simulated peer review panel; receive three detailed reviews with critique on baselines, statistical significance, and theoretical clarity.
+Draft a comprehensive author response and rebuttal letter addressing all reviewer concerns, complete with supplementary ablation tables.
+
+Round 3 · Job Talk & Oral Defense
+Deliver a full oral research defense presentation; explain the core theoretical insight, justify baseline selections, defend against critical questioning, and outline the future research roadmap.
+
+Final result: a conference-ready research paper submission package, rebuttal defense document, and research job talk presentation ready for top research labs.
+
+Level 15 completion outcome
+
+By the end of this level, you should be able to:
+
+Formulate rigorous, high-impact research questions with falsifiable hypotheses.
+Conduct thorough literature reviews and position new contributions clearly against existing work.
+Draft an accepted-quality research paper following NeurIPS / ICML / ICLR structure and conventions.
+Typeset complex mathematical proofs and algorithms cleanly in LaTeX.
+Generate publication-quality figures, loss trajectories, and empirical comparison tables with error bands.
+Write thorough, constructive peer reviews evaluating technical soundness and experimental validity.
+Execute persuasive, professional author rebuttals on OpenReview that address reviewer concerns effectively.
+Deliver an engaging research job talk and defend experimental decisions under rigorous cross-examination.
+Solve theoretical and mathematical screening problems in AI Research Scientist and PhD interviews.
+Brainstorm structured experimental workflows for novel, ambiguous machine learning research directions.
+Evaluate research ethics, dual-use risks, compute environmental impact, and open-source release responsibilities.
+Progression: Problem Formulation & Scientific Taste → Paper Anatomy & Writing → Typesetting & Figures → Peer Review & Rebuttals → Research Job Talk → Research Interview Scenarios → Ethics → Conference Submission Capstone.

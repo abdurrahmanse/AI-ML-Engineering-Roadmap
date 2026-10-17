@@ -1,0 +1,87 @@
+Level 4 · Representation Learning & Latent Metric Spaces
+
+Scope: examine how deep neural networks learn semantically rich representations without human labels: contrastive learning, self-supervised objectives, metric learning, the manifold hypothesis, and dense vector spaces.
+
+Prerequisites: Level 3
+
+M4.1 · The Manifold Hypothesis & Self-Supervised Objectives — (sessions: 3)
+
+Understand the Manifold Hypothesis: real-world high-dimensional data (images, text, audio) concentrates on lower-dimensional non-linear sub-manifolds.
+Study linear dimensionality reduction: Principal Component Analysis (PCA) derivation via maximum variance and minimum reconstruction error, probabilistic PCA.
+Analyze non-linear dimensionality reduction: t-SNE (t-Distributed Stochastic Neighbor Embedding, perplexity, Student-t distribution) and UMAP (Uniform Manifold Approximation and Projection, Riemannian geometry basics).
+Master self-supervised pretext tasks: autoencoding, masked language modeling (BERT), masked image modeling (MAE, He et al.), and autoregressive prediction as representation learners.
+Analyze the reconstruction versus contrastive objective trade-off: pixel-level reconstruction wasting capacity on high-frequency details vs semantic feature extraction.
+Outcome: derive PCA analytically using Rayleigh quotients and implement a Masked Autoencoder (MAE) baseline that reconstructs masked image patches.
+
+M4.2 · Contrastive Learning Theory & InfoNCE — (sessions: 4)
+
+Master Contrastive Representation Learning: pulling positive pairs together while pushing negative pairs apart in a metric embedding space.
+Derive the InfoNCE loss function (Oord et al., CPC): connection to Noise-Contrastive Estimation (NCE) and mutual information maximization lower bound.
+Analyze SimCLR (Chen et al.): composition of data augmentations, projection head non-linearity, temperature parameter tau, and large batch size dynamics.
+Understand Representation Collapse: the trivial constant-representation failure mode in contrastive learning and mechanisms to prevent it.
+Study Momentum Contrast (MoCo, He et al.): decoupling dictionary size from batch size using a dynamic memory queue and momentum-updated target encoder.
+Investigate Non-Contrastive Self-Supervision: BYOL (Bootstrap Your Own Latent, Grill et al.) and SimSiam (Chen & He) avoiding collapse without negative pairs using stop-gradient operators.
+Analyze Barlow Twins (Zbontar et al.) and VICReg (Bardes et al.): information-theoretic objectives enforcing invariance, variance preservation, and cross-correlation decorrelation.
+Outcome: prove mathematically that InfoNCE loss optimizes a variational lower bound on mutual information between views, and implement SimCLR with InfoNCE loss in PyTorch.
+
+M4.3 · Metric Learning, Deep Embeddings & Triplet Geometries — (sessions: 3)
+
+Understand Metric Learning: learning distance metrics d(x_i, x_j) such that semantically similar items have small distances while dissimilar items have large distances.
+Master Contrastive Loss (Hadsell et al.) and Triplet Loss (Schroff et al., FaceNet): anchor, positive, and negative geometries, and margin hyperparameter alpha.
+Analyze Negative Mining Strategies: offline vs online negative mining, hard negative mining, semi-hard negative mining, and easy negative saturation.
+Explore Angular and Cosine Margin Losses: SphereFace, CosFace, and ArcFace (Additive Angular Margin Loss, Deng et al.) for discriminative feature spaces.
+Understand embedding normalization: why projecting representations onto the unit hypersphere S^(d-1) stabilizes cosine distance metrics and temperature scaling.
+Study properties of representations on hyperspheres: Wang & Isola's alignment (closeness of positive pairs) and uniformity (uniform distribution over the hypersphere) metrics.
+Outcome: implement ArcFace with angular margin in PyTorch and compute Wang & Isola alignment and uniformity scores for learned representations.
+
+M4.4 · Dense Vector Retrieval & Semantic Search Science — (sessions: 4)
+
+Formulate the information retrieval task in dense representation spaces: bi-encoder architectures, cross-encoder rerankers, and dual-encoder scaling.
+Analyze dual-encoder training: in-batch negatives, hard negative mining (BM25 negatives vs dense retrieval negatives), and multi-stage distillation (ColBERT, late interaction).
+Understand the geometry of high-dimensional vector spaces: orthogonality of random vectors, concentration of distances, and hubness problem.
+Analyze Exact Nearest Neighbor (k-NN) search complexity and the theoretical limits of sub-linear retrieval in high dimensions.
+Study Approximate Nearest Neighbor (ANN) algorithms: graph-based indexing (Hierarchical Navigable Small World, HNSW), inverted file indexes (IVF), and product quantization (PQ).
+Evaluate dense retrieval quality using ranking metrics: Mean Reciprocal Rank (MRR@k), Normalized Discounted Cumulative Gain (NDCG@k), and Recall@k.
+Outcome: implement a bi-encoder dense retriever with hard negative mining, index embeddings using HNSW, and measure NDCG@10 on a search benchmark.
+
+M4.5 · Probing & Analyzing Latent Representations — (sessions: 3)
+
+Understand Representation Probing: testing what linguistic or perceptual information is linearly decodable from intermediate neural activations (Alain & Ollivier).
+Master Linear Probing: training frozen linear classifiers on intermediate representations and interpreting probe accuracy as information presence.
+Analyze the limitations and caveats of linear probes: differentiating between information extraction versus computation, and probe complexity trade-offs (Hewitt & Liang control tasks).
+Study Centered Kernel Alignment (CKA, Kornblith et al.): comparing representations across different architectures, layers, and random initializations invariantly to orthogonal rotations.
+Analyze Intrinsic Dimension Estimation: Two-NN algorithm, maximum likelihood estimators, and tracking how intrinsic dimension changes across deep network layers.
+Examine Anisotropy in Language Model Embeddings: representation degeneration, singular value decay, and embedding cluster geometry in hyperspherical spaces.
+Outcome: implement Centered Kernel Alignment (CKA) from mathematical scratch and compare the layer-wise representational similarity between two trained models.
+
+M4.6 · Capstone: Self-Supervised Representation Reproduction and Latent Geometry Probing — (sessions: 2)
+
+Reproduce a seminal self-supervised representation learning method (SimCLR or Masked Autoencoder) on an unlabelled scientific image or text dataset.
+Implement the full data augmentation pipeline, encoder network, non-linear projection head, and InfoNCE / reconstruction objective.
+Track empirical alignment and uniformity metrics over the unit hypersphere throughout training to monitor representation geometry.
+Evaluate learned representations using standard linear probing protocol: freeze the encoder backbone and train a linear classification probe on extracted representations.
+Implement Centered Kernel Alignment (CKA) to visualize cross-layer representational similarity and observe where abstract representations emerge.
+Conduct an ablation study comparing: (1) with vs without non-linear projection head, (2) temperature scaling variations in InfoNCE, and (3) hard negative mining vs random negatives.
+Evaluate out-of-distribution transfer performance of the learned representations against a fully supervised baseline.
+Write a scientific research report presenting t-SNE / UMAP latent visualizations, CKA heatmaps, alignment-uniformity scatter plots, and linear probe accuracy curves.
+Final result: a reproducible self-supervised representation codebase and research paper evaluating latent space geometry and downstream transfer capabilities.
+
+Level 4 completion outcome
+
+By the end of this level, you should be able to:
+
+Explain the Manifold Hypothesis and formulate representation learning in terms of low-dimensional manifolds.
+Derive the analytical formulation of Principal Component Analysis (PCA) using constrained optimization.
+Explain the mathematical objective of t-SNE and its use of the Student-t distribution to resolve crowding.
+Derive the InfoNCE loss function and prove its connection to mutual information maximization.
+Explain the representation collapse problem in self-supervised learning and how BYOL and SimSiam avoid it.
+Derive the Triplet Loss and compare hard negative mining and semi-hard negative mining strategies.
+Implement ArcFace (Additive Angular Margin Loss) and explain why angular margins encourage intra-class compactness.
+Quantify representation quality on the unit hypersphere using Wang & Isola's alignment and uniformity metrics.
+Contrast bi-encoder and cross-encoder architectures in terms of accuracy, inference latency, and indexing feasibility.
+Explain how Hierarchical Navigable Small World (HNSW) graphs achieve approximate logarithmic nearest neighbor search.
+Compute standard ranking evaluation metrics including MRR@k and NDCG@k from scratch.
+Train linear probes on frozen neural network representations and evaluate probe task performance.
+Implement Centered Kernel Alignment (CKA) and construct cross-model representation similarity matrices.
+Identify anisotropy in transformer representations and explain why word embeddings tend to collapse into narrow cones.
+Progression: Manifold Hypothesis & Dimensionality Reduction → Contrastive Learning & InfoNCE → Metric Learning & Hyperspherical Geometries → Dense Vector Retrieval → Representation Probing & CKA → Self-Supervised Reproduction Capstone.

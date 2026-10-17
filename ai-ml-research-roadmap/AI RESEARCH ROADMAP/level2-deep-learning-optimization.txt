@@ -1,0 +1,92 @@
+Level 2 · Deep Learning Theory & Optimization Dynamics
+
+Scope: examine the mathematical mechanics of deep neural networks: expressivity and universal approximation theorems, loss surface geometry, non-convex optimization dynamics, adaptive optimizers, normalization layers, and implicit regularization.
+
+Prerequisites: Level 1
+
+M2.1 · Expressivity & Universal Approximation Theory — (sessions: 3)
+
+Study the Universal Approximation Theorem for single-hidden-layer networks: Cybenko's theorem for sigmoidal activations and Hornik's theorem for arbitrary continuous activations.
+Analyze width versus depth trade-offs: exponential expressivity of deep architectures in separating complex topological manifolds.
+Understand linear regions of deep ReLU networks: counting maximal numbers of linear regions as a function of depth, width, and input dimension.
+Investigate the Neural Tangent Kernel (NTK) regime: infinite-width limits, linear dynamics in function space, and kernel convergence.
+Analyze inductive bias of convolutional architectures: translation equivariance, weight sharing, locality, and sample complexity advantages on spatial data.
+Examine expressivity limitations: parity problems, graph isomorphism testing limitations (Weisfeiler-Lehman hierarchy in GNNs), and depth lower bounds.
+Outcome: derive proofs for single-layer universal approximation and compute exact bounds on linear regions created by deep ReLU feedforward networks.
+
+M2.2 · Loss Landscapes & Non-Convex Optimization — (sessions: 4)
+
+Analyze the geometry of deep learning loss surfaces: high dimensionality, non-convexity, saddle points, local minima, and plateaus.
+Understand the strict saddle property and escaping saddle points via perturbed stochastic gradient descent (Ge et al.).
+Study the landscape geometry of overparameterized networks: mode connectivity, linear mode connectivity, and loss valleys.
+Analyze Hessian spectrum dynamics: dominant eigenvalues, bulk distribution, ill-conditioning, and edge of stability phenomenon.
+Understand flat versus sharp minima: trace of the Hessian, spectral radius, Fisher information, and their empirical correlation with test generalization (Keskar et al., Dinh et al.).
+Examine Sharpness-Aware Minimization (SAM): mathematical formulation, minimax perturbation objective, and regularizing loss curvature.
+Investigate loss surface visualization techniques: filter-normalized random directions, 1D and 2D contour projections (Li et al.).
+Outcome: compute the top eigenvalues of the empirical Hessian along training trajectories and measure loss landscape curvature across different architectural choices.
+
+M2.3 · Stochastic Optimization & Adaptive Learning Dynamics — (sessions: 4)
+
+Analyze Stochastic Gradient Descent (SGD): unbiased gradient estimates, gradient variance, mini-batching dynamics, and convergence rates on non-convex objectives.
+Study Polyak momentum and Nesterov accelerated gradient in stochastic regimes: dampening oscillations and traversing ravines.
+Master adaptive learning rate algorithms: AdaGrad, RMSprop, Adam, and AdamW (Loshchilov & Hutter decoupled weight decay proof).
+Analyze Adam's failure modes: non-convergence on simple convex objectives (Reddi et al. AMSGrad), hyperparameter sensitivity (beta1, beta2, epsilon), and heavy-tailed noise.
+Investigate learning rate schedules: linear warmup, step decay, exponential decay, cosine annealing with warm restarts, and 1cycle policy.
+Analyze the stochastic differential equation (SDE) view of SGD: Langevin dynamics, diffusion approximations, and escape from sharp local basins.
+Examine gradient clipping: norm clipping vs value clipping, preserving gradient direction, and preventing catastrophic loss spikes during deep training.
+Outcome: implement AdamW from scratch with decoupled L2 weight decay and prove that standard L2 regularization in Adam is mathematically non-equivalent to weight decay.
+
+M2.4 · Normalization & Signal Propagation Dynamics — (sessions: 3)
+
+Analyze the internal covariate shift hypothesis and alternative theoretical explanations of normalization effectiveness (Santurkar et al., loss smoothing).
+Master Batch Normalization: mathematical formulation, training versus inference running statistics, scale-invariance, and gradient scaling properties.
+Understand Layer Normalization: channel-wise normalization, invariance to shift and scaling, and suitability for sequential and autoregressive models.
+Analyze RMSNorm (Root Mean Square Normalization): computational efficiency, removing mean centering, and mathematical properties in modern LLMs.
+Study weight initialization theory: Xavier/Glorot initialization for symmetric activations, He/Kaiming initialization for ReLU/GELU, and preserving variance across layers.
+Analyze dynamical isometry and signal propagation in deep networks: preventing exploding/vanishing gradients at initialization (Pennington et al.).
+Examine alternatives to normalization: Fixup initialization, ReZero, and DeepNorm for extremely deep residual architectures.
+Outcome: prove gradient variance preservation under Kaiming initialization and implement LayerNorm and RMSNorm with analytical backward pass derivations.
+
+M2.5 · Implicit Regularization & Double Descent — (sessions: 3)
+
+Understand the classical bias-variance trade-off versus modern deep learning observations: overparameterization without explicit regularization.
+Analyze implicit regularization: how SGD selects minimum L2-norm solutions in underdetermined linear regression and maximum margin solutions in separable classification.
+Study the Double Descent phenomenon (Belkin et al.): classical U-curve, interpolation threshold peak, and the overparameterized modern regime.
+Differentiate model-wise double descent, sample-wise double descent, and epoch-wise double descent across training horizons.
+Analyze explicit regularization techniques: L1 (Lasso) and L2 (Ridge/weight decay), Dropout (approximate variational inference interpretation), and data augmentation.
+Examine label noise and memorization: early stopping, Arpit et al. study on networks learning patterns before memorizing noise, and clean-up phases.
+Outcome: reproduce epoch-wise and model-size double descent empirically on controlled synthetic and benchmark datasets.
+
+M2.6 · Capstone: Empirical Investigation of Double Descent and Loss Landscape Curvature — (sessions: 2)
+
+Design an empirical research experiment investigating the relationship between model parameter capacity, loss curvature, and generalization error.
+Train a family of deep neural networks varying systematically from underparameterized to heavily overparameterized regimes across controlled label noise levels.
+Implement an efficient Power Iteration algorithm to compute the spectral radius (top eigenvalue lambda_max) and trace of the empirical Hessian without forming full N x N Hessian matrices.
+Measure loss sharpness around converged solutions using filter-normalized random direction perturbations.
+Track training loss, test loss, generalization error, and Hessian sharpness across training epochs to empirically observe double descent peaks.
+Evaluate the mitigating effects of explicit regularization (weight decay, dropout) and optimization curvature smoothing (Sharpness-Aware Minimization) on double descent severity.
+Generate publication-quality research figures: test error vs parameter count curves, Hessian eigenvalue trajectories, and 2D loss surface contour maps.
+Draft an academic research paper reporting findings with rigorous ablation tables and theoretical discussion linking empirical observations to NTK theory.
+Final result: a reproducible research experiment and empirical paper dissecting double descent dynamics and loss landscape geometry in deep networks.
+
+Level 2 completion outcome
+
+By the end of this level, you should be able to:
+
+State and prove the Universal Approximation Theorem for single-hidden-layer networks.
+Quantify the maximum number of linear regions in deep ReLU architectures.
+Explain the Neural Tangent Kernel (NTK) regime and its assumptions regarding network width.
+Analyze non-convex loss surfaces and characterize saddle points, local minima, and plateaus.
+Compute the dominant eigenvalues of the empirical Hessian using power iteration and Hessian-vector products.
+Explain the difference between flat and sharp minima and their relationship to generalization.
+Derive the AdamW update rules and explain why standard L2 penalty fails in adaptive optimizers.
+Analyze the stochastic differential equation (SDE) approximation of stochastic gradient descent.
+Derive the variance preservation condition for Kaiming (He) weight initialization.
+Implement Layer Normalization and RMSNorm with full analytical backward gradients.
+Explain how residual connections and normalization maintain dynamical isometry in deep networks.
+Define implicit regularization and explain minimum-norm selection by gradient descent.
+Formulate and empirically reproduce the double descent curve across model capacity and training epochs.
+Implement Sharpness-Aware Minimization (SAM) and analyze its effect on Hessian spectra.
+Visualize 2D loss surfaces using filter-normalized random perturbation directions.
+Conduct controlled experiments measuring the effects of label noise and overparameterization on test risk.
+Progression: Expressivity & Universal Approximation → Loss Landscapes & Hessian Geometry → Adaptive Optimization & AdamW → Normalization & Signal Propagation → Implicit Regularization & Double Descent → Landscape Curvature Capstone.

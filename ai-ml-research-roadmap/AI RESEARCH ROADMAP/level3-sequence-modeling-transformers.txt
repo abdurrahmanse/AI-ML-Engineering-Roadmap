@@ -1,0 +1,89 @@
+Level 3 · Sequence Modeling & Transformer Architectures
+
+Scope: explore sequence modeling theory from recurrent networks to modern Transformer architectures: self-attention mechanics, positional encodings, attention variants, hardware-aware algorithms, and sub-quadratic sequence models.
+
+Prerequisites: Level 2
+
+M3.1 · Sequence Modeling Foundations & Attention Mechanics — (sessions: 3)
+
+Analyze autoregressive sequence modeling: conditional probability factorization via chain rule of probability, cross-entropy objective, and perplexity metric.
+Review recurrent neural networks (RNNs), LSTMs, and GRUs: gating mechanisms, cell state dynamics, and vanishing/exploding gradients over long contexts.
+Analyze the information bottleneck of fixed-length encoder-decoder representations in early neural machine translation (Cho et al., Sutskever et al.).
+Understand the additive attention mechanism (Bahdanau et al.) and multiplicative attention (Luong et al.) as alignment models in latent space.
+Contrast seq2seq with attention against recurrence: path length between distant tokens, parallelization capacity across time steps, and O(N) sequential complexity.
+Outcome: derive gradients of recurrent cells versus attention mechanisms over time and explain the vanishing gradient bottleneck in RNNs.
+
+M3.2 · Mathematical Anatomy of the Transformer — (sessions: 4)
+
+Master Scaled Dot-Product Attention: queries Q, keys K, values V, scaling factor 1/sqrt(d_k), softmax normalization, and value weighted combination.
+Explain why scaling by 1/sqrt(d_k) prevents large dot-product magnitudes from pushing the Softmax function into vanishing gradient saturation regions.
+Analyze Multi-Head Attention (MHA): projection matrices, multi-subspace representation learning, concatenation, output projection, and parameter counts.
+Derive the exact computational complexity and memory footprint of self-attention: O(N^2 * d) FLOPs and O(N^2) memory activation matrix for sequence length N.
+Master Causal Masking: lower-triangular masking for autoregressive language modeling preventing information leakage from future tokens.
+Analyze Transformer block architecture: Pre-LayerNorm (Pre-LN) versus Post-LayerNorm (Post-LN) stability dynamics (Xiong et al.), residual connections, and MLP/SwiGLU feedforward expansions.
+Examine Multi-Query Attention (MQA) and Grouped-Query Attention (GQA): key-value head sharing, reducing KV cache bandwidth during inference, and quality trade-offs (Ainslie et al.).
+Outcome: write modular, tensorized PyTorch code implementing Multi-Head Attention, Grouped-Query Attention, and Pre-LN Transformer blocks with causal masking from mathematical scratch.
+
+M3.3 · Positional Encodings & Context Length Generalization — (sessions: 3)
+
+Understand why self-attention is permutation-equivariant and requires explicit positional information to model sequence order.
+Analyze Absolute Positional Encodings: sinusoidal functions (Vaswani et al.), wavelength frequencies, and learnable positional embedding tables.
+Study Relative Positional Encodings: Shaw et al., Transformer-XL, and encoding relative displacement (i - j) between tokens rather than absolute indices.
+Master Rotary Position Embedding (RoPE): complex number representation, 2D rotation matrices, inner product preservation, and frequency properties (Su et al.).
+Analyze ALiBi (Attention with Linear Biases): decaying attention scores with linear query-key distance penalties, and zero-shot length extrapolation properties (Press et al.).
+Investigate Context Window Extension techniques: Position Interpolation (Chen et al.), YaRN (Yet another RoPE extensioN method), and NTK-aware RoPE scaling.
+Outcome: derive RoPE mathematically showing that the inner product of rotated queries and keys depends strictly on relative offset (m - n), and implement 2D tensor rotary rotation.
+
+M3.4 · Hardware-Aware Attention & Memory Efficiency — (sessions: 4)
+
+Understand GPU memory hierarchy: High Bandwidth Memory (HBM) versus on-chip SRAM, memory bandwidth vs compute throughput limits (roofline model).
+Analyze the standard Softmax attention memory bottleneck: materializing the N x N attention matrix to HBM causes memory bandwidth saturation (IO bound).
+Master FlashAttention (Dao et al.): tiling algorithm, computing Softmax incrementally using online softmax normalization (Milakov & Gimelshein), and never materializing N x N matrices in HBM.
+Analyze FlashAttention backward pass: recomputing attention matrix in SRAM from queries, keys, and values instead of saving massive intermediate activation maps.
+Study FlashAttention-2 and FlashAttention-3: work partitioning, reducing non-matmul FLOPs, warp-level parallelism, and asynchronous memory operations on Hopper architectures.
+Examine KV Cache memory footprint during autoregressive generation: batch size, sequence length, layers, heads, dimension, and PagedAttention (vLLM) memory paging.
+Outcome: derive the online Softmax algorithm mathematically and implement a tiled Softmax kernel demonstrating exact numerical equivalence without intermediate full-matrix storage.
+
+M3.5 · Sub-Quadratic Architectures & State Space Models — (sessions: 3)
+
+Analyze the fundamental scaling limit of dense Transformers: quadratic O(N^2) time and memory complexity restricting extreme context lengths.
+Explore Linear Attention variants: kernel-based attention approximations, associative property of matrix multiplication, and O(N) complexity limits.
+Study State Space Models (SSMs): continuous-time linear dynamical systems, discretization (bilinear/Euler transforms), and recurrent versus convolutional views (Gu et al., S4).
+Master Mamba and Structured State Space Models (Gu & Dao): selective state spaces (S6), hardware-aware associative scan, input-dependent parameters, and linear-time scaling.
+Compare Hybrid Architectures: combining local self-attention with global state space layers (Jamba, recurrent-attention hybrids), associative recall capacity, and empirical trade-offs.
+Outcome: implement a discrete Linear State Space Model with parallel associative scan in PyTorch and contrast associative recall accuracy against vanilla multi-head attention.
+
+M3.6 · Capstone: Build and Train an Autoregressive Transformer with RoPE and FlashAttention — (sessions: 2)
+
+Build a complete modern decoder-only Transformer language model from scratch in PyTorch incorporating state-of-the-art architectural advancements.
+Implement custom Multi-Head Attention featuring Grouped-Query Attention (GQA) and Rotary Position Embeddings (RoPE).
+Integrate FlashAttention (or custom tiled attention) to enable memory-efficient training over extended sequence context windows.
+Implement RMSNorm for pre-normalization and SwiGLU activation functions within the MLP blocks.
+Implement Byte-Pair Encoding (BPE) tokenization or integrate Tiktoken / SentencePiece tokenizers with proper special token handling.
+Implement causal autoregressive cross-entropy loss with label smoothing and gradient clipping.
+Train the model on a real-world text corpus (e.g. TinyStories or OpenWebText subset) using the AdamW optimizer and cosine learning rate schedule with linear warmup.
+Implement top-k, top-p (nucleus), temperature sampling, and key-value cache (KV cache) decoding for efficient autoregressive text generation.
+Conduct ablation studies comparing: (1) Sinusoidal vs RoPE positional embeddings, (2) Pre-LN vs Post-LN stability, and (3) standard MHA vs GQA inference throughput and memory usage.
+Final result: a verified, high-performance Transformer codebase with RoPE, GQA, and KV caching, complete with an ablation report analyzing generation quality and memory efficiency.
+
+Level 3 completion outcome
+
+By the end of this level, you should be able to:
+
+Formulate autoregressive sequence modeling in terms of conditional joint probability factorization.
+Explain the mathematical necessity of the 1/sqrt(d_k) scaling factor in dot-product attention.
+Derive the computational FLOPs and activation memory complexity of multi-head self-attention.
+Implement causal lower-triangular masking for autoregressive language models.
+Contrast Pre-LayerNorm and Post-LayerNorm in deep Transformer stability and signal propagation.
+Derive Rotary Position Embeddings (RoPE) mathematically using complex representation.
+Explain ALiBi and contrast its length extrapolation properties with absolute positional encodings.
+Analyze the GPU memory hierarchy and explain why standard attention is memory-bandwidth bound.
+Explain the online Softmax formulation that makes FlashAttention tiling mathematically exact.
+Analyze the memory footprint of the Key-Value (KV) cache during autoregressive generation.
+Derive continuous-time linear state space models and their discretized recurrent/convolutional forms.
+Explain the selective state space mechanism of Mamba and its hardware-aware associative scan.
+Implement Grouped-Query Attention (GQA) and calculate its memory bandwidth reduction factor.
+Implement top-p (nucleus) and temperature sampling over output logits.
+Build and train an end-to-end decoder-only Transformer from scratch on a text corpus.
+Measure tokens-per-second and memory utilization during training and inference.
+Progression: Recurrent & Attention Foundations → Scaled Dot-Product & Transformer Anatomy → Positional Encodings & RoPE → FlashAttention & Memory Hierarchy → State Space Models & Mamba → Transformer Training Capstone.

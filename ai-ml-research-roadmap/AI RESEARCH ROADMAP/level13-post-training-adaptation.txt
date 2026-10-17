@@ -1,0 +1,91 @@
+Level 13 · Post-Training, Parameter-Efficient Tuning & Continual Learning
+
+Scope: investigate scientific techniques for adapting and steering foundation models: spectral theory of Low-Rank Adaptation (LoRA/DoRA), representation collapse, catastrophic forgetting, continual learning dynamics, and model merging.
+
+Prerequisites: Level 12
+
+M13.1 · Theory of Parameter-Efficient Fine-Tuning (PEFT) — (sessions: 3)
+
+Understand the computational and storage impracticality of full parameter fine-tuning for massive foundation models across specialized downstream domains.
+Analyze the Intrinsic Dimensionality of Deep Models (Aghajanyan et al.): proving that the parameter updates required for downstream tasks occupy a very low-dimensional intrinsic subspace.
+Master Low-Rank Adaptation (LoRA, Hu et al.): reparameterizing weight updates as Delta W = B * A * (alpha / r), where B \in R^{d x r}, A \in R^{r x k}, and rank r << min(d, k).
+Analyze LoRA Initialization: initializing A with Gaussian random noise and B with zeros so that Delta W = 0 at the start of training, preserving exact base model behavior.
+Master Weight-Decomposed Low-Rank Adaptation (DoRA, Liu et al.): decomposing weights into magnitude and directional components W = m * (V + Delta V) / ||V + Delta V||_F to bridge the performance gap with full fine-tuning.
+Explore Prefix Tuning and Prompt Tuning: prepending learnable continuous virtual tokens to key and value matrices in attention layers.
+Outcome: derive LoRA mathematically, prove that rank r updates preserve parameter gradients in a low-dimensional manifold, and implement custom LoRA layers from scratch.
+
+M13.2 · Spectral Analysis of LoRA & Subspace Geometry — (sessions: 3)
+
+Analyze the Singular Value Decomposition (SVD) of fine-tuned weight differences: Delta W = U \Sigma V^T and analyze the rapid decay of singular values.
+Study Subspace Similarity: computing Grassmannian distance and principal angles between the subspaces spanned by LoRA matrices and full parameter update matrices.
+Investigate Rank Over-Allocation: what happens when rank r is chosen larger than the true intrinsic rank of the downstream adaptation task?
+Analyze which Transformer modules benefit most from low-rank adaptation: query/key/value attention projections versus MLP feedforward expansions.
+Study QLoRA (Dettmers et al.): NormalFloat4 (NF4) data type, Double Quantization (DQ), and Paged Optimizers to enable fine-tuning 70B models on single consumer GPUs.
+Outcome: compute the singular value spectrum of LoRA matrices across training checkpoints to empirically observe rank saturation and subspace alignment.
+
+M13.3 · Catastrophic Forgetting & Continual Learning Dynamics — (sessions: 4)
+
+Define Catastrophic Forgetting (McCloskey & Cohen): the severe degradation of previously learned capabilities when a neural network is fine-tuned sequentially on new domains.
+Analyze the Stability-Plasticity Dilemma: balancing the acquisition of new knowledge (plasticity) against the retention of prior knowledge (stability).
+Study Continual Learning Methodologies:
+Session 1 · Regularization-Based Approaches
+Elastic Weight Consolidation (EWC, Kirkpatrick et al.): penalizing changes to parameters critical to past tasks using the diagonal of the empirical Fisher Information Matrix.
+Synaptic Intelligence and memory-aware synapses: tracking path integrals of parameter importance online during training.
+Session 2 · Replay and Memory-Based Approaches
+Experience Replay: storing a small buffer of exemplar data from earlier tasks and mixing them into current training batches.
+Generative Replay: using a generative model to produce synthetic samples of earlier tasks to interleave during adaptation.
+Session 3 · Parameter Isolation and Dynamic Expansion
+Progressive Neural Networks and modular parameter allocation: freezing old task sub-networks and adding new modules for novel tasks.
+Outcome: derive Elastic Weight Consolidation (EWC) mathematically using Laplace approximation of the posterior distribution and implement EWC loss in PyTorch.
+
+M13.4 · Model Merging, Weight Averaging & Task Arithmetic — (sessions: 3)
+
+Understand Model Merging: combining multiple independently fine-tuned models into a single multi-task model without access to original training data or additional gradient updates.
+Study Linear Weight Averaging: Stochastic Weight Averaging (SWA, Izmailov et al.) and Model Soups (Wortsman et al.) averaging checkpoints in flat loss basins.
+Master Task Arithmetic (Ilharco et al.): treating fine-tuned models as task vectors tau_t = W_fine-tuned - W_base, enabling task addition (multi-task combination) and task subtraction (unlearning concepts).
+Analyze Interference and Parameter Clash: when task vectors have conflicting gradient directions in overlapping parameter dimensions.
+Study Advanced Merging Algorithms:
+TIES-Merging (Yadav et al.): Trimming redundant small values, Resolving sign conflicts, and Merging aligned parameters.
+DARE (Drop And REscale, Yu et al.): extreme random sparsification of task vectors followed by rescaling to prevent representation collapse.
+Spherical Linear Interpolation (SLERP): interpolating weights along the geodesic of high-dimensional spheres rather than linear Euclidean interpolation.
+Outcome: implement Task Vector addition and TIES-Merging in Python, evaluating multi-task accuracy retention across independently fine-tuned checkpoints.
+
+M13.5 · Representation Drift & Mechanistic Effects of Post-Training — (sessions: 3)
+
+Investigate Representation Drift: analyzing how internal latent representations shift during fine-tuning, instruction tuning, and alignment.
+Study the "Surface Form Hypothesis" (Zhou et al., LIMA): hypothesis that pre-training learns virtually all factual knowledge and reasoning, while post-training primarily learns style, formatting, and interactive behavior.
+Measure Representation Drift using Centered Kernel Alignment (CKA) and Procrustes distance across pre-trained and fine-tuned layer activations.
+Analyze Weight Disentanglement: identifying whether post-training modifies core attention mechanisms or isolated late-layer projections.
+Examine Unlearning and Concept Erasure in Fine-Tuned Models: representation editing to remove copyrighted text, hazardous chemical knowledge, or personally identifiable information (PII).
+Outcome: measure the layer-wise CKA similarity between base and instruction-tuned model checkpoints to empirically test the Surface Form Hypothesis.
+
+M13.6 · Capstone: Empirical Study of Representation Drift and Subspace Conservation in LoRA vs Full Fine-Tuning — (sessions: 2)
+
+Design an empirical research experiment comparing parameter-efficient adaptation (LoRA) against full parameter fine-tuning on a specialized scientific or reasoning task.
+Fine-tune identical base foundation models using: (1) Full parameter fine-tuning, (2) LoRA with low rank (r=4), (3) LoRA with high rank (r=64), and (4) DoRA.
+Track training dynamics, validation loss, and task accuracy over identical training epochs.
+Evaluate Catastrophic Forgetting: measure accuracy drops on standard general-domain language benchmarks (MMLU, GSM8K, ARC) before and after domain adaptation.
+Compute Singular Value Decomposition (SVD) of weight update matrices Delta W for full fine-tuning and compare principal subspace overlap against the learned LoRA matrices using Grassmannian distance metrics.
+Perform Centered Kernel Alignment (CKA) across all Transformer layers to map exact representation drift across the network depth.
+Conduct Task Vector arithmetic: test whether subtracting the fine-tuned task vector cleanly reverses domain adaptation without damaging pre-trained general knowledge.
+Draft an academic research paper presenting singular value spectra, CKA drift heatmaps, forgetting benchmarks, and theoretical analysis of low-rank subspace conservation.
+Final result: a reproducible PEFT research benchmark codebase, evaluation notebook, and academic paper evaluating representation drift and forgetting dynamics.
+
+Level 13 completion outcome
+
+By the end of this level, you should be able to:
+
+Explain the Intrinsic Dimensionality hypothesis of deep neural network fine-tuning.
+Derive the Low-Rank Adaptation (LoRA) reparameterization Delta W = B * A.
+Explain the initialization scheme of LoRA and why it guarantees identity mapping at step zero.
+Formulate DoRA (Weight-Decomposed LoRA) and explain how magnitude-direction decoupling improves expressivity.
+Analyze the singular value spectrum of weight updates using Singular Value Decomposition (SVD).
+Explain the mechanics of QLoRA: NormalFloat4 (NF4) quantization, Double Quantization, and Paged Optimizers.
+Define catastrophic forgetting and state the stability-plasticity dilemma.
+Derive Elastic Weight Consolidation (EWC) using the Fisher Information Matrix and Laplace approximation.
+Explain the mechanics of Task Vector arithmetic: task addition, task subtraction, and unlearning.
+Implement TIES-Merging and DARE to resolve parameter sign conflicts when merging multi-task models.
+Explain the Surface Form Hypothesis and its implications for instruction fine-tuning datasets.
+Measure representation drift across fine-tuning checkpoints using Centered Kernel Alignment (CKA).
+Evaluate the trade-off between domain specialization and general-purpose knowledge retention.
+Progression: Parameter-Efficient Fine-Tuning & LoRA → Spectral Analysis & Subspace Geometry → Catastrophic Forgetting & Continual Learning → Model Merging & Task Arithmetic → Representation Drift Science → LoRA vs Full Tuning Capstone.

@@ -1,0 +1,96 @@
+Level 1 · Statistical Learning Theory & Classical ML
+
+Scope: explore the theoretical foundations of statistical learning: PAC learning, empirical risk minimization, VC dimension, generalization bounds, convex optimization, kernel methods, and probabilistic graphical models.
+
+Prerequisites: Level 0
+
+M1.1 · The Learning Problem & Empirical Risk Minimization — (sessions: 3)
+
+Formulate the statistical learning problem: input space, output space, unknown data-generating distribution P(X, Y), hypothesis class H, and loss functions.
+Define true risk (expected loss) versus empirical risk (training loss) and formulate the Empirical Risk Minimization (ERM) principle.
+Analyze the inductive bias of hypothesis classes and explain why unconstrained learning without inductive bias is mathematically impossible.
+Decompose expected generalization error into approximation error, estimation error, and irreducible optimization error.
+Understand the classical bias-variance decomposition for mean squared error: bias squared, variance, and noise terms.
+Analyze overfitting and underfitting from statistical learning perspectives and study the effect of sample size N on generalization error.
+Examine surrogate loss functions: 0-1 loss intractability, convex surrogates (hinge loss, logistic loss, exponential loss), and classification calibration.
+Outcome: formulate machine learning problems rigorously in the language of statistical decision theory and analyze risk decomposition.
+
+M1.2 · PAC Learning & Generalization Bounds — (sessions: 4)
+
+Master Probably Approximately Correct (PAC) learning framework: epsilon-accuracy, delta-confidence, sample complexity, and computational complexity.
+Prove finite hypothesis class generalization bounds using Hoeffding's inequality and the union bound for realizable and agnostic settings.
+Understand uniform convergence: bounding the supremum of empirical risk deviations over the entire hypothesis class.
+Define Rademacher complexity and Gaussian complexity as data-dependent measures of hypothesis class richness.
+Study growth functions, Shattering, and Vapnik-Chervonenkis (VC) dimension for infinite hypothesis classes.
+Prove Sauer-Shelah lemma and derive VC dimension bounds for linear classifiers, hyperplanes, and polynomial classifiers.
+Understand modern generalization frontiers: PAC-Bayes bounds, margin bounds, and where classical uniform convergence bounds fail in deep learning.
+Outcome: compute VC dimensions for geometric hypothesis classes and derive formal sample complexity bounds for PAC learnability.
+
+M1.3 · Convex Optimization & Duality Theory — (sessions: 3)
+
+Understand convex sets, convex functions, epigraphs, subgradients, and subdifferentials for non-smooth convex objectives.
+Master optimality conditions: Fermat's rule for unconstrained problems, Karush-Kuhn-Tucker (KKT) conditions for constrained optimization.
+Formulate Lagrangian functions, primal optimization problems, Lagrange dual functions, and dual optimization problems.
+Understand weak duality, strong duality, Slater's constraint qualification condition, and zero duality gap.
+Analyze first-order optimization methods: gradient descent, projected gradient descent, subgradient descent, and convergence rates for convex and strongly convex functions.
+Analyze accelerated first-order algorithms: Polyak's heavy-ball method, Nesterov accelerated gradient, and optimal O(1/k^2) convergence rates.
+Explore second-order methods: Newton's method, Quasi-Newton methods (BFGS, L-BFGS), and trust-region algorithms with quadratic convergence properties.
+Outcome: derive dual optimization problems analytically, verify KKT conditions, and analyze algorithmic convergence rates mathematically.
+
+M1.4 · Kernel Methods & Non-Parametric Theory — (sessions: 3)
+
+Formulate linear models for regression and classification: ordinary least squares, ridge regression, and Lasso with L1 sparsity proofs.
+Understand reproducing kernel Hilbert spaces (RKHS), the Moore-Aronszajn theorem, and Mercer's theorem for positive definite kernels.
+Master the kernel trick: mapping data implicitly into infinite-dimensional feature spaces via kernel evaluation k(x, x').
+Analyze canonical kernels: polynomial kernels, Gaussian Radial Basis Function (RBF) kernel, Laplacian kernel, and neural tangent kernels (NTK) introduction.
+Derive Support Vector Machines (SVM) primal and dual formulations, support vectors geometry, slack variables, and soft-margin formulations.
+Formulate Kernel Ridge Regression and Gaussian Processes: covariance functions, posterior Gaussian distributions, and Bayesian non-parametrics.
+Understand non-parametric estimation: k-nearest neighbors convergence rates, Nadaraya-Watson kernel regression, and the curse of dimensionality.
+Outcome: prove Mercer's conditions for custom kernels, derive the dual SVM optimization problem, and implement Gaussian Process regression with analytical posteriors.
+
+M1.5 · Probabilistic Graphical Models & Approximate Inference — (sessions: 3)
+
+Understand Directed A Graphical Models (Bayesian Networks): factorization of joint distributions, d-separation, and conditional independence properties.
+Understand Undirected Graphical Models (Markov Random Fields): cliques, potential functions, Gibbs distributions, and the Hammersley-Clifford theorem.
+Formulate exact inference algorithms: variable elimination, belief propagation on trees, and the sum-product / max-product junction tree algorithm.
+Analyze the computational complexity of exact inference and explain why general inference is NP-hard.
+Master approximate inference through sampling: Markov Chain Monte Carlo (MCMC), Metropolis-Hastings algorithm, and Gibbs sampling.
+Master approximate inference through variational methods: Variational Inference (VI), Evidence Lower Bound (ELBO), mean-field approximation, and coordinate ascent variational inference (CAVI).
+Explore the Expectation-Maximization (EM) algorithm: Jensen's inequality derivation, Gaussian Mixture Models (GMM), and convergence properties.
+Outcome: derive the Evidence Lower Bound from Jensen's inequality and implement the Expectation-Maximization algorithm for latent Gaussian mixtures.
+
+M1.6 · Capstone: Empirical and Theoretical Study of Generalization in Kernel Regression — (sessions: 2)
+
+Formulate a rigorous research experiment comparing theoretical generalization bounds against empirical test error across varying sample sizes N and dimensions D.
+Implement Kernel Ridge Regression and Support Vector Machines entirely from scratch using quadratic programming solvers (CVXPY/SciPy).
+Derive the analytical generalization error bound using empirical Rademacher complexity and RKHS norm constraints.
+Compute empirical Rademacher complexity via Monte Carlo sampling of random Rademacher variables over synthetically generated non-linear manifolds.
+Investigate the role of regularization parameter lambda on eigenvalue decay of the kernel Gram matrix and the effective degrees of freedom.
+Measure the gap between worst-case theoretical generalization bounds and actual empirical test risk across overparameterized versus underparameterized regimes.
+Produce publication-quality research figures: risk curves, eigenvalue spectra, empirical vs theoretical bound gaps, and decision boundaries.
+Write a formal academic report (ICML/NeurIPS formatting) analyzing where uniform convergence bounds remain tight and where they become vacuous.
+Final result: a reproducible research benchmark and theoretical report validating kernel generalization bounds against empirical learning dynamics.
+
+Level 1 completion outcome
+
+By the end of this level, you should be able to:
+
+Formulate learning problems in the statistical decision theory framework.
+Prove risk decomposition into bias, variance, and irreducible error.
+Derive generalization error bounds for finite hypothesis classes using Hoeffding's inequality.
+Define the PAC learning model and compute sample complexity for realizable hypotheses.
+Calculate the VC dimension of linear classifiers and simple geometric families.
+State and prove properties of convex functions, subgradients, and epigraphs.
+Derive the Karush-Kuhn-Tucker (KKT) conditions for constrained optimization problems.
+Formulate the Lagrangian dual problem and prove weak duality.
+Explain Nesterov acceleration and prove its optimal convergence rate for smooth convex functions.
+Prove that a given function is a valid Mercer kernel and construct an RKHS mapping.
+Derive the dual formulation of Support Vector Machines and identify support vectors geometrically.
+Implement Gaussian Process regression and compute closed-form analytical predictive posteriors.
+Determine conditional independence in Bayesian networks using d-separation.
+Derive the Evidence Lower Bound (ELBO) mathematically using Jensen's inequality.
+Implement the Expectation-Maximization algorithm for latent variable models.
+Compare MCMC sampling and variational inference for approximate posterior estimation.
+Analyze why classical VC and Rademacher bounds can become vacuous in deep overparameterized models.
+Conduct a rigorous theoretical and empirical comparison between theoretical bounds and empirical generalization.
+Progression: Empirical Risk Minimization → PAC Bounds & VC Dimension → Convex Optimization & Duality → Kernel Methods & RKHS → Graphical Models & Variational Inference → Generalization Benchmark Study.
