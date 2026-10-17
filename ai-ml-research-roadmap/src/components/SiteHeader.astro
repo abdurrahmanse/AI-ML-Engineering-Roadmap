@@ -1,0 +1,305 @@
+---
+import Icon from './Icon.astro';
+
+const path = Astro.url.pathname;
+const inDays = path.startsWith('/100-days');
+---
+
+<header class="hdr no-print">
+  <div class="wrap hdr__inner">
+    <a class="hdr__brand" href="/" aria-label="AI/ML Engineering Roadmap by AbdurRahman, home">
+      <span class="hdr__mark"><Icon name="route" size={17} /></span>
+      <span class="hdr__names">
+        <span class="hdr__name">AI/ML Engineering Roadmap</span>
+        <span class="hdr__by">by AbdurRahman</span>
+      </span>
+    </a>
+
+    <nav class="hdr__nav" aria-label="Primary">
+      <a class="hdr__link" href="/" aria-current={!inDays ? 'page' : undefined} data-track="nav_full_roadmap">
+        <Icon name="map" size={15} class="hdr__link-ico" />
+        <span class="hdr__link-text">
+          <span class="hdr__short">Full</span>
+          <span class="hdr__long">The Full <span class="hdr__tail">Roadmap</span></span>
+        </span>
+      </a>
+      <a class="hdr__link" href="/100-days/" aria-current={inDays ? 'page' : undefined} data-track="nav_100_days">
+        <Icon name="zap" size={15} class="hdr__link-ico" />
+        <span class="hdr__link-text">
+          <span class="hdr__short">100 Days</span>
+          <span class="hdr__long">Accelerated <span class="hdr__tail">Roadmap</span></span>
+        </span>
+      </a>
+    </nav>
+
+    <!-- Dark / Light toggle switch -->
+    <label class="theme-switch" aria-label="Toggle dark mode" title="Toggle dark / light mode" id="theme-switch-label">
+      <input
+        type="checkbox"
+        id="theme-toggle"
+        class="theme-switch__input"
+        aria-label="Dark mode"
+      />
+      <span class="theme-switch__track">
+        <!-- Moon icon -->
+        <span class="theme-switch__icon theme-switch__icon--moon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>
+          </svg>
+        </span>
+        <!-- Sun icon -->
+        <span class="theme-switch__icon theme-switch__icon--sun" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+        </span>
+        <span class="theme-switch__thumb"></span>
+      </span>
+    </label>
+  </div>
+</header>
+
+<style>
+  .hdr {
+    border-bottom: 1px solid var(--cx-border);
+    background: color-mix(in srgb, var(--cx-white) 88%, transparent);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: saturate(180%) blur(16px);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+  }
+
+  .hdr__inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-block: 14px;
+  }
+
+  .hdr__brand { display: flex; align-items: center; gap: 11px; margin-right: auto; }
+
+  .hdr__mark {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    flex: none;
+    border-radius: 10px;
+    background: var(--cx-grad);
+    color: #fff;
+  }
+
+  .hdr__names { display: flex; flex-direction: column; line-height: 1.15; }
+  .hdr__name {
+    font-family: var(--cx-font-display);
+    font-weight: 700;
+    font-size: clamp(13px, 2vw, 15px);
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    background: var(--cx-title-grad-sm);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .hdr__by {
+    font-family: var(--cx-font-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cx-g500);
+  }
+
+  .hdr__nav { display: flex; align-items: center; gap: 26px; }
+
+  .hdr__link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--cx-font-display);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    color: var(--cx-g600);
+    transition: color 0.16s ease;
+  }
+  .hdr__link-text {
+    display: inline-flex;
+    align-items: baseline;
+  }
+  .hdr__short {
+    display: none;
+  }
+  .hdr__long {
+    display: inline;
+  }
+  .hdr__link-ico {
+    flex: none;
+    color: var(--cx-g500);
+    transition: color 0.16s ease;
+  }
+  .hdr__link:hover { color: var(--cx-purple); }
+  .hdr__link:hover .hdr__link-ico { color: var(--cx-purple); }
+  .hdr__link[aria-current='page'] {
+    font-weight: 700;
+  }
+  .hdr__link[aria-current='page'] > span {
+    background: var(--cx-title-grad-sm);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .hdr__link[aria-current='page'] .hdr__link-ico {
+    color: var(--cx-purple);
+  }
+  .hdr__link[aria-current='page']::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2.5px;
+    border-radius: 999px;
+    background: var(--cx-title-grad-sm);
+  }
+
+  /* ---- Theme switch (pill toggle) ---- */
+  .theme-switch {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    flex: none;
+  }
+
+  .theme-switch__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .theme-switch__track {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 54px;
+    height: 28px;
+    border-radius: 999px;
+    background: var(--cx-gray);
+    border: 1.5px solid var(--cx-border);
+    transition: background 0.28s ease, border-color 0.28s ease;
+    overflow: hidden;
+  }
+
+  .theme-switch__track:hover {
+    border-color: var(--cx-purple);
+  }
+
+  /* Thumb (the sliding knob) */
+  .theme-switch__thumb {
+    position: absolute;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    background: #ffffff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.06);
+    transition: left 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.28s ease, box-shadow 0.28s ease;
+    z-index: 2;
+  }
+
+  /* Icons inside the track */
+  .theme-switch__icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+    transition: opacity 0.2s ease;
+  }
+
+  .theme-switch__icon--moon {
+    left: 5px;
+    color: var(--cx-purple);
+    opacity: 1;
+  }
+
+  .theme-switch__icon--sun {
+    right: 5px;
+    color: var(--cx-g400);
+    opacity: 0.5;
+  }
+
+  /* Checked state — dark mode ON */
+  .theme-switch__input:checked ~ .theme-switch__track {
+    background: var(--cx-violet-bg);
+    border-color: var(--cx-purple);
+  }
+
+  .theme-switch__input:checked ~ .theme-switch__track .theme-switch__thumb {
+    left: calc(100% - 23px);
+    background: var(--cx-purple);
+    box-shadow: 0 1px 8px rgba(139,124,246,0.5);
+  }
+
+  .theme-switch__input:checked ~ .theme-switch__track .theme-switch__icon--moon {
+    opacity: 0.3;
+    color: var(--cx-g500);
+  }
+
+  .theme-switch__input:checked ~ .theme-switch__track .theme-switch__icon--sun {
+    opacity: 1;
+    color: var(--cx-ink);
+  }
+
+  /* Focus ring on keyboard nav */
+  .theme-switch__input:focus-visible ~ .theme-switch__track {
+    outline: 3px solid var(--cx-purple);
+    outline-offset: 3px;
+  }
+
+  /* Tablet portrait / small devices */
+  @media (max-width: 640px) {
+    .hdr__inner { gap: 14px; }
+    .hdr__nav { gap: 16px; }
+    .hdr__link { font-size: 13px; line-height: 1.3; text-align: right; }
+    .hdr__tail { display: block; }
+    .hdr__link[aria-current='page']::after { bottom: -4px; }
+    .theme-switch__track { width: 46px; height: 24px; }
+    .theme-switch__thumb { width: 17px; height: 17px; }
+    .theme-switch__input:checked ~ .theme-switch__track .theme-switch__thumb { left: calc(100% - 20px); }
+  }
+
+  /* Large mobile / phablets: hide subtitle/names to keep layout clean */
+  @media (max-width: 520px) {
+    .hdr__names { display: none; }
+  }
+
+  /* Mobile compact: use concise label text "Full" / "100 Days" */
+  @media (max-width: 440px) {
+    .hdr__inner { gap: 10px; }
+    .hdr__nav { gap: 12px; }
+    .hdr__short { display: inline; }
+    .hdr__long { display: none; }
+    .hdr__link { font-size: 13px; gap: 5px; }
+  }
+
+  /* Ultra-compact mobile (<= 360px down to 320px) */
+  @media (max-width: 360px) {
+    .hdr__inner { gap: 6px; }
+    .hdr__nav { gap: 8px; }
+    .hdr__link { font-size: 12px; gap: 4px; }
+    .hdr__link-ico { width: 13px; height: 13px; }
+    .theme-switch__track { width: 40px; height: 22px; }
+    .theme-switch__thumb { width: 15px; height: 15px; }
+    .theme-switch__input:checked ~ .theme-switch__track .theme-switch__thumb { left: calc(100% - 18px); }
+  }
+</style>

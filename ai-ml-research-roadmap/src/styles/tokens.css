@@ -1,0 +1,232 @@
+/* AbdurRahman design tokens — the canonical brand layer.
+   Values mirror the AbdurRahman One landing page (see CLAUDE.md §5).
+   Tailwind reads the same values through the @theme block in global.css. */
+
+:root {
+  /* brand */
+  --cx-purple: #6c5ce7;
+  --cx-purple-deep: #4338ca;
+  --cx-purple-hover: #5b4cdb;
+  --cx-violet-700: #6d28d9;
+
+  /* ink & gray */
+  --cx-ink: #0f0f14;
+  --cx-ink-2: #18181b;
+  --cx-g700: #3f3f46;
+  --cx-g600: #52525b;
+  --cx-g500: #71717a;
+  --cx-g400: #a1a1aa;
+
+  /* surfaces */
+  --cx-white: #ffffff;
+  --cx-surface: #ffffff; /* card / component white — use instead of hard-coded #fff */
+  --cx-cream: #faf8f3;
+  --cx-gray: #f9fafb;
+  --cx-violet-bg: #faf9ff;
+
+  /* lines */
+  --cx-border: #e7e5e0;
+  --cx-border-2: #e4e4e7;
+
+  /* success */
+  --cx-green: #059669; /* fills, borders, graphics */
+  --cx-green-ink: #065f46; /* text/icons on --cx-green-bg (AA: 7.3:1) */
+  --cx-green-bg: #ecfdf5;
+
+  /* type */
+  --cx-font-display: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
+  --cx-font-body: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
+  --cx-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* radii */
+  --cx-r-card: 18px;
+  --cx-r-card-sm: 14px;
+  --cx-r-pill: 999px;
+
+  /* elevation */
+  --cx-shadow-card: 0 8px 24px rgba(15, 15, 20, 0.05);
+  --cx-shadow-card-hover: 0 14px 36px rgba(15, 15, 20, 0.09);
+  --cx-shadow-btn: 0 10px 28px rgba(108, 92, 231, 0.25);
+
+  /* emphasis */
+  --cx-grad: linear-gradient(135deg, #4338ca, #6c5ce7);
+
+  /* title gradient — used on h1/h2 across the site */
+  --cx-title-grad: linear-gradient(
+    135deg,
+    #3730a3 0%,
+    #6c5ce7 45%,
+    #a855f7 80%,
+    #c084fc 100%
+  );
+  /* tighter gradient for smaller headings (h3, card titles) */
+  --cx-title-grad-sm: linear-gradient(
+    120deg,
+    #4338ca 0%,
+    #7c3aed 60%,
+    #a855f7 100%
+  );
+
+  /* pastel pill palette — {bg, border, accent}. Accent doubles as the text
+     colour on the pastel background; every pair clears WCAG AA (>=4.5:1). */
+  --p-violet-bg: #ede9fe;
+  --p-violet-br: #ddd6fe;
+  --p-violet-ac: #6d28d9;
+  --p-blue-bg: #dbeafe;
+  --p-blue-br: #bfdbfe;
+  --p-blue-ac: #1d4ed8;
+  --p-emerald-bg: #d1fae5;
+  --p-emerald-br: #a7f3d0;
+  --p-emerald-ac: #047857;
+  --p-rose-bg: #ffe4e6;
+  --p-rose-br: #fecdd3;
+  --p-rose-ac: #be123c;
+  --p-amber-bg: #fef3c7;
+  --p-amber-br: #fde68a;
+  --p-amber-ac: #b45309;
+  --p-cyan-bg: #cffafe;
+  --p-cyan-br: #a5f3fc;
+  --p-cyan-ac: #0e7490;
+  --p-pink-bg: #fce7f3;
+  --p-pink-br: #fbcfe8;
+  --p-pink-ac: #9d174d;
+  --p-indigo-bg: #e0e7ff;
+  --p-indigo-br: #c7d2fe;
+  --p-indigo-ac: #3730a3;
+  --p-green-bg: #ecfdf5;
+  --p-green-br: #d1fae5;
+  --p-green-ac: #065f46;
+  --p-slate-bg: #f1f5f9;
+  --p-slate-br: #e2e8f0;
+  --p-slate-ac: #334155;
+}
+
+/* Per-phase colour surface. Set `data-phase` on any subtree and the children
+   pick up --phase-* without needing to know which phase they are in. */
+[data-phase="foundations"] {
+  --phase-bg: var(--p-violet-bg);
+  --phase-br: var(--p-violet-br);
+  --phase-ac: var(--p-violet-ac);
+}
+[data-phase="retrieval"] {
+  --phase-bg: var(--p-blue-bg);
+  --phase-br: var(--p-blue-br);
+  --phase-ac: var(--p-blue-ac);
+}
+[data-phase="agentic"] {
+  --phase-bg: var(--p-emerald-bg);
+  --phase-br: var(--p-emerald-br);
+  --phase-ac: var(--p-emerald-ac);
+}
+[data-phase="trust"] {
+  --phase-bg: var(--p-amber-bg);
+  --phase-br: var(--p-amber-br);
+  --phase-ac: var(--p-amber-ac);
+}
+[data-phase="production"] {
+  --phase-bg: var(--p-cyan-bg);
+  --phase-br: var(--p-cyan-br);
+  --phase-ac: var(--p-cyan-ac);
+}
+[data-phase="frontier"] {
+  --phase-bg: var(--p-rose-bg);
+  --phase-br: var(--p-rose-br);
+  --phase-ac: var(--p-rose-ac);
+}
+[data-phase="interview"] {
+  --phase-bg: var(--p-slate-bg);
+  --phase-br: var(--p-slate-br);
+  --phase-ac: var(--p-slate-ac);
+}
+
+/* ============================================================
+   Dark theme overrides
+   Applied when <html data-theme="dark">
+   ============================================================ */
+
+[data-theme="dark"] {
+  /* brand — slightly brighter for dark bg legibility */
+  --cx-purple: #8b7cf6;
+  --cx-purple-deep: #6d5ee8;
+  --cx-purple-hover: #9d8ef8;
+  --cx-violet-700: #a78bfa;
+
+  /* ink & gray — inverted hierarchy */
+  --cx-ink: #f0f0f7;
+  --cx-ink-2: #e4e4ed;
+  --cx-g700: #c4c4cf;
+  --cx-g600: #a0a0b0;
+  --cx-g500: #72728a;
+  --cx-g400: #52526a;
+
+  /* surfaces */
+  --cx-white: #0e0e16;
+  --cx-surface: #161622; /* card / component dark surface */
+  --cx-cream: #131320;
+  --cx-gray: #16161f;
+  --cx-violet-bg: #12121e;
+
+  /* lines */
+  --cx-border: #2a2a3d;
+  --cx-border-2: #252535;
+
+  /* success */
+  --cx-green: #34d399;
+  --cx-green-ink: #d1fae5;
+  --cx-green-bg: #064e3b;
+
+  /* elevation */
+  --cx-shadow-card: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --cx-shadow-card-hover: 0 14px 36px rgba(0, 0, 0, 0.5);
+  --cx-shadow-btn: 0 10px 28px rgba(139, 124, 246, 0.35);
+
+  /* emphasis */
+  --cx-grad: linear-gradient(135deg, #6d5ee8, #8b7cf6);
+
+  /* title gradient — electric violet-to-sky for dark backgrounds */
+  --cx-title-grad: linear-gradient(
+    135deg,
+    #818cf8 0%,
+    #a78bfa 40%,
+    #c084fc 70%,
+    #e879f9 100%
+  );
+  --cx-title-grad-sm: linear-gradient(
+    120deg,
+    #818cf8 0%,
+    #c084fc 60%,
+    #e879f9 100%
+  );
+
+  /* pastel pill palette — darkened for dark surfaces */
+  --p-violet-bg: #1e1a3a;
+  --p-violet-br: #2d2660;
+  --p-violet-ac: #a78bfa;
+  --p-blue-bg: #1a2540;
+  --p-blue-br: #253a62;
+  --p-blue-ac: #60a5fa;
+  --p-emerald-bg: #0d2e22;
+  --p-emerald-br: #134e35;
+  --p-emerald-ac: #34d399;
+  --p-rose-bg: #2e1320;
+  --p-rose-br: #4d1a30;
+  --p-rose-ac: #fb7185;
+  --p-amber-bg: #2a1e08;
+  --p-amber-br: #44300a;
+  --p-amber-ac: #fbbf24;
+  --p-cyan-bg: #0d2a30;
+  --p-cyan-br: #124050;
+  --p-cyan-ac: #22d3ee;
+  --p-pink-bg: #2a0f20;
+  --p-pink-br: #45173a;
+  --p-pink-ac: #f472b6;
+  --p-indigo-bg: #151830;
+  --p-indigo-br: #202550;
+  --p-indigo-ac: #818cf8;
+  --p-green-bg: #0d2e22;
+  --p-green-br: #134e35;
+  --p-green-ac: #6ee7b7;
+  --p-slate-bg: #1a1e2e;
+  --p-slate-br: #252c42;
+  --p-slate-ac: #94a3b8;
+}
