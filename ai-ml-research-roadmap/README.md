@@ -12,10 +12,26 @@
 
 ## Overview
 
-**AI/ML Research Roadmap** provides an end-to-end pedagogical blueprint designed for students, research engineers, and PhD candidates pursuing fundamental and applied AI/ML research. It maps **16 progressive levels**, **99 modules**, and **297 structured sessions** across seven distinct research phases, accompanied by conference-grade empirical capstone projects, automated progress tracking, and an accelerated **100 Days of AI/ML Research** track.
+**AI/ML Research Roadmap** provides an end-to-end pedagogical blueprint designed for undergraduate researchers (BSc), graduate students (MSc/PhD), and research scientists pursuing fundamental and applied AI/ML research. It maps **16 progressive levels**, **99 modules**, and **224 structured sessions** across seven distinct research phases, accompanied by conference-grade empirical capstone projects, automated progress tracking, and an accelerated **100 Days of AI/ML Research** track.
 
 - **Live Platform:** [https://abdurrahmans.vercel.app](https://abdurrahmans.vercel.app)
-- **Primary Roadmap:** 16 progressive levels covering Mathematical Foundations, Statistical Learning Theory, Deep Learning Optimization, Sequence Modeling, Representation Learning, Reinforcement Learning, Reasoning & Search, Evaluation & Benchmarking, Alignment & Interpretability, Pre-Training & Scaling Laws, Distributed Training Systems, Generative Modeling & Diffusion, Multimodal Foundation Models, Post-Training Adaptation, Capstone Research Projects, and Research Publication Preparation.
+- **Primary Roadmap:** 16 progressive levels spanning the complete scientific research lifecycle:
+  0. Scientific Computing & Reproducible Research Foundations
+  1. Literature Review & Scientific Problem Formulation
+  2. Research Mathematics & Statistical Hypothesis Testing
+  3. Experimental Design & Rigorous Benchmarking
+  4. Deep Learning Research Prototyping in PyTorch & JAX
+  5. Core Modeling Paradigms: Architectures & Representations
+  6. Generative Modeling & Probabilistic Machine Learning
+  7. Reinforcement Learning, Search & Test-Time Reasoning
+  8. Benchmark Creation, Data Curation & Evaluation Science
+  9. High-Performance Computing (HPC) & Scaled Research Systems
+  10. Pre-Training Dynamics, Scaling Laws & Empirical Science
+  11. Mechanistic Interpretability & Model Analysis
+  12. AI Alignment, Safety & Ethical Research
+  13. Multimodal & Cross-Disciplinary AI for Science
+  14. Comprehensive Research Capstones (Thesis & Conference Submissions)
+  15. Academic Writing, Peer Review, Defense & Research Leadership
 - **Accelerated Route:** Curated 100-Day companion research curriculum with empirical research study projects and research interview defense preparation.
 
 ---

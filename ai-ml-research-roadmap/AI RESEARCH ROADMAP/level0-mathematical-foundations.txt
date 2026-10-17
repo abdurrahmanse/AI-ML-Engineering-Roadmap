@@ -1,56 +1,56 @@
-Level 0 · Scientific Computing & Reproducible Research Foundations
+Level 0 · Scientific Computing, Research Tooling & Reproducibility
 
-Phase: Foundations & Methodology
+Phase: Research Foundations & RA Onboarding
 Suggested duration: 13 sessions (~3 weeks)
-Prerequisites: None (entry level for undergraduate researchers and beginning graduate students)
-Scope: Establish the foundational research computing stack, reproducible environment management, seed determinism, experiment logging, and open-source scientific artifact standards.
+Prerequisites: None (introductory on-ramp for Bachelor's, Master's, and prospective graduate researchers)
+Scope: Establish the core computing and software environment required for scientific research in Computer Science, Data Science, and AI/ML: remote Linux cluster navigation, containerized environments, deterministic hardware seeding, experiment logging, and open-source scientific repository standards.
 
-M0.1 · The Research Computing Stack: Linux, Remote Servers & Shell Environments — (sessions: 2)
-Session 1 · Linux Server Environments & Remote Access
-- Navigate remote Linux compute servers via SSH with key-based authentication, config profiles, and persistent terminal multiplexers (tmux, screen).
-- Manage background research processes with nohup, systemd user services, and process isolation tools (htop, ps, kill).
-- Monitor GPU hardware metrics in real time using nvidia-smi, nvtop, and gpustat to diagnose GPU memory allocation and compute utilization.
-Session 2 · Shell Scripting for Scientific Automation
-- Write robust Bash automation scripts for parameterized batch execution, log redirection, and environment variable propagation.
-- Handle data stream redirection with standard input, output, error streams, and Unix pipeline utilities (grep, awk, sed, cut).
-- Automate remote file synchronization and dataset transfers between local machines and compute servers using rsync and scp.
-Mental model: The research server is an experimental laboratory where tmux sessions preserve running experiments across network disconnects.
-Try: Connect to a remote compute instance, launch a long-running simulation script inside a detached tmux session, and inspect memory allocation with nvidia-smi.
-Outcome: Operate remote Linux research environments confidently, launch persistent jobs, and diagnose GPU allocation bottlenecks.
+M0.1 · The Research Computing Stack: Linux, Remote Servers & GPU Monitoring — (sessions: 2)
+Session 1 · Remote Linux Compute Environments & Process Persistence
+- Connect to university and laboratory GPU compute servers via SSH using public-key cryptography, custom config hosts, and SSH agent forwarding.
+- Manage persistent long-running research jobs across network drops using terminal multiplexers (tmux, screen) with multi-window workflows.
+- Monitor active server processes, memory consumption, and CPU core affinity using htop, ps, and process kill signals (SIGTERM, SIGKILL).
+Session 2 · Hardware Diagnostics & GPU Telemetry
+- Inspect real-time GPU hardware metrics, VRAM allocation, temperature, and power draw using nvidia-smi, nvtop, and gpustat.
+- Diagnose GPU utilization bottlenecks: identify when compute cores are stalled due to CPU preprocessing bottlenecks or slow disk I/O.
+- Transfer large research datasets and model checkpoints between local development workstations and remote clusters using rsync and scp with bandwidth throttling.
+Mental model: The remote compute server is an automated laboratory workbench; persistent tmux sessions safeguard long-running experiments from network disconnects.
+Try: Connect to a remote compute instance, launch a long-running simulation inside a named tmux session, detach, and inspect GPU memory allocation with nvidia-smi.
+Outcome: Navigate remote Linux research environments, manage persistent background experiments, and diagnose hardware compute bottlenecks.
 
-M0.2 · Reproducible Virtual Environments: Pixi, Conda, Docker & PyPI — (sessions: 2)
-Session 1 · Environment Isolation & Dependency Resolution
-- Understand the reproducibility crisis in machine learning research caused by unpinned transitive dependencies and varying CUDA runtime binaries.
-- Isolate scientific Python environments using modern package managers (Pixi, uv, Conda) with locked dependency graphs.
-- Compile and install C++/CUDA extensions from source within isolated environments without contaminating system libraries.
-Session 2 · Containerization for Reproducible Research
-- Author multi-stage Dockerfiles optimized for deep learning research containing specific CUDA, cuDNN, and PyTorch versions.
-- Mount host scratch disks and dataset directories into containers while preserving file ownership and non-root execution permissions.
-- Export locked environment manifests (environment.lock.yml, pyproject.toml) to ensure identical reproduction across compute clusters.
+M0.2 · Reproducible Scientific Environments: Pixi, Conda, Docker & PyPI — (sessions: 2)
+Session 1 · Dependency Management & Virtual Environments
+- Understand the reproducibility crisis in AI/ML research caused by unpinned transitive dependencies, Python version drift, and conflicting CUDA libraries.
+- Isolate scientific Python environments using modern package managers (Pixi, uv, Conda) with locked dependency trees and reproducible manifests.
+- Install and compile C++/CUDA extensions from source within user environments without corrupting host system operating system libraries.
+Session 2 · Containerization for Reproducible Science
+- Author multi-stage Dockerfiles optimized for deep learning research containing specific CUDA, cuDNN, and PyTorch/JAX runtime versions.
+- Mount host scratch disks and dataset volumes into isolated containers with non-root user permissions and shared memory flags (--shm-size).
+- Export locked environment manifests (environment.lock.yml, pyproject.toml) ensuring bitwise reproducible execution across disparate research clusters.
 Mental model: A research environment must be an immutable, containerized artifact so that any researcher can reproduce exact numerical results five years later.
-Try: Build a reproducible container image pinning PyTorch and CUDA runtime dependencies, mounting an external dataset volume.
-Outcome: Eliminate dependency drift, resolve CUDA version mismatches, and package research code into containerized environments.
+Try: Build a reproducible Docker image pinning PyTorch and CUDA runtime dependencies, mounting an external dataset volume with non-root permissions.
+Outcome: Eliminate dependency drift, resolve CUDA library mismatches, and package research experiments into containerized scientific artifacts.
 
 M0.3 · Version Control for Science: Git, Submodules & Open-Source Code Release — (sessions: 2)
-Session 1 · Git Branching for Experimental Iteration
-- Structure research Git repositories separating core libraries, model definitions, baseline benchmarks, and exploratory scripts.
+Session 1 · Research Repository Architecture & Branching
+- Structure research codebases separating reusable library code, model definitions, baseline benchmarks, and exploratory experimental scripts.
 - Use feature branches and semantic Git tags to mark paper submission checkpoints, rebuttal revisions, and camera-ready milestones.
-- Manage external research repositories and upstream library forks cleanly using Git submodules and subtree merges.
-Session 2 · Open-Source Code Standards & Research Hygiene
+- Manage external baseline codebases and upstream research libraries cleanly using Git submodules and subtree merges.
+Session 2 · Open-Source Release Standards & Scientific Hygiene
 - Author comprehensive academic README files featuring installation commands, pretrained checkpoint links, and minimal reproduction snippets.
 - Include open-source research licensing (MIT, Apache 2.0, CC-BY) and BibTeX citation blocks formatted for Google Scholar and ArXiv indexing.
-- Prevent data leakage and credential exposure by strictly configuring .gitignore for checkpoints, logs, raw data, and secret keys.
-Mental model: Git tags in research serve as immutable cryptographic stamps linking paper figures directly to specific commit hashes.
+- Prevent confidential dataset leakage and credential exposure by strictly configuring .gitignore for checkpoints, logs, raw data, and API keys.
+Mental model: Git tags in research serve as immutable cryptographic stamps linking paper figures and tables directly to specific commit hashes.
 Try: Create a research template repository with a structured module layout, automated linter, .gitignore, and standardized BibTeX citation header.
 Outcome: Structure academic research repositories to meet top-tier conference artifact evaluation and reproducibility standards.
 
 M0.4 · Experiment Tracking & Artifact Management: Weights & Biases and MLflow — (sessions: 2)
 Session 1 · Real-Time Metric Logging & Hyperparameter Tracking
-- Integrate real-time experiment tracking tools (Weights & Biases, MLflow) into iterative training loops with minimal overhead.
+- Integrate real-time experiment tracking tools (Weights & Biases, MLflow) into iterative training loops with minimal computational overhead.
 - Log training and validation loss curves, evaluation accuracy, gradient norms, and learning rate schedules across continuous epochs.
 - Structure hierarchical configuration dictionaries tracking all hyperparameters, random seeds, dataset versions, and model architectures.
-Session 2 · Media Logging & Model Checkpoint Registry
-- Log multimodal research artifacts including generated validation samples, confusion matrices, and interactive attention heatmaps.
+Session 2 · Multimodal Logging & Model Checkpoint Registry
+- Log domain-specific research artifacts including generated validation samples, confusion matrices, and interactive attention heatmaps.
 - Implement an automated checkpoint saving strategy saving best-validation models, periodic epoch states, and emergency recovery snapshots.
 - Compare experiment runs across multi-dimensional parallel coordinate plots to isolate hyperparameter sensitivities and performance gains.
 Mental model: An experiment tracker is a digital laboratory notebook capturing the exact relationship between configuration deltas and empirical outcomes.

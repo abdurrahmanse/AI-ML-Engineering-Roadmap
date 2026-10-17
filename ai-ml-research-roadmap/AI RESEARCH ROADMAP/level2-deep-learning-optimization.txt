@@ -1,101 +1,101 @@
-Level 2 · Research Mathematics & Statistical Hypothesis Testing
+Level 2 · Scholarly Literature Search, Paper Reading & Reference Management
 
-Phase: Foundations & Methodology
+Phase: Research Foundations & RA Onboarding
 Suggested duration: 13 sessions (~3 weeks)
-Prerequisites: Level 1 (Literature Review & Scientific Problem Formulation)
-Scope: Master the core mathematical tools and statistical hypothesis testing methodologies required to derive machine learning models, prove convergence properties, and rigorously validate empirical claims in academic papers.
+Prerequisites: Level 1 (Finding an Advisor, Securing an RA Position & Academic Networking)
+Scope: Master the scientific method of discovering, reading, evaluating, and managing scholarly literature in Computer Science and Data Science: navigating major bibliographic databases (ArXiv, IEEE Xplore, ACM DL, PubMed, DBLP), understanding journal impact factors and conference rankings (CORE A*), Keshav's 3-pass reading method, Zotero/BibTeX workflows, and constructing Systematic Literature Reviews (SLR).
 
-M2.1 · Applied Linear Algebra: High-Dimensional Geometry & Spectral Methods — (sessions: 2)
-Session 1 · High-Dimensional Geometry & Vector Subspaces
-- Analyze geometric phenomena in high-dimensional vector spaces: the curse of dimensionality, concentration of measure, and orthogonality of random vectors.
-- Compute orthogonal projections onto subspaces and derive projection matrices for dimensionality reduction and subspace clustering.
-- Understand Gram-Schmidt orthogonalization, QR decomposition, and their applications in stable numerical computations.
-Session 2 · Spectral Decompositions & Energy Concentration
-- Compute Singular Value Decomposition (SVD) and eigendecompositions of symmetric positive semi-definite kernel and covariance matrices.
-- Apply the Eckart-Young-Mirsky theorem to determine optimal low-rank matrix approximations and bound reconstruction error.
-- Analyze matrix condition numbers and spectral norms to predict numerical instability in deep linear layers and attention projections.
-Mental model: High-dimensional representations concentrate on low-dimensional manifolds; spectral decompositions identify the principal axes of information.
-Try: Implement truncated SVD from scratch in NumPy, decompose a high-dimensional feature matrix, and compute the reconstruction error against theoretical bounds.
-Outcome: Manipulate high-dimensional vector representations, analyze spectral properties of neural representations, and avoid numerical ill-conditioning.
+M2.1 · Scholarly Search Engines & Bibliographic Databases: ArXiv, IEEE, ACM & PubMed — (sessions: 2)
+Session 1 · Bibliographic Databases & Search Syntax
+- Query major computer science and interdisciplinary scientific databases: ArXiv, IEEE Xplore, ACM Digital Library, DBLP, and ScienceDirect.
+- Navigate life science and biomedical databases (PubMed, NCBI, BioMed Central) for medical AI research, using MeSH (Medical Subject Headings) terms.
+- Construct advanced boolean search strings combining title, abstract, keyword wildcards, and author institutional affiliations.
+Session 2 · Citation Networks & Academic Graph Traversal
+- Traverse citation graphs forward and backward using Google Scholar, Semantic Scholar, and Connected Papers to uncover seminal ancestral works.
+- Track influential citations and methodology evolutions using citation velocity, co-citation clustering, and paper genealogy trees.
+- Set up automated research feeds via ArXiv sanity preserver, Hugging Face Daily Papers, and keyword alert webhooks.
+Mental model: The academic literature is a sprawling directed graph; following incoming and outgoing citation edges reveals how paradigms form and diverge.
+Try: Construct an advanced boolean search query on IEEE Xplore and PubMed for deep learning in medical image segmentation, mapping the top 10 most cited papers.
+Outcome: Systematically discover scholarly literature across major computer science and domain-specific bibliographic databases.
 
-M2.2 · Matrix Calculus & Symbolic Derivations for Gradient Flow — (sessions: 2)
-Session 1 · Matrix Differentials & Tensor Contractions
-- Master numerator and denominator layout conventions in matrix calculus for vector-valued and matrix-valued functions.
-- Compute analytical gradients and Jacobians of composite matrix expressions (trace, determinant, quadratic forms, matrix inverses).
-- Derive the backpropagation equations for standard neural network layers (linear projections, convolutions, self-attention, layer normalization).
-Session 2 · Second-Order Curvature & Hessian Analysis
-- Compute the Hessian matrix of loss functions and analyze its eigenvalue spectrum to evaluate local curvature and saddle point geometry.
-- Understand the Gauss-Newton approximation and Fisher Information Matrix in natural gradient descent and empirical optimization.
-- Derive convergence rates for first-order gradient descent on L-smooth and mu-strongly convex objective functions.
-Mental model: Backpropagation is symbolic tensor contraction along the edges of a computational directed acyclic graph.
-Try: Derive the exact analytical matrix gradient of the multi-head self-attention operation with respect to the Query weight matrix on paper, then verify with autograd.
-Outcome: Derive exact mathematical gradients for custom architectural layers and analytically inspect optimization loss curvature.
+M2.2 · Deconstructing Journals, Conferences & Venue Rankings: IEEE, ACM, Springer & Nature — (sessions: 2)
+Session 1 · The Conference-Driven Nature of Computer Science
+- Understand why Computer Science prioritizes peer-reviewed conference proceedings (NeurIPS, ICML, ICLR, KDD, CVPR, ACL) over traditional academic journals.
+- Evaluate conference prestige and selectivity using CORE rankings (CORE A*, A, B), acceptance rates (typically 15-25%), and Google Scholar h5-indices.
+- Analyze specialized domain conferences: IEEE S&P / USENIX Security for cybersecurity, MICCAI for medical imaging, and CHIL for clinical ML.
+Session 2 · Academic Journals, Impact Factors & Peer-Review Standards
+- Navigate premier AI/ML journals: Journal of Machine Learning Research (JMLR), IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), IEEE TIFS.
+- Analyze high-impact multidisciplinary journals: Nature, Nature Machine Intelligence, Science, and The Lancet Digital Health.
+- Understand journal indexing metrics: Journal Citation Reports (JCR), Clarivate Impact Factors, CiteScore, and SCImago Journal Rank (Q1 to Q4 quartiles).
+Mental model: Top conferences deliver fast, cutting-edge breakthroughs; prestigious journals publish comprehensive, foundational reference works.
+Try: Identify the top 3 conferences and top 3 Q1 journals in your target research domain (e.g., medical AI or cybersecurity), noting their h5-index and review cycles.
+Outcome: Navigate the academic publishing ecosystem, evaluate venue prestige, and distinguish predatory publishers from reputable venues.
 
-M2.3 · Probability Spaces, Density Estimation & Information Theory in ML — (sessions: 2)
-Session 1 · Probability Spaces & Continuous Densities
-- Formalize probability spaces, random variables, cumulative distribution functions, and multivariate continuous density functions.
-- Compute conditional expectations, law of total variance, and covariance matrices for multivariate Gaussian distributions.
-- Implement maximum likelihood estimation (MLE) and maximum a posteriori (MAP) estimation under Gaussian and Laplace priors.
-Session 2 · Information-Theoretic Metrics in Machine Learning
-- Calculate Shannon entropy, differential entropy, joint entropy, and conditional entropy for discrete and continuous distributions.
-- Compute Kullback-Leibler (KL) divergence and Jensen-Shannon (JS) divergence between empirical and model distributions.
-- Apply mutual information and the Information Bottleneck principle to quantify feature compression in deep neural representations.
-Mental model: Information theory measures surprise and uncertainty; learning is compressing the input while preserving mutual information with the target.
-Try: Calculate the analytical KL divergence between two multivariate Gaussians, implement the formula, and verify against Monte Carlo sampling estimates.
-Outcome: Apply formal probabilistic modeling to machine learning problems and compute information-theoretic metrics across learned representations.
+M2.3 · Critical Paper Reading: The Three-Pass Method & Dissecting Scientific Claims — (sessions: 2)
+Session 1 · Efficient Multi-Pass Reading Strategy
+- Apply Keshav’s Three-Pass Method to evaluate paper relevance, understand main mechanisms, and dissect deep mathematical assumptions in structured tiers.
+- Pass 1 (10 minutes): analyze title, abstract, section headings, and conclusions to determine if the paper is worth reading for your research question.
+- Pass 2 (1 hour): grasp the paper's contents, analyze key figures and tables, and identify the core algorithmic contribution without getting bogged down in proofs.
+Session 2 · Deep Technical Dissection & Interrogating Claims
+- Pass 3 (multi-hour): mentally re-implement the paper from scratch, identifying implicit assumptions, unstated tricks, and missing baselines.
+- Differentiate between rigorous theoretical proofs, validated empirical findings, and unsupported speculative claims.
+- Identify common research red flags: cherry-picked qualitative examples, weak or un-tuned baselines, shifting metrics, and missing ablation tables.
+Mental model: Reading an academic paper is not passive consumption; it is an active peer review where you cross-examine every claim against the empirical data.
+Try: Execute a 3-pass reading of a recent top-tier conference paper, writing a 1-page structured critique evaluating its core claims and baseline fairness.
+Outcome: Read research papers efficiently, extract core insights rapidly, and critically evaluate the validity of scientific claims.
 
-M2.4 · Statistical Hypothesis Testing: Parametric & Non-Parametric Significance in ML — (sessions: 2)
-Session 1 · The Null Hypothesis & Parametric Testing
-- Formulate null (H0) and alternative (H1) hypotheses to evaluate whether a proposed model genuinely outperforms a baseline.
-- Understand Type I (false positive) and Type II (false negative) errors, significance level alpha, and statistical power (1 - beta).
-- Apply two-sample Student’s t-tests and paired t-tests when assumptions of normality and equal variance are verified.
-Session 2 · Non-Parametric Tests for Machine Learning Benchmarks
-- Identify why deep learning benchmark metrics often violate normality assumptions, necessitating non-parametric statistical tests.
-- Execute the Wilcoxon signed-rank test for paired performance comparisons across multiple test benchmark datasets.
-- Apply the Mann-Whitney U test and Kruskal-Wallis test for comparing multi-model distributions without assuming Gaussian distributions.
-Mental model: A higher benchmark score without a statistical significance test is an unverified anecdote, not a scientific finding.
-Try: Run 10 random seeds for a proposed model and a baseline, test for normality using Shapiro-Wilk, and execute a Wilcoxon signed-rank test to compute the p-value.
-Outcome: Formulate rigorous statistical hypothesis tests and select appropriate parametric or non-parametric tests for machine learning evaluations.
+M2.4 · Reference Management & BibTeX Workflows: Zotero, Mendeley & Overleaf — (sessions: 2)
+Session 1 · Systematic Reference Library Architecture
+- Organize academic PDF libraries systematically using Zotero with automatic metadata extraction, collection hierarchies, and tag systems.
+- Configure Better BibTeX for Zotero to generate clean, collision-free, standardized citation keys (e.g., [Author][Year][Keyword]).
+- Annotate PDFs directly with structured notes, linking research methodologies, dataset benchmarks, and mathematical formulations.
+Session 2 · Integrating References with Overleaf & LaTeX
+- Integrate Zotero with Overleaf and local LaTeX environments, enabling real-time synchronization of shared .bib reference files across lab members.
+- Master BibTeX entry types: @article for journals, @inproceedings for conferences, @book for textbooks, and @misc for preprints.
+- Maintain clean citation records: verify that ArXiv preprints are updated with official conference/journal publication citations once accepted.
+Mental model: A disorganized researcher forgets 80% of what they read; an automated Zotero library turns reading into a searchable intellectual database.
+Try: Build a 30-paper library in Zotero with Better BibTeX keys, sync it to an Overleaf document, and cite three papers with formatted \cite{} commands.
+Outcome: Manage thousands of scholarly references effortlessly, maintain pristine BibTeX registries, and streamline academic LaTeX authoring.
 
-M2.5 · Effect Sizes, Multiple Hypothesis Corrections & Bootstrap Confidence Intervals — (sessions: 2)
-Session 1 · Effect Size Quantification & Multiple Testing Corrections
-- Differentiate between statistical significance (p < 0.05) and practical significance by computing Cohen’s d and Cliff’s delta effect sizes.
-- Control the Family-Wise Error Rate (FWER) across multiple benchmark comparisons using the Bonferroni correction and Holm-Bonferroni method.
-- Control the False Discovery Rate (FDR) in large-scale metric screening using the Benjamini-Hochberg procedure.
-Session 2 · Bootstrap Resampling & Confidence Intervals
-- Apply non-parametric bootstrap resampling to compute 95% confidence intervals for complex metrics (F1-score, BLEU, ROUGE, AUC-ROC).
-- Understand stratified bootstrapping to preserve class balance across resampled evaluation test sets.
-- Report evaluation results using mean, standard deviation, and confidence intervals across at least 5 to 10 independent random seeds.
-Mental model: The p-value tells you if an effect exists; the effect size tells you if anyone should care; confidence intervals show your uncertainty.
-Try: Implement a bootstrap confidence interval function in Python, resample model predictions 1,000 times, and compute the 95% percentile confidence bounds.
-Outcome: Compute effect sizes, correct for multiple hypothesis testing, and report confidence intervals adhering to top-tier empirical standards.
+M2.5 · Literature Synthesis, Gap Identification & Research Taxonomies — (sessions: 2)
+Session 1 · Constructing Comparative Literature Synthesis Matrices
+- Build multi-dimensional literature synthesis matrices mapping prior papers across problem formulation, datasets, architectures, and performance.
+- Develop conceptual taxonomies that categorize existing approaches into clear methodological families with contrasting trade-offs.
+- Identify contradictory findings in published literature, isolating variations in dataset preprocessing or hyperparameter tuning as potential causes.
+Session 2 · Isolating Genuine Research Gaps & Novelty Framing
+- Identify fertile research gaps: unaddressed failure modes, untested domain transfers (e.g., applying a vision technique to medical pathology), or scaling limits.
+- Formulate a clear "Delta Statement": articulating precisely how your proposed research extends, challenges, or unifies prior literature.
+- Write compelling "Related Work" sections that tell a structured historical story rather than providing a disjointed laundry list of paper summaries.
+Mental model: A literature survey is not a summary of what has been done; it is a map that highlights the unexplored territory waiting for your paper.
+Try: Create a comparative synthesis matrix of 10 papers in a subfield, identify an unaddressed limitation, and write a 3-paragraph Related Work narrative.
+Outcome: Synthesize complex literature into comparative taxonomies, isolate significant research gaps, and frame scientific novelty compellingly.
 
-M2.6 · Capstone Project: Statistical Significance & Experimental Power Analysis Suite — (sessions: 3)
-Session 1 · Architecture of the Statistical Evaluation Suite
-- Design a standalone scientific evaluation Python package that ingests raw model prediction logs across multiple seeds and benchmark splits.
-- Implement normality testing (Shapiro-Wilk, D’Agostino-Pearson) to automatically route data between parametric and non-parametric tests.
-- Integrate automated two-sample t-tests, paired t-tests, Wilcoxon signed-rank tests, and Mann-Whitney U tests with automated p-value reporting.
-Session 2 · Effect Sizes, Power Analysis & Academic Reporting
-- Incorporate Cohen’s d, Cliff’s delta, and non-parametric bootstrap 95% confidence interval estimation.
-- Implement a statistical power analysis module that calculates the required sample size and seed count to detect a target effect size at 80% power.
-- Generate publication-ready LaTeX tables automatically annotating statistically significant improvements with bold markers and p-value asterisks.
-Mental model: A rigorous statistical analysis suite transforms noisy empirical experiment logs into defensible, publication-ready scientific evidence.
-Try: Run the statistical suite on multi-seed benchmark results comparing two models, producing an annotated LaTeX table with bootstrap confidence intervals.
-Outcome: Possess an automated statistical verification toolkit that ensures all future empirical claims meet the highest standards of scientific rigor.
+M2.6 · Capstone Project: Systematic Literature Survey (SLR) & PRISMA Flow Diagram — (sessions: 3)
+Session 1 · Protocol Formulation & Systematic Filtering
+- Formulate a formal Systematic Literature Review (SLR) protocol following the PRISMA (Preferred Reporting Items for Systematic Reviews) guidelines.
+- Define explicit inclusion and exclusion criteria, boolean search strings across 3 major databases, and screening procedures.
+- Execute the search across databases, document raw results, remove duplicates, and record exclusion reasons across abstract and full-text screening.
+Session 2 · Synthesis, Taxonomy & Survey Paper Manuscript
+- Construct a comprehensive comparative taxonomy matrix evaluating at least 25 screened papers across domain datasets, models, metrics, and limitations.
+- Generate a formal PRISMA 2020 flow diagram illustrating the identification, screening, eligibility, and inclusion stages.
+- Author an academic Survey Paper manuscript in LaTeX (NeurIPS/IEEE format) detailing the state of the art, open challenges, and future research directions.
+Mental model: A systematic literature review establishes you as an authoritative domain expert; it is often the first major publication of an MSc or PhD student.
+Try: Compile your complete SLR manuscript into a clean LaTeX PDF, complete with a PRISMA flow diagram, comparative taxonomy table, and 30+ BibTeX citations.
+Outcome: Conduct and author a publication-grade Systematic Literature Review suitable for journal or conference survey tracks.
 
-CAPSTONE PROJECT: Statistical Significance & Experimental Power Analysis Suite
-BRIEF: Build a modular Python library for AI/ML researchers that takes raw prediction logs and metric scores from multiple random seeds, evaluates statistical distributions, runs appropriate significance tests, computes effect sizes and bootstrap confidence intervals, and formats publication-ready LaTeX tables.
-Build a statistical suite that:
-- Ingests structured JSON/CSV experimental logs containing per-instance predictions and evaluation scores across multiple random seeds and models.
-- Performs automated distribution diagnostics (Shapiro-Wilk normality test, Levene's test for equality of variances).
-- Automatically selects and executes appropriate tests: paired/unpaired Student’s t-test, Welch’s t-test, Wilcoxon signed-rank test, or Mann-Whitney U test.
-- Computes standardized effect sizes including Cohen’s d for parametric data and Cliff’s delta for non-parametric evaluation distributions.
-- Applies multiple hypothesis testing corrections including Bonferroni, Holm-Bonferroni, and Benjamini-Hochberg FDR adjustments.
-- Executes non-parametric stratified bootstrap resampling (1,000+ iterations) to compute 95% percentile and BCa confidence intervals.
-- Conducts statistical power analysis estimating the number of experimental runs or test samples required to achieve 80% power at alpha = 0.05.
-- Emits formatted LaTeX table source code with mean, standard deviation, confidence intervals, and statistical significance indicators (* p < 0.05, ** p < 0.01).
+CAPSTONE PROJECT: Systematic Literature Survey (SLR) & PRISMA Flow Diagram
+BRIEF: Author a publication-grade Systematic Literature Review (SLR) paper in LaTeX following the formal PRISMA guidelines. The review must address an active research question in AI/ML (e.g., deep learning for medical diagnosis or graph neural networks for cybersecurity), evaluate at least 25 peer-reviewed papers, and construct a comprehensive taxonomy matrix.
+Build a literature survey that:
+- Formulates a clear research question (e.g., "What are the primary failure modes of transformer models in cyber threat detection?").
+- Constructs structured boolean search queries across at least three major scholarly databases (e.g., IEEE Xplore, ACM DL, PubMed, ArXiv).
+- Defines explicit inclusion criteria (e.g., peer-reviewed CORE A/A* conference or Q1 journal, empirical benchmark evaluated) and exclusion criteria.
+- Implements a PRISMA 2020 flow diagram documenting the number of records identified, duplicates removed, abstracts screened, and final studies included.
+- Builds a comprehensive comparative synthesis matrix evaluating all included papers across problem formulation, architecture, datasets, metrics, and limits.
+- Constructs an original conceptual taxonomy diagram categorizing existing approaches into distinct algorithmic and architectural families.
+- Synthesizes key open research gaps, emerging trends, and unaddressed challenges in the domain.
+- Authors an 8-page academic Survey Paper in LaTeX following the standard IEEE Transactions or ACM Computing Surveys template with BibTeX citations.
 Deliverables:
-- Clean, documented Python package with automated CLI (stat_eval --baseline baseline.json --candidate model.json --alpha 0.05).
-- Comprehensive test suite validating statistical calculations against standard R and SciPy reference outputs.
-- Example tutorial notebook demonstrating end-to-end statistical validation of a published conference benchmark comparison.
-Outcome: You can rigorously validate empirical machine learning results, prove statistical significance, and generate publication-grade experimental tables.
+- Formally compiled 8-page Systematic Literature Review PDF in LaTeX.
+- Vector graphics file of the PRISMA Flow Diagram and the conceptual taxonomy hierarchy.
+- Complete Zotero/BibTeX library (.bib) containing cleanly formatted citations for all referenced works.
+Outcome: You can systematically discover, critically analyze, and synthesize scientific literature to produce publication-grade survey papers and establish research authority.

@@ -14,84 +14,84 @@ export const WEIGHT_MAX = 10;
 /** How much the level matters in AI/ML research interviews and scientific screening. */
 export const interviewWeights: Record<number, LevelWeight> = {
   0: {
-    score: 10,
+    score: 8,
     reason:
-      'Top research labs (DeepMind, FAIR, OpenAI, top universities) **screen aggressively on linear algebra, multivariable calculus, and probability**. If you cannot derive gradients, handle SVD, or compute expectations on a whiteboard, **you will not pass research screening**.',
+      'Research labs evaluate your **scientific hygiene and reproducibility**: managing remote Linux compute servers, containerized environments, deterministic hardware seeds, and experiment tracking with W&B.',
   },
   1: {
     score: 9,
     reason:
-      'Foundational ML theory is a **core pillar of research scientist interviews**. Expect rigorous questions on PAC learnability, bias-variance trade-offs, VC dimension, and convex optimization duality.',
+      'Distinguishes a true researcher from a coder: **critically deconstructing literature, identifying genuine research gaps, and formulating falsifiable Research Questions (RQs)**.',
   },
   2: {
-    score: 9,
+    score: 10,
     reason:
-      'Top research rounds dive deeply into **optimization geometry and generalization**: AdamW vs SGD dynamics, Hessian spectrum, flat vs sharp minima, and double descent.',
+      'Top research screening aggressively tests **applied mathematics and statistical hypothesis testing**: SVD, matrix calculus for autograd, non-parametric tests (Wilcoxon), and bootstrap confidence intervals.',
   },
   3: {
     score: 10,
     reason:
-      'The **most interrogated architectural topic in modern AI research**. Expect whiteboard derivations of scaled dot-product attention, RoPE mechanics, and FlashAttention IO complexity.',
+      'A core differentiator in research defense: **controlled experimental design, multi-factor ablation matrices, compute-matched baselines, and eliminating data leakage**.',
   },
   4: {
-    score: 8,
+    score: 9,
     reason:
-      'Self-supervised learning and representation geometry are **major research evaluation topics**: contrastive loss (InfoNCE), collapse avoidance, and metric spaces (ArcFace, CKA).',
+      'Evaluates research engineering excellence: **custom autograd operators, numerical stability (BF16/FP16), loss surgery, and GPU memory snapshot profiling** in PyTorch and JAX.',
   },
   5: {
     score: 9,
     reason:
-      'Reinforcement learning is **vital for modern foundation model alignment and reasoning research**. Interviewers probe Bellman optimality, policy gradients, and PPO mechanics.',
+      'The foundational core of modern AI modeling: **multi-head attention derivations, RoPE rotational geometry, State Space Models (Mamba), and self-supervised InfoNCE representation learning**.',
   },
   6: {
-    score: 10,
-    reason:
-      'The **hottest frontier in AI research today**. Expect rigorous questions on process reward models (PRMs), tree search, test-time compute scaling laws, and self-correction bounds.',
-  },
-  7: {
     score: 9,
     reason:
-      'Distinguishes rigorous research scientists from casual practitioners: **statistical hypothesis testing, bootstrap confidence intervals, and benchmark contamination**.',
+      'Crucial for generative AI researchers: **variational inference (ELBO), continuous-time score-based diffusion (SDEs/ODEs), Optimal Transport Flow Matching, and FID distribution evaluation**.',
+  },
+  7: {
+    score: 10,
+    reason:
+      'The frontier of post-training and reasoning research: **Bellman optimality, PPO policy optimization, Tree-of-Thoughts, guided MCTS search, and Process Reward Models (PRMs)**.',
   },
   8: {
-    score: 8,
+    score: 9,
     reason:
-      'Research labs increasingly emphasize **mechanistic interpretability, circuits, and preference theory (DPO/KTO)**. Knowing how to steer models and identify induction heads sets you apart.',
+      'Essential for evaluation science: **construct validity, inter-annotator agreement (Krippendorff’s alpha), suffix-array contamination auditing, and calibrated LLM-as-a-judge pipelines**.',
   },
   9: {
     score: 9,
     reason:
-      'Crucial for research scientists working on foundation models. Expect questions on **Kaplan vs Chinchilla scaling laws, compute-optimal allocation, and loss spike mitigation**.',
+      'Critical for large-scale research: **operating on SLURM supercomputing clusters, NCCL Ring All-Reduce, multi-node FSDP, 3D Parallelism, and Model FLOPs Utilization (MFU)**.',
   },
   10: {
-    score: 8,
-    reason:
-      'Essential for large-scale research: **Megatron tensor parallelism, ZeRO/FSDP memory sharding, and Ring All-Reduce communication**.',
-  },
-  11: {
     score: 9,
     reason:
-      'Mathematical questions on **continuous SDEs, score matching, probability flow ODEs, and flow matching** are standard in generative AI research interviews.',
+      'Directs multi-million dollar compute budgets: **Kaplan vs Chinchilla power-law scaling regressions, loss spike diagnostics (QK-Norm), and data mixture annealing**.',
   },
-  12: {
+  11: {
     score: 8,
     reason:
-      'Perceptual research questions on **contrastive vision-language alignment (SigLIP), ViT tokenization, and cross-attention adapters**.',
+      'Highly valued in frontier AI safety and interpretability labs: **linear representation probing, circuit discovery (induction heads), Sparse Autoencoders (SAEs), and activation steering**.',
+  },
+  12: {
+    score: 9,
+    reason:
+      'Core to foundation model alignment: **Bradley-Terry preference theory, DPO derivations, reward over-optimization, GCG adversarial jailbreaks, and algorithmic fairness audits**.',
   },
   13: {
     score: 8,
     reason:
-      'Interviewers test your theoretical grasp of **LoRA singular value spectra, intrinsic dimensionality, and catastrophic forgetting mitigation (EWC)**.',
+      'Cross-disciplinary frontiers: **cross-modal contrastive alignment (SigLIP), vision-language projectors (LLaVA), AlphaFold/ESM structural biology, and Physics-Informed ML (PINNs)**.',
   },
   14: {
     score: 10,
     reason:
-      'The **single biggest factor in landing research positions**. Top labs evaluate you on your **reproducible research code, ablation rigor, and published preprints**.',
+      'The **single biggest factor in landing top research positions**: delivering **end-to-end conference-grade projects with rigorous ablations, verified codebases, and preprints**.',
   },
   15: {
     score: 10,
     reason:
-      'Directly mirrors the **research job talk and defense**. Defending experimental choices, answering hostile reviewer critiques, and presenting your research vision.',
+      'Directly mirrors the **research job talk, thesis defense, and OpenReview rebuttal**: presenting research vision, disarming skeptical reviewers, and drafting competitive grant proposals.',
   },
 };
 
@@ -100,81 +100,81 @@ export const jobWeights: Record<number, LevelWeight> = {
   0: {
     score: 10,
     reason:
-      'The mathematical bedrock **underpins every theoretical derivation and paper you read or write**. Every novel loss function or architecture begins with linear algebra and multivariable calculus.',
+      'Daily lab survival requires **flawless remote server management, automated tracking, and reproducible virtual environments**; without them, experiments become untraceable.',
   },
   1: {
-    score: 8,
+    score: 9,
     reason:
-      'Provides the **formal language of generalization**. Helps you rigorously assess whether an empirical improvement is theoretically justified or an artifact of overfitting.',
+      'Prevents wasting months on solved problems: **rapidly surveying literature, tracking daily ArXiv preprints, and isolating genuine scientific gaps** is the daily habit of productive researchers.',
   },
   2: {
-    score: 10,
+    score: 9,
     reason:
-      'Understanding loss surfaces and optimization is **essential for stabilizing deep training runs**. When large models diverge or plateau, optimization theory tells you what to adjust.',
+      'Underpins every paper submission: **proving statistical significance and computing effect sizes** ensures your published findings are solid and unassailable.',
   },
   3: {
     score: 10,
     reason:
-      'Transformers form the **foundation of modern foundation models**. Modifying attention blocks, caching KV states, and understanding sub-quadratic alternatives is daily research work.',
+      'The bedrock of sound science: **designing rigorous ablation studies and fair baseline comparisons** is what transforms speculative ideas into accepted papers.',
   },
   4: {
-    score: 9,
+    score: 10,
     reason:
-      'High-quality representations are the **currency of pre-training and zero-shot transfer**. Knowing how to probe and align latent spaces determines success across modalities.',
+      'Daily research execution: **implementing custom PyTorch/JAX modules, stabilizing mixed-precision gradients, and eliminating memory bottlenecks** is what research scientists do every day.',
   },
   5: {
     score: 9,
     reason:
-      'From post-training alignment (RLHF/RLVR) to autonomous reasoning agents, **sequential decision theory governs frontier model optimization**.',
+      'Designing and modifying architectures: **adapting attention blocks, experimenting with state space recurrences, and probing latent representations** drives core lab innovation.',
   },
   6: {
-    score: 10,
+    score: 9,
     reason:
-      'Pioneering the shift from pure pre-training scale to **inference-time deliberative compute (System 2 reasoning)** is the core focus of frontier foundation model labs.',
+      'Generative modeling is the foundation of modern media, scientific simulations, and physical policies: **training flow matching and diffusion models** is central to modern labs.',
   },
   7: {
     score: 10,
     reason:
-      'Without scientific measurement, **machine learning research is blind**. Ensuring unpolluted benchmarks and statistical significance prevents publishing false empirical claims.',
+      'Frontier foundation model labs focus intensively on **test-time compute scaling, step-level process supervision, and guided tree-search algorithms**.',
   },
   8: {
-    score: 9,
+    score: 10,
     reason:
-      'Fundamental to understanding what large models learn and **ensuring safe, reliable, and steerable AI systems** before frontier deployment.',
+      'Without rigorous measurement, research is blind: **curating pristine benchmarks, eliminating contamination, and calibrating evaluations** ensures real progress.',
   },
   9: {
     score: 10,
     reason:
-      'Directs **multi-million dollar compute budgets**. Knowing power-law scaling coefficients ensures optimal parameter-to-token trade-offs.',
+      'Running large experiments on shared supercomputers requires **SLURM scheduling mastery, FSDP memory sharding, and maximizing MFU** to get the most from hardware.',
   },
   10: {
     score: 9,
     reason:
-      'Training frontier models requires **maximizing Model FLOPs Utilization (MFU)** and avoiding out-of-memory bottlenecks across GPU clusters.',
+      'Guides experimental planning: **extrapolating scaling laws and preventing loss spikes** saves tens of thousands of GPU hours during large-scale pre-training runs.',
   },
   11: {
-    score: 9,
+    score: 8,
     reason:
-      'Flow matching and diffusion have **revolutionized generative media, scientific simulation, and robotics policies**.',
+      'Understanding what models actually learn: **tracing causal circuits, probing representations, and steering activations** provides deep insights into neural behavior.',
   },
   12: {
     score: 9,
     reason:
-      'Foundation models are intrinsically multimodal. **Bridging vision, audio, and language representations** is central to current lab roadmaps.',
+      'Ensuring model safety and compliance: **tuning preferences with DPO, red-teaming against jailbreaks, and auditing for fairness** is mandatory before any public deployment.',
   },
   13: {
     score: 8,
     reason:
-      'Rapidly specializing foundation models and merging task vectors **enables fast experimental iteration without retraining from scratch**.',
+      'Pioneering interdisciplinary breakthroughs: **bridging machine learning with structural biology, chemistry, and physics** represents the highest-impact frontier of AI.',
   },
   14: {
-    score: 8,
-    reason:
-      'Proven ability to take a research hypothesis from conception through controlled ablations to a published artifact **is the definition of the job**.',
-  },
-  15: {
     score: 9,
     reason:
-      'Writing accepted papers, conducting constructive peer reviews, and **directing a multi-year research program** determines your scientific trajectory.',
+      'Executing comprehensive research studies from hypothesis to publication **is the primary measure of a research scientist’s productivity and impact**.',
+  },
+  15: {
+    score: 10,
+    reason:
+      'Writing accepted conference papers, **defending against tough reviewer critiques, winning grant funding, and directing research directions** defines scientific leadership.',
   },
 };

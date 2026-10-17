@@ -1,88 +1,101 @@
-Level 11 · Generative Modeling: VAEs, GANs & Diffusion Theory
+Level 11 · Mechanistic Interpretability & Model Analysis
 
-Scope: explore the theoretical and mathematical foundations of deep generative modeling: variational inference, generative adversarial networks, score-based models, stochastic differential equations (SDEs), and continuous-time flow matching.
+Phase: HPC, Scaling & Interpretability
+Suggested duration: 13 sessions (~3 weeks)
+Prerequisites: Level 10 (Pre-Training Dynamics, Scaling Laws & Empirical Science)
+Scope: Master the scientific discipline of mechanistic interpretability: reverse-engineering neural network representations, probing internal latent spaces, circuit discovery (induction heads), disentangling superposition with Sparse Autoencoders (SAEs), causal activation patching, and representation steering.
 
-Prerequisites: Level 10
+M11.1 · The Linear Representation Hypothesis & Latent Space Probing — (sessions: 2)
+Session 1 · The Linear Representation Hypothesis
+- Formulate the Linear Representation Hypothesis (Park et al., Elhage et al.): high-level human concepts are encoded as linear directions in activation spaces.
+- Implement linear diagnostic probes: train linear classifiers on intermediate hidden activations to predict semantic, syntactic, and factual properties.
+- Control for probe memorization: compare linear probe accuracy against non-linear probes (MLPs) and randomized baseline controls (Hewitt & Liang selectivity).
+Session 2 · Geometry & Representation Similarity (CKA)
+- Analyze the geometric alignment of hidden representations across distinct layers, models, and training checkpoints.
+- Implement Centered Kernel Alignment (CKA) using linear and radial basis function (RBF) kernels to quantify representational similarity invariance.
+- Use Singular Value Canonical Correlation Analysis (SVCCA) to isolate the intrinsic dimensionality of learned representations.
+Mental model: The activation space of a neural network is a high-dimensional concept space; linear vectors act as geometric coordinates for abstract ideas.
+Try: Train a linear probe on the residual stream activations of a language model to extract grammatical tense, verifying high probe selectivity against random controls.
+Outcome: Probe internal representations rigorously, test the linear representation hypothesis, and measure representational similarity using CKA.
 
-M11.1 · Variational Autoencoders & The Evidence Lower Bound — (sessions: 3)
+M11.2 · Circuit Discovery: Residual Stream Decomposition & Induction Head Identification — (sessions: 2)
+Session 1 · Mathematical Framework of Transformer Circuits
+- Understand the Transformer as a residual stream communication channel where attention heads and MLPs write additive linear updates.
+- Deconstruct the multi-head attention operation into independent QK (query-key addressing) and OV (output-value transformation) circuits (Elhage et al.).
+- Trace information flow mathematically: compute direct, indirect, and mediated path contributions to the final vocabulary projection logits.
+Session 2 · Induction Heads & In-Context Learning Circuits
+- Analyze the mechanistic discovery of induction heads (Olsson et al., 2022): two-head circuits that implement pattern completion [A][B] ... [A] -> [B].
+- Write automated induction head detectors that measure attention score spikes on repeated random token sequences across all layer-head pairs.
+- Trace the emergence of induction heads during pre-training: correlate their formation with the phase shift in in-context learning loss curves.
+Mental model: Induction heads are the fundamental algorithmic microprocessors of in-context learning, copying historical patterns into future predictions.
+Try: Implement an automated induction head detection script in PyTorch/TransformerLens, scan a model, and identify the exact layer and head indices responsible.
+Outcome: Decompose the Transformer residual stream into mathematical circuits and mechanically identify induction heads responsible for in-context learning.
 
-Formulate generative modeling as estimating the true data distribution p_data(x) and sampling novel instances x ~ p_theta(x).
-Analyze the intractability of marginal likelihood p_theta(x) = \int p_theta(x, z) dz in high-dimensional latent variable models.
-Derive the Evidence Lower Bound (ELBO) mathematically using Jensen's inequality: log p_theta(x) >= E_q[log p_theta(x|z)] - D_KL(q_phi(z|x) || p(z)).
-Decompose ELBO into reconstruction loss and latent KL divergence regularization against a standard isotropic Gaussian prior N(0, I).
-Master the Reparameterization Trick (Kingma & Welling): z = mu_phi(x) + sigma_phi(x) \odot epsilon, where epsilon ~ N(0, I), enabling backpropagation through stochastic nodes.
-Analyze posterior collapse: when the decoder ignores latent variables z and acts as an unconditional autoregressive model.
-Explore Hierarchical and Vector-Quantized VAEs (VQ-VAE, Van den Oord et al.): discrete latent representations and codebook learning without posterior collapse.
-Outcome: derive the analytical KL divergence between two multivariate Gaussian distributions and implement a VAE with the reparameterization trick in PyTorch.
+M11.3 · Disentangling Superposition: Sparse Autoencoders (SAEs) & Dictionary Learning — (sessions: 2)
+Session 1 · The Problem of Polysemanticity & Superposition
+- Formulate the superposition hypothesis: neural networks represent more features than they have dimensions by packing non-orthogonal directions into activations.
+- Understand polysemanticity: individual neurons activate for multiple unrelated semantic concepts, preventing clean single-neuron interpretation.
+- Analyze the geometry of almost-orthogonal vectors in high dimensions bounded by the Johnson-Lindenstrauss lemma.
+Session 2 · Sparse Autoencoders (SAEs) & Monosemantic Dictionary Learning
+- Implement Sparse Autoencoders (SAEs) with overcomplete hidden layers (e.g., 8x to 32x expansion) and L1 sparsity regularization penalties.
+- Train an SAE on intermediate residual stream activations to disentangle superposed representations into thousands of sparse, monosemantic latent features.
+- Evaluate SAE quality: compute the L0 sparsity norm (average active latents per token) and reconstruction loss percentage on downstream evaluation benchmarks.
+Mental model: Superposition packs a crowded city into a small suitcase; an SAE unpacks the suitcase, giving every item its own dedicated hanger.
+Try: Train an SAE on hidden residual activations, evaluate L0 sparsity and reconstruction fidelity, and extract monosemantic feature interpretations.
+Outcome: Disentangle polysemantic representations using Sparse Autoencoders, extract monosemantic feature dictionaries, and measure L0 sparsity.
 
-M11.2 · Generative Adversarial Networks & Minimax Game Theory — (sessions: 3)
+M11.4 · Causal Tracing & Activation Patching: Localizing Factual Recall — (sessions: 2)
+Session 1 · Causal Tracing & Mediation Analysis
+- Differentiate between passive observational correlation (probing) versus active causal intervention in neural network representations.
+- Implement causal mediation analysis and activation patching (Meng et al., ROME): corrupting input embeddings with noise and restoring clean activations.
+- Localize factual knowledge storage: identify specific early MLP layers and late attention heads that causally mediate factual subject-relation recall.
+Session 2 · Direct Knowledge Editing & Mechanistic Limits
+- Formulate Rank-One Model Editing (ROME) and MEMIT: computing optimal closed-form updates to MLP weight matrices to update specific factual associations.
+- Measure the generalization and specificity of mechanistic model edits: verify that editing "Eiffel Tower -> Rome" does not corrupt general knowledge about Paris.
+- Analyze the limitations of direct weight editing: unintended collateral damage, distortion of adjacent concepts, and catastrophic forgetting.
+Mental model: Activation patching performs surgical neurosurgery on running neural networks to pinpoint the exact circuit that stores a specific memory.
+Try: Implement activation patching on a factual query ("The capital of France is [Paris]"), localizing the exact MLP layer that restores the clean output from noise.
+Outcome: Execute causal activation patching to localize model capabilities and analyze direct weight editing mechanisms and limitations.
 
-Formulate GANs as a two-player zero-sum minimax game: min_G max_D V(D, G) = E_{x~p_data}[log D(x)] + E_{z~p_z}[log(1 - D(G(z)))].
-Prove mathematically that the optimal discriminator for any fixed generator G is D^*(x) = p_data(x) / (p_data(x) + p_g(x)).
-Prove that substituting D^*(x) into the minimax objective reduces the generator loss to the Jensen-Shannon Divergence (JSD): 2 * JSD(p_data || p_g) - 2 * log(2).
-Analyze GAN Training Pathologies: vanishing gradients with saturated discriminators, non-convergence in non-convex game dynamics, and Mode Collapse.
-Study Wasserstein GANs (WGAN, Arjovsky et al.): using Earth Mover's Distance (Kantorovich-Rubinstein duality), 1-Lipschitz continuity constraints, and Gradient Penalty (WGAN-GP).
-Outcome: prove that the global minimum of the minimax GAN objective occurs if and only if p_g = p_data, and implement WGAN with gradient penalty.
+M11.5 · Representation Engineering (RepE): Contrastive Activation Vectors & Steering — (sessions: 2)
+Session 1 · Reading Latent Cognitive States
+- Formalize Representation Engineering (RepE, Zou et al.): directly inspecting and manipulating the top-down cognitive states of models during generation.
+- Extract concept direction vectors by computing contrastive activation differences across paired prompts (e.g., honest vs. dishonest, sycophantic vs. factual).
+- Apply Principal Component Analysis (PCA) to contrastive activation sets to identify the principal axis of the target concept in the residual stream.
+Session 2 · Activation Steering & Behavioral Control
+- Implement runtime activation steering: add or subtract the scaled concept vector v directly to the residual stream: h_l' = h_l + alpha * v.
+- Compare activation steering with prompt engineering: evaluate robustness against adversarial prompt jailbreaks, token overhead, and stability over long contexts.
+- Analyze the alignment tax of excessive steering: monitor the degradation of grammatical fluency and reasoning ability under high steering coefficients alpha.
+Mental model: Prompting talks to the model through its ears; activation steering reaches directly into its brain to tilt its internal thought compass.
+Try: Extract a "truthfulness" concept vector from contrastive pairs, inject it during inference with varying alpha coefficients, and measure the reduction in hallucination.
+Outcome: Extract contrastive concept vectors, steer model generation behavior directly at the latent representation level, and quantify steering trade-offs.
 
-M11.3 · Score-Based Generative Modeling & Denoising Diffusion (DDPM) — (sessions: 4)
+M11.6 · Capstone Project: Mechanistic Circuit Discovery & Activation Steering Probe — (sessions: 3)
+Session 1 · Circuit Isolation & Causal Mediation Pipeline
+- Construct an automated mechanistic analysis harness in PyTorch (leveraging TransformerLens or native hooks) targeting a specific reasoning behavior.
+- Execute causal activation patching across all layers and token positions to map the exact computational circuit responsible for the target task.
+- Train an overcomplete Sparse Autoencoder (SAE) on the critical bottleneck layer, extracting monosemantic feature directions with verified high sparsity.
+Session 2 · Activation Steering & Empirical Verification
+- Formulate contrastive concept vectors along the identified circuit pathways and implement real-time activation steering hooks during generation.
+- Evaluate behavioral control: demonstrate statistically significant suppression of undesirable outputs (e.g., sycophancy or bias) without degrading perplexity.
+- Author an academic mechanistic interpretability paper in LaTeX complete with interactive circuit diagrams, activation heatmaps, and ablation tables.
+Mental model: Rigorous mechanistic interpretability transforms the black box into a transparent, mathematically verifiable computing circuit.
+Try: Discover the complete indirect object identification circuit in a model, extract steering vectors, and author a publication-ready empirical report.
+Outcome: Execute publication-grade mechanistic interpretability investigations, localize causal circuits, and deploy representation steering controls.
 
-Understand Score Matching (Hyvarinen): modeling the score function of data distribution: s_theta(x) = \nabla_x log p(x) without computing intractable partition functions Z.
-Analyze Langevin Dynamics: sampling from a distribution using its score function via gradient ascent with Gaussian noise perturbations.
-Master Denoising Diffusion Probabilistic Models (DDPM, Sohl-Dickstein et al., Ho et al.): forward noising process q(x_t|x_{t-1}) and reverse denoising process p_theta(x_{t-1}|x_t).
-Derive the closed-form forward marginal q(x_t|x_0) = N(x_t; sqrt(alpha_bar_t) * x_0, (1 - alpha_bar_t) * I) using Gaussian reproductive properties.
-Derive the simplified DDPM training objective: predicting the injected Gaussian noise epsilon_theta(x_t, t) using L2 mean squared error loss ||epsilon - epsilon_theta(x_t, t)||^2.
-Analyze Noise Schedules: linear, cosine (Nichol & Dhariwal), and continuous schedules, and their impact on sample quality and signal-to-noise ratio (SNR).
-Outcome: derive the closed-form forward sampling equation q(x_t|x_0) and implement an end-to-end DDPM training and sampling loop in PyTorch.
-
-M11.4 · Continuous SDEs & Probability Flow ODEs — (sessions: 4)
-
-Formulate the continuous-time generalization of diffusion models using Stochastic Differential Equations (Score-based SDEs, Song et al. 2020).
-Analyze Forward Itô SDEs: dx = f(x, t) dt + g(t) dw, transforming complex data distributions into isotropic Gaussian noise.
-Master Anderson's Reverse-Time SDE Theorem: dx = [f(x, t) - g(t)^2 * \nabla_x log p_t(x)] dt + g(t) dw_bar, proving reversal is an SDE guided by the score function.
-Derive the Probability Flow ODE: deterministic ordinary differential equation sharing the exact same marginal probability trajectories p_t(x) as the reverse SDE.
-Understand the benefits of the Probability Flow ODE: deterministic sampling, fast numerical ODE solvers (RK4, Euler), exact likelihood computation via instantaneous change of variables, and latent space inversion.
-Analyze Accelerated Samplers: DDIM (Denoising Diffusion Implicit Models, Song et al.), DPM-Solver (Lu et al.), reducing sampling steps from 1000 down to 15-20 steps.
-Outcome: formulate the probability flow ODE for a variance-preserving (VP) SDE and implement a DDIM deterministic sampler in PyTorch.
-
-M11.5 · Flow Matching & Optimal Transport in Latent Spaces — (sessions: 4)
-
-Understand Continuous Normalizing Flows (CNFs): learning time-dependent vector fields v_t(x) that transport a simple base distribution (e.g. standard Gaussian) to a target data distribution.
-Analyze the intractability of standard CNF maximum likelihood: requiring expensive ODE integration during every training step.
-Master Flow Matching (Lipman et al., Albergo & Vanden-Eijnden): training neural vector fields directly on conditional probability paths via simple regression without ODE simulation.
-Analyze Optimal Transport Flow Matching (OT-FM): straight-line displacement paths between noise x_0 and data x_1: x_t = (1 - t) * x_0 + t * x_1 with constant target velocity u_t(x|x_1, x_0) = x_1 - x_0.
-Prove that straight-line probability trajectories minimize kinetic energy, leading to significantly simpler ODE trajectories that can be solved in as few as 4-8 integration steps.
-Examine Latent Diffusion Models (LDM / Stable Diffusion, Rombach et al.): compressing high-dimensional images into lower-dimensional latent spaces using a pre-trained VAE before applying diffusion / flow matching.
-Study Classifier-Free Guidance (CFG, Ho & Salimans): interpolating between unconditional and conditional vector fields to dramatically improve generation fidelity and prompt adherence.
-Outcome: implement Optimal Transport Flow Matching from scratch and train a flow model on 2D synthetic distributions and images with straight-line trajectories.
-
-M11.6 · Capstone: Implement a Continuous Flow Matching Model from Mathematical First Principles — (sessions: 2)
-
-Build and train a continuous-time Flow Matching generative model from mathematical scratch on a dataset of images or complex scientific multi-modal trajectories.
-Implement the Optimal Transport interpolation path: x_t = (1 - (1 - sigma_min) * t) * x_0 + t * x_1, and derive the ground-truth target velocity field u_t(x_t|x_0, x_1).
-Implement a U-Net or Diffusion Transformer (DiT, Peebles & Xie) architecture to parameterize the time-dependent velocity field v_theta(x, t).
-Integrate adaptive layer normalization (AdaLN) conditioning on timestep t and class / text embeddings.
-Train the model by regressing v_theta(x_t, t) onto target velocity u_t using simple mean squared error loss with zero ODE simulation during training.
-Implement numerical ODE integration samplers (Euler method, Midpoint method, and Runge-Kutta 4th order RK4) to generate samples at inference time.
-Implement Classifier-Free Guidance (CFG) within the vector field sampling loop with guidance scale parameter w.
-Evaluate generation quality quantitatively: compute Fréchet Inception Distance (FID) and measure integration step requirements (evaluating performance at 4, 10, 25, and 50 steps).
-Draft an academic research paper comparing Flow Matching against DDPM in terms of training stability, trajectory curvature, and sample generation speed.
-Final result: a verified Flow Matching generative model codebase, sampling notebook, and academic paper dissecting optimal transport trajectories.
-
-Level 11 completion outcome
-
-By the end of this level, you should be able to:
-
-Derive the Evidence Lower Bound (ELBO) mathematically using Jensen's inequality.
-Explain why the reparameterization trick enables gradient backpropagation through stochastic latent nodes.
-Prove that the global optimum of the original GAN objective is achieved when the generator distribution equals the data distribution.
-Explain mode collapse in GANs and how Wasserstein distance (WGAN-GP) improves training stability.
-Derive the closed-form forward sampling formula q(x_t|x_0) for Denoising Diffusion Probabilistic Models (DDPM).
-Explain the difference between score matching and likelihood-based generative modeling.
-Formulate diffusion models as continuous Stochastic Differential Equations (SDEs) and reverse-time SDEs.
-Derive the Probability Flow ODE and explain how it enables deterministic sampling and exact likelihood computation.
-Explain the mathematical formulation of Flow Matching and why it avoids ODE simulation during training.
-Prove that Optimal Transport Flow Matching produces straight-line paths with minimal kinetic energy.
-Implement Classifier-Free Guidance (CFG) and explain its effect on sample fidelity and diversity.
-Build a Diffusion Transformer (DiT) architecture with adaptive layer normalization conditioning.
-Evaluate generative models using Fréchet Inception Distance (FID) and Inception Score (IS).
-Progression: VAEs & ELBO Foundations → GANs & Wasserstein Minimax → DDPM & Score Matching → Continuous SDEs & Probability Flow ODEs → Flow Matching & Optimal Transport → Continuous Flow Matching Capstone.
+CAPSTONE PROJECT: Mechanistic Circuit Discovery & Activation Steering Probe
+BRIEF: Implement a comprehensive mechanistic interpretability analysis of an open-source language model in PyTorch, mapping the causal circuit for a specific reasoning capability via activation patching, training an SAE to extract monosemantic latents, and demonstrating precise behavioral steering via representation engineering.
+Build an interpretability suite that:
+- Instruments an open-source autoregressive model (e.g., GPT-2 or Llama-small) with forward and backward activation hooks across all residual stream layers.
+- Formulates a clean dataset of paired contrastive prompts targeting a specific capability (e.g., grammatical agreement, factual recall, or truthfulness).
+- Executes causal activation patching: injects Gaussian noise into input embeddings and measures the exact recovery of clean output logits across layers and tokens.
+- Deconstructs attention heads into QK and OV circuits, identifying specific induction heads or key information-routing heads.
+- Trains an overcomplete Sparse Autoencoder (SAE) with L1 regularization on the critical mediating layer, achieving high explained variance with low L0 sparsity.
+- Extracts contrastive concept vectors via PCA on activation differences, isolating a linear concept direction in the residual stream.
+- Implements runtime activation steering during generation (h' = h + alpha * v), sweeping alpha to measure the trade-off between control and fluency.
+- Generates publication-ready figures (layer-by-position patching heatmaps, PCA concept projections, and fluency degradation curves) formatted in LaTeX.
+Deliverables:
+- Clean Python repository featuring interp/patching.py, interp/sae.py, and interp/steering.py.
+- Publication-quality vector plots (PDF) depicting causal mediation heatmaps and SAE feature activation spectra.
+- Complete 5-page research workshop paper PDF formatted in LaTeX detailing the discovered circuit and steering results.
+Outcome: You can reverse-engineer internal neural representations, isolate computational circuits, and steer foundation models from the inside out.

@@ -1,101 +1,102 @@
-Level 1 · Literature Review & Scientific Problem Formulation
+Level 1 · Finding an Advisor, Securing an RA Position & Academic Networking
 
-Phase: Foundations & Methodology
+Phase: Research Foundations & RA Onboarding
 Suggested duration: 13 sessions (~3 weeks)
-Prerequisites: Level 0 (Scientific Computing & Reproducible Research Foundations)
-Scope: Master the academic research methodology: discovering, analyzing, and synthesizing scientific literature, identifying open research gaps, formulating formal research questions (RQs), and constructing rigorous research proposals.
+Prerequisites: Level 0 (Scientific Computing, Research Tooling & Reproducibility)
+Scope: Master the path of entering an academic research laboratory as a Computer Science student (BSc, MSc, or prospective PhD): identifying research advisors, analyzing laboratory publications, crafting high-conversion cold emails, pitching concrete research ideas, passing technical RA interviews, and integrating into an active lab culture.
 
-M1.1 · Scientific Discovery Engines: Navigating ArXiv, Google Scholar & Semantic Scholar — (sessions: 2)
-Session 1 · Academic Search Engines & Literature Discovery
-- Query academic databases (Google Scholar, Semantic Scholar, DBLP, ArXiv) using boolean search syntax and field-specific filtering.
-- Track citation graphs and follow seminal lineages forward and backward using citation trees and influence metrics.
-- Discover emerging preprints and conference proceedings across premier AI/ML venues (NeurIPS, ICML, ICLR, CVPR, ACL, KDD).
-Session 2 · Automated Paper Feeds & Research Radar
-- Set up automated research alerts and topic monitoring using ArXiv RSS feeds, Hugging Face Daily Papers, and Google Scholar keyword notifications.
-- Leverage visual literature exploration tools (Connected Papers, Litmaps, ResearchRabbit) to discover co-citation clusters and derivative works.
-- Filter signal from noise in daily preprint releases by evaluating author lab credibility, code availability, and benchmark claims.
-Mental model: The scientific literature is a dynamic, interconnected knowledge graph; exploring citation trajectories reveals where a paradigm is heading.
-Try: Map the citation graph of a foundational paper using Connected Papers, identifying the top three foundational prior works and top three derivative extensions.
-Outcome: Systematically discover relevant academic literature, navigate citation networks, and establish an automated daily research radar.
+M1.1 · Mapping Academic Laboratories, PIs & Research Group Trajectories — (sessions: 2)
+Session 1 · Discovering Research Labs & Active Grants
+- Survey university computer science departments, research institutes, and corporate labs (e.g., DeepMind, FAIR, Microsoft Research) in your area of interest.
+- Inspect Principal Investigator (PI) profiles: evaluate recent grant funding (NSF, ERC, DARPA, NIH, industry gifts), student graduation records, and lab size.
+- Analyze laboratory publication velocity: identify whether a lab publishes primarily in top-tier conferences (NeurIPS, ICML, CVPR, ACL, KDD) or specialized venues.
+Session 2 · Evaluating Laboratory Culture & Advisor Styles
+- Distinguish between advisory styles: hands-on junior tenure-track faculty versus hands-off senior chaired professors.
+- Connect with current PhD students and postdocs in the target lab to inquire about mentorship availability, computational resources, and graduation timelines.
+- Identify active multi-disciplinary collaborations (e.g., computer science labs collaborating with medical hospitals, oncology centers, or cybersecurity centers).
+Mental model: Joining a lab is an intellectual apprenticeship; choosing an advisor who actively mentors and has compute resources matters more than institutional prestige.
+Try: Build an academic spreadsheet profiling 10 research laboratories in your target domain, noting their PI, recent top-tier papers, active grants, and student ratio.
+Outcome: Systematically identify high-impact research laboratories and select advisors aligned with your research ambitions.
 
-M1.2 · Critical Paper Reading: The Three-Pass Method & Deconstructing Claims — (sessions: 2)
-Session 1 · Efficient Multi-Pass Paper Deconstruction
-- Apply Keshav’s Three-Pass Method to evaluate paper relevance, grasp central ideas, and dissect technical depth in structured increments.
-- Extract the core contributions in Pass 1 by analyzing title, abstract, introduction, section headers, and conclusion within 10 minutes.
-- Scrutinize figures, tables, and empirical evidence in Pass 2 to assess whether experimental data genuinely supports the stated claims.
-Session 2 · Deep Technical Dissection & Critical Questioning
-- Execute Pass 3: mentally re-implement the paper from scratch, identifying implicit assumptions, unstated tricks, and missing proofs.
-- Distinguish between theoretical guarantees, empirical heuristic findings, and unverified narrative speculation in published papers.
-- Identify common paper red flags: cherry-picked qualitative examples, weak or un-tuned baselines, moving goalposts, and missing ablation studies.
-Mental model: Reading a paper is an active peer review where you interrogate every claim against the empirical evidence presented.
-Try: Conduct a 3-pass review of a recent top-tier conference paper, writing a 1-page structured critique evaluating its core claims and baseline fairness.
-Outcome: Read research papers efficiently, extract core insights rapidly, and critically evaluate the validity of scientific claims.
+M1.2 · Reading Advisor Publications & Formulating Tailored Research Pitches — (sessions: 2)
+Session 1 · Deep Dissection of Advisor Papers
+- Select the 3 most recent conference or journal papers published by the target PI and their senior doctoral students.
+- Analyze the "Limitations and Future Work" sections of these papers to identify immediate, unresolved problems the lab is currently investigating.
+- Formulate a precise understanding of the lab's technical stack, baseline benchmarks, and primary methodological paradigms.
+Session 2 · Formulating a Targeted Research Pitch
+- Develop a 1-page research pitch proposing a concrete extension or solution to an open problem identified in the PI’s recent work.
+- Frame the pitch with clear benefits to the lab: how your technical skills (e.g., PyTorch engineering, CUDA profiling, dataset curation) can accelerate their active project.
+- Connect the proposal to domain-specific datasets (e.g., applying their model to MIMIC-IV clinical records or network intrusion telemetry).
+Mental model: A generic email asks for an opportunity; a tailored research pitch demonstrates that you are already contributing solutions to their active problems.
+Try: Read two recent papers from a target professor, identify an unaddressed limitation, and write a concise 3-paragraph research extension proposal.
+Outcome: Deconstruct prospective advisors' papers and formulate high-value research pitches that demonstrate immediate intellectual compatibility.
 
-M1.3 · Citation Management & Literature Synthesis: Zotero, BibTeX & Taxonomy Building — (sessions: 2)
-Session 1 · Systematic Reference Management
-- Organize academic libraries systematically using Zotero with automatic PDF metadata extraction, tag hierarchies, and DOI lookups.
-- Integrate Zotero with Overleaf and local LaTeX environments via Better BibTeX for automated, clean citation key generation.
-- Annotate papers with structured research notes linking methodology variants, benchmark scores, and theoretical limitations.
-Session 2 · Synthesizing Related Work & Taxonomy Building
-- Construct comparative literature synthesis matrices mapping related papers across problem formulations, architectures, and assumptions.
-- Develop conceptual taxonomies that categorize existing approaches into clear methodological families with contrasting trade-offs.
-- Write polished "Related Work" sections that tell a compelling historical narrative rather than providing a disjointed list of summaries.
-Mental model: A literature survey is not a catalog of summaries; it is a structured taxonomy that exposes the boundaries of current human knowledge.
-Try: Build a 15-paper comparative synthesis table in Zotero, mapping existing methods across problem formulation, architecture, datasets, and limitations.
-Outcome: Manage thousands of academic references effortlessly, maintain clean BibTeX registries, and synthesize literature into structured taxonomies.
+M1.3 · Crafting High-Conversion Academic Cold Emails & Professor Outreach — (sessions: 2)
+Session 1 · The Anatomy of an Academic Cold Email
+- Analyze why professors ignore 95% of generic student emails (lengthy generic CV dumps, copy-pasted flattery, vague requests for "any project").
+- Master the concise 4-paragraph email structure: who you are, specific citation of their recent work, proposed technical contribution, and polite call to action.
+- Craft professional, high-signal subject lines that stand out in crowded academic inboxes (e.g., "Prospective RA: Extending [Paper Title] with [Method]").
+Session 2 · Timing, Persistence & Academic Etiquette
+- Optimize email delivery timing around academic conference deadlines (avoiding the week before NeurIPS/ICML submissions or major grant deadlines).
+- Execute respectful, value-additive follow-up sequences after 7 to 10 days if no response is received, sharing a new insight or reproduction result.
+- Leverage university office hours, departmental seminars, and student reading groups to initiate in-person academic conversations.
+Mental model: Professors are starved for time but hungry for self-directed, technically capable students who take initiative without constant hand-holding.
+Try: Draft a 200-word cold outreach email to a target professor referencing a specific equation or figure from their latest paper, followed by a polite follow-up template.
+Outcome: Author high-conversion academic outreach emails that secure research interviews and avoid common applicant blunders.
 
-M1.4 · Identifying Research Gaps & Formulating Research Questions (RQs) — (sessions: 2)
-Session 1 · Systematic Gap Analysis
-- Identify fertile research gaps: methodological oversights, untested domain transfers, computational bottlenecks, and contradictory published findings.
-- Analyze the "Limitations and Future Work" sections of leading conference papers to extract candidate research directions.
-- Distinguish between incremental "delta" tweaks (hyperparameter tuning) and substantial scientific gaps that yield meaningful contributions.
-Session 2 · Formulating Formal Research Questions
-- Formulate precise, falsifiable Research Questions (RQ1, RQ2, RQ3) that guide the entire trajectory of an academic investigation.
-- Frame research questions spanning capability (Can method X solve Y?), mechanism (Why does X outperform Y?), and trade-off (What is the cost of X?).
-- Define measurable operational definitions and evaluation metrics for each research question to establish clear success criteria.
-Mental model: A well-formulated research question contains its own verification metric; if you cannot measure the answer, the question is not yet scientific.
-Try: Select a sub-field of AI, identify an unaddressed limitation in recent SOTA papers, and formulate three formal, falsifiable Research Questions.
-Outcome: Isolate high-impact research gaps from published literature and formalize rigorous, publication-grade research questions.
+M1.4 · Developing an Academic Research CV & Demonstrating Technical Proof-of-Work — (sessions: 2)
+Session 1 · The Academic Curriculum Vitae (CV) Structure
+- Format a professional academic CV in LaTeX using clean typography (avoiding colorful graphic design templates used for corporate resumes).
+- Structure standard academic sections: Education, Research Interests, Publications/Preprints, Research Experience, Open-Source Contributions, and Technical Skills.
+- Highlight quantitative impact in past projects: benchmark scores, parameter scales, datasets curated, and reproducibility verification.
+Session 2 · Scientific Proof-of-Work & GitHub Portfolios
+- Curate a research-oriented GitHub profile featuring clean reproductions of published papers, modular PyTorch implementations, and reproducible notebooks.
+- Include interactive Weights & Biases experiment dashboards and Google Colab demonstrations directly linked from project README files.
+- Document course projects and seminar term papers as ArXiv-formatted technical reports rather than basic homework assignments.
+Mental model: An academic CV establishes your credentials; a public, reproducible GitHub implementation provides indisputable proof of your research competence.
+Try: Typeset your academic CV in LaTeX using a clean academic template, linking a public GitHub repository that reproduces a published ML baseline.
+Outcome: Build a stellar academic CV and proof-of-work portfolio that immediately distinguishes you from hundreds of applicant candidates.
 
-M1.5 · Hypothesis Generation, Theoretical Framing & Feasibility Analysis — (sessions: 2)
-Session 1 · Formulating Scientific Hypotheses
-- Formulate primary and alternative hypotheses (H1, H0) predicting specific empirical outcomes when modifying an algorithmic component.
-- Provide theoretical justification for why the proposed approach should work, grounded in computational complexity, optimization, or statistics.
-- Anticipate confounding variables and failure modes that could invalidate the hypothesis under realistic experimental conditions.
-Session 2 · Research Project Feasibility & Risk De-risking
-- Evaluate compute feasibility: calculate GPU hours, parameter scales, and dataset storage requirements against available lab resources.
-- Assess timeline feasibility: plan phased milestones from rapid toy proof-of-concept to full-scale empirical validation.
-- Design early de-risking experiments (quick failure tests) that validate critical assumptions before committing major computational budgets.
-Mental model: Strong research balances theoretical ambition with pragmatic de-risking; fail fast on toy problems before scaling compute.
-Try: Draft a feasibility budget for a research hypothesis, estimating required GPU hours, dataset disk footprints, and a 2-day proof-of-concept milestone.
-Outcome: Formulate grounded research hypotheses, justify theoretical mechanisms, and establish resource-conscious experimental feasibility plans.
+M1.5 · Passing the Research Assistant (RA) Technical Interview & Screening — (sessions: 2)
+Session 1 · Technical Screening & Whiteboard Problem Solving
+- Prepare for standard RA interview questions: deriving gradients, explaining model failure modes, and analyzing statistical trade-offs on a whiteboard.
+- Explain past projects with scientific depth: clearly distinguishing what you personally implemented versus what was borrowed from existing libraries.
+- Walk through your code live: demonstrating modular architecture, deterministic seeds, and efficient PyTorch tensor operations without for-loops.
+Session 2 · The Take-Home Research Trial & Advisor Alignment
+- Approach take-home research tasks (e.g., reproducing a baseline in 48 hours or analyzing a novel dataset) with rigorous scientific hygiene.
+- Document assumptions, failure cases, and unexpected empirical findings transparently rather than hiding imperfect results.
+- Evaluate funding structures: understanding graduate Research Assistantships (tuition remission + stipend), undergraduate fellowships, and hourly funding.
+Mental model: The PI wants to know: Can this student read a paper, write clean code without supervision, and report honest empirical numbers when experiments fail?
+Try: Simulate a 30-minute research interview walkthrough explaining the methodology, ablations, and limitations of a deep learning project you implemented.
+Outcome: Excel in academic research interviews, demonstrate technical competence under pressure, and secure funded Research Assistant positions.
 
-M1.6 · Capstone Project: Comprehensive Literature Survey & Research Proposal Specification — (sessions: 3)
-Session 1 · Literature Synthesis & Gap Articulation
-- Conduct an exhaustive literature survey across 25+ papers in an active AI/ML research area, constructing a multi-dimensional taxonomy matrix.
-- Articulate a compelling, well-justified research gap highlighting why existing methodologies fail under specific critical conditions.
-- Define 3 formal Research Questions (RQs) with explicit hypotheses and measurable empirical criteria.
-Session 2 · Methodological Specification & Experimental Blueprint
-- Write a formal methodological proposal specifying the proposed model architecture, loss functions, and algorithmic enhancements.
-- Design an end-to-end experimental plan detailing benchmark datasets, baseline implementations, metric definitions, and ablation grids.
-- Author the complete proposal document in LaTeX using a standard conference template (NeurIPS/ICLR), complete with BibTeX bibliography.
-Mental model: A research proposal is an architectural blueprint for a scientific paper; when executed thoroughly, writing the final paper is simply filling in the results.
-Try: Compile your complete literature survey and research proposal into a clean LaTeX PDF, verifying all cross-references, equations, and BibTeX citations.
-Outcome: Produce an academic research proposal suitable for MSc/PhD thesis committees or top-tier conference paper initiation.
+M1.6 · Capstone Project: Research Assistantship (RA) Application & Professor Research Pitch Portfolio — (sessions: 3)
+Session 1 · Target Lab Selection & Deep Technical Dossier
+- Select 3 active research laboratories in your domain of interest (e.g., medical imaging, cybersecurity, or foundation models) with active funding.
+- Deconstruct the latest publication from each lab, identifying open research gaps and formulating a tailored, novel research proposal for each.
+- Assemble a professional academic portfolio including a LaTeX academic CV, GitHub proof-of-work repository, and reproducible baseline script.
+Session 2 · Pitch Synthesis & Outreach Simulation
+- Author personalized 4-paragraph cold outreach emails tailored to the PIs of the target labs, accompanied by a 1-page formal research pitch.
+- Package a clean demonstration codebase implementing a toy baseline related to the target lab's recent research focus.
+- Rehearse technical interview defenses addressing potential PI questions regarding methodology, compute feasibility, and experimental timelines.
+Mental model: Securing an RA position is your official initiation into the global scientific community; treating it with professional rigor unlocks your research career.
+Try: Compile your complete RA application dossier into a clean PDF package, including your LaTeX CV, 1-page research pitch, and verified GitHub reproduction links.
+Outcome: Master the professional process of finding mentors, reaching out to PIs, and securing a competitive Research Assistant position in top AI/ML labs.
 
-CAPSTONE PROJECT: Comprehensive Literature Survey & Research Proposal Specification
-BRIEF: Author a formal academic research proposal in LaTeX following the official NeurIPS/ICLR conference format. The proposal must synthesize current literature in a chosen AI/ML subfield, identify a significant research gap, formalize falsifiable research questions, and outline a rigorous experimental validation blueprint.
-Build a research proposal that:
-- Surveys at least 25 peer-reviewed papers from top-tier AI/ML venues, organizing them into a structured taxonomic framework.
-- Constructs a comparative analysis table evaluating prior works across assumptions, architectural choices, compute requirements, and empirical limits.
-- Identifies an unaddressed scientific research gap supported by concrete citations and empirical analysis of prior limitations.
-- Formulates three formal Research Questions (RQ1, RQ2, RQ3) accompanied by precise null and alternative hypotheses.
-- Specifies the mathematical formulation of the proposed approach, including loss formulations, architectural modifications, and algorithmic pseudocode.
-- Details the experimental blueprint: choice of benchmark datasets, competitive baseline models to reproduce, evaluation metrics, and planned ablation studies.
-- Provides a detailed compute budget estimating GPU memory requirements, training wall-clock time, and a phased risk-mitigation timeline.
-- Adheres strictly to conference formatting guidelines with clean vector figures, mathematical notation, and an authenticated BibTeX bibliography.
+CAPSTONE PROJECT: Research Assistantship (RA) Application & Professor Research Pitch Portfolio
+BRIEF: Build a complete, professional Research Assistantship (RA) application package targeted at a top academic or industrial research laboratory. The package must include a tailored academic CV in LaTeX, a technical dossier deconstructing a recent paper from the target lab, a 1-page novel research proposal, and a reproducible GitHub proof-of-work repository.
+Build an RA application portfolio that:
+- Profiles an active research laboratory (PI, active grants, recent conference publications, and current PhD student roster).
+- Deconstructs a recent top-tier conference paper from the lab, summarizing its core contribution, methodological formulation, and limitations.
+- Formulates a 1-page structured Research Proposal (LaTeX formatted) proposing a novel extension, domain application (e.g., medical or cyber), or ablation study.
+- Authors an academic Curriculum Vitae (CV) in LaTeX emphasizing mathematical coursework, research experience, publications, and technical skills.
+- Implements a clean, reproducible PyTorch baseline implementation related to the target lab's work on GitHub, complete with W&B logging and a verified README.
+- Drafts a high-impact, personalized 200-word cold outreach email to the Principal Investigator following the proven 4-paragraph academic structure.
+- Prepares a slide deck (5 slides) outlining your proposed research project, computational feasibility budget, and preliminary experimental milestones.
+- Simulates an oral technical screening interview, demonstrating mastery of the underlying mathematics, baselines, and implementation details.
 Deliverables:
-- Formally compiled 6-page Research Proposal PDF formatted in LaTeX using the official NeurIPS or ICLR template.
-- Comprehensive BibTeX library (.bib) containing cleanly formatted, verified citations for all referenced works.
-- Markdown summary pitch slide-deck outline for presentation to a thesis advisor or research lab director.
-Outcome: You can identify high-impact scientific opportunities, review academic literature critically, and formulate publication-grade research proposals.
+- Formally compiled Academic CV PDF typeset in LaTeX.
+- 1-Page Research Proposal PDF formatted in NeurIPS/ICLR style proposing a novel project for the target laboratory.
+- Public GitHub repository link containing a clean, reproducible baseline implementation with experiment tracking.
+- Complete Professor Outreach Email text and tailored follow-up template.
+Outcome: You can systematically discover top academic laboratories, craft compelling scientific research pitches, and successfully secure funded Research Assistant positions.

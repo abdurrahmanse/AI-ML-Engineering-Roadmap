@@ -17,19 +17,19 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT_DIRS = [join(root, 'AI RESEARCH ROADMAP'), join(root, 'AI ENGINEER ROADMAP'), root];
 
 const PHASES = [
-  { id: 'foundations', name: 'Foundations & Methodology', levels: [0, 1, 2, 3],  theme: 'scientific computing, literature review, research math & experimental benchmarking', color: 'violet',  icon: 'terminal' },
-  { id: 'retrieval',   name: 'Research Prototyping',     levels: [4],           theme: 'modular deep learning architectures, autograd extensions & research profiling in PyTorch/JAX', color: 'blue',    icon: 'code' },
-  { id: 'agentic',     name: 'Paradigms & Generative Models', levels: [5, 6],    theme: 'transformers, state space models, self-supervised learning, diffusion & flow matching', color: 'emerald', icon: 'brain-circuit' },
-  { id: 'trust',       name: 'Reasoning, Benchmarks & Rigor', levels: [7, 8],    theme: 'reinforcement learning, test-time compute, benchmark curation & contamination audits', color: 'amber',   icon: 'shield-check' },
-  { id: 'production',  name: 'HPC, Scaling & Interpretability', levels: [9, 10, 11], theme: 'supercomputing clusters, SLURM, 3D distributed training, scaling laws & mechanistic interpretability', color: 'cyan',    icon: 'cpu' },
-  { id: 'frontier',    name: 'Frontier, Alignment & Thesis', levels: [12, 13, 14], theme: 'AI safety research, multimodal scientific discovery & comprehensive conference capstones', color: 'rose',    icon: 'sparkles' },
-  { id: 'interview',   name: 'Writing, Peer Review & Career', levels: [15],      theme: 'LaTeX paper writing, peer review, OpenReview rebuttals, thesis defense & research job talks', color: 'slate',   icon: 'graduation-cap' },
+  { id: 'foundations', name: 'Research Foundations & RA Onboarding', levels: [0, 1, 2, 3],  theme: 'scientific computing, finding an advisor, securing RA positions, literature search & applied statistics', color: 'violet',  icon: 'terminal' },
+  { id: 'retrieval',   name: 'Datasets & Domain Exploration',       levels: [4],           theme: 'medical, cybersecurity & scientific dataset curation, preprocessing & domain adaptation', color: 'blue',    icon: 'database' },
+  { id: 'agentic',     name: 'Model Architectures & Paradigms',     levels: [5, 6],        theme: 'classical ML, deep learning, vision CNNs, graph neural networks & transformers across domains', color: 'emerald', icon: 'layers' },
+  { id: 'trust',       name: 'Generative Models & Benchmarking',    levels: [7, 8],        theme: 'diffusion, flow matching, privacy synthesis, experimental design & multi-factor ablation studies', color: 'amber',   icon: 'sliders-horizontal' },
+  { id: 'production',  name: 'HPC Clusters, Scaling & Explainability', levels: [9, 10, 11], theme: 'SLURM supercomputing, multi-GPU distributed training, domain PEFT & XAI interpretability', color: 'cyan',    icon: 'cpu' },
+  { id: 'frontier',    name: 'Frontier Robustness & Thesis Projects', levels: [12, 13, 14], theme: 'adversarial safety, multimodal clinical/cyber AI & comprehensive MSc/PhD thesis capstones', color: 'rose',    icon: 'shield-check' },
+  { id: 'interview',   name: 'Publishing, Peer Review & Career',     levels: [15],          theme: 'conference & journal papers (IEEE/ACM/Nature), rebuttals, thesis defense & research scientist career', color: 'slate',   icon: 'graduation-cap' },
 ];
 
 /* One Lucide icon per level for AI/ML research. */
 const LEVEL_ICONS = {
-  0: 'terminal', 1: 'book-open', 2: 'sigma', 3: 'sliders-horizontal', 4: 'code',
-  5: 'layers', 6: 'sparkles', 7: 'route', 8: 'microscope', 9: 'cpu',
+  0: 'terminal', 1: 'briefcase', 2: 'book-open', 3: 'sigma', 4: 'database',
+  5: 'layers', 6: 'network', 7: 'sparkles', 8: 'sliders-horizontal', 9: 'cpu',
   10: 'scale', 11: 'search', 12: 'shield-check', 13: 'eye', 14: 'trophy',
   15: 'graduation-cap',
 };

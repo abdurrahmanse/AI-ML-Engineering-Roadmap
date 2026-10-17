@@ -1,91 +1,101 @@
-Level 13 · Post-Training, Parameter-Efficient Tuning & Continual Learning
+Level 13 · Multimodal & Cross-Disciplinary AI for Science
 
-Scope: investigate scientific techniques for adapting and steering foundation models: spectral theory of Low-Rank Adaptation (LoRA/DoRA), representation collapse, catastrophic forgetting, continual learning dynamics, and model merging.
+Phase: Frontier, Alignment & Thesis
+Suggested duration: 13 sessions (~3 weeks)
+Prerequisites: Level 12 (AI Alignment, Safety & Ethical Research)
+Scope: Master the architectural principles of multimodal foundation models and cross-disciplinary AI for science: joint vision-language contrastive alignment (CLIP, SigLIP), cross-modal projectors (LLaVA), structural biology models (AlphaFold/ESM), physics-informed neural networks (PINNs), and neural operators.
 
-Prerequisites: Level 12
+M13.1 · Cross-Modal Contrastive Alignment: CLIP, SigLIP & Dual-Encoder Geometry — (sessions: 2)
+Session 1 · Contrastive Language-Image Pre-Training (CLIP)
+- Formulate the dual-encoder contrastive learning objective: parallel image and text encoders projecting disparate modalities into a shared normalized embedding space.
+- Derive the symmetric cross-entropy loss over image-to-text and text-to-image cosine similarities with a learned temperature parameter.
+- Implement zero-shot classification via text prompt engineering ("a photo of a {class}") and vector similarity dot products.
+Session 2 · Sigmoid Loss for Language-Image Pre-Training (SigLIP)
+- Analyze the communication bottleneck of standard CLIP: global multi-GPU All-Gather operations required for Softmax denominator normalization across large batch sizes.
+- Formulate SigLIP (Zhai et al.): replacing multi-class Softmax with independent pairwise sigmoid losses over all image-text pairs.
+- Implement SigLIP loss in PyTorch, proving linear communication scaling and improved zero-shot retrieval accuracy under identical batch budgets.
+Mental model: Cross-modal contrastive learning constructs a shared semantic Rosetta Stone where visual concepts and linguistic symbols map to identical coordinates.
+Try: Implement the SigLIP pairwise sigmoid loss function from scratch, and verify that it avoids global cross-GPU All-Gather operations.
+Outcome: Build, train, and optimize dual-encoder multimodal contrastive models and understand the geometric alignment of cross-modal spaces.
 
-M13.1 · Theory of Parameter-Efficient Fine-Tuning (PEFT) — (sessions: 3)
+M13.2 · Vision-Language Projection Architectures: LLaVA, Cross-Attention & Perceiver Resamplers — (sessions: 2)
+Session 1 · Visual Tokenization & Projection Bottlenecks
+- Process continuous 2D images as discrete token sequences using Vision Transformers (ViT): patch extraction, linear projection, and class token embeddings.
+- Implement linear and multi-layer perceptron (MLP) projection adapters (LLaVA architecture) mapping frozen vision tokens directly into the LLM token embedding space.
+- Analyze the information density mismatch: high-resolution image patches yield hundreds of tokens, necessitating spatial pooling or token pruning.
+Session 2 · Cross-Attention Gating & Perceiver Resamplers
+- Implement Perceiver Resamplers (Flamingo architecture) using a fixed set of learnable latent queries to cross-attend into arbitrary-length visual sequences.
+- Master gated cross-attention layers inserted between frozen language layers, allowing visual signals to steer language generation without catastrophic forgetting.
+- Evaluate multimodal reasoning: visual question answering (VQA), chart comprehension, and document understanding across standard multimodal benchmarks.
+Mental model: The projection adapter acts as an optical cable, translating high-dimensional visual feature vectors into tokens the language model's residual stream can parse.
+Try: Build a minimal LLaVA-style multimodal model in PyTorch combining a frozen ViT encoder, a 2-layer projection MLP, and a small language model.
+Outcome: Architect multimodal vision-language models, implement projection adapters and Perceiver resamplers, and benchmark multimodal reasoning.
 
-Understand the computational and storage impracticality of full parameter fine-tuning for massive foundation models across specialized downstream domains.
-Analyze the Intrinsic Dimensionality of Deep Models (Aghajanyan et al.): proving that the parameter updates required for downstream tasks occupy a very low-dimensional intrinsic subspace.
-Master Low-Rank Adaptation (LoRA, Hu et al.): reparameterizing weight updates as Delta W = B * A * (alpha / r), where B \in R^{d x r}, A \in R^{r x k}, and rank r << min(d, k).
-Analyze LoRA Initialization: initializing A with Gaussian random noise and B with zeros so that Delta W = 0 at the start of training, preserving exact base model behavior.
-Master Weight-Decomposed Low-Rank Adaptation (DoRA, Liu et al.): decomposing weights into magnitude and directional components W = m * (V + Delta V) / ||V + Delta V||_F to bridge the performance gap with full fine-tuning.
-Explore Prefix Tuning and Prompt Tuning: prepending learnable continuous virtual tokens to key and value matrices in attention layers.
-Outcome: derive LoRA mathematically, prove that rank r updates preserve parameter gradients in a low-dimensional manifold, and implement custom LoRA layers from scratch.
+M13.3 · AI for Structural Biology & Molecular Modeling: AlphaFold & ESM Principles — (sessions: 2)
+Session 1 · Protein Representation & Evolutionary Scale Modeling (ESM)
+- Represent biological sequences (DNA, RNA, proteins) as discrete token sequences over amino acid alphabets.
+- Master evolutionary scale modeling (ESM, Rives et al.): training massive masked language models on billions of natural protein sequences to learn evolutionary fitness.
+- Extract learned attention contact maps from protein language models, proving that self-attention weights directly reflect 3D residue-residue physical proximity.
+Session 2 · 3D Molecular Coordinates & Invariant Point Attention (AlphaFold)
+- Understand the structural biology challenge: predicting 3D atomic coordinates (x, y, z) from 1D primary amino acid sequences.
+- Master the invariant point attention (IPA) mechanism in AlphaFold2: operating directly on 3D Euclidean frame transformations (SE(3) equivariance).
+- Interpret confidence metrics in structural biology: predicted Local Distance Difference Test (pLDDT) and Predicted Aligned Error (PAE) matrices.
+Mental model: Biological evolution acts as nature's unsupervised pre-training; language models trained on sequences recover 3D biophysical structure.
+Try: Load a pre-trained protein language model (ESM-2), extract the attention contact matrix for a target sequence, and compare against experimental PDB structures.
+Outcome: Master the foundations of biological AI models, extract structural contact maps from protein representations, and evaluate 3D structural predictions.
 
-M13.2 · Spectral Analysis of LoRA & Subspace Geometry — (sessions: 3)
+M13.4 · Physics-Informed Machine Learning: PINNs, Operator Learning & Conservation Laws — (sessions: 2)
+Session 1 · Physics-Informed Neural Networks (PINNs)
+- Formulate partial differential equations (PDEs) as loss regularizers: Burgers' equation, Navier-Stokes, and heat diffusion.
+- Implement Physics-Informed Neural Networks (PINNs, Raissi et al.): using autograd to compute exact spatial and temporal derivatives (du/dt, d^2u/dx^2).
+- Minimize the PDE residual loss L_residual = ||f(x, t; u)||^2 alongside empirical initial and boundary condition losses without requiring mesh generation.
+Session 2 · Neural Operators & Fourier Neural Operators (FNO)
+- Understand the limitation of standard PINNs: learning a single specific PDE solution rather than learning the general solution operator across arbitrary input fields.
+- Formulate Neural Operators (Li et al.): learning mappings between infinite-dimensional function spaces invariant to mesh discretization.
+- Implement Fourier Neural Operators (FNO): computing convolutions in Fourier space via Fast Fourier Transforms (FFT) for hyper-fast fluid simulation.
+Mental model: Standard ML fits curves to scattered data points; Physics-Informed ML constrains the curve to strictly satisfy the fundamental differential laws of the universe.
+Try: Implement a Physics-Informed Neural Network in PyTorch solving the 1D wave equation, computing exact second-order derivatives via autograd.
+Outcome: Implement Physics-Informed Neural Networks, enforce physical conservation laws in loss functions, and master Fourier Neural Operators.
 
-Analyze the Singular Value Decomposition (SVD) of fine-tuned weight differences: Delta W = U \Sigma V^T and analyze the rapid decay of singular values.
-Study Subspace Similarity: computing Grassmannian distance and principal angles between the subspaces spanned by LoRA matrices and full parameter update matrices.
-Investigate Rank Over-Allocation: what happens when rank r is chosen larger than the true intrinsic rank of the downstream adaptation task?
-Analyze which Transformer modules benefit most from low-rank adaptation: query/key/value attention projections versus MLP feedforward expansions.
-Study QLoRA (Dettmers et al.): NormalFloat4 (NF4) data type, Double Quantization (DQ), and Paged Optimizers to enable fine-tuning 70B models on single consumer GPUs.
-Outcome: compute the singular value spectrum of LoRA matrices across training checkpoints to empirically observe rank saturation and subspace alignment.
+M13.5 · Cross-Domain Transfer Learning: Adapting Foundation Models to Scientific Disciplines — (sessions: 2)
+Session 1 · Domain-Specific Continued Pre-Training
+- Adapt general foundation models to specialized scientific domains (medicine, climate modeling, chemistry, genomics) via continued domain pre-training.
+- Prevent catastrophic forgetting of general reasoning: blend domain-specific scientific corpora with 10-20% general instruction and math replay data.
+- Manage vocabulary adaptation: extending tokenizers with scientific nomenclature (SMILES chemical strings, genomic k-mers) without corrupting base embeddings.
+Session 2 · Multi-Task Scientific Benchmarking & Validation
+- Design domain-specific validation suites evaluating both statistical performance and physical plausibility (e.g., mass conservation, charge neutrality).
+- Conduct blinded expert evaluations with domain specialists (chemists, biologists, clinicians) to evaluate real-world utility beyond academic benchmarks.
+- Document scientific reproducibility artifacts: raw simulation data, random seeds, environmental parameters, and verified software container recipes.
+Mental model: Adapting a foundation model to science is not just teaching it vocabulary; it is teaching it to respect the non-negotiable invariants of physical reality.
+Try: Fine-tune a foundation model on a domain-specific scientific corpus with replay data, and verify that general reasoning benchmarks do not degrade.
+Outcome: Adapt foundation models to complex scientific domains, prevent catastrophic forgetting, and enforce domain-specific physical invariants.
 
-M13.3 · Catastrophic Forgetting & Continual Learning Dynamics — (sessions: 4)
+M13.6 · Capstone Project: Cross-Modal Scientific Discovery Pipeline with Domain Validation — (sessions: 3)
+Session 1 · Multimodal Architecture & Scientific Problem Formulation
+- Formulate a cross-modal scientific discovery task: linking a scientific modality (molecular structures, PDE fields, or protein sequences) to natural language.
+- Implement an end-to-end multimodal architecture in PyTorch featuring a domain-specific scientific encoder and a language reasoning backbone.
+- Train the projection adapter on paired scientific data using contrastive alignment and autoregressive scientific explanation objectives.
+Session 2 · Physical Verification, Benchmarking & Publication Drafting
+- Evaluate the model on downstream scientific discovery benchmarks, testing both predictive accuracy and physical invariant compliance.
+- Conduct an ablation study comparing specialized scientific pre-training against naive general-purpose baselines.
+- Author an interdisciplinary scientific research paper in LaTeX adhering to the standards of Nature Machine Intelligence or top-tier AI conferences.
+Mental model: The frontier of AI research is cross-disciplinary; the greatest impact emerges where deep learning principles interface with physical and biological science.
+Try: Execute the complete cross-modal scientific pipeline, generating molecular explanations from structural representations with verified chemical validity.
+Outcome: Design, train, and validate cross-modal foundation architectures for scientific discovery that integrate rigorous domain physics and biology.
 
-Define Catastrophic Forgetting (McCloskey & Cohen): the severe degradation of previously learned capabilities when a neural network is fine-tuned sequentially on new domains.
-Analyze the Stability-Plasticity Dilemma: balancing the acquisition of new knowledge (plasticity) against the retention of prior knowledge (stability).
-Study Continual Learning Methodologies:
-Session 1 · Regularization-Based Approaches
-Elastic Weight Consolidation (EWC, Kirkpatrick et al.): penalizing changes to parameters critical to past tasks using the diagonal of the empirical Fisher Information Matrix.
-Synaptic Intelligence and memory-aware synapses: tracking path integrals of parameter importance online during training.
-Session 2 · Replay and Memory-Based Approaches
-Experience Replay: storing a small buffer of exemplar data from earlier tasks and mixing them into current training batches.
-Generative Replay: using a generative model to produce synthetic samples of earlier tasks to interleave during adaptation.
-Session 3 · Parameter Isolation and Dynamic Expansion
-Progressive Neural Networks and modular parameter allocation: freezing old task sub-networks and adding new modules for novel tasks.
-Outcome: derive Elastic Weight Consolidation (EWC) mathematically using Laplace approximation of the posterior distribution and implement EWC loss in PyTorch.
-
-M13.4 · Model Merging, Weight Averaging & Task Arithmetic — (sessions: 3)
-
-Understand Model Merging: combining multiple independently fine-tuned models into a single multi-task model without access to original training data or additional gradient updates.
-Study Linear Weight Averaging: Stochastic Weight Averaging (SWA, Izmailov et al.) and Model Soups (Wortsman et al.) averaging checkpoints in flat loss basins.
-Master Task Arithmetic (Ilharco et al.): treating fine-tuned models as task vectors tau_t = W_fine-tuned - W_base, enabling task addition (multi-task combination) and task subtraction (unlearning concepts).
-Analyze Interference and Parameter Clash: when task vectors have conflicting gradient directions in overlapping parameter dimensions.
-Study Advanced Merging Algorithms:
-TIES-Merging (Yadav et al.): Trimming redundant small values, Resolving sign conflicts, and Merging aligned parameters.
-DARE (Drop And REscale, Yu et al.): extreme random sparsification of task vectors followed by rescaling to prevent representation collapse.
-Spherical Linear Interpolation (SLERP): interpolating weights along the geodesic of high-dimensional spheres rather than linear Euclidean interpolation.
-Outcome: implement Task Vector addition and TIES-Merging in Python, evaluating multi-task accuracy retention across independently fine-tuned checkpoints.
-
-M13.5 · Representation Drift & Mechanistic Effects of Post-Training — (sessions: 3)
-
-Investigate Representation Drift: analyzing how internal latent representations shift during fine-tuning, instruction tuning, and alignment.
-Study the "Surface Form Hypothesis" (Zhou et al., LIMA): hypothesis that pre-training learns virtually all factual knowledge and reasoning, while post-training primarily learns style, formatting, and interactive behavior.
-Measure Representation Drift using Centered Kernel Alignment (CKA) and Procrustes distance across pre-trained and fine-tuned layer activations.
-Analyze Weight Disentanglement: identifying whether post-training modifies core attention mechanisms or isolated late-layer projections.
-Examine Unlearning and Concept Erasure in Fine-Tuned Models: representation editing to remove copyrighted text, hazardous chemical knowledge, or personally identifiable information (PII).
-Outcome: measure the layer-wise CKA similarity between base and instruction-tuned model checkpoints to empirically test the Surface Form Hypothesis.
-
-M13.6 · Capstone: Empirical Study of Representation Drift and Subspace Conservation in LoRA vs Full Fine-Tuning — (sessions: 2)
-
-Design an empirical research experiment comparing parameter-efficient adaptation (LoRA) against full parameter fine-tuning on a specialized scientific or reasoning task.
-Fine-tune identical base foundation models using: (1) Full parameter fine-tuning, (2) LoRA with low rank (r=4), (3) LoRA with high rank (r=64), and (4) DoRA.
-Track training dynamics, validation loss, and task accuracy over identical training epochs.
-Evaluate Catastrophic Forgetting: measure accuracy drops on standard general-domain language benchmarks (MMLU, GSM8K, ARC) before and after domain adaptation.
-Compute Singular Value Decomposition (SVD) of weight update matrices Delta W for full fine-tuning and compare principal subspace overlap against the learned LoRA matrices using Grassmannian distance metrics.
-Perform Centered Kernel Alignment (CKA) across all Transformer layers to map exact representation drift across the network depth.
-Conduct Task Vector arithmetic: test whether subtracting the fine-tuned task vector cleanly reverses domain adaptation without damaging pre-trained general knowledge.
-Draft an academic research paper presenting singular value spectra, CKA drift heatmaps, forgetting benchmarks, and theoretical analysis of low-rank subspace conservation.
-Final result: a reproducible PEFT research benchmark codebase, evaluation notebook, and academic paper evaluating representation drift and forgetting dynamics.
-
-Level 13 completion outcome
-
-By the end of this level, you should be able to:
-
-Explain the Intrinsic Dimensionality hypothesis of deep neural network fine-tuning.
-Derive the Low-Rank Adaptation (LoRA) reparameterization Delta W = B * A.
-Explain the initialization scheme of LoRA and why it guarantees identity mapping at step zero.
-Formulate DoRA (Weight-Decomposed LoRA) and explain how magnitude-direction decoupling improves expressivity.
-Analyze the singular value spectrum of weight updates using Singular Value Decomposition (SVD).
-Explain the mechanics of QLoRA: NormalFloat4 (NF4) quantization, Double Quantization, and Paged Optimizers.
-Define catastrophic forgetting and state the stability-plasticity dilemma.
-Derive Elastic Weight Consolidation (EWC) using the Fisher Information Matrix and Laplace approximation.
-Explain the mechanics of Task Vector arithmetic: task addition, task subtraction, and unlearning.
-Implement TIES-Merging and DARE to resolve parameter sign conflicts when merging multi-task models.
-Explain the Surface Form Hypothesis and its implications for instruction fine-tuning datasets.
-Measure representation drift across fine-tuning checkpoints using Centered Kernel Alignment (CKA).
-Evaluate the trade-off between domain specialization and general-purpose knowledge retention.
-Progression: Parameter-Efficient Fine-Tuning & LoRA → Spectral Analysis & Subspace Geometry → Catastrophic Forgetting & Continual Learning → Model Merging & Task Arithmetic → Representation Drift Science → LoRA vs Full Tuning Capstone.
+CAPSTONE PROJECT: Cross-Modal Scientific Discovery Pipeline with Domain Validation
+BRIEF: Implement an end-to-end multimodal deep learning pipeline in PyTorch that connects a scientific modality (e.g., molecular SMILES graphs or biological sequences) to natural language descriptions, train the projection architecture with contrastive alignment and generative modeling, and validate predictions against physical/chemical ground truth.
+Build a scientific multimodal testbed that:
+- Implements a domain-specific scientific encoder (e.g., Graph Neural Network for molecules or 1D Transformer for biological sequences) from scratch.
+- Implements a modern language model backbone equipped with a cross-modal projection adapter (linear or Perceiver Resampler).
+- Trains the joint architecture on paired scientific data (e.g., molecule-description pairs or protein-function annotations) using a two-stage training curriculum.
+- Implements both contrastive alignment (SigLIP loss) and generative autoregressive captioning/prediction losses.
+- Enforces domain-specific physical/biological validity constraints (e.g., chemical valency checks via RDKit or structural plausibility).
+- Benchmarks retrieval accuracy (Recall@1, Recall@5) and generative explanation fidelity against competitive domain baselines.
+- Conducts an ablation study evaluating the impact of the projection architecture, freeze-strategy, and domain continued pre-training.
+- Emits formatted LaTeX tables, chemical/biological visualization figures, and cross-modal attention alignment heatmaps.
+Deliverables:
+- Modular Python repository containing models/scientific_encoder.py, models/multimodal_projector.py, and eval/domain_validation.py.
+- Publication-quality vector figures (PDF) illustrating cross-modal embedding geometry and generated scientific prediction alignments.
+- Complete 5-page research paper PDF formatted in LaTeX detailing the cross-modal architecture, empirical results, and domain validation.
+Outcome: You can pioneer cross-modal AI architectures for scientific discovery, uniting modern deep learning foundations with real-world physical and biological domains.

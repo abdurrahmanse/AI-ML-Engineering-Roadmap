@@ -1,60 +1,69 @@
-Level 14 · Research Projects & Scientific Reproduction
+Level 14 · Comprehensive Research Capstones
 
-Scope: rigorous empirical research artifacts that compose earlier theoretical and practical levels. Execute conference-grade research experiments, reproducing seminal results, testing novel algorithmic hypotheses, and producing publication-quality scientific reports.
-Prerequisites: Level 3 (Transformers), Level 6 (Reasoning), Level 8 (Alignment), Level 11 (Diffusion), Level 12 (Multimodal)
+Phase: Frontier, Alignment & Thesis
+Suggested duration: 25 sessions (~6 weeks)
+Prerequisites: Level 4 (Prototyping), Level 7 (RL & Search), Level 8 (Benchmarks), Level 9 (HPC), Level 11 (Interpretability), Level 12 (Alignment)
+Scope: Execute seven end-to-end, conference-grade research projects embodying the complete lifecycle of MSc/PhD dissertation chapters and flagship submissions to premier AI/ML venues (NeurIPS, ICML, ICLR, CVPR, ACL).
 
-P14.1 · Self-Supervised Representation Reproduction on Scientific Domains — (sessions: 3)
+P14.1 · Flagship Project 1: Rigorous Reproduction of a Top-Tier Conference Paper — (sessions: 3)
+Select a seminal, highly cited paper published within the last 24 months in a top-tier machine learning conference (NeurIPS, ICML, ICLR).
+Re-implement the core model architecture, custom loss functions, and data preprocessing pipelines from scratch in PyTorch without copying official source code.
+Execute the full experimental training suite under strictly identical hyperparameter budgets, hardware settings, and random seeds.
+Identify unstated implementation tricks, missing mathematical assumptions, or discrepancies between reported paper metrics and empirical reproduction results.
+Perform an ablation study evaluating the sensitivity of the reproduced method to learning rate schedules, seed variation, and batch size scaling.
+Author a formal scientific reproduction report adhering to the NeurIPS Reproducibility Challenge guidelines, complete with verified code release.
+Outcome: A scientifically verified reproduction codebase and comprehensive artifact report validating or disputing published claims.
 
-Implement and reproduce a seminal self-supervised learning architecture (SimCLR or Masked Autoencoder) on an unlabelled scientific benchmark.
-Construct a rigorous data augmentation pipeline tailored to the domain, verifying invariance properties.
-Execute linear probing evaluations on extracted representations, tracking validation classification accuracy against fully supervised baselines.
-Perform Centered Kernel Alignment (CKA) and t-SNE / UMAP latent space projections to probe representation geometry across network depth.
-Outcome: a verified reproduction repository and empirical ablation report demonstrating high-fidelity latent representations without supervision.
+P14.2 · Flagship Project 2: Novel Sequence Architecture with Empirical Scaling Analysis — (sessions: 4)
+Design and implement an innovative sequence modeling architecture uniting sub-quadratic State Space Models (Mamba) with local self-attention mechanisms.
+Derive the analytical time and memory complexity of the proposed hybrid architecture, proving linear or near-linear scaling with sequence length.
+Pre-train a family of models across multiple compute budgets (10M to 250M parameters) on standardized multi-domain text corpora on an HPC cluster.
+Fit empirical Chinchilla scaling laws to quantify compute-optimal parameter and token allocations for the proposed hybrid architecture.
+Evaluate associative recall and long-context reasoning using synthetic needle-in-a-haystack and real-world long-context document understanding benchmarks.
+Profile hardware execution: measure Model FLOPs Utilization (MFU), peak VRAM consumption, and wall-clock inference latency up to 64k tokens.
+Outcome: A novel, fully benchmarked sequence model architecture accompanied by empirical scaling curves and compute efficiency analyses.
 
-P14.2 · Architectural Benchmark: Sub-Quadratic State Space vs Attention Hybrid — (sessions: 3)
+P14.3 · Flagship Project 3: Decontaminated Domain Benchmark with Human Agreement Calibration — (sessions: 4)
+Curate a novel, multi-task domain-specific evaluation benchmark dataset comprising at least 500 challenging multi-step reasoning instances.
+Author a rigorous annotation codebook, conduct multi-annotator human evaluation, and verify statistical reliability (Krippendorff’s alpha > 0.80).
+Build an automated 13-gram contamination detection scanner using suffix arrays to verify zero overlap with standard open-source pre-training corpora.
+Evaluate a comprehensive suite of proprietary and open-source foundation models under standardized zero-shot and few-shot prompting conditions.
+Implement a bidirectional LLM-as-a-Judge pipeline, calibrating automated scores against human expert consensus via Kendall’s tau and Spearman rank correlation.
+Format all dataset artifacts with Datasheets for Datasets documentation and release clean evaluation harnesses on Hugging Face Datasets.
+Outcome: A pristine, decontaminated domain benchmark established as an open-source evaluation standard for the research community.
 
-Design, implement, and benchmark a hybrid architecture combining local self-attention with Mamba selective state space layers.
-Evaluate long-context associative recall on needle-in-a-haystack synthetic probes and standard language modeling benchmarks.
-Profile wall-clock inference latency, KV cache memory footprint, and training throughput (TFLOPs/s) across sequence lengths from 2K to 64K tokens.
-Analyze the trade-offs between linear state space efficiency and multi-head attention associative recall accuracy.
-Outcome: a clean PyTorch implementation and empirical benchmark paper characterizing the Pareto frontier of hybrid sequence models.
+P14.4 · Flagship Project 4: Mechanistic Circuit Investigation & Steering in Frontier LLMs — (sessions: 3)
+Select a complex, non-trivial capability in an open-weight foundation model (e.g., indirect object identification, counterfactual reasoning, or sycophancy).
+Apply causal activation patching across all layers and token positions to map the exact minimal computational circuit mediating the target capability.
+Deconstruct mediating attention heads into mathematically formulated QK addressing circuits and OV information-routing circuits.
+Train an overcomplete Sparse Autoencoder (SAE) with L1 regularization on the critical bottleneck layer, extracting monosemantic feature dictionaries.
+Extract contrastive activation steering vectors and demonstrate targeted behavioral steering during generation without degrading general language perplexity.
+Author an interactive research report featuring causal circuit wiring diagrams, activation heatmaps, and mechanistic ablation proofs.
+Outcome: An end-to-end mechanistic interpretability discovery identifying the internal computational circuit and demonstrating precise latent steering.
 
-P14.3 · Scalable Synthetic Data Engine with Step-Level Symbolic Verification — (sessions: 3)
+P14.5 · Flagship Project 5: Continuous Flow Matching Diffusion Model for Scientific Modalities — (sessions: 4)
+Formulate and implement a continuous-time Optimal Transport Conditional Flow Matching (OT-CFM) generative model on a complex scientific modality.
+Implement a modern Diffusion Transformer (DiT) velocity backbone with adaptive layer normalization conditioning and classifier-free guidance.
+Construct straight-line probability paths between standard Gaussian priors and complex empirical data manifolds.
+Implement accelerated adaptive ODE numerical solvers (Runge-Kutta 4, midpoint) achieving high-fidelity generation in 15 to 25 steps.
+Evaluate generative distribution quality rigorously using clean Fréchet Inception Distance (FID), Precision, Recall, and trajectory curvature metrics.
+Benchmark generation speed, kinetic energy dissipation, and sample diversity against classical DDPM and score-based SDE baselines.
+Outcome: A state-of-the-art continuous flow matching framework with publication-quality distribution metrics and accelerated numerical sampling.
 
-Build an automated synthetic data curation engine that generates complex multi-step reasoning traces paired with automated symbolic verification.
-Implement execution-based verifiers (Python interpreters and formal logic solvers) to validate intermediate reasoning steps deterministically.
-Fine-tune a smaller student foundation model on the curated synthetic dataset, measuring task accuracy gains while monitoring for model collapse.
-Conduct ablation studies on data filtering thresholds, generation diversity parameters, and verification pass rates.
-Outcome: an end-to-end synthetic dataset generation pipeline and fine-tuned student checkpoint demonstrating empirical reasoning improvements.
+P14.6 · Flagship Project 6: Preference Optimization Regularization with Spectral Analysis — (sessions: 3)
+Formulate a novel regularization objective for Direct Preference Optimization (DPO) that penalizes rank collapse in the weight update matrix Delta W.
+Implement the spectral regularization algorithm in PyTorch, applying low-rank Singular Value Decomposition (SVD) constraints during preference tuning.
+Train a foundation model on challenging conversational preference datasets, monitoring implicit reward margins and policy KL divergence.
+Audit downstream performance: evaluate retention of mathematical reasoning, coding abilities, and factual truthfulness, quantifying the alignment tax.
+Perform singular value spectral decomposition on weight deltas to verify that foundational pre-trained feature representations remain uncorrupted.
+Conduct red-teaming audits to prove enhanced resistance to reward hacking, sycophancy, and adversarial jailbreak perturbations.
+Outcome: A novel preference optimization methodology published with mathematical derivations, empirical proofs, and spectral analysis.
 
-P14.4 · Mechanistic Dissection of In-Context Learning Circuits — (sessions: 2)
-
-Apply mechanistic interpretability techniques to locate, isolate, and analyze induction heads and attention circuits in an open-weight foundation model.
-Perform activation patching and path patching across attention layers to identify the exact causal circuit responsible for multi-token in-context retrieval.
-Extract concept steering vectors and test whether intervening on specific attention head outputs modulates target reasoning capabilities.
-Train a Sparse Autoencoder (SAE) on intermediate MLP activations to isolate monosemantic features associated with the identified circuit.
-Outcome: an interactive mechanistic interpretability notebook and circuit diagram report detailing the causal mechanics of in-context retrieval.
-
-P14.5 · Continuous Optimal Transport Flow Matching on Complex Manifolds — (sessions: 3)
-
-Train a continuous-time Flow Matching generative model with optimal transport displacement paths on scientific dynamical systems or image datasets.
-Implement adaptive layer normalization conditioning and a Diffusion Transformer (DiT) velocity backbone.
-Compare ODE integration trajectories and sample quality against standard Denoising Diffusion Probabilistic Models (DDPM) across 4, 10, and 50 sampling steps.
-Evaluate generative fidelity using Fréchet Inception Distance (FID) and trajectory kinetic energy integrals.
-Outcome: a high-performance flow matching training and sampling codebase with empirical benchmarks confirming straight-line velocity trajectories.
-
-P14.6 · Robust Preference Optimization with Spectral SVD Regularization — (sessions: 2)
-
-Implement Direct Preference Optimization (DPO) augmented with low-rank singular value decomposition (SVD) constraints on weight update matrices.
-Evaluate alignment performance on conversational preference benchmarks (MT-Bench, AlpacaEval) while tracking general-domain benchmark retention.
-Perform spectral analysis of weight update matrices Delta W to confirm preservation of pre-trained feature subspaces during preference optimization.
-Measure resistance to reward hacking and sycophancy compared to standard unconstrained DPO and PPO baselines.
-Outcome: a custom alignment training script and research report evaluating spectral constraints in preference optimization.
-
-P14.7 · Research Paper Draft, Code Release & Reproducibility Suite — (sessions: 2)
-
-Format empirical research findings into a complete, conference-ready scientific paper using the standard LaTeX template (NeurIPS / ICML / ICLR).
-Structure the paper following best academic practices: Introduction, Related Work, Methodological Formulation, Experimental Setup, Results & Discussion, and Limitations.
-Package the codebase into a clean, public GitHub repository with Dockerized environment configs, pinned dependencies, model weights, and reproduction scripts.
-Include detailed documentation of compute resources, random seeds, hyperparameters, negative results, and failure modes to ensure gold-standard reproducibility.
-Outcome: a polished, peer-review-ready academic paper draft and public reproducibility repository ready for conference submission.
+P14.7 · Flagship Project 7: End-to-End Conference Submission: Paper, Codebase & Data Release — (sessions: 4)
+Synthesize empirical discoveries from one of the preceding flagship projects into a full 9-page conference paper manuscript in LaTeX (NeurIPS/ICML format).
+Draft all required paper sections: Abstract, Introduction, Related Work Taxonomy, Mathematical Methodology, Experimental Setup, Results, Ablations, and Limitations.
+Design publication-quality vector figures (using TikZ, Matplotlib/Seaborn science themes, and Illustrator) depicting architecture, scaling, and circuits.
+Package the complete research codebase into a public GitHub repository with Dockerized environment manifests, pre-trained weights, and automated tests.
+Draft an exhaustive reproducibility checklist detailing compute resources, random seeds, hyperparameter search grids, and negative findings.
+Simulate a formal conference submission package ready for submission to OpenReview with anonymized review-ready artifacts.
+Outcome: A complete, publication-grade academic conference submission package ready for submission to a premier peer-reviewed AI venue.

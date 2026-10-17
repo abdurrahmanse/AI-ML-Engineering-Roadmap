@@ -1,91 +1,101 @@
-Level 12 · Multimodal & Cross-Modal Representation Research
+Level 12 · AI Alignment, Safety & Ethical Research
 
-Scope: investigate representation learning across perceptual modalities: contrastive vision-language alignment, visual tokenization, autoregressive multimodal foundation architectures, cross-attention fusion, speech representations, and video latent dynamics.
+Phase: Frontier, Alignment & Thesis
+Suggested duration: 13 sessions (~3 weeks)
+Prerequisites: Level 11 (Mechanistic Interpretability & Model Analysis)
+Scope: Master the mathematical derivations, empirical algorithms, and ethical methodologies of AI alignment: preference modeling (Bradley-Terry, RLHF, DPO, KTO), reward gaming and Goodhart's law, adversarial robustness (PGD, GCG attacks), algorithmic fairness audits, and AI safety governance frameworks.
 
-Prerequisites: Level 11
+M12.1 · Preference Modeling Derivations: Bradley-Terry, RLHF & Direct Preference Optimization (DPO) — (sessions: 2)
+Session 1 · Reward Modeling & The Bradley-Terry Formulation
+- Formalize human preference datasets D = {(x, y_w, y_l)} where y_w is the preferred completion and y_l is the dispreferred completion.
+- Formulate the Bradley-Terry preference model: P(y_w \succ y_l | x) = \sigma(r(x, y_w) - r(x, y_l)).
+- Train deep Reward Models (RMs) by minimizing the negative log-likelihood of pairwise preferences with margin regularizers.
+Session 2 · Direct Preference Optimization (DPO) Closed-Form Derivation
+- Analyze the classical RLHF pipeline (PPO with frozen reference policy KL penalties) and identify its complexity and training instability.
+- Derive Direct Preference Optimization (DPO, Rafailov et al.) analytically: express the optimal reward implicitly as r(x, y) = \beta \log (\pi_\theta(y|x) / \pi_{ref}(y|x)).
+- Implement the DPO loss objective without training an explicit reward model or sampling actions via reinforcement learning.
+Mental model: DPO proves that an optimal policy implicitly defines its own reward function, turning unstable RLHF into stable binary cross-entropy optimization.
+Try: Derive the DPO loss gradient analytically with respect to model parameters, and implement the DPO loss function in PyTorch with numerical stability clamps.
+Outcome: Derive and implement state-of-the-art preference optimization algorithms (Reward Modeling, RLHF, DPO, KTO) from first principles.
 
-M12.1 · Contrastive Vision-Language Alignment: CLIP & SigLIP — (sessions: 3)
+M12.2 · Reward Over-Optimization, Sycophancy & Goodhart’s Law in Language Models — (sessions: 2)
+Session 1 · Reward Over-Optimization & Goodhart's Law
+- Understand Goodhart’s Law in AI alignment: when a proxy reward model becomes the optimization target, it ceases to be a reliable measure of true quality.
+- Quantify reward over-optimization: measure the divergence between proxy reward and true human preference as KL divergence from the base model increases.
+- Analyze the "Alignment Tax": the degradation of mathematical reasoning, coding capability, or linguistic diversity resulting from aggressive preference tuning.
+Session 2 · Sycophancy & Hallucination Exploitation
+- Define sycophancy in aligned models: the tendency of language models to echo and validate false user assertions to maximize superficial agreeableness.
+- Construct synthetic contrastive sycophancy datasets evaluating model adherence to factual truth when contradicted by authoritative user prompts.
+- Mitigate sycophantic behavior using targeted preference tuning and negative activation steering in the residual stream.
+Mental model: Optimizing aggressively against a proxy reward produces a model that flatters the rater rather than speaking the objective truth.
+Try: Evaluate an aligned model on a sycophancy probe dataset, measure the percentage of false user statements validated by the model, and implement a corrective DPO fine-tune.
+Outcome: Diagnose and quantify reward over-optimization, measure the alignment tax, and eliminate sycophancy in preference-tuned models.
 
-Understand multimodal alignment: mapping heterogeneous data modalities (images and text) into a shared semantic latent space.
-Master CLIP (Contrastive Language-Image Pre-Training, Radford et al.): dual-encoder architecture (Vision Transformer image encoder + Transformer text encoder).
-Analyze the symmetric InfoNCE loss function: maximizing cosine similarity of matched image-text pairs along the diagonal while penalizing off-diagonal pairs.
-Study Zero-Shot Classification via CLIP: constructing prompt templates ("a photo of a {label}"), encoding candidate text labels, and computing cosine classification probabilities.
-Master SigLIP (Sigmoid Loss for Language Image Pre-Training, Zhai et al.): replacing the global Softmax normalization with pairwise sigmoid loss.
-Analyze the benefits of SigLIP: eliminating the global all-gather communication bottleneck across distributed GPUs, enabling larger batch sizes and stable scaling.
-Examine Modality Gap (Liang et al.): the geometric phenomenon where image embeddings and text embeddings occupy completely disjoint cones in latent space.
-Outcome: derive SigLIP loss mathematically and train a dual-encoder vision-language model with contrastive alignment on image-text pairs.
+M12.3 · Adversarial Robustness: Projected Gradient Descent (PGD), GCG Attacks & Red-Teaming — (sessions: 2)
+Session 1 · Adversarial Attacks on Continuous Representations
+- Formulate adversarial perturbations as constrained optimization: \max_{||\delta|| \le \epsilon} L(\theta, x + \delta, y).
+- Implement the Fast Gradient Sign Method (FGSM) and multi-step Projected Gradient Descent (PGD) with projection back onto the L-infinity epsilon ball.
+- Understand adversarial training (Madry et al.): formulating the min-max robust optimization game to learn robust representations.
+Session 2 · Discrete Token Jailbreaks & Red-Teaming Protocols
+- Master discrete adversarial optimization against aligned language models: Greedy Coordinate Gradient (GCG, Zou et al.) attack suffixes.
+- Analyze universal adversarial triggers: transferability of adversarial suffix tokens across disparate open-source and proprietary foundation models.
+- Structure systematic red-teaming methodologies: automated red-teaming with adversarial LLMs, threat modeling, and defense mechanisms (perplexity filtering).
+Mental model: Adversarial attacks reveal the non-robust, brittle shortcuts learned by deep networks; robustness requires closing off unconstrained gradient directions.
+Try: Implement a PGD attack on a neural classifier in PyTorch, measure accuracy degradation, and verify robustness recovery through adversarial training.
+Outcome: Formulate adversarial attacks, implement PGD and discrete token jailbreaks, and design defensive adversarial training protocols.
 
-M12.2 · Visual Tokenization & Discrete Representation Learning — (sessions: 4)
+M12.4 · Algorithmic Fairness: Demographic Parity, Equalized Odds & Auditing Disparities — (sessions: 2)
+Session 1 · Mathematical Definitions of Algorithmic Fairness
+- Formalize core fairness criteria: Demographic Parity (P(\hat{Y}=1 | A=0) = P(\hat{Y}=1 | A=1)), Equal Opportunity, and Equalized Odds.
+- Prove the Impossibility Theorem of Fairness (Kleinberg et al.): Demographic Parity, Equalized Odds, and Predictive Parity cannot be satisfied simultaneously.
+- Measure bias in natural language models: gender/racial bias in word embeddings (WEAT), stereotypical association tests, and disparate impact ratios.
+Session 2 · Fairness Interventions & Algorithmic Auditing
+- Categorize bias mitigation interventions: pre-processing (re-weighing, data re-sampling), in-processing (adversarial debiasing), and post-processing (threshold tuning).
+- Conduct systematic algorithmic fairness audits on production models, quantifying performance disparities across sensitive intersectional demographic groups.
+- Document algorithmic impact assessments and author comprehensive Model Cards (Mitchell et al.) detailing intended scope and fairness benchmarks.
+Mental model: Fairness metrics mathematically conflict; an ethical researcher must explicitly choose and defend which fairness trade-off fits the domain.
+Try: Audit a predictive model for disparate impact across demographic subgroups, calculate Equalized Odds ratios, and implement an in-processing debiasing constraint.
+Outcome: Apply mathematical definitions of algorithmic fairness, audit deep learning models for demographic disparities, and implement debiasing interventions.
 
-Understand the difference between continuous visual representations (patches) and discrete visual tokens.
-Master the Vision Transformer (ViT, Dosovitskiy et al.): image patch extraction (e.g. 16x16 pixels), linear patch projection, learnable class token [CLS], and 2D positional encodings.
-Study Vector-Quantized Variational Autoencoders (VQ-VAE, Van den Oord et al.): continuous encoder, discrete codebook discretization via nearest-neighbor vector quantization, and straight-through estimator (STE).
-Master VQ-GAN (Esser et al.): augmenting VQ-VAE with adversarial perceptual loss and patch-based discriminator to generate crisp high-frequency textures without blurriness.
-Explore Continuous Patch Tokenization vs Discrete Tokens: analyzing why modern Vision-Language Models (VLMs) favor continuous patch representations over discrete codebooks.
-Analyze High-Resolution Image Processing: dynamic tiling, patch cropping, and spatial aspect-ratio preserving grids in modern Large Multimodal Models (LMMs).
-Outcome: implement a discrete vector quantization layer with Straight-Through Estimator (STE) gradient copying in PyTorch.
+M12.5 · AI Governance & Research Ethics: Institutional Review Boards, Dual-Use & Safety Charters — (sessions: 2)
+Session 1 · Research Ethics & Institutional Review
+- Navigate academic research ethics and Institutional Review Board (IRB) protocols for human-subject data collection and crowdsourced annotation.
+- Evaluate dual-use hazards in AI research: autonomous cyber-offensive tooling, chemical/biological weapon synthesis risk, and automated disinformation pipelines.
+- Apply the Menlo Report and Belmont Report principles (beneficence, justice, respect for persons) to AI/ML research methodologies.
+Session 2 · Responsible Disclosure & Safety Governance
+- Establish responsible vulnerability disclosure protocols for newly discovered model jailbreaks, security bypasses, and data extraction vectors.
+- Understand international AI regulatory frameworks (EU AI Act risk classifications, US Executive Orders, Frontier Model Safety Charters).
+- Implement tiered model release strategies: gated access, safety evaluation milestones, and model weight watermarking.
+Mental model: Cutting-edge scientific power brings severe societal responsibility; ethical researchers evaluate dual-use consequences before training begins.
+Try: Author a dual-use risk assessment and mitigation framework for a hypothetical frontier foundation model capability release.
+Outcome: Navigate scientific research ethics, conduct dual-use risk assessments, and establish responsible disclosure and governance policies.
 
-M12.3 · Vision-Language Foundation Models & Multimodal Adapters — (sessions: 4)
+M12.6 · Capstone Project: Preference Alignment & Adversarial Jailbreak Vulnerability Audit — (sessions: 3)
+Session 1 · Preference Dataset Construction & DPO Alignment
+- Construct a curated pairwise preference dataset containing nuanced safety, helpfulness, and factual truthfulness examples.
+- Implement and execute a complete Direct Preference Optimization (DPO) fine-tuning pipeline on an open-source instruction model.
+- Monitor implicit reward margins, KL divergence from the reference policy, and verify the absence of reward over-optimization.
+Session 2 · Automated Red-Teaming & Adversarial Robustness Audit
+- Deploy an automated red-teaming harness executing Greedy Coordinate Gradient (GCG) attacks and semantic jailbreak prompts against the aligned model.
+- Measure Attack Success Rate (ASR) across both standard prompting and adversarial suffixes, quantifying robustness gains from alignment.
+- Author an academic safety paper in LaTeX detailing preference tuning dynamics, the alignment tax, and red-teaming vulnerability audits.
+Mental model: True alignment is not superficial compliance; it is robust stability that holds even when an adversary attacks the model with optimized gradients.
+Try: Align a language model using DPO, subject it to an automated GCG jailbreak attack suite, and demonstrate a 70% reduction in attack success rate.
+Outcome: Design, implement, and audit state-of-the-art preference alignment and adversarial defenses with publication-grade scientific rigor.
 
-Analyze the architectural taxonomy of modern Vision-Language Models:
-Session 1 · Projection Adapters & Architecture Design
-Dual-encoder alignment (CLIP style) versus unified autoregressive multimodal generation (LLaVA, Flamingo, PaLM-E).
-Linear Projections and Multi-Layer Perceptrons (MLP adapters, LLaVA, Liu et al.): projecting visual patch tokens directly into the LLM text token embedding space.
-Cross-Attention Architectures (Flamingo, Alayrac et al.): gated cross-attention layers interleaved within frozen language model Transformer blocks.
-Resamplers and Bottlenecks (Q-Former in BLIP-2, Perceiver Resampler): using fixed-size query tokens to compress variable-length visual patches into a fixed number of tokens.
-Session 2 · Training Curricula for LMMs
-Stage 1: Pre-training for feature alignment on massive image-caption pairs (training only the projection adapter while keeping vision encoder and LLM frozen).
-Stage 2: Visual Instruction Tuning (fine-tuning the projection adapter and LLM on detailed multi-turn visual conversations, visual reasoning, and QA).
-Session 3 · Multimodal Hallucinations & Spatial Grounding
-Analyze Object Hallucination in LMMs: models claiming non-existent objects exist in images due to language prior bias overpowering visual features (POPE benchmark).
-Study Spatial Grounding and Coordinate Modeling: bounding box prediction ([x_min, y_min, x_max, y_max] normalized coordinates), visual pointing, and region-of-interest tokens.
-Outcome: implement an MLP projection adapter connecting a pre-trained Vision Transformer to an open-weight language model and perform end-to-end forward generation.
-
-M12.4 · Audio, Speech & Continuous Representation Research — (sessions: 3)
-
-Understand acoustic representations: audio waveforms, Fourier transforms, Short-Time Fourier Transform (STFT), and Mel-frequency spectrograms.
-Study Self-Supervised Speech Representation: wav2vec 2.0 (Baevski et al.), masked acoustic modeling, and contrastive loss over quantized latent representations.
-Master Whisper (Radford et al.): weakly supervised encoder-decoder Transformer trained on 680,000 hours of multilingual audio for robust speech-to-text transcription.
-Analyze Continuous Acoustic Tokenization: SoundStream and EnCodec (Défossez et al.), Residual Vector Quantization (RVQ), and neural audio codecs.
-Explore Speech-Language Foundation Models: unified tokenization of speech and text, zero-shot voice cloning, and real-time duplex speech generation.
-Outcome: implement a Mel-spectrogram feature extractor and inspect phonetic representations extracted from intermediate layers of a pre-trained speech model.
-
-M12.5 · Video Representation Learning & Spatiotemporal Dynamics — (sessions: 3)
-
-Understand the spatiotemporal challenges of video modeling: adding the temporal dimension T expands data dimensionality and computational complexity quadratically.
-Study Spatiotemporal Attention: factorized space-time attention (TimeSformer, Bertasius et al., Video Swin Transformer) separating spatial attention within frames from temporal attention across frames.
-Analyze 3D VAEs and Video Diffusion: inflating 2D spatial convolutions and attention layers to 3D spatiotemporal blocks for video generation (Sora, VideoLDM).
-Study Causal Video Tokenization: maintaining temporal causality so future frames cannot leak information into past frame token representations.
-Analyze Long-Form Video Understanding: memory caching, temporal pooling, and sparse sampling techniques to reason over hour-long video contexts.
-Outcome: implement factorized space-time self-attention in PyTorch and verify computational memory savings compared to full joint space-time attention.
-
-M12.6 · Capstone: Train a Vision-Language Adapter (LLaVA-Style) with Visual Grounding and Hallucination Probing — (sessions: 2)
-
-Build an end-to-end Large Multimodal Model (LMM) pipeline by training a vision-language projection adapter connecting a frozen Vision Transformer (CLIP-ViT) to a frozen decoder language model.
-Implement a two-layer MLP projection adapter with GELU non-linearity to align visual patch tokens with the language model embedding dimension.
-Curate an image-instruction dataset (e.g. LLaVA-Instruct subset or ChartQA/VQA subset) with conversational visual question answering examples.
-Execute Stage 1 Feature Alignment: train the projection adapter on image-caption pairs using autoregressive language modeling loss with frozen vision and LLM weights.
-Execute Stage 2 Visual Instruction Tuning: fine-tune the adapter and top Transformer layers of the LLM on multimodal instruction data.
-Conduct an empirical study on Multimodal Object Hallucination using the POPE (Polling-based Object Probing Evaluation) benchmark: measure precision, recall, and F1 across random, popular, and adversarial negative object questions.
-Implement attention rollout or cross-modal attention attribution to visualize which visual image patches the language model attends to when generating factual responses.
-Draft an academic research paper documenting the architecture, multimodal alignment loss dynamics, hallucination benchmark results, and attention heatmaps.
-Final result: a working vision-language foundation model checkpoint, training codebase, and research paper analyzing multimodal alignment and hallucination dynamics.
-
-Level 12 completion outcome
-
-By the end of this level, you should be able to:
-
-Formulate the contrastive vision-language alignment objective of CLIP.
-Derive SigLIP loss and explain how pairwise sigmoid loss eliminates all-gather communication bottlenecks.
-Explain the Modality Gap phenomenon in joint multimodal representation spaces.
-Implement the Vision Transformer (ViT) patch extraction and linear projection mechanics.
-Explain the Vector-Quantized VAE (VQ-VAE) codebook mechanism and the Straight-Through Estimator.
-Contrast linear projection adapters (LLaVA style) with cross-attention architectures (Flamingo style).
-Design a two-stage training curriculum for Large Multimodal Models (alignment followed by instruction tuning).
-Explain the root causes of visual object hallucination in vision-language models.
-Formulate spatial grounding using normalized coordinate tokens in language models.
-Transform raw audio waveforms into Mel-spectrograms and explain the wav2vec 2.0 self-supervised objective.
-Explain Residual Vector Quantization (RVQ) used in modern neural audio codecs.
-Implement factorized spatiotemporal attention for video understanding.
-Evaluate vision-language models on visual reasoning and object hallucination benchmarks (POPE, VQA).
-Progression: Contrastive Multimodal Alignment (CLIP/SigLIP) → Visual Tokenization & ViT → Large Multimodal Models (LLaVA/Flamingo) → Speech & Audio Representations → Video Spatiotemporal Dynamics → Vision-Language Adapter Capstone.
+CAPSTONE PROJECT: Preference Alignment & Adversarial Jailbreak Vulnerability Audit
+BRIEF: Implement a complete Direct Preference Optimization (DPO) pipeline in PyTorch to align an open-source model toward helpfulness and safety, evaluate the alignment tax across downstream benchmarks, and conduct an automated adversarial red-teaming audit using GCG attacks.
+Build an alignment & safety testbed that:
+- Curates a clean pairwise preference dataset (at least 1,000 pairs) balancing helpfulness, refusal of harmful requests, and resistance to sycophancy.
+- Implements the Direct Preference Optimization (DPO) loss function with explicit reference policy caching and numerical logit clamping.
+- Trains the model with DPO, tracking implicit reward margins r(x, y_w) - r(x, y_l) and policy KL divergence over training steps.
+- Evaluates the "Alignment Tax": measures pre- and post-alignment accuracy on benchmark reasoning and coding tasks (e.g., GSM8K or HumanEval).
+- Implements an automated red-teaming framework generating both manual semantic jailbreaks and gradient-based adversarial attack suffixes (GCG).
+- Quantifies Attack Success Rate (ASR) across multiple adversarial perturbation budgets and evaluates the robustness of the aligned policy.
+- Audits the model for algorithmic sycophancy, measuring its resistance to false user assertions before and after alignment.
+- Emits publication-ready LaTeX tables, loss trajectory plots, and vulnerability distribution charts.
+Deliverables:
+- Modular Python repository containing align/dpo_trainer.py, attack/gcg_optimizer.py, and audit/safety_eval.py.
+- Publication-quality vector plots (PDF) depicting reward margin growth, KL divergence trajectories, and adversarial Attack Success Rates.
+- Complete 5-page research workshop paper PDF formatted in LaTeX detailing the alignment methodology and security audit findings.
+Outcome: You can formulate, execute, and empirically audit frontier AI alignment pipelines and rigorously test systems against adversarial vulnerabilities.
