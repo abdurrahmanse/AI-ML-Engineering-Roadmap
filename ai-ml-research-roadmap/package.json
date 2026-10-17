@@ -1,7 +1,7 @@
 {
-  "name": "ai-engineering-roadmap",
+  "name": "ai-ml-research-roadmap",
   "version": "1.0.0",
-  "description": "Visual 15-level AI Engineering roadmap for AbdurRahman",
+  "description": "Visual 16-level AI/ML Research Roadmap for AbdurRahman",
   "scripts": {
     "parse": "node scripts/parse-levels.mjs && node scripts/sign-topics.mjs",
     "dev": "npm run parse && astro dev",

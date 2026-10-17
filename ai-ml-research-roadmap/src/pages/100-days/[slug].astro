@@ -65,8 +65,8 @@ const asModule = (u: Unit): Module => ({
 });
 
 const unitCount = mod.units.length;
-const title = `Module ${mod.number} · ${mod.title} — 100 Days of AI Engineering`;
-const description = `${dayRange(mod.days)} of 100 Days of AI Engineering. ${mod.summary}`.slice(0, 300);
+const title = `Module ${mod.number} · ${mod.title} — 100 Days of AI/ML Research`;
+const description = `${dayRange(mod.days)} of 100 Days of AI/ML Research. ${mod.summary}`.slice(0, 300);
 ---
 
 <Base title={title} description={description} page="days_module">
@@ -79,7 +79,7 @@ const description = `${dayRange(mod.days)} of 100 Days of AI Engineering. ${mod.
     <header class="dh">
       <div class="wrap dh__inner">
         <div class="dh__crumbs">
-          <a href={`${DAYS_BASE}/`} class="dh__crumb">100 Days of AI Engineering</a>
+          <a href={`${DAYS_BASE}/`} class="dh__crumb">100 Days of AI/ML Research</a>
           <Icon name="chevron-right" size={13} />
           <span class="dh__crumb dh__crumb--here">Module {mod.number}</span>
         </div>
@@ -87,7 +87,7 @@ const description = `${dayRange(mod.days)} of 100 Days of AI Engineering. ${mod.
         <div class="dh__top">
           <span class="dh__num" aria-hidden="true">{mod.number}</span>
           <div class="dh__headings">
-            <Eyebrow text={`100 Days of AI Engineering · Module ${mod.number}`} class="dh__eyebrow" />
+            <Eyebrow text={`100 Days of AI/ML Research · Module ${mod.number}`} class="dh__eyebrow" />
             <h1 class="h1 dh__title">{mod.title}</h1>
           </div>
         </div>
@@ -227,7 +227,7 @@ const description = `${dayRange(mod.days)} of 100 Days of AI Engineering. ${mod.
           <Icon name="arrow-left" size={16} />
           <span>
             <span class="dnav__k">Back to</span>
-            <span class="dnav__t">100 Days of AI Engineering</span>
+            <span class="dnav__t">100 Days of AI/ML Research</span>
           </span>
         </a>
         {prev && (

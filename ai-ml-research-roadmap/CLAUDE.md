@@ -1,12 +1,12 @@
-# CLAUDE.md — AI Engineering Roadmap Website
+# CLAUDE.md — AI/ML Research Roadmap Website
 
-Persistent brief for building the **AI Engineering Roadmap** — a public, visual, 15-level learning map that links out to the AbdurRahman platform. Read this fully before writing code, and re-consult it whenever making design or structure decisions.
+Persistent brief for building the **AI/ML Research Roadmap** — a public, visual, 16-level learning map that links out to the AbdurRahman platform. Read this fully before writing code, and re-consult it whenever making design or structure decisions.
 
 ---
 
 ## 1. What we're building
 
-A standalone marketing-grade website that presents the AI Engineering roadmap as a **visual journey through 16 levels (0–15)**. It is a sibling to the main AbdurRahman site — same brand, calmer/more editorial tone — and its job is to (a) orient a learner on the whole path, (b) let them drill into any level, and (c) route them to the relevant AbdurRahman One courses.
+A standalone marketing-grade website that presents the AI/ML Research roadmap as a **visual journey through 16 levels (0–15)**. It is a sibling to the main AbdurRahman site — same brand, calmer/more editorial tone — and its job is to (a) orient a learner on the whole path from mathematical foundations to frontier research, (b) let them drill into any level, and (c) route them to the relevant AbdurRahman One research courses and literature.
 
 **North stars:** on-brand, visually led (not text-heavy), fast, and obviously sequenced. The _sequence is the product_ — the design must make progression legible at a glance.
 
@@ -14,18 +14,17 @@ A standalone marketing-grade website that presents the AI Engineering roadmap as
 
 ## 2. Content source (do not invent content)
 
-All level content already exists as flat files in `./AI ENGINEER ROADMAP/`. Parse these — never fabricate level content. Filenames are canonical:
+All level content exists as flat files in `./AI RESEARCH ROADMAP/`. Parse these — never fabricate level content. Filenames are canonical:
 
 ```
-level0-software-fundamentals.txt      level7-llm-evals.txt
-level1-llm-101.txt                    level8-ai-security.txt
-level2-llm-orchestration.txt          level9-ai-system-design.txt
-level3-prompt-engineering.txt         level10-llmops.txt
-level4-rag.txt                        level11-managed-platforms.txt
-level5-agents.txt                     level12-multimodal-101.txt
-level6-context-engineering.txt        level13-fine-tuning.txt
-                                      level14-projects.txt
-                                      level15-interview-prep.txt
+level0-mathematical-foundations.txt          level8-alignment-interpretability.txt
+level1-statistical-learning-theory.txt       level9-scaling-laws-pretraining.txt
+level2-deep-learning-optimization.txt        level10-distributed-training-systems.txt
+level3-sequence-modeling-transformers.txt    level11-generative-modeling-diffusion.txt
+level4-representation-learning.txt           level12-multimodal-foundation-models.txt
+level5-reinforcement-learning.txt            level13-post-training-adaptation.txt
+level6-reasoning-search-compute.txt          level14-projects.txt
+level7-research-evaluation-benchmarking.txt  level15-research-publication-prep.txt
 ```
 
 **Expected content model per level** (parse into this shape; adapt if a file's structure differs, and flag any level that can't be parsed rather than guessing):
@@ -34,7 +33,7 @@ level6-context-engineering.txt        level13-fine-tuning.txt
 - `scope` — one-line "what this level is about"
 - `outcome` — the "you can…" capability statement
 - `modules[]` — each with `name`, `sessionCount`, `objectives[]`
-- `project` — the "ship it" capstone for the level
+- `project` — the research capstone for the level
 - `totalSessions` (sum, or stated)
 
 If a level file is prose, extract this structure from it. Keep a single `levels.ts`/`levels.json` as the parsed source of truth so the UI never reads raw `.txt` at runtime.
@@ -58,15 +57,15 @@ If a level file is prose, extract this structure from it. Keep a single `levels.
 
 **Phase grouping** (use for visual structure and color banding on the map — this is the mental model of the path):
 
-| Phase              | Levels | Theme                                       |
-| ------------------ | ------ | ------------------------------------------- |
-| Foundations        | 0–3    | software, LLM 101, orchestration, prompting |
-| Retrieval          | 4      | embeddings, vector search, RAG              |
-| Agentic            | 5–6    | agents, context engineering                 |
-| Evaluation & Trust | 7–8    | evals, security                             |
-| Production         | 9–11   | system design, LLMOps, managed platforms    |
-| Frontier & Proof   | 12–14  | multimodal, fine-tuning, projects           |
-| Interview          | 15     | positioning, scenarios, mock loops          |
+| Phase              | Levels | Theme                                                                         |
+| ------------------ | ------ | ----------------------------------------------------------------------------- |
+| Foundations        | 0–3    | linear algebra, probability, optimization, statistical learning & transformers |
+| Representation     | 4      | metric learning, high-dimensional geometries, latent spaces & dense retrieval  |
+| Reasoning & Agency | 5–6    | reinforcement learning, thought trees, search, PRMs & test-time compute       |
+| Evaluation & Trust | 7–8    | statistical testing, benchmarking, preference optimization & interpretability |
+| Scaling & Systems  | 9–11   | scaling laws, pre-training, distributed systems (3D/ZeRO) & diffusion theory  |
+| Frontier & Proof   | 12–14  | multimodal architectures, PEFT spectral dynamics & scientific reproduction     |
+| Research Career    | 15     | paper writing, peer review, OpenReview rebuttals & research defense           |
 
 ---
 
@@ -204,18 +203,22 @@ Keep each level page skimmable in ~20 seconds; depth lives behind expanders.
 ## 10. AbdurRahman integration
 
 - Persistent primary CTA to **AbdurRahman One** (`#cxo-pricing` on the main site) — but soft, not salesy. Open external links in a new tab.
-- On each level, **map to relevant AbdurRahman One catalog items** as "learn this on AbdurRahman" cards. Use the real catalog; mark unreleased ones "coming soon". Example mapping (extend per level, confirm against live catalog):
-  - L0 → Python, Git & GitHub, SQL, Docker, Advanced FastAPI, Flask
-  - L1 → GenAI using Gemini, Prompt Engineering
-  - L3 → Prompt Engineering
-  - L4 → Advanced RAG
-  - L5 → LangGraph (notes), CrewAI, Agno, MCP (notes)
-  - L6 → Context Engineering _(coming soon)_
-  - L7 → LLM Evaluations _(coming soon)_
-  - L8 → LLM Guardrails _(coming soon)_
-  - L10 → LLMOps _(coming soon)_, Docker
-  - L11 → DLCV
-- Reuse AbdurRahman voice/tokens so the handoff feels seamless.
+- On each level, **map to relevant reference lectures & textbook chapters** as recommended study cards. Example mapping:
+  - L0 → Math for ML, Linear Algebra (Strang), Matrix Calculus
+  - L1 → Statistical Learning Theory (Hastie/Tibshirani/Wainwright)
+  - L2 → Deep Learning Optimization (Goodfellow/Bengio/Courville)
+  - L3 → Transformers & Attention Mechanisms (Stanford CS25 / CS224N)
+  - L4 → Self-Supervised & Representation Learning
+  - L5 → Reinforcement Learning (Sutton & Barto / Berkeley CS285)
+  - L6 → Reasoning & Search (Tree of Thoughts, MCTS, PRMs)
+  - L7 → Empirical Evaluation & Statistical Benchmarking
+  - L8 → Alignment, Interpretability & Safety
+  - L9 → Pre-Training Dynamics & Scaling Laws
+  - L10 → Distributed Systems & High-Performance Training
+  - L11 → Generative Diffusion & Flow Matching
+  - L12 → Multimodal Foundation Models (Vision-Language)
+  - L13 → Parameter-Efficient Fine-Tuning & Representation Steering
+- Maintain consistent design tokens and research-grade academic rigor across all levels.
 
 ---
 

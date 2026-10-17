@@ -53,7 +53,7 @@ const prereqs = level.prerequisites
   .map((n) => getLevel(n))
   .filter((l): l is NonNullable<typeof l> => Boolean(l));
 
-/* A level with a compressed version in 100 Days of AI Engineering points to it. */
+/* A level with a compressed version in 100 Days of AI/ML Research points to it. */
 const shortVersion = shortVersionOfLevel(level.number);
 const coveredIn = shortVersion ? undefined : coveredInModule(level.number);
 
@@ -61,11 +61,11 @@ const coveredIn = shortVersion ? undefined : coveredInModule(level.number);
 const interviewWeight = interviewWeights[level.number];
 const jobWeight = jobWeights[level.number];
 
-const description = `Level ${level.number} of the AI/ML Engineering Roadmap by AbdurRahman: ${level.scope}`.slice(0, 300);
+const description = `Level ${level.number} of the AI/ML Research Roadmap by AbdurRahman: ${level.scope}`.slice(0, 300);
 ---
 
 <Base
-  title={`Level ${level.number} · ${level.title} — AI/ML Engineering Roadmap`}
+  title={`Level ${level.number} · ${level.title} — AI/ML Research Roadmap`}
   description={description}
   page="level"
   levelNumber={level.number}
@@ -107,7 +107,7 @@ const description = `Level ${level.number} of the AI/ML Engineering Roadmap by A
             <Icon name="calendar-days" size={15} />
             <span>
               Short on time? Do the {shortVersion.days[1] - shortVersion.days[0] + 1}-day version in
-              <b>100 Days of AI Engineering</b>
+              <b>100 Days of AI/ML Research</b>
             </span>
             <Icon name="arrow-right" size={14} class="lh__short-go" />
           </a>
@@ -118,7 +118,7 @@ const description = `Level ${level.number} of the AI/ML Engineering Roadmap by A
             <Icon name="calendar-days" size={15} />
             <span>
               {coveredIn.topic} {coveredIn.plural ? 'are' : 'is'} covered inside the {coveredIn.module.title} module of
-              <b>100 Days of AI Engineering</b>
+              <b>100 Days of AI/ML Research</b>
             </span>
             <Icon name="arrow-right" size={14} class="lh__short-go" />
           </a>

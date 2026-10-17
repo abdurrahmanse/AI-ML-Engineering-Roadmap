@@ -121,7 +121,7 @@ function frame(inner: string, accent: string, wash: string): string {
     <path d="M9 24 C 13 12, 21 12, 25 10" stroke="#ffffff" stroke-width="2.4" fill="none" stroke-linecap="round"/>
     <circle cx="25" cy="10" r="3" fill="#ffffff"/>
     <circle cx="9" cy="24" r="3" fill="#ffffff"/>
-    <text x="48" y="16" font-family="Space Grotesk" font-weight="700" font-size="17" fill="#0f0f14">AI/ML Engineering Roadmap</text>
+    <text x="48" y="16" font-family="Space Grotesk" font-weight="700" font-size="17" fill="#0f0f14">AI/ML Research Roadmap</text>
     <text x="48" y="32" font-family="JetBrains Mono" font-size="12" letter-spacing="2.2" fill="#71717a">BY ABDURRAHMAN</text>
   </g>
 </svg>`;
@@ -215,12 +215,12 @@ export function defaultImage(): Buffer {
     .join("");
 
   const inner = `
-  <text x="72" y="118" font-family="JetBrains Mono" font-size="15" letter-spacing="3.4" fill="#6c5ce7">AI ENGINEERING ROADMAP</text>
+  <text x="72" y="118" font-family="JetBrains Mono" font-size="15" letter-spacing="3.4" fill="#6c5ce7">AI/ML RESEARCH ROADMAP</text>
 
-  <text x="72" y="196" font-family="Space Grotesk" font-weight="700" font-size="64" letter-spacing="-2" fill="#0f0f14">Sixteen levels from writing</text>
-  <text x="72" y="266" font-family="Space Grotesk" font-weight="700" font-size="64" letter-spacing="-2" fill="#0f0f14">software to shipping AI systems.</text>
+  <text x="72" y="196" font-family="Space Grotesk" font-weight="700" font-size="64" letter-spacing="-2" fill="#0f0f14">Sixteen levels from mathematical</text>
+  <text x="72" y="266" font-family="Space Grotesk" font-weight="700" font-size="64" letter-spacing="-2" fill="#0f0f14">foundations to frontier research.</text>
 
-  <text x="72" y="322" font-family="DM Sans" font-size="26" fill="#52525b">Not a playlist — a sequence. Every level ends with something you deploy.</text>
+  <text x="72" y="322" font-family="DM Sans" font-size="26" fill="#52525b">Not a playlist — a sequence. Every level ends with reproducible research experiments.</text>
 
   <g transform="translate(72, 372)">${strip}</g>
   <g transform="translate(72, 456)">${keys}</g>

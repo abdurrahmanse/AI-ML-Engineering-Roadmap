@@ -15,29 +15,34 @@
  *  Deliberately excludes generic vocabulary ("streaming", "tracing", "memory"),
  *  which would highlight half the sentence and defeat the purpose. */
 const TERMS = [
-  // languages, runtimes, tooling
-  'Python', 'pytest', 'uv', 'pyproject.toml', '.gitignore', '.dockerignore',
+  // languages, runtimes, tooling & frameworks
+  'Python', 'PyTorch', 'JAX', 'Triton', 'CUDA', 'pytest', 'uv', 'pyproject.toml', '.gitignore', '.dockerignore',
   'Pydantic', 'dataclass', 'FastAPI', 'Flask', 'Docker', 'Dockerfile', 'Git', 'GitHub',
   'PostgreSQL', 'SQL', 'pgvector', 'Qdrant', 'curl', 'Postman', 'Bruno',
-  'OpenAPI', 'Swagger', 'JSON Schema', 'JSON', 'CSV', 'HTTP', 'REST', 'README',
-  // orchestration & agents
-  'LangChain', 'LangGraph', 'LlamaIndex', 'DSPy', 'CrewAI', 'Agno', 'MCP', 'A2A',
-  'OpenAI Agents SDK', 'ADK', 'E2B', 'Modal', 'ReAct',
-  // retrieval
-  'BM25', 'HNSW', 'IVF', 'ANN', 'RRF', 'HyDE', 'RAG-Fusion', 'Self-RAG', 'CRAG',
-  'Graph RAG', 'Adaptive RAG', 'RAG', 'Recall@k', 'Precision@k', 'MRR',
-  // evals & ops
-  'DeepEval', 'RAGAS', 'Langfuse', 'Phoenix', 'MLflow', 'LLM-as-a-Judge', 'BLEU', 'ROUGE',
-  'MMLU-Pro', 'MMLU', 'TruthfulQA', 'AGIEval', 'GPQA', 'SimpleQA', 'Text-to-SQL',
-  'F1', 'CI/CD', 'CI', 'vLLM', 'TTFT', 'KV', 'SLA',
-  'GitHub Actions', 'Docker Compose', 'Docker Hub', 'Streamlit', 'Chroma',
-  'Prometheus', 'Grafana', 'Node Exporter', 'Guardrails AI', 'NeMo Guardrails',
-  'AWS', 'EC2', 'CodeDeploy', 'Auto Scaling', 'Secrets Manager', 'Load Balancer', '.env',
-  // training
-  'QLoRA', 'LoRA', 'PEFT', 'Unsloth', 'Axolotl', 'SFT', 'RLHF', 'RLAIF', 'DPO', 'RFT',
-  // multimodal
-  'Whisper', 'Kokoro', 'STT', 'TTS', 'OCR', 'PDF', 'PDFs', 'DOCX', 'HTML',
-  // security & governance
+  'OpenAPI', 'Swagger', 'JSON Schema', 'JSON', 'CSV', 'HTTP', 'REST', 'README', 'LaTeX', 'ArXiv', 'OpenReview',
+  // architectures & core models
+  'Transformer', 'Transformers', 'FlashAttention', 'Multi-Head Attention', 'RoPE', 'ALiBi', 'RMSNorm',
+  'Mamba', 'S4', 'SSM', 'SSMs', 'RWKV', 'ViT', 'CLIP', 'SigLIP', 'LLaVA', 'Flamingo', 'Chinchilla',
+  // optimization & training algorithms
+  'AdamW', 'Adam', 'SGD', 'Muon', 'Lion', 'Nesterov', 'L2', 'Weight Decay', 'SVD', 'PCA', 'autograd',
+  // distributed systems & hardware
+  'DDP', 'FSDP', 'ZeRO', 'ZeRO-1', 'ZeRO-2', 'ZeRO-3', 'Megatron-LM', 'Tensor Parallelism', 'Pipeline Parallelism',
+  'Ring All-Reduce', 'NCCL', 'NVLink', 'MFU', 'HFU', 'FLOPs', 'A100', 'H100',
+  // reinforcement learning & reasoning
+  'MDP', 'MDPs', 'Bellman', 'DQN', 'PPO', 'TRPO', 'SAC', 'MCTS', 'Tree of Thoughts', 'Chain of Thought',
+  'PRM', 'PRMs', 'ORM', 'ORMs', 'ToT', 'ReAct',
+  // alignment & interpretability
+  'RLHF', 'RLAIF', 'DPO', 'KTO', 'ORPO', 'SimPO', 'SFT', 'PEFT', 'LoRA', 'QLoRA', 'DoRA', 'EWC',
+  'Mechanistic Interpretability', 'Representation Engineering', 'RepE', 'SAE', 'SAEs', 'CKA',
+  // generative modeling & vision
+  'Diffusion', 'DDPM', 'DDIM', 'SDE', 'SDEs', 'ODE', 'ODEs', 'Flow Matching', 'Score Matching',
+  'ELBO', 'VAE', 'VAEs', 'GAN', 'GANs', 'WGAN-GP', 'VQ-VAE', 'VQ-GAN', 'NeRF',
+  // evaluation & benchmarks
+  'MMLU-Pro', 'MMLU', 'TruthfulQA', 'GSM8K', 'MATH', 'HumanEval', 'SWE-bench', 'GPQA', 'SimpleQA',
+  'Bradley-Terry', 'Elo', 'BLEU', 'ROUGE', 'F1', 'Recall@k', 'Precision@k', 'MRR',
+  // self-supervised learning
+  'InfoNCE', 'SimCLR', 'BYOL', 'Barlow Twins', 'DINO', 'MoCo', 'ArcFace',
+  // governance & safety
   'PII', 'EU AI Act', 'DPDP',
   /* Deliberately absent: 'LLM' / 'LLMs'. They are the subject of nearly every
      sentence on the site, so highlighting them is noise rather than an anchor. */

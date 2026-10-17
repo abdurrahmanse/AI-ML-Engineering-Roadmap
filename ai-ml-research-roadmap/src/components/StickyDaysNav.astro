@@ -32,13 +32,13 @@ const here = stops.find((s) => s.key === current)!;
 
 <div class="sdnav no-print" data-phase={here.phase}>
   <div class="wrap sdnav__inner">
-    <a class="sdnav__here" href={`${DAYS_BASE}/`} title="Back to 100 Days of AI Engineering">
+    <a class="sdnav__here" href={`${DAYS_BASE}/`} title="Back to 100 Days of AI/ML Research">
       <Icon name="chevron-left" size={16} />
       <span class="sdnav__n">{here.short}</span>
       <span class="sdnav__title">{here.title}</span>
     </a>
 
-    <nav class="sdnav__map" aria-label="100 Days of AI Engineering">
+    <nav class="sdnav__map" aria-label="100 Days of AI/ML Research">
       <ol class="sdnav__list" role="list">
         {stops.map((s) => (
           <li class:list={['sdnav__item', { 'sdnav__item--wide': typeof s.key !== 'number' }]} data-phase={s.phase}>
