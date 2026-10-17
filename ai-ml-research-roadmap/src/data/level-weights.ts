@@ -1,6 +1,7 @@
 /**
  * How much each level matters, scored out of 10 with a reason, from two angles:
- * research interviews (PhD / Research Scientist screening) and day-to-day lab work.
+ * research screening (RA position / Graduate Admissions / Research Scientist interviews)
+ * and day-to-day academic research lab work (thesis progress, paper writing, experiment rigor).
  * Shown side by side at the top of every level page. Keyed by level number.
  * Wrap a phrase in **double asterisks** to show it in bold.
  */
@@ -21,77 +22,77 @@ export const interviewWeights: Record<number, LevelWeight> = {
   1: {
     score: 9,
     reason:
-      'Distinguishes a true researcher from a coder: **critically deconstructing literature, identifying genuine research gaps, and formulating falsifiable Research Questions (RQs)**.',
+      'The definitive prerequisite for joining an academic lab: **deconstructing faculty publications, formulating research pitches, passing RA technical screening, and integrating into an active lab**.',
   },
   2: {
-    score: 10,
+    score: 9,
     reason:
-      'Top research screening aggressively tests **applied mathematics and statistical hypothesis testing**: SVD, matrix calculus for autograd, non-parametric tests (Wilcoxon), and bootstrap confidence intervals.',
+      'Distinguishes an independent researcher from a coder: **navigating major bibliographic databases (ArXiv, IEEE, ACM, PubMed), Keshav 3-pass paper reading, and Zotero reference management**.',
   },
   3: {
     score: 10,
     reason:
-      'A core differentiator in research defense: **controlled experimental design, multi-factor ablation matrices, compute-matched baselines, and eliminating data leakage**.',
+      'Top research screening aggressively tests **applied mathematics and statistical hypothesis testing**: SVD, matrix calculus for autograd, non-parametric tests (Wilcoxon), and bootstrap confidence intervals.',
   },
   4: {
     score: 9,
     reason:
-      'Evaluates research engineering excellence: **custom autograd operators, numerical stability (BF16/FP16), loss surgery, and GPU memory snapshot profiling** in PyTorch and JAX.',
+      'Essential for real-world research credibility: **curating domain datasets (MIMIC-IV, CheXpert, CIC-IDS-2017, Ember), handling extreme class imbalance, and eliminating patient-level and temporal data leakage**.',
   },
   5: {
     score: 9,
     reason:
-      'The foundational core of modern AI modeling: **multi-head attention derivations, RoPE rotational geometry, State Space Models (Mamba), and self-supervised InfoNCE representation learning**.',
+      'Proves methodological maturity across paradigms: **systematically evaluating tree ensembles (XGBoost/LightGBM) against deep tabular models (TabNet), and training 2D/3D CNNs for medical scans**.',
   },
   6: {
     score: 9,
     reason:
-      'Crucial for generative AI researchers: **variational inference (ELBO), continuous-time score-based diffusion (SDEs/ODEs), Optimal Transport Flow Matching, and FID distribution evaluation**.',
+      'Core representation learning mastery: **deriving multi-head attention, applying Graph Neural Networks (GCN/GAT) to cybersecurity threat topologies and molecules, and linear State Space Models (Mamba)**.',
   },
   7: {
-    score: 10,
-    reason:
-      'The frontier of post-training and reasoning research: **Bellman optimality, PPO policy optimization, Tree-of-Thoughts, guided MCTS search, and Process Reward Models (PRMs)**.',
-  },
-  8: {
     score: 9,
     reason:
-      'Essential for evaluation science: **construct validity, inter-annotator agreement (Krippendorff’s alpha), suffix-array contamination auditing, and calibrated LLM-as-a-judge pipelines**.',
+      'Crucial for modern generative AI and simulation: **variational inference (ELBO), score-based diffusion (SDEs/ODEs), Continuous Flow Matching (OT-CFM), and privacy-preserving data synthesis**.',
+  },
+  8: {
+    score: 10,
+    reason:
+      'A core differentiator in paper reviews and defense: **designing multi-factor ablation studies (OFAT), compute-matched baselines, decontaminating evaluation sets, and fair hyperparameter sweeps**.',
   },
   9: {
     score: 9,
     reason:
-      'Critical for large-scale research: **operating on SLURM supercomputing clusters, NCCL Ring All-Reduce, multi-node FSDP, 3D Parallelism, and Model FLOPs Utilization (MFU)**.',
+      'Critical for large-scale research execution: **navigating SLURM supercomputing clusters, multi-node PyTorch FSDP, DeepSpeed ZeRO-3, and profiling Model FLOPs Utilization (MFU)**.',
   },
   10: {
     score: 9,
     reason:
-      'Directs multi-million dollar compute budgets: **Kaplan vs Chinchilla power-law scaling regressions, loss spike diagnostics (QK-Norm), and data mixture annealing**.',
+      'Directs high-impact foundation model research: **Kaplan and Chinchilla scaling laws, pre-training loss stability (QK-Norm, z-loss), and Domain-Adaptive Pre-Training (DAPT) for medicine and cybersecurity**.',
   },
   11: {
-    score: 8,
+    score: 9,
     reason:
-      'Highly valued in frontier AI safety and interpretability labs: **linear representation probing, circuit discovery (induction heads), Sparse Autoencoders (SAEs), and activation steering**.',
+      'Mandatory for high-stakes deployment and regulatory standards (FDA AI): **axiomatic feature attribution (SHAP, Integrated Gradients), linear probing, circuit activation patching, and Sparse Autoencoders (SAEs)**.',
   },
   12: {
     score: 9,
     reason:
-      'Core to foundation model alignment: **Bradley-Terry preference theory, DPO derivations, reward over-optimization, GCG adversarial jailbreaks, and algorithmic fairness audits**.',
+      'The frontier of safety and robustness: **white-box adversarial attacks (PGD), problem-space malware evasion, preference alignment (DPO/RLHF), and auditing algorithmic fairness across demographic subgroups**.',
   },
   13: {
-    score: 8,
+    score: 9,
     reason:
-      'Cross-disciplinary frontiers: **cross-modal contrastive alignment (SigLIP), vision-language projectors (LLaVA), AlphaFold/ESM structural biology, and Physics-Informed ML (PINNs)**.',
+      'High-impact cross-disciplinary frontiers: **contrastive vision-language pre-training (CLIP, SigLIP), multimodal medical decoders (LLaVA-Med), and fusing raw network telemetry with threat intelligence**.',
   },
   14: {
     score: 10,
     reason:
-      'The **single biggest factor in landing top research positions**: delivering **end-to-end conference-grade projects with rigorous ablations, verified codebases, and preprints**.',
+      'The **single biggest factor in landing top research positions and defending theses**: delivering **end-to-end conference-grade projects with rigorous ablations, verified codebases, and preprints**.',
   },
   15: {
     score: 10,
     reason:
-      'Directly mirrors the **research job talk, thesis defense, and OpenReview rebuttal**: presenting research vision, disarming skeptical reviewers, and drafting competitive grant proposals.',
+      'Directly mirrors the **research job talk, thesis defense, and OpenReview rebuttal**: publishing in top journals (IEEE TPAMI, JMLR, Nature, Lancet, IEEE TIFS) and conferences (NeurIPS, ICML, CVPR, USENIX Security).',
   },
 };
 
@@ -103,78 +104,78 @@ export const jobWeights: Record<number, LevelWeight> = {
       'Daily lab survival requires **flawless remote server management, automated tracking, and reproducible virtual environments**; without them, experiments become untraceable.',
   },
   1: {
-    score: 9,
+    score: 10,
     reason:
-      'Prevents wasting months on solved problems: **rapidly surveying literature, tracking daily ArXiv preprints, and isolating genuine scientific gaps** is the daily habit of productive researchers.',
+      'The gateway to productive research: **securing laboratory funding, establishing clear faculty mentorship, and executing collaborative scientific workflows**.',
   },
   2: {
     score: 9,
     reason:
-      'Underpins every paper submission: **proving statistical significance and computing effect sizes** ensures your published findings are solid and unassailable.',
+      'Prevents wasting months on solved problems: **rapidly surveying literature across IEEE, ACM, and PubMed, tracking daily ArXiv preprints, and isolating genuine scientific gaps** is a daily habit.',
   },
   3: {
     score: 10,
     reason:
-      'The bedrock of sound science: **designing rigorous ablation studies and fair baseline comparisons** is what transforms speculative ideas into accepted papers.',
+      'Underpins every paper submission: **proving statistical significance and computing effect sizes (Cohen\'s d, bootstrap CIs)** ensures your published findings are solid and unassailable.',
   },
   4: {
     score: 10,
     reason:
-      'Daily research execution: **implementing custom PyTorch/JAX modules, stabilizing mixed-precision gradients, and eliminating memory bottlenecks** is what research scientists do every day.',
+      'Real research begins with pristine data: **ingesting complex clinical and cybersecurity datasets, preventing identity leakage, and authoring formal Datasheets for Datasets**.',
   },
   5: {
     score: 9,
     reason:
-      'Designing and modifying architectures: **adapting attention blocks, experimenting with state space recurrences, and probing latent representations** drives core lab innovation.',
+      'Selecting the right tool for the scientific question: **benchmarking tree ensembles against deep neural networks and training 3D medical segmentation models** drives empirical discovery.',
   },
   6: {
     score: 9,
     reason:
-      'Generative modeling is the foundation of modern media, scientific simulations, and physical policies: **training flow matching and diffusion models** is central to modern labs.',
+      'Designing and modifying architectures: **adapting attention blocks, experimenting with graph message passing for threat topologies, and testing linear state space models**.',
   },
   7: {
-    score: 10,
+    score: 9,
     reason:
-      'Frontier foundation model labs focus intensively on **test-time compute scaling, step-level process supervision, and guided tree-search algorithms**.',
+      'Generative modeling is the foundation of data synthesis, medical imaging, and threat simulation: **training flow matching and diffusion models** is central to modern labs.',
   },
   8: {
     score: 10,
     reason:
-      'Without rigorous measurement, research is blind: **curating pristine benchmarks, eliminating contamination, and calibrating evaluations** ensures real progress.',
+      'The bedrock of sound science: **designing rigorous ablation studies and fair baseline comparisons** is what transforms speculative ideas into accepted papers.',
   },
   9: {
     score: 10,
     reason:
-      'Running large experiments on shared supercomputers requires **SLURM scheduling mastery, FSDP memory sharding, and maximizing MFU** to get the most from hardware.',
+      'Running large experiments on shared supercomputers requires **SLURM scheduling mastery, FSDP memory sharding, and maximizing MFU** to get the most from hardware allocations.',
   },
   10: {
     score: 9,
     reason:
-      'Guides experimental planning: **extrapolating scaling laws and preventing loss spikes** saves tens of thousands of GPU hours during large-scale pre-training runs.',
+      'Guides experimental planning: **extrapolating scaling laws, stabilizing pre-training loss spikes, and fine-tuning domain foundation models with QLoRA/DoRA** saves thousands of GPU hours.',
   },
   11: {
-    score: 8,
+    score: 9,
     reason:
-      'Understanding what models actually learn: **tracing causal circuits, probing representations, and steering activations** provides deep insights into neural behavior.',
+      'Understanding what models actually learn: **tracing causal circuits, probing representations, and extracting monosemantic concepts with SAEs** satisfies rigorous peer review.',
   },
   12: {
     score: 9,
     reason:
-      'Ensuring model safety and compliance: **tuning preferences with DPO, red-teaming against jailbreaks, and auditing for fairness** is mandatory before any public deployment.',
+      'Ensuring model safety and compliance: **tuning preferences with DPO, defending against adversarial evasion in malware, and auditing for demographic parity** is mandatory before deployment.',
   },
   13: {
-    score: 8,
-    reason:
-      'Pioneering interdisciplinary breakthroughs: **bridging machine learning with structural biology, chemistry, and physics** represents the highest-impact frontier of AI.',
-  },
-  14: {
     score: 9,
     reason:
-      'Executing comprehensive research studies from hypothesis to publication **is the primary measure of a research scientist’s productivity and impact**.',
+      'Pioneering interdisciplinary breakthroughs: **bridging machine learning with clinical healthcare, radiology, and cybersecurity threat intelligence** represents the highest-impact frontier of AI.',
+  },
+  14: {
+    score: 10,
+    reason:
+      'Executing comprehensive research studies from hypothesis to publication **is the primary measure of a research scientist’s productivity and doctoral dissertation completion**.',
   },
   15: {
     score: 10,
     reason:
-      'Writing accepted conference papers, **defending against tough reviewer critiques, winning grant funding, and directing research directions** defines scientific leadership.',
+      'Writing accepted conference and journal papers, **defending against tough reviewer critiques, winning grant funding, and directing research directions** defines scientific leadership.',
   },
 };

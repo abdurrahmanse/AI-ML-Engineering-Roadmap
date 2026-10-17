@@ -16,22 +16,22 @@
 
 - **Live Platform:** [https://abdurrahmans.vercel.app](https://abdurrahmans.vercel.app)
 - **Primary Roadmap:** 16 progressive levels spanning the complete scientific research lifecycle:
-  0. Scientific Computing & Reproducible Research Foundations
-  1. Literature Review & Scientific Problem Formulation
-  2. Research Mathematics & Statistical Hypothesis Testing
-  3. Experimental Design & Rigorous Benchmarking
-  4. Deep Learning Research Prototyping in PyTorch & JAX
-  5. Core Modeling Paradigms: Architectures & Representations
-  6. Generative Modeling & Probabilistic Machine Learning
-  7. Reinforcement Learning, Search & Test-Time Reasoning
-  8. Benchmark Creation, Data Curation & Evaluation Science
-  9. High-Performance Computing (HPC) & Scaled Research Systems
-  10. Pre-Training Dynamics, Scaling Laws & Empirical Science
-  11. Mechanistic Interpretability & Model Analysis
-  12. AI Alignment, Safety & Ethical Research
-  13. Multimodal & Cross-Disciplinary AI for Science
-  14. Comprehensive Research Capstones (Thesis & Conference Submissions)
-  15. Academic Writing, Peer Review, Defense & Research Leadership
+  0. Scientific Computing, Research Tooling & Reproducibility
+  1. Finding an Advisor, Securing an RA Position & Academic Networking
+  2. Scholarly Literature Search, Paper Reading & Reference Management
+  3. Research Mathematics & Applied Statistical Testing
+  4. Dataset Discovery, Curation & Multi-Domain Adaptation (Medical, Cybersecurity & Science)
+  5. Classical Machine Learning & Deep Learning Paradigms (Tabular GBDTs, 2D/3D CNNs)
+  6. Sequence Models, Graph Neural Networks & Transformers
+  7. Generative Modeling & Probabilistic Machine Learning (Diffusion, Flow Matching & Synthesis)
+  8. Experimental Design, Ablation Studies & Fair Benchmarking
+  9. High-Performance Computing (HPC) & Scaled Research Systems (SLURM, FSDP, MFU)
+  10. Foundation Models, Fine-Tuning & Domain Specialization (Scaling Laws, DAPT & PEFT)
+  11. Explainability, Interpretability & Trustworthy AI (SHAP, Circuits & SAEs)
+  12. AI Alignment, Robustness & Adversarial Defense (PGD, Malware Evasion & DPO)
+  13. Multimodal & Cross-Disciplinary Research Methodologies (CLIP, Medical VLMs & Threat Fusion)
+  14. Comprehensive Research Capstones (Thesis Flagships & Conference Submissions)
+  15. Academic Publishing, Peer Review, Thesis Defense & Career (IEEE TPAMI, JMLR, Nature, Rebuttals)
 - **Accelerated Route:** Curated 100-Day companion research curriculum with empirical research study projects and research interview defense preparation.
 
 ---
