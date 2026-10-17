@@ -22,6 +22,84 @@ const ships = levels.flatMap((level) =>
 );
 const shipLevelCount = levels.filter((level) => capstonesOf(level).length > 0).length;
 
+const projectMeta: Record<number, { domain: string; tags: string[]; summary: string }> = {
+  0: {
+    domain: 'Scientific Infrastructure',
+    tags: ['Reproducibility', 'MLflow / DVC', 'SLURM Shell'],
+    summary: 'Modular, object-oriented experiment harness with deterministic seeds, Git commit tracking, automated smoke tests, and resilient checkpointing.',
+  },
+  1: {
+    domain: 'Proposal & Lab Onboarding',
+    tags: ['Research Proposal', 'Lab Protocol', 'Literature Scope'],
+    summary: 'Formal 3-page research proposal defining hypotheses, threat models, methodology, and compute budgets aligned with institutional lab standards.',
+  },
+  2: {
+    domain: 'Systematic Literature Review',
+    tags: ['PRISMA 2020', 'Taxonomy Matrix', 'Bibliometrics'],
+    summary: 'Exhaustive literature survey across 50+ papers with PRISMA flow diagrams, methodological taxonomy matrices, and open challenge mapping.',
+  },
+  3: {
+    domain: 'Statistical Rigor',
+    tags: ['Hypothesis Testing', 'Bootstrap CI', "Cohen's d / FDR"],
+    summary: 'Statistical audit package computing paired non-parametric tests, effect sizes, statistical power, and Benjamini-Hochberg FDR corrections.',
+  },
+  4: {
+    domain: 'Multi-Domain Curation',
+    tags: ['Medical & Cyber Data', 'Data Sheets', 'Leakage Audit'],
+    summary: 'End-to-end dataset curation and leakage-auditing pipeline across clinical healthcare and cybersecurity network traffic.',
+  },
+  5: {
+    domain: 'Empirical Modeling',
+    tags: ['Trees vs. Deep NNs', 'AUROC / AUPRC', 'Wilcoxon Tests'],
+    summary: 'Benchmark classical algorithms (XGBoost, LightGBM) against deep networks on equal compute budgets with Wilcoxon signed-rank significance tests.',
+  },
+  6: {
+    domain: 'Relational & Sequence AI',
+    tags: ['PyG Graph Networks', 'State Space (Mamba)', 'Long Context'],
+    summary: 'Design and validate Graph Neural Networks (GCN/GAT) and modern State Space Models for network threat graphs and long-range sequential sequences.',
+  },
+  7: {
+    domain: 'Generative Modeling',
+    tags: ['Diffusion (DDPM)', 'Differential Privacy', 'Clinical Synthesis'],
+    summary: 'Train denoising diffusion and flow models to synthesize sensitive clinical and security data under strict Rényi Differential Privacy guarantees.',
+  },
+  8: {
+    domain: 'Ablation & Benchmarking',
+    tags: ['Controlled Ablations', 'Statistical Power', 'Conference Tables'],
+    summary: 'Execute comprehensive component ablations under compute parity to isolate genuine scientific contributions and produce publication-ready tables.',
+  },
+  9: {
+    domain: 'HPC & Distributed Systems',
+    tags: ['FSDP / Megatron', 'MFU Profiling', 'Multi-Node SLURM'],
+    summary: 'Implement distributed data and tensor-parallel training across multi-GPU nodes with verified Model FLOPs Utilization (MFU) benchmarking.',
+  },
+  10: {
+    domain: 'Domain Foundation Models',
+    tags: ['DAPT / QLoRA', 'Clinical & Cyber Corpora', 'Domain Evaluation'],
+    summary: 'Specialize open foundation models via Domain-Adaptive Pre-Training on PubMed or cybersecurity threat corpora, outperforming generic LLMs on expert tasks.',
+  },
+  11: {
+    domain: 'Explainable AI (XAI)',
+    tags: ['Mechanistic Circuits', 'Integrated Gradients', 'Trustworthy AI'],
+    summary: 'Unpack black-box models using integrated gradients, attention dissection, and causal circuit isolation to meet clinical and regulatory audit standards.',
+  },
+  12: {
+    domain: 'Robustness & Fairness',
+    tags: ['AutoAttack / FGSM', 'Disparate Impact', 'Certified Defenses'],
+    summary: 'Stress-test models against white-box adversarial perturbations and audit demographic parity to scientifically validate trustworthiness.',
+  },
+  13: {
+    domain: 'Multimodal Research',
+    tags: ['Cross-Attention', 'Imaging + Notes', 'Interdisciplinary AI'],
+    summary: 'Build a cross-modal research system fusing medical imaging with clinical notes or host logs with threat reports via joint latent representations.',
+  },
+  15: {
+    domain: 'Thesis & Manuscript',
+    tags: ['LaTeX Manuscript', 'OpenReview Rebuttal', 'Defense Deck'],
+    summary: 'Compile a complete 9-page conference paper draft in LaTeX, author point-by-point reviewer rebuttals, and deliver an oral defense job talk package.',
+  },
+};
+
 const howItWorks = [
   {
     icon: 'compass',
@@ -110,29 +188,176 @@ const howItWorks = [
     </div>
   </section>
 
-  <!-- ───────────────────────── what you ship ───────────────────────── -->
-  <section class="section ships">
+  <!-- ───────────────────────── 15 projects you'll build ───────────────────────── -->
+  <section class="section ships" id="projects">
     <div class="wrap">
       <SectionHeader
-        eyebrow="What you'll build"
+        eyebrow="Academic Capstones & Research Deliverables"
         title={`${ships.length} projects you'll build.`}
-        subhead="Most levels end with a project. Together, they make your portfolio."
+        subhead="Every level culminates in an empirical research deliverable. From automated reproducible pipelines and clinical benchmarks to mechanistic interpretability suites and full conference rebuttal packages, these 15 projects form the backbone of your thesis and publication portfolio."
       />
+
+      <!-- Research Quality Standards Banner -->
+      <div class="ships__stats" role="region" aria-label="Research Capstone Highlights">
+        <div class="ships__stat">
+          <span class="ships__stat-ico"><Icon name="microscope" size={18} /></span>
+          <div class="ships__stat-info">
+            <span class="ships__stat-num">15 Capstones</span>
+            <span class="ships__stat-desc">End-to-end scientific implementations</span>
+          </div>
+        </div>
+        <div class="ships__stat">
+          <span class="ships__stat-ico"><Icon name="circle-check" size={18} /></span>
+          <div class="ships__stat-info">
+            <span class="ships__stat-num">100% Reproducible</span>
+            <span class="ships__stat-desc">Deterministic seeds & checkpoint tracking</span>
+          </div>
+        </div>
+        <div class="ships__stat">
+          <span class="ships__stat-ico"><Icon name="database" size={18} /></span>
+          <div class="ships__stat-info">
+            <span class="ships__stat-num">Multi-Domain</span>
+            <span class="ships__stat-desc">Clinical, cyber & scientific corpora</span>
+          </div>
+        </div>
+        <div class="ships__stat">
+          <span class="ships__stat-ico"><Icon name="badge-check" size={18} /></span>
+          <div class="ships__stat-info">
+            <span class="ships__stat-num">Venue Standard</span>
+            <span class="ships__stat-desc">NeurIPS, ICML, Nature & IEEE aligned</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Phase Filter Bar -->
+      <div class="ships__filters" role="tablist" aria-label="Filter projects by research phase">
+        <button type="button" class="ships__filter-btn is-active" data-filter="all" role="tab" aria-selected="true">
+          All Projects <span class="ships__filter-count">15</span>
+        </button>
+        <button type="button" class="ships__filter-btn" data-filter="foundations" role="tab" aria-selected="false">
+          Foundations <span class="ships__filter-count">4</span>
+        </button>
+        <button type="button" class="ships__filter-btn" data-filter="retrieval" role="tab" aria-selected="false">
+          Data & Curation <span class="ships__filter-count">1</span>
+        </button>
+        <button type="button" class="ships__filter-btn" data-filter="agentic" role="tab" aria-selected="false">
+          Core Modeling <span class="ships__filter-count">2</span>
+        </button>
+        <button type="button" class="ships__filter-btn" data-filter="trust" role="tab" aria-selected="false">
+          Generative & Trust <span class="ships__filter-count">2</span>
+        </button>
+        <button type="button" class="ships__filter-btn" data-filter="production" role="tab" aria-selected="false">
+          HPC & Scale <span class="ships__filter-count">3</span>
+        </button>
+        <button type="button" class="ships__filter-btn" data-filter="frontier-interview" role="tab" aria-selected="false">
+          Frontier & Manuscript <span class="ships__filter-count">3</span>
+        </button>
+      </div>
+
+      <!-- Redesigned High-Impact Project Grid -->
       <ul class="ships__grid" role="list">
         {
-          ships.map(({ level, capstone }) => (
-            <li class="ships__item reveal" data-phase={level.phase}>
-              <a href={`/level/${level.number}/#ship`} data-track="ship_click" data-track-data={String(level.number)}>
-                <span class="ships__lvl">L{level.number}</span>
-                <span class="ships__name">{capstone.name.replace(/^Capstone:\s*/i, '')}</span>
-                <span class="ships__phase">{phaseOfLevel(level.number).name}</span>
-              </a>
-            </li>
-          ))
+          ships.map(({ level, capstone }) => {
+            const meta = projectMeta[level.number] || {
+              domain: 'Machine Learning Research',
+              tags: ['Peer-Reviewed Spec', 'Reproducibility', 'Research Code'],
+              summary: capstone.outcome || 'Design and scientifically validate research models with empirical rigor.',
+            };
+            const phase = phaseOfLevel(level.number);
+            const cleanName = capstone.name.replace(/^(Capstone Project|Capstone):\s*/i, '');
+            const filterGroup = (level.phase === 'frontier' || level.phase === 'interview') ? 'frontier-interview' : level.phase;
+
+            return (
+              <li class="ships__item reveal" data-phase={level.phase} data-filter-group={filterGroup}>
+                <a
+                  href={`/level/${level.number}/#ship`}
+                  class="ships__card"
+                  data-track="ship_click"
+                  data-track-data={String(level.number)}
+                >
+                  <!-- Card Header -->
+                  <div class="ships__card-head">
+                    <div class="ships__card-pills">
+                      <span class="ships__lvl-badge">LEVEL {level.number}</span>
+                      <span class="ships__phase-pill">
+                        <Icon name={phase.icon} size={12} />
+                        <span>{phase.name}</span>
+                      </span>
+                    </div>
+                    <span class="ships__domain-tag">{meta.domain}</span>
+                  </div>
+
+                  <!-- Project Title -->
+                  <h3 class="ships__card-title">
+                    {cleanName}
+                  </h3>
+
+                  <!-- Project Abstract / Research Summary -->
+                  <p class="ships__card-desc">
+                    {meta.summary}
+                  </p>
+
+                  <!-- Deliverables / Tags -->
+                  <div class="ships__card-tags" aria-label="Key deliverables">
+                    {meta.tags.map((tag) => (
+                      <span class="ships__tag-pill">{tag}</span>
+                    ))}
+                  </div>
+
+                  <!-- Card Footer / Link Action -->
+                  <div class="ships__card-foot">
+                    <span class="ships__action-cta">
+                      <span>Inspect Research Capstone</span>
+                      <Icon name="arrow-right" size={14} class="ships__arrow" />
+                    </span>
+                    <span class="ships__sessions-badge">
+                      {level.totalSessions} sessions
+                    </span>
+                  </div>
+                </a>
+              </li>
+            );
+          })
         }
       </ul>
     </div>
   </section>
+
+  <script>
+    function setupShipsFiltering() {
+      const filterBtns = document.querySelectorAll('.ships__filter-btn');
+      const shipItems = document.querySelectorAll('.ships__item');
+      if (!filterBtns.length || !shipItems.length) return;
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const target = btn.getAttribute('data-filter') || 'all';
+
+          filterBtns.forEach((b) => {
+            b.classList.remove('is-active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('is-active');
+          btn.setAttribute('aria-selected', 'true');
+
+          shipItems.forEach((item) => {
+            const el = item as HTMLElement;
+            const group = el.dataset.filterGroup;
+            const phase = el.dataset.phase;
+            const match = target === 'all' || target === group || target === phase;
+            if (match) {
+              el.classList.remove('is-hidden');
+            } else {
+              el.classList.add('is-hidden');
+            }
+          });
+        });
+      });
+    }
+
+    setupShipsFiltering();
+    document.addEventListener('astro:page-load', setupShipsFiltering);
+  </script>
 
   <!-- ───────────────────────── AbdurRahman ───────────────────────── -->
   <section class="section cta">
@@ -282,71 +507,341 @@ const howItWorks = [
   .map-section { background: var(--cx-white); padding-top: 24px; scroll-margin-top: 80px; }
   .map-section__head { margin-bottom: 34px; max-width: 720px; }
 
-  /* ---------- ships ---------- */
-  .ships { background: var(--cx-gray); border-block: 1px solid var(--cx-border); }
-  .ships__grid {
+  /* ---------- 15 projects you'll build ---------- */
+  .ships {
+    background: var(--cx-gray);
+    border-block: 1px solid var(--cx-border);
+    padding-block: 72px;
+  }
+  [data-theme='dark'] .ships {
+    background: #090e1a;
+  }
+
+  /* Research Quality Standards Banner */
+  .ships__stats {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 10px;
-    margin: 34px 0 0;
-    padding: 0;
-    list-style: none;
+    gap: 12px;
+    margin: 32px 0 28px;
   }
-  @media (min-width: 620px) { .ships__grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1000px) { .ships__grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 580px) {
+    .ships__stats {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+  }
+  @media (min-width: 980px) {
+    .ships__stats {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+  }
 
-  .ships__item a {
+  .ships__stat {
     display: flex;
     align-items: center;
-    gap: 11px;
-    height: 100%;
-    padding: 14px 16px;
+    gap: 14px;
+    padding: 16px 18px;
     background: var(--cx-surface);
     border: 1px solid var(--cx-border);
     border-radius: var(--cx-r-card-sm);
-    transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+    transition: transform 0.2s ease, border-color 0.2s ease;
   }
-  .ships__item a:hover {
-    border-color: var(--phase-br);
-    box-shadow: var(--cx-shadow-card);
+  .ships__stat:hover {
+    border-color: var(--cx-brand);
     transform: translateY(-2px);
   }
-  .ships__lvl {
+  .ships__stat-ico {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    background: var(--p-blue-bg);
+    border: 1px solid var(--p-blue-br);
+    color: var(--p-blue-ac);
     flex: none;
-    padding: 3px 9px;
+  }
+  .ships__stat-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+  .ships__stat-num {
+    font-family: var(--cx-font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--cx-ink);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .ships__stat-desc {
+    font-size: 12px;
+    color: var(--cx-g600);
+    line-height: 1.35;
+  }
+
+  /* Interactive Phase Filter Pills */
+  .ships__filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .ships__filter-btn {
+    appearance: none;
+    background: var(--cx-surface);
+    border: 1px solid var(--cx-border);
+    border-radius: var(--cx-r-pill);
+    padding: 7px 15px;
+    font-family: var(--cx-font-display);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--cx-g700);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: all 0.18s ease;
+    user-select: none;
+  }
+  .ships__filter-btn:hover {
+    border-color: var(--cx-brand);
+    color: var(--cx-ink);
+    background: var(--cx-white);
+  }
+  .ships__filter-btn.is-active {
+    background: var(--cx-ink);
+    color: #ffffff;
+    border-color: var(--cx-ink);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
+  }
+  [data-theme='dark'] .ships__filter-btn.is-active {
+    background: var(--cx-brand);
+    border-color: var(--cx-brand);
+    color: #ffffff;
+    box-shadow: 0 2px 10px rgba(59, 130, 246, 0.35);
+  }
+  .ships__filter-count {
+    font-family: var(--cx-font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.06);
+    color: inherit;
+    line-height: 1.3;
+  }
+  .ships__filter-btn.is-active .ships__filter-count {
+    background: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+  }
+
+  /* Redesigned Project Cards Grid */
+  .ships__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  @media (min-width: 640px) {
+    .ships__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+  @media (min-width: 1040px) {
+    .ships__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+  }
+
+  .ships__item {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .ships__item.is-hidden {
+    display: none !important;
+  }
+
+  .ships__card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 22px 22px 20px;
+    background: var(--cx-surface);
+    border: 1px solid var(--cx-border);
+    border-radius: 14px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03), 0 4px 12px rgba(15, 23, 42, 0.02);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.22s ease, box-shadow 0.22s ease;
+  }
+  .ships__card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--phase-ac);
+    opacity: 0.85;
+    transition: height 0.18s ease, opacity 0.18s ease;
+  }
+  .ships__card:hover {
+    border-color: var(--phase-br);
+    box-shadow: 0 12px 30px -8px rgba(15, 23, 42, 0.12), 0 0 0 1px var(--phase-br);
+    transform: translateY(-4px);
+  }
+  .ships__card:hover::before {
+    height: 4px;
+    opacity: 1;
+  }
+  [data-theme='dark'] .ships__card:hover {
+    box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--phase-ac);
+  }
+
+  /* Card Head */
+  .ships__card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .ships__card-pills {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .ships__lvl-badge {
+    font-family: var(--cx-font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 3px 8px;
     border-radius: 6px;
     background: var(--phase-bg);
     border: 1px solid var(--phase-br);
     color: var(--phase-ac);
+    line-height: 1;
+  }
+  .ships__phase-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--cx-font-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--cx-g600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .ships__domain-tag {
+    font-family: var(--cx-font-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--cx-g500);
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 140px;
+  }
+
+  /* Card Title */
+  .ships__card-title {
+    font-family: var(--cx-font-display);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--cx-ink);
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
+    transition: color 0.18s ease;
+  }
+  .ships__card:hover .ships__card-title {
+    color: var(--phase-ac);
+  }
+
+  /* Card Abstract */
+  .ships__card-desc {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--cx-g600);
+    margin: 0 0 16px;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Card Deliverable Tags */
+  .ships__card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+  .ships__tag-pill {
+    font-family: var(--cx-font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: var(--cx-cream);
+    border: 1px solid var(--cx-border);
+    color: var(--cx-g700);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  [data-theme='dark'] .ships__tag-pill {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Card Footer */
+  .ships__card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid var(--cx-border-2);
+    margin-top: auto;
+  }
+  .ships__action-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--cx-font-display);
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--cx-brand);
+    letter-spacing: 0.01em;
+    transition: gap 0.18s ease;
+  }
+  .ships__arrow {
+    transition: transform 0.18s ease;
+  }
+  .ships__card:hover .ships__action-cta {
+    gap: 9px;
+  }
+  .ships__card:hover .ships__arrow {
+    transform: translateX(3px);
+  }
+  .ships__sessions-badge {
     font-family: var(--cx-font-mono);
     font-size: 11px;
-    font-weight: 600;
+    color: var(--cx-g500);
     font-variant-numeric: tabular-nums;
   }
-  .ships__name {
-    font-family: var(--cx-font-display);
-    font-size: 15.5px;
-    font-weight: 700;
-    line-height: 1.35;
-    letter-spacing: -0.01em;
-    background: var(--cx-title-grad-sm);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    min-width: 0;
-  }
-  .ships__phase {
-    margin-left: auto;
-    flex: none;
-    font-family: var(--cx-font-mono);
-    font-size: 9.5px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--cx-g500);
-    display: none;
-  }
-  @media (min-width: 1000px) { .ships__phase { display: block; } }
 
   /* ---------- cta ---------- */
   .cta { background: var(--cx-cream); }
