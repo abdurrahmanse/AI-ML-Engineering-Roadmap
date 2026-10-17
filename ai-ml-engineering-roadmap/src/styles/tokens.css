@@ -54,23 +54,22 @@
   --cx-tooltip-fg: #ffffff;
   --cx-tooltip-muted: #d4d4d8;
 
-  /* emphasis */
-  --cx-grad: linear-gradient(135deg, #4338ca, #6c5ce7);
+  /* restrained indigo-to-cobalt gradient for primary emphasis */
+  --cx-grad: linear-gradient(135deg, #1e3a8a, #2563eb);
 
-  /* title gradient — used on h1/h2 across the site */
+  /* professional title gradient — used on h1/h2 across the site */
   --cx-title-grad: linear-gradient(
     135deg,
-    #3730a3 0%,
-    #6c5ce7 45%,
-    #a855f7 80%,
-    #c084fc 100%
+    #172554 0%,
+    #1e3a8a 48%,
+    #2563eb 100%
   );
   /* tighter gradient for smaller headings (h3, card titles) */
   --cx-title-grad-sm: linear-gradient(
     120deg,
-    #4338ca 0%,
-    #7c3aed 60%,
-    #a855f7 100%
+    #1e3a8a 0%,
+    #3730a3 55%,
+    #2563eb 100%
   );
 
   /* pastel pill palette — {bg, border, accent}. Accent doubles as the text
@@ -191,22 +190,21 @@
   --cx-tooltip-fg: #0f0f14;
   --cx-tooltip-muted: #52525b;
 
-  /* emphasis */
-  --cx-grad: linear-gradient(135deg, #6d5ee8, #8b7cf6);
+  /* restrained blue-to-slate gradient for primary emphasis */
+  --cx-grad: linear-gradient(135deg, #1d4ed8, #64748b);
 
-  /* title gradient — electric violet-to-sky for dark backgrounds */
+  /* professional title gradient — cool, high-contrast dark-mode treatment */
   --cx-title-grad: linear-gradient(
     135deg,
-    #818cf8 0%,
-    #a78bfa 40%,
-    #c084fc 70%,
-    #e879f9 100%
+    #e2e8f0 0%,
+    #bfdbfe 48%,
+    #93c5fd 100%
   );
   --cx-title-grad-sm: linear-gradient(
     120deg,
-    #818cf8 0%,
-    #c084fc 60%,
-    #e879f9 100%
+    #f1f5f9 0%,
+    #bfdbfe 55%,
+    #a5b4fc 100%
   );
 
   /* pastel pill palette — darkened for dark surfaces */
