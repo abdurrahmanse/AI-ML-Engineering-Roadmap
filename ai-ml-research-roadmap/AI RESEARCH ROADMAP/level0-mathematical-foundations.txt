@@ -1,94 +1,101 @@
-Level 0 · Mathematical & Computational Foundations
+Level 0 · Scientific Computing & Reproducible Research Foundations
 
-Scope: master the core mathematical disciplines and numerical computing paradigms required for modern AI research: linear algebra, multivariable calculus, probability theory, information theory, and tensor automatic differentiation.
+Phase: Foundations & Methodology
+Suggested duration: 13 sessions (~3 weeks)
+Prerequisites: None (entry level for undergraduate researchers and beginning graduate students)
+Scope: Establish the foundational research computing stack, reproducible environment management, seed determinism, experiment logging, and open-source scientific artifact standards.
 
-M0.1 · Linear Algebra & Vector Spaces — (sessions: 4)
+M0.1 · The Research Computing Stack: Linux, Remote Servers & Shell Environments — (sessions: 2)
+Session 1 · Linux Server Environments & Remote Access
+- Navigate remote Linux compute servers via SSH with key-based authentication, config profiles, and persistent terminal multiplexers (tmux, screen).
+- Manage background research processes with nohup, systemd user services, and process isolation tools (htop, ps, kill).
+- Monitor GPU hardware metrics in real time using nvidia-smi, nvtop, and gpustat to diagnose GPU memory allocation and compute utilization.
+Session 2 · Shell Scripting for Scientific Automation
+- Write robust Bash automation scripts for parameterized batch execution, log redirection, and environment variable propagation.
+- Handle data stream redirection with standard input, output, error streams, and Unix pipeline utilities (grep, awk, sed, cut).
+- Automate remote file synchronization and dataset transfers between local machines and compute servers using rsync and scp.
+Mental model: The research server is an experimental laboratory where tmux sessions preserve running experiments across network disconnects.
+Try: Connect to a remote compute instance, launch a long-running simulation script inside a detached tmux session, and inspect memory allocation with nvidia-smi.
+Outcome: Operate remote Linux research environments confidently, launch persistent jobs, and diagnose GPU allocation bottlenecks.
 
-Understand vector spaces, subspaces, linear independence, basis, dimension, and linear transformations from geometric and algebraic viewpoints.
-Master matrix operations, rank-nullity theorem, invertibility, determinants, and matrix inverses in computational and theoretical contexts.
-Analyze eigenvalues, eigenvectors, characteristic polynomials, and geometric versus algebraic multiplicity.
-Understand spectral decomposition, symmetric matrices, positive semi-definite (PSD) matrices, and quadratic forms.
-Master Singular Value Decomposition (SVD): compact SVD, thin SVD, truncated SVD, low-rank matrix approximation, and the Eckart-Young-Mirsky theorem.
-Understand vector norms (L1, L2, Lp, L-infinity) and matrix norms (Frobenius, spectral norm, nuclear norm) and their roles in regularization.
-Compute inner products, projections, orthogonal complements, and Gram-Schmidt orthogonalization.
-Explore condition numbers, ill-conditioned linear systems, matrix pseudo-inverses (Moore-Penrose), and numerical stability in high dimensions.
-Outcome: derive SVD decompositions, prove spectral properties of symmetric positive semi-definite matrices, and analyze high-dimensional linear mappings algebraically and geometrically.
+M0.2 · Reproducible Virtual Environments: Pixi, Conda, Docker & PyPI — (sessions: 2)
+Session 1 · Environment Isolation & Dependency Resolution
+- Understand the reproducibility crisis in machine learning research caused by unpinned transitive dependencies and varying CUDA runtime binaries.
+- Isolate scientific Python environments using modern package managers (Pixi, uv, Conda) with locked dependency graphs.
+- Compile and install C++/CUDA extensions from source within isolated environments without contaminating system libraries.
+Session 2 · Containerization for Reproducible Research
+- Author multi-stage Dockerfiles optimized for deep learning research containing specific CUDA, cuDNN, and PyTorch versions.
+- Mount host scratch disks and dataset directories into containers while preserving file ownership and non-root execution permissions.
+- Export locked environment manifests (environment.lock.yml, pyproject.toml) to ensure identical reproduction across compute clusters.
+Mental model: A research environment must be an immutable, containerized artifact so that any researcher can reproduce exact numerical results five years later.
+Try: Build a reproducible container image pinning PyTorch and CUDA runtime dependencies, mounting an external dataset volume.
+Outcome: Eliminate dependency drift, resolve CUDA version mismatches, and package research code into containerized environments.
 
-M0.2 · Multivariable Calculus & Automatic Differentiation — (sessions: 3)
+M0.3 · Version Control for Science: Git, Submodules & Open-Source Code Release — (sessions: 2)
+Session 1 · Git Branching for Experimental Iteration
+- Structure research Git repositories separating core libraries, model definitions, baseline benchmarks, and exploratory scripts.
+- Use feature branches and semantic Git tags to mark paper submission checkpoints, rebuttal revisions, and camera-ready milestones.
+- Manage external research repositories and upstream library forks cleanly using Git submodules and subtree merges.
+Session 2 · Open-Source Code Standards & Research Hygiene
+- Author comprehensive academic README files featuring installation commands, pretrained checkpoint links, and minimal reproduction snippets.
+- Include open-source research licensing (MIT, Apache 2.0, CC-BY) and BibTeX citation blocks formatted for Google Scholar and ArXiv indexing.
+- Prevent data leakage and credential exposure by strictly configuring .gitignore for checkpoints, logs, raw data, and secret keys.
+Mental model: Git tags in research serve as immutable cryptographic stamps linking paper figures directly to specific commit hashes.
+Try: Create a research template repository with a structured module layout, automated linter, .gitignore, and standardized BibTeX citation header.
+Outcome: Structure academic research repositories to meet top-tier conference artifact evaluation and reproducibility standards.
 
-Compute partial derivatives, directional derivatives, gradients, Jacobian matrices, and Hessian matrices for scalar and vector-valued multivariable functions.
-Understand multivariate Taylor series expansions, quadratic approximations, and critical points (local minima, maxima, saddle points).
-Master the multivariate chain rule across nested vector-to-vector and matrix-to-matrix mappings.
-Derive backpropagation mathematically as a reverse-mode automatic differentiation algorithm over computational directed acyclic graphs (DAGs).
-Contrast forward-mode automatic differentiation (dual numbers) and reverse-mode automatic differentiation in terms of computational and memory complexity.
-Analyze matrix and tensor calculus: computing derivatives with respect to vectors, matrices, and multi-dimensional tensors using index notation and Einstein summation.
-Understand higher-order gradients: Hessian-vector products (HVPs), Fisher Information Matrix, and their applications in second-order optimization.
-Outcome: implement analytical tensor backpropagation manually on paper and verify gradients against numerical finite differences.
+M0.4 · Experiment Tracking & Artifact Management: Weights & Biases and MLflow — (sessions: 2)
+Session 1 · Real-Time Metric Logging & Hyperparameter Tracking
+- Integrate real-time experiment tracking tools (Weights & Biases, MLflow) into iterative training loops with minimal overhead.
+- Log training and validation loss curves, evaluation accuracy, gradient norms, and learning rate schedules across continuous epochs.
+- Structure hierarchical configuration dictionaries tracking all hyperparameters, random seeds, dataset versions, and model architectures.
+Session 2 · Media Logging & Model Checkpoint Registry
+- Log multimodal research artifacts including generated validation samples, confusion matrices, and interactive attention heatmaps.
+- Implement an automated checkpoint saving strategy saving best-validation models, periodic epoch states, and emergency recovery snapshots.
+- Compare experiment runs across multi-dimensional parallel coordinate plots to isolate hyperparameter sensitivities and performance gains.
+Mental model: An experiment tracker is a digital laboratory notebook capturing the exact relationship between configuration deltas and empirical outcomes.
+Try: Instrument a PyTorch training loop with Weights & Biases, logging scalar metrics, gradient norm histograms, and validation sample predictions.
+Outcome: Systematically track hundreds of experimental runs, visualize metric trajectories, and maintain a centralized model registry.
 
-M0.3 · Probability Theory & Stochastic Foundations — (sessions: 3)
+M0.5 · Hardware Determinism, Random Seeds & Scientific Data Loaders — (sessions: 2)
+Session 1 · Eliminating Sources of Non-Determinism
+- Identify hardware and software sources of numerical non-determinism in deep learning (CUDA atomic operations, cuDNN benchmarking, CPU threading).
+- Implement deterministic initialization routines seeding Python random, NumPy, PyTorch CPU/GPU generators, and cuDNN deterministic flags.
+- Understand the performance trade-offs of enabling torch.use_deterministic_algorithms() during initial prototyping versus large-scale runs.
+Session 2 · High-Throughput Scientific Data Pipelines
+- Build multi-worker PyTorch DataLoaders with custom worker initialization functions ensuring independent, deterministic worker random states.
+- Avoid common multiprocessing pitfalls in PyTorch data loaders such as shared memory exhaustion, worker deadlocks, and duplicate augmentations.
+- Implement memory-mapped dataset formats and pre-fetching pipelines (Arrow, WebDataset, HDF5) to prevent CPU data starvation during GPU training.
+Mental model: True scientific reproducibility requires that rerunning a script with seed 42 produces identical bitwise loss values across epochs.
+Try: Write a deterministic seed utility function, verify that two independent training runs produce identical loss curves, and benchmark data loader throughput.
+Outcome: Eliminate stochastic noise between runs, guarantee experimental determinism, and design high-throughput scientific data pipelines.
 
-Understand probability spaces, sigma-algebras, random variables, cumulative distribution functions, and probability density functions.
-Analyze discrete distributions (Bernoulli, Binomial, Categorical, Poisson) and continuous distributions (Gaussian, Multivariate Normal, Uniform, Beta, Dirichlet).
-Master joint distributions, conditional distributions, marginalization, Bayes' theorem, independence, and conditional independence.
-Derive expectations, variances, covariances, correlation coefficients, covariance matrices, and moments of multidimensional distributions.
-Understand change of variables formula for continuous probability density functions, Jacobians of transformations, and normalizing flows foundations.
-Analyze law of large numbers (weak and strong), central limit theorem, and concentration inequalities (Markov, Chebyshev, Hoeffding, Chernoff bounds).
-Understand maximum likelihood estimation (MLE), maximum a posteriori (MAP) estimation, and their exact relations to loss functions in supervised learning.
-Outcome: manipulate multivariate Gaussian densities, derive MLE and MAP estimators analytically, and bound sample estimate deviations using concentration inequalities.
+M0.6 · Capstone Project: Reproducible Experiment Harness & Pipeline Template — (sessions: 3)
+Session 1 · Architectural Scaffold & Experiment Configuration
+- Design a modular, object-oriented experiment harness decoupling dataset loading, model architecture, training loop, and evaluation metrics.
+- Implement structured configuration parsing with type validation and command-line overrides (Hydra, Pydantic, argparse).
+- Create automated logging hooks capturing Git commit hash, environment diff, hardware specifications, and package versions at runtime start.
+Session 2 · Verification, Checkpointing & Open-Source Packaging
+- Build a resilient training loop featuring automated checkpoint resumption, anomaly detection for NaN gradients, and graceful signal handling.
+- Author an automated smoke-test suite verifying forward pass, backward gradient flow, and data pipeline throughput on dummy synthetic tensors.
+- Package the harness into a reusable research template repository with complete documentation, container definition, and continuous integration.
+Mental model: A battle-tested research harness is a scientist's primary laboratory apparatus, reducing the time from new hypothesis to empirical result from weeks to hours.
+Try: Run the experiment harness with multiple configuration overrides, simulate a mid-training process termination, and verify seamless resumption from checkpoint.
+Outcome: Possess a production-grade, conference-ready scientific research template that ensures complete reproducibility across all subsequent projects.
 
-M0.4 · Information Theory & Entropy — (sessions: 2)
-
-Define Shannon entropy as a measure of uncertainty and surprise for discrete and continuous (differential entropy) random variables.
-Compute joint entropy, conditional entropy, and derive the chain rule of entropy.
-Master Kullback-Leibler (KL) divergence (relative entropy): mathematical definition, non-negativity (Gibbs' inequality), asymmetry, and directionality (forward KL vs reverse KL).
-Understand cross-entropy loss, its relationship to Shannon entropy and KL divergence, and why it forms the standard surrogate loss in classification.
-Analyze mutual information, channel capacity, data processing inequality, and the information bottleneck principle in deep neural representations.
-Understand Wasserstein distance (Earth Mover's Distance) and optimal transport fundamentals versus f-divergences in probability distribution alignment.
-Outcome: prove Gibbs' inequality, compute analytical KL divergence between multivariate Gaussians, and contrast forward and reverse KL behavior on multi-modal targets.
-
-M0.5 · Numerical Scientific Computing & JAX/PyTorch Internals — (sessions: 3)
-
-Understand floating-point representation (IEEE 754: FP64, FP32, FP16, BF16, FP8), precision limits, machine epsilon, underflow, and overflow.
-Master numerically stable computation: log-sum-exp trick for Softmax, log-domain probabilities, and mitigating vanishing gradients.
-Implement vectorized and tensorized mathematical operations using NumPy, PyTorch, and JAX with zero Python-level loops.
-Understand computation graphs, tensor strides, views, contiguous memory layout, broadcasting rules, and inplace mutations.
-Master JAX functional programming primitives: pure functions, jit (XLA compilation), vmap (vectorized batching), and grad (algorithmic differentiation).
-Profile floating point operations (FLOPs), memory bandwidth, CPU-GPU data transfers, and tensor allocation bottlenecks.
-Outcome: write high-performance vectorized numerical code in PyTorch/JAX that runs stably in low-precision floating-point regimes without numerical underflow.
-
-M0.6 · Capstone: Build an Autograd Engine from Mathematical First Principles — (sessions: 2)
-
-Build a complete tensor-valued reverse-mode automatic differentiation engine from scratch in pure Python and NumPy with no deep learning frameworks.
-Implement a computational Tensor class supporting dynamic DAG graph construction, topological sorting, and reverse topological gradient accumulation.
-Implement forward and backward passes for fundamental mathematical operations: addition, subtraction, multiplication, matrix multiplication, transpose, power, log, and exp.
-Implement multi-dimensional tensor broadcasting mechanics and ensure gradient reduction over broadcasted dimensions during backward execution.
-Implement activation functions with numerical stability guards: Sigmoid, ReLU, GELU, and numerically stable Softmax with LogSumExp.
-Implement loss functions: Mean Squared Error, Binary Cross Entropy, and Categorical Cross Entropy with one-hot targets.
-Verify gradient correctness for every single primitive operation using numerical gradient checking (finite difference approximations) with a tolerance under 1e-5.
-Construct and train a multi-layer perceptron (MLP) on a non-linear dataset using purely your custom autograd engine and SGD optimizer.
-Document the exact mathematical Jacobian-vector products for each operator and analyze computational complexity of forward versus backward graph passes.
-Final result: a verified, documented tensor autograd engine written from first principles that executes arbitrary mathematical computation graphs and trains neural networks.
-
-Level 0 completion outcome
-
-By the end of this level, you should be able to:
-
-Solve multivariable linear algebra systems and derive singular value decompositions analytically.
-Analyze symmetric positive semi-definite matrices and compute spectral projections.
-Derive the multivariate chain rule across tensor mappings using index notation.
-Explain forward-mode versus reverse-mode automatic differentiation computational complexity.
-Calculate gradients, Jacobians, and Hessians of multivariable scalar and vector functions.
-Formulate loss functions as maximum likelihood or maximum a posteriori estimation problems.
-Calculate Shannon entropy, joint entropy, conditional entropy, and mutual information.
-Prove the non-negativity of Kullback-Leibler divergence and analyze mode-covering versus mode-seeking behavior.
-Explain the mathematical difference between KL divergence and Wasserstein distance.
-Handle floating-point precision issues and implement numerically stable operations like LogSumExp.
-Write vectorized and memory-contiguous tensor transformations in PyTorch and JAX.
-Use JAX functional primitives including pure functions, grad, vmap, and jit compilation.
-Construct a dynamic computational directed acyclic graph and perform topological sorting.
-Accumulate multivariable gradients backward through complex computational trees.
-Implement tensor broadcasting gradient reduction correctly in custom autograd passes.
-Derive analytical gradients for matrix multiplication and multi-layer neural network parameters.
-Verify empirical gradients against mathematical derivatives using finite differences.
-Read theoretical machine learning research papers containing rigorous linear algebra and probability proofs.
-Progression: Linear Algebra → Multivariable Calculus → Probability Theory → Information Theory → Numerical Computing → Custom Autograd Engine.
+CAPSTONE PROJECT: Reproducible Experiment Harness & Pipeline Template
+BRIEF: Build a standardized, publication-ready research scaffolding framework in PyTorch that guarantees bitwise reproducibility, tracks real-time experimental metrics, handles graceful checkpoint recovery, and exports complete environment provenance for academic code releases.
+Build an experiment harness that:
+- Initializes deterministic random generators across Python, NumPy, and PyTorch backends with verified seed propagation to DataLoader worker processes.
+- Parses hierarchical experiment configurations via structured configuration schemas with strict type validation and runtime command-line overrides.
+- Logs scalar metrics, gradient norm distributions, learning rate schedules, and validation artifacts to Weights & Biases and local disk simultaneously.
+- Detects NaN/Inf loss values and exploding gradients instantly, triggering informative debug dumps with tensor activation statistics.
+- Implements atomic checkpoint saving with metadata sidecars recording validation metrics, optimizer states, learning rate schedules, and Git commit hashes.
+- Automatically resumes interrupted training runs from the latest checkpoint without metric duplication or data epoch leakage.
+- Features a unit test suite validating gradient propagation, deterministic outputs under fixed seeds, and data pipeline memory bounds.
+Deliverables:
+- Modular research repository featuring decoupled datasets/, models/, training/, and configs/ directories.
+- Verified Dockerfile and environment lockfile reproducing the exact runtime on any CUDA-enabled system.
+- An interactive Weights & Biases dashboard comparing multiple runs with distinct seeds and hyperparameter configurations.
+- Comprehensive academic README with step-by-step reproduction instructions, checkpoint links, and BibTeX citation.
+Outcome: You can scaffold any machine learning research project with industrial-grade scientific rigor, guaranteed reproducibility, and frictionless collaboration.

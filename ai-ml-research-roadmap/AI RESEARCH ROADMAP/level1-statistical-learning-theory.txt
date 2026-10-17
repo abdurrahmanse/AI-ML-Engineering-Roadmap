@@ -1,96 +1,101 @@
-Level 1 · Statistical Learning Theory & Classical ML
+Level 1 · Literature Review & Scientific Problem Formulation
 
-Scope: explore the theoretical foundations of statistical learning: PAC learning, empirical risk minimization, VC dimension, generalization bounds, convex optimization, kernel methods, and probabilistic graphical models.
+Phase: Foundations & Methodology
+Suggested duration: 13 sessions (~3 weeks)
+Prerequisites: Level 0 (Scientific Computing & Reproducible Research Foundations)
+Scope: Master the academic research methodology: discovering, analyzing, and synthesizing scientific literature, identifying open research gaps, formulating formal research questions (RQs), and constructing rigorous research proposals.
 
-Prerequisites: Level 0
+M1.1 · Scientific Discovery Engines: Navigating ArXiv, Google Scholar & Semantic Scholar — (sessions: 2)
+Session 1 · Academic Search Engines & Literature Discovery
+- Query academic databases (Google Scholar, Semantic Scholar, DBLP, ArXiv) using boolean search syntax and field-specific filtering.
+- Track citation graphs and follow seminal lineages forward and backward using citation trees and influence metrics.
+- Discover emerging preprints and conference proceedings across premier AI/ML venues (NeurIPS, ICML, ICLR, CVPR, ACL, KDD).
+Session 2 · Automated Paper Feeds & Research Radar
+- Set up automated research alerts and topic monitoring using ArXiv RSS feeds, Hugging Face Daily Papers, and Google Scholar keyword notifications.
+- Leverage visual literature exploration tools (Connected Papers, Litmaps, ResearchRabbit) to discover co-citation clusters and derivative works.
+- Filter signal from noise in daily preprint releases by evaluating author lab credibility, code availability, and benchmark claims.
+Mental model: The scientific literature is a dynamic, interconnected knowledge graph; exploring citation trajectories reveals where a paradigm is heading.
+Try: Map the citation graph of a foundational paper using Connected Papers, identifying the top three foundational prior works and top three derivative extensions.
+Outcome: Systematically discover relevant academic literature, navigate citation networks, and establish an automated daily research radar.
 
-M1.1 · The Learning Problem & Empirical Risk Minimization — (sessions: 3)
+M1.2 · Critical Paper Reading: The Three-Pass Method & Deconstructing Claims — (sessions: 2)
+Session 1 · Efficient Multi-Pass Paper Deconstruction
+- Apply Keshav’s Three-Pass Method to evaluate paper relevance, grasp central ideas, and dissect technical depth in structured increments.
+- Extract the core contributions in Pass 1 by analyzing title, abstract, introduction, section headers, and conclusion within 10 minutes.
+- Scrutinize figures, tables, and empirical evidence in Pass 2 to assess whether experimental data genuinely supports the stated claims.
+Session 2 · Deep Technical Dissection & Critical Questioning
+- Execute Pass 3: mentally re-implement the paper from scratch, identifying implicit assumptions, unstated tricks, and missing proofs.
+- Distinguish between theoretical guarantees, empirical heuristic findings, and unverified narrative speculation in published papers.
+- Identify common paper red flags: cherry-picked qualitative examples, weak or un-tuned baselines, moving goalposts, and missing ablation studies.
+Mental model: Reading a paper is an active peer review where you interrogate every claim against the empirical evidence presented.
+Try: Conduct a 3-pass review of a recent top-tier conference paper, writing a 1-page structured critique evaluating its core claims and baseline fairness.
+Outcome: Read research papers efficiently, extract core insights rapidly, and critically evaluate the validity of scientific claims.
 
-Formulate the statistical learning problem: input space, output space, unknown data-generating distribution P(X, Y), hypothesis class H, and loss functions.
-Define true risk (expected loss) versus empirical risk (training loss) and formulate the Empirical Risk Minimization (ERM) principle.
-Analyze the inductive bias of hypothesis classes and explain why unconstrained learning without inductive bias is mathematically impossible.
-Decompose expected generalization error into approximation error, estimation error, and irreducible optimization error.
-Understand the classical bias-variance decomposition for mean squared error: bias squared, variance, and noise terms.
-Analyze overfitting and underfitting from statistical learning perspectives and study the effect of sample size N on generalization error.
-Examine surrogate loss functions: 0-1 loss intractability, convex surrogates (hinge loss, logistic loss, exponential loss), and classification calibration.
-Outcome: formulate machine learning problems rigorously in the language of statistical decision theory and analyze risk decomposition.
+M1.3 · Citation Management & Literature Synthesis: Zotero, BibTeX & Taxonomy Building — (sessions: 2)
+Session 1 · Systematic Reference Management
+- Organize academic libraries systematically using Zotero with automatic PDF metadata extraction, tag hierarchies, and DOI lookups.
+- Integrate Zotero with Overleaf and local LaTeX environments via Better BibTeX for automated, clean citation key generation.
+- Annotate papers with structured research notes linking methodology variants, benchmark scores, and theoretical limitations.
+Session 2 · Synthesizing Related Work & Taxonomy Building
+- Construct comparative literature synthesis matrices mapping related papers across problem formulations, architectures, and assumptions.
+- Develop conceptual taxonomies that categorize existing approaches into clear methodological families with contrasting trade-offs.
+- Write polished "Related Work" sections that tell a compelling historical narrative rather than providing a disjointed list of summaries.
+Mental model: A literature survey is not a catalog of summaries; it is a structured taxonomy that exposes the boundaries of current human knowledge.
+Try: Build a 15-paper comparative synthesis table in Zotero, mapping existing methods across problem formulation, architecture, datasets, and limitations.
+Outcome: Manage thousands of academic references effortlessly, maintain clean BibTeX registries, and synthesize literature into structured taxonomies.
 
-M1.2 · PAC Learning & Generalization Bounds — (sessions: 4)
+M1.4 · Identifying Research Gaps & Formulating Research Questions (RQs) — (sessions: 2)
+Session 1 · Systematic Gap Analysis
+- Identify fertile research gaps: methodological oversights, untested domain transfers, computational bottlenecks, and contradictory published findings.
+- Analyze the "Limitations and Future Work" sections of leading conference papers to extract candidate research directions.
+- Distinguish between incremental "delta" tweaks (hyperparameter tuning) and substantial scientific gaps that yield meaningful contributions.
+Session 2 · Formulating Formal Research Questions
+- Formulate precise, falsifiable Research Questions (RQ1, RQ2, RQ3) that guide the entire trajectory of an academic investigation.
+- Frame research questions spanning capability (Can method X solve Y?), mechanism (Why does X outperform Y?), and trade-off (What is the cost of X?).
+- Define measurable operational definitions and evaluation metrics for each research question to establish clear success criteria.
+Mental model: A well-formulated research question contains its own verification metric; if you cannot measure the answer, the question is not yet scientific.
+Try: Select a sub-field of AI, identify an unaddressed limitation in recent SOTA papers, and formulate three formal, falsifiable Research Questions.
+Outcome: Isolate high-impact research gaps from published literature and formalize rigorous, publication-grade research questions.
 
-Master Probably Approximately Correct (PAC) learning framework: epsilon-accuracy, delta-confidence, sample complexity, and computational complexity.
-Prove finite hypothesis class generalization bounds using Hoeffding's inequality and the union bound for realizable and agnostic settings.
-Understand uniform convergence: bounding the supremum of empirical risk deviations over the entire hypothesis class.
-Define Rademacher complexity and Gaussian complexity as data-dependent measures of hypothesis class richness.
-Study growth functions, Shattering, and Vapnik-Chervonenkis (VC) dimension for infinite hypothesis classes.
-Prove Sauer-Shelah lemma and derive VC dimension bounds for linear classifiers, hyperplanes, and polynomial classifiers.
-Understand modern generalization frontiers: PAC-Bayes bounds, margin bounds, and where classical uniform convergence bounds fail in deep learning.
-Outcome: compute VC dimensions for geometric hypothesis classes and derive formal sample complexity bounds for PAC learnability.
+M1.5 · Hypothesis Generation, Theoretical Framing & Feasibility Analysis — (sessions: 2)
+Session 1 · Formulating Scientific Hypotheses
+- Formulate primary and alternative hypotheses (H1, H0) predicting specific empirical outcomes when modifying an algorithmic component.
+- Provide theoretical justification for why the proposed approach should work, grounded in computational complexity, optimization, or statistics.
+- Anticipate confounding variables and failure modes that could invalidate the hypothesis under realistic experimental conditions.
+Session 2 · Research Project Feasibility & Risk De-risking
+- Evaluate compute feasibility: calculate GPU hours, parameter scales, and dataset storage requirements against available lab resources.
+- Assess timeline feasibility: plan phased milestones from rapid toy proof-of-concept to full-scale empirical validation.
+- Design early de-risking experiments (quick failure tests) that validate critical assumptions before committing major computational budgets.
+Mental model: Strong research balances theoretical ambition with pragmatic de-risking; fail fast on toy problems before scaling compute.
+Try: Draft a feasibility budget for a research hypothesis, estimating required GPU hours, dataset disk footprints, and a 2-day proof-of-concept milestone.
+Outcome: Formulate grounded research hypotheses, justify theoretical mechanisms, and establish resource-conscious experimental feasibility plans.
 
-M1.3 · Convex Optimization & Duality Theory — (sessions: 3)
+M1.6 · Capstone Project: Comprehensive Literature Survey & Research Proposal Specification — (sessions: 3)
+Session 1 · Literature Synthesis & Gap Articulation
+- Conduct an exhaustive literature survey across 25+ papers in an active AI/ML research area, constructing a multi-dimensional taxonomy matrix.
+- Articulate a compelling, well-justified research gap highlighting why existing methodologies fail under specific critical conditions.
+- Define 3 formal Research Questions (RQs) with explicit hypotheses and measurable empirical criteria.
+Session 2 · Methodological Specification & Experimental Blueprint
+- Write a formal methodological proposal specifying the proposed model architecture, loss functions, and algorithmic enhancements.
+- Design an end-to-end experimental plan detailing benchmark datasets, baseline implementations, metric definitions, and ablation grids.
+- Author the complete proposal document in LaTeX using a standard conference template (NeurIPS/ICLR), complete with BibTeX bibliography.
+Mental model: A research proposal is an architectural blueprint for a scientific paper; when executed thoroughly, writing the final paper is simply filling in the results.
+Try: Compile your complete literature survey and research proposal into a clean LaTeX PDF, verifying all cross-references, equations, and BibTeX citations.
+Outcome: Produce an academic research proposal suitable for MSc/PhD thesis committees or top-tier conference paper initiation.
 
-Understand convex sets, convex functions, epigraphs, subgradients, and subdifferentials for non-smooth convex objectives.
-Master optimality conditions: Fermat's rule for unconstrained problems, Karush-Kuhn-Tucker (KKT) conditions for constrained optimization.
-Formulate Lagrangian functions, primal optimization problems, Lagrange dual functions, and dual optimization problems.
-Understand weak duality, strong duality, Slater's constraint qualification condition, and zero duality gap.
-Analyze first-order optimization methods: gradient descent, projected gradient descent, subgradient descent, and convergence rates for convex and strongly convex functions.
-Analyze accelerated first-order algorithms: Polyak's heavy-ball method, Nesterov accelerated gradient, and optimal O(1/k^2) convergence rates.
-Explore second-order methods: Newton's method, Quasi-Newton methods (BFGS, L-BFGS), and trust-region algorithms with quadratic convergence properties.
-Outcome: derive dual optimization problems analytically, verify KKT conditions, and analyze algorithmic convergence rates mathematically.
-
-M1.4 · Kernel Methods & Non-Parametric Theory — (sessions: 3)
-
-Formulate linear models for regression and classification: ordinary least squares, ridge regression, and Lasso with L1 sparsity proofs.
-Understand reproducing kernel Hilbert spaces (RKHS), the Moore-Aronszajn theorem, and Mercer's theorem for positive definite kernels.
-Master the kernel trick: mapping data implicitly into infinite-dimensional feature spaces via kernel evaluation k(x, x').
-Analyze canonical kernels: polynomial kernels, Gaussian Radial Basis Function (RBF) kernel, Laplacian kernel, and neural tangent kernels (NTK) introduction.
-Derive Support Vector Machines (SVM) primal and dual formulations, support vectors geometry, slack variables, and soft-margin formulations.
-Formulate Kernel Ridge Regression and Gaussian Processes: covariance functions, posterior Gaussian distributions, and Bayesian non-parametrics.
-Understand non-parametric estimation: k-nearest neighbors convergence rates, Nadaraya-Watson kernel regression, and the curse of dimensionality.
-Outcome: prove Mercer's conditions for custom kernels, derive the dual SVM optimization problem, and implement Gaussian Process regression with analytical posteriors.
-
-M1.5 · Probabilistic Graphical Models & Approximate Inference — (sessions: 3)
-
-Understand Directed A Graphical Models (Bayesian Networks): factorization of joint distributions, d-separation, and conditional independence properties.
-Understand Undirected Graphical Models (Markov Random Fields): cliques, potential functions, Gibbs distributions, and the Hammersley-Clifford theorem.
-Formulate exact inference algorithms: variable elimination, belief propagation on trees, and the sum-product / max-product junction tree algorithm.
-Analyze the computational complexity of exact inference and explain why general inference is NP-hard.
-Master approximate inference through sampling: Markov Chain Monte Carlo (MCMC), Metropolis-Hastings algorithm, and Gibbs sampling.
-Master approximate inference through variational methods: Variational Inference (VI), Evidence Lower Bound (ELBO), mean-field approximation, and coordinate ascent variational inference (CAVI).
-Explore the Expectation-Maximization (EM) algorithm: Jensen's inequality derivation, Gaussian Mixture Models (GMM), and convergence properties.
-Outcome: derive the Evidence Lower Bound from Jensen's inequality and implement the Expectation-Maximization algorithm for latent Gaussian mixtures.
-
-M1.6 · Capstone: Empirical and Theoretical Study of Generalization in Kernel Regression — (sessions: 2)
-
-Formulate a rigorous research experiment comparing theoretical generalization bounds against empirical test error across varying sample sizes N and dimensions D.
-Implement Kernel Ridge Regression and Support Vector Machines entirely from scratch using quadratic programming solvers (CVXPY/SciPy).
-Derive the analytical generalization error bound using empirical Rademacher complexity and RKHS norm constraints.
-Compute empirical Rademacher complexity via Monte Carlo sampling of random Rademacher variables over synthetically generated non-linear manifolds.
-Investigate the role of regularization parameter lambda on eigenvalue decay of the kernel Gram matrix and the effective degrees of freedom.
-Measure the gap between worst-case theoretical generalization bounds and actual empirical test risk across overparameterized versus underparameterized regimes.
-Produce publication-quality research figures: risk curves, eigenvalue spectra, empirical vs theoretical bound gaps, and decision boundaries.
-Write a formal academic report (ICML/NeurIPS formatting) analyzing where uniform convergence bounds remain tight and where they become vacuous.
-Final result: a reproducible research benchmark and theoretical report validating kernel generalization bounds against empirical learning dynamics.
-
-Level 1 completion outcome
-
-By the end of this level, you should be able to:
-
-Formulate learning problems in the statistical decision theory framework.
-Prove risk decomposition into bias, variance, and irreducible error.
-Derive generalization error bounds for finite hypothesis classes using Hoeffding's inequality.
-Define the PAC learning model and compute sample complexity for realizable hypotheses.
-Calculate the VC dimension of linear classifiers and simple geometric families.
-State and prove properties of convex functions, subgradients, and epigraphs.
-Derive the Karush-Kuhn-Tucker (KKT) conditions for constrained optimization problems.
-Formulate the Lagrangian dual problem and prove weak duality.
-Explain Nesterov acceleration and prove its optimal convergence rate for smooth convex functions.
-Prove that a given function is a valid Mercer kernel and construct an RKHS mapping.
-Derive the dual formulation of Support Vector Machines and identify support vectors geometrically.
-Implement Gaussian Process regression and compute closed-form analytical predictive posteriors.
-Determine conditional independence in Bayesian networks using d-separation.
-Derive the Evidence Lower Bound (ELBO) mathematically using Jensen's inequality.
-Implement the Expectation-Maximization algorithm for latent variable models.
-Compare MCMC sampling and variational inference for approximate posterior estimation.
-Analyze why classical VC and Rademacher bounds can become vacuous in deep overparameterized models.
-Conduct a rigorous theoretical and empirical comparison between theoretical bounds and empirical generalization.
-Progression: Empirical Risk Minimization → PAC Bounds & VC Dimension → Convex Optimization & Duality → Kernel Methods & RKHS → Graphical Models & Variational Inference → Generalization Benchmark Study.
+CAPSTONE PROJECT: Comprehensive Literature Survey & Research Proposal Specification
+BRIEF: Author a formal academic research proposal in LaTeX following the official NeurIPS/ICLR conference format. The proposal must synthesize current literature in a chosen AI/ML subfield, identify a significant research gap, formalize falsifiable research questions, and outline a rigorous experimental validation blueprint.
+Build a research proposal that:
+- Surveys at least 25 peer-reviewed papers from top-tier AI/ML venues, organizing them into a structured taxonomic framework.
+- Constructs a comparative analysis table evaluating prior works across assumptions, architectural choices, compute requirements, and empirical limits.
+- Identifies an unaddressed scientific research gap supported by concrete citations and empirical analysis of prior limitations.
+- Formulates three formal Research Questions (RQ1, RQ2, RQ3) accompanied by precise null and alternative hypotheses.
+- Specifies the mathematical formulation of the proposed approach, including loss formulations, architectural modifications, and algorithmic pseudocode.
+- Details the experimental blueprint: choice of benchmark datasets, competitive baseline models to reproduce, evaluation metrics, and planned ablation studies.
+- Provides a detailed compute budget estimating GPU memory requirements, training wall-clock time, and a phased risk-mitigation timeline.
+- Adheres strictly to conference formatting guidelines with clean vector figures, mathematical notation, and an authenticated BibTeX bibliography.
+Deliverables:
+- Formally compiled 6-page Research Proposal PDF formatted in LaTeX using the official NeurIPS or ICLR template.
+- Comprehensive BibTeX library (.bib) containing cleanly formatted, verified citations for all referenced works.
+- Markdown summary pitch slide-deck outline for presentation to a thesis advisor or research lab director.
+Outcome: You can identify high-impact scientific opportunities, review academic literature critically, and formulate publication-grade research proposals.

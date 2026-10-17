@@ -17,20 +17,20 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT_DIRS = [join(root, 'AI RESEARCH ROADMAP'), join(root, 'AI ENGINEER ROADMAP'), root];
 
 const PHASES = [
-  { id: 'foundations', name: 'Foundations',        levels: [0, 1, 2, 3],  theme: 'linear algebra, probability, optimization, statistical learning & transformers', color: 'violet',  icon: 'sigma' },
-  { id: 'retrieval',   name: 'Representation',     levels: [4],           theme: 'metric learning, high-dimensional geometries, latent spaces & dense retrieval', color: 'blue',    icon: 'scan' },
-  { id: 'agentic',     name: 'Reasoning & Agency', levels: [5, 6],        theme: 'reinforcement learning, thought trees, search, PRMs & test-time compute',       color: 'emerald', icon: 'brain-circuit' },
-  { id: 'trust',       name: 'Evaluation & Trust', levels: [7, 8],        theme: 'statistical testing, benchmarking, preference optimization & interpretability', color: 'amber',   icon: 'shield-check' },
-  { id: 'production',  name: 'Scaling & Systems',  levels: [9, 10, 11],   theme: 'scaling laws, pre-training, distributed systems (3D/ZeRO) & diffusion theory',  color: 'cyan',    icon: 'cpu' },
-  { id: 'frontier',    name: 'Frontier & Proof',   levels: [12, 13, 14],  theme: 'multimodal architectures, PEFT spectral dynamics & scientific reproduction',   color: 'rose',    icon: 'sparkles' },
-  { id: 'interview',   name: 'Research Career',    levels: [15],          theme: 'paper writing, peer review, OpenReview rebuttals & research defense',           color: 'slate',   icon: 'graduation-cap' },
+  { id: 'foundations', name: 'Foundations & Methodology', levels: [0, 1, 2, 3],  theme: 'scientific computing, literature review, research math & experimental benchmarking', color: 'violet',  icon: 'terminal' },
+  { id: 'retrieval',   name: 'Research Prototyping',     levels: [4],           theme: 'modular deep learning architectures, autograd extensions & research profiling in PyTorch/JAX', color: 'blue',    icon: 'code' },
+  { id: 'agentic',     name: 'Paradigms & Generative Models', levels: [5, 6],    theme: 'transformers, state space models, self-supervised learning, diffusion & flow matching', color: 'emerald', icon: 'brain-circuit' },
+  { id: 'trust',       name: 'Reasoning, Benchmarks & Rigor', levels: [7, 8],    theme: 'reinforcement learning, test-time compute, benchmark curation & contamination audits', color: 'amber',   icon: 'shield-check' },
+  { id: 'production',  name: 'HPC, Scaling & Interpretability', levels: [9, 10, 11], theme: 'supercomputing clusters, SLURM, 3D distributed training, scaling laws & mechanistic interpretability', color: 'cyan',    icon: 'cpu' },
+  { id: 'frontier',    name: 'Frontier, Alignment & Thesis', levels: [12, 13, 14], theme: 'AI safety research, multimodal scientific discovery & comprehensive conference capstones', color: 'rose',    icon: 'sparkles' },
+  { id: 'interview',   name: 'Writing, Peer Review & Career', levels: [15],      theme: 'LaTeX paper writing, peer review, OpenReview rebuttals, thesis defense & research job talks', color: 'slate',   icon: 'graduation-cap' },
 ];
 
 /* One Lucide icon per level for AI/ML research. */
 const LEVEL_ICONS = {
-  0: 'sigma', 1: 'chart-scatter', 2: 'trending-up', 3: 'sparkles', 4: 'scan',
-  5: 'route', 6: 'workflow', 7: 'microscope', 8: 'shield-check', 9: 'scale',
-  10: 'cpu', 11: 'flame', 12: 'eye', 13: 'sliders-horizontal', 14: 'trophy',
+  0: 'terminal', 1: 'book-open', 2: 'sigma', 3: 'sliders-horizontal', 4: 'code',
+  5: 'layers', 6: 'sparkles', 7: 'route', 8: 'microscope', 9: 'cpu',
+  10: 'scale', 11: 'search', 12: 'shield-check', 13: 'eye', 14: 'trophy',
   15: 'graduation-cap',
 };
 
