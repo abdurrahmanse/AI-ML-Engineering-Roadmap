@@ -1,7 +1,7 @@
 ---
 /**
- * Hero visual: the six phases as a ladder, so the shape of the journey lands
- * before a single paragraph is read.
+ * Hero visual: Mission Control & Research Progression Terminal
+ * Displays the 7 academic phases as an interactive scientific ladder.
  */
 import Icon from './Icon.astro';
 import { phases, totalSessions, levels } from '../data/levels';
@@ -10,85 +10,229 @@ const rows = phases;
 ---
 
 <div class="hp">
-  <div class="hp__head">
-    <span class="mono-label">The path at a glance</span>
-    <span class="hp__total">{levels.length} levels · {totalSessions} sessions</span>
+  <!-- Terminal Control Bar -->
+  <div class="hp__window-bar">
+    <div class="hp__dots" aria-hidden="true">
+      <span class="hp__dot hp__dot--red"></span>
+      <span class="hp__dot hp__dot--amber"></span>
+      <span class="hp__dot hp__dot--green"></span>
+    </div>
+    <span class="hp__terminal-title">ai-ml-research-roadmap · v2026.1</span>
+    <span class="hp__status-pill">
+      <span class="hp__status-led"></span>
+      <span>16 LEVELS · {totalSessions} SESSIONS</span>
+    </span>
   </div>
 
+  <!-- Header Section -->
+  <div class="hp__head">
+    <div class="hp__head-title-wrap">
+      <span class="hp__head-eyebrow">RESEARCH PROGRESSION RADAR</span>
+      <h2 class="hp__head-title">Seven Scientific Phases</h2>
+    </div>
+    <span class="hp__head-badge">100% Peer-Reviewed</span>
+  </div>
+
+  <!-- Sequential Phases Ladder -->
   <ol class="hp__rows" role="list">
     {
-      rows.map((row, i) => (
+      rows.map((row) => (
         <li class="hp__row" data-phase={row.id}>
-          <span class="hp__rail">
-            <span class="hp__dot" />
+          <span class="hp__rail" aria-hidden="true">
+            <span class="hp__rail-dot" />
           </span>
 
-          <span class="hp__body">
-            <span class="hp__top">
-              <Icon name={row.icon} size={14} class="hp__ico" />
-              <span class="hp__name">{row.name}</span>
-              <span class="hp__levels">
-                {row.levels.map((n) => (
-                  <a class="hp__chip" href={`/level/${n}/`} data-track="hero_level_chip" data-track-data={String(n)}>
-                    {n}
-                  </a>
-                ))}
+          <div class="hp__body">
+            <div class="hp__row-main">
+              <span class="hp__ico-wrap">
+                <Icon name={row.icon} size={15} class="hp__ico" />
               </span>
-            </span>
-          </span>
+              <div class="hp__text-group">
+                <span class="hp__name">{row.name}</span>
+                <span class="hp__theme">{row.theme}</span>
+              </div>
+            </div>
 
+            <div class="hp__levels" aria-label={`Levels in ${row.name}`}>
+              {row.levels.map((n) => (
+                <a
+                  class="hp__chip"
+                  href={`/level/${n}/`}
+                  title={`Jump to Level ${n}`}
+                  data-track="hero_level_chip"
+                  data-track-data={String(n)}
+                >
+                  <span class="hp__chip-prefix">L</span>{n}
+                </a>
+              ))}
+            </div>
+          </div>
         </li>
       ))
     }
   </ol>
 
-  <p class="hp__foot">
-    <Icon name="arrow-down" size={13} />
-    <span>Go through the phases in order</span>
-  </p>
+  <!-- Terminal Bottom Milestone Strip -->
+  <div class="hp__foot">
+    <div class="hp__venues">
+      <span class="hp__venues-label">Target Venues:</span>
+      <span class="hp__venue-tag">NeurIPS</span>
+      <span class="hp__venue-tag">ICML</span>
+      <span class="hp__venue-tag">Nature MI</span>
+      <span class="hp__venue-tag">IEEE S&P</span>
+    </div>
+    <div class="hp__prompt" aria-hidden="true">
+      <span class="hp__prompt-symbol">λ</span>
+      <span class="hp__prompt-text">peer-reviewed research track</span>
+    </div>
+  </div>
 </div>
 
 <style>
   .hp {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 22px;
     background: var(--cx-surface);
     border: 1px solid var(--cx-border);
-    border-radius: var(--cx-r-card);
-    box-shadow: var(--cx-shadow-card-hover);
+    border-radius: 18px;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08), 0 0 0 1px var(--cx-border);
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
   }
-  @media (min-width: 768px) { .hp { padding: 26px 28px; } }
+  :global([data-theme='dark']) .hp {
+    background: #090e1a;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
 
-  .hp__head {
+  /* Terminal Window Control Bar */
+  .hp__window-bar {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
-    gap: 10px;
-    padding-bottom: 14px;
+    padding: 11px 16px;
+    background: var(--cx-cream);
     border-bottom: 1px solid var(--cx-border);
   }
-  .hp__total {
-    font-family: var(--cx-font-mono);
-    font-size: 10.5px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--cx-g500);
-    font-variant-numeric: tabular-nums;
+  :global([data-theme='dark']) .hp__window-bar {
+    background: #0d1527;
+    border-bottom-color: rgba(255, 255, 255, 0.08);
   }
 
-  .hp__rows { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+  .hp__dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hp__dot {
+    width: 9.5px;
+    height: 9.5px;
+    border-radius: 999px;
+    display: block;
+  }
+  .hp__dot--red { background: #ff5f56; }
+  .hp__dot--amber { background: #ffbd2e; }
+  .hp__dot--green { background: #27c93f; }
+
+  .hp__terminal-title {
+    font-family: var(--cx-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--cx-g500);
+    font-weight: 500;
+  }
+
+  .hp__status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--cx-font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--cx-green, #10b981);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .hp__status-led {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: #10b981;
+    box-shadow: 0 0 6px #10b981;
+    display: block;
+  }
+
+  /* Header Section */
+  .hp__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 20px 14px;
+    border-bottom: 1px dashed var(--cx-border);
+  }
+  :global([data-theme='dark']) .hp__head {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+  .hp__head-title-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .hp__head-eyebrow {
+    font-family: var(--cx-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cx-brand);
+    font-weight: 700;
+  }
+  .hp__head-title {
+    font-family: var(--cx-font-display);
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--cx-ink);
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .hp__head-badge {
+    font-family: var(--cx-font-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: var(--cx-r-pill);
+    background: var(--p-blue-bg);
+    border: 1px solid var(--p-blue-br);
+    color: var(--p-blue-ac);
+    flex: none;
+  }
+
+  /* Rows */
+  .hp__rows {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 10px 16px;
+    list-style: none;
+    gap: 2px;
+  }
 
   .hp__row {
     display: grid;
     grid-template-columns: 20px 1fr;
     align-items: center;
     gap: 12px;
-    padding-block: 12px;
+    padding: 7px 8px;
+    border-radius: 10px;
+    transition: background-color 0.16s ease;
+  }
+  .hp__row:hover {
+    background: var(--phase-bg);
   }
 
-  /* continuous rail down the left, colour-changing per phase */
+  /* Continuous Rail */
   .hp__rail {
     position: relative;
     align-self: stretch;
@@ -98,89 +242,189 @@ const rows = phases;
   .hp__rail::before {
     content: '';
     position: absolute;
-    top: -12px;
-    bottom: -12px;
-    width: 3px;
+    top: -8px;
+    bottom: -8px;
+    width: 2.5px;
     border-radius: 3px;
     background: var(--phase-br);
   }
-  .hp__row:first-child .hp__rail::before { top: 4px; }
-  .hp__row:last-child .hp__rail::before { bottom: 4px; }
+  .hp__row:first-child .hp__rail::before { top: 12px; }
+  .hp__row:last-child .hp__rail::before { bottom: 12px; }
 
-  .hp__dot {
+  .hp__rail-dot {
     position: relative;
-    width: 11px;
-    height: 11px;
+    z-index: 2;
+    width: 10px;
+    height: 10px;
     border-radius: 999px;
     background: var(--phase-ac);
-    box-shadow: 0 0 0 3.5px var(--cx-white);
+    box-shadow: 0 0 0 3px var(--cx-surface);
   }
 
-  .hp__body { display: flex; flex-direction: column; min-width: 0; }
-  .hp__top { display: flex; align-items: center; gap: 8px; min-width: 0; }
-  .hp__ico { color: var(--phase-ac); flex: none; }
+  .hp__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .hp__row-main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .hp__ico-wrap {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    background: var(--phase-bg);
+    border: 1px solid var(--phase-br);
+    color: var(--phase-ac);
+    display: grid;
+    place-items: center;
+    flex: none;
+  }
+
+  .hp__text-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 1px;
+  }
 
   .hp__name {
     font-family: var(--cx-font-display);
     font-weight: 700;
-    font-size: 15px;
+    font-size: 14.5px;
     letter-spacing: -0.01em;
     color: var(--cx-ink);
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  .hp__levels { display: flex; gap: 3px; margin-left: auto; }
+  .hp__theme {
+    font-size: 11px;
+    color: var(--cx-g500);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+    line-height: 1.3;
+  }
+
+  /* Level Chips */
+  .hp__levels {
+    display: flex;
+    gap: 4px;
+    margin-left: auto;
+    flex: none;
+  }
+
   .hp__chip {
-    display: grid;
-    place-items: center;
-    min-width: 20px;
-    height: 20px;
-    padding-inline: 5px;
-    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
+    padding-inline: 6px;
+    border-radius: 6px;
     background: var(--phase-bg);
     border: 1px solid var(--phase-br);
     color: var(--phase-ac);
     font-family: var(--cx-font-mono);
-    font-size: 10.5px;
+    font-size: 11px;
+    font-weight: 700;
     font-variant-numeric: tabular-nums;
-    transition: background-color 0.16s ease;
+    text-decoration: none;
+    transition: background-color 0.16s ease, transform 0.16s ease, color 0.16s ease, border-color 0.16s ease;
   }
-  .hp__chip:hover { background: var(--phase-ac); color: #fff; }
+  .hp__chip:hover {
+    background: var(--phase-ac);
+    color: #ffffff;
+    border-color: var(--phase-ac);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  .hp__chip-prefix {
+    font-size: 9px;
+    opacity: 0.75;
+    margin-right: 1px;
+  }
 
-
+  /* Terminal Bottom Strip */
   .hp__foot {
     display: flex;
     align-items: center;
-    gap: 7px;
-    padding-top: 13px;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 18px;
+    background: var(--cx-cream);
     border-top: 1px solid var(--cx-border);
     font-family: var(--cx-font-mono);
-    font-size: 10.5px;
-    letter-spacing: 0.1em;
+    font-size: 11px;
+  }
+  :global([data-theme='dark']) .hp__foot {
+    background: #0d1527;
+    border-top-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .hp__venues {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .hp__venues-label {
+    font-size: 10px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--cx-g500);
+    font-weight: 600;
+    margin-right: 2px;
+  }
+  .hp__venue-tag {
+    padding: 1.5px 6px;
+    border-radius: 4px;
+    background: var(--cx-surface);
+    border: 1px solid var(--cx-border);
+    color: var(--cx-g700);
+    font-size: 9.5px;
+    font-weight: 600;
   }
 
-  @media (max-width: 440px) {
-    .hp {
-      padding: 16px 14px;
-      gap: 12px;
-    }
-    .hp__top {
-      flex-wrap: wrap;
-      row-gap: 6px;
-    }
-    .hp__name {
-      white-space: normal;
-      font-size: 13.5px;
-      line-height: 1.25;
-    }
-    .hp__levels {
-      margin-left: 0;
-      width: 100%;
-      flex-wrap: wrap;
-    }
+  .hp__prompt {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--cx-g500);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .hp__prompt-symbol {
+    color: var(--cx-brand);
+    font-weight: 700;
   }
 
-  @media (prefers-reduced-motion: reduce) { .hp__chip { transition: none; } }
+  /* Responsiveness */
+  @media (max-width: 520px) {
+    .hp { border-radius: 14px; }
+    .hp__window-bar { padding: 9px 12px; }
+    .hp__head { padding: 12px 14px 10px; }
+    .hp__rows { padding: 8px 10px; }
+    .hp__row { padding: 6px 4px; gap: 8px; }
+    .hp__name { font-size: 13.5px; }
+    .hp__theme { display: none; }
+    .hp__foot { flex-direction: column; align-items: flex-start; gap: 8px; padding: 10px 14px; }
+    .hp__prompt { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hp__chip { transition: none; }
+    .hp__chip:hover { transform: none; }
+  }
 </style>
