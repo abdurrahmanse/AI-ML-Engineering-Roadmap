@@ -127,77 +127,62 @@ const howItWorks = [
 >
   <!-- ───────────────────────── hero ───────────────────────── -->
   <section class="hero">
-    <div class="wrap hero__grid">
-      <div class="hero__copy">
-        <div class="hero__badge-row">
-          <div class="hero__live-pill">
-            <span class="hero__pulse-dot" aria-hidden="true"></span>
-            <span>Thesis &amp; Research Publication Track</span>
-          </div>
-          <span class="hero__meta-chip">16 Levels · 99 Modules · 224 Sessions</span>
-        </div>
+    <div class="wrap hero__inner">
 
-        <h1 class="h1 hero__title">
-          From mathematical foundations to <span class="grad-text">frontier peer-reviewed papers</span> &amp; thesis defense.
-        </h1>
+      <!-- Eyebrow badge -->
+      <div class="hero__eyebrow">
+        <span class="hero__pulse-dot" aria-hidden="true"></span>
+        <span>Thesis &amp; Research Publication Track</span>
+      </div>
 
-        <p class="lede hero__lede">
-          The premier self-directed curriculum for AI/ML and Computer Science researchers: train architectures from basics to advanced (classical ML, 3D CNNs, GNNs, Transformers, Diffusion, State Space Models), explore high-stakes medical and cybersecurity datasets, master Explainable AI (XAI) and Trustworthy AI, conduct rigorous ablation studies, defend your thesis, and publish in premier journals and conferences.
-        </p>
-
-        <!-- 4 Key Research Pillars -->
-        <div class="hero__pillars" role="region" aria-label="Research Curriculum Highlights">
-          <div class="hero__pillar">
-            <span class="hero__pillar-ico"><Icon name="terminal" size={16} /></span>
-            <div class="hero__pillar-content">
-              <span class="hero__pillar-num">16 Levels</span>
-              <span class="hero__pillar-desc">Linux HPC to defense talk</span>
-            </div>
-          </div>
-          <div class="hero__pillar">
-            <span class="hero__pillar-ico"><Icon name="flask-conical" size={16} /></span>
-            <div class="hero__pillar-content">
-              <span class="hero__pillar-num">15 Capstones</span>
-              <span class="hero__pillar-desc">Reproducible code &amp; LaTeX</span>
-            </div>
-          </div>
-          <div class="hero__pillar">
-            <span class="hero__pillar-ico"><Icon name="database" size={16} /></span>
-            <div class="hero__pillar-content">
-              <span class="hero__pillar-num">Multi-Domain</span>
-              <span class="hero__pillar-desc">Clinical, cyber &amp; science data</span>
-            </div>
-          </div>
-          <div class="hero__pillar">
-            <span class="hero__pillar-ico"><Icon name="shield-check" size={16} /></span>
-            <div class="hero__pillar-content">
-              <span class="hero__pillar-num">Trust &amp; XAI</span>
-              <span class="hero__pillar-desc">Circuits, ablations &amp; safety</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero__ctas">
-          <Button href="#map" variant="primary" size="lg" icon="chevrons-down" track="hero_cta_map">
-            Explore the 16 Levels
-          </Button>
-          <Button href="#projects" variant="secondary" size="lg" icon="folder-kanban" iconPosition="left" track="hero_cta_projects">
-            15 Research Projects
-          </Button>
-        </div>
-
-        <div class="hero__quick">
-          <span class="hero__quick-label">Ready to start?</span>
-          <a href="/level/0/" class="hero__quick-link" data-track="hero_quick_level0">
-            <span>Begin Level 0: Scientific Computing &amp; HPC Foundations</span>
-            <Icon name="arrow-right" size={13} class="hero__quick-arrow" />
-          </a>
+      <!-- Big number + headline -->
+      <div class="hero__headline-block">
+        <span class="hero__big-num">16</span>
+        <div class="hero__headline-text">
+          <h1 class="hero__title">Levels. One research track.<br><span class="grad-text">From foundations to published.</span></h1>
+          <p class="hero__sub">The complete AI/ML research roadmap — classical ML to Transformers, clinical &amp; cybersecurity datasets, XAI, ablations, and thesis defense.</p>
         </div>
       </div>
 
-      <div class="hero__visual">
-        <HeroPath />
+      <!-- Stats row -->
+      <div class="hero__stats" role="list" aria-label="Curriculum stats">
+        <div class="hero__stat" role="listitem">
+          <span class="hero__stat-val">{totalSessions}</span>
+          <span class="hero__stat-label">Sessions</span>
+        </div>
+        <div class="hero__stat-div" aria-hidden="true"></div>
+        <div class="hero__stat" role="listitem">
+          <span class="hero__stat-val">{totalModules}</span>
+          <span class="hero__stat-label">Modules</span>
+        </div>
+        <div class="hero__stat-div" aria-hidden="true"></div>
+        <div class="hero__stat" role="listitem">
+          <span class="hero__stat-val">15</span>
+          <span class="hero__stat-label">Capstones</span>
+        </div>
+        <div class="hero__stat-div" aria-hidden="true"></div>
+        <div class="hero__stat" role="listitem">
+          <span class="hero__stat-val">{phases.length}</span>
+          <span class="hero__stat-label">Phases</span>
+        </div>
       </div>
+
+      <!-- CTAs -->
+      <div class="hero__ctas">
+        <Button href="/level/0/" variant="primary" size="lg" track="hero_start">Start at Level 0</Button>
+        <Button href="#map" variant="secondary" size="lg" track="hero_map">View the roadmap</Button>
+      </div>
+
+      <!-- Topic chip row -->
+      <div class="hero__topics" aria-label="Topics covered">
+        {[
+          'Classical ML', 'Deep Learning', 'Transformers', 'Graph NNs',
+          'Diffusion Models', 'State Space Models', 'XAI', 'Trustworthy AI',
+          'Medical Data', 'Cybersecurity', 'Ablation Studies', 'LaTeX Manuscripts',
+          'NeurIPS · ICML', 'Thesis Defense',
+        ].map(t => <span class="hero__chip">{t}</span>)}
+      </div>
+
     </div>
   </section>
 
@@ -240,80 +225,53 @@ const howItWorks = [
   <section class="section ships" id="projects">
     <div class="wrap">
       <SectionHeader
-        eyebrow="Academic Capstones & Research Deliverables"
+        eyebrow="Capstone Projects"
         title={`${ships.length} projects you'll build.`}
-        subhead="Every level culminates in an empirical research deliverable. From automated reproducible pipelines and clinical benchmarks to mechanistic interpretability suites and full conference rebuttal packages, these 15 projects form the backbone of your thesis and publication portfolio."
       />
 
-      <!-- Research Quality Standards Banner -->
-      <div class="ships__stats" role="region" aria-label="Research Capstone Highlights">
+      <!-- Stats Strip -->
+      <div class="ships__stats" role="region" aria-label="Capstone highlights">
         <div class="ships__stat">
-          <span class="ships__stat-ico"><Icon name="microscope" size={18} /></span>
-          <div class="ships__stat-info">
-            <span class="ships__stat-num">15 Capstones</span>
-            <span class="ships__stat-desc">End-to-end scientific implementations</span>
-          </div>
+          <span class="ships__stat-ico"><Icon name="microscope" size={16} /></span>
+          <span class="ships__stat-num">15 Capstones</span>
         </div>
         <div class="ships__stat">
-          <span class="ships__stat-ico"><Icon name="circle-check" size={18} /></span>
-          <div class="ships__stat-info">
-            <span class="ships__stat-num">100% Reproducible</span>
-            <span class="ships__stat-desc">Deterministic seeds & checkpoint tracking</span>
-          </div>
+          <span class="ships__stat-ico"><Icon name="circle-check" size={16} /></span>
+          <span class="ships__stat-num">Reproducible</span>
         </div>
         <div class="ships__stat">
-          <span class="ships__stat-ico"><Icon name="database" size={18} /></span>
-          <div class="ships__stat-info">
-            <span class="ships__stat-num">Multi-Domain</span>
-            <span class="ships__stat-desc">Clinical, cyber & scientific corpora</span>
-          </div>
+          <span class="ships__stat-ico"><Icon name="database" size={16} /></span>
+          <span class="ships__stat-num">Multi-Domain</span>
         </div>
         <div class="ships__stat">
-          <span class="ships__stat-ico"><Icon name="badge-check" size={18} /></span>
-          <div class="ships__stat-info">
-            <span class="ships__stat-num">Venue Standard</span>
-            <span class="ships__stat-desc">NeurIPS, ICML, Nature & IEEE aligned</span>
-          </div>
+          <span class="ships__stat-ico"><Icon name="badge-check" size={16} /></span>
+          <span class="ships__stat-num">Venue-Ready</span>
         </div>
       </div>
 
-      <!-- Interactive Phase Filter Bar -->
-      <div class="ships__filters" role="tablist" aria-label="Filter projects by research phase">
-        <button type="button" class="ships__filter-btn is-active" data-filter="all" role="tab" aria-selected="true">
-          All Projects <span class="ships__filter-count">15</span>
-        </button>
-        <button type="button" class="ships__filter-btn" data-filter="foundations" role="tab" aria-selected="false">
-          Foundations <span class="ships__filter-count">4</span>
-        </button>
-        <button type="button" class="ships__filter-btn" data-filter="retrieval" role="tab" aria-selected="false">
-          Data & Curation <span class="ships__filter-count">1</span>
-        </button>
-        <button type="button" class="ships__filter-btn" data-filter="agentic" role="tab" aria-selected="false">
-          Core Modeling <span class="ships__filter-count">2</span>
-        </button>
-        <button type="button" class="ships__filter-btn" data-filter="trust" role="tab" aria-selected="false">
-          Generative & Trust <span class="ships__filter-count">2</span>
-        </button>
-        <button type="button" class="ships__filter-btn" data-filter="production" role="tab" aria-selected="false">
-          HPC & Scale <span class="ships__filter-count">3</span>
-        </button>
-        <button type="button" class="ships__filter-btn" data-filter="frontier-interview" role="tab" aria-selected="false">
-          Frontier & Manuscript <span class="ships__filter-count">3</span>
-        </button>
+      <!-- Filter Bar -->
+      <div class="ships__filters" role="tablist" aria-label="Filter by phase">
+        <button type="button" class="ships__filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All <span class="ships__filter-count">15</span></button>
+        <button type="button" class="ships__filter-btn" data-filter="foundations" role="tab" aria-selected="false">Foundations <span class="ships__filter-count">4</span></button>
+        <button type="button" class="ships__filter-btn" data-filter="retrieval" role="tab" aria-selected="false">Data <span class="ships__filter-count">1</span></button>
+        <button type="button" class="ships__filter-btn" data-filter="agentic" role="tab" aria-selected="false">Modeling <span class="ships__filter-count">2</span></button>
+        <button type="button" class="ships__filter-btn" data-filter="trust" role="tab" aria-selected="false">Generative <span class="ships__filter-count">2</span></button>
+        <button type="button" class="ships__filter-btn" data-filter="production" role="tab" aria-selected="false">HPC <span class="ships__filter-count">3</span></button>
+        <button type="button" class="ships__filter-btn" data-filter="frontier-interview" role="tab" aria-selected="false">Frontier <span class="ships__filter-count">3</span></button>
       </div>
 
-      <!-- Redesigned High-Impact Project Grid -->
+      <!-- Simple Project Cards Grid -->
       <ul class="ships__grid" role="list">
         {
           ships.map(({ level, capstone }) => {
             const meta = projectMeta[level.number] || {
               domain: 'Machine Learning Research',
               tags: ['Peer-Reviewed Spec', 'Reproducibility', 'Research Code'],
-              summary: capstone.outcome || 'Design and scientifically validate research models with empirical rigor.',
+              summary: '',
             };
             const phase = phaseOfLevel(level.number);
             const cleanName = capstone.name.replace(/^(Capstone Project|Capstone):\s*/i, '');
-            const filterGroup = (level.phase === 'frontier' || level.phase === 'interview') ? 'frontier-interview' : level.phase;
+            const filterGroup = level.phase === 'frontier' ? 'frontier-interview' : level.phase;
 
             return (
               <li class="ships__item reveal" data-phase={level.phase} data-filter-group={filterGroup}>
@@ -323,45 +281,29 @@ const howItWorks = [
                   data-track="ship_click"
                   data-track-data={String(level.number)}
                 >
-                  <!-- Card Header -->
+                  <!-- Level + Phase Row -->
                   <div class="ships__card-head">
-                    <div class="ships__card-pills">
-                      <span class="ships__lvl-badge">LEVEL {level.number}</span>
-                      <span class="ships__phase-pill">
-                        <Icon name={phase.icon} size={12} />
-                        <span>{phase.name}</span>
-                      </span>
-                    </div>
-                    <span class="ships__domain-tag">{meta.domain}</span>
+                    <span class="ships__lvl-badge">L{level.number}</span>
+                    <span class="ships__phase-pill">
+                      <Icon name={phase.icon} size={11} />
+                      <span>{phase.name}</span>
+                    </span>
                   </div>
 
-                  <!-- Project Title -->
-                  <h3 class="ships__card-title">
-                    {cleanName}
-                  </h3>
+                  <!-- Title -->
+                  <h3 class="ships__card-title">{cleanName}</h3>
 
-                  <!-- Project Abstract / Research Summary -->
-                  <p class="ships__card-desc">
-                    {meta.summary}
-                  </p>
-
-                  <!-- Deliverables / Tags -->
+                  <!-- Tag Pills -->
                   <div class="ships__card-tags" aria-label="Key deliverables">
                     {meta.tags.map((tag) => (
                       <span class="ships__tag-pill">{tag}</span>
                     ))}
                   </div>
 
-                  <!-- Card Footer / Link Action -->
-                  <div class="ships__card-foot">
-                    <span class="ships__action-cta">
-                      <span>Inspect Research Capstone</span>
-                      <Icon name="arrow-right" size={14} class="ships__arrow" />
-                    </span>
-                    <span class="ships__sessions-badge">
-                      {level.totalSessions} sessions
-                    </span>
-                  </div>
+                  <!-- Arrow -->
+                  <span class="ships__arrow-wrap" aria-hidden="true">
+                    <Icon name="arrow-right" size={14} class="ships__arrow" />
+                  </span>
                 </a>
               </li>
             );
@@ -454,59 +396,39 @@ const howItWorks = [
 </Base>
 
 <style>
-  /* ---------- hero ---------- */
+  /* ── Hero ── */
   .hero {
-    padding-block: 76px 60px;
+    padding-block: 80px 64px;
     background-color: var(--cx-white);
     background-image:
-      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37, 99, 235, 0.08), transparent 75%),
-      radial-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px);
-    background-size: 100% 100%, 28px 28px;
+      radial-gradient(ellipse 70% 55% at 50% -5%, rgba(37, 99, 235, 0.09), transparent 70%),
+      radial-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+    background-size: 100% 100%, 26px 26px;
     border-bottom: 1px solid var(--cx-border);
-    position: relative;
     overflow: hidden;
   }
-  @media (min-width: 900px) { .hero { padding-block: 92px 68px; } }
   :global([data-theme='dark']) .hero {
     background-color: #040814;
     background-image:
-      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59, 130, 246, 0.16), transparent 75%),
-      radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    background-size: 100% 100%, 28px 28px;
+      radial-gradient(ellipse 70% 55% at 50% -5%, rgba(59, 130, 246, 0.14), transparent 70%),
+      radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 100% 100%, 26px 26px;
   }
 
-  .hero__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 44px;
-    align-items: center;
-  }
-  @media (min-width: 1040px) {
-    .hero__grid {
-      grid-template-columns: minmax(0, 1.18fr) minmax(360px, 0.82fr);
-      gap: 56px;
-    }
-  }
-
-  .hero__copy {
+  .hero__inner {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    text-align: center;
+    gap: 32px;
   }
 
-  /* Badge Row */
-  .hero__badge-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 2px;
-  }
-  .hero__live-pill {
+  /* Eyebrow */
+  .hero__eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 4px 12px;
+    padding: 5px 14px;
     border-radius: var(--cx-r-pill);
     background: var(--p-blue-bg);
     border: 1px solid var(--p-blue-br);
@@ -514,7 +436,7 @@ const howItWorks = [
     font-family: var(--cx-font-mono);
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
   }
   .hero__pulse-dot {
@@ -524,150 +446,154 @@ const howItWorks = [
     background: #10b981;
     box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
     animation: heroPulse 2s infinite;
+    flex: none;
   }
   @keyframes heroPulse {
-    0% {
-      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-    }
-    70% {
-      box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-    }
-  }
-  .hero__meta-chip {
-    font-family: var(--cx-font-mono);
-    font-size: 11px;
-    color: var(--cx-g500);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    0%   { box-shadow: 0 0 0 0   rgba(16, 185, 129, 0.7); }
+    70%  { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);   }
+    100% { box-shadow: 0 0 0 0   rgba(16, 185, 129, 0);   }
   }
 
-  /* Headline & Lede */
-  .hero__title {
-    margin: 0;
-    font-size: clamp(32px, 5.2vw, 62px);
-    line-height: 1.1;
-    letter-spacing: -0.015em;
-    font-weight: 700;
-    text-wrap: balance;
-  }
-  .hero__lede {
-    max-width: 58ch;
-    font-size: 16.5px;
-    line-height: 1.65;
-    color: var(--cx-g600);
-  }
-
-  /* 4 Research Pillars */
-  .hero__pillars {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 4px;
-  }
-  @media (min-width: 520px) {
-    .hero__pillars {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-  }
-  .hero__pillar {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px 14px;
-    background: var(--cx-surface);
-    border: 1px solid var(--cx-border);
-    border-radius: var(--cx-r-card-sm);
-    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.02);
-    transition: border-color 0.18s ease, transform 0.18s ease;
-  }
-  .hero__pillar:hover {
-    border-color: var(--cx-brand);
-    transform: translateY(-1px);
-  }
-  .hero__pillar-ico {
-    display: grid;
-    place-items: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 7px;
-    background: var(--p-blue-bg);
-    border: 1px solid var(--p-blue-br);
-    color: var(--p-blue-ac);
-    flex: none;
-    margin-top: 1px;
-  }
-  .hero__pillar-content {
+  /* Big number + headline */
+  .hero__headline-block {
     display: flex;
     flex-direction: column;
-    gap: 1px;
-    min-width: 0;
+    align-items: center;
+    gap: 20px;
   }
-  .hero__pillar-num {
+  @media (min-width: 760px) {
+    .hero__headline-block {
+      flex-direction: row;
+      align-items: flex-start;
+      text-align: left;
+      gap: 28px;
+    }
+  }
+  .hero__big-num {
     font-family: var(--cx-font-display);
+    font-size: clamp(80px, 14vw, 140px);
     font-weight: 700;
-    font-size: 14.5px;
+    line-height: 1;
+    letter-spacing: -0.04em;
     color: var(--cx-ink);
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+    flex: none;
+    /* subtle outline style */
+    -webkit-text-stroke: 2px var(--cx-border-2);
+    color: transparent;
+    background: var(--cx-title-grad-sm);
+    -webkit-background-clip: text;
+    background-clip: text;
   }
-  .hero__pillar-desc {
-    font-size: 11.5px;
-    color: var(--cx-g500);
-    line-height: 1.35;
+  :global([data-theme='dark']) .hero__big-num {
+    -webkit-text-stroke: 2px rgba(255,255,255,0.12);
+  }
+  .hero__headline-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 600px;
+  }
+  .hero__title {
+    margin: 0;
+    font-size: clamp(26px, 4vw, 48px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--cx-ink);
+    text-wrap: balance;
+  }
+  .hero__sub {
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--cx-g600);
+    margin: 0;
+    max-width: 54ch;
   }
 
-  /* CTAs & Quick start */
+  /* Stats row */
+  .hero__stats {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--cx-surface);
+    border: 1px solid var(--cx-border);
+    border-radius: var(--cx-r-pill);
+    padding: 0 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 28px;
+    gap: 2px;
+  }
+  .hero__stat-val {
+    font-family: var(--cx-font-display);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--cx-ink);
+    line-height: 1;
+  }
+  .hero__stat-label {
+    font-family: var(--cx-font-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--cx-g500);
+  }
+  .hero__stat-div {
+    width: 1px;
+    height: 32px;
+    background: var(--cx-border);
+    flex: none;
+  }
+
+  /* CTAs */
   .hero__ctas {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     gap: 12px;
-    margin-top: 6px;
   }
   @media (max-width: 440px) {
     .hero__ctas { flex-direction: column; width: 100%; }
-    .hero__ctas :global(a),
-    .hero__ctas :global(button) { width: 100%; justify-content: center; }
+    .hero__ctas :global(a), .hero__ctas :global(button) { width: 100%; justify-content: center; }
   }
 
-  .hero__quick {
+  /* Topic chips */
+  .hero__topics {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--cx-g500);
-    margin-top: 2px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px;
+    max-width: 720px;
+    padding-top: 4px;
   }
-  .hero__quick-label {
+  .hero__chip {
     font-family: var(--cx-font-mono);
     font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: var(--cx-r-pill);
+    background: var(--cx-surface);
+    border: 1px solid var(--cx-border);
+    color: var(--cx-g600);
+    white-space: nowrap;
+    transition: border-color 0.16s ease, color 0.16s ease;
   }
-  .hero__quick-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
+  .hero__chip:hover {
+    border-color: var(--cx-brand);
     color: var(--cx-brand);
-    font-weight: 600;
-    text-decoration: none;
-    transition: gap 0.16s ease;
   }
-  .hero__quick-link:hover {
-    gap: 8px;
+  :global([data-theme='dark']) .hero__chip {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.09);
   }
-  .hero__quick-arrow {
-    transition: transform 0.16s ease;
-  }
-  .hero__quick-link:hover .hero__quick-arrow {
-    transform: translateX(2px);
-  }
-
-  .hero__visual { min-width: 0; }
 
   /* ---------- how ---------- */
   .how { padding-block: 64px; }
@@ -744,70 +670,33 @@ const howItWorks = [
     background: #090e1a;
   }
 
-  /* Research Quality Standards Banner */
+  /* Stats Strip */
   .ships__stats {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin: 32px 0 28px;
-  }
-  @media (min-width: 580px) {
-    .ships__stats {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-  }
-  @media (min-width: 980px) {
-    .ships__stats {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-  }
-
-  .ships__stat {
     display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0 24px;
+  }
+  .ships__stat {
+    display: inline-flex;
     align-items: center;
-    gap: 14px;
-    padding: 16px 18px;
+    gap: 8px;
+    padding: 7px 14px 7px 10px;
     background: var(--cx-surface);
     border: 1px solid var(--cx-border);
-    border-radius: var(--cx-r-card-sm);
-    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
-    transition: transform 0.2s ease, border-color 0.2s ease;
-  }
-  .ships__stat:hover {
-    border-color: var(--cx-brand);
-    transform: translateY(-2px);
+    border-radius: var(--cx-r-pill);
   }
   .ships__stat-ico {
     display: grid;
     place-items: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 9px;
-    background: var(--p-blue-bg);
-    border: 1px solid var(--p-blue-br);
     color: var(--p-blue-ac);
     flex: none;
   }
-  .ships__stat-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    min-width: 0;
-  }
   .ships__stat-num {
     font-family: var(--cx-font-display);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--cx-ink);
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-  }
-  .ships__stat-desc {
-    font-size: 12px;
-    color: var(--cx-g600);
-    line-height: 1.35;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cx-g700);
   }
 
   /* Interactive Phase Filter Pills */
@@ -867,207 +756,125 @@ const howItWorks = [
     color: #ffffff;
   }
 
-  /* Redesigned Project Cards Grid */
+  /* Simple Project Cards Grid */
   .ships__grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 14px;
     margin: 0;
     padding: 0;
     list-style: none;
   }
-  @media (min-width: 640px) {
-    .ships__grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
+  @media (min-width: 600px) {
+    .ships__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   }
   @media (min-width: 1040px) {
-    .ships__grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
+    .ships__grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
   }
 
-  .ships__item {
-    transition: opacity 0.25s ease, transform 0.25s ease;
-  }
-  .ships__item.is-hidden {
-    display: none !important;
-  }
+  .ships__item { transition: opacity 0.2s ease; }
+  .ships__item.is-hidden { display: none !important; }
 
+  /* Card */
   .ships__card {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    padding: 22px 22px 20px;
+    gap: 12px;
+    padding: 18px 20px;
     background: var(--cx-surface);
     border: 1px solid var(--cx-border);
-    border-radius: 14px;
-    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03), 0 4px 12px rgba(15, 23, 42, 0.02);
-    position: relative;
-    overflow: hidden;
+    border-radius: 12px;
     text-decoration: none;
-    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.22s ease, box-shadow 0.22s ease;
-  }
-  .ships__card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--phase-ac);
-    opacity: 0.85;
-    transition: height 0.18s ease, opacity 0.18s ease;
+    position: relative;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
   }
   .ships__card:hover {
-    border-color: var(--phase-br);
-    box-shadow: 0 12px 30px -8px rgba(15, 23, 42, 0.12), 0 0 0 1px var(--phase-br);
-    transform: translateY(-4px);
-  }
-  .ships__card:hover::before {
-    height: 4px;
-    opacity: 1;
+    border-color: var(--cx-border-2);
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+    transform: translateY(-2px);
   }
   :global([data-theme='dark']) .ships__card:hover {
-    box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--phase-ac);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
   }
 
-  /* Card Head */
+  /* Card Head — level badge + phase */
   .ships__card-head {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 8px;
-    margin-bottom: 14px;
-  }
-  .ships__card-pills {
-    display: flex;
-    align-items: center;
-    gap: 7px;
   }
   .ships__lvl-badge {
     font-family: var(--cx-font-mono);
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 700;
-    letter-spacing: 0.04em;
-    padding: 3px 8px;
-    border-radius: 6px;
+    letter-spacing: 0.05em;
+    padding: 2px 7px;
+    border-radius: 5px;
     background: var(--phase-bg);
     border: 1px solid var(--phase-br);
     color: var(--phase-ac);
-    line-height: 1;
+    line-height: 1.4;
+    flex: none;
   }
   .ships__phase-pill {
     display: inline-flex;
     align-items: center;
     gap: 4px;
     font-family: var(--cx-font-mono);
-    font-size: 10.5px;
+    font-size: 10px;
     font-weight: 600;
-    color: var(--cx-g600);
+    color: var(--cx-g500);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
-  .ships__domain-tag {
-    font-family: var(--cx-font-mono);
-    font-size: 10.5px;
-    font-weight: 500;
-    color: var(--cx-g500);
-    text-align: right;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 140px;
-  }
 
-  /* Card Title */
+  /* Title */
   .ships__card-title {
     font-family: var(--cx-font-display);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
-    line-height: 1.25;
+    line-height: 1.3;
     color: var(--cx-ink);
     letter-spacing: -0.01em;
-    margin: 0 0 10px;
-    transition: color 0.18s ease;
+    margin: 0;
+    transition: color 0.16s ease;
   }
-  .ships__card:hover .ships__card-title {
-    color: var(--phase-ac);
-  }
+  .ships__card:hover .ships__card-title { color: var(--phase-ac); }
 
-  /* Card Abstract */
-  .ships__card-desc {
-    font-size: 13.5px;
-    line-height: 1.55;
-    color: var(--cx-g600);
-    margin: 0 0 16px;
-    flex-grow: 1;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  /* Card Deliverable Tags */
+  /* Tag Pills */
   .ships__card-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 18px;
+    gap: 5px;
   }
   .ships__tag-pill {
     font-family: var(--cx-font-mono);
     font-size: 10px;
     font-weight: 500;
-    padding: 3px 8px;
+    padding: 2px 7px;
     border-radius: 4px;
     background: var(--cx-cream);
     border: 1px solid var(--cx-border);
-    color: var(--cx-g700);
-    letter-spacing: 0.02em;
+    color: var(--cx-g600);
     white-space: nowrap;
   }
   :global([data-theme='dark']) .ships__tag-pill {
     background: rgba(255, 255, 255, 0.04);
     border-color: rgba(255, 255, 255, 0.08);
+    color: var(--cx-g500);
   }
 
-  /* Card Footer */
-  .ships__card-foot {
+  /* Arrow */
+  .ships__arrow-wrap {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-top: 14px;
-    border-top: 1px solid var(--cx-border-2);
+    color: var(--cx-g400);
     margin-top: auto;
+    transition: color 0.16s ease, transform 0.16s ease;
   }
-  .ships__action-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--cx-font-display);
-    font-size: 13.5px;
-    font-weight: 700;
-    color: var(--cx-brand);
-    letter-spacing: 0.01em;
-    transition: gap 0.18s ease;
-  }
-  .ships__arrow {
-    transition: transform 0.18s ease;
-  }
-  .ships__card:hover .ships__action-cta {
-    gap: 9px;
-  }
-  .ships__card:hover .ships__arrow {
+  .ships__card:hover .ships__arrow-wrap {
+    color: var(--phase-ac);
     transform: translateX(3px);
-  }
-  .ships__sessions-badge {
-    font-family: var(--cx-font-mono);
-    font-size: 11px;
-    color: var(--cx-g500);
-    font-variant-numeric: tabular-nums;
   }
 
   /* ---------- cta ---------- */
