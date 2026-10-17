@@ -18,12 +18,11 @@ const CONTENT_DIRS = [join(root, 'AI RESEARCH ROADMAP'), join(root, 'AI ENGINEER
 
 const PHASES = [
   { id: 'foundations', name: 'Research Foundations & Lab Onboarding', levels: [0, 1, 2, 3],  theme: 'scientific computing, problem formulation, literature search & applied statistics', color: 'blue',     icon: 'terminal' },
-  { id: 'retrieval',   name: 'Datasets & Domain Exploration',       levels: [4],           theme: 'medical, cybersecurity & scientific dataset curation, preprocessing & domain adaptation', color: 'cyan',     icon: 'database' },
-  { id: 'agentic',     name: 'Model Architectures & Paradigms',     levels: [5, 6],        theme: 'classical ML, deep learning, vision CNNs, graph neural networks & transformers across domains', color: 'indigo',   icon: 'layers' },
-  { id: 'trust',       name: 'Generative Models & Benchmarking',    levels: [7, 8],        theme: 'diffusion, flow matching, privacy synthesis, experimental design & multi-factor ablation studies', color: 'violet',   icon: 'sliders-horizontal' },
-  { id: 'production',  name: 'HPC Clusters, Scaling & Explainability', levels: [9, 10, 11], theme: 'SLURM supercomputing, multi-GPU distributed training, domain PEFT & XAI interpretability', color: 'emerald',  icon: 'cpu' },
-  { id: 'frontier',    name: 'Frontier Robustness & Thesis Projects', levels: [12, 13, 14], theme: 'adversarial safety, multimodal clinical/cyber AI & comprehensive MSc/PhD thesis capstones', color: 'rose',     icon: 'shield-check' },
-  { id: 'interview',   name: 'Publishing, Peer Review & Career',     levels: [15],          theme: 'conference & journal papers (IEEE/ACM/Nature), rebuttals, thesis defense & research scientist career', color: 'slate',    icon: 'graduation-cap' },
+  { id: 'retrieval',   name: 'Data Curation & Modeling Paradigms', levels: [4, 5, 6], theme: 'domain datasets, classical ML, deep learning, computer vision, graphs and sequence models', color: 'cyan', icon: 'database' },
+  { id: 'agentic',     name: 'Generative Models & Experimental Science', levels: [7, 8, 9], theme: 'generative modeling, controlled ablations, fair benchmarks and scaled experimental systems', color: 'violet', icon: 'flask-conical' },
+  { id: 'trust',       name: 'Scaled Systems, Trustworthy AI & Alignment', levels: [10, 11, 12], theme: 'foundation models, interpretability, robustness, fairness and alignment for high-impact domains', color: 'emerald', icon: 'shield-check' },
+  { id: 'production',  name: 'Cross-Disciplinary Research & Capstones', levels: [13, 14], theme: 'multimodal methods and thesis-grade projects that turn questions into defensible evidence', color: 'rose', icon: 'microscope' },
+  { id: 'frontier',    name: 'Publishing, Thesis Defense & Research Careers', levels: [15], theme: 'manuscripts, peer review, rebuttals, thesis defense, job talks and research scientist pathways', color: 'slate', icon: 'graduation-cap' },
 ];
 
 /* One Lucide icon per level for AI/ML research. */
@@ -32,6 +31,27 @@ const LEVEL_ICONS = {
   5: 'layers', 6: 'network', 7: 'sparkles', 8: 'sliders-horizontal', 9: 'cpu',
   10: 'scale', 11: 'search', 12: 'shield-check', 13: 'eye', 14: 'trophy',
   15: 'graduation-cap',
+};
+
+/* Curated progression metadata keeps the technical syllabus in the source
+ * files while making the research-career journey explicit in generated data. */
+const LEVEL_GUIDANCE = {
+  0: { proficiency: 'On-ramp', researchStage: 'Prepare the laboratory', lifecycle: 'Environment → reproducibility', artifact: 'Reproducible research repository and experiment harness', careerSignal: 'Can join a lab and run traceable experiments.' },
+  1: { proficiency: 'On-ramp', researchStage: 'Enter a research group', lifecycle: 'Mentorship → problem formulation', artifact: 'Research pitch, academic CV, and lab outreach portfolio', careerSignal: 'Can earn an RA conversation through evidence of fit.' },
+  2: { proficiency: 'Developing', researchStage: 'Build a map of knowledge', lifecycle: 'Search → read → synthesize', artifact: 'Systematic literature review and PRISMA evidence map', careerSignal: 'Can explain what is known, contested, and still open.' },
+  3: { proficiency: 'Developing', researchStage: 'Make claims defensible', lifecycle: 'Mathematics → inference', artifact: 'Statistical audit package with tests, effect sizes, and uncertainty', careerSignal: 'Can defend whether an observed improvement is meaningful.' },
+  4: { proficiency: 'Developing', researchStage: 'Make data research-ready', lifecycle: 'Acquire → govern → document', artifact: 'Leakage-audited dataset card and benchmark pipeline', careerSignal: 'Can turn messy domain data into publishable evidence.' },
+  5: { proficiency: 'Intermediate', researchStage: 'Choose and establish baselines', lifecycle: 'Question → model family → baseline', artifact: 'Cross-paradigm benchmark across classical ML and deep learning', careerSignal: 'Can choose models based on the scientific question, not fashion.' },
+  6: { proficiency: 'Intermediate', researchStage: 'Design modern architectures', lifecycle: 'Representation → architecture → validation', artifact: 'Reproducible graph or long-sequence model implementation', careerSignal: 'Can modify an architecture and explain the mechanism.' },
+  7: { proficiency: 'Intermediate', researchStage: 'Model uncertainty and generation', lifecycle: 'Distribution → generation → utility', artifact: 'Evaluated generative modeling and privacy synthesis study', careerSignal: 'Can build generative systems with domain-relevant evaluation.' },
+  8: { proficiency: 'Advanced', researchStage: 'Isolate the contribution', lifecycle: 'Hypothesis → ablation → evidence', artifact: 'Compute-matched ablation and fair benchmarking suite', careerSignal: 'Can produce results that survive serious peer review.' },
+  9: { proficiency: 'Advanced', researchStage: 'Scale the experiment', lifecycle: 'Profile → distribute → optimize', artifact: 'Multi-node scaling report with reproducible efficiency measurements', careerSignal: 'Can execute large experiments within real compute constraints.' },
+  10: { proficiency: 'Advanced', researchStage: 'Specialize foundation models', lifecycle: 'Pre-train → adapt → evaluate', artifact: 'Domain-adapted foundation model with corpus and evaluation report', careerSignal: 'Can contribute to modern foundation-model research programs.' },
+  11: { proficiency: 'Advanced', researchStage: 'Understand model behavior', lifecycle: 'Probe → explain → verify', artifact: 'Interpretability report connecting mechanisms to behavior', careerSignal: 'Can turn opaque model behavior into testable scientific claims.' },
+  12: { proficiency: 'Frontier', researchStage: 'Stress-test and align systems', lifecycle: 'Attack → measure → mitigate', artifact: 'Robustness, fairness, and alignment evaluation package', careerSignal: 'Can assess high-impact systems under adversarial and social risk.' },
+  13: { proficiency: 'Frontier', researchStage: 'Cross disciplinary boundaries', lifecycle: 'Fuse modalities → validate transfer', artifact: 'Multimodal research system with domain-partner evaluation', careerSignal: 'Can translate methods across data types and scientific domains.' },
+  14: { proficiency: 'Frontier', researchStage: 'Lead a research project', lifecycle: 'Question → evidence → thesis chapter', artifact: 'Thesis-grade capstone with code, data, results, and limitations', careerSignal: 'Can own an end-to-end research project from idea to evidence.' },
+  15: { proficiency: 'Career-ready', researchStage: 'Disseminate and defend the work', lifecycle: 'Write → review → defend → interview', artifact: 'Submission package, thesis defense, job talk, and research portfolio', careerSignal: 'Can communicate research to reviewers, committees, and employers.' },
 };
 
 /* Keyword -> Lucide icon for module rows. */
@@ -337,8 +357,17 @@ function parseLevel(file, raw) {
   }
 
   if (!modules.length) todos.push('No modules parsed — check the module header format.');
-  /* completionOutcomes is still parsed and kept in the data, but the level pages
-     no longer render it, so a missing section is not a defect worth flagging. */
+  /*
+   * Most source files express level completion as module-level Outcome lines
+   * rather than a separate "By the end..." section. Preserve an explicit
+   * completion section when present, then use those authored module outcomes as
+   * the level's measurable exit criteria. This keeps the data useful to
+   * progress UIs without inventing a second summary.
+   */
+  const authoredModuleOutcomes = modules
+    .map((module) => module.outcome || module.finalResult)
+    .filter(Boolean);
+  const exitOutcomes = [...new Set([...completionOutcomes, ...authoredModuleOutcomes])];
 
   const capstone = modules.find((m) => m.isCapstone) || null;
   /* A projects level is entirely P-prefixed builds, so it has no separate
@@ -355,6 +384,9 @@ function parseLevel(file, raw) {
   }
 
   const phase = PHASES.find((p) => p.levels.includes(number));
+  const guidance = LEVEL_GUIDANCE[number];
+  if (!guidance) throw new Error(`${file}: missing progression metadata for level ${number}`);
+  const durationMatch = raw.match(/Suggested duration:\s*\d+\s*sessions\s*\(~(\d+)\s*weeks?\)/i);
 
   return {
     number,
@@ -370,7 +402,9 @@ function parseLevel(file, raw) {
     project: capstone ? capstone.id : null,
     totalSessions,
     statedSessions: stated ? Number(stated[1]) : null,
-    completionOutcomes,
+    estimatedWeeks: durationMatch ? Number(durationMatch[1]) : null,
+    ...guidance,
+    completionOutcomes: exitOutcomes,
     todos,
   };
 }

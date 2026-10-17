@@ -19,67 +19,58 @@
     },
     {
       "id": "retrieval",
-      "name": "Datasets & Domain Exploration",
+      "name": "Data Curation & Modeling Paradigms",
       "levels": [
-        4
+        4,
+        5,
+        6
       ],
-      "theme": "medical, cybersecurity & scientific dataset curation, preprocessing & domain adaptation",
+      "theme": "domain datasets, classical ML, deep learning, computer vision, graphs and sequence models",
       "color": "cyan",
       "icon": "database"
     },
     {
       "id": "agentic",
-      "name": "Model Architectures & Paradigms",
+      "name": "Generative Models & Experimental Science",
       "levels": [
-        5,
-        6
+        7,
+        8,
+        9
       ],
-      "theme": "classical ML, deep learning, vision CNNs, graph neural networks & transformers across domains",
-      "color": "indigo",
-      "icon": "layers"
+      "theme": "generative modeling, controlled ablations, fair benchmarks and scaled experimental systems",
+      "color": "violet",
+      "icon": "flask-conical"
     },
     {
       "id": "trust",
-      "name": "Generative Models & Benchmarking",
+      "name": "Scaled Systems, Trustworthy AI & Alignment",
       "levels": [
-        7,
-        8
-      ],
-      "theme": "diffusion, flow matching, privacy synthesis, experimental design & multi-factor ablation studies",
-      "color": "violet",
-      "icon": "sliders-horizontal"
-    },
-    {
-      "id": "production",
-      "name": "HPC Clusters, Scaling & Explainability",
-      "levels": [
-        9,
         10,
-        11
+        11,
+        12
       ],
-      "theme": "SLURM supercomputing, multi-GPU distributed training, domain PEFT & XAI interpretability",
+      "theme": "foundation models, interpretability, robustness, fairness and alignment for high-impact domains",
       "color": "emerald",
-      "icon": "cpu"
-    },
-    {
-      "id": "frontier",
-      "name": "Frontier Robustness & Thesis Projects",
-      "levels": [
-        12,
-        13,
-        14
-      ],
-      "theme": "adversarial safety, multimodal clinical/cyber AI & comprehensive MSc/PhD thesis capstones",
-      "color": "rose",
       "icon": "shield-check"
     },
     {
-      "id": "interview",
-      "name": "Publishing, Peer Review & Career",
+      "id": "production",
+      "name": "Cross-Disciplinary Research & Capstones",
+      "levels": [
+        13,
+        14
+      ],
+      "theme": "multimodal methods and thesis-grade projects that turn questions into defensible evidence",
+      "color": "rose",
+      "icon": "microscope"
+    },
+    {
+      "id": "frontier",
+      "name": "Publishing, Thesis Defense & Research Careers",
       "levels": [
         15
       ],
-      "theme": "conference & journal papers (IEEE/ACM/Nature), rebuttals, thesis defense & research scientist career",
+      "theme": "manuscripts, peer review, rebuttals, thesis defense, job talks and research scientist pathways",
       "color": "slate",
       "icon": "graduation-cap"
     }
@@ -344,7 +335,20 @@
       "project": "M0.6",
       "totalSessions": 13,
       "statedSessions": 13,
-      "completionOutcomes": [],
+      "estimatedWeeks": 3,
+      "proficiency": "On-ramp",
+      "researchStage": "Prepare the laboratory",
+      "lifecycle": "Environment → reproducibility",
+      "artifact": "Reproducible research repository and experiment harness",
+      "careerSignal": "Can join a lab and run traceable experiments.",
+      "completionOutcomes": [
+        "Navigate remote Linux research environments, manage persistent background experiments, and diagnose hardware compute bottlenecks.",
+        "Eliminate dependency drift, resolve CUDA library mismatches, and package research experiments into containerized scientific artifacts.",
+        "Structure academic research repositories to meet top-tier conference artifact evaluation and reproducibility standards.",
+        "Systematically track hundreds of experimental runs, visualize metric trajectories, and maintain a centralized model registry.",
+        "Eliminate stochastic noise between runs, guarantee experimental determinism, and design high-throughput scientific data pipelines.",
+        "You can scaffold any machine learning research project with industrial-grade scientific rigor, guaranteed reproducibility, and frictionless collaboration."
+      ],
       "todos": []
     },
     {
@@ -608,7 +612,20 @@
       "project": "M1.6",
       "totalSessions": 13,
       "statedSessions": 13,
-      "completionOutcomes": [],
+      "estimatedWeeks": 3,
+      "proficiency": "On-ramp",
+      "researchStage": "Enter a research group",
+      "lifecycle": "Mentorship → problem formulation",
+      "artifact": "Research pitch, academic CV, and lab outreach portfolio",
+      "careerSignal": "Can earn an RA conversation through evidence of fit.",
+      "completionOutcomes": [
+        "Systematically identify high-impact research laboratories and select scientific mentors aligned with your research ambitions.",
+        "Deconstruct prospective mentors' papers and formulate high-value research pitches that demonstrate immediate intellectual compatibility.",
+        "Author high-signal research outreach emails that secure technical interviews and avoid common applicant blunders.",
+        "Build a stellar academic CV and proof-of-work portfolio that immediately distinguishes you from hundreds of applicant candidates.",
+        "Excel in technical coding evaluations and live paper defense discussions to secure coveted research positions.",
+        "You can systematically approach, pitch, and secure Research Assistant and Fellow positions at premier AI/ML research laboratories."
+      ],
       "todos": []
     },
     {
@@ -872,7 +889,20 @@
       "project": "M2.6",
       "totalSessions": 13,
       "statedSessions": 13,
-      "completionOutcomes": [],
+      "estimatedWeeks": 3,
+      "proficiency": "Developing",
+      "researchStage": "Build a map of knowledge",
+      "lifecycle": "Search → read → synthesize",
+      "artifact": "Systematic literature review and PRISMA evidence map",
+      "careerSignal": "Can explain what is known, contested, and still open.",
+      "completionOutcomes": [
+        "Systematically discover scholarly literature across major computer science and domain-specific bibliographic databases.",
+        "Navigate the academic publishing ecosystem, evaluate venue prestige, and distinguish predatory publishers from reputable venues.",
+        "Read research papers efficiently, extract core insights rapidly, and critically evaluate the validity of scientific claims.",
+        "Manage thousands of scholarly references effortlessly, maintain pristine BibTeX registries, and streamline academic LaTeX authoring.",
+        "Synthesize complex literature into comparative taxonomies, isolate significant research gaps, and frame scientific novelty compellingly.",
+        "You can systematically discover, critically analyze, and synthesize scientific literature to produce publication-grade survey papers and establish research authority."
+      ],
       "todos": []
     },
     {
@@ -1136,7 +1166,20 @@
       "project": "M3.6",
       "totalSessions": 13,
       "statedSessions": 13,
-      "completionOutcomes": [],
+      "estimatedWeeks": 3,
+      "proficiency": "Developing",
+      "researchStage": "Make claims defensible",
+      "lifecycle": "Mathematics → inference",
+      "artifact": "Statistical audit package with tests, effect sizes, and uncertainty",
+      "careerSignal": "Can defend whether an observed improvement is meaningful.",
+      "completionOutcomes": [
+        "Apply fundamental matrix decompositions, compute spectral graph invariants, and mathematically justify dimensionality reduction in research papers.",
+        "Analyze the geometric curvature of loss surfaces, derive custom matrix derivatives, and diagnose numerical optimization difficulties in deep learning models.",
+        "Apply formal information-theoretic metrics, formulate probabilistic model objectives, and interpret loss functions from first principles.",
+        "Select and execute appropriate parametric and non-parametric hypothesis tests to statistically validate performance improvements over baseline models.",
+        "Report effect sizes alongside confidence intervals and eliminate false positive claims caused by uncorrected multiple statistical comparisons.",
+        "You can statistically validate any empirical AI/ML research finding, guaranteeing that published results are mathematically sound and reproducible."
+      ],
       "todos": []
     },
     {
@@ -1400,7 +1443,20 @@
       "project": "M4.6",
       "totalSessions": 13,
       "statedSessions": 13,
-      "completionOutcomes": [],
+      "estimatedWeeks": 3,
+      "proficiency": "Developing",
+      "researchStage": "Make data research-ready",
+      "lifecycle": "Acquire → govern → document",
+      "artifact": "Leakage-audited dataset card and benchmark pipeline",
+      "careerSignal": "Can turn messy domain data into publishable evidence.",
+      "completionOutcomes": [
+        "Acquire credentialed access to leading medical research databases and preprocess heterogeneous clinical, radiological, and genomic data.",
+        "Process raw network packet captures and binary malware datasets, extracting domain-specific features for intrusion detection research.",
+        "Implement robust strategies to overcome extreme class imbalance and missing data without introducing distribution bias.",
+        "Audit research pipelines to eliminate patient-level, feature engineering, and temporal data leakage that invalidates published research findings.",
+        "Comply with international privacy regulations, implement rigorous de-identification, and author academic Datasheets for Datasets.",
+        "You can ingest, sanitize, partition, and document complex domain-specific research datasets with zero data leakage, ready for peer-reviewed publication."
+      ],
       "todos": []
     },
     {
@@ -1413,7 +1469,7 @@
       "prerequisites": [
         4
       ],
-      "phase": "agentic",
+      "phase": "retrieval",
       "icon": "layers",
       "modules": [
         {
@@ -1664,7 +1720,20 @@
       "project": "M5.6",
       "totalSessions": 13,
       "statedSessions": 13,
-      "completionOutcomes": [],
+      "estimatedWeeks": 3,
+      "proficiency": "Intermediate",
+      "researchStage": "Choose and establish baselines",
+      "lifecycle": "Question → model family → baseline",
+      "artifact": "Cross-paradigm benchmark across classical ML and deep learning",
+      "careerSignal": "Can choose models based on the scientific question, not fashion.",
+      "completionOutcomes": [
+        "Select, tune, and evaluate state-of-the-art tree ensembles and deep tabular models across medical and cybersecurity benchmarks.",
+        "Design and train 2D and 3D convolutional neural networks for medical radiological classification and volumetric anatomical segmentation.",
+        "Model time-series physiological waveforms and sequential cybersecurity telemetry using 1D convolutional and recurrent deep learning architectures.",
+        "Pre-train domain-specific visual and sequential encoders using self-supervised contrastive and reconstruction objectives without manual labels.",
+        "Detect and mitigate domain shift, evaluate out-of-distribution generalization, and apply transfer learning across distinct scientific environments.",
+        "You can rigorously compare classical machine learning algorithms and deep neural networks on real-world scientific datasets with peer-review rigor."
+      ],
       "todos": []
     },
     {
@@ -1677,7 +1746,7 @@
       "prerequisites": [
         5
       ],
-      "phase": "agentic",
+      "phase": "retrieval",
       "icon": "network",
       "modules": [
         {
@@ -1928,7 +1997,20 @@
       "project": "M6.6",
       "totalSessions": 13,
       "statedSessions": 13,
-      "completionOutcomes": [],
+      "estimatedWeeks": 3,
+      "proficiency": "Intermediate",
+      "researchStage": "Design modern architectures",
+      "lifecycle": "Representation → architecture → validation",
+      "artifact": "Reproducible graph or long-sequence model implementation",
+      "careerSignal": "Can modify an architecture and explain the mechanism.",
+      "completionOutcomes": [
+        "Build, optimize, and mathematically analyze modern attention mechanisms and hardware-aware Transformer layers.",
+        "Apply Vision Transformers and hierarchical attention models to medical radiological imaging and high-resolution spatial data.",
+        "Master the Message Passing paradigm and implement state-of-the-art spatial and attention-based Graph Neural Networks.",
+        "Formulate cybersecurity threat detection problems as graph neural network tasks, modeling network flow graphs and malware binary control flow topologies.",
+        "Apply sub-quadratic linear attention and selective state space models (Mamba) to long-sequence scientific and telemetry data.",
+        "You can design, implement, and scientifically validate modern Graph Neural Networks and State Space Models for complex relational and sequential research problems."
+      ],
       "todos": []
     },
     {
@@ -1941,7 +2023,7 @@
       "prerequisites": [
         6
       ],
-      "phase": "trust",
+      "phase": "agentic",
       "icon": "sparkles",
       "modules": [
         {
@@ -2192,7 +2274,20 @@
       "project": "M7.6",
       "totalSessions": 13,
       "statedSessions": 13,
-      "completionOutcomes": [],
+      "estimatedWeeks": 3,
+      "proficiency": "Intermediate",
+      "researchStage": "Model uncertainty and generation",
+      "lifecycle": "Distribution → generation → utility",
+      "artifact": "Evaluated generative modeling and privacy synthesis study",
+      "careerSignal": "Can build generative systems with domain-relevant evaluation.",
+      "completionOutcomes": [
+        "Derive the ELBO, implement the reparameterization trick, and generate conditioned tabular samples using Variational Autoencoders.",
+        "Master the mathematics of discrete and continuous diffusion, train denoising backbones, and generate high-fidelity samples from pure noise.",
+        "Formulate continuous normalizing flows and implement Optimal Transport Flow Matching for fast, deterministic generative sampling.",
+        "Deploy state-of-the-art diffusion and flow models to synthesize high-utility medical images and cybersecurity telemetry.",
+        "Evaluate generative fidelity, diversity, and distributional realism, and conduct empirical privacy audits to prevent training data memorization.",
+        "You can design, train, evaluate, and mathematically audit state-of-the-art generative diffusion and flow models for sensitive scientific and enterprise domains."
+      ],
       "todos": []
     },
     {
@@ -2205,7 +2300,7 @@
       "prerequisites": [
         7
       ],
-      "phase": "trust",
+      "phase": "agentic",
       "icon": "sliders-horizontal",
       "modules": [
         {
@@ -2457,7 +2552,20 @@
       "project": "M8.6",
       "totalSessions": 13,
       "statedSessions": 13,
-      "completionOutcomes": [],
+      "estimatedWeeks": 3,
+      "proficiency": "Advanced",
+      "researchStage": "Isolate the contribution",
+      "lifecycle": "Hypothesis → ablation → evidence",
+      "artifact": "Compute-matched ablation and fair benchmarking suite",
+      "careerSignal": "Can produce results that survive serious peer review.",
+      "completionOutcomes": [
+        "Structure scientifically controlled computer science experiments that isolate genuine algorithmic contributions from confounding factors.",
+        "Design rigorous ablation matrices that withstand peer review scrutiny and scientifically justify every architectural design choice.",
+        "Select, tune, and evaluate competitive baseline models, eliminating the weak-baseline fallacy from your research papers.",
+        "Detect and eliminate benchmark test-set contamination, ensuring evaluation integrity in foundation model research.",
+        "Implement disciplined hyperparameter optimization protocols with equal compute budgets and report multi-seed variance.",
+        "You can design, execute, and present empirical machine learning experiments that satisfy the highest standards of top-tier peer review."
+      ],
       "todos": []
     },
     {
@@ -2470,7 +2578,7 @@
       "prerequisites": [
         8
       ],
-      "phase": "production",
+      "phase": "agentic",
       "icon": "cpu",
       "modules": [
         {
@@ -2721,7 +2829,20 @@
       "project": "M9.6",
       "totalSessions": 13,
       "statedSessions": 13,
-      "completionOutcomes": [],
+      "estimatedWeeks": 3,
+      "proficiency": "Advanced",
+      "researchStage": "Scale the experiment",
+      "lifecycle": "Profile → distribute → optimize",
+      "artifact": "Multi-node scaling report with reproducible efficiency measurements",
+      "careerSignal": "Can execute large experiments within real compute constraints.",
+      "completionOutcomes": [
+        "Navigate institutional and laboratory supercomputing environments, submit multi-node batch scripts, and leverage high-speed interconnects.",
+        "Implement and scale distributed data-parallel training across multi-GPU and multi-node clusters using DDP and FSDP.",
+        "Design and execute 3D parallelism (Data + Tensor + Pipeline Parallelism) to train ultra-large models exceeding single-device memory limits.",
+        "Profile distributed multi-GPU training runs, diagnose communication bottlenecks, and optimize computation-communication overlapping.",
+        "Quantify Model FLOPs Utilization (MFU) and systematically evaluate strong and weak scaling efficiency on research supercomputers.",
+        "You can scale complex deep learning models across institutional and supercomputing clusters with verified systems efficiency and reproducible performance."
+      ],
       "todos": []
     },
     {
@@ -2734,7 +2855,7 @@
       "prerequisites": [
         9
       ],
-      "phase": "production",
+      "phase": "trust",
       "icon": "scale",
       "modules": [
         {
@@ -2985,7 +3106,20 @@
       "project": "M10.6",
       "totalSessions": 13,
       "statedSessions": 13,
-      "completionOutcomes": [],
+      "estimatedWeeks": 3,
+      "proficiency": "Advanced",
+      "researchStage": "Specialize foundation models",
+      "lifecycle": "Pre-train → adapt → evaluate",
+      "artifact": "Domain-adapted foundation model with corpus and evaluation report",
+      "careerSignal": "Can contribute to modern foundation-model research programs.",
+      "completionOutcomes": [
+        "Derive and apply empirical scaling laws to predict loss frontiers and compute-optimal resource allocations for pre-training.",
+        "Diagnose and resolve training instabilities, prevent loss spikes, and tune advanced optimization schedules for stable pre-training.",
+        "Implement, optimize, and benchmark parameter-efficient fine-tuning techniques (LoRA, QLoRA, DoRA) on hardware-constrained research systems.",
+        "Execute Domain-Adaptive Pre-Training for specialized sectors while mitigating catastrophic forgetting through corpus blending.",
+        "Curate high-quality domain instruction datasets, apply completion-only loss masking, and align models for multi-turn scientific reasoning.",
+        "You can specialize large foundation models for high-stakes scientific, clinical, and cybersecurity domains with peer-reviewed empirical rigor."
+      ],
       "todos": []
     },
     {
@@ -2998,7 +3132,7 @@
       "prerequisites": [
         10
       ],
-      "phase": "production",
+      "phase": "trust",
       "icon": "search",
       "modules": [
         {
@@ -3249,7 +3383,20 @@
       "project": "M11.6",
       "totalSessions": 13,
       "statedSessions": 13,
-      "completionOutcomes": [],
+      "estimatedWeeks": 3,
+      "proficiency": "Advanced",
+      "researchStage": "Understand model behavior",
+      "lifecycle": "Probe → explain → verify",
+      "artifact": "Interpretability report connecting mechanisms to behavior",
+      "careerSignal": "Can turn opaque model behavior into testable scientific claims.",
+      "completionOutcomes": [
+        "Compute theoretically grounded feature attributions (SHAP, Integrated Gradients) across tabular and imaging models to satisfy clinical and security standards.",
+        "Execute rigorous linear probing experiments, evaluate concept emergence across layer depth, and validate probe selectivity using control tasks.",
+        "Trace causal computational circuits in neural networks using activation patching and identify specialized attention head mechanisms.",
+        "Train overcomplete Sparse Autoencoders, resolve polysemantic superposition, and discover monosemantic interpretable features in foundation models.",
+        "Formulate and optimize plausible counterfactual explanations with domain-specific feasibility constraints for healthcare and cybersecurity applications.",
+        "You can unpack black-box deep learning models, conduct rigorous mechanistic interpretability audits, and scientifically defend AI trustworthiness for peer review and regulatory clearance."
+      ],
       "todos": []
     },
     {
@@ -3262,7 +3409,7 @@
       "prerequisites": [
         11
       ],
-      "phase": "frontier",
+      "phase": "trust",
       "icon": "shield-check",
       "modules": [
         {
@@ -3513,7 +3660,20 @@
       "project": "M12.6",
       "totalSessions": 13,
       "statedSessions": 13,
-      "completionOutcomes": [],
+      "estimatedWeeks": 3,
+      "proficiency": "Frontier",
+      "researchStage": "Stress-test and align systems",
+      "lifecycle": "Attack → measure → mitigate",
+      "artifact": "Robustness, fairness, and alignment evaluation package",
+      "careerSignal": "Can assess high-impact systems under adversarial and social risk.",
+      "completionOutcomes": [
+        "Implement first-order and optimization-based adversarial attacks to evaluate the adversarial vulnerability of deep learning models.",
+        "Formulate robust optimization objectives, implement adversarial training, and compute mathematically certified robustness bounds.",
+        "Execute problem-space evasion attacks on cybersecurity malware classifiers and design robust detection systems resilient to binary manipulation.",
+        "Formulate and implement preference alignment objectives (RLHF, DPO, KTO) to align foundation models with human values and domain criteria.",
+        "Audit machine learning models for demographic bias, quantify fairness trade-offs, and implement algorithmic mitigation strategies.",
+        "You can systematically evaluate, stress-test, and fortify machine learning systems against adversarial attacks and algorithmic bias for high-impact publication."
+      ],
       "todos": []
     },
     {
@@ -3526,7 +3686,7 @@
       "prerequisites": [
         12
       ],
-      "phase": "frontier",
+      "phase": "production",
       "icon": "eye",
       "modules": [
         {
@@ -3777,7 +3937,20 @@
       "project": "M13.6",
       "totalSessions": 13,
       "statedSessions": 13,
-      "completionOutcomes": [],
+      "estimatedWeeks": 3,
+      "proficiency": "Frontier",
+      "researchStage": "Cross disciplinary boundaries",
+      "lifecycle": "Fuse modalities → validate transfer",
+      "artifact": "Multimodal research system with domain-partner evaluation",
+      "careerSignal": "Can translate methods across data types and scientific domains.",
+      "completionOutcomes": [
+        "Implement and train contrastive vision-language models, perform zero-shot domain classification, and execute cross-modal semantic retrieval.",
+        "Design and fine-tune Vision-Language foundation models for domain-specific visual reasoning and automated scientific report generation.",
+        "Design and train intermediate fusion architectures that combine heterogeneous tabular, continuous time-series, and unstructured text data.",
+        "Formulate and implement cross-modal cybersecurity fusion systems linking raw network telemetry to high-level threat intelligence corpora.",
+        "Establish interdisciplinary research collaborations, navigate IRB protocols, and co-design domain-grounded evaluation metrics with expert practitioners.",
+        "You can design, implement, and scientifically validate cross-disciplinary multimodal AI systems that bridge disparate data modalities for top-tier publication."
+      ],
       "todos": []
     },
     {
@@ -3797,7 +3970,7 @@
         11,
         12
       ],
-      "phase": "frontier",
+      "phase": "production",
       "icon": "trophy",
       "modules": [
         {
@@ -4014,7 +4187,21 @@
       "project": null,
       "totalSessions": 25,
       "statedSessions": 25,
-      "completionOutcomes": [],
+      "estimatedWeeks": 6,
+      "proficiency": "Frontier",
+      "researchStage": "Lead a research project",
+      "lifecycle": "Question → evidence → thesis chapter",
+      "artifact": "Thesis-grade capstone with code, data, results, and limitations",
+      "careerSignal": "Can own an end-to-end research project from idea to evidence.",
+      "completionOutcomes": [
+        "A scientifically verified 3D medical image segmentation research codebase and clinical biomarker evaluation report meeting peer-reviewed medical imaging standards.",
+        "A novel graph-based cybersecurity threat detection framework that identifies coordinated attack campaigns across complex enterprise network topologies.",
+        "A pristine, decontaminated domain evaluation benchmark established as an open-source standard for assessing domain-specific foundation model reasoning.",
+        "An end-to-end mechanistic interpretability discovery identifying the internal computational circuit and demonstrating precise latent steering in clinical AI.",
+        "A state-of-the-art continuous flow matching framework generating privacy-preserving synthetic patient cohorts with proven clinical utility and privacy guarantees.",
+        "A rigorous problem-space adversarial attack and defense framework published with binary manipulation algorithms and empirical robustness proofs.",
+        "A complete, publication-grade academic conference submission package ready for submission to a premier peer-reviewed AI venue or inclusion as a thesis chapter."
+      ],
       "todos": []
     },
     {
@@ -4027,7 +4214,7 @@
       "prerequisites": [
         14
       ],
-      "phase": "interview",
+      "phase": "frontier",
       "icon": "graduation-cap",
       "modules": [
         {
@@ -4355,7 +4542,22 @@
       "project": "M15.8",
       "totalSessions": 17,
       "statedSessions": 17,
-      "completionOutcomes": [],
+      "estimatedWeeks": 4,
+      "proficiency": "Career-ready",
+      "researchStage": "Disseminate and defend the work",
+      "lifecycle": "Write → review → defend → interview",
+      "artifact": "Submission package, thesis defense, job talk, and research portfolio",
+      "careerSignal": "Can communicate research to reviewers, committees, and employers.",
+      "completionOutcomes": [
+        "Write compelling academic abstracts and introductions that captivate reviewers and clearly articulate scientific significance.",
+        "Strategically select target publication venues across premier computer science conferences and top-tier academic journals.",
+        "Author professional, publication-ready LaTeX manuscripts with standardized mathematical notation and high-impact vector graphics.",
+        "Conduct expert peer reviews for premier AI/ML conferences, identify critical technical flaws, and understand reviewer decision criteria.",
+        "Navigate OpenReview rebuttals effectively, execute targeted counter-ablations rapidly, and convert skeptical reviewers into paper champions.",
+        "Structure, write, and successfully defend a bachelor's, master’s, or doctoral thesis in Computer Science before an academic examination committee.",
+        "Structure and deliver high-impact research job talks and excel in technical interview loops at premier AI research institutes and industrial labs.",
+        "You possess the complete technical, empirical, rhetorical, and leadership mastery of an elite AI/ML Research Scientist ready to lead breakthroughs in academic or industrial research labs."
+      ],
       "todos": []
     }
   ]

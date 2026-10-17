@@ -61,11 +61,11 @@ const coveredIn = shortVersion ? undefined : coveredInModule(level.number);
 const interviewWeight = interviewWeights[level.number];
 const jobWeight = jobWeights[level.number];
 
-const description = `Level ${level.number} of the Thesis & Research Publication Track by AbdurRahman: ${level.scope}`.slice(0, 300);
+const description = `Level ${level.number} of the AI/ML Research Roadmap by AbdurRahman: ${level.scope}`.slice(0, 300);
 ---
 
 <Base
-  title={`Level ${level.number} · ${level.title} — Thesis & Research Publication Track`}
+  title={`Level ${level.number} · ${level.title} — AI/ML Research Roadmap`}
   description={description}
   page="level"
   levelNumber={level.number}
@@ -136,6 +136,18 @@ const description = `Level ${level.number} of the Thesis & Research Publication 
         )}
 
         <div class="lh__facts">
+          <div class="lh__fact lh__fact--career">
+            <span class="lh__fact-label">Research progression</span>
+            <span class="lh__career-stage">{level.proficiency} · {level.researchStage}</span>
+            <span class="lh__fact-value">{level.lifecycle}</span>
+          </div>
+
+          <div class="lh__fact lh__fact--career">
+            <span class="lh__fact-label">Proof of progress</span>
+            <span class="lh__career-stage">{level.artifact}</span>
+            <span class="lh__fact-value">{level.careerSignal}</span>
+          </div>
+
           <div class="lh__fact">
             <span class="lh__fact-label">This level</span>
             <span class="lh__prog" role="img" aria-label={`${level.totalSessions} of ${totalSessions} sessions in the roadmap`}>
@@ -370,7 +382,7 @@ const description = `Level ${level.number} of the Thesis & Research Publication 
     border-radius: var(--cx-r-card);
   }
   @media (min-width: 820px) {
-    .lh__facts { grid-template-columns: repeat(3, 1fr); gap: 26px; padding: 20px 24px; }
+    .lh__facts { grid-template-columns: repeat(5, 1fr); gap: 22px; padding: 20px 24px; }
   }
 
   .lh__fact { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
@@ -387,6 +399,17 @@ const description = `Level ${level.number} of the Thesis & Research Publication 
     letter-spacing: 0.04em;
     color: var(--cx-g700);
     font-variant-numeric: tabular-nums;
+  }
+  .lh__career-stage {
+    font-family: var(--cx-font-display);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--phase-ac);
+  }
+  .lh__fact--career .lh__fact-value {
+    line-height: 1.45;
+    white-space: normal;
   }
 
   .lh__prog { display: block; height: 6px; border-radius: 999px; background: var(--cx-border-2); overflow: hidden; }

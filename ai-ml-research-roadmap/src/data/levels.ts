@@ -61,6 +61,12 @@ export interface Level {
   project: string | null;
   totalSessions: number;
   statedSessions: number | null;
+  estimatedWeeks: number | null;
+  proficiency: string;
+  researchStage: string;
+  lifecycle: string;
+  artifact: string;
+  careerSignal: string;
   completionOutcomes: string[];
   /** Fields the source file did not provide — surfaced, never invented. */
   todos: string[];
