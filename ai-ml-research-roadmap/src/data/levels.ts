@@ -16,6 +16,7 @@ export interface Phase {
   name: string;
   levels: number[];
   theme: string;
+  purpose: string;
   color: string;
   icon: string;
 }
@@ -36,6 +37,7 @@ export interface Module {
   objectives: Objective[];
   /** Commentary that followed the module's Outcome line in the source. */
   notes: string[];
+  competencyTags: string[];
   /** Research action represented by this module. */
   researchMode: string;
   /** The authored practice, result, or outcome that demonstrates completion. */
@@ -63,6 +65,10 @@ export interface Level {
   modules: Module[];
   /** Module id of the ship-it capstone, if the source defines one. */
   project: string | null;
+  moduleCount: number;
+  objectiveCount: number;
+  capstoneCount: number;
+  assessmentStandard: string;
   totalSessions: number;
   statedSessions: number | null;
   estimatedWeeks: number | null;
