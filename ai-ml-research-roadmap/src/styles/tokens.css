@@ -65,6 +65,9 @@
   --cx-map-btn-hover-border: #2563eb;
   --cx-map-btn-hover-color: #ffffff;
   --cx-map-btn-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
+  --cx-tooltip-bg: #090d16;
+  --cx-tooltip-fg: #ffffff;
+  --cx-tooltip-muted: #cbd5e1;
 
   /* Emphasis & Gradients */
   --cx-grad: linear-gradient(135deg, #1e3a8a, #2563eb);
@@ -218,6 +221,9 @@
   --cx-map-btn-hover-bg: #3b82f6;
   --cx-map-btn-hover-border: #3b82f6;
   --cx-map-btn-hover-color: #ffffff;
+  --cx-tooltip-bg: #f8fafc;
+  --cx-tooltip-fg: #090d16;
+  --cx-tooltip-muted: #475569;
   --cx-map-btn-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
 
   /* Emphasis */
