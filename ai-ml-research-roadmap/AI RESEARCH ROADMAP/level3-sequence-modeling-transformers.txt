@@ -1,89 +1,101 @@
-Level 3 · Sequence Modeling & Transformer Architectures
+Level 3 · Experimental Design & Rigorous Benchmarking
 
-Scope: explore sequence modeling theory from recurrent networks to modern Transformer architectures: self-attention mechanics, positional encodings, attention variants, hardware-aware algorithms, and sub-quadratic sequence models.
+Phase: Foundations & Methodology
+Suggested duration: 13 sessions (~3 weeks)
+Prerequisites: Level 2 (Research Mathematics & Statistical Hypothesis Testing)
+Scope: Master the principles of controlled empirical experimentation in machine learning: designing multi-factor ablation matrices, establishing fair baseline comparisons, hyperparameter optimization protocols, and preventing subtle evaluation leakage.
 
-Prerequisites: Level 2
+M3.1 · Principles of Controlled Experiments: Independent, Dependent & Confounding Variables — (sessions: 2)
+Session 1 · Scientific Experimental Control in Machine Learning
+- Formulate empirical experiments with strictly defined independent variables (architectural modifications, loss terms) and dependent variables (benchmark accuracy, throughput).
+- Identify and isolate confounding variables that corrupt empirical claims: hidden optimizer tuning, differing learning rate warmups, and unequal token counts.
+- Establish negative controls (random feature baselines, shuffled labels) and positive controls (oracle representations, upper-bound supervision).
+Session 2 · Controlling Computational & Parameter Budgets
+- Enforce strict parameter-matched and compute-matched experimental controls when comparing novel architectures against baselines.
+- Calculate and report total training FLOPs (using 6*N*D approximations) to guarantee that performance gains do not stem purely from scale.
+- Normalize inference latency, peak GPU VRAM allocation, and memory bandwidth utilization during comparative benchmarking.
+Mental model: If your model beats the baseline simply because it had 20% more parameters or trained with a better learning rate schedule, your scientific claim is invalid.
+Try: Design an experiment comparing two attention mechanisms where total parameter count, FLOP budget, and training token count are strictly matched.
+Outcome: Structure scientifically controlled machine learning experiments that isolate genuine algorithmic contributions from confounding factors.
 
-M3.1 · Sequence Modeling Foundations & Attention Mechanics — (sessions: 3)
+M3.2 · Ablation Study Design: Component Isolation & Negative Controls — (sessions: 2)
+Session 1 · The Anatomy of a High-Impact Ablation Study
+- Understand the primary purpose of an ablation study: proving that every proposed component is strictly necessary and operates as hypothesized.
+- Design one-factor-at-a-time (OFAT) and full factorial ablation grids that systematically remove or substitute individual algorithmic modules.
+- Formulate component-level ablations: testing custom loss components, normalization layers, positional encodings, and data filtering thresholds.
+Session 2 · Negative Controls & Sanity Checks
+- Implement random ablation baselines: replace learned modules with random projections or identity mappings to measure actual learned contribution.
+- Execute feature permutation and ablation tests to verify that model performance degrades when critical input signals are corrupted.
+- Structure ablation tables in scientific papers with incremental rows showing progressive performance deltas from baseline to proposed system.
+Mental model: An ablation study is an empirical post-mortem showing the exact quantitative damage incurred when any piece of your innovation is removed.
+Try: Construct an ablation matrix for a model with three new components (loss penalty, novel attention, custom normalization), detailing all 2^3 configurations.
+Outcome: Design rigorous ablation matrices that withstand peer review scrutiny and scientifically justify every architectural design choice.
 
-Analyze autoregressive sequence modeling: conditional probability factorization via chain rule of probability, cross-entropy objective, and perplexity metric.
-Review recurrent neural networks (RNNs), LSTMs, and GRUs: gating mechanisms, cell state dynamics, and vanishing/exploding gradients over long contexts.
-Analyze the information bottleneck of fixed-length encoder-decoder representations in early neural machine translation (Cho et al., Sutskever et al.).
-Understand the additive attention mechanism (Bahdanau et al.) and multiplicative attention (Luong et al.) as alignment models in latent space.
-Contrast seq2seq with attention against recurrence: path length between distant tokens, parallelization capacity across time steps, and O(N) sequential complexity.
-Outcome: derive gradients of recurrent cells versus attention mechanisms over time and explain the vanishing gradient bottleneck in RNNs.
+M3.3 · Baseline Selection: Fair Comparisons, Tuning Baselines & SOTA Claims — (sessions: 2)
+Session 1 · Selecting Competitive & Relevant Baselines
+- Select state-of-the-art (SOTA) baselines, canonical historical baselines, and simple heuristic baselines to establish meaningful performance bounds.
+- Avoid the "weak baseline" trap: ensure published baseline implementations are tuned with identical diligence and compute resources as the proposed method.
+- Re-run baselines in your own standardized experimental codebase rather than copying numbers from prior papers evaluated under different protocols.
+Session 2 · Ethical Claims & Empirical Transparency
+- Define what constitutes a genuine "State of the Art" (SOTA) claim and when to state nuanced findings instead of sweeping superiority claims.
+- Report negative results and failure modes where the proposed method underperforms baselines (e.g., high latency, out-of-distribution fragility).
+- Document all software versions, hardware configurations, batch sizes, and seeds for both candidate models and reproduced baselines.
+Mental model: Be your own harshest reviewer; tuning the baseline to be as strong as possible makes your final scientific breakthrough indisputable.
+Try: Re-implement a published baseline on a benchmark dataset, optimize its learning rate and weight decay, and compare against the original paper's reported score.
+Outcome: Select and tune competitive baselines fairly, avoid misleading comparative claims, and conduct honest state-of-the-art benchmarking.
 
-M3.2 · Mathematical Anatomy of the Transformer — (sessions: 4)
+M3.4 · Hyperparameter Optimization Protocols: Random, Grid & Bayesian Search — (sessions: 2)
+Session 1 · Systematic Hyperparameter Optimization
+- Understand why manual trial-and-error hyperparameter tuning introduces researcher bias and invalidates scientific comparisons.
+- Implement automated search strategies: grid search for low-dimensional discrete spaces and random search for high-dimensional continuous spaces.
+- Leverage Bayesian optimization (Gaussian Processes, Tree-structured Parzen Estimators via Optuna) for compute-efficient exploration.
+Session 2 · Equal Hyperparameter Tuning Budgets
+- Establish equal hyperparameter search budgets (identical trial counts, identical GPU wall-clock hours) for both the proposed model and all baselines.
+- Report the full distribution of hyperparameter trial outcomes rather than only the single best cherry-picked run.
+- Plot hyperparameter sensitivity curves showing model robustness against variations in learning rate, weight decay, and temperature parameters.
+Mental model: Hyperparameter tuning is an optimization landscape; a method that requires fragile, razor-thin tuning is practically inferior to a robust one.
+Try: Set up an Optuna study optimizing learning rate, batch size, and weight decay across 30 trials with automated pruning of unpromising runs.
+Outcome: Conduct automated, unbiased hyperparameter searches with equal compute budgets and report parameter sensitivity analysis.
 
-Master Scaled Dot-Product Attention: queries Q, keys K, values V, scaling factor 1/sqrt(d_k), softmax normalization, and value weighted combination.
-Explain why scaling by 1/sqrt(d_k) prevents large dot-product magnitudes from pushing the Softmax function into vanishing gradient saturation regions.
-Analyze Multi-Head Attention (MHA): projection matrices, multi-subspace representation learning, concatenation, output projection, and parameter counts.
-Derive the exact computational complexity and memory footprint of self-attention: O(N^2 * d) FLOPs and O(N^2) memory activation matrix for sequence length N.
-Master Causal Masking: lower-triangular masking for autoregressive language modeling preventing information leakage from future tokens.
-Analyze Transformer block architecture: Pre-LayerNorm (Pre-LN) versus Post-LayerNorm (Post-LN) stability dynamics (Xiong et al.), residual connections, and MLP/SwiGLU feedforward expansions.
-Examine Multi-Query Attention (MQA) and Grouped-Query Attention (GQA): key-value head sharing, reducing KV cache bandwidth during inference, and quality trade-offs (Ainslie et al.).
-Outcome: write modular, tensorized PyTorch code implementing Multi-Head Attention, Grouped-Query Attention, and Pre-LN Transformer blocks with causal masking from mathematical scratch.
+M3.5 · Validation Protocols: Out-of-Distribution Generalization & Leakage Prevention — (sessions: 2)
+Session 1 · Cross-Validation & Out-of-Distribution Evaluation
+- Implement stratified k-fold cross-validation and grouped k-fold cross-validation to prevent group-level or user-level data correlation between splits.
+- Design out-of-distribution (OOD) test splits evaluating temporal shift (train on past, test on future), domain shift, and geographic shift.
+- Evaluate adversarial robustness and worst-case subgroup performance in addition to standard in-distribution average test accuracy.
+Session 2 · Detecting & Preventing Empirical Data Leakage
+- Identify subtle sources of evaluation leakage: preprocessing before splitting, feature scaling across entire datasets, and duplicate sample contamination.
+- Audit data pipelines to guarantee that tokenizer vocabularies, normalization statistics, and embeddings are computed strictly on training data.
+- Enforce strict separation between the development validation split (used for model selection) and the held-out final test split (evaluated once).
+Mental model: The test set is a sacred, sealed envelope opened exactly once at the conclusion of research; peeking inside invalidates your conclusions.
+Try: Audit a data loading pipeline using automated hash checks to verify that zero sample overlap exists between training, validation, and test splits.
+Outcome: Design rigorous validation splits, evaluate out-of-distribution robustness, and eliminate all vectors of data leakage.
 
-M3.3 · Positional Encodings & Context Length Generalization — (sessions: 3)
+M3.6 · Capstone Project: Standardized Benchmark & Multi-Factor Ablation Matrix — (sessions: 3)
+Session 1 · Benchmark Pipeline Architecture
+- Construct a standardized empirical benchmarking harness capable of evaluating multiple model architectures across standardized dataset splits.
+- Enforce strict parameter-matching and compute-matching constraints across all candidate models and competitive baselines.
+- Implement an automated ablation controller that runs all combinations of architectural flags under multiple random seeds.
+Session 2 · Multi-Factor Execution & Scientific Visualization
+- Execute the full benchmark suite across 5 random seeds per configuration, streaming all metrics and logs to a centralized tracking dashboard.
+- Generate automated multi-factor ablation tables with mean and confidence intervals, calculating percentage deltas from isolated components.
+- Author scientific visualization scripts producing publication-ready PDF figures (ablation bar charts, convergence curves, and sensitivity line plots).
+Mental model: A fully automated ablation harness proves to reviewers that your performance gain is an undeniable consequence of your scientific hypothesis.
+Try: Execute a 16-run ablation experiment testing 4 components under 5 seeds each, generating an automated LaTeX table and vector ablation plot.
+Outcome: Conduct comprehensive, unassailable ablation studies and comparative benchmarking that meet the highest standards of peer review.
 
-Understand why self-attention is permutation-equivariant and requires explicit positional information to model sequence order.
-Analyze Absolute Positional Encodings: sinusoidal functions (Vaswani et al.), wavelength frequencies, and learnable positional embedding tables.
-Study Relative Positional Encodings: Shaw et al., Transformer-XL, and encoding relative displacement (i - j) between tokens rather than absolute indices.
-Master Rotary Position Embedding (RoPE): complex number representation, 2D rotation matrices, inner product preservation, and frequency properties (Su et al.).
-Analyze ALiBi (Attention with Linear Biases): decaying attention scores with linear query-key distance penalties, and zero-shot length extrapolation properties (Press et al.).
-Investigate Context Window Extension techniques: Position Interpolation (Chen et al.), YaRN (Yet another RoPE extensioN method), and NTK-aware RoPE scaling.
-Outcome: derive RoPE mathematically showing that the inner product of rotated queries and keys depends strictly on relative offset (m - n), and implement 2D tensor rotary rotation.
-
-M3.4 · Hardware-Aware Attention & Memory Efficiency — (sessions: 4)
-
-Understand GPU memory hierarchy: High Bandwidth Memory (HBM) versus on-chip SRAM, memory bandwidth vs compute throughput limits (roofline model).
-Analyze the standard Softmax attention memory bottleneck: materializing the N x N attention matrix to HBM causes memory bandwidth saturation (IO bound).
-Master FlashAttention (Dao et al.): tiling algorithm, computing Softmax incrementally using online softmax normalization (Milakov & Gimelshein), and never materializing N x N matrices in HBM.
-Analyze FlashAttention backward pass: recomputing attention matrix in SRAM from queries, keys, and values instead of saving massive intermediate activation maps.
-Study FlashAttention-2 and FlashAttention-3: work partitioning, reducing non-matmul FLOPs, warp-level parallelism, and asynchronous memory operations on Hopper architectures.
-Examine KV Cache memory footprint during autoregressive generation: batch size, sequence length, layers, heads, dimension, and PagedAttention (vLLM) memory paging.
-Outcome: derive the online Softmax algorithm mathematically and implement a tiled Softmax kernel demonstrating exact numerical equivalence without intermediate full-matrix storage.
-
-M3.5 · Sub-Quadratic Architectures & State Space Models — (sessions: 3)
-
-Analyze the fundamental scaling limit of dense Transformers: quadratic O(N^2) time and memory complexity restricting extreme context lengths.
-Explore Linear Attention variants: kernel-based attention approximations, associative property of matrix multiplication, and O(N) complexity limits.
-Study State Space Models (SSMs): continuous-time linear dynamical systems, discretization (bilinear/Euler transforms), and recurrent versus convolutional views (Gu et al., S4).
-Master Mamba and Structured State Space Models (Gu & Dao): selective state spaces (S6), hardware-aware associative scan, input-dependent parameters, and linear-time scaling.
-Compare Hybrid Architectures: combining local self-attention with global state space layers (Jamba, recurrent-attention hybrids), associative recall capacity, and empirical trade-offs.
-Outcome: implement a discrete Linear State Space Model with parallel associative scan in PyTorch and contrast associative recall accuracy against vanilla multi-head attention.
-
-M3.6 · Capstone: Build and Train an Autoregressive Transformer with RoPE and FlashAttention — (sessions: 2)
-
-Build a complete modern decoder-only Transformer language model from scratch in PyTorch incorporating state-of-the-art architectural advancements.
-Implement custom Multi-Head Attention featuring Grouped-Query Attention (GQA) and Rotary Position Embeddings (RoPE).
-Integrate FlashAttention (or custom tiled attention) to enable memory-efficient training over extended sequence context windows.
-Implement RMSNorm for pre-normalization and SwiGLU activation functions within the MLP blocks.
-Implement Byte-Pair Encoding (BPE) tokenization or integrate Tiktoken / SentencePiece tokenizers with proper special token handling.
-Implement causal autoregressive cross-entropy loss with label smoothing and gradient clipping.
-Train the model on a real-world text corpus (e.g. TinyStories or OpenWebText subset) using the AdamW optimizer and cosine learning rate schedule with linear warmup.
-Implement top-k, top-p (nucleus), temperature sampling, and key-value cache (KV cache) decoding for efficient autoregressive text generation.
-Conduct ablation studies comparing: (1) Sinusoidal vs RoPE positional embeddings, (2) Pre-LN vs Post-LN stability, and (3) standard MHA vs GQA inference throughput and memory usage.
-Final result: a verified, high-performance Transformer codebase with RoPE, GQA, and KV caching, complete with an ablation report analyzing generation quality and memory efficiency.
-
-Level 3 completion outcome
-
-By the end of this level, you should be able to:
-
-Formulate autoregressive sequence modeling in terms of conditional joint probability factorization.
-Explain the mathematical necessity of the 1/sqrt(d_k) scaling factor in dot-product attention.
-Derive the computational FLOPs and activation memory complexity of multi-head self-attention.
-Implement causal lower-triangular masking for autoregressive language models.
-Contrast Pre-LayerNorm and Post-LayerNorm in deep Transformer stability and signal propagation.
-Derive Rotary Position Embeddings (RoPE) mathematically using complex representation.
-Explain ALiBi and contrast its length extrapolation properties with absolute positional encodings.
-Analyze the GPU memory hierarchy and explain why standard attention is memory-bandwidth bound.
-Explain the online Softmax formulation that makes FlashAttention tiling mathematically exact.
-Analyze the memory footprint of the Key-Value (KV) cache during autoregressive generation.
-Derive continuous-time linear state space models and their discretized recurrent/convolutional forms.
-Explain the selective state space mechanism of Mamba and its hardware-aware associative scan.
-Implement Grouped-Query Attention (GQA) and calculate its memory bandwidth reduction factor.
-Implement top-p (nucleus) and temperature sampling over output logits.
-Build and train an end-to-end decoder-only Transformer from scratch on a text corpus.
-Measure tokens-per-second and memory utilization during training and inference.
-Progression: Recurrent & Attention Foundations → Scaled Dot-Product & Transformer Anatomy → Positional Encodings & RoPE → FlashAttention & Memory Hierarchy → State Space Models & Mamba → Transformer Training Capstone.
+CAPSTONE PROJECT: Standardized Benchmark & Multi-Factor Ablation Matrix
+BRIEF: Build a publication-ready empirical benchmarking framework in PyTorch that evaluates a novel architecture against three tuned baselines under strictly matched parameter and compute budgets, executes an automated multi-factor ablation matrix across multiple random seeds, and outputs formatted LaTeX tables and publication-ready vector plots.
+Build a benchmark harness that:
+- Implements a novel model variant alongside at least three competitive baselines with strictly matched total parameter counts (within 2% tolerance).
+- Normalizes training compute budgets: records and enforces identical total training FLOPs and batch token budgets across all competing models.
+- Executes an automated hyperparameter search for both the candidate model and all baselines using Optuna with identical search budgets.
+- Runs an automated multi-factor ablation matrix (at least 4 distinct architectural/loss factors, generating 8+ unique configuration variants).
+- Evaluates all configurations across at least 5 independent random seeds on both in-distribution and out-of-distribution (OOD) test splits.
+- Employs strict hash-based dataset splitting to verify zero sample overlap or feature leakage between train, validation, and test partitions.
+- Computes statistical significance (p-values via Wilcoxon test) and bootstrap 95% confidence intervals for all comparative margins.
+- Emits formatted LaTeX ablation tables with bolded best results, component delta indicators, and automated vector plots (Matplotlib/Seaborn).
+Deliverables:
+- Modular, reproducible benchmarking codebase with standardized train_benchmark.py and run_ablations.py entrypoints.
+- Publication-quality vector figures (PDF/SVG) illustrating convergence trajectories, parameter sensitivity, and ablation contribution deltas.
+- Generated LaTeX table source ready for direct inclusion in a conference paper manuscript.
+Outcome: You can design, execute, and document scientifically flawless ablation studies and competitive benchmark evaluations for any AI/ML publication.

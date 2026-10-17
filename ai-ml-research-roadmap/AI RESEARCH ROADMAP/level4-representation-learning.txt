@@ -1,87 +1,101 @@
-Level 4 · Representation Learning & Latent Metric Spaces
+Level 4 · Deep Learning Research Prototyping in PyTorch & JAX
 
-Scope: examine how deep neural networks learn semantically rich representations without human labels: contrastive learning, self-supervised objectives, metric learning, the manifold hypothesis, and dense vector spaces.
+Phase: Research Prototyping
+Suggested duration: 13 sessions (~3 weeks)
+Prerequisites: Level 3 (Experimental Design & Rigorous Benchmarking)
+Scope: Master the engineering craft of deep learning research prototyping: building modular research codebases, implementing custom autograd operators, mastering numerical precision (BF16/FP16), custom loss surgery, and hardware memory profiling in PyTorch and JAX.
 
-Prerequisites: Level 3
+M4.1 · Modular Research Codebase Architecture: PyTorch Lightning & Clean JAX — (sessions: 2)
+Session 1 · Modular Research Architecture in PyTorch
+- Decouple research components into clean object-oriented modules: LightningDataModule, LightningModule, and custom Callback hooks.
+- Structure model codebases with clear abstraction boundaries between foundational backbone networks, projection heads, and loss functions.
+- Eliminate training boilerplate using PyTorch Lightning while preserving low-level control over optimizer steps, gradient clipping, and manual backward passes.
+Session 2 · Functional Research Prototyping in JAX & Equinox
+- Understand pure functional programming paradigms in JAX: stateless transformations, explicit pseudo-random key management (jax.random.split), and PRNG keys.
+- Implement neural network research modules using Equinox or Flax, manipulating pytrees and pure functional layers cleanly.
+- Master just-in-time compilation (jax.jit), automatic vectorization (jax.vmap), and automatic reverse-mode autodiff (jax.grad, jax.value_and_grad).
+Mental model: A clean research codebase allows you to swap an entire attention mechanism or loss formulation with a single configuration flag.
+Try: Implement a custom multi-layer perceptron in both PyTorch and JAX, verifying that both implementations yield identical outputs and gradients on dummy data.
+Outcome: Structure modular, extensible research codebases in both PyTorch and JAX, decoupling modeling logic from infrastructure code.
 
-M4.1 · The Manifold Hypothesis & Self-Supervised Objectives — (sessions: 3)
+M4.2 · Extending Autograd: Custom Forward-Backward Operators & Matrix Derivatives — (sessions: 2)
+Session 1 · Custom Autograd Operators in PyTorch
+- Implement custom PyTorch differentiable operations by subclassing torch.autograd.Function with explicit forward and backward static methods.
+- Save necessary intermediate activation tensors using ctx.save_for_backward() while avoiding memory leaks and circular reference references.
+- Derive and implement backward vector-Jacobian products (VJPs) for novel custom matrix and tensor operations.
+Session 2 · Numerical Gradient Verification & Edge Cases
+- Verify custom backward gradient implementations against finite-difference approximations using torch.autograd.gradcheck().
+- Handle non-differentiable points and subgradient approximations (e.g., custom activations, clamped gradients, straight-through estimators).
+- Custom VJPs and custom JVP primitives in JAX using jax.custom_vjp and jax.custom_jvp for custom mathematical primitives.
+Mental model: Autograd functions allow a researcher to introduce non-standard mathematical operators into neural networks while maintaining full end-to-end differentiability.
+Try: Implement a custom normalized Euclidean distance layer by subclassing torch.autograd.Function, and pass gradcheck with strict tolerance.
+Outcome: Author custom differentiable operators, derive analytical vector-Jacobian products, and verify numerical gradient accuracy.
 
-Understand the Manifold Hypothesis: real-world high-dimensional data (images, text, audio) concentrates on lower-dimensional non-linear sub-manifolds.
-Study linear dimensionality reduction: Principal Component Analysis (PCA) derivation via maximum variance and minimum reconstruction error, probabilistic PCA.
-Analyze non-linear dimensionality reduction: t-SNE (t-Distributed Stochastic Neighbor Embedding, perplexity, Student-t distribution) and UMAP (Uniform Manifold Approximation and Projection, Riemannian geometry basics).
-Master self-supervised pretext tasks: autoencoding, masked language modeling (BERT), masked image modeling (MAE, He et al.), and autoregressive prediction as representation learners.
-Analyze the reconstruction versus contrastive objective trade-off: pixel-level reconstruction wasting capacity on high-frequency details vs semantic feature extraction.
-Outcome: derive PCA analytically using Rayleigh quotients and implement a Masked Autoencoder (MAE) baseline that reconstructs masked image patches.
+M4.3 · Numerical Stability, Mixed Precision (BF16/FP16) & Loss Scaling — (sessions: 2)
+Session 1 · Numerical Precision & Floating-Point Arithmetic
+- Understand IEEE 754 floating-point representations: dynamic range, exponent bits, and mantissa bits in FP32, FP16, and BF16.
+- Identify the root causes of numerical instability in research models: catastrophic cancellation, underflow, overflow, and division by zero.
+- Implement numerically stable primitives: the log-sum-exp trick for Softmax, epsilon clamps in denominators, and safe cross-entropy losses.
+Session 2 · Automated Mixed Precision & Loss Scaling
+- Implement mixed-precision training in PyTorch using torch.amp.autocast() with BF16 on modern hardware (Ampere, Hopper).
+- Apply torch.amp.GradScaler() when using FP16 to dynamically scale small gradient magnitudes and prevent zero-underflow during backward passes.
+- Diagnose and debug NaN/Inf generation during training by attaching gradient hooks and using torch.autograd.set_detect_anomaly(True).
+Mental model: BF16 trades precision for dynamic range, matching FP32's exponent bits and eliminating the need for delicate loss scaling.
+Try: Trigger an intentional numerical underflow in a custom Softmax function, observe NaN loss values, and rewrite it using the stable log-sum-exp formulation.
+Outcome: Train deep models stably in mixed precision (BF16/FP16), eliminate NaN loss crashes, and master floating-point numerical stability.
 
-M4.2 · Contrastive Learning Theory & InfoNCE — (sessions: 4)
+M4.4 · Custom Loss Formulations, Regularization Penalties & Gradient Surgery — (sessions: 2)
+Session 1 · Custom Objective Functions & Multi-Task Losses
+- Implement advanced custom loss objectives: focal loss, contrastive InfoNCE, cosine margin losses, and Wasserstein distance approximations.
+- Balance multi-task loss objectives dynamically using learned task weights, homoscedastic uncertainty weighting, or gradient normalization (GradNorm).
+- Add custom spectral regularizers (Frobenius norms, nuclear norm penalties, orthogonal weight constraints) directly to loss expressions.
+Session 2 · Gradient Surgery & Optimization Modifications
+- Implement gradient clipping by norm (torch.nn.utils.clip_grad_norm_) and gradient clipping by value to stabilize deep networks.
+- Apply gradient surgery techniques: projected gradient descent, gradient projection to mitigate conflicting task gradients (PCGrad).
+- Inspect layer-wise gradient norms during training to diagnose vanishing gradients in early layers or exploding gradients in attention heads.
+Mental model: The loss function is a researcher's steerage mechanism; gradient surgery ensures that competing loss terms do not destructively cancel each other out.
+Try: Implement the PCGrad algorithm to project conflicting multi-task gradients onto the normal plane of conflicting tasks, verifying improved multi-task stability.
+Outcome: Formulate novel loss functions, balance multi-objective optimization, and apply gradient surgery to resolve training instabilities.
 
-Master Contrastive Representation Learning: pulling positive pairs together while pushing negative pairs apart in a metric embedding space.
-Derive the InfoNCE loss function (Oord et al., CPC): connection to Noise-Contrastive Estimation (NCE) and mutual information maximization lower bound.
-Analyze SimCLR (Chen et al.): composition of data augmentations, projection head non-linearity, temperature parameter tau, and large batch size dynamics.
-Understand Representation Collapse: the trivial constant-representation failure mode in contrastive learning and mechanisms to prevent it.
-Study Momentum Contrast (MoCo, He et al.): decoupling dictionary size from batch size using a dynamic memory queue and momentum-updated target encoder.
-Investigate Non-Contrastive Self-Supervision: BYOL (Bootstrap Your Own Latent, Grill et al.) and SimSiam (Chen & He) avoiding collapse without negative pairs using stop-gradient operators.
-Analyze Barlow Twins (Zbontar et al.) and VICReg (Bardes et al.): information-theoretic objectives enforcing invariance, variance preservation, and cross-correlation decorrelation.
-Outcome: prove mathematically that InfoNCE loss optimizes a variational lower bound on mutual information between views, and implement SimCLR with InfoNCE loss in PyTorch.
+M4.5 · Research Performance Profiling: Memory Snapshots, CUDA Streams & FLOP Counters — (sessions: 2)
+Session 1 · GPU Memory Profiling & Snapshot Analysis
+- Differentiate between allocated GPU memory, cached reserved memory, and peak memory usage using torch.cuda.memory_allocated() and memory_reserved().
+- Capture and inspect interactive HTML memory snapshots using torch.cuda.memory._record_memory_history() to pinpoint activation memory spikes.
+- Apply activation checkpointing (gradient checkpointing) to trade off recomputation compute for dramatic GPU memory footprint reductions.
+Session 2 · Execution Bottleneck Profiling & FLOP Counting
+- Profile model execution bottlenecks using torch.profiler, identifying CPU-GPU synchronization stalls, kernel launch latencies, and CUDA idle bubbles.
+- Count exact floating-point operations (FLOPs) and parameter counts using fvcore, deepspeed.profiling, or torch_tb_profiler.
+- Optimize asynchronous CUDA memory transfers by utilizing non-blocking tensor copies, pinned host memory, and dedicated CUDA streams.
+Mental model: Profiling reveals the true hardware cost of your architectural innovation, turning abstract computational complexity into concrete milliseconds and gigabytes.
+Try: Profile a model with torch.profiler, identify a CPU-bound data loading bottleneck, and resolve it using pinned memory and non-blocking CUDA transfers.
+Outcome: Profile GPU memory and execution latencies rigorously, eliminate compute bottlenecks, and optimize research code for high throughput.
 
-M4.3 · Metric Learning, Deep Embeddings & Triplet Geometries — (sessions: 3)
+M4.6 · Capstone Project: Extensible Deep Learning Research Testbed with Custom Operators — (sessions: 3)
+Session 1 · Architecture & Custom Differentiable Modules
+- Design a modular, extensible PyTorch research testbed featuring a custom attention layer implemented via torch.autograd.Function.
+- Implement mathematically derived vector-Jacobian products in the backward pass, passing rigorous numerical gradcheck verification.
+- Incorporate mixed precision (BF16/FP16) support with automatic detection of hardware capabilities and stable gradient scaling.
+Session 2 · Profiling, Checkpointing & Scientific Verification
+- Integrate memory snapshot capture hooks that automatically record and export memory allocation profiles during peak forward/backward passes.
+- Implement activation checkpointing across deep layers, benchmarking exact memory savings versus wall-clock training throughput trade-offs.
+- Package the testbed with automated unit tests for numerical stability, gradient correctness, and reproducible metric outputs across random seeds.
+Mental model: A researcher who can build, customize, and profile their own PyTorch operators from scratch is never limited by existing library abstractions.
+Try: Run the research testbed, capture an interactive memory snapshot during training, and demonstrate a 40% memory reduction with activation checkpointing.
+Outcome: Build production-grade, highly optimized deep learning research architectures with custom autograd operators and detailed hardware profiling.
 
-Understand Metric Learning: learning distance metrics d(x_i, x_j) such that semantically similar items have small distances while dissimilar items have large distances.
-Master Contrastive Loss (Hadsell et al.) and Triplet Loss (Schroff et al., FaceNet): anchor, positive, and negative geometries, and margin hyperparameter alpha.
-Analyze Negative Mining Strategies: offline vs online negative mining, hard negative mining, semi-hard negative mining, and easy negative saturation.
-Explore Angular and Cosine Margin Losses: SphereFace, CosFace, and ArcFace (Additive Angular Margin Loss, Deng et al.) for discriminative feature spaces.
-Understand embedding normalization: why projecting representations onto the unit hypersphere S^(d-1) stabilizes cosine distance metrics and temperature scaling.
-Study properties of representations on hyperspheres: Wang & Isola's alignment (closeness of positive pairs) and uniformity (uniform distribution over the hypersphere) metrics.
-Outcome: implement ArcFace with angular margin in PyTorch and compute Wang & Isola alignment and uniformity scores for learned representations.
-
-M4.4 · Dense Vector Retrieval & Semantic Search Science — (sessions: 4)
-
-Formulate the information retrieval task in dense representation spaces: bi-encoder architectures, cross-encoder rerankers, and dual-encoder scaling.
-Analyze dual-encoder training: in-batch negatives, hard negative mining (BM25 negatives vs dense retrieval negatives), and multi-stage distillation (ColBERT, late interaction).
-Understand the geometry of high-dimensional vector spaces: orthogonality of random vectors, concentration of distances, and hubness problem.
-Analyze Exact Nearest Neighbor (k-NN) search complexity and the theoretical limits of sub-linear retrieval in high dimensions.
-Study Approximate Nearest Neighbor (ANN) algorithms: graph-based indexing (Hierarchical Navigable Small World, HNSW), inverted file indexes (IVF), and product quantization (PQ).
-Evaluate dense retrieval quality using ranking metrics: Mean Reciprocal Rank (MRR@k), Normalized Discounted Cumulative Gain (NDCG@k), and Recall@k.
-Outcome: implement a bi-encoder dense retriever with hard negative mining, index embeddings using HNSW, and measure NDCG@10 on a search benchmark.
-
-M4.5 · Probing & Analyzing Latent Representations — (sessions: 3)
-
-Understand Representation Probing: testing what linguistic or perceptual information is linearly decodable from intermediate neural activations (Alain & Ollivier).
-Master Linear Probing: training frozen linear classifiers on intermediate representations and interpreting probe accuracy as information presence.
-Analyze the limitations and caveats of linear probes: differentiating between information extraction versus computation, and probe complexity trade-offs (Hewitt & Liang control tasks).
-Study Centered Kernel Alignment (CKA, Kornblith et al.): comparing representations across different architectures, layers, and random initializations invariantly to orthogonal rotations.
-Analyze Intrinsic Dimension Estimation: Two-NN algorithm, maximum likelihood estimators, and tracking how intrinsic dimension changes across deep network layers.
-Examine Anisotropy in Language Model Embeddings: representation degeneration, singular value decay, and embedding cluster geometry in hyperspherical spaces.
-Outcome: implement Centered Kernel Alignment (CKA) from mathematical scratch and compare the layer-wise representational similarity between two trained models.
-
-M4.6 · Capstone: Self-Supervised Representation Reproduction and Latent Geometry Probing — (sessions: 2)
-
-Reproduce a seminal self-supervised representation learning method (SimCLR or Masked Autoencoder) on an unlabelled scientific image or text dataset.
-Implement the full data augmentation pipeline, encoder network, non-linear projection head, and InfoNCE / reconstruction objective.
-Track empirical alignment and uniformity metrics over the unit hypersphere throughout training to monitor representation geometry.
-Evaluate learned representations using standard linear probing protocol: freeze the encoder backbone and train a linear classification probe on extracted representations.
-Implement Centered Kernel Alignment (CKA) to visualize cross-layer representational similarity and observe where abstract representations emerge.
-Conduct an ablation study comparing: (1) with vs without non-linear projection head, (2) temperature scaling variations in InfoNCE, and (3) hard negative mining vs random negatives.
-Evaluate out-of-distribution transfer performance of the learned representations against a fully supervised baseline.
-Write a scientific research report presenting t-SNE / UMAP latent visualizations, CKA heatmaps, alignment-uniformity scatter plots, and linear probe accuracy curves.
-Final result: a reproducible self-supervised representation codebase and research paper evaluating latent space geometry and downstream transfer capabilities.
-
-Level 4 completion outcome
-
-By the end of this level, you should be able to:
-
-Explain the Manifold Hypothesis and formulate representation learning in terms of low-dimensional manifolds.
-Derive the analytical formulation of Principal Component Analysis (PCA) using constrained optimization.
-Explain the mathematical objective of t-SNE and its use of the Student-t distribution to resolve crowding.
-Derive the InfoNCE loss function and prove its connection to mutual information maximization.
-Explain the representation collapse problem in self-supervised learning and how BYOL and SimSiam avoid it.
-Derive the Triplet Loss and compare hard negative mining and semi-hard negative mining strategies.
-Implement ArcFace (Additive Angular Margin Loss) and explain why angular margins encourage intra-class compactness.
-Quantify representation quality on the unit hypersphere using Wang & Isola's alignment and uniformity metrics.
-Contrast bi-encoder and cross-encoder architectures in terms of accuracy, inference latency, and indexing feasibility.
-Explain how Hierarchical Navigable Small World (HNSW) graphs achieve approximate logarithmic nearest neighbor search.
-Compute standard ranking evaluation metrics including MRR@k and NDCG@k from scratch.
-Train linear probes on frozen neural network representations and evaluate probe task performance.
-Implement Centered Kernel Alignment (CKA) and construct cross-model representation similarity matrices.
-Identify anisotropy in transformer representations and explain why word embeddings tend to collapse into narrow cones.
-Progression: Manifold Hypothesis & Dimensionality Reduction → Contrastive Learning & InfoNCE → Metric Learning & Hyperspherical Geometries → Dense Vector Retrieval → Representation Probing & CKA → Self-Supervised Reproduction Capstone.
+CAPSTONE PROJECT: Extensible Deep Learning Research Testbed with Custom Operators
+BRIEF: Build a modular, publication-ready research testbed in PyTorch that implements a novel custom mathematical operator with an explicit, analytically derived autograd backward pass, supports stable mixed-precision training, includes integrated memory and FLOP profiling, and passes rigorous numerical verification.
+Build a research testbed that:
+- Implements a novel architectural layer (e.g., custom normalized attention or gated projection) via a subclassed torch.autograd.Function.
+- Formulates and implements the exact backward vector-Jacobian products (VJPs) analytically for all input tensors and weight matrices.
+- Passes torch.autograd.gradcheck() with double-precision tensors across various tensor shapes and non-trivial edge-case inputs.
+- Incorporates full automated mixed precision (torch.amp) with BF16 and FP16 GradScaler support, demonstrating zero loss underflow.
+- Integrates activation checkpointing (torch.utils.checkpoint) with configurable recomputation blocks to minimize peak memory footprints.
+- Embeds profiling hooks using torch.profiler that output timeline traces and interactive torch.cuda.memory snapshots to disk.
+- Measures and reports Model FLOPs, parameter counts, peak VRAM allocations, and forward/backward execution latency across sequence lengths.
+- Provides a clean PyTorch Lightning or clean modular PyTorch interface for seamless integration into downstream research projects.
+Deliverables:
+- Extensible, fully commented Python module containing the custom operator and testbed implementation.
+- Unit test suite validating gradient correctness, numerical stability under extreme inputs, and multi-seed determinism.
+- Profiling report PDF analyzing memory consumption profiles with and without activation checkpointing across increasing sequence lengths.
+Outcome: You can prototype custom deep learning operators from mathematical equations, guarantee gradient correctness, and profile research code at the hardware level.

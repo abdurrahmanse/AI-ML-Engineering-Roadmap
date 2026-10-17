@@ -1,88 +1,101 @@
-Level 6 · Reasoning, Planning & Test-Time Compute
+Level 6 · Generative Modeling & Probabilistic Machine Learning
 
-Scope: investigate the frontiers of machine reasoning in language and multimodal systems: chain-of-thought mechanics, search over thought spaces, outcome versus process reward models, test-time compute scaling laws, and self-correction dynamics.
+Phase: Paradigms & Generative Models
+Suggested duration: 13 sessions (~3 weeks)
+Prerequisites: Level 5 (Core Modeling Paradigms: Architectures & Representations)
+Scope: Master the mathematical formulations and empirical execution of modern generative modeling: Variational Autoencoders (VAEs), continuous-time score-based diffusion models (DDPM, SDEs), Flow Matching on probability manifolds, and rigorous distribution evaluation metrics.
 
-Prerequisites: Level 5
+M6.1 · Variational Inference, Latent Variable Models & The ELBO Objective — (sessions: 2)
+Session 1 · Intractable Posteriors & Variational Inference
+- Formulate directed latent variable models p(x) = \int p(x|z) p(z) dz and understand the intractability of the true marginal likelihood and posterior.
+- Introduce the variational distribution q_phi(z|x) and derive the Evidence Lower Bound (ELBO) mathematically using Jensen's inequality and KL divergence.
+- Deconstruct the ELBO into the reconstruction likelihood term and the latent prior regularization term.
+Session 2 · The Reparameterization Trick & Variational Autoencoders
+- Analyze why the naive gradient estimator has high variance and derive the reparameterization trick z = mu + sigma * epsilon for backpropagation.
+- Implement the standard Variational Autoencoder (VAE) from scratch in PyTorch with Gaussian encoder and decoder networks.
+- Address posterior collapse in VAEs using KL annealing schedules, free bits, and vector quantization (VQ-VAE with straight-through estimators).
+Mental model: The ELBO trades off accurate reconstruction of empirical data against keeping the latent distribution close to a tractable Gaussian prior.
+Try: Implement a VAE on image data, apply the reparameterization trick, and inspect the latent space by generating samples along a 2D latent grid traversal.
+Outcome: Derive and implement Variational Autoencoders from first principles and resolve posterior collapse in deep latent variable models.
 
-M6.1 · Foundations of Machine Reasoning & Chain-of-Thought — (sessions: 3)
+M6.2 · Score-Based Generative Modeling & Denoising Diffusion Probabilistic Models (DDPM) — (sessions: 2)
+Session 1 · Forward Diffusion Process & Analytical Transitions
+- Define the forward Markovian noising chain q(x_t | x_{t-1}) corrupting data into isotropic Gaussian noise according to variance schedule beta_t.
+- Derive the closed-form transition distribution q(x_t | x_0) = N(x_t; sqrt(alpha_bar_t) x_0, (1 - alpha_bar_t) I) for arbitrary timestep t.
+- Implement the forward noising loop in PyTorch, generating noisy tensors at arbitrary timesteps without recursive iteration.
+Session 2 · The Reverse Denoising Process & The Simplified Loss
+- Formulate the reverse denoising process p_theta(x_{t-1} | x_t) parameterized by a deep neural network (U-Net or Diffusion Transformer DiT).
+- Derive the variational bound on negative log-likelihood for diffusion models and reduce it to the simplified epsilon-prediction objective L_simple.
+- Implement the DDPM training loop, sampling random timesteps, injecting Gaussian noise, and computing the MSE loss between true and predicted noise.
+Mental model: Forward diffusion systematically destroys information; reverse diffusion trains a neural network to invert thermodynamic entropy.
+Try: Implement the forward noising formula in PyTorch, verify that clean samples degenerate into isotropic Gaussian noise at t=1000, and write the training loss.
+Outcome: Derive the forward and reverse DDPM equations analytically and implement end-to-end diffusion training loops.
 
-Define reasoning in computational systems: deductive, inductive, abductive reasoning, and multi-step symbolic manipulation.
-Analyze Chain-of-Thought (CoT, Wei et al.): prompting models to produce intermediate computational tokens before emitting final answers.
-Theoretical analysis of CoT expressivity: why allowing models intermediate tokens increases the computational class of constant-depth Transformers (Merrill & Sabharwal).
-Examine reasoning capacity versus model scale: emergent reasoning abilities, phase changes, and non-linear accuracy jumps on complex benchmarks.
-Study Least-to-Most Prompting and Problem Decomposition: recursive reduction of hard reasoning problems into simpler sub-goals.
-Analyze Failure Modes of CoT: unfaithful reasoning (reasoning traces not matching actual underlying model computation), post-hoc rationalization, and error accumulation.
-Outcome: derive theoretical circuit complexity proofs demonstrating why chain-of-thought expands the computational capability of fixed-depth transformers.
+M6.3 · Continuous-Time Diffusion: Itô Stochastic Differential Equations & ODE Sampling — (sessions: 2)
+Session 1 · Continuous-Time Diffusion Formulations (Song et al.)
+- Generalize discrete diffusion timesteps into continuous-time Itô Stochastic Differential Equations (SDEs): dx = f(x, t) dt + g(t) dw.
+- Classify variance preserving (VP), variance exploding (VE), and sub-VP continuous diffusion processes.
+- Formulate the Anderson reverse-time SDE theorem, showing that reversing an SDE requires estimating the score function \nabla_x log p_t(x).
+Session 2 · Probability Flow ODEs & Accelerated Sampling
+- Derive the deterministic Probability Flow ODE that shares identical marginal probability densities p_t(x) with the continuous SDE.
+- Leverage numerical ODE solvers (Euler, Runge-Kutta, DPM-Solver) to achieve high-quality generation in 10-25 steps instead of 1,000 steps.
+- Implement Classifier-Free Guidance (CFG): training conditionally with randomly dropped labels and extrapolating along the conditional score vector.
+Mental model: The Probability Flow ODE defines a deterministic vector field that smoothly maps random Gaussian noise into the data distribution manifold.
+Try: Implement a predictor-corrector sampler and an accelerated ODE solver in PyTorch, comparing sample generation quality and step counts.
+Outcome: Master continuous-time SDE/ODE diffusion formulations, implement Classifier-Free Guidance, and accelerate reverse sampling.
 
-M6.2 · Search Over Thought Spaces & Tree Search Algorithms — (sessions: 4)
+M6.4 · Flow Matching & Optimal Transport on Probability Manifolds — (sessions: 2)
+Session 1 · Continuous Normalizing Flows & Flow Matching
+- Formulate Continuous Normalizing Flows (CNFs) where a time-dependent vector field v_t(x) generates a continuous probability path from p_0 to p_1.
+- Understand the intractability of standard CNF maximum likelihood training and introduce the Conditional Flow Matching (CFM) objective (Lipman et al.).
+- Derive the regression loss ||v_theta(x_t, t) - u_t(x | x_1)||^2, proving that marginal vector fields can be learned via conditional flow targets.
+Session 2 · Optimal Transport Displacement Interpolation
+- Compare standard Brownian diffusion paths with Optimal Transport (OT) displacement paths: straight lines connecting noise p_0 to data p_1.
+- Implement Optimal Transport Conditional Flow Matching (OT-CFM): linear trajectories x_t = (1 - t) x_0 + t x_1 with constant velocity v_t = x_1 - x_0.
+- Analyze the advantages of straight flow trajectories: faster numerical integration, lower curvature, and exceptional sample quality in few steps.
+Mental model: Diffusion takes a stochastic random walk through noise; Optimal Transport Flow Matching travels along straight, minimal-energy geodesic lines.
+Try: Train a 2D toy Flow Matching model to transform a Gaussian distribution into a two-moons distribution using straight-line OT trajectories.
+Outcome: Derive the Conditional Flow Matching objective, implement Optimal Transport probability paths, and train vector field models.
 
-Move beyond linear left-to-right generation: conceptualizing problem-solving as search over combinatorial thought spaces.
-Analyze Tree of Thoughts (ToT, Yao et al.): state evaluation, thought generation, and systematic tree exploration via Breadth-First Search (BFS) and Depth-First Search (DFS).
-Study Graph of Thoughts (GoT, Besta et al.): modeling reasoning as arbitrary directed acyclic graphs allowing thought combination, branching, and feedback loops.
-Integrate Monte Carlo Tree Search (MCTS) with language models: thought state evaluation, exploration-exploitation trade-offs (PUCT), and lookahead simulations.
-Analyze Search Heuristics: self-evaluation prompts, perplexity scoring, and external symbolic verifiers (Python interpreters, SMT solvers, Lean/Isabelle theorem provers).
-Study A* and Best-First Search on reasoning trees: designing admissible heuristic cost functions for language model search navigation.
-Outcome: implement a Tree of Thoughts search engine with backtracking and heuristic thought evaluation on complex algorithmic or mathematical puzzles.
+M6.5 · Empirical Evaluation of Generative Distributions: FID, Precision, Recall & Density — (sessions: 2)
+Session 1 · Fréchet Inception Distance (FID) & Inception Score (IS)
+- Understand the Fréchet Inception Distance (FID) metric: extracting deep feature representations and computing the Wasserstein-2 distance between Gaussians.
+- Implement the analytical Fréchet distance formula: ||mu_1 - mu_2||^2 + Tr(Sigma_1 + Sigma_2 - 2 (Sigma_1 Sigma_2)^{1/2}).
+- Identify FID failure modes: sensitivity to sample count (bias at low N), image resolution, JPEG compression artifacts, and feature extractor biases.
+Session 2 · Disentangling Quality vs Diversity: Precision, Recall, Coverage & Density
+- Disentangle generative sample fidelity from distribution coverage using Precision and Recall metrics for generative models (Sajjadi et al.).
+- Implement Density and Coverage metrics to detect mode dropping, mode collapse, and out-of-distribution hallucinations.
+- Evaluate perceptual metrics (LPIPS, CLIP-Score) and compute distribution distance across scientific feature spaces.
+Mental model: FID provides a single composite distance score; precision measures how realistic samples are, while recall measures how many modes were covered.
+Try: Compute the exact FID between a generated sample set and a validation set using clean-fid, verifying sensitivity to sample size and image resizing.
+Outcome: Evaluate generative models with statistical rigor, compute FID/IS accurately, and diagnose mode collapse using precision-recall metrics.
 
-M6.3 · Verifiers, Reward Models & Process Supervision — (sessions: 4)
+M6.6 · Capstone Project: Continuous Flow Matching Model with Rigorous Manifold Evals — (sessions: 3)
+Session 1 · Flow Matching Architecture & Optimal Transport Paths
+- Implement a complete continuous Optimal Transport Flow Matching (OT-CFM) model in PyTorch using a modern U-Net or DiT backbone.
+- Construct the conditional vector field target generator with straight-line trajectories connecting standard Gaussian noise to data distributions.
+- Integrate Classifier-Free Guidance (CFG) conditioning to steer the generative vector field toward specified class labels or text embeddings.
+Session 2 · Accelerated Integration & Empirical Evaluation
+- Implement an adaptive numerical ODE integrator (Runge-Kutta 4th order and Euler) for deterministic sample generation in 20 steps.
+- Build an automated evaluation pipeline computing Fréchet Inception Distance (FID), Precision, and Recall across 10,000 generated samples.
+- Conduct an ablation study comparing straight-line Optimal Transport paths against standard VP diffusion paths, plotting trajectory curvature.
+Mental model: Flow Matching represents the modern paradigm of generative modeling, replacing stochastic noise simulation with deterministic vector field regression.
+Try: Generate high-fidelity samples in 20 ODE steps using your Flow Matching model, and compute the empirical FID score against a held-out test distribution.
+Outcome: Build, train, and scientifically evaluate state-of-the-art continuous generative models using Flow Matching and rigorous distribution metrics.
 
-Analyze the fundamental verification versus generation asymmetry: why verifying a proposed solution is often computationally easier than generating it (NP-completeness analogy).
-Master Outcome-based Reward Models (ORMs, Cobbe et al.): scoring complete reasoning trajectories based solely on final answer correctness.
-Analyze the credit assignment failure in ORMs: penalizing valid intermediate reasoning when a final minor arithmetic mistake occurs, and rewarding false reasoning that stumbles upon correct answers.
-Master Process-Supervised Reward Models (PRMs, Lightman et al., Let's Verify Step by Step): scoring every single intermediate reasoning step individually.
-Compare PRM versus ORM data collection: human step-level annotation costs vs automated synthetic step-level labeling (e.g. Monte Carlo rollouts from intermediate states).
-Formulate Best-of-N (Rejection Sampling) decoding with PRMs: generating N independent reasoning paths and selecting the trajectory that maximizes the cumulative or minimum PRM step score.
-Study Majority Voting (Self-Consistency, Wang et al.): sampling multiple temperature-varied reasoning paths and taking the modal final answer.
-Outcome: train a Process Reward Model on step-annotated mathematical reasoning data and compare Best-of-N selection accuracy against an Outcome Reward Model.
-
-M6.4 · Test-Time Compute & Inference Scaling Laws — (sessions: 4)
-
-Formulate the Test-Time Compute frontier: trading off training compute, pre-training parameter scale, and test-time evaluation compute.
-Analyze Inference-Time Scaling Laws (Snell et al., Brown et al.): empirical relationships between floating point operations expended at inference and final task accuracy.
-Study strategies for allocating test-time compute: (1) sampling-based search (Best-of-N, Beam Search), (2) iterative refinement and revision loops, and (3) adaptive compute allocation based on problem difficulty.
-Examine Test-Time Compute vs Pre-Training Compute efficiency: determining when expending 10x more test-time tokens outperforms scaling model parameters by 10x.
-Analyze System 1 (fast, intuitive autoregressive generation) versus System 2 (slow, deliberative search and verification) cognitive architectures in foundation models.
-Examine reasoning models trained with large-scale reinforcement learning over search chains (e.g. DeepSeek-R1, OpenAI o1 style): self-generated reflection tokens, backtrack tokens, and long-horizon exploration.
-Outcome: formulate mathematical scaling curves measuring accuracy improvements as a function of test-time sample budgets and fit Pareto frontiers.
-
-M6.5 · Self-Correction, Reflection & Reasoning Distillation — (sessions: 3)
-
-Analyze Intrinsic Self-Correction: can language models accurately identify and correct their own reasoning errors without external ground-truth feedback? (Huang et al., Kamoi et al.).
-Study the limitations of unassisted self-correction: model sycophancy, degradation of initially correct answers under self-critique, and over-confidence in hallucinations.
-Examine External-Feedback Self-Correction: incorporating compiler errors, unit test executions, and verifiable formal logic checks into iterative reflection loops (Reflexion, Shinn et al.).
-Study Reasoning Distillation: fine-tuning smaller student models on synthetic CoT and MCTS search traces generated by large frontier reasoning models.
-Analyze the risk of superficial pattern imitation during distillation: student models mimicking the linguistic style of reasoning without internalizing the underlying search and verification logic.
-Outcome: implement an automated reflection loop paired with a Python code execution verifier and measure the empirical rate of successful error correction versus degradation.
-
-M6.6 · Capstone: Train a Process Reward Model and Build a Tree-Search Reasoning Engine — (sessions: 2)
-
-Design an end-to-end research experiment developing a verified reasoning engine for challenging mathematical or competitive programming problems (e.g. GSM8K / MATH / Olympiad problems).
-Construct a step-by-step reasoning dataset containing both valid steps and synthetically introduced reasoning errors (divergence points).
-Train a Process Reward Model (PRM) by fine-tuning an open-weight foundation model to predict binary validity labels for each intermediate step delimiter.
-Implement Monte Carlo Tree Search (MCTS) decoding and Best-of-N rejection sampling guided by the trained PRM step scores.
-Conduct an empirical study measuring accuracy against inference compute budgets across: (1) Greedy decoding, (2) Self-Consistency with majority voting (N=1 to N=64), (3) Best-of-N with ORM, and (4) MCTS guided by PRM.
-Plot test-time compute scaling curves: accuracy vs total generation tokens and FLOPs expended per problem.
-Perform qualitative error analysis categorizing remaining failure modes: deceptive reasoning traces that fool the PRM, early tree search pruning errors, and calculation mistakes.
-Draft an academic research paper documenting the methodology, PRM training dynamics, empirical scaling laws, and reproducibility artifacts.
-Final result: a verified PRM model checkpoint, MCTS reasoning search engine codebase, and academic paper analyzing test-time compute scaling dynamics.
-
-Level 6 completion outcome
-
-By the end of this level, you should be able to:
-
-Explain how chain-of-thought increases the computational expressive power of constant-depth transformers.
-Analyze the difference between faithful reasoning traces and post-hoc rationalizations in LLMs.
-Implement the Tree of Thoughts (ToT) search algorithm with state evaluation and backtracking.
-Formulate Monte Carlo Tree Search (MCTS) over intermediate reasoning token sequences.
-Explain why solution verification exhibits favorable computational complexity compared to solution generation.
-Derive the credit assignment problem in Outcome-based Reward Models (ORMs).
-Train a Process-Supervised Reward Model (PRM) to score individual intermediate reasoning steps.
-Implement Best-of-N rejection sampling and evaluate the accuracy boost over greedy decoding.
-Explain the mathematical mechanics of Self-Consistency and modal answer aggregation.
-Formulate and fit empirical scaling laws relating test-time compute budget to reasoning accuracy.
-Contrast System 1 intuitive autoregressive generation with System 2 deliberative search architectures.
-Analyze the empirical limits of intrinsic self-correction without external environmental feedback.
-Implement iterative reflection loops coupled with external symbolic verifiers and interpreters.
-Distill high-compute reasoning traces into smaller, low-latency student models safely.
-Conduct rigorous experiments evaluating reasoning capability across verified benchmark suites.
-Progression: Chain-of-Thought Foundations → Search Over Thought Trees & MCTS → Outcome vs Process Reward Models → Test-Time Compute Scaling Laws → Self-Correction & Distillation → PRM & Tree Search Capstone.
+CAPSTONE PROJECT: Continuous Flow Matching Model with Rigorous Manifold Evals
+BRIEF: Build an end-to-end continuous Optimal Transport Flow Matching (OT-CFM) generative model in PyTorch, implement an accelerated numerical ODE sampler, and rigorously evaluate the generative distribution using clean FID, Precision, Recall, and trajectory curvature analysis.
+Build a generative modeling testbed that:
+- Implements the Optimal Transport Conditional Flow Matching (OT-CFM) objective, training a deep neural network to predict vector velocity fields.
+- Constructs straight-line displacement interpolation paths: x_t = (1 - (1 - sigma_min) t) x_0 + t x_1 with analytical target velocity v_t = x_1 - (1 - sigma_min) x_0.
+- Implements Classifier-Free Guidance (CFG) with configurable guidance scale w to steer the learned velocity field.
+- Implements numerical ODE solvers: standard Euler solver, midpoint solver, and Runge-Kutta 4 (RK4) with configurable step counts (10 to 100 steps).
+- Builds an automated evaluation harness generating at least 5,000 samples and computing Fréchet Inception Distance (FID) using a clean, reproducible pipeline.
+- Implements generative Precision and Recall metrics (k-nearest neighbors manifold estimation) to quantify sample fidelity versus mode coverage.
+- Computes trajectory curvature metrics measuring the deviation of generation paths from straight lines across ODE integration steps.
+- Documents empirical performance in a LaTeX research paper format, including qualitative generation grids and quantitative baseline comparison tables.
+Deliverables:
+- Modular PyTorch codebase containing models/flow_matching.py, solvers/ode_integrator.py, and metrics/distribution_eval.py.
+- Publication-ready vector figures depicting vector field velocity streamlines, generation trajectories, and sample grid outputs.
+- Comprehensive empirical report evaluating sample quality (FID), diversity (Recall), and sampling wall-clock speed across varying ODE step budgets.
+Outcome: You can design, implement, train, and rigorously benchmark modern continuous generative models at the frontier of machine learning research.
