@@ -1,101 +1,101 @@
-Level 12 · AI Alignment, Safety & Ethical Research
+Level 12 · AI Alignment, Robustness & Adversarial Defense
 
-Phase: Frontier, Alignment & Thesis
+Phase: Frontier Robustness & Thesis Projects
 Suggested duration: 13 sessions (~3 weeks)
-Prerequisites: Level 11 (Mechanistic Interpretability & Model Analysis)
-Scope: Master the mathematical derivations, empirical algorithms, and ethical methodologies of AI alignment: preference modeling (Bradley-Terry, RLHF, DPO, KTO), reward gaming and Goodhart's law, adversarial robustness (PGD, GCG attacks), algorithmic fairness audits, and AI safety governance frameworks.
+Prerequisites: Level 11 (Explainability, Interpretability & Trustworthy AI)
+Scope: Conduct rigorous research into adversarial robustness and alignment: generating white-box and black-box adversarial attacks (FGSM, PGD, Carlini-Wagner) on medical image classification and cybersecurity intrusion detection systems (evasion attacks on malware classifiers); adversarial training and certified defense bounds; preference alignment methodologies (RLHF, DPO, KTO); auditing demographic bias and algorithmic fairness across diverse patient populations.
 
-M12.1 · Preference Modeling Derivations: Bradley-Terry, RLHF & Direct Preference Optimization (DPO) — (sessions: 2)
-Session 1 · Reward Modeling & The Bradley-Terry Formulation
-- Formalize human preference datasets D = {(x, y_w, y_l)} where y_w is the preferred completion and y_l is the dispreferred completion.
-- Formulate the Bradley-Terry preference model: P(y_w \succ y_l | x) = \sigma(r(x, y_w) - r(x, y_l)).
-- Train deep Reward Models (RMs) by minimizing the negative log-likelihood of pairwise preferences with margin regularizers.
-Session 2 · Direct Preference Optimization (DPO) Closed-Form Derivation
-- Analyze the classical RLHF pipeline (PPO with frozen reference policy KL penalties) and identify its complexity and training instability.
-- Derive Direct Preference Optimization (DPO, Rafailov et al.) analytically: express the optimal reward implicitly as r(x, y) = \beta \log (\pi_\theta(y|x) / \pi_{ref}(y|x)).
-- Implement the DPO loss objective without training an explicit reward model or sampling actions via reinforcement learning.
-Mental model: DPO proves that an optimal policy implicitly defines its own reward function, turning unstable RLHF into stable binary cross-entropy optimization.
-Try: Derive the DPO loss gradient analytically with respect to model parameters, and implement the DPO loss function in PyTorch with numerical stability clamps.
-Outcome: Derive and implement state-of-the-art preference optimization algorithms (Reward Modeling, RLHF, DPO, KTO) from first principles.
+M12.1 · Adversarial Attacks: White-Box, Black-Box & Evasion Vectors — (sessions: 2)
+Session 1 · First-Order Adversarial Perturbations (FGSM & PGD)
+- Formulate the adversarial perturbation optimization problem: maximizing loss subject to an L_p norm constraint (L_infinity, L_2) on perturbation delta.
+- Derive the Fast Gradient Sign Method (FGSM) (Goodfellow et al.) as a one-step linearization of the adversarial loss landscape.
+- Implement Projected Gradient Descent (PGD) (Madry et al.) as the standard multi-step first-order white-box adversary with random restarts.
+Session 2 · Targeted Attacks, Carlini-Wagner & Black-Box Evasion
+- Formulate the Carlini-Wagner (C&W) optimization attack: finding minimal L_2 distortion while bypassing gradient masking and defensive distillation.
+- Execute black-box adversarial attacks: leveraging transferability across substitute surrogate models and gradient-free zeroth-order optimization (NES).
+- Demonstrate extreme vulnerability in medical imaging: adding imperceptible high-frequency pixel noise to chest X-rays that flips diagnostic outputs with 99% confidence.
+Mental model: Deep neural networks have linear behavior in high-dimensional spaces; tiny aligned perturbations across thousands of dimensions accumulate into massive logit swings.
+Try: Implement a PGD L_infinity attack in PyTorch against a pre-trained radiological classifier, plot the perturbation noise image, and record the accuracy drop.
+Outcome: Implement first-order and optimization-based adversarial attacks to evaluate the adversarial vulnerability of deep learning models.
 
-M12.2 · Reward Over-Optimization, Sycophancy & Goodhart’s Law in Language Models — (sessions: 2)
-Session 1 · Reward Over-Optimization & Goodhart's Law
-- Understand Goodhart’s Law in AI alignment: when a proxy reward model becomes the optimization target, it ceases to be a reliable measure of true quality.
-- Quantify reward over-optimization: measure the divergence between proxy reward and true human preference as KL divergence from the base model increases.
-- Analyze the "Alignment Tax": the degradation of mathematical reasoning, coding capability, or linguistic diversity resulting from aggressive preference tuning.
-Session 2 · Sycophancy & Hallucination Exploitation
-- Define sycophancy in aligned models: the tendency of language models to echo and validate false user assertions to maximize superficial agreeableness.
-- Construct synthetic contrastive sycophancy datasets evaluating model adherence to factual truth when contradicted by authoritative user prompts.
-- Mitigate sycophantic behavior using targeted preference tuning and negative activation steering in the residual stream.
-Mental model: Optimizing aggressively against a proxy reward produces a model that flatters the rater rather than speaking the objective truth.
-Try: Evaluate an aligned model on a sycophancy probe dataset, measure the percentage of false user statements validated by the model, and implement a corrective DPO fine-tune.
-Outcome: Diagnose and quantify reward over-optimization, measure the alignment tax, and eliminate sycophancy in preference-tuned models.
+M12.2 · Adversarial Training, Robust Optimization & Certified Bounds — (sessions: 2)
+Session 1 · Min-Max Robust Optimization & Adversarial Training
+- Formalize adversarial training as a robust min-max game (Madry et al.): minimizing expected risk under worst-case inner-maximization adversarial perturbations.
+- Implement PGD adversarial training: dynamically generating adversarial examples during every training mini-batch and optimizing model weights on corrupted inputs.
+- Analyze the fundamental trade-off between standard accuracy and adversarial robustness (Zhang et al. TRADES formulation).
+Session 2 · Certified Defenses & Randomized Smoothing
+- Understand why empirical defenses frequently succumb to stronger adaptive attacks (gradient obfuscation, shattered gradients).
+- Master certified robustness: providing mathematical guarantees that no perturbation within an L_2 radius R can flip the model prediction.
+- Implement Randomized Smoothing (Cohen et al.): certifying robust classifications by convolving base classifiers with isotropic Gaussian noise.
+Mental model: Empirical defenses patch specific attack tools; certified robustness provides a mathematical guarantee of safety within a defined perturbation sphere.
+Try: Train a model using PGD adversarial training in PyTorch, evaluate robust accuracy against increasing perturbation epsilon, and compute certified radii via randomized smoothing.
+Outcome: Formulate robust optimization objectives, implement adversarial training, and compute mathematically certified robustness bounds.
 
-M12.3 · Adversarial Robustness: Projected Gradient Descent (PGD), GCG Attacks & Red-Teaming — (sessions: 2)
-Session 1 · Adversarial Attacks on Continuous Representations
-- Formulate adversarial perturbations as constrained optimization: \max_{||\delta|| \le \epsilon} L(\theta, x + \delta, y).
-- Implement the Fast Gradient Sign Method (FGSM) and multi-step Projected Gradient Descent (PGD) with projection back onto the L-infinity epsilon ball.
-- Understand adversarial training (Madry et al.): formulating the min-max robust optimization game to learn robust representations.
-Session 2 · Discrete Token Jailbreaks & Red-Teaming Protocols
-- Master discrete adversarial optimization against aligned language models: Greedy Coordinate Gradient (GCG, Zou et al.) attack suffixes.
-- Analyze universal adversarial triggers: transferability of adversarial suffix tokens across disparate open-source and proprietary foundation models.
-- Structure systematic red-teaming methodologies: automated red-teaming with adversarial LLMs, threat modeling, and defense mechanisms (perplexity filtering).
-Mental model: Adversarial attacks reveal the non-robust, brittle shortcuts learned by deep networks; robustness requires closing off unconstrained gradient directions.
-Try: Implement a PGD attack on a neural classifier in PyTorch, measure accuracy degradation, and verify robustness recovery through adversarial training.
-Outcome: Formulate adversarial attacks, implement PGD and discrete token jailbreaks, and design defensive adversarial training protocols.
+M12.3 · Cybersecurity Evasion & Malware Feature Manipulation — (sessions: 2)
+Session 1 · Feature-Space vs. Problem-Space Attacks in Security
+- Differentiate between feature-space attacks (perturbing feature vectors directly) and problem-space attacks (modifying actual executable binary files).
+- Account for inverse mapping and domain preservation constraints: ensuring modified malicious binaries execute correctly and preserve exploit functionality.
+- Implement structural evasion: injecting benign byte sequences into Portable Executable (PE) slack spaces and appending benign overlay sections.
+Session 2 · Evading Machine Learning Intrusion & Malware Detectors
+- Evade gradient boosted decision trees (Ember benchmark) and neural network detectors by crafting functional malware variants using genetic algorithms and RL agents.
+- Analyze evasion of network intrusion detection systems (CIC-IDS): packet splitting, timing jitter, and dummy packet insertion that disrupt flow statistics.
+- Implement robust malware feature extractors that resist structural manipulation and strip non-semantic byte artifacts prior to classification.
+Mental model: In cybersecurity research, adversaries modify executable files, not abstract numbers; an attack is only valid if the malware payload still detonates.
+Try: Modify a Windows PE executable using Python lief to alter non-functional byte headers, verify that the binary still executes, and test classifier evasion.
+Outcome: Execute problem-space evasion attacks on cybersecurity malware classifiers and design robust detection systems resilient to binary manipulation.
 
-M12.4 · Algorithmic Fairness: Demographic Parity, Equalized Odds & Auditing Disparities — (sessions: 2)
-Session 1 · Mathematical Definitions of Algorithmic Fairness
-- Formalize core fairness criteria: Demographic Parity (P(\hat{Y}=1 | A=0) = P(\hat{Y}=1 | A=1)), Equal Opportunity, and Equalized Odds.
-- Prove the Impossibility Theorem of Fairness (Kleinberg et al.): Demographic Parity, Equalized Odds, and Predictive Parity cannot be satisfied simultaneously.
-- Measure bias in natural language models: gender/racial bias in word embeddings (WEAT), stereotypical association tests, and disparate impact ratios.
-Session 2 · Fairness Interventions & Algorithmic Auditing
-- Categorize bias mitigation interventions: pre-processing (re-weighing, data re-sampling), in-processing (adversarial debiasing), and post-processing (threshold tuning).
-- Conduct systematic algorithmic fairness audits on production models, quantifying performance disparities across sensitive intersectional demographic groups.
-- Document algorithmic impact assessments and author comprehensive Model Cards (Mitchell et al.) detailing intended scope and fairness benchmarks.
-Mental model: Fairness metrics mathematically conflict; an ethical researcher must explicitly choose and defend which fairness trade-off fits the domain.
-Try: Audit a predictive model for disparate impact across demographic subgroups, calculate Equalized Odds ratios, and implement an in-processing debiasing constraint.
-Outcome: Apply mathematical definitions of algorithmic fairness, audit deep learning models for demographic disparities, and implement debiasing interventions.
+M12.4 · Preference Alignment: RLHF, DPO & Kahneman-Tversky Optimization — (sessions: 2)
+Session 1 · Reinforcement Learning from Human Feedback (RLHF)
+- Master the canonical three-stage RLHF pipeline: supervised fine-tuning (SFT), reward modeling on pairwise preferences, and PPO policy optimization.
+- Derive the Bradley-Terry preference model: estimating the latent reward function r(x, y) from pairwise human comparison datasets.
+- Prevent policy collapse and reward hacking: enforcing a Kullback-Leibler (KL) divergence penalty between the fine-tuned policy and the reference model.
+Session 2 · Direct Preference Optimization (DPO) & Direct Alignment
+- Deconstruct Direct Preference Optimization (DPO) (Rafailov et al.): analytically reparameterizing the reward function in terms of the policy itself.
+- Derive the closed-form DPO objective, eliminating the need to train a separate reward model or run unstable reinforcement learning loops during training.
+- Explore Kahneman-Tversky Optimization (KTO): aligning models using binary feedback (thumbs up / thumbs down) based on prospect theory loss functions.
+Mental model: DPO proves that the optimal policy implicitly defines its own reward function, allowing direct preference alignment via standard cross-entropy loss.
+Try: Implement the DPO loss function in PyTorch from scratch, train a small language model on a pairwise preference dataset, and track implicit reward margins.
+Outcome: Formulate and implement preference alignment objectives (RLHF, DPO, KTO) to align foundation models with human values and domain criteria.
 
-M12.5 · AI Governance & Research Ethics: Institutional Review Boards, Dual-Use & Safety Charters — (sessions: 2)
-Session 1 · Research Ethics & Institutional Review
-- Navigate academic research ethics and Institutional Review Board (IRB) protocols for human-subject data collection and crowdsourced annotation.
-- Evaluate dual-use hazards in AI research: autonomous cyber-offensive tooling, chemical/biological weapon synthesis risk, and automated disinformation pipelines.
-- Apply the Menlo Report and Belmont Report principles (beneficence, justice, respect for persons) to AI/ML research methodologies.
-Session 2 · Responsible Disclosure & Safety Governance
-- Establish responsible vulnerability disclosure protocols for newly discovered model jailbreaks, security bypasses, and data extraction vectors.
-- Understand international AI regulatory frameworks (EU AI Act risk classifications, US Executive Orders, Frontier Model Safety Charters).
-- Implement tiered model release strategies: gated access, safety evaluation milestones, and model weight watermarking.
-Mental model: Cutting-edge scientific power brings severe societal responsibility; ethical researchers evaluate dual-use consequences before training begins.
-Try: Author a dual-use risk assessment and mitigation framework for a hypothetical frontier foundation model capability release.
-Outcome: Navigate scientific research ethics, conduct dual-use risk assessments, and establish responsible disclosure and governance policies.
+M12.5 · Algorithmic Fairness, Demographic Disparity & Bias Auditing — (sessions: 2)
+Session 1 · Mathematical Definitions of Fairness
+- Formalize disparate impact and demographic fairness criteria: Demographic Parity (P(Y_hat = 1 | A = 0) = P(Y_hat = 1 | A = 1)) across protected attributes A.
+- Formulate Equalized Odds and Equality of Opportunity (Hardt et al.): conditioning false positive and true positive rates to be equal across demographic subgroups.
+- Understand the impossibility theorem of algorithmic fairness (Kleinberg et al.): proving that calibration and equalized odds cannot hold simultaneously unless base rates are identical.
+Session 2 · Clinical Fairness Audits & Bias Mitigation
+- Audit clinical models (MIMIC-IV / CheXpert) for performance disparities across demographic subgroups (e.g., race, biological sex, age, socioeconomic insurance status).
+- Identify underdiagnosis bias: models exhibiting significantly higher false negative rates in marginalized patient populations despite high aggregate accuracy.
+- Apply algorithmic mitigation techniques: fair representation learning (adversarial debiasing), threshold optimization, and re-weighting strategies.
+Mental model: Aggregate accuracy hides systemic failures; a medical AI that achieves 95% overall accuracy but fails consistently on minority subgroups is unsafe.
+Try: Audit a clinical diagnostic model across demographic subgroups, calculate Equalized Odds ratios, and mitigate disparities using fair threshold optimization.
+Outcome: Audit machine learning models for demographic bias, quantify fairness trade-offs, and implement algorithmic mitigation strategies.
 
-M12.6 · Capstone Project: Preference Alignment & Adversarial Jailbreak Vulnerability Audit — (sessions: 3)
-Session 1 · Preference Dataset Construction & DPO Alignment
-- Construct a curated pairwise preference dataset containing nuanced safety, helpfulness, and factual truthfulness examples.
-- Implement and execute a complete Direct Preference Optimization (DPO) fine-tuning pipeline on an open-source instruction model.
-- Monitor implicit reward margins, KL divergence from the reference policy, and verify the absence of reward over-optimization.
-Session 2 · Automated Red-Teaming & Adversarial Robustness Audit
-- Deploy an automated red-teaming harness executing Greedy Coordinate Gradient (GCG) attacks and semantic jailbreak prompts against the aligned model.
-- Measure Attack Success Rate (ASR) across both standard prompting and adversarial suffixes, quantifying robustness gains from alignment.
-- Author an academic safety paper in LaTeX detailing preference tuning dynamics, the alignment tax, and red-teaming vulnerability audits.
-Mental model: True alignment is not superficial compliance; it is robust stability that holds even when an adversary attacks the model with optimized gradients.
-Try: Align a language model using DPO, subject it to an automated GCG jailbreak attack suite, and demonstrate a 70% reduction in attack success rate.
-Outcome: Design, implement, and audit state-of-the-art preference alignment and adversarial defenses with publication-grade scientific rigor.
+M12.6 · Capstone Project: Adversarial Robustness & Fairness Stress-Testing Benchmark — (sessions: 3)
+Session 1 · Stress-Testing Benchmark Suite Architecture
+- Build a publication-ready robustness and fairness auditing framework targeting either a clinical healthcare or cybersecurity machine learning model.
+- Implement a comprehensive adversarial battery: multi-step white-box attacks (PGD, C&W), black-box surrogate transfers, and domain evasion vectors.
+- Integrate demographic fairness auditing tools evaluating Equalized Odds, Demographic Parity, and subgroup error disparities.
+Session 2 · Empirical Defense, Mitigation & Scientific Reporting
+- Implement an empirical defense: adversarial training (PGD/TRADES) or fair representation debiasing to mitigate observed vulnerabilities.
+- Quantify performance trade-offs: measuring robust accuracy vs. clean accuracy, and demographic parity vs. overall predictive utility.
+- Produce publication-ready comparative tables and multi-panel figures formatted for submission to top-tier security or ML venues (USENIX Security, NeurIPS).
+Mental model: Publishing top-tier safety research requires proving both that an attack is empirically devastating and that your proposed defense provides genuine mitigation.
+Try: Run the complete adversarial and fairness stress-testing suite, generating an automated safety audit report and mitigation trade-off curves.
+Outcome: Deliver an exhaustive, peer-reviewed empirical audit evaluating adversarial robustness, evasion vulnerability, and algorithmic fairness.
 
-CAPSTONE PROJECT: Preference Alignment & Adversarial Jailbreak Vulnerability Audit
-BRIEF: Implement a complete Direct Preference Optimization (DPO) pipeline in PyTorch to align an open-source model toward helpfulness and safety, evaluate the alignment tax across downstream benchmarks, and conduct an automated adversarial red-teaming audit using GCG attacks.
-Build an alignment & safety testbed that:
-- Curates a clean pairwise preference dataset (at least 1,000 pairs) balancing helpfulness, refusal of harmful requests, and resistance to sycophancy.
-- Implements the Direct Preference Optimization (DPO) loss function with explicit reference policy caching and numerical logit clamping.
-- Trains the model with DPO, tracking implicit reward margins r(x, y_w) - r(x, y_l) and policy KL divergence over training steps.
-- Evaluates the "Alignment Tax": measures pre- and post-alignment accuracy on benchmark reasoning and coding tasks (e.g., GSM8K or HumanEval).
-- Implements an automated red-teaming framework generating both manual semantic jailbreaks and gradient-based adversarial attack suffixes (GCG).
-- Quantifies Attack Success Rate (ASR) across multiple adversarial perturbation budgets and evaluates the robustness of the aligned policy.
-- Audits the model for algorithmic sycophancy, measuring its resistance to false user assertions before and after alignment.
-- Emits publication-ready LaTeX tables, loss trajectory plots, and vulnerability distribution charts.
+CAPSTONE PROJECT: Adversarial Robustness & Fairness Stress-Testing Benchmark
+BRIEF: Design, implement, and document a rigorous adversarial robustness and algorithmic fairness evaluation of a machine learning model trained on medical imaging (CheXpert) or cybersecurity malware (Ember), benchmarking white-box attacks, evasion vectors, and demographic disparities alongside mitigation strategies.
+Build an adversarial and fairness audit suite that:
+- Executes multi-step white-box adversarial attacks (PGD, Carlini-Wagner) across increasing perturbation budgets (L_infinity and L_2).
+- Conducts black-box transferability attacks across heterogeneous surrogate model architectures.
+- Implements domain-specific evasion: functional PE byte manipulations for malware or localized clinical artifact injections.
+- Evaluates algorithmic fairness across multiple protected subgroups, computing Demographic Parity and Equalized Odds disparity metrics.
+- Implements an empirical defense strategy (PGD adversarial training or adversarial debiasing) to fortify model resilience.
+- Maps empirical trade-off frontiers: plotting clean accuracy versus robust accuracy across varying defense strengths.
+- Generates publication-ready comparative LaTeX tables, perturbation visualization heatmaps, and subgroup performance bar charts.
 Deliverables:
-- Modular Python repository containing align/dpo_trainer.py, attack/gcg_optimizer.py, and audit/safety_eval.py.
-- Publication-quality vector plots (PDF) depicting reward margin growth, KL divergence trajectories, and adversarial Attack Success Rates.
-- Complete 5-page research workshop paper PDF formatted in LaTeX detailing the alignment methodology and security audit findings.
-Outcome: You can formulate, execute, and empirically audit frontier AI alignment pipelines and rigorously test systems against adversarial vulnerabilities.
+- Modular, well-tested Python evaluation package (robustness_fairness_benchmark/) with clean configuration files.
+- Automated testing scripts executing the full attack battery, fairness audits, and defense trainings.
+- High-resolution multi-panel publication figures showing clean vs. perturbed inputs, robust accuracy curves, and subgroup disparity bars.
+- Formal 4-page academic research paper draft formatted in standard IEEE S&P / NeurIPS style analyzing vulnerability and mitigation findings.
+Outcome: You can systematically evaluate, stress-test, and fortify machine learning systems against adversarial attacks and algorithmic bias for high-impact publication.

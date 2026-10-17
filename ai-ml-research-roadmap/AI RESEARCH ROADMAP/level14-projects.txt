@@ -1,69 +1,69 @@
 Level 14 · Comprehensive Research Capstones
 
-Phase: Frontier, Alignment & Thesis
+Phase: Frontier Robustness & Thesis Projects
 Suggested duration: 25 sessions (~6 weeks)
-Prerequisites: Level 4 (Prototyping), Level 7 (RL & Search), Level 8 (Benchmarks), Level 9 (HPC), Level 11 (Interpretability), Level 12 (Alignment)
-Scope: Execute seven end-to-end, conference-grade research projects embodying the complete lifecycle of MSc/PhD dissertation chapters and flagship submissions to premier AI/ML venues (NeurIPS, ICML, ICLR, CVPR, ACL).
+Prerequisites: Level 4 (Datasets & Domain Exploration), Level 5 (Model Architectures), Level 6 (Sequence Models & GNNs), Level 7 (Generative Models), Level 8 (Benchmarking), Level 9 (HPC Systems), Level 11 (Interpretability), Level 12 (Robustness & Alignment)
+Scope: Execute seven end-to-end, thesis-grade research capstones embodying the complete lifecycle of Bachelor's honors theses, Master's theses, and foundational PhD dissertation chapters across high-impact Computer Science research domains: medical healthcare AI, cybersecurity graph intelligence, decontaminated domain benchmarks, mechanistic circuit analysis, privacy-preserving generative diffusion, adversarial malware defense, and publication-ready conference submission artifacts.
 
-P14.1 · Flagship Project 1: Rigorous Reproduction of a Top-Tier Conference Paper — (sessions: 3)
-Select a seminal, highly cited paper published within the last 24 months in a top-tier machine learning conference (NeurIPS, ICML, ICLR).
-Re-implement the core model architecture, custom loss functions, and data preprocessing pipelines from scratch in PyTorch without copying official source code.
-Execute the full experimental training suite under strictly identical hyperparameter budgets, hardware settings, and random seeds.
-Identify unstated implementation tricks, missing mathematical assumptions, or discrepancies between reported paper metrics and empirical reproduction results.
-Perform an ablation study evaluating the sensitivity of the reproduced method to learning rate schedules, seed variation, and batch size scaling.
-Author a formal scientific reproduction report adhering to the NeurIPS Reproducibility Challenge guidelines, complete with verified code release.
-Outcome: A scientifically verified reproduction codebase and comprehensive artifact report validating or disputing published claims.
+P14.1 · Flagship Project 1: Medical Image Segmentation & Volumetric Biomarker Discovery — (sessions: 3)
+- Select a competitive 3D volumetric medical imaging benchmark from the Medical Segmentation Decathlon or BraTS (Brain Tumor Segmentation).
+- Implement a modern volumetric deep architecture: 3D U-Net or Swin-UNETR with hierarchical shifted-window attention from scratch in PyTorch.
+- Formulate specialized volumetric loss functions: Generalized Soft Dice Loss combined with Focal Tversky Loss to handle severe foreground-background voxel imbalance.
+- Execute full 5-fold cross-validation partitioned strictly by patient ID, calculating Dice Similarity Coefficients (DSC) and 95th percentile Hausdorff Distance (HD95).
+- Conduct an exhaustive ablation study evaluating the quantitative impact of deep supervision, data augmentations, and skip-connection gating.
+- Author an empirical research report featuring multi-planar orthogonal slice visualizations (axial, coronal, sagittal) and statistical significance testing against baselines.
+Outcome: A scientifically verified 3D medical image segmentation research codebase and clinical biomarker evaluation report meeting peer-reviewed medical imaging standards.
 
-P14.2 · Flagship Project 2: Novel Sequence Architecture with Empirical Scaling Analysis — (sessions: 4)
-Design and implement an innovative sequence modeling architecture uniting sub-quadratic State Space Models (Mamba) with local self-attention mechanisms.
-Derive the analytical time and memory complexity of the proposed hybrid architecture, proving linear or near-linear scaling with sequence length.
-Pre-train a family of models across multiple compute budgets (10M to 250M parameters) on standardized multi-domain text corpora on an HPC cluster.
-Fit empirical Chinchilla scaling laws to quantify compute-optimal parameter and token allocations for the proposed hybrid architecture.
-Evaluate associative recall and long-context reasoning using synthetic needle-in-a-haystack and real-world long-context document understanding benchmarks.
-Profile hardware execution: measure Model FLOPs Utilization (MFU), peak VRAM consumption, and wall-clock inference latency up to 64k tokens.
-Outcome: A novel, fully benchmarked sequence model architecture accompanied by empirical scaling curves and compute efficiency analyses.
+P14.2 · Flagship Project 2: Cybersecurity Threat Graph Intrusion Detection & Botnet Investigation — (sessions: 4)
+- Transform raw network flow captures (CIC-IDS-2017) and enterprise host provenance logs into large-scale, directed heterogeneous property graphs using PyTorch Geometric.
+- Architect an inductive Graph Neural Network (GAT with edge features or Temporal Graph Network) capable of modeling dynamic enterprise network topologies.
+- Design spatial message-passing layers to detect multi-stage attack campaigns: port scanning, brute-force authentication, privilege escalation, and lateral movement.
+- Evaluate detection performance under extreme class imbalance (< 0.01% attack edges), computing AUROC, Average Precision (AUPRC), and False Alarm Rate (FAR).
+- Benchmark against classical tree ensembles (XGBoost) and recurrent sequence models, proving that graph structural context resolves ambiguous individual flows.
+- Profile runtime computational efficiency on an HPC GPU cluster: measuring memory scaling, node sampling throughput, and real-time inference latency.
+Outcome: A novel graph-based cybersecurity threat detection framework that identifies coordinated attack campaigns across complex enterprise network topologies.
 
-P14.3 · Flagship Project 3: Decontaminated Domain Benchmark with Human Agreement Calibration — (sessions: 4)
-Curate a novel, multi-task domain-specific evaluation benchmark dataset comprising at least 500 challenging multi-step reasoning instances.
-Author a rigorous annotation codebook, conduct multi-annotator human evaluation, and verify statistical reliability (Krippendorff’s alpha > 0.80).
-Build an automated 13-gram contamination detection scanner using suffix arrays to verify zero overlap with standard open-source pre-training corpora.
-Evaluate a comprehensive suite of proprietary and open-source foundation models under standardized zero-shot and few-shot prompting conditions.
-Implement a bidirectional LLM-as-a-Judge pipeline, calibrating automated scores against human expert consensus via Kendall’s tau and Spearman rank correlation.
-Format all dataset artifacts with Datasheets for Datasets documentation and release clean evaluation harnesses on Hugging Face Datasets.
-Outcome: A pristine, decontaminated domain benchmark established as an open-source evaluation standard for the research community.
+P14.3 · Flagship Project 3: Decontaminated Domain-Specific Foundation Model Benchmark — (sessions: 4)
+- Curate a novel, multi-task domain-specific evaluation benchmark dataset comprising 500+ challenging multi-step reasoning problems in clinical medicine or cybersecurity.
+- Author a formal annotation codebook, conduct multi-annotator expert review with clinicians or security analysts, and verify inter-rater reliability (Krippendorff’s alpha > 0.80).
+- Build an automated 13-gram contamination detection scanner using suffix arrays to verify zero overlap with standard open-source pre-training text corpora.
+- Evaluate a comprehensive suite of open-weight (Llama, Mistral, Qwen) and proprietary foundation models under standardized zero-shot and few-shot Chain-of-Thought conditions.
+- Implement an automated LLM-as-a-Judge pipeline, calibrating automated evaluation scores against human expert consensus via Kendall’s tau and Spearman rank correlation.
+- Format all dataset artifacts with formal Datasheets for Datasets documentation and release clean evaluation harnesses on Hugging Face Datasets.
+Outcome: A pristine, decontaminated domain evaluation benchmark established as an open-source standard for assessing domain-specific foundation model reasoning.
 
-P14.4 · Flagship Project 4: Mechanistic Circuit Investigation & Steering in Frontier LLMs — (sessions: 3)
-Select a complex, non-trivial capability in an open-weight foundation model (e.g., indirect object identification, counterfactual reasoning, or sycophancy).
-Apply causal activation patching across all layers and token positions to map the exact minimal computational circuit mediating the target capability.
-Deconstruct mediating attention heads into mathematically formulated QK addressing circuits and OV information-routing circuits.
-Train an overcomplete Sparse Autoencoder (SAE) with L1 regularization on the critical bottleneck layer, extracting monosemantic feature dictionaries.
-Extract contrastive activation steering vectors and demonstrate targeted behavioral steering during generation without degrading general language perplexity.
-Author an interactive research report featuring causal circuit wiring diagrams, activation heatmaps, and mechanistic ablation proofs.
-Outcome: An end-to-end mechanistic interpretability discovery identifying the internal computational circuit and demonstrating precise latent steering.
+P14.4 · Flagship Project 4: Mechanistic Circuit Discovery in Clinical Decision Networks — (sessions: 3)
+- Select a critical clinical reasoning capability in an open-weight foundation model (e.g., differential diagnosis, contraindication detection, or dosage calculation).
+- Apply causal activation patching across all layers and token positions to map the exact minimal computational circuit mediating the target clinical capability.
+- Deconstruct mediating attention heads into mathematically formulated QK addressing circuits and OV information-routing circuits.
+- Train an overcomplete Sparse Autoencoder (SAE) with TopK/L1 sparsity penalties on the critical intermediate layer, extracting monosemantic medical symptom features.
+- Extract contrastive activation steering vectors and demonstrate targeted behavioral steering during generation without increasing general language perplexity.
+- Author an interactive research report featuring causal circuit wiring diagrams, activation heatmaps, and mechanistic ablation proofs.
+Outcome: An end-to-end mechanistic interpretability discovery identifying the internal computational circuit and demonstrating precise latent steering in clinical AI.
 
-P14.5 · Flagship Project 5: Continuous Flow Matching Diffusion Model for Scientific Modalities — (sessions: 4)
-Formulate and implement a continuous-time Optimal Transport Conditional Flow Matching (OT-CFM) generative model on a complex scientific modality.
-Implement a modern Diffusion Transformer (DiT) velocity backbone with adaptive layer normalization conditioning and classifier-free guidance.
-Construct straight-line probability paths between standard Gaussian priors and complex empirical data manifolds.
-Implement accelerated adaptive ODE numerical solvers (Runge-Kutta 4, midpoint) achieving high-fidelity generation in 15 to 25 steps.
-Evaluate generative distribution quality rigorously using clean Fréchet Inception Distance (FID), Precision, Recall, and trajectory curvature metrics.
-Benchmark generation speed, kinetic energy dissipation, and sample diversity against classical DDPM and score-based SDE baselines.
-Outcome: A state-of-the-art continuous flow matching framework with publication-quality distribution metrics and accelerated numerical sampling.
+P14.5 · Flagship Project 5: Privacy-Preserving Synthetic Clinical Cohort Generation — (sessions: 4)
+- Formulate and implement a continuous-time Optimal Transport Conditional Flow Matching (OT-CFM) generative model on longitudinal tabular clinical records (MIMIC-IV).
+- Train an adaptive velocity backbone with classifier-free guidance, synthesizing diverse patient cohorts conditioned on diagnosis codes and mortality outcomes.
+- Construct straight-line probability paths between standard Gaussian priors and complex empirical clinical feature manifolds.
+- Implement accelerated numerical ODE solvers (midpoint/Euler) achieving high-fidelity generation in 15 to 25 deterministic steps.
+- Evaluate downstream empirical utility via Train on Synthetic, Test on Real (TSTR) protocols, demonstrating competitive predictive utility compared to real cohorts.
+- Execute an empirical membership inference attack (MIA) audit, proving differential privacy guarantees and zero training patient data regurgitation.
+Outcome: A state-of-the-art continuous flow matching framework generating privacy-preserving synthetic patient cohorts with proven clinical utility and privacy guarantees.
 
-P14.6 · Flagship Project 6: Preference Optimization Regularization with Spectral Analysis — (sessions: 3)
-Formulate a novel regularization objective for Direct Preference Optimization (DPO) that penalizes rank collapse in the weight update matrix Delta W.
-Implement the spectral regularization algorithm in PyTorch, applying low-rank Singular Value Decomposition (SVD) constraints during preference tuning.
-Train a foundation model on challenging conversational preference datasets, monitoring implicit reward margins and policy KL divergence.
-Audit downstream performance: evaluate retention of mathematical reasoning, coding abilities, and factual truthfulness, quantifying the alignment tax.
-Perform singular value spectral decomposition on weight deltas to verify that foundational pre-trained feature representations remain uncorrupted.
-Conduct red-teaming audits to prove enhanced resistance to reward hacking, sycophancy, and adversarial jailbreak perturbations.
-Outcome: A novel preference optimization methodology published with mathematical derivations, empirical proofs, and spectral analysis.
+P14.6 · Flagship Project 6: Adversarial Malware Evasion & Certified Defense — (sessions: 3)
+- Construct problem-space adversarial attacks on Windows Portable Executable (PE) malware binaries from the Ember and SOREL-20M benchmarks.
+- Implement functionality-preserving structural manipulations: injecting adversarial bytes into slack spaces, section header manipulation, and benign import injection.
+- Evade multiple state-of-the-art malware detectors (gradient boosted trees and deep byte-level CNNs), reducing detection rates from 98% to under 15%.
+- Formulate a robust adversarial training defense: retraining models on dynamically generated problem-space adversarial variants.
+- Evaluate the trade-off frontier: plotting clean accuracy on benign executables against robust accuracy under aggressive adversarial evasion attempts.
+- Compute certified robustness bounds via randomized smoothing, demonstrating mathematical limits of adversary evasion capabilities.
+Outcome: A rigorous problem-space adversarial attack and defense framework published with binary manipulation algorithms and empirical robustness proofs.
 
 P14.7 · Flagship Project 7: End-to-End Conference Submission: Paper, Codebase & Data Release — (sessions: 4)
-Synthesize empirical discoveries from one of the preceding flagship projects into a full 9-page conference paper manuscript in LaTeX (NeurIPS/ICML format).
-Draft all required paper sections: Abstract, Introduction, Related Work Taxonomy, Mathematical Methodology, Experimental Setup, Results, Ablations, and Limitations.
-Design publication-quality vector figures (using TikZ, Matplotlib/Seaborn science themes, and Illustrator) depicting architecture, scaling, and circuits.
-Package the complete research codebase into a public GitHub repository with Dockerized environment manifests, pre-trained weights, and automated tests.
-Draft an exhaustive reproducibility checklist detailing compute resources, random seeds, hyperparameter search grids, and negative findings.
-Simulate a formal conference submission package ready for submission to OpenReview with anonymized review-ready artifacts.
-Outcome: A complete, publication-grade academic conference submission package ready for submission to a premier peer-reviewed AI venue.
+- Synthesize empirical discoveries from one of the preceding flagship research projects into a full 9-page conference paper manuscript in LaTeX (NeurIPS / ICML / USENIX Security format).
+- Draft all standard academic sections: Abstract, Introduction, Related Work Taxonomy, Mathematical Methodology, Experimental Setup, Results, Ablations, and Limitations.
+- Design publication-quality vector figures (using TikZ, Matplotlib/Seaborn science themes, and Illustrator) depicting architecture, scaling curves, and interpretability circuits.
+- Package the complete research codebase into an open-source GitHub repository with Dockerized environment manifests, pre-trained weights, and automated unit tests.
+- Draft an exhaustive reproducibility checklist detailing compute resources, random seeds, hyperparameter search grids, and negative findings.
+- Assemble a complete conference submission package ready for submission to OpenReview with anonymized review-ready artifacts.
+Outcome: A complete, publication-grade academic conference submission package ready for submission to a premier peer-reviewed AI venue or inclusion as a thesis chapter.

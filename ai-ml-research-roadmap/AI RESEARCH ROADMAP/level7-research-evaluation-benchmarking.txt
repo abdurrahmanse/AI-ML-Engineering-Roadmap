@@ -1,101 +1,101 @@
-Level 7 · Reinforcement Learning, Search & Test-Time Reasoning
+Level 7 · Generative Modeling & Probabilistic Machine Learning
 
-Phase: Reasoning, Benchmarks & Rigor
+Phase: Generative Models & Benchmarking
 Suggested duration: 13 sessions (~3 weeks)
-Prerequisites: Level 6 (Generative Modeling & Probabilistic Machine Learning)
-Scope: Master reinforcement learning, planning, and test-time reasoning in AI research: Markov Decision Processes (MDPs), policy optimization (PPO, SAC), search algorithms (MCTS, Tree-of-Thoughts), Process Reward Models (PRMs), and test-time compute scaling laws.
+Prerequisites: Level 6 (Sequence Models, Graph Neural Networks & Transformers)
+Scope: Master probabilistic and generative models for data synthesis, density estimation, and anomaly detection: Variational Autoencoders (VAEs), Denoising Diffusion Probabilistic Models (DDPM), score-based generative modeling, and Continuous Flow Matching (CFM); generating privacy-preserving synthetic clinical cohorts (MIMIC-IV) and synthetic cybersecurity attack vectors; evaluating generative fidelity and diversity via Fréchet Inception Distance (FID), Precision & Recall for Generative Models, and membership inference vulnerability.
 
-M7.1 · Markov Decision Processes, Dynamic Programming & Bellman Optimality — (sessions: 2)
-Session 1 · Mathematical Foundations of Reinforcement Learning
-- Formulate the reinforcement learning problem as a Markov Decision Process (MDP): state space S, action space A, transition probability P, reward function R, and discount factor gamma.
-- Formalize policies pi(a|s), state-value functions V^pi(s), and action-value functions Q^pi(s, a) under infinite-horizon discounted return objectives.
-- Derive the Bellman Expectation Equations for V^pi and Q^pi by unrolling the recursive definition of expected discounted return.
-Session 2 · Bellman Optimality & Contraction Mappings
-- State and prove the Bellman Contraction Mapping theorem under the L-infinity norm, establishing the existence and uniqueness of the optimal value function Q*.
-- Implement exact dynamic programming algorithms: Policy Iteration (alternating policy evaluation and policy improvement) and Value Iteration.
-- Analyze the curse of dimensionality in continuous state and action spaces, motivating deep parametric function approximation.
-Mental model: The Bellman equation is a recursive consistency constraint; dynamic programming contracts arbitrary value guesses toward the true optimal policy.
-Try: Implement Value Iteration in Python for a discrete gridworld MDP, verify contraction mapping convergence rates, and extract the optimal deterministic policy.
-Outcome: Formulate sequential decision-making problems as MDPs and derive the fundamental convergence proofs of dynamic programming.
+M7.1 · Latent Variable Models & Variational Autoencoders (VAEs) — (sessions: 2)
+Session 1 · The Evidence Lower Bound (ELBO) & Reparameterization
+- Formulate continuous latent variable models: the intractable marginal likelihood p(x) and variational posterior approximation q(z|x).
+- Derive the Evidence Lower Bound (ELBO) from Jensen's inequality and KL divergence, separating reconstruction loss from latent prior regularization.
+- Implement the reparameterization trick (z = mu + sigma * epsilon) allowing low-variance reverse-mode gradient backpropagation through stochastic nodes.
+Session 2 · Disentangled Latents & Tabular Patient Generation
+- Analyze beta-VAE: balancing reconstruction fidelity against latent factor disentanglement and addressing catastrophic posterior collapse.
+- Implement Conditional VAEs (C-VAE) conditioned on clinical diagnostic labels or cybersecurity network attack categories.
+- Generate synthetic mixed-type tabular clinical records (continuous vitals + discrete diagnosis codes) using categorical Gumbel-Softmax relaxations.
+Mental model: The reparameterization trick isolates the stochastic sampling into an external noise parameter, enabling end-to-end gradient flow.
+Try: Implement a Conditional VAE in PyTorch, train it on mixed-type tabular records, and generate synthetic samples conditioned on specific disease labels.
+Outcome: Derive the ELBO, implement the reparameterization trick, and generate conditioned tabular samples using Variational Autoencoders.
 
-M7.2 · Deep Q-Networks & Value Function Approximation Stability — (sessions: 2)
-Session 1 · Q-Learning with Deep Neural Networks
-- Approximate action-value functions using deep neural networks Q_theta(s, a) and formulate the temporal difference (TD) loss objective.
-- Identify the root causes of instability in non-linear value approximation: non-stationary target distributions, correlated data streams, and policy oscillations.
-- Implement the core Deep Q-Network (DQN) stabilizing mechanisms: experience replay buffer sampling and decoupled frozen target networks Q_target.
-Session 2 · Advanced Value Function Enhancements
-- Mitigate overestimation bias in action-value updates using Double DQN (DDQN), decoupling action selection from value evaluation.
-- Implement Dueling DQN architectures, decomposing Q(s, a) into independent state value V(s) and state-dependent action advantage A(s, a) streams.
-- Master Prioritized Experience Replay (PER), sampling historical transitions according to TD-error magnitudes with importance-sampling correction weights.
-Mental model: Double DQN prevents maximization bias: the main network nominates the best action, while the target network calculates its honest value.
-Try: Implement a Deep Q-Network from scratch in PyTorch with experience replay and target networks, training it to solve the CartPole-v1 benchmark environment.
-Outcome: Build stable deep Q-learning architectures and eliminate maximization bias using Double DQN and dueling streams.
+M7.2 · Denoising Diffusion Probabilistic Models (DDPM & Score Matching) — (sessions: 2)
+Session 1 · Forward Diffusion & Reverse Denoising
+- Formalize the forward discrete-time Markovian diffusion process: gradually corrupting clean data x_0 into isotropic Gaussian noise via a variance schedule beta_t.
+- Derive the closed-form sampling equation for arbitrary timestep t without iterative stepping (x_t as a linear combination of x_0 and standard Gaussian noise).
+- Train a reverse denoising U-Net predicting the injected noise epsilon_theta under a simplified mean-squared error objective (Ho et al.).
+Session 2 · Score-Based Generative Models & Continuous SDEs
+- Connect DDPM to score-based generative modeling (Song & Ermon): learning the gradient of the log probability density (the Stein score function) at multiple noise scales.
+- Formulate diffusion as continuous Stochastic Differential Equations (SDEs): Variance Preserving (VP) and Variance Exploding (VE) SDEs.
+- Sample from reverse SDEs and Probability Flow ODEs using Euler-Maruyama numerical solvers and predictor-corrector algorithms.
+Mental model: Diffusion reverses entropy; by training a neural network to predict noise at every scale, we can trace a trajectory from pure noise back to the data manifold.
+Try: Train a 2D Denoising Diffusion Probabilistic Model (DDPM) on a radiological imaging dataset in PyTorch, implementing the full reverse sampling loop.
+Outcome: Master the mathematics of discrete and continuous diffusion, train denoising backbones, and generate high-fidelity samples from pure noise.
 
-M7.3 · Policy Gradients, Trust Region Policy Optimization (TRPO) & PPO — (sessions: 2)
-Session 1 · The Policy Gradient Theorem & REINFORCE
-- Derive the Policy Gradient Theorem analytically: \nabla_theta J(theta) = E_{tau ~ pi_theta}[\sum_t \nabla_theta log pi_theta(a_t|s_t) G_t].
-- Implement the REINFORCE algorithm with baseline subtraction to reduce gradient variance without introducing estimator bias.
-- Formulate Generalized Advantage Estimation (GAE), balancing the bias-variance trade-off in temporal difference returns using the exponential decay factor lambda.
-Session 2 · Trust Region Methods & Proximal Policy Optimization (PPO)
-- Understand policy collapse: small parameter updates in neural policies can cause catastrophic performance degradation from which the agent cannot recover.
-- Formulate the Trust Region Policy Optimization (TRPO) objective enforcing a Kullback-Leibler (KL) divergence constraint D_KL(pi_old || pi) <= delta.
-- Implement Proximal Policy Optimization (PPO): the clipped surrogate objective L_CLIP(theta) bounding policy probability ratios without expensive second-order Hessian computation.
-Mental model: PPO's clipped objective is an insurance policy: it forbids the policy from changing too dramatically in a single update step.
-Try: Implement the PPO clipped objective function in PyTorch, verify that gradient updates are zeroed out when probability ratios exceed 1 + epsilon or 1 - epsilon.
-Outcome: Derive the policy gradient theorem, implement Generalized Advantage Estimation, and master Proximal Policy Optimization.
+M7.3 · Continuous Normalizing Flows & Optimal Transport Flow Matching — (sessions: 2)
+Session 1 · Neural Ordinary Differential Equations & Continuous Flows
+- Master continuous-time invertible models: mapping base Gaussian densities to complex target data distributions via Neural ODEs (Chen et al.).
+- Compute exact log-likelihoods using the instantaneous change-of-variables formula and Hutchinson's trace estimator for scalable Jacobian trace computation.
+- Contrast the straight-line paths of continuous flows against the curved, stochastic trajectories of Brownian motion in standard diffusion.
+Session 2 · Flow Matching & Optimal Transport (OT-CFM)
+- Implement Flow Matching (Lipman et al.): regressing time-dependent vector fields directly without costly numerical ODE simulation during training.
+- Apply Optimal Transport Conditional Flow Matching (OT-CFM): establishing straight-line probability paths between noise distributions and data points.
+- Benchmark inference speed: generating high-fidelity samples in as few as 10-20 deterministic Euler steps, drastically outperforming standard DDPM sampling.
+Mental model: Flow matching straightens the generative trajectories into straight lines, enabling dramatically faster deterministic sampling with fewer ODE solver steps.
+Try: Implement an Optimal Transport Flow Matching model in PyTorch on a 2D synthetic dataset, visualize the learned velocity vector fields, and integrate trajectories.
+Outcome: Formulate continuous normalizing flows and implement Optimal Transport Flow Matching for fast, deterministic generative sampling.
 
-M7.4 · Test-Time Reasoning: Chain-of-Thought, Tree-of-Thoughts & MCTS Search — (sessions: 2)
-Session 1 · Circuit Complexity of Reasoning & Chain-of-Thought
-- Analyze the computational expressivity of autoregressive Transformers: constant-depth circuit limitations on complex multi-step reasoning tasks.
-- Formalize Chain-of-Thought (CoT) prompting as allocating additional dynamic runtime token steps, increasing effective computational circuit depth.
-- Differentiate between zero-shot CoT ("Let's think step by step"), few-shot exemplar demonstrations, and self-consistency voting across multiple sampled traces.
-Session 2 · Structured Search Over Latent Thought Spaces
-- Formulate reasoning as explicit search over a state space of intermediate thoughts: the Tree of Thoughts (ToT) framework.
-- Implement graph search heuristics over thought trees: breadth-first search (BFS), depth-first search (DFS) with backtracking, and beam search.
-- Master Monte Carlo Tree Search (MCTS) for language model reasoning: Selection (PUCT formula), Expansion, Rollout/Evaluation, and Backpropagation.
-Mental model: Autoregressive decoding is a single greedy walk through thought space; MCTS explores a branching tree of alternative deduction paths.
-Try: Implement a Tree of Thoughts search controller in Python using an LLM API, solving a complex mathematical puzzle via systematic branching and pruning.
-Outcome: Formalize test-time reasoning as computational search, implement Tree-of-Thoughts, and integrate Monte Carlo Tree Search.
+M7.4 · Domain-Specific Generative Synthesis: Medical Scans & Cyber Telemetry — (sessions: 2)
+Session 1 · Medical Image Synthesis & Lesion Inpainting
+- Apply conditioned latent diffusion models to generate high-resolution synthetic chest radiographs (CheXpert) conditioned on diagnostic text prompts.
+- Synthesize realistic rare pathological lesions (e.g., glioblastoma brain tumors on MRI) to augment severely data-scarce medical training splits.
+- Perform lesion inpainting and counterfactual image generation: modifying specific anatomical regions while preserving patient-specific identity features.
+Session 2 · Cybersecurity Attack Synthesis & Traffic Obfuscation
+- Generate realistic, synthetic bidirectional network flow telemetry mimicking stealthy advanced persistent threat (APT) multi-stage attack campaigns.
+- Synthesize functional polymorphic malware feature vectors that mimic benign Windows PE executables to test intrusion detection evasion.
+- Ensure format-preserving constraints: enforcing protocol validities, packet size limits, and non-negative integer counts in synthetic network traces.
+Mental model: Generative models can solve extreme domain data scarcity by synthesizing high-fidelity, physically consistent rare pathological lesions and cyber threats.
+Try: Train a conditioned diffusion model to synthesize realistic rare pathology samples, and verify that training a downstream classifier with augmented data improves AUROC.
+Outcome: Deploy state-of-the-art diffusion and flow models to synthesize high-utility medical images and cybersecurity telemetry.
 
-M7.5 · Process vs. Outcome Supervision: Training Process Reward Models (PRMs) — (sessions: 2)
-Session 1 · The Limits of Outcome Reward Models (ORMs)
-- Analyze Outcome Reward Models (ORMs): assigning a single binary scalar reward at the conclusion of a multi-step reasoning trajectory.
-- Identify the credit assignment problem in ORMs: intermediate logical errors receive positive credit if the final answer is accidentally correct (false positives).
-- Understand step-level reward hacking where models generate degenerate or repetitive intermediate derivations to satisfy coarse outcome signals.
-Session 2 · Process Reward Models & Step-Level Verification
-- Formulate Process Reward Models (PRMs): predicting the step-by-step correctness probability r_t \in [0, 1] for every individual deduction step.
-- Implement step-level synthetic data collection protocols: automated verification rollouts, Monte Carlo value estimation, and active learning annotation.
-- Evaluate search efficiency: compare Best-of-N selection and guided beam search steered by PRMs versus standard ORMs on mathematical reasoning benchmarks (MATH, GSM8K).
-Mental model: An ORM only checks the final destination; a PRM acts as an experienced mathematician grading every individual step on the chalkboard.
-Try: Train a step-level verification classifier on mathematical solutions, score multi-step traces, and use PRM scores to guide a beam search decoder.
-Outcome: Implement Process Reward Models from scratch, solve credit assignment in multi-step reasoning, and steer test-time search.
+M7.5 · Generative Evaluation Metrics, Fidelity & Privacy Auditing — (sessions: 2)
+Session 1 · Sample Quality & Diversity Metrics (FID, Precision & Recall)
+- Compute Fréchet Inception Distance (FID) to quantify distributional distance between real and synthetic feature embeddings extracted from pre-trained backbones.
+- Decompose generative performance into Precision (fidelity of generated samples) and Recall (diversity and coverage of the target distribution) (Sajjadi et al.).
+- Evaluate domain-specific realism: clinical radiological feature preservation evaluated by domain experts, and packet header validity checks for cyber telemetry.
+Session 2 · Privacy Auditing & Membership Inference Vulnerability
+- Understand the privacy risks of synthetic data: generative models can memorize and regurgitate individual training records, violating HIPAA or GDPR.
+- Execute Membership Inference Attacks (MIA): training shadow models to determine whether a specific patient record was present in the generative training set.
+- Quantify attribute disclosure risks and evaluate Differentially Private Diffusion (DP-Diffusion) using Rényi Differential Privacy accounting.
+Mental model: High visual fidelity is meaningless if the generative model simply memorized and reproduced confidential patient scans; privacy auditing is mandatory.
+Try: Calculate FID, Precision, and Recall on synthetic samples, and implement a shadow-model membership inference attack to verify that training patient data is not leaked.
+Outcome: Evaluate generative fidelity, diversity, and distributional realism, and conduct empirical privacy audits to prevent training data memorization.
 
-M7.6 · Capstone Project: Policy Optimization Benchmark & Guided Tree Search Engine — (sessions: 3)
-Session 1 · Reinforcement Learning Core & Reasoning Search Architecture
-- Implement a modular, vectorized implementation of Proximal Policy Optimization (PPO) in PyTorch with Generalized Advantage Estimation.
-- Construct a test-time search controller combining an autoregressive policy model with a step-level Process Reward Model (PRM).
-- Implement the Upper Confidence Bound for Trees (PUCT) algorithm to balance exploration and exploitation across intermediate reasoning branches.
-Session 2 · Test-Time Scaling Law Profiling & Empirical Defense
-- Benchmark reasoning performance across test-time compute budgets: evaluate accuracy as a function of search rollout samples and tree expansions.
-- Plot empirical test-time compute scaling curves comparing greedy decoding, Best-of-N sampling, and MCTS tree search.
-- Author a research report documenting empirical findings, ablation studies on tree search parameters, and comparative reasoning accuracy.
-Mental model: Test-time compute scaling demonstrates that additional inference compute can substitute for orders of magnitude more pre-training parameters.
-Try: Run the guided MCTS search engine across 50 challenging reasoning problems, and plot the accuracy curve as search budget increases from 1 to 64 samples.
-Outcome: Build state-of-the-art reinforcement learning and guided tree-search algorithms and analyze test-time compute scaling laws empirically.
+M7.6 · Capstone Project: Domain-Specific Generative Diffusion & Privacy Synthesis Framework — (sessions: 3)
+Session 1 · Generative Pipeline Architecture & Conditioned Training
+- Build an end-to-end generative synthesis pipeline using either Denoising Diffusion (DDPM) or Optimal Transport Flow Matching (OT-CFM).
+- Target a specialized domain problem: synthesizing privacy-preserving patient cohorts (MIMIC-IV clinical events) or realistic cyber attack flows (CIC-IDS).
+- Implement label conditioning (Classifier-Free Guidance) enabling targeted generation of rare minority classes (rare pathologies or stealthy cyber intrusions).
+Session 2 · Empirical Evaluation, Downstream Utility & Privacy Verification
+- Benchmark generative quality: compute FID / Wasserstein distance, Precision, and Recall against real validation splits.
+- Evaluate downstream empirical utility: train a predictive classifier exclusively on synthetic data and test on real unseen patient/network test sets (TSTR: Train on Synthetic, Test on Real).
+- Execute a membership inference attack audit to guarantee that synthetic records do not leak private training data under differential privacy standards.
+Mental model: The ultimate test of synthetic data research is downstream clinical or security utility combined with mathematical privacy guarantees.
+Try: Run the full synthesis pipeline, train a downstream model on synthetic data, evaluate on real test data, and produce a publication-ready evaluation report.
+Outcome: Deliver an end-to-end, audited generative synthesis framework with proven downstream utility and verified privacy guarantees.
 
-CAPSTONE PROJECT: Policy Optimization Benchmark & Guided Tree Search Engine
-BRIEF: Implement a modular PyTorch research framework combining a vectorized Proximal Policy Optimization (PPO) training pipeline with an inference-time guided Monte Carlo Tree Search (MCTS) engine driven by a step-level Process Reward Model (PRM), demonstrating empirical test-time compute scaling.
-Build an RL & search testbed that:
-- Implements a vectorized PPO algorithm from scratch in PyTorch, featuring actor and critic networks, clipped surrogate objectives, and GAE advantage estimation.
-- Solves a standardized continuous control or discrete decision benchmark environment with verified learning curves across 5 random seeds.
-- Implements an inference-time reasoning search engine that treats token sequences as a Tree of Thoughts, decomposing solutions into distinct steps.
-- Integrates a step-level Process Reward Model (PRM) that outputs probability scores for the logical validity of each individual step.
-- Implements Monte Carlo Tree Search (MCTS) guided by the PUCT selection rule to explore, evaluate, and prune candidate reasoning branches.
-- Evaluates test-time compute scaling: systematically varies search budget (number of tree rollouts per problem) and records accuracy on a multi-step benchmark.
-- Compares guided MCTS search against standard greedy decoding and Best-of-N rejection sampling under compute-matched evaluation budgets.
-- Emits formatted LaTeX tables and publication-ready vector plots illustrating test-time compute scaling curves and pass@k improvements.
+CAPSTONE PROJECT: Domain-Specific Generative Diffusion & Privacy Synthesis Framework
+BRIEF: Design, implement, and rigorously audit a conditioned Denoising Diffusion or Flow Matching model that synthesizes either clinical patient data (MIMIC-IV / CheXpert) or cybersecurity attack telemetry (CIC-IDS), demonstrating high generative fidelity (FID), downstream classification utility (TSTR), and differential privacy safety.
+Build a generative research system that:
+- Implements a conditioned generative model (DDPM, score-based SDE, or Optimal Transport Flow Matching) with Classifier-Free Guidance (CFG).
+- Trains on domain-specific data with severe class imbalance (e.g., rare medical conditions or stealthy cyber intrusions).
+- Synthesizes diverse, high-fidelity samples conditioned on specific target class attributes.
+- Measures sample fidelity and distributional diversity using Fréchet Inception Distance (FID), Precision, Recall, and density coverage.
+- Evaluates downstream task utility via Train on Synthetic, Test on Real (TSTR) benchmarks, comparing against models trained on real data.
+- Conducts an empirical membership inference attack (MIA) audit to test whether individual training records are memorized.
+- Generates publication-ready comparative tables and visual plots showing real vs. synthetic feature distributions and sample grids.
 Deliverables:
-- Modular Python repository containing rl/ppo.py, search/mcts_tree.py, and models/prm_verifier.py.
-- Publication-quality vector plots (PDF) depicting test-time scaling curves (Accuracy vs. Inference FLOPs / Rollouts).
-- Complete 4-page research report PDF formatted in LaTeX detailing the algorithmic formulation and empirical findings.
-Outcome: You can design and evaluate reinforcement learning systems, build guided reasoning tree search engines, and quantify test-time compute scaling laws.
+- Complete research repository (generative_synthesis_framework/) with modular diffusion/flow components and sampling scripts.
+- Checkpoints of the trained generative model and generated synthetic dataset splits.
+- Automated evaluation script outputting FID, Precision/Recall, TSTR classification metrics, and MIA leakage statistics.
+- Formal research report formatted as a conference workshop submission with high-resolution synthetic sample figures.
+Outcome: You can design, train, evaluate, and mathematically audit state-of-the-art generative diffusion and flow models for sensitive scientific and enterprise domains.

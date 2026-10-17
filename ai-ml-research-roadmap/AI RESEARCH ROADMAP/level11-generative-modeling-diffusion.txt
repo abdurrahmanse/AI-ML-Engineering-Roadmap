@@ -1,101 +1,101 @@
-Level 11 · Mechanistic Interpretability & Model Analysis
+Level 11 · Explainability, Interpretability & Trustworthy AI
 
-Phase: HPC, Scaling & Interpretability
+Phase: HPC Clusters, Scaling & Explainability
 Suggested duration: 13 sessions (~3 weeks)
-Prerequisites: Level 10 (Pre-Training Dynamics, Scaling Laws & Empirical Science)
-Scope: Master the scientific discipline of mechanistic interpretability: reverse-engineering neural network representations, probing internal latent spaces, circuit discovery (induction heads), disentangling superposition with Sparse Autoencoders (SAEs), causal activation patching, and representation steering.
+Prerequisites: Level 10 (Foundation Models, Fine-Tuning & Domain Specialization)
+Scope: Unpack the internal mechanisms of black-box models to satisfy scientific peer review and regulatory standards (FDA clinical AI clearance, EU AI Act): feature attribution (SHAP, Integrated Gradients, Grad-CAM for medical scans), mechanistic interpretability (linear representation probing, activation patching, attention head visualization), sparse autoencoders (SAEs) for monosemantic feature discovery, and counterfactual explanation generation for clinical diagnostic and cybersecurity triage decisions.
 
-M11.1 · The Linear Representation Hypothesis & Latent Space Probing — (sessions: 2)
-Session 1 · The Linear Representation Hypothesis
-- Formulate the Linear Representation Hypothesis (Park et al., Elhage et al.): high-level human concepts are encoded as linear directions in activation spaces.
-- Implement linear diagnostic probes: train linear classifiers on intermediate hidden activations to predict semantic, syntactic, and factual properties.
-- Control for probe memorization: compare linear probe accuracy against non-linear probes (MLPs) and randomized baseline controls (Hewitt & Liang selectivity).
-Session 2 · Geometry & Representation Similarity (CKA)
-- Analyze the geometric alignment of hidden representations across distinct layers, models, and training checkpoints.
-- Implement Centered Kernel Alignment (CKA) using linear and radial basis function (RBF) kernels to quantify representational similarity invariance.
-- Use Singular Value Canonical Correlation Analysis (SVCCA) to isolate the intrinsic dimensionality of learned representations.
-Mental model: The activation space of a neural network is a high-dimensional concept space; linear vectors act as geometric coordinates for abstract ideas.
-Try: Train a linear probe on the residual stream activations of a language model to extract grammatical tense, verifying high probe selectivity against random controls.
-Outcome: Probe internal representations rigorously, test the linear representation hypothesis, and measure representational similarity using CKA.
+M11.1 · Feature Attribution: SHAP, Integrated Gradients & Saliency — (sessions: 2)
+Session 1 · Cooperative Game Theory & Shapley Values (SHAP)
+- Master the axiomatic foundations of Shapley values: efficiency, symmetry, dummy player, and additivity in cooperative game theory.
+- Implement KernelSHAP for black-box models and TreeSHAP (Lundberg et al.) for high-speed exact attribution in gradient boosted trees.
+- Apply SHAP to clinical tabular models (identifying patient risk factors for sepsis) and cybersecurity intrusion classifiers (pinpointing anomalous packet flags).
+Session 2 · Path Attribution & Gradient-Based Saliency
+- Analyze the failure of vanilla gradient saliency maps: gradient saturation, threshold sensitivity, and lack of implementation invariance.
+- Implement Integrated Gradients (Sundararajan et al.): accumulating path integrals from a neutral baseline to the input to satisfy Completeness and Implementation Invariance.
+- Apply Grad-CAM and Grad-CAM++ to convolutional and vision Transformer architectures, visualizing spatial attention maps on clinical radiographs.
+Mental model: Integrated Gradients traces a straight-line interpolation between a neutral baseline and the input, measuring how every feature contributes to the final logit.
+Try: Compute Integrated Gradients on a medical image classifier in PyTorch, verify that attributions sum to the difference between output and baseline logits, and plot the heatmap.
+Outcome: Compute theoretically grounded feature attributions (SHAP, Integrated Gradients) across tabular and imaging models to satisfy clinical and security standards.
 
-M11.2 · Circuit Discovery: Residual Stream Decomposition & Induction Head Identification — (sessions: 2)
-Session 1 · Mathematical Framework of Transformer Circuits
-- Understand the Transformer as a residual stream communication channel where attention heads and MLPs write additive linear updates.
-- Deconstruct the multi-head attention operation into independent QK (query-key addressing) and OV (output-value transformation) circuits (Elhage et al.).
-- Trace information flow mathematically: compute direct, indirect, and mediated path contributions to the final vocabulary projection logits.
-Session 2 · Induction Heads & In-Context Learning Circuits
-- Analyze the mechanistic discovery of induction heads (Olsson et al., 2022): two-head circuits that implement pattern completion [A][B] ... [A] -> [B].
-- Write automated induction head detectors that measure attention score spikes on repeated random token sequences across all layer-head pairs.
-- Trace the emergence of induction heads during pre-training: correlate their formation with the phase shift in in-context learning loss curves.
-Mental model: Induction heads are the fundamental algorithmic microprocessors of in-context learning, copying historical patterns into future predictions.
-Try: Implement an automated induction head detection script in PyTorch/TransformerLens, scan a model, and identify the exact layer and head indices responsible.
-Outcome: Decompose the Transformer residual stream into mathematical circuits and mechanically identify induction heads responsible for in-context learning.
+M11.2 · Linear Representation Probing & Latent Geometry — (sessions: 2)
+Session 1 · Linear Probes & Concept Emergence
+- Understand representation probing: training simple linear classifiers on intermediate hidden activations to test whether specific concepts are linearly represented.
+- Probe deep neural networks for medical concepts (e.g., patient age, smoker status) or cybersecurity concepts (e.g., protocol types, attack family) across sequential layers.
+- Map the trajectory of concept emergence: demonstrating how low-level superficial features peak in early layers while high-level semantic concepts form in late layers.
+Session 2 · Probe Sanity Checks & Control Tasks
+- Avoid the "probing trap": distinguishing whether a probe is discovering a representation learned by the model or merely memorizing the task itself.
+- Implement Control Tasks (Hewitt & Liang): evaluating linear probes against randomized control labels to measure probe selectivity.
+- Analyze representation geometry: computing representation similarity matrices (Centered Kernel Alignment CKA) to compare latent spaces across model checkpoints.
+Mental model: A linear probe is a scientific stethoscope listening to hidden activations; if a concept cannot be extracted linearly, the model has not explicitly disentangled it.
+Try: Extract hidden states across all layers of a pre-trained Transformer on clinical notes, train linear probes for mortality prediction, and plot probe accuracy across depth.
+Outcome: Execute rigorous linear probing experiments, evaluate concept emergence across layer depth, and validate probe selectivity using control tasks.
 
-M11.3 · Disentangling Superposition: Sparse Autoencoders (SAEs) & Dictionary Learning — (sessions: 2)
-Session 1 · The Problem of Polysemanticity & Superposition
-- Formulate the superposition hypothesis: neural networks represent more features than they have dimensions by packing non-orthogonal directions into activations.
-- Understand polysemanticity: individual neurons activate for multiple unrelated semantic concepts, preventing clean single-neuron interpretation.
-- Analyze the geometry of almost-orthogonal vectors in high dimensions bounded by the Johnson-Lindenstrauss lemma.
-Session 2 · Sparse Autoencoders (SAEs) & Monosemantic Dictionary Learning
-- Implement Sparse Autoencoders (SAEs) with overcomplete hidden layers (e.g., 8x to 32x expansion) and L1 sparsity regularization penalties.
-- Train an SAE on intermediate residual stream activations to disentangle superposed representations into thousands of sparse, monosemantic latent features.
-- Evaluate SAE quality: compute the L0 sparsity norm (average active latents per token) and reconstruction loss percentage on downstream evaluation benchmarks.
-Mental model: Superposition packs a crowded city into a small suitcase; an SAE unpacks the suitcase, giving every item its own dedicated hanger.
-Try: Train an SAE on hidden residual activations, evaluate L0 sparsity and reconstruction fidelity, and extract monosemantic feature interpretations.
-Outcome: Disentangle polysemantic representations using Sparse Autoencoders, extract monosemantic feature dictionaries, and measure L0 sparsity.
+M11.3 · Mechanistic Interpretability: Activation Patching & Circuits — (sessions: 2)
+Session 1 · Causal Tracing & Activation Patching
+- Master the paradigm of mechanistic interpretability: reverse-engineering neural networks into understandable computational algorithms and functional circuits.
+- Implement activation patching (causal mediation analysis): swapping intermediate activations between clean and corrupted inputs to isolate causal components.
+- Locate factual knowledge and reasoning circuits in Transformers: identifying specific MLP layers or attention heads responsible for specific predictions.
+Session 2 · Circuit Discovery & Attention Head Specialization
+- Analyze attention head specialization: identifying Induction Heads (responsible for in-context pattern copying), Duplicate Token Heads, and Inhibition Heads.
+- Map end-to-end computational subgraphs (circuits) within models performing specific domain logic (e.g., matching clinical symptoms to prescription decisions).
+- Test circuit completeness: verifying that pruning all neurons and attention heads outside the discovered circuit preserves task performance.
+Mental model: Mechanistic interpretability treats neural networks like biological brains, using targeted activation lesions to identify causal cognitive circuits.
+Try: Perform activation patching on a small Transformer model solving an algorithmic task, isolating the exact attention heads that perform in-context copying.
+Outcome: Trace causal computational circuits in neural networks using activation patching and identify specialized attention head mechanisms.
 
-M11.4 · Causal Tracing & Activation Patching: Localizing Factual Recall — (sessions: 2)
-Session 1 · Causal Tracing & Mediation Analysis
-- Differentiate between passive observational correlation (probing) versus active causal intervention in neural network representations.
-- Implement causal mediation analysis and activation patching (Meng et al., ROME): corrupting input embeddings with noise and restoring clean activations.
-- Localize factual knowledge storage: identify specific early MLP layers and late attention heads that causally mediate factual subject-relation recall.
-Session 2 · Direct Knowledge Editing & Mechanistic Limits
-- Formulate Rank-One Model Editing (ROME) and MEMIT: computing optimal closed-form updates to MLP weight matrices to update specific factual associations.
-- Measure the generalization and specificity of mechanistic model edits: verify that editing "Eiffel Tower -> Rome" does not corrupt general knowledge about Paris.
-- Analyze the limitations of direct weight editing: unintended collateral damage, distortion of adjacent concepts, and catastrophic forgetting.
-Mental model: Activation patching performs surgical neurosurgery on running neural networks to pinpoint the exact circuit that stores a specific memory.
-Try: Implement activation patching on a factual query ("The capital of France is [Paris]"), localizing the exact MLP layer that restores the clean output from noise.
-Outcome: Execute causal activation patching to localize model capabilities and analyze direct weight editing mechanisms and limitations.
+M11.4 · Dictionary Learning & Sparse Autoencoders (SAEs) — (sessions: 2)
+Session 1 · The Polysemanticity Crisis in Neural Representations
+- Understand polysemanticity: individual neurons activate for multiple completely unrelated concepts due to superposition (compressing more concepts than dimensions).
+- Formalize the superposition hypothesis: neural networks utilize non-orthogonal almost-independent direction vectors in high-dimensional vector spaces.
+- Contrast polysemantic biological neurons with the goal of isolating pure, monosemantic research features.
+Session 2 · Training Sparse Autoencoders (SAEs)
+- Architect an overcomplete Sparse Autoencoder (SAE): expanding intermediate hidden states into a higher-dimensional dictionary (e.g., 8x to 32x hidden dimension).
+- Enforce strict sparsity: training SAEs with L1 regularization penalties or modern TopK activation functions to ensure only a handful of dictionary features fire per token.
+- Uncover interpretable monosemantic features: discovering individual dictionary latent directions corresponding to clinical disease concepts or malicious shellcode strings.
+Mental model: Sparse autoencoders untangle the entangled web of polysemantic neurons into an expanded dictionary of clean, interpretable monosemantic concepts.
+Try: Train a small Sparse Autoencoder on the intermediate residual stream of a Transformer, enforce TopK sparsity, and inspect the top-activating dataset tokens for learned latents.
+Outcome: Train overcomplete Sparse Autoencoders, resolve polysemantic superposition, and discover monosemantic interpretable features in foundation models.
 
-M11.5 · Representation Engineering (RepE): Contrastive Activation Vectors & Steering — (sessions: 2)
-Session 1 · Reading Latent Cognitive States
-- Formalize Representation Engineering (RepE, Zou et al.): directly inspecting and manipulating the top-down cognitive states of models during generation.
-- Extract concept direction vectors by computing contrastive activation differences across paired prompts (e.g., honest vs. dishonest, sycophantic vs. factual).
-- Apply Principal Component Analysis (PCA) to contrastive activation sets to identify the principal axis of the target concept in the residual stream.
-Session 2 · Activation Steering & Behavioral Control
-- Implement runtime activation steering: add or subtract the scaled concept vector v directly to the residual stream: h_l' = h_l + alpha * v.
-- Compare activation steering with prompt engineering: evaluate robustness against adversarial prompt jailbreaks, token overhead, and stability over long contexts.
-- Analyze the alignment tax of excessive steering: monitor the degradation of grammatical fluency and reasoning ability under high steering coefficients alpha.
-Mental model: Prompting talks to the model through its ears; activation steering reaches directly into its brain to tilt its internal thought compass.
-Try: Extract a "truthfulness" concept vector from contrastive pairs, inject it during inference with varying alpha coefficients, and measure the reduction in hallucination.
-Outcome: Extract contrastive concept vectors, steer model generation behavior directly at the latent representation level, and quantify steering trade-offs.
+M11.5 · Counterfactual Explanations & Algorithmic Recourse — (sessions: 2)
+Session 1 · Formulating Counterfactual Optimization
+- Formulate counterfactual explanations from first principles: finding the smallest perturbation delta applied to input X such that the model prediction flips from class Y to Y*.
+- Balance competing objectives: minimizing input distance (L1/L2 norm), maximizing target class probability, and enforcing domain plausibility constraints.
+- Prevent invalid recourse: ensuring immutable features (e.g., patient biological age, system hardware UUIDs) cannot be modified in counterfactual recommendations.
+Session 2 · Domain Plausibility in Healthcare & Cybersecurity
+- Enforce manifold constraints: ensuring counterfactual clinical patient states remain on the valid physiological manifold (e.g., blood pressure cannot be zero while alive).
+- Generate counterfactual cyber incident explanations: demonstrating the minimum packet modifications required to transform an intrusion alert into benign traffic.
+- Present recourse recommendations: providing actionable, human-interpretable guidance for physicians evaluating automated diagnostic alerts or security analysts triaging alarms.
+Mental model: A counterfactual answer does not just explain why a model made a decision; it shows what must change in the real world to alter the outcome.
+Try: Implement a counterfactual optimization algorithm using gradient descent on a clinical tabular classifier, finding the minimal actionable lifestyle change to reduce cardiac risk.
+Outcome: Formulate and optimize plausible counterfactual explanations with domain-specific feasibility constraints for healthcare and cybersecurity applications.
 
-M11.6 · Capstone Project: Mechanistic Circuit Discovery & Activation Steering Probe — (sessions: 3)
-Session 1 · Circuit Isolation & Causal Mediation Pipeline
-- Construct an automated mechanistic analysis harness in PyTorch (leveraging TransformerLens or native hooks) targeting a specific reasoning behavior.
-- Execute causal activation patching across all layers and token positions to map the exact computational circuit responsible for the target task.
-- Train an overcomplete Sparse Autoencoder (SAE) on the critical bottleneck layer, extracting monosemantic feature directions with verified high sparsity.
-Session 2 · Activation Steering & Empirical Verification
-- Formulate contrastive concept vectors along the identified circuit pathways and implement real-time activation steering hooks during generation.
-- Evaluate behavioral control: demonstrate statistically significant suppression of undesirable outputs (e.g., sycophancy or bias) without degrading perplexity.
-- Author an academic mechanistic interpretability paper in LaTeX complete with interactive circuit diagrams, activation heatmaps, and ablation tables.
-Mental model: Rigorous mechanistic interpretability transforms the black box into a transparent, mathematically verifiable computing circuit.
-Try: Discover the complete indirect object identification circuit in a model, extract steering vectors, and author a publication-ready empirical report.
-Outcome: Execute publication-grade mechanistic interpretability investigations, localize causal circuits, and deploy representation steering controls.
+M11.6 · Capstone Project: Trustworthy AI Audit & Mechanistic Interpretability Dissection Suite — (sessions: 3)
+Session 1 · Multi-Method Explainability Harness Architecture
+- Build a comprehensive, publication-grade interpretability and trustworthiness auditing toolkit targeting a model deployed in clinical diagnosis or cybersecurity detection.
+- Implement dual explainability tiers: macroscopic feature attribution (SHAP, Integrated Gradients) and microscopic mechanistic interpretability (linear probing, activation patching).
+- Ingest real-world domain validation instances and generate standardized interpretability artifact reports.
+Session 2 · Circuit Dissection, Counterfactuals & Peer-Review Documentation
+- Discover and document the functional circuit or primary feature importance weights driving model decisions on high-stakes cases.
+- Generate plausible counterfactual explanations for anomalous or false-positive edge cases, proving actionable algorithmic recourse.
+- Package the auditing suite into an automated evaluation dashboard compliant with FDA AI/ML Action Plan guidelines and academic conference standards.
+Mental model: In high-stakes domains, interpretability is not an optional post-hoc visualization; it is the scientific prerequisite for real-world clinical and security deployment.
+Try: Run the full interpretability audit on a trained model, extracting feature attributions, probing representations, and generating a 4-page scientific interpretability report.
+Outcome: Deliver an exhaustive, peer-reviewed explainability audit combining feature attribution, linear probing, and mechanistic circuit analysis.
 
-CAPSTONE PROJECT: Mechanistic Circuit Discovery & Activation Steering Probe
-BRIEF: Implement a comprehensive mechanistic interpretability analysis of an open-source language model in PyTorch, mapping the causal circuit for a specific reasoning capability via activation patching, training an SAE to extract monosemantic latents, and demonstrating precise behavioral steering via representation engineering.
-Build an interpretability suite that:
-- Instruments an open-source autoregressive model (e.g., GPT-2 or Llama-small) with forward and backward activation hooks across all residual stream layers.
-- Formulates a clean dataset of paired contrastive prompts targeting a specific capability (e.g., grammatical agreement, factual recall, or truthfulness).
-- Executes causal activation patching: injects Gaussian noise into input embeddings and measures the exact recovery of clean output logits across layers and tokens.
-- Deconstructs attention heads into QK and OV circuits, identifying specific induction heads or key information-routing heads.
-- Trains an overcomplete Sparse Autoencoder (SAE) with L1 regularization on the critical mediating layer, achieving high explained variance with low L0 sparsity.
-- Extracts contrastive concept vectors via PCA on activation differences, isolating a linear concept direction in the residual stream.
-- Implements runtime activation steering during generation (h' = h + alpha * v), sweeping alpha to measure the trade-off between control and fluency.
-- Generates publication-ready figures (layer-by-position patching heatmaps, PCA concept projections, and fluency degradation curves) formatted in LaTeX.
+CAPSTONE PROJECT: Trustworthy AI Audit & Mechanistic Interpretability Dissection Suite
+BRIEF: Design, execute, and package an end-to-end interpretability and trustworthiness audit of a deep learning model trained on clinical healthcare (MIMIC-IV / CheXpert) or cybersecurity threat telemetry (CIC-IDS / Ember), combining axiomatic feature attribution, linear probing, and counterfactual recourse.
+Build an interpretability auditing suite that:
+- Implements axiomatic feature attributions (Integrated Gradients and TreeSHAP/KernelSHAP) with verified Completeness axiom convergence.
+- Generates high-resolution spatial attribution heatmaps (Grad-CAM++) for imaging models or token attribution heatmaps for sequential models.
+- Conducts linear representation probing across all network layers, plotting concept emergence trajectories with control task baselines.
+- Performs activation patching on critical decision cases to isolate specific causal layers or attention heads.
+- Optimizes plausible, manifold-constrained counterfactual explanations for critical prediction edge cases while locking immutable features.
+- Audits model reliability against spurious correlations and shortcuts (e.g., hospital site markers or network packet arrival artifacts).
+- Exports publication-ready vector figures, attribution charts, and an automated FDA-compliant Trustworthy AI Report.
 Deliverables:
-- Clean Python repository featuring interp/patching.py, interp/sae.py, and interp/steering.py.
-- Publication-quality vector plots (PDF) depicting causal mediation heatmaps and SAE feature activation spectra.
-- Complete 5-page research workshop paper PDF formatted in LaTeX detailing the discovered circuit and steering results.
-Outcome: You can reverse-engineer internal neural representations, isolate computational circuits, and steer foundation models from the inside out.
+- Modular, well-documented Python interpretability library (trustworthy_ai_audit/) with CLI and visualization scripts.
+- Jupyter dissection notebook walking through feature attribution, probing, and counterfactual generation on real test cases.
+- High-resolution multi-panel publication figure comparing Integrated Gradients, SHAP, and Grad-CAM on representative failure modes.
+- Formal 4-page academic audit report analyzing model failure modes, representation emergence, and safety guarantees.
+Outcome: You can unpack black-box deep learning models, conduct rigorous mechanistic interpretability audits, and scientifically defend AI trustworthiness for peer review and regulatory clearance.

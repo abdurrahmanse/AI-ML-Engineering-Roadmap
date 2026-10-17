@@ -1,101 +1,101 @@
 Level 9 · High-Performance Computing (HPC) & Scaled Research Systems
 
-Phase: HPC, Scaling & Interpretability
+Phase: HPC Clusters, Scaling & Explainability
 Suggested duration: 13 sessions (~3 weeks)
-Prerequisites: Level 8 (Benchmark Creation, Data Curation & Evaluation Science)
-Scope: Master the computational infrastructure of modern large-scale machine learning research: operating on HPC supercomputing clusters with SLURM, distributed communication primitives (NCCL), multi-GPU training (DDP, FSDP), 3D parallelism (Megatron-LM, ZeRO-3), and measuring Model FLOPs Utilization (MFU).
+Prerequisites: Level 8 (Experimental Design, Ablation Studies & Fair Benchmarking)
+Scope: Transition research codebases from single-GPU workstations to university and supercomputing HPC clusters: navigating SLURM batch job schedulers, environment modules, distributed multi-node execution with PyTorch Fully Sharded Data Parallel (FSDP), DeepSpeed ZeRO-3, and Megatron tensor parallelism; profiling Model FLOPs Utilization (MFU), optimizing NCCL communication collectives, and overcoming out-of-memory (OOM) bottlenecks.
 
-M9.1 · Supercomputing Cluster Architecture: SLURM Schedulers, Modules & InfiniBand Fabrics — (sessions: 2)
-Session 1 · Supercomputing Cluster Architecture & SLURM
-- Understand high-performance computing (HPC) cluster topologies: login nodes, compute nodes, shared Lustre/GPFS parallel filesystems, and scratch storage.
-- Manage cluster resource allocation using the SLURM workload manager: sbatch scripts, srun interactive allocations, squeue monitoring, and scancel.
-- Configure SLURM job submission parameters: GPU counts (--gpus-per-node), CPU cores, memory limits, job arrays, and dependency chains.
-Session 2 · Environment Modules & High-Speed Interconnects
-- Load and configure environment modules (Lmod) to access specific CUDA toolkits, cuDNN libraries, OpenMPI distributions, and compiler toolchains.
-- Understand high-speed cluster networking fabrics: InfiniBand (HDR, NDR), RoCE, Non-Uniform Memory Access (NUMA), and PCIe Gen4/Gen5 lane topology.
-- Measure inter-node and intra-node network latency and bandwidth using nccl-tests and InfiniBand diagnostics (ibv_devinfo, ib_write_bw).
-Mental model: A supercomputer is not just many servers; it is a single, tightly coupled distributed instrument synchronized across a low-latency network fabric.
-Try: Write a multi-GPU SLURM batch submission script requesting 4 GPUs on a single node, redirecting stdout/stderr, and verifying environment module initialization.
-Outcome: Operate on university and national supercomputing clusters using SLURM, manage HPC modules, and diagnose interconnect topologies.
+M9.1 · Supercomputing Infrastructure: SLURM, Environment Modules & Interconnects — (sessions: 2)
+Session 1 · SLURM Workload Management & Batch Scheduling
+- Master university and national supercomputing job scheduling using SLURM (Simple Linux Utility for Resource Management).
+- Author modular SLURM batch scripts (#SBATCH directives): configuring nodes, tasks-per-node, GPU partitions, time limits, and memory requests.
+- Manage large-scale hyperparameter searches and multi-seed sweeps efficiently using SLURM job arrays (--array) with automated output redirection.
+Session 2 · HPC Software Modules & High-Speed Network Fabrics
+- Navigate HPC software module systems (Lmod, Environment Modules): loading compiler toolchains, specific CUDA drivers, and optimized cuDNN libraries.
+- Understand supercomputing network topologies: high-bandwidth InfiniBand (HDR/NDR) fabrics and RoCE (RDMA over Converged Ethernet).
+- Leverage GPUDirect RDMA (Remote Direct Memory Access) to enable zero-copy GPU-to-GPU data transfers across physical server nodes.
+Mental model: SLURM is the traffic controller of the supercomputer; precise resource specifications prevent jobs from failing due to memory or time preemption.
+Try: Write a SLURM batch submission script requesting 2 nodes and 8 GPUs with automated checkpoint recovery and email alerts upon job completion.
+Outcome: Navigate university and laboratory supercomputing environments, submit multi-node batch scripts, and leverage high-speed interconnects.
 
-M9.2 · Collective Communication Primitives: Ring All-Reduce, NCCL & Hardware Topologies — (sessions: 2)
-Session 1 · Distributed Communication Primitives
-- Formalize distributed collective communication operations: Broadcast, Scatter, Gather, All-Gather, Reduce, Reduce-Scatter, and All-Reduce.
-- Derive the communication volume and time complexity of the Ring All-Reduce algorithm across N participating compute ranks.
-- Prove that Ring All-Reduce transfers exactly 2 * ((N - 1) / N) * S bytes per GPU, making communication bandwidth independent of cluster size N.
-Session 2 · NVIDIA Collective Communications Library (NCCL)
-- Understand the role of NCCL as the high-performance communication backbone for multi-GPU PyTorch training.
-- Configure NCCL ring and tree communication topologies across NVLink bridges within nodes and InfiniBand adapters between nodes.
-- Debug distributed communication stalls and deadlocks using NCCL debug environment variables (NCCL_DEBUG=INFO, NCCL_DEBUG_SUBSYS=ALL).
-Mental model: Ring All-Reduce splits gradient tensors into chunks that flow in a circle; every GPU sends and receives simultaneously without a master bottleneck.
-Try: Run an nccl-tests all_reduce_perf benchmark across multiple GPUs, measure effective bus bandwidth (GB/s), and verify near-theoretical saturation.
-Outcome: Derive collective communication algorithms analytically, configure NCCL parameters, and diagnose distributed communication bottlenecks.
+M9.2 · Distributed Data Parallelism: DDP, FSDP & DeepSpeed ZeRO — (sessions: 2)
+Session 1 · DistributedDataParallel (DDP) & Ring All-Reduce
+- Master PyTorch DistributedDataParallel (DDP): multi-process spawning, local rank vs. global rank mapping, and distributed process group initialization.
+- Analyze the Ring All-Reduce communication algorithm: synchronizing parameter gradients across N GPUs with 2*(N-1)/N communication volume.
+- Implement gradient accumulation to simulate large global batch sizes on hardware with restricted physical VRAM capacity.
+Session 2 · Zero Redundancy Optimizer (ZeRO) & PyTorch FSDP
+- Deconstruct DeepSpeed ZeRO memory sharding: ZeRO-Stage 1 (sharding optimizer states), ZeRO-Stage 2 (gradients), and ZeRO-Stage 3 (model parameters).
+- Master PyTorch Fully Sharded Data Parallel (FSDP): configuring sharding strategies (FULL_SHARD, SHARD_GRAD_OP, NO_SHARD), mixed precision, and backward prefetching.
+- Overcome out-of-memory (OOM) errors when scaling model parameters beyond the physical memory capacity of individual GPU cards.
+Mental model: Standard DDP duplicates the entire model on every GPU; FSDP shards model parameters and optimizer states across the cluster, reconstituting them on-the-fly.
+Try: Convert a standard PyTorch training loop to PyTorch FSDP, training a multi-billion parameter model across multiple GPUs with mixed precision.
+Outcome: Implement and scale distributed data-parallel training across multi-GPU and multi-node clusters using DDP and FSDP.
 
-M9.3 · Distributed Data Parallel (DDP) & Fully Sharded Data Parallel (FSDP) — (sessions: 2)
-Session 1 · Distributed Data Parallel (DDP) Internals
-- Master the execution mechanics of torch.nn.parallel.DistributedDataParallel (DDP): process forking, rank assignments, and local rank mapping.
-- Understand gradient bucketing and overlapping: how DDP initiates asynchronous Ring All-Reduce operations while earlier layers are still computing gradients.
-- Implement robust distributed initialization with torch.distributed.init_process_group() using the NCCL backend and DistributedSampler.
-Session 2 · Fully Sharded Data Parallel (FSDP)
-- Analyze the memory wall of standard DDP: redundant replication of model weights, optimizer states, and gradients across every GPU rank.
-- Implement Fully Sharded Data Parallel (FSDP): sharding model parameters, gradients, and optimizer states across ranks, reconstructing weights on the fly.
-- Configure FSDP sharding strategies (FULL_SHARD, SHARD_GRAD_OP, NO_SHARD), CPU offloading, and mixed-precision communication policies.
-Mental model: DDP replicates the model everywhere and syncs gradients; FSDP shreds the model across GPUs and gathers layers just in time for execution.
-Try: Convert a standard PyTorch training loop into a multi-GPU FSDP script, and train a model whose parameter count exceeds single-GPU VRAM capacity.
-Outcome: Deploy multi-GPU training with PyTorch DDP and FSDP, overlapping compute with communication and breaking single-GPU memory barriers.
+M9.3 · Model, Pipeline & Tensor Parallelism (Megatron-LM) — (sessions: 2)
+Session 1 · Tensor Parallelism & Matrix Partitioning
+- Master intra-layer tensor parallelism (Megatron-LM): splitting linear weight matrices across GPU devices to distribute memory and computation.
+- Implement Column Parallel Linear layers (splitting attention QKV projections) and Row Parallel Linear layers (merging projections with all-reduce).
+- Maintain communication efficiency: inserting exactly two all-reduce operations per Transformer layer (one in self-attention, one in MLP block).
+Session 2 · Pipeline Parallelism & Activation Checkpointing
+- Implement inter-layer pipeline parallelism (PP): partitioning sequential Transformer layers across distinct physical GPUs.
+- Analyze pipeline bubbles and execution schedules: standard sequential schedules vs. interleaved One-Forward-One-Backward (1F1B) schedules.
+- Apply activation checkpointing (gradient checkpointing): trading 30% additional compute to discard intermediate activations and recompute them during backward passes.
+Mental model: Tensor parallelism splits individual layers horizontally across GPUs; pipeline parallelism stacks layers vertically across a chain of GPUs.
+Try: Implement column-parallel and row-parallel linear layers in PyTorch using distributed communication collectives, verifying numerical equivalence with a monolithic layer.
+Outcome: Design and execute 3D parallelism (Data + Tensor + Pipeline Parallelism) to train ultra-large models exceeding single-device memory limits.
 
-M9.4 · 3D Parallelism: Tensor Parallelism, Pipeline Parallelism & ZeRO-1/2/3 Memory Sharding — (sessions: 2)
-Session 1 · Zero Redundancy Optimizer (DeepSpeed ZeRO)
-- Deconstruct the exact memory consumption of AdamW optimizer states (16 bytes per parameter in mixed precision).
-- Differentiate the three stages of ZeRO: ZeRO-1 (shards optimizer states), ZeRO-2 (shards optimizer states + gradients), and ZeRO-3 (shards everything).
-- Implement ZeRO memory reduction using DeepSpeed or native PyTorch FSDP, calculating exact per-GPU memory footprints across cluster sizes.
-Session 2 · 3D Parallelism: Tensor & Pipeline Parallelism (Megatron-LM)
-- Master Megatron-LM Tensor Parallelism: column-parallel linear projections for Q, K, V and row-parallel projections for output matrices.
-- Master Pipeline Parallelism: partitioning model layers sequentially across GPU stages with micro-batching to minimize pipeline bubbles (1F1B schedule).
-- Understand 3D Parallelism combinations: uniting Data Parallelism (DP), Tensor Parallelism (TP), and Pipeline Parallelism (PP) for frontier model scales.
-Mental model: Tensor Parallelism splits individual matrices across fast NVLink; Pipeline Parallelism splits layers across nodes; Data Parallelism scales across clusters.
-Try: Calculate the theoretical memory footprint of a 20B parameter model under ZeRO-1, ZeRO-2, and ZeRO-3 across an 8-GPU node.
-Outcome: Architect large-scale 3D distributed training configurations combining Tensor, Pipeline, and Sharded Data Parallelism.
+M9.4 · Communication Collectives & Hardware Bottleneck Profiling — (sessions: 2)
+Session 1 · Distributed Communication Collectives (NCCL)
+- Master fundamental communication primitives in NCCL (NVIDIA Collective Communications Library): All-Reduce, Reduce-Scatter, All-Gather, and Broadcast.
+- Benchmark inter-GPU communication bandwidth: measuring NVLink intra-node bandwidth (up to 900 GB/s) versus InfiniBand inter-node bandwidth.
+- Implement communication-computation overlapping: prefetching next-layer parameters asynchronously while current-layer matrix multiplications execute.
+Session 2 · Hardware Diagnostics & PyTorch Profiler
+- Profile distributed execution using PyTorch Profiler and NVIDIA Nsight Systems (nsys): recording kernel timelines and communication overhead.
+- Inspect execution traces using Chrome Trace Viewer and TensorBoard: identifying GPU idle bubbles caused by CPU data loading stalls or slow NCCL barriers.
+- Diagnose and eliminate straggler nodes: detecting thermal throttling, slow network ports, or uneven batch workloads across distributed workers.
+Mental model: A distributed cluster is only as fast as its slowest worker; profiling traces expose hidden synchronization barriers where GPUs sit idle.
+Try: Profile a multi-GPU training run using PyTorch Profiler, export the JSON trace, and identify the exact percentage of time spent in NCCL communication.
+Outcome: Profile distributed multi-GPU training runs, diagnose communication bottlenecks, and optimize computation-communication overlapping.
 
-M9.5 · Compute Efficiency Metrics: Model FLOPs Utilization (MFU) & Hardware Profiling — (sessions: 2)
-Session 1 · Theoretical vs. Hardware FLOPs Utilization
-- Compute theoretical minimum FLOPs required for forward and backward passes of a Transformer: 6 * N * D (where N is parameters, D is tokens).
-- Define Hardware FLOPs Utilization (HFU): the percentage of raw hardware peak floating-point capacity achieved by the cluster during execution.
-- Define Model FLOPs Utilization (MFU, Chowdhery et al.): the ratio of theoretical model FLOPs to peak hardware capacity, penalizing recomputation overhead.
-Session 2 · Profiling Distributed Training Efficiency
-- Instrument distributed training runs to calculate and log real-time MFU, achieving target research efficiency benchmarks (MFU > 45-55%).
-- Identify causes of low MFU: communication bubbles, activation recomputation overhead, CPU data loading starvation, and memory bandwidth throttling.
-- Monitor power consumption, thermal throttling, and calculate the carbon footprint (CO2 equivalent) of large-scale scientific training experiments.
-Mental model: MFU is the supreme benchmark of research systems engineering: it tells you what percentage of your expensive compute budget was genuinely useful math.
-Try: Write an MFU tracking callback that calculates floating-point throughput at every step, and measure the exact MFU of a distributed training run.
-Outcome: Compute MFU and HFU rigorously, profile distributed cluster efficiency, and optimize GPU utilization to maximize scientific output per dollar.
+M9.5 · Model FLOPs Utilization (MFU) & Computational Scaling Efficiency — (sessions: 2)
+Session 1 · Calculating Theoretical & Achieved FLOPs
+- Calculate theoretical peak hardware floating-point operations (FLOP/s) for NVIDIA GPUs (e.g., A100: 312 TFLOPs BF16; H100: 989 TFLOPs BF16).
+- Formulate precise model FLOP formulas: calculating floating-point operations per training token (approximately 6 * P * N FLOPs per forward-backward pass).
+- Measure Achieved Model FLOPs Utilization (MFU) (Chowdhery et al.): computing the ratio of achieved throughput to peak theoretical hardware capacity.
+Session 2 · Scaling Efficiency & Weak vs. Strong Scaling
+- Evaluate strong scaling: measuring training speedup as GPU count increases for a fixed global problem and batch size.
+- Evaluate weak scaling: measuring throughput maintenance as both GPU count and global problem size scale proportionally.
+- Target elite research efficiency standards: tuning distributed batch sizes, sequence lengths, and precision to achieve > 45-55% MFU on production clusters.
+Mental model: MFU is the definitive research metric of systems efficiency, proving whether your codebase is actually extracting hardware capability.
+Try: Write a Python script that calculates the exact theoretical MFU of a Transformer training run based on logged tokens-per-second and GPU hardware specs.
+Outcome: Quantify Model FLOPs Utilization (MFU) and systematically evaluate strong and weak scaling efficiency on research supercomputers.
 
-M9.6 · Capstone Project: Multi-Node Distributed Training Harness with MFU Benchmarking — (sessions: 3)
-Session 1 · Distributed Harness Architecture & SLURM Integration
-- Construct an industrial-grade distributed training framework supporting PyTorch FSDP and Megatron-style Tensor Parallelism across multiple nodes.
-- Author robust SLURM job submission scripts with automated node discovery, master address extraction, and environment variable initialization.
-- Implement fault-tolerant distributed checkpointing using PyTorch Distributed Checkpoint (torch.distributed.checkpoint) with asynchronous saving.
-Session 2 · Benchmarking, Scaling Studies & Efficiency Profiling
-- Execute a weak scaling and strong scaling benchmark study across 1, 2, 4, and 8 GPUs on an HPC supercomputing cluster.
-- Measure and plot exact MFU, throughput (tokens/second), and communication-to-computation ratios across increasing cluster node counts.
-- Author a systems research report in LaTeX detailing scaling efficiency, communication overhead, and optimal distributed configurations.
-Mental model: A master of scaled systems turns raw hardware clusters into a transparent scientific accelerator, executing experiments that smaller labs cannot attempt.
-Try: Launch a multi-GPU FSDP training job on a compute cluster, achieve an MFU exceeding 45%, and verify distributed checkpoint resumption.
-Outcome: Deploy, optimize, and profile large-scale distributed training on HPC supercomputing clusters, achieving state-of-the-art computational efficiency.
+M9.6 · Capstone Project: Distributed Multi-Node HPC Training & Scaling Benchmark Harness — (sessions: 3)
+Session 1 · Multi-Node SLURM Architecture & Distributed Launcher
+- Build an automated, production-ready distributed training harness designed for multi-GPU and multi-node university HPC clusters.
+- Author robust SLURM submission scripts featuring dynamic rendezvous (torchrun with master node IP/port discovery and SLURM environment variables).
+- Implement PyTorch FSDP with mixed-precision (BF16), activation checkpointing, and backward prefetching configured for scalable execution.
+Session 2 · Scaling Benchmark, MFU Profiling & Scientific Reporting
+- Execute a rigorous scaling study benchmarking throughput across 1, 2, 4, and 8 GPUs (or multi-node setups where available).
+- Measure and plot weak and strong scaling curves, tracking achieved MFU, communication-to-computation ratios, and peak VRAM allocation.
+- Package the harness into a reusable template repository featuring automated node diagnostics, checkpoint recovery, and LaTeX scaling table generators.
+Mental model: Research institutions evaluate PhD candidates and RAs on their ability to command supercomputing clusters efficiently without wasting compute allocations.
+Try: Execute the distributed training run across multiple GPUs, generate the scaling efficiency curve, and calculate final MFU metrics.
+Outcome: Deliver a fully audited, publication-grade distributed training harness and scaling report running seamlessly on high-performance computing clusters.
 
-CAPSTONE PROJECT: Multi-Node Distributed Training Harness with MFU Benchmarking
-BRIEF: Build a production-grade distributed deep learning research harness in PyTorch that executes scalable multi-GPU training via Fully Sharded Data Parallel (FSDP), integrates seamlessly with SLURM cluster schedulers, measures real-time Model FLOPs Utilization (MFU), and provides an automated scaling benchmark report.
-Build a distributed research harness that:
-- Implements a modern Transformer architecture trained using PyTorch Fully Sharded Data Parallel (FSDP) with configurable sharding strategies.
-- Operates seamlessly across multi-GPU and multi-node clusters via torchrun and SLURM batch job scripts with dynamic rank and address resolution.
-- Integrates asynchronous distributed checkpointing (torch.distributed.checkpoint), saving and loading sharded model weights without gathering to a single rank.
-- Computes theoretical model FLOPs per step analytically (6*N*D + attention FLOPs) and logs real-time MFU and HFU to Weights & Biases.
-- Implements an automated scaling benchmark suite that evaluates throughput (tokens/second) across 1, 2, 4, and 8+ GPUs under both strong and weak scaling.
-- Detects straggling GPU workers and communication bottlenecks by recording detailed NCCL timing telemetry and memory snapshots.
-- Implements mixed-precision communication policies (reducing inter-node gradient communication bandwidth with BF16 gradients).
-- Generates publication-ready scaling plots (linear speedup vs. ideal scaling) and a LaTeX systems engineering summary table.
+CAPSTONE PROJECT: Distributed Multi-Node HPC Training & Scaling Benchmark Harness
+BRIEF: Design, deploy, and benchmark a distributed training harness utilizing PyTorch FSDP and mixed-precision on a multi-GPU/multi-node cluster via SLURM, evaluating weak and strong scaling efficiency and calculating Model FLOPs Utilization (MFU).
+Build an HPC training harness that:
+- Deploys seamlessly on SLURM-managed clusters via automated bash/sbatch submission scripts with torchrun coordination.
+- Configures PyTorch FSDP (or DeepSpeed ZeRO-3) with backward prefetching, CPU offloading options, and activation checkpointing.
+- Supports training across 1, 2, 4, and 8+ GPUs with deterministic multi-process seed synchronization and distributed data loading.
+- Collects detailed runtime telemetry: tokens processed per second, step latency, peak VRAM allocation, and NCCL communication time.
+- Calculates achieved Model FLOPs Utilization (MFU) and compares it against theoretical hardware limits.
+- Evaluates weak and strong scaling efficiency, generating automated scaling curve figures (speedup vs. GPU count).
+- Includes automated checkpoint resumption and emergency signal handling (SIGTERM) saving state before SLURM job timeout.
 Deliverables:
-- Modular distributed codebase featuring distributed/fsdp_wrapper.py, metrics/mfu_tracker.py, and slurm/submit_multinode.sh.
-- Scalability benchmark report with vector plots illustrating strong and weak scaling efficiency and MFU across cluster sizes.
-- Detailed technical runbook documenting SLURM deployment, NCCL troubleshooting, and optimal batch-size/sharding configurations.
-Outcome: You can orchestrate large-scale deep learning experiments on supercomputing clusters, achieve high MFU efficiency, and break through computational limits.
+- Modular distributed codebase (hpc_distributed_harness/) with clean SLURM sbatch scripts and configuration files.
+- Automated profiling report generated via PyTorch Profiler with Chrome trace exports.
+- High-resolution vector plot displaying weak and strong scaling efficiency alongside ideal linear scaling lines.
+- Formal 3-page HPC systems report detailing cluster specifications, MFU calculations, and distributed scaling analysis.
+Outcome: You can scale complex deep learning models across university and supercomputing clusters with verified systems efficiency and reproducible performance.

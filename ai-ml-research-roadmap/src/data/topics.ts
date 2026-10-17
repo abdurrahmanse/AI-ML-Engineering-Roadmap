@@ -212,7 +212,7 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 3 */
   'M3.1': {
-    sig: 'de96ea40',
+    sig: '3bbeef50',
     labels: [
       "Empirical experiments with strictly defined",
       "And isolate confounding variables that",
@@ -223,7 +223,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M3.2': {
-    sig: '6d739e47',
+    sig: '0bf72968',
     labels: [
       "Primary purpose of an ablation",
       "One-factor-at-a-time",
@@ -234,7 +234,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M3.3': {
-    sig: '7270c8d3',
+    sig: '868b4dd1',
     labels: [
       "State-of-the-art",
       "Avoid the \"weak baseline\" trap",
@@ -245,7 +245,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M3.4': {
-    sig: '15fefc32',
+    sig: 'cc20ed68',
     labels: [
       "Why manual trial-and-error hyperparameter tuning",
       "Implement automated search strategies",
@@ -256,7 +256,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M3.5': {
-    sig: '7c5b9642',
+    sig: 'c2e5ec23',
     labels: [
       "Stratified k-fold cross-validation and grouped",
       "Out-of-distribution",
@@ -267,7 +267,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M3.6': {
-    sig: '3f8c18a9',
+    sig: '60b07ec0',
     labels: [
       "Construct a standardized empirical benchmarking",
       "Strict parameter-matching and compute-matching constraints",
@@ -279,7 +279,7 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 4 */
   'M4.1': {
-    sig: 'db30b998',
+    sig: 'de5e836a',
     labels: [
       "Decouple research components into clean",
       "Model codebases with clear abstraction",
@@ -290,7 +290,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M4.2': {
-    sig: '08850f6f',
+    sig: '3a23eb88',
     labels: [
       "Custom PyTorch differentiable operations",
       "Save necessary intermediate activation tensors",
@@ -301,7 +301,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M4.3': {
-    sig: '6bfb1695',
+    sig: '8a9d09a1',
     labels: [
       "IEEE 754 floating-point representations: dynamic",
       "Root causes of numerical instability",
@@ -312,7 +312,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M4.4': {
-    sig: '40c978ae',
+    sig: '96121d1b',
     labels: [
       "Implement advanced custom loss objectives",
       "Balance multi-task loss objectives dynamically",
@@ -323,7 +323,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M4.5': {
-    sig: '15061aae',
+    sig: '70e77e3c',
     labels: [
       "Between allocated GPU memory",
       "Capture and inspect interactive HTML",
@@ -334,7 +334,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M4.6': {
-    sig: '60854b7d',
+    sig: 'a514b8be',
     labels: [
       "Modular",
       "Mathematically derived vector-Jacobian products",
@@ -346,7 +346,7 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 5 */
   'M5.1': {
-    sig: '61c3c31b',
+    sig: '5f320100',
     labels: [
       "Scaled dot-product attention from first",
       "Multi-head self-attention and cross-attention",
@@ -357,7 +357,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M5.2': {
-    sig: '35718c36',
+    sig: 'dfe51f53',
     labels: [
       "Why absolute sinusoidal position embeddings",
       "Rotary Position Embeddings",
@@ -368,7 +368,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M5.3': {
-    sig: 'aec651ec',
+    sig: 'a887c578',
     labels: [
       "Linear time-invariant",
       "Discretize continuous state space equations",
@@ -379,7 +379,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M5.4': {
-    sig: '23b6c65f',
+    sig: '3dfe2890',
     labels: [
       "Understand the manifold hypothesis",
       "InfoNCE contrastive loss function",
@@ -390,7 +390,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M5.5': {
-    sig: 'c995a194',
+    sig: 'ba17c1a3',
     labels: [
       "Represent relational scientific data",
       "General Message Passing Neural Network",
@@ -401,7 +401,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M5.6': {
-    sig: '85fbc039',
+    sig: 'f3e25c7a',
     labels: [
       "Three contrasting sequence architectures",
       "Train all three models",
@@ -413,7 +413,7 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 6 */
   'M6.1': {
-    sig: '5ebfc641',
+    sig: '30b12c33',
     labels: [
       "Directed latent variable models p",
       "Introduce the variational distribution q_phi",
@@ -424,7 +424,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M6.2': {
-    sig: '86be10fa',
+    sig: '4370f3c0',
     labels: [
       "Define the forward Markovian noising",
       "Closed-form transition distribution q",
@@ -435,7 +435,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M6.3': {
-    sig: 'f67f020e',
+    sig: 'dd6efaec',
     labels: [
       "Generalize discrete diffusion timesteps into",
       "Classify variance preserving",
@@ -446,7 +446,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M6.4': {
-    sig: '1423ecea',
+    sig: 'bd84c76b',
     labels: [
       "Continuous Normalizing Flows",
       "Intractability of standard CNF maximum",
@@ -457,7 +457,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M6.5': {
-    sig: 'e200e469',
+    sig: 'fdd6c177',
     labels: [
       "Fréchet Inception Distance",
       "Analytical Fréchet distance formula: ||mu_1",
@@ -468,7 +468,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M6.6': {
-    sig: '39e05529',
+    sig: '89802610',
     labels: [
       "Complete continuous Optimal Transport Flow",
       "Construct the conditional vector field",
@@ -480,7 +480,7 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 7 */
   'M7.1': {
-    sig: '7866b9ac',
+    sig: 'a21fac2e',
     labels: [
       "Reinforcement learning problem as a",
       "Formalize policies pi",
@@ -491,7 +491,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M7.2': {
-    sig: '009ef68e',
+    sig: 'f31be7fe',
     labels: [
       "Approximate action-value functions using deep",
       "Root causes of instability",
@@ -502,7 +502,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M7.3': {
-    sig: 'a9809df7',
+    sig: '0a63060e',
     labels: [
       "Policy Gradient Theorem analytically: \\nabla_theta",
       "REINFORCE algorithm with baseline subtraction",
@@ -513,7 +513,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M7.4': {
-    sig: 'b5fb516b',
+    sig: '03bd8384',
     labels: [
       "Computational expressivity of autoregressive Transformers:",
       "Formalize Chain-of-Thought",
@@ -524,7 +524,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M7.5': {
-    sig: '22fec821',
+    sig: 'f630daf2',
     labels: [
       "Analyze Outcome Reward Models (ORMs)",
       "Credit assignment problem in ORMs:",
@@ -535,7 +535,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M7.6': {
-    sig: 'ebfa5b2d',
+    sig: '86a6747c',
     labels: [
       "Modular",
       "Construct a test-time search controller",
@@ -547,7 +547,7 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 8 */
   'M8.1': {
-    sig: '625f9a12',
+    sig: '1d60a5cb',
     labels: [
       "Understand construct validity",
       "Avoid common benchmark failure modes",
@@ -558,7 +558,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M8.2': {
-    sig: 'b04e9c78',
+    sig: 'd76d184d',
     labels: [
       "Large-scale text preprocessing pipelines: language",
       "Train high-precision domain quality classifiers",
@@ -569,7 +569,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M8.3': {
-    sig: '2cb9a63f',
+    sig: '0fdd9abd',
     labels: [
       "Exhaustive",
       "Pairwise inter-annotator agreement metrics: Cohen’s",
@@ -580,7 +580,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M8.4': {
-    sig: '3d9ba703',
+    sig: 'e2fc9588',
     labels: [
       "How test-set contamination occurs when",
       "Distinguish between verbatim contamination",
@@ -591,7 +591,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M8.5': {
-    sig: '3aa26300',
+    sig: '37442d10',
     labels: [
       "Methodology of using frontier models",
       "Structured pairwise comparison and single-answer",
@@ -602,7 +602,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M8.6': {
-    sig: '450c950a',
+    sig: '5baa7f51',
     labels: [
       "Construct a novel",
       "Exhaustive annotation codebook",
@@ -614,7 +614,7 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 9 */
   'M9.1': {
-    sig: '1b2ab573',
+    sig: '64979ad5',
     labels: [
       "High-performance computing",
       "Cluster resource allocation using the",
@@ -625,7 +625,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M9.2': {
-    sig: '09bc6239',
+    sig: 'c0147fa4',
     labels: [
       "Formalize distributed collective communication operations:",
       "Communication volume and time complexity",
@@ -636,7 +636,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M9.3': {
-    sig: '61641bad',
+    sig: 'e130a7b1',
     labels: [
       "Execution mechanics of torch.nn.parallel.DistributedDataParallel",
       "Understand gradient bucketing and overlapping",
@@ -647,7 +647,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M9.4': {
-    sig: '1d43819b',
+    sig: '5284898b',
     labels: [
       "Exact memory consumption of AdamW",
       "Differentiate the three stages of ZeRO",
@@ -658,7 +658,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M9.5': {
-    sig: '7c333b70',
+    sig: '57758519',
     labels: [
       "Theoretical minimum FLOPs required",
       "Define Hardware FLOPs Utilization (HFU)",
@@ -669,7 +669,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M9.6': {
-    sig: '78a84398',
+    sig: 'e013c263',
     labels: [
       "Construct an industrial-grade distributed training",
       "Robust SLURM job submission scripts",
@@ -681,7 +681,7 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 10 */
   'M10.1': {
-    sig: '86197a9e',
+    sig: '7f6e005c',
     labels: [
       "Formulate the empirical scaling hypothesis",
       "OpenAI scaling laws",
@@ -692,7 +692,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M10.2': {
-    sig: 'fe0b04a6',
+    sig: 'a50b8ff9',
     labels: [
       "Analyze normal pre-training loss trajectories",
       "Understand optimization schedules",
@@ -703,7 +703,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M10.3': {
-    sig: '3a2c2942',
+    sig: '4ea2eaab',
     labels: [
       "Composition of web-scale pre-training mixtures:",
       "Conduct data mixture ablation studies",
@@ -714,7 +714,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M10.4': {
-    sig: '4939ba60',
+    sig: 'a3da10ba',
     labels: [
       "Review the historical literature",
       "Counter-argument",
@@ -725,7 +725,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M10.5': {
-    sig: '21534f71',
+    sig: 'd1ff469b',
     labels: [
       "Mathematics of Byte-Pair Encoding",
       "Train tokenizers from scratch",
@@ -736,7 +736,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M10.6': {
-    sig: '1bdbcc96',
+    sig: '2878177a',
     labels: [
       "Train a grid of language",
       "Precise training loss trajectories",
@@ -748,7 +748,7 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 11 */
   'M11.1': {
-    sig: '39248454',
+    sig: 'deb8bee7',
     labels: [
       "Linear Representation Hypothesis",
       "Implement linear diagnostic probes",
@@ -759,7 +759,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M11.2': {
-    sig: '85177397',
+    sig: '6f73917d',
     labels: [
       "Transformer as a residual stream",
       "Multi-head attention operation into independent",
@@ -770,7 +770,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M11.3': {
-    sig: '13744f2c',
+    sig: 'e0968992',
     labels: [
       "Formulate the superposition hypothesis",
       "Understand polysemanticity",
@@ -781,7 +781,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M11.4': {
-    sig: 'a95258fd',
+    sig: 'd4b76b2c',
     labels: [
       "Between passive observational correlation",
       "Causal mediation analysis and activation",
@@ -792,7 +792,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M11.5': {
-    sig: 'a881826b',
+    sig: '880fae42',
     labels: [
       "Formalize Representation Engineering",
       "Concept direction vectors by computing",
@@ -803,7 +803,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M11.6': {
-    sig: 'ea7d0d57',
+    sig: '687ab0ad',
     labels: [
       "Construct an automated mechanistic analysis",
       "Causal activation patching across all",
@@ -815,7 +815,7 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 12 */
   'M12.1': {
-    sig: '6488b5df',
+    sig: 'c352fa5a',
     labels: [
       "Formalize human preference datasets D",
       "Formulate the Bradley-Terry preference model",
@@ -826,7 +826,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M12.2': {
-    sig: '34368ae7',
+    sig: 'b7d195d7',
     labels: [
       "Understand Goodhart’s Law in AI alignment",
       "Quantify reward over-optimization",
@@ -837,7 +837,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M12.3': {
-    sig: '573d3b51',
+    sig: '3d128c22',
     labels: [
       "Adversarial perturbations as constrained optimization:",
       "Fast Gradient Sign Method",
@@ -848,7 +848,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M12.4': {
-    sig: 'f71d1e1e',
+    sig: 'd091cdf1',
     labels: [
       "Formalize core fairness criteria",
       "Prove the Impossibility Theorem",
@@ -859,7 +859,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M12.5': {
-    sig: '84067fe8',
+    sig: 'e4489dff',
     labels: [
       "Academic research ethics and Institutional",
       "Evaluate dual-use hazards in AI research",
@@ -870,7 +870,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M12.6': {
-    sig: 'e0e8edb2',
+    sig: 'd4dbbd32',
     labels: [
       "Construct a curated pairwise preference",
       "And execute a complete Direct",
@@ -882,7 +882,7 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 13 */
   'M13.1': {
-    sig: '3651871c',
+    sig: '6ed7aa7d',
     labels: [
       "Dual-encoder contrastive learning objective: parallel",
       "Symmetric cross-entropy loss over image-to-text",
@@ -893,7 +893,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M13.2': {
-    sig: '64af0dd5',
+    sig: 'c91dcd7e',
     labels: [
       "Process continuous 2D images",
       "Linear and multi-layer perceptron",
@@ -904,7 +904,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M13.3': {
-    sig: '6af519bd',
+    sig: 'f60e3397',
     labels: [
       "Represent biological sequences",
       "Evolutionary scale modeling",
@@ -915,7 +915,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M13.4': {
-    sig: 'ca68c21b',
+    sig: '7b3d42ed',
     labels: [
       "Partial differential equations",
       "Physics-Informed Neural Networks",
@@ -926,7 +926,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M13.5': {
-    sig: '6807ca06',
+    sig: '1457f3d8',
     labels: [
       "Adapt general foundation models",
       "Catastrophic forgetting of general reasoning:",
@@ -937,7 +937,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M13.6': {
-    sig: '26d48e8e',
+    sig: 'b1437013',
     labels: [
       "Cross-modal scientific discovery task: linking",
       "End-to-end multimodal architecture in PyTorch",
@@ -949,7 +949,7 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 14 */
   'P14.1': {
-    sig: '3ffbb1c6',
+    sig: '808d7869',
     labels: [
       "Seminal",
       "Re-implement the core model architecture",
@@ -960,7 +960,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'P14.2': {
-    sig: '976a1074',
+    sig: '5732ae68',
     labels: [
       "And implement an innovative sequence",
       "Analytical time and memory complexity",
@@ -971,7 +971,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'P14.3': {
-    sig: '38658248',
+    sig: 'e5543cf8',
     labels: [
       "Novel",
       "Rigorous annotation codebook",
@@ -982,7 +982,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'P14.4': {
-    sig: '0a3b1d59',
+    sig: 'af5d00ad',
     labels: [
       "Complex",
       "Causal activation patching across all",
@@ -993,7 +993,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'P14.5': {
-    sig: '97f1db8a',
+    sig: 'a6b0ab09',
     labels: [
       "And implement a continuous-time Optimal",
       "Modern Diffusion Transformer",
@@ -1004,7 +1004,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'P14.6': {
-    sig: 'f496f92c',
+    sig: 'a0c0b818',
     labels: [
       "Novel regularization objective for Direct",
       "Spectral regularization algorithm in PyTorch",
@@ -1015,7 +1015,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'P14.7': {
-    sig: 'c2ecd4f4',
+    sig: '58a7789b',
     labels: [
       "Empirical discoveries from one",
       "Draft all required paper sections",
@@ -1027,7 +1027,7 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 15 */
   'M15.1': {
-    sig: '7323084d',
+    sig: 'a5d37be1',
     labels: [
       "Structural anatomy of top-tier AI/ML",
       "Master the four-sentence abstract formula",
@@ -1038,7 +1038,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M15.2': {
-    sig: '46621372',
+    sig: 'a4cfe85f',
     labels: [
       "Architect modular Overleaf/LaTeX projects",
       "Mathematical notation following the official",
@@ -1049,7 +1049,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M15.3': {
-    sig: '4cb5d65e',
+    sig: 'f2892667',
     labels: [
       "Peer review mechanics of top-tier",
       "Manuscripts against the four canonical",
@@ -1060,7 +1060,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M15.4': {
-    sig: '85957880',
+    sig: '4cb5d65e',
     labels: [
       "Understand the OpenReview rebuttal phase",
       "Master rebuttal psychology",
@@ -1071,7 +1071,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M15.5': {
-    sig: '51a1185f',
+    sig: '85957880',
     labels: [
       "Multiple published conference papers into",
       "Substantial \"Introduction\" and \"Future Directions\"",
@@ -1082,7 +1082,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M15.6': {
-    sig: 'afe5f865',
+    sig: 'fbb703e0',
     labels: [
       "Research job talk format required",
       "Structure the presentation",
@@ -1093,7 +1093,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M15.7': {
-    sig: 'f686642e',
+    sig: 'ef69f781',
     labels: [
       "Structure of major scientific research",
       "Write compelling Project Summaries",

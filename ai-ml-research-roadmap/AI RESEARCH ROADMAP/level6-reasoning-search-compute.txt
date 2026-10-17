@@ -1,101 +1,101 @@
-Level 6 · Generative Modeling & Probabilistic Machine Learning
+Level 6 · Sequence Models, Graph Neural Networks & Transformers
 
-Phase: Paradigms & Generative Models
+Phase: Model Architectures & Paradigms
 Suggested duration: 13 sessions (~3 weeks)
-Prerequisites: Level 5 (Core Modeling Paradigms: Architectures & Representations)
-Scope: Master the mathematical formulations and empirical execution of modern generative modeling: Variational Autoencoders (VAEs), continuous-time score-based diffusion models (DDPM, SDEs), Flow Matching on probability manifolds, and rigorous distribution evaluation metrics.
+Prerequisites: Level 5 (Classical Machine Learning & Deep Learning Paradigms)
+Scope: Investigate modern representation architectures across complex relational and sequential data: self-attention mechanisms, Vision Transformers (ViT) and Swin Transformers, Graph Neural Networks (GCN, GAT, GraphSAGE) for cybersecurity threat graphs (botnet detection, binary function call graphs) and molecular interactions, and linear attention/state space models (Mamba, S4) for long-sequence genomic and network telemetry modeling.
 
-M6.1 · Variational Inference, Latent Variable Models & The ELBO Objective — (sessions: 2)
-Session 1 · Intractable Posteriors & Variational Inference
-- Formulate directed latent variable models p(x) = \int p(x|z) p(z) dz and understand the intractability of the true marginal likelihood and posterior.
-- Introduce the variational distribution q_phi(z|x) and derive the Evidence Lower Bound (ELBO) mathematically using Jensen's inequality and KL divergence.
-- Deconstruct the ELBO into the reconstruction likelihood term and the latent prior regularization term.
-Session 2 · The Reparameterization Trick & Variational Autoencoders
-- Analyze why the naive gradient estimator has high variance and derive the reparameterization trick z = mu + sigma * epsilon for backpropagation.
-- Implement the standard Variational Autoencoder (VAE) from scratch in PyTorch with Gaussian encoder and decoder networks.
-- Address posterior collapse in VAEs using KL annealing schedules, free bits, and vector quantization (VQ-VAE with straight-through estimators).
-Mental model: The ELBO trades off accurate reconstruction of empirical data against keeping the latent distribution close to a tractable Gaussian prior.
-Try: Implement a VAE on image data, apply the reparameterization trick, and inspect the latent space by generating samples along a 2D latent grid traversal.
-Outcome: Derive and implement Variational Autoencoders from first principles and resolve posterior collapse in deep latent variable models.
+M6.1 · Self-Attention Mechanics & the Modern Transformer — (sessions: 2)
+Session 1 · Scaled Dot-Product & Multi-Head Self-Attention
+- Derive scaled dot-product attention from first principles: query, key, value matrix projections, softmax scaling factors, and attention dispersion.
+- Implement multi-head attention (MHA), Multi-Query Attention (MQA), and Grouped-Query Attention (GQA), analyzing KV-cache memory reductions.
+- Compare positional encodings: absolute sinusoidal encodings, learned positional embeddings, ALiBi (Attention with Linear Biases), and Rotary Position Embeddings (RoPE).
+Session 2 · Computational Efficiency & Hardware-Aware Attention (FlashAttention)
+- Analyze the quadratic computational and memory complexity O(N^2) of standard attention with respect to sequence length N.
+- Master the IO-awareness principles of FlashAttention (Dao et al.): tiling matrices across fast GPU SRAM to avoid high-bandwidth memory (HBM) memory bandwidth bottlenecks.
+- Implement causal attention masking, padding masks, and document packing for efficient variable-length sequence batching.
+Mental model: Standard attention is memory-bandwidth bound, not compute-bound; FlashAttention reorganizes matrix multiplications to fit within fast on-chip GPU SRAM.
+Try: Implement scaled dot-product attention in PyTorch from scratch, verify output equivalence with torch.nn.functional.scaled_dot_product_attention, and benchmark memory scaling.
+Outcome: Build, optimize, and mathematically analyze modern attention mechanisms and hardware-aware Transformer layers.
 
-M6.2 · Score-Based Generative Modeling & Denoising Diffusion Probabilistic Models (DDPM) — (sessions: 2)
-Session 1 · Forward Diffusion Process & Analytical Transitions
-- Define the forward Markovian noising chain q(x_t | x_{t-1}) corrupting data into isotropic Gaussian noise according to variance schedule beta_t.
-- Derive the closed-form transition distribution q(x_t | x_0) = N(x_t; sqrt(alpha_bar_t) x_0, (1 - alpha_bar_t) I) for arbitrary timestep t.
-- Implement the forward noising loop in PyTorch, generating noisy tensors at arbitrary timesteps without recursive iteration.
-Session 2 · The Reverse Denoising Process & The Simplified Loss
-- Formulate the reverse denoising process p_theta(x_{t-1} | x_t) parameterized by a deep neural network (U-Net or Diffusion Transformer DiT).
-- Derive the variational bound on negative log-likelihood for diffusion models and reduce it to the simplified epsilon-prediction objective L_simple.
-- Implement the DDPM training loop, sampling random timesteps, injecting Gaussian noise, and computing the MSE loss between true and predicted noise.
-Mental model: Forward diffusion systematically destroys information; reverse diffusion trains a neural network to invert thermodynamic entropy.
-Try: Implement the forward noising formula in PyTorch, verify that clean samples degenerate into isotropic Gaussian noise at t=1000, and write the training loss.
-Outcome: Derive the forward and reverse DDPM equations analytically and implement end-to-end diffusion training loops.
+M6.2 · Vision Transformers & Hierarchical Attention in Medical Imaging — (sessions: 2)
+Session 1 · Vision Transformers (ViT) & Patch Tokenization
+- Transition Transformers to 2D spatial domains: non-overlapping patch extraction, linear projection to 1D patch tokens, and prependable [CLS] tokens.
+- Analyze inductive bias differences: why ViTs require large-scale pre-training compared to CNNs due to the absence of translation equivariance and locality biases.
+- Implement attention map rollouts and Grad-CAM for Vision Transformers to visualize clinical attention on thoracic lesions.
+Session 2 · Hierarchical & Shifted Window Transformers (Swin Transformer)
+- Architect the Swin Transformer: hierarchical feature representation via patch merging and shifted local window self-attention with linear computational complexity.
+- Apply Swin-UNETR and hybrid Transformer-CNN architectures to 3D volumetric medical segmentation and gigapixel whole-slide histopathology images (WSI).
+- Analyze multi-scale attention mechanisms for resolving both fine-grained cellular features and global organ-level context simultaneously.
+Mental model: ViTs treat images as sentences of visual words; Swin Transformers reintroduce hierarchical spatial pyramids while maintaining attention flexibility.
+Try: Implement a patch embedding module in PyTorch, construct a Vision Transformer backbone, and visualize attention weights across a medical chest X-ray image.
+Outcome: Apply Vision Transformers and hierarchical attention models to medical radiological imaging and high-resolution spatial data.
 
-M6.3 · Continuous-Time Diffusion: Itô Stochastic Differential Equations & ODE Sampling — (sessions: 2)
-Session 1 · Continuous-Time Diffusion Formulations (Song et al.)
-- Generalize discrete diffusion timesteps into continuous-time Itô Stochastic Differential Equations (SDEs): dx = f(x, t) dt + g(t) dw.
-- Classify variance preserving (VP), variance exploding (VE), and sub-VP continuous diffusion processes.
-- Formulate the Anderson reverse-time SDE theorem, showing that reversing an SDE requires estimating the score function \nabla_x log p_t(x).
-Session 2 · Probability Flow ODEs & Accelerated Sampling
-- Derive the deterministic Probability Flow ODE that shares identical marginal probability densities p_t(x) with the continuous SDE.
-- Leverage numerical ODE solvers (Euler, Runge-Kutta, DPM-Solver) to achieve high-quality generation in 10-25 steps instead of 1,000 steps.
-- Implement Classifier-Free Guidance (CFG): training conditionally with randomly dropped labels and extrapolating along the conditional score vector.
-Mental model: The Probability Flow ODE defines a deterministic vector field that smoothly maps random Gaussian noise into the data distribution manifold.
-Try: Implement a predictor-corrector sampler and an accelerated ODE solver in PyTorch, comparing sample generation quality and step counts.
-Outcome: Master continuous-time SDE/ODE diffusion formulations, implement Classifier-Free Guidance, and accelerate reverse sampling.
+M6.3 · Graph Neural Networks: Message Passing, GCN & GAT — (sessions: 2)
+Session 1 · The Message Passing Neural Network (MPNN) Framework
+- Formalize graph-structured data: node feature matrices, edge index adjacency lists, and edge attribute tensors using PyTorch Geometric (PyG).
+- Formulate the general Message Passing framework: neighborhood message aggregation, message transformation, and node state update functions.
+- Analyze the theoretical expressive limits of message-passing GNNs: the 1-dimensional Weisfeiler-Lehman (1-WL) graph isomorphism test.
+Session 2 · Spectral & Spatial GNNs (GCN, GAT & GraphSAGE)
+- Implement Graph Convolutional Networks (GCN) via localized first-order spectral approximations of graph Laplacians.
+- Implement Graph Attention Networks (GAT): calculating learnable anisotropic attention coefficients between neighboring nodes.
+- Apply GraphSAGE (Sample and Aggregate) for inductive learning on large-scale evolving graphs using neighborhood sub-sampling.
+Mental model: A GNN is a generalized convolution where each node dynamically aggregates information from its arbitrary topological neighborhood.
+Try: Build a 2-layer Graph Attention Network (GAT) with multi-head neighborhood attention in PyTorch Geometric, training it on a node classification benchmark.
+Outcome: Master the Message Passing paradigm and implement state-of-the-art spatial and attention-based Graph Neural Networks.
 
-M6.4 · Flow Matching & Optimal Transport on Probability Manifolds — (sessions: 2)
-Session 1 · Continuous Normalizing Flows & Flow Matching
-- Formulate Continuous Normalizing Flows (CNFs) where a time-dependent vector field v_t(x) generates a continuous probability path from p_0 to p_1.
-- Understand the intractability of standard CNF maximum likelihood training and introduce the Conditional Flow Matching (CFM) objective (Lipman et al.).
-- Derive the regression loss ||v_theta(x_t, t) - u_t(x | x_1)||^2, proving that marginal vector fields can be learned via conditional flow targets.
-Session 2 · Optimal Transport Displacement Interpolation
-- Compare standard Brownian diffusion paths with Optimal Transport (OT) displacement paths: straight lines connecting noise p_0 to data p_1.
-- Implement Optimal Transport Conditional Flow Matching (OT-CFM): linear trajectories x_t = (1 - t) x_0 + t x_1 with constant velocity v_t = x_1 - x_0.
-- Analyze the advantages of straight flow trajectories: faster numerical integration, lower curvature, and exceptional sample quality in few steps.
-Mental model: Diffusion takes a stochastic random walk through noise; Optimal Transport Flow Matching travels along straight, minimal-energy geodesic lines.
-Try: Train a 2D toy Flow Matching model to transform a Gaussian distribution into a two-moons distribution using straight-line OT trajectories.
-Outcome: Derive the Conditional Flow Matching objective, implement Optimal Transport probability paths, and train vector field models.
+M6.4 · Graph Neural Networks for Cybersecurity & Complex Threat Topologies — (sessions: 2)
+Session 1 · Network Provenance & Botnet Detection Graphs
+- Represent cybersecurity telemetry as directed property graphs: network communication graphs (IP to IP), host authentication graphs, and system provenance logs.
+- Detect coordinated botnet command-and-control (C2) topologies using GNN node and edge classification on large-scale network flow graphs.
+- Handle dynamic and temporal graphs: incorporating edge timestamps, packet volumes, and protocol features into continuous-time dynamic graph networks (TGN).
+Session 2 · Binary Disassembly & Control Flow Graphs (CFG)
+- Disassemble compiled malicious binaries into Control Flow Graphs (CFG) and Abstract Syntax Trees (AST) using Ghidra or radare2.
+- Train Graph Convolutional Networks on function-level CFGs to classify malware families and detect obfuscated zero-day exploit variants.
+- Mitigate graph oversmoothing and oversquashing when message passing traverses deep multi-hop dependency chains in large computer networks.
+Mental model: Cyber threats operate across distributed networks; graph neural networks capture relational attack topologies invisible to isolated log analyzers.
+Try: Construct an enterprise network communication graph from network flow logs in PyG, train a GNN to detect compromised lateral-movement host nodes.
+Outcome: Formulate cybersecurity threat detection problems as graph neural network tasks, modeling network flow graphs and malware binary control flow topologies.
 
-M6.5 · Empirical Evaluation of Generative Distributions: FID, Precision, Recall & Density — (sessions: 2)
-Session 1 · Fréchet Inception Distance (FID) & Inception Score (IS)
-- Understand the Fréchet Inception Distance (FID) metric: extracting deep feature representations and computing the Wasserstein-2 distance between Gaussians.
-- Implement the analytical Fréchet distance formula: ||mu_1 - mu_2||^2 + Tr(Sigma_1 + Sigma_2 - 2 (Sigma_1 Sigma_2)^{1/2}).
-- Identify FID failure modes: sensitivity to sample count (bias at low N), image resolution, JPEG compression artifacts, and feature extractor biases.
-Session 2 · Disentangling Quality vs Diversity: Precision, Recall, Coverage & Density
-- Disentangle generative sample fidelity from distribution coverage using Precision and Recall metrics for generative models (Sajjadi et al.).
-- Implement Density and Coverage metrics to detect mode dropping, mode collapse, and out-of-distribution hallucinations.
-- Evaluate perceptual metrics (LPIPS, CLIP-Score) and compute distribution distance across scientific feature spaces.
-Mental model: FID provides a single composite distance score; precision measures how realistic samples are, while recall measures how many modes were covered.
-Try: Compute the exact FID between a generated sample set and a validation set using clean-fid, verifying sensitivity to sample size and image resizing.
-Outcome: Evaluate generative models with statistical rigor, compute FID/IS accurately, and diagnose mode collapse using precision-recall metrics.
+M6.5 · State Space Models & Long-Sequence Architectures (Mamba & S4) — (sessions: 2)
+Session 1 · Continuous State Spaces & Structured S4
+- Analyze the quadratic bottleneck of Transformers when processing ultra-long sequences (e.g., millions of base pairs in genomics or continuous network traffic).
+- Formalize linear continuous-time State Space Models (SSMs): mapping continuous 1D inputs to outputs through latent continuous hidden states.
+- Discretize continuous state spaces using the bilinear transform and the HiPPO (High-order Polynomial Projection Operators) framework for optimal memory initialization.
+Session 2 · Selective State Spaces: The Mamba Architecture
+- Implement Mamba (Gu & Dao): introducing input-dependent, selective parameters into the state space matrices (B, C, and step size Delta).
+- Master the hardware-aware selective scan algorithm: computing linear recurrent updates via an associative parallel scan directly in GPU SRAM.
+- Evaluate Mamba on long-context sequence benchmarks: comparing token throughput, memory footprint, and sequence extrapolation against FlashAttention Transformers.
+Mental model: Mamba achieves the parallel training efficiency of Transformers and the constant-memory O(1) inference speed of recurrent neural networks.
+Try: Implement a 1D selective state space layer in PyTorch, compare training wall-clock time and memory consumption against standard attention across sequence length N=16,384.
+Outcome: Apply sub-quadratic linear attention and selective state space models (Mamba) to long-sequence scientific and telemetry data.
 
-M6.6 · Capstone Project: Continuous Flow Matching Model with Rigorous Manifold Evals — (sessions: 3)
-Session 1 · Flow Matching Architecture & Optimal Transport Paths
-- Implement a complete continuous Optimal Transport Flow Matching (OT-CFM) model in PyTorch using a modern U-Net or DiT backbone.
-- Construct the conditional vector field target generator with straight-line trajectories connecting standard Gaussian noise to data distributions.
-- Integrate Classifier-Free Guidance (CFG) conditioning to steer the generative vector field toward specified class labels or text embeddings.
-Session 2 · Accelerated Integration & Empirical Evaluation
-- Implement an adaptive numerical ODE integrator (Runge-Kutta 4th order and Euler) for deterministic sample generation in 20 steps.
-- Build an automated evaluation pipeline computing Fréchet Inception Distance (FID), Precision, and Recall across 10,000 generated samples.
-- Conduct an ablation study comparing straight-line Optimal Transport paths against standard VP diffusion paths, plotting trajectory curvature.
-Mental model: Flow Matching represents the modern paradigm of generative modeling, replacing stochastic noise simulation with deterministic vector field regression.
-Try: Generate high-fidelity samples in 20 ODE steps using your Flow Matching model, and compute the empirical FID score against a held-out test distribution.
-Outcome: Build, train, and scientifically evaluate state-of-the-art continuous generative models using Flow Matching and rigorous distribution metrics.
+M6.6 · Capstone Project: Relational Graph & Long-Sequence Research Model Implementation — (sessions: 3)
+Session 1 · Research Model Architecture & Pipeline Engineering
+- Select either a cybersecurity graph problem (botnet/lateral movement detection on network provenance graphs) or a medical long-sequence task (genomic/ECG sequence modeling).
+- Build a custom research architecture integrating advanced graph attention (GAT with edge attributes) or selective state space blocks (Mamba/S4).
+- Construct a high-performance data pipeline handling dynamic graph batching or million-token continuous sequences with zero memory thrashing.
+Session 2 · Rigorous Empirical Benchmarking & Ablation Study
+- Benchmark the proposed model against standard Transformer (MHA/FlashAttention) and classical baseline baselines.
+- Execute ablation experiments: systematically isolate the contribution of attention mechanisms, state-space selectivity, and edge feature aggregations.
+- Measure and report computational efficiency metrics: peak VRAM scaling, training FLOPs, inference latency per token, and classification AUROC.
+Mental model: Implementing modern non-standard architectures like GNNs or State Space Models demonstrates deep technical mastery in high-impact research areas.
+Try: Run the full comparative pipeline, logging training curves, memory consumption profiles, and statistical significance tests comparing against baselines.
+Outcome: Complete a publication-ready implementation and empirical evaluation of an advanced Graph Neural Network or State Space Model.
 
-CAPSTONE PROJECT: Continuous Flow Matching Model with Rigorous Manifold Evals
-BRIEF: Build an end-to-end continuous Optimal Transport Flow Matching (OT-CFM) generative model in PyTorch, implement an accelerated numerical ODE sampler, and rigorously evaluate the generative distribution using clean FID, Precision, Recall, and trajectory curvature analysis.
-Build a generative modeling testbed that:
-- Implements the Optimal Transport Conditional Flow Matching (OT-CFM) objective, training a deep neural network to predict vector velocity fields.
-- Constructs straight-line displacement interpolation paths: x_t = (1 - (1 - sigma_min) t) x_0 + t x_1 with analytical target velocity v_t = x_1 - (1 - sigma_min) x_0.
-- Implements Classifier-Free Guidance (CFG) with configurable guidance scale w to steer the learned velocity field.
-- Implements numerical ODE solvers: standard Euler solver, midpoint solver, and Runge-Kutta 4 (RK4) with configurable step counts (10 to 100 steps).
-- Builds an automated evaluation harness generating at least 5,000 samples and computing Fréchet Inception Distance (FID) using a clean, reproducible pipeline.
-- Implements generative Precision and Recall metrics (k-nearest neighbors manifold estimation) to quantify sample fidelity versus mode coverage.
-- Computes trajectory curvature metrics measuring the deviation of generation paths from straight lines across ODE integration steps.
-- Documents empirical performance in a LaTeX research paper format, including qualitative generation grids and quantitative baseline comparison tables.
+CAPSTONE PROJECT: Relational Graph & Long-Sequence Research Model Implementation
+BRIEF: Design, implement, and rigorously benchmark either a Graph Neural Network (GNN) for cybersecurity threat detection or a Selective State Space Model (Mamba) for long-sequence scientific telemetry, benchmarking against canonical Transformer baselines under strict compute budgets.
+Build a research modeling implementation that:
+- Implements a modern non-standard architecture: either a multi-head Graph Attention Network with edge attributes (PyG) or a Selective State Space layer (Mamba/S4).
+- Processes real-world domain data: either network flow provenance graphs (CIC-IDS/DARPA) or long-sequence physiological/genomic telemetry.
+- Enforces strict parameter matching and compute matching against a standard Transformer baseline (FlashAttention-2).
+- Logs training dynamics: loss curves, gradient norms, memory usage profiles, and throughput (tokens/sec or nodes/sec).
+- Evaluates domain performance: AUROC, AUPRC, node classification accuracy, and false alarm rate under severe class imbalance.
+- Executes an ablation study systematically disabling individual components (e.g., edge attributes, state selectivity, normalization layers).
+- Exports formatted LaTeX comparative tables and high-resolution architecture diagrams for paper inclusion.
 Deliverables:
-- Modular PyTorch codebase containing models/flow_matching.py, solvers/ode_integrator.py, and metrics/distribution_eval.py.
-- Publication-ready vector figures depicting vector field velocity streamlines, generation trajectories, and sample grid outputs.
-- Comprehensive empirical report evaluating sample quality (FID), diversity (Recall), and sampling wall-clock speed across varying ODE step budgets.
-Outcome: You can design, implement, train, and rigorously benchmark modern continuous generative models at the frontier of machine learning research.
+- Modular, well-documented PyTorch / PyG research repository with clean configuration files.
+- Automated benchmarking script running 5-fold cross-validation across multiple random seeds.
+- Comprehensive empirical evaluation report detailing architectural novelties, memory scaling profiles, and benchmark results.
+- A high-resolution vector architecture diagram suitable for a top-tier conference paper submission.
+Outcome: You can design, implement, and scientifically validate modern Graph Neural Networks and State Space Models for complex relational and sequential research problems.

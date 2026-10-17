@@ -1,101 +1,101 @@
-Level 10 · Pre-Training Dynamics, Scaling Laws & Empirical Science
+Level 10 · Foundation Models, Fine-Tuning & Domain Specialization
 
-Phase: HPC, Scaling & Interpretability
+Phase: HPC Clusters, Scaling & Explainability
 Suggested duration: 13 sessions (~3 weeks)
 Prerequisites: Level 9 (High-Performance Computing & Scaled Research Systems)
-Scope: Master the empirical science of foundation model pre-training: deriving and fitting scaling laws (Kaplan vs. Chinchilla), diagnosing pre-training loss dynamics and loss spikes, data mixture optimization, the scientific debate surrounding emergent abilities, and tokenizer information theory.
+Scope: Investigate the empirical science of foundation models: empirical scaling laws (Kaplan, Chinchilla), pre-training loss dynamics and stability (spikes, z-loss, weight decay), parameter-efficient fine-tuning (PEFT: LoRA, QLoRA, DoRA), and Domain-Adaptive Pre-Training (DAPT) for specialized sectors such as clinical medicine (BioGPT, Clinical-Camel) and cybersecurity threat intelligence (SecBERT, CyberLLaMA).
 
-M10.1 · Empirical Scaling Laws: Kaplan vs. Chinchilla Power-Law Fitting Methodologies — (sessions: 2)
-Session 1 · Kaplan Power Laws & Model-Centric Scaling
-- Formulate the empirical scaling hypothesis: cross-entropy loss scales as a smooth power-law function of compute budget C, dataset size D, and parameter count N.
-- Analyze the OpenAI scaling laws (Kaplan et al., 2020): L(N) = (N_c / N)^{alpha_N}, predicting that allocating compute primarily to model size N is optimal.
-- Understand the methodology of fitting power laws: running series of small compute-budget models and extrapolating performance across orders of magnitude.
-Session 2 · Chinchilla Scaling Laws & Compute-Optimal Frontiers
-- Deconstruct the DeepMind Chinchilla scaling laws (Hoffmann et al., 2022): L(N, D) = E + A / N^alpha + B / D^beta under compute constraint C \approx 6 * N * D.
-- Derive the compute-optimal scaling frontier using the method of Lagrange multipliers, proving that parameters N and tokens D should scale equally (alpha \approx beta \approx 0.5).
-- Analyze inference-optimal over-training: why open-source foundation models (Llama, Mistral) train on 15T+ tokens far past the Chinchilla compute-optimal point.
-Mental model: Scaling laws turn speculative pre-training into predictable engineering; fitting curves on 10M models predicts the exact loss of a 70B model.
-Try: Implement a non-linear least squares optimization function in SciPy, fitting the Chinchilla parametric loss equation to a synthetic matrix of (N, D, Loss) runs.
-Outcome: Derive and fit empirical scaling laws, calculate compute-optimal parameter allocations, and extrapolate performance across compute budgets.
+M10.1 · Empirical Scaling Laws: Kaplan vs Chinchilla Frontiers — (sessions: 2)
+Session 1 · Power-Law Scaling & The Kaplan Paradigm
+- Understand the empirical discovery of scaling laws: test cross-entropy loss scales as a power-law with compute (C), dataset size (D), and parameter count (N).
+- Analyze the OpenAI Kaplan et al. formulation: predicting performance gains from small compute budgets to large-scale frontier runs.
+- Identify the critical limitation of early scaling regimes: disproportionate allocation of compute toward parameter count while starving token counts.
+Session 2 · Chinchilla Optimal Compute Frontiers (Hoffmann et al.)
+- Deconstruct the DeepMind Chinchilla scaling law: determining that for optimal compute efficiency, parameters and tokens should scale equally (D ~ 20 * N).
+- Fit parametric power-law curves to empirical loss sweeps across small model sizes using non-linear least squares optimization.
+- Predict downstream task performance, perplexity thresholds, and phase transitions (e.g., emergence of arithmetic or in-context learning capabilities).
+Mental model: Scaling laws transform AI pre-training from trial-and-error into a predictive engineering science, allowing researchers to predict giant-model loss from small pilot runs.
+Try: Fit Chinchilla power-law parameters to empirical training runs from 5 small models, and project the optimal parameter-token split for a 10^21 FLOP compute budget.
+Outcome: Derive and apply empirical scaling laws to predict loss frontiers and compute-optimal resource allocations for pre-training.
 
-M10.2 · Pre-Training Optimization Dynamics: Loss Spikes, QK-Norm & z-loss Mitigations — (sessions: 2)
-Session 1 · Pre-Training Loss Trajectories & Phase Transitions
-- Analyze normal pre-training loss trajectories: rapid initial power-law descent, steady power-law decay, and asymptotic learning saturation.
-- Understand optimization schedules: cosine decay schedules, warmup duration, linear decay, and constant learning rate with cooldown phases (MiniCPM, WSD schedule).
-- Monitor gradient norms, weight norm growth, and learning rate dynamics across hundreds of thousands of pre-training optimizer steps.
-Session 2 · Diagnosing & Preventing Loss Spikes
-- Identify the root physical causes of catastrophic loss spikes during pre-training: attention logit growth causing extreme Softmax values and gradient explosions.
-- Implement Query-Key Normalization (QK-Norm): applying LayerNorm or RMSNorm directly to Q and K tensors before computing scaled dot products.
-- Master auxiliary stabilizing loss terms: the z-loss penalty (log^2 \sum e^{z_i}) that explicitly penalizes large unnormalized logits in the output vocabulary head.
-Mental model: A loss spike is a numerical tsunami in the attention layers; QK-Norm acts as a breakwater, bounding logit amplitudes regardless of scale.
-Try: Simulate an unstable pre-training run with exploding attention logits, observe the loss spike, apply QK-Norm, and verify smooth, spike-free convergence.
-Outcome: Diagnose pre-training optimization instabilities, eliminate catastrophic loss spikes using QK-Norm, and deploy robust learning rate schedules.
+M10.2 · Pre-Training Dynamics, Loss Stability & Optimization Surgery — (sessions: 2)
+Session 1 · Loss Spikes, Instability & Numerical Precision
+- Diagnose catastrophic training loss spikes: uncovering underlying causes including outlier activation vectors, gradient explosions, and FP16 underflow.
+- Master numerical stabilization strategies: adopting Bfloat16 (BF16) precision, implementing QK-Norm (normalizing queries and keys before attention), and RMSNorm.
+- Apply auxiliary stabilization losses: implementing auxiliary z-loss (penalizing large log-partition functions) to prevent logits from drifting to extreme values.
+Session 2 · Learning Rate Schedules & Optimization Surgery
+- Compare learning rate schedules: Cosine Annealing, Linear Warmup-Decay, and modern Warmup-Stable-Decay (WSD) schedules facilitating continual pre-training.
+- Tune decoupled AdamW hyperparameters: analyzing the impact of beta_2 (e.g., 0.95 vs. 0.999), epsilon floor thresholds, and weight decay magnitude.
+- Implement gradient norm clipping with adaptive thresholds to suppress anomalous mini-batch gradient shocks without terminating training.
+Mental model: Pre-training stability requires continuous vigilance; small architectural hygiene fixes like QK-Norm and z-loss prevent multi-thousand-dollar training runs from diverging.
+Try: Simulate an unstable training loop with high learning rates, diagnose the activation outlier pathology, and stabilize the loss trajectory using QK-Norm and z-loss.
+Outcome: Diagnose and resolve training instabilities, prevent loss spikes, and tune advanced optimization schedules for stable pre-training.
 
-M10.3 · Data Mixture Science: Domain Weighting, Synthetic Data Annealing & Curriculum Learning — (sessions: 2)
-Session 1 · Data Mixture Optimization & Ablations
-- Analyze the composition of web-scale pre-training mixtures: web text (Common Crawl), code (GitHub), academic papers (arXiv), and structured knowledge (Wikipedia).
-- Conduct data mixture ablation studies: evaluate downstream reasoning, coding, and factual recall as a function of domain mixture percentages.
-- Implement automated data weighting: compute gradient alignment between candidate data domains and target evaluation benchmarks (DoReMi methodology).
-Session 2 · Curriculum Learning & Annealing Phases
-- Implement curriculum learning in pre-training: transitioning from broad web scrapes to high-quality textbooks, code, and synthetic reasoning datasets.
-- Master learning rate cooldown and data annealing: injecting specialized high-quality math and code tokens during the final 10-20% of the training run.
-- Evaluate the impact of data freshness, deduplication thresholds, and quality filtering on downstream pre-training sample efficiency.
-Mental model: Model weights are an empirical compression of the data mixture; changing the mixture percentage reshapes the model's fundamental cognitive abilities.
-Try: Train small language models on three contrasting data mixtures (100% web, 50/50 web-code, code-dense), benchmarking downstream reasoning accuracy.
-Outcome: Formulate data mixture strategies, optimize domain proportions systematically, and deploy data annealing during pre-training cooldown.
+M10.3 · Parameter-Efficient Fine-Tuning: LoRA, QLoRA & DoRA — (sessions: 2)
+Session 1 · Low-Rank Adaptation (LoRA) Foundations
+- Analyze the intrinsic low dimensionality of parameter updates during task adaptation (Aghajanyan et al.).
+- Implement Low-Rank Adaptation (LoRA) (Hu et al.): freezing pre-trained weights W_0 and decomposing weight updates into low-rank matrices B * A (r << d).
+- Tune LoRA hyperparameters: rank r, scaling factor alpha, target modules (attention projections vs. feedforward networks), and dropout.
+Session 2 · Quantized LoRA (QLoRA) & Weight-Decomposed Adaptation (DoRA)
+- Master QLoRA (Dettmers et al.): 4-bit NormalFloat (NF4) quantization, Double Quantization, and Paged Optimizers to fine-tune 70B models on consumer GPUs.
+- Implement Weight-Decomposed Low-Rank Adaptation (DoRA) (Liu et al.): decomposing weights into magnitude and directional components to mirror full fine-tuning dynamics.
+- Benchmark fine-tuning performance: comparing memory savings, training speed, and validation accuracy against full-parameter fine-tuning baselines.
+Mental model: Fine-tuning does not require modifying all 70 billion parameters; learning low-rank directional update vectors preserves knowledge while adapting to new tasks.
+Try: Fine-tune a pre-trained open-weight language model on a specialized classification task using QLoRA in 4-bit precision, logging peak VRAM and convergence.
+Outcome: Implement, optimize, and benchmark parameter-efficient fine-tuning techniques (LoRA, QLoRA, DoRA) on hardware-constrained research systems.
 
-M10.4 · The Emergence Debate: Smooth Metrics vs. Step Discontinuities in Model Capabilities — (sessions: 2)
-Session 1 · Emergent Abilities in Large Language Models
-- Review the historical literature on emergent abilities (Wei et al., 2022): the claim that certain capabilities appear abruptly and discontinuously at specific scales.
-- Analyze the counter-argument (Schaeffer et al., 2023, "Are Emergent Abilities of Large Language Models a Mirage?"): emergence as an artifact of non-linear metrics.
-- Compare discontinuous step-function metrics (accuracy, exact match) against continuous, smooth metrics (token cross-entropy loss, Brier score).
-Session 2 · Mathematical Modeling of Metric Non-Linearities
-- Prove mathematically that a smooth, linear decrease in token error probability produces a sharp, non-linear step-function increase on multi-token sequence accuracy.
-- Differentiate between genuine qualitative phase shifts (circuit formation, in-context learning emergence) versus measurement artifacts.
-- Design rigorous evaluation protocols that report both smooth continuous metrics and discrete milestone accuracy to avoid deceptive claims.
-Mental model: If you measure a student's knowledge using pass/fail on a 10-step math problem, a 10% skill increase looks like a sudden miracle; the underlying learning is continuous.
-Try: Simulate a model whose per-token error rate decreases linearly, plot the multi-token sequence accuracy curve, and demonstrate the mathematical illusion of emergence.
-Outcome: Critically evaluate claims of emergent capabilities in foundation models, distinguish measurement artifacts, and report calibrated metrics.
+M10.4 · Domain-Adaptive Pre-Training (DAPT) in Specialized Sectors — (sessions: 2)
+Session 1 · Continual Pre-Training & Mitigating Catastrophic Forgetting
+- Understand Domain-Adaptive Pre-Training (DAPT) (Gururangan et al.): continuing self-supervised pre-training on specialized domain corpora.
+- Address catastrophic forgetting: the degradation of general reasoning capabilities when updating weights on specialized single-domain distributions.
+- Implement experience replay and corpus mixing: blending 15-20% general pre-training data alongside specialized domain tokens to preserve core linguistic and logical abilities.
+Session 2 · Domain-Specific Tokenization & Vocabulary Adaptation
+- Analyze tokenization pathologies in specialized domains: how standard tokenizers excessively fragment medical terminology or cybersecurity hex code.
+- Train custom domain tokenizers (Byte-Pair Encoding BPE) on medical literature (PubMed) or cybersecurity reports (CVEs, threat intelligence).
+- Expand model vocabularies with new domain tokens, initializing new embedding weights using mean projections of constituent subwords.
+Mental model: DAPT teaches a generalist model the specialized vocabulary, syntax, and relational knowledge of a scientific domain without erasing its foundational intellect.
+Try: Perform Continual Pre-Training of a small language model on a curated corpus of clinical abstracts, tracking both clinical perplexity and general reasoning benchmarks.
+Outcome: Execute Domain-Adaptive Pre-Training for specialized sectors while mitigating catastrophic forgetting through corpus blending.
 
-M10.5 · Tokenizer Science: Byte-Pair Encoding, Vocabulary Entropy & Cross-Lingual Compression — (sessions: 2)
-Session 1 · Tokenization Algorithms & Vocabulary Construction
-- Master the mathematics of Byte-Pair Encoding (BPE), WordPiece, and Unigram Language Model tokenization algorithms.
-- Train tokenizers from scratch using Byte-Level BPE (Hugging Face Tokenizers) with custom normalization rules and regex pre-tokenization splits.
-- Analyze the trade-offs of vocabulary size V: larger vocabularies increase embedding parameter count but improve sequence compression and inference speed.
-Session 2 · Tokenization Pathologies & Information Theory
-- Measure tokenizer efficiency using bytes-per-token compression ratios and Shannon entropy across multilingual and code domains.
-- Identify tokenization pathologies: arithmetic token fragmentation, capitalization sensitivity, and whitespace sensitivity in downstream reasoning.
-- Evaluate the "fertility" metric: the average number of tokens required to represent a single word across low-resource languages, quantifying linguistic fairness.
-Mental model: The tokenizer is the sensory organ of the language model; if numbers are chopped into arbitrary digit fragments, the model struggles with arithmetic.
-Try: Train a custom 32k vocabulary BPE tokenizer, calculate bytes-per-token compression ratios across code, English, and low-resource text, and analyze fertility.
-Outcome: Build and evaluate custom tokenizers, analyze cross-lingual compression efficiency, and eliminate tokenization pathologies.
+M10.5 · Instruction Tuning & Multi-Turn Clinical/Cyber Alignment — (sessions: 2)
+Session 1 · Instruction Data Curation & Format Engineering
+- Structure supervised fine-tuning (SFT) datasets formatted for multi-turn instruction following: system prompts, user queries, and assistant responses.
+- Implement clinical reasoning formats: structuring diagnostic cases with Patient History, Physical Examination, Differential Diagnosis, and Treatment Plan steps.
+- Engineer cybersecurity response formats: formatting Incident Triage, MITRE ATT&CK Mapping, Evidence Artifact Analysis, and Remediation Strategy.
+Session 2 · Loss Masking & Chain-of-Thought (CoT) Quality
+- Implement completion-only loss masking: calculating cross-entropy loss exclusively on assistant response tokens while masking prompt and instruction tokens.
+- Elicit structured Chain-of-Thought (CoT) reasoning: training models to articulate step-by-step intermediate rationales before outputting clinical or security conclusions.
+- Filter synthetic instruction datasets for contamination, factual hallucination, and stylistic repetition using automated rule-based and model-based heuristics.
+Mental model: A foundation model trained on raw text predicts the next word; instruction tuning aligns its behavioral interface to act as a structured domain expert.
+Try: Format a dataset of 1,000 domain-specific clinical or cybersecurity scenarios with completion-only loss masking, and instruction-tune a base model.
+Outcome: Curate high-quality domain instruction datasets, apply completion-only loss masking, and align models for multi-turn scientific reasoning.
 
-M10.6 · Capstone Project: Compute-Optimal Scaling Curve Estimation & Loss Spike Diagnostics — (sessions: 3)
-Session 1 · Multi-Scale Pre-Training Grid Execution
-- Train a grid of language models across 5 parameter scales (10M to 150M) and varying token budgets on an HPC cluster.
-- Track precise training loss trajectories, token FLOPs, and gradient norms across all grid experiments using real-time experiment logging.
-- Fit both Kaplan and Chinchilla power-law scaling models to the empirical loss data using non-linear curve fitting.
-Session 2 · Extrapolation Verification & Instability Diagnostics
-- Extrapolate the fitted scaling law to predict the exact loss and downstream performance of an unseen larger model scale (300M parameters).
-- Evaluate prediction accuracy: train the 300M model and compare empirical loss against the scaling law's predicted confidence interval.
-- Author an empirical research paper in LaTeX containing fitted scaling plots, compute-optimal parameter frontier curves, and loss stability analyses.
-Mental model: Predicting the exact loss of a large model before launching training is the hallmark of modern empirical AI science.
-Try: Fit a Chinchilla power law on small training runs, predict the final loss of a larger model within 2% error margin, and document the findings.
-Outcome: Master the empirical science of scaling laws, predict model performance across compute budgets, and diagnose pre-training optimization dynamics.
+M10.6 · Capstone Project: Domain-Adapted Medical or Cybersecurity Foundation Model — (sessions: 3)
+Session 1 · Pre-Training / DAPT Execution & Tokenizer Adaptation
+- Execute Domain-Adaptive Pre-Training on a specialized domain corpus: either clinical medicine (PubMed/MIMIC notes) or cybersecurity (CVE/threat reports).
+- Apply QLoRA / DoRA or full-weight continued pre-training with Warmup-Stable-Decay learning rates and general corpus replay.
+- Track training loss convergence, validation perplexity, and gradient norms across millions of domain tokens on an HPC cluster.
+Session 2 · Supervised Instruction Fine-Tuning & Multi-Benchmark Evaluation
+- Perform supervised instruction tuning on a curated set of domain-specific multi-turn reasoning scenarios with completion-only loss masking.
+- Benchmark the adapted model against the general base model and closed-source baselines on domain benchmarks (e.g., MedQA/PubMedQA or CyberSecEval).
+- Measure and document the retention of general knowledge (MMLU) to demonstrate zero catastrophic forgetting in the final research report.
+Mental model: Domain adaptation is the premier methodology for creating state-of-the-art scientific models that outperform massive generalist LLMs on specialized tasks.
+Try: Run the full DAPT + SFT pipeline, evaluate domain task accuracy against the base model, and generate an automated comparative benchmark table.
+Outcome: Deliver a fully trained, domain-specialized foundation model that achieves state-of-the-art domain accuracy while preserving general reasoning capabilities.
 
-CAPSTONE PROJECT: Compute-Optimal Scaling Curve Estimation & Loss Spike Diagnostics
-BRIEF: Train a systematic grid of small language models across parameter scales and token budgets, fit empirical Chinchilla scaling law curves using non-linear regression, extrapolate the predicted loss of an unseen larger model, and evaluate pre-training stability with and without QK-Norm.
-Build a scaling law research suite that:
-- Pre-trains a family of language models spanning multiple parameter scales (e.g., 10M, 25M, 60M, 125M) across strictly controlled token budgets.
-- Records exact training FLOPs (using analytical 6*N*D calculations) and validation cross-entropy loss values for every run.
-- Implements non-linear least-squares fitting (using SciPy or PyTorch optimization) to estimate the Chinchilla scaling parameters: E, A, B, alpha, and beta.
-- Solves the Lagrange multiplier problem to compute the optimal parameter-to-token allocation ratio N_opt(C) and D_opt(C).
-- Extrapolates the scaling law to predict the final loss of an unseen larger model (e.g., 250M), evaluating prediction error against empirical validation.
-- Simulates an extreme learning rate condition, demonstrating how Query-Key Normalization (QK-Norm) prevents attention logit explosion and loss spikes.
-- Computes tokenizer compression ratios (bytes per token) and vocabulary fertility across multiple linguistic domains.
-- Generates publication-quality scaling law figures (log-log Loss vs. Compute plots with fitted power-law contours) and formatted LaTeX tables.
+CAPSTONE PROJECT: Domain-Adapted Medical or Cybersecurity Foundation Model
+BRIEF: Perform Domain-Adaptive Pre-Training (DAPT) followed by Supervised Instruction Tuning (SFT) on an open-weight foundation model using clinical healthcare or cybersecurity corpora, demonstrating statistically significant gains on domain benchmarks without catastrophic forgetting.
+Build a domain-adapted foundation model that:
+- Ingests a domain corpus (e.g., PubMed clinical papers / MIMIC clinical notes or CVE reports / threat intelligence).
+- Implements continual pre-training via PEFT (QLoRA/DoRA) or FSDP with 15% general replay buffer integration to prevent catastrophic forgetting.
+- Tracks pre-training dynamics: logging validation perplexity curves, learning rate warmups, and loss stability metrics.
+- Curates an instruction-tuning dataset of 1,000+ domain scenarios with structured Chain-of-Thought (CoT) reasoning.
+- Trains the instruction model using completion-only loss masking and evaluated across multiple random seeds.
+- Benchmarks against the unadapted base model and competitive baselines on established domain test suites (e.g., MedQA/MedMCQA or CyberSecEval).
+- Evaluates general capability retention on a subset of MMLU to empirically prove the absence of catastrophic forgetting.
 Deliverables:
-- Python codebase featuring scaling/curve_fit.py, models/stable_transformer.py, and bench/scaling_grid.py.
-- Publication-quality vector plots (PDF) depicting fitted scaling frontiers and loss spike diagnostic comparisons.
-- Complete 5-page empirical research paper PDF formatted in LaTeX detailing the experimental scaling methodology and extrapolation accuracy.
-Outcome: You can formulate, fit, and extrapolate empirical scaling laws, design compute-optimal pre-training runs, and guarantee optimization stability.
+- Complete research repository (domain_foundation_adaptation/) with modular pre-training, fine-tuning, and evaluation pipelines.
+- Open-source model adapter checkpoints and Hugging Face model card documentation.
+- Comprehensive empirical evaluation report formatted as a top-tier conference paper draft (ACL / NeurIPS format).
+- Comparative performance figures showing domain task accuracy gains alongside general benchmark preservation.
+Outcome: You can specialize large foundation models for high-stakes scientific, clinical, and cybersecurity domains with peer-reviewed empirical rigor.
