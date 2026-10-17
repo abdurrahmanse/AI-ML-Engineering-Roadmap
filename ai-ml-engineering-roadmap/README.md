@@ -54,8 +54,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/ai-engineering-roadmap.git
-cd ai-engineering-roadmap
+git clone https://github.com/abdurrahmanse/AI-ML-Engineering-Roadmap.git
+cd AI-ML-Engineering-Roadmap/ai-ml-engineering-roadmap
 
 # Install dependencies
 npm install
@@ -74,6 +74,12 @@ npm run build
 
 # Preview production build locally
 npm run preview
+
+# Run Astro's type and project checks
+npm run check
+
+# Verify verbatim objective rendering
+npm run verify
 ```
 
 ---
@@ -142,7 +148,7 @@ The deployment automatically provisions:
 ## Quality Assurance & Verification
 
 ```bash
-# Validate that all 1,135 objectives match source text verbatim
+# Validate that objectives match source text verbatim
 npm run verify
 
 # Verify curriculum parsing and topic signatures

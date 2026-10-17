@@ -71,8 +71,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/ai-ml-research-roadmap.git
-cd ai-ml-research-roadmap
+git clone https://github.com/abdurrahmanse/AI-ML-Engineering-Roadmap.git
+cd AI-ML-Engineering-Roadmap/ai-ml-research-roadmap
 
 # Install dependencies
 npm install
@@ -91,6 +91,12 @@ npm run build
 
 # Preview production build locally
 npm run preview
+
+# Run Astro's type and project checks
+npm run check
+
+# Verify verbatim objective rendering
+npm run verify
 ```
 
 ---
