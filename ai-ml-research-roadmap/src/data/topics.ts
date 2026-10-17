@@ -11,7 +11,7 @@ export interface TopicSet {
 export const topics: Record<string, TopicSet> = {
   /* ---------------------------------------------------------------- level 0 */
   'M0.1': {
-    sig: '3ae8b719',
+    sig: '3844c792',
     labels: [
       "Remote Linux compute servers",
       "Background research processes with nohup",
@@ -22,7 +22,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M0.2': {
-    sig: '6c2c2c46',
+    sig: '0cf178fc',
     labels: [
       "Reproducibility crisis in machine learning",
       "Scientific Python environments using modern",
@@ -33,7 +33,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M0.3': {
-    sig: '2ffbc70c',
+    sig: 'e11aded1',
     labels: [
       "Research Git repositories separating core",
       "Use feature branches and semantic",
@@ -44,7 +44,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M0.4': {
-    sig: '9d95ef17',
+    sig: '8637c2f8',
     labels: [
       "Real-time experiment tracking tools",
       "Log training and validation loss",
@@ -78,7 +78,7 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 1 */
   'M1.1': {
-    sig: '30cb8646',
+    sig: 'fd24fe7b',
     labels: [
       "Academic databases",
       "Citation graphs and follow seminal",
@@ -89,7 +89,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M1.2': {
-    sig: '6029313c',
+    sig: '1ca8e474',
     labels: [
       "Keshav’s Three-Pass Method to evaluate",
       "Core contributions in Pass 1",
@@ -100,7 +100,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M1.3': {
-    sig: '073526ef',
+    sig: 'a992ff6b',
     labels: [
       "Academic libraries systematically using Zotero",
       "Zotero with Overleaf and local",
@@ -111,7 +111,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M1.4': {
-    sig: 'adf118fc',
+    sig: 'b7cb7014',
     labels: [
       "Identify fertile research gaps",
       "\"Limitations and Future Work\" sections",
@@ -122,7 +122,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M1.5': {
-    sig: '97700fbe',
+    sig: '76defe96',
     labels: [
       "Primary and alternative hypotheses",
       "Provide theoretical justification for why",
@@ -133,7 +133,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M1.6': {
-    sig: 'e48c84bf',
+    sig: '6165c61b',
     labels: [
       "Exhaustive literature survey across 25+",
       "Articulate a compelling",
@@ -145,7 +145,7 @@ export const topics: Record<string, TopicSet> = {
   },
   /* ---------------------------------------------------------------- level 2 */
   'M2.1': {
-    sig: '633b6012',
+    sig: '7aed96b1',
     labels: [
       "Geometric phenomena in high-dimensional vector",
       "Orthogonal projections onto subspaces",
@@ -156,7 +156,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M2.2': {
-    sig: 'f552eb24',
+    sig: '62e190b2',
     labels: [
       "Numerator and denominator layout conventions",
       "Analytical gradients and Jacobians",
@@ -167,7 +167,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M2.3': {
-    sig: '5fcb1eb4',
+    sig: '7ed682d9',
     labels: [
       "Formalize probability spaces",
       "Conditional expectations",
@@ -178,7 +178,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M2.4': {
-    sig: '9255e486',
+    sig: '21d17eb9',
     labels: [
       "Null",
       "Type I",
@@ -189,7 +189,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M2.5': {
-    sig: 'e04ca7d3',
+    sig: '49cf9e93',
     labels: [
       "Between statistical significance",
       "Control the Family-Wise Error Rate",
@@ -200,7 +200,7 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M2.6': {
-    sig: 'f7c071a3',
+    sig: 'bd14ddde',
     labels: [
       "Standalone scientific evaluation Python package",
       "Normality testing",

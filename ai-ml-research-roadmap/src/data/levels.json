@@ -6,80 +6,80 @@
   "phases": [
     {
       "id": "foundations",
-      "name": "Foundations & Methodology",
+      "name": "Research Foundations & RA Onboarding",
       "levels": [
         0,
         1,
         2,
         3
       ],
-      "theme": "scientific computing, literature review, research math & experimental benchmarking",
+      "theme": "scientific computing, finding an advisor, securing RA positions, literature search & applied statistics",
       "color": "violet",
       "icon": "terminal"
     },
     {
       "id": "retrieval",
-      "name": "Research Prototyping",
+      "name": "Datasets & Domain Exploration",
       "levels": [
         4
       ],
-      "theme": "modular deep learning architectures, autograd extensions & research profiling in PyTorch/JAX",
+      "theme": "medical, cybersecurity & scientific dataset curation, preprocessing & domain adaptation",
       "color": "blue",
-      "icon": "code"
+      "icon": "database"
     },
     {
       "id": "agentic",
-      "name": "Paradigms & Generative Models",
+      "name": "Model Architectures & Paradigms",
       "levels": [
         5,
         6
       ],
-      "theme": "transformers, state space models, self-supervised learning, diffusion & flow matching",
+      "theme": "classical ML, deep learning, vision CNNs, graph neural networks & transformers across domains",
       "color": "emerald",
-      "icon": "brain-circuit"
+      "icon": "layers"
     },
     {
       "id": "trust",
-      "name": "Reasoning, Benchmarks & Rigor",
+      "name": "Generative Models & Benchmarking",
       "levels": [
         7,
         8
       ],
-      "theme": "reinforcement learning, test-time compute, benchmark curation & contamination audits",
+      "theme": "diffusion, flow matching, privacy synthesis, experimental design & multi-factor ablation studies",
       "color": "amber",
-      "icon": "shield-check"
+      "icon": "sliders-horizontal"
     },
     {
       "id": "production",
-      "name": "HPC, Scaling & Interpretability",
+      "name": "HPC Clusters, Scaling & Explainability",
       "levels": [
         9,
         10,
         11
       ],
-      "theme": "supercomputing clusters, SLURM, 3D distributed training, scaling laws & mechanistic interpretability",
+      "theme": "SLURM supercomputing, multi-GPU distributed training, domain PEFT & XAI interpretability",
       "color": "cyan",
       "icon": "cpu"
     },
     {
       "id": "frontier",
-      "name": "Frontier, Alignment & Thesis",
+      "name": "Frontier Robustness & Thesis Projects",
       "levels": [
         12,
         13,
         14
       ],
-      "theme": "AI safety research, multimodal scientific discovery & comprehensive conference capstones",
+      "theme": "adversarial safety, multimodal clinical/cyber AI & comprehensive MSc/PhD thesis capstones",
       "color": "rose",
-      "icon": "sparkles"
+      "icon": "shield-check"
     },
     {
       "id": "interview",
-      "name": "Writing, Peer Review & Career",
+      "name": "Publishing, Peer Review & Career",
       "levels": [
         15
       ],
-      "theme": "LaTeX paper writing, peer review, OpenReview rebuttals, thesis defense & research job talks",
+      "theme": "conference & journal papers (IEEE/ACM/Nature), rebuttals, thesis defense & research scientist career",
       "color": "slate",
       "icon": "graduation-cap"
     }
@@ -88,89 +88,89 @@
     {
       "number": 0,
       "slug": "level-0",
-      "title": "Scientific Computing & Reproducible Research Foundations",
+      "title": "Scientific Computing, Research Tooling & Reproducibility",
       "sourceFile": "level0-mathematical-foundations.txt",
-      "scope": "Establish the foundational research computing stack, reproducible environment management, seed determinism, experiment logging, and open-source scientific artifact standards.",
-      "prereqStated": "None (entry level for undergraduate researchers and beginning graduate students)",
+      "scope": "Establish the core computing and software environment required for scientific research in Computer Science, Data Science, and AI/ML: remote Linux cluster navigation, containerized environments, deterministic hardware seeding, experiment logging, and open-source scientific repository standards.",
+      "prereqStated": "None (introductory on-ramp for Bachelor's, Master's, and prospective graduate researchers)",
       "prerequisites": [],
       "phase": "foundations",
       "icon": "terminal",
       "modules": [
         {
           "id": "M0.1",
-          "name": "The Research Computing Stack: Linux, Remote Servers & Shell Environments",
+          "name": "The Research Computing Stack: Linux, Remote Servers & GPU Monitoring",
           "sessionCount": 2,
-          "icon": "telescope",
+          "icon": "activity",
           "objectives": [
             {
-              "text": "- Navigate remote Linux compute servers via SSH with key-based authentication, config profiles, and persistent terminal multiplexers (tmux, screen).",
-              "group": "Linux Server Environments & Remote Access"
+              "text": "- Connect to university and laboratory GPU compute servers via SSH using public-key cryptography, custom config hosts, and SSH agent forwarding.",
+              "group": "Remote Linux Compute Environments & Process Persistence"
             },
             {
-              "text": "- Manage background research processes with nohup, systemd user services, and process isolation tools (htop, ps, kill).",
-              "group": "Linux Server Environments & Remote Access"
+              "text": "- Manage persistent long-running research jobs across network drops using terminal multiplexers (tmux, screen) with multi-window workflows.",
+              "group": "Remote Linux Compute Environments & Process Persistence"
             },
             {
-              "text": "- Monitor GPU hardware metrics in real time using nvidia-smi, nvtop, and gpustat to diagnose GPU memory allocation and compute utilization.",
-              "group": "Linux Server Environments & Remote Access"
+              "text": "- Monitor active server processes, memory consumption, and CPU core affinity using htop, ps, and process kill signals (SIGTERM, SIGKILL).",
+              "group": "Remote Linux Compute Environments & Process Persistence"
             },
             {
-              "text": "- Write robust Bash automation scripts for parameterized batch execution, log redirection, and environment variable propagation.",
-              "group": "Shell Scripting for Scientific Automation"
+              "text": "- Inspect real-time GPU hardware metrics, VRAM allocation, temperature, and power draw using nvidia-smi, nvtop, and gpustat.",
+              "group": "Hardware Diagnostics & GPU Telemetry"
             },
             {
-              "text": "- Handle data stream redirection with standard input, output, error streams, and Unix pipeline utilities (grep, awk, sed, cut).",
-              "group": "Shell Scripting for Scientific Automation"
+              "text": "- Diagnose GPU utilization bottlenecks: identify when compute cores are stalled due to CPU preprocessing bottlenecks or slow disk I/O.",
+              "group": "Hardware Diagnostics & GPU Telemetry"
             },
             {
-              "text": "- Automate remote file synchronization and dataset transfers between local machines and compute servers using rsync and scp.",
-              "group": "Shell Scripting for Scientific Automation"
+              "text": "- Transfer large research datasets and model checkpoints between local development workstations and remote clusters using rsync and scp with bandwidth throttling.",
+              "group": "Hardware Diagnostics & GPU Telemetry"
             }
           ],
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "mentalModel": "The research server is an experimental laboratory where tmux sessions preserve running experiments across network disconnects.",
-          "tryIt": "Connect to a remote compute instance, launch a long-running simulation script inside a detached tmux session, and inspect memory allocation with nvidia-smi.",
-          "outcome": "Operate remote Linux research environments confidently, launch persistent jobs, and diagnose GPU allocation bottlenecks."
+          "mentalModel": "The remote compute server is an automated laboratory workbench; persistent tmux sessions safeguard long-running experiments from network disconnects.",
+          "tryIt": "Connect to a remote compute instance, launch a long-running simulation inside a named tmux session, detach, and inspect GPU memory allocation with nvidia-smi.",
+          "outcome": "Navigate remote Linux research environments, manage persistent background experiments, and diagnose hardware compute bottlenecks."
         },
         {
           "id": "M0.2",
-          "name": "Reproducible Virtual Environments: Pixi, Conda, Docker & PyPI",
+          "name": "Reproducible Scientific Environments: Pixi, Conda, Docker & PyPI",
           "sessionCount": 2,
           "icon": "ship",
           "objectives": [
             {
-              "text": "- Understand the reproducibility crisis in machine learning research caused by unpinned transitive dependencies and varying CUDA runtime binaries.",
-              "group": "Environment Isolation & Dependency Resolution"
+              "text": "- Understand the reproducibility crisis in AI/ML research caused by unpinned transitive dependencies, Python version drift, and conflicting CUDA libraries.",
+              "group": "Dependency Management & Virtual Environments"
             },
             {
-              "text": "- Isolate scientific Python environments using modern package managers (Pixi, uv, Conda) with locked dependency graphs.",
-              "group": "Environment Isolation & Dependency Resolution"
+              "text": "- Isolate scientific Python environments using modern package managers (Pixi, uv, Conda) with locked dependency trees and reproducible manifests.",
+              "group": "Dependency Management & Virtual Environments"
             },
             {
-              "text": "- Compile and install C++/CUDA extensions from source within isolated environments without contaminating system libraries.",
-              "group": "Environment Isolation & Dependency Resolution"
+              "text": "- Install and compile C++/CUDA extensions from source within user environments without corrupting host system operating system libraries.",
+              "group": "Dependency Management & Virtual Environments"
             },
             {
-              "text": "- Author multi-stage Dockerfiles optimized for deep learning research containing specific CUDA, cuDNN, and PyTorch versions.",
-              "group": "Containerization for Reproducible Research"
+              "text": "- Author multi-stage Dockerfiles optimized for deep learning research containing specific CUDA, cuDNN, and PyTorch/JAX runtime versions.",
+              "group": "Containerization for Reproducible Science"
             },
             {
-              "text": "- Mount host scratch disks and dataset directories into containers while preserving file ownership and non-root execution permissions.",
-              "group": "Containerization for Reproducible Research"
+              "text": "- Mount host scratch disks and dataset volumes into isolated containers with non-root user permissions and shared memory flags (--shm-size).",
+              "group": "Containerization for Reproducible Science"
             },
             {
-              "text": "- Export locked environment manifests (environment.lock.yml, pyproject.toml) to ensure identical reproduction across compute clusters.",
-              "group": "Containerization for Reproducible Research"
+              "text": "- Export locked environment manifests (environment.lock.yml, pyproject.toml) ensuring bitwise reproducible execution across disparate research clusters.",
+              "group": "Containerization for Reproducible Science"
             }
           ],
           "notes": [],
           "isCapstone": false,
           "isGap": false,
           "mentalModel": "A research environment must be an immutable, containerized artifact so that any researcher can reproduce exact numerical results five years later.",
-          "tryIt": "Build a reproducible container image pinning PyTorch and CUDA runtime dependencies, mounting an external dataset volume.",
-          "outcome": "Eliminate dependency drift, resolve CUDA version mismatches, and package research code into containerized environments."
+          "tryIt": "Build a reproducible Docker image pinning PyTorch and CUDA runtime dependencies, mounting an external dataset volume with non-root permissions.",
+          "outcome": "Eliminate dependency drift, resolve CUDA library mismatches, and package research experiments into containerized scientific artifacts."
         },
         {
           "id": "M0.3",
@@ -179,34 +179,34 @@
           "icon": "git-branch",
           "objectives": [
             {
-              "text": "- Structure research Git repositories separating core libraries, model definitions, baseline benchmarks, and exploratory scripts.",
-              "group": "Git Branching for Experimental Iteration"
+              "text": "- Structure research codebases separating reusable library code, model definitions, baseline benchmarks, and exploratory experimental scripts.",
+              "group": "Research Repository Architecture & Branching"
             },
             {
               "text": "- Use feature branches and semantic Git tags to mark paper submission checkpoints, rebuttal revisions, and camera-ready milestones.",
-              "group": "Git Branching for Experimental Iteration"
+              "group": "Research Repository Architecture & Branching"
             },
             {
-              "text": "- Manage external research repositories and upstream library forks cleanly using Git submodules and subtree merges.",
-              "group": "Git Branching for Experimental Iteration"
+              "text": "- Manage external baseline codebases and upstream research libraries cleanly using Git submodules and subtree merges.",
+              "group": "Research Repository Architecture & Branching"
             },
             {
               "text": "- Author comprehensive academic README files featuring installation commands, pretrained checkpoint links, and minimal reproduction snippets.",
-              "group": "Open-Source Code Standards & Research Hygiene"
+              "group": "Open-Source Release Standards & Scientific Hygiene"
             },
             {
               "text": "- Include open-source research licensing (MIT, Apache 2.0, CC-BY) and BibTeX citation blocks formatted for Google Scholar and ArXiv indexing.",
-              "group": "Open-Source Code Standards & Research Hygiene"
+              "group": "Open-Source Release Standards & Scientific Hygiene"
             },
             {
-              "text": "- Prevent data leakage and credential exposure by strictly configuring .gitignore for checkpoints, logs, raw data, and secret keys.",
-              "group": "Open-Source Code Standards & Research Hygiene"
+              "text": "- Prevent confidential dataset leakage and credential exposure by strictly configuring .gitignore for checkpoints, logs, raw data, and API keys.",
+              "group": "Open-Source Release Standards & Scientific Hygiene"
             }
           ],
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "mentalModel": "Git tags in research serve as immutable cryptographic stamps linking paper figures directly to specific commit hashes.",
+          "mentalModel": "Git tags in research serve as immutable cryptographic stamps linking paper figures and tables directly to specific commit hashes.",
           "tryIt": "Create a research template repository with a structured module layout, automated linter, .gitignore, and standardized BibTeX citation header.",
           "outcome": "Structure academic research repositories to meet top-tier conference artifact evaluation and reproducibility standards."
         },
@@ -217,7 +217,7 @@
           "icon": "git-compare",
           "objectives": [
             {
-              "text": "- Integrate real-time experiment tracking tools (Weights & Biases, MLflow) into iterative training loops with minimal overhead.",
+              "text": "- Integrate real-time experiment tracking tools (Weights & Biases, MLflow) into iterative training loops with minimal computational overhead.",
               "group": "Real-Time Metric Logging & Hyperparameter Tracking"
             },
             {
@@ -229,16 +229,16 @@
               "group": "Real-Time Metric Logging & Hyperparameter Tracking"
             },
             {
-              "text": "- Log multimodal research artifacts including generated validation samples, confusion matrices, and interactive attention heatmaps.",
-              "group": "Media Logging & Model Checkpoint Registry"
+              "text": "- Log domain-specific research artifacts including generated validation samples, confusion matrices, and interactive attention heatmaps.",
+              "group": "Multimodal Logging & Model Checkpoint Registry"
             },
             {
               "text": "- Implement an automated checkpoint saving strategy saving best-validation models, periodic epoch states, and emergency recovery snapshots.",
-              "group": "Media Logging & Model Checkpoint Registry"
+              "group": "Multimodal Logging & Model Checkpoint Registry"
             },
             {
               "text": "- Compare experiment runs across multi-dimensional parallel coordinate plots to isolate hyperparameter sensitivities and performance gains.",
-              "group": "Media Logging & Model Checkpoint Registry"
+              "group": "Multimodal Logging & Model Checkpoint Registry"
             }
           ],
           "notes": [],
@@ -350,259 +350,260 @@
     {
       "number": 1,
       "slug": "level-1",
-      "title": "Literature Review & Scientific Problem Formulation",
+      "title": "Finding an Advisor, Securing an RA Position & Academic Networking",
       "sourceFile": "level1-statistical-learning-theory.txt",
-      "scope": "Master the academic research methodology: discovering, analyzing, and synthesizing scientific literature, identifying open research gaps, formulating formal research questions (RQs), and constructing rigorous research proposals.",
-      "prereqStated": "Level 0 (Scientific Computing & Reproducible Research Foundations)",
+      "scope": "Master the path of entering an academic research laboratory as a Computer Science student (BSc, MSc, or prospective PhD): identifying research advisors, analyzing laboratory publications, crafting high-conversion cold emails, pitching concrete research ideas, passing technical RA interviews, and integrating into an active lab culture.",
+      "prereqStated": "Level 0 (Scientific Computing, Research Tooling & Reproducibility)",
       "prerequisites": [
         0
       ],
       "phase": "foundations",
-      "icon": "book-open",
+      "icon": "briefcase",
       "modules": [
         {
           "id": "M1.1",
-          "name": "Scientific Discovery Engines: Navigating ArXiv, Google Scholar & Semantic Scholar",
-          "sessionCount": 2,
-          "icon": "circle-dot",
-          "objectives": [
-            {
-              "text": "- Query academic databases (Google Scholar, Semantic Scholar, DBLP, ArXiv) using boolean search syntax and field-specific filtering.",
-              "group": "Academic Search Engines & Literature Discovery"
-            },
-            {
-              "text": "- Track citation graphs and follow seminal lineages forward and backward using citation trees and influence metrics.",
-              "group": "Academic Search Engines & Literature Discovery"
-            },
-            {
-              "text": "- Discover emerging preprints and conference proceedings across premier AI/ML venues (NeurIPS, ICML, ICLR, CVPR, ACL, KDD).",
-              "group": "Academic Search Engines & Literature Discovery"
-            },
-            {
-              "text": "- Set up automated research alerts and topic monitoring using ArXiv RSS feeds, Hugging Face Daily Papers, and Google Scholar keyword notifications.",
-              "group": "Automated Paper Feeds & Research Radar"
-            },
-            {
-              "text": "- Leverage visual literature exploration tools (Connected Papers, Litmaps, ResearchRabbit) to discover co-citation clusters and derivative works.",
-              "group": "Automated Paper Feeds & Research Radar"
-            },
-            {
-              "text": "- Filter signal from noise in daily preprint releases by evaluating author lab credibility, code availability, and benchmark claims.",
-              "group": "Automated Paper Feeds & Research Radar"
-            }
-          ],
-          "notes": [],
-          "isCapstone": false,
-          "isGap": false,
-          "mentalModel": "The scientific literature is a dynamic, interconnected knowledge graph; exploring citation trajectories reveals where a paradigm is heading.",
-          "tryIt": "Map the citation graph of a foundational paper using Connected Papers, identifying the top three foundational prior works and top three derivative extensions.",
-          "outcome": "Systematically discover relevant academic literature, navigate citation networks, and establish an automated daily research radar."
-        },
-        {
-          "id": "M1.2",
-          "name": "Critical Paper Reading: The Three-Pass Method & Deconstructing Claims",
-          "sessionCount": 2,
-          "icon": "circle-dot",
-          "objectives": [
-            {
-              "text": "- Apply Keshav’s Three-Pass Method to evaluate paper relevance, grasp central ideas, and dissect technical depth in structured increments.",
-              "group": "Efficient Multi-Pass Paper Deconstruction"
-            },
-            {
-              "text": "- Extract the core contributions in Pass 1 by analyzing title, abstract, introduction, section headers, and conclusion within 10 minutes.",
-              "group": "Efficient Multi-Pass Paper Deconstruction"
-            },
-            {
-              "text": "- Scrutinize figures, tables, and empirical evidence in Pass 2 to assess whether experimental data genuinely supports the stated claims.",
-              "group": "Efficient Multi-Pass Paper Deconstruction"
-            },
-            {
-              "text": "- Execute Pass 3: mentally re-implement the paper from scratch, identifying implicit assumptions, unstated tricks, and missing proofs.",
-              "group": "Deep Technical Dissection & Critical Questioning"
-            },
-            {
-              "text": "- Distinguish between theoretical guarantees, empirical heuristic findings, and unverified narrative speculation in published papers.",
-              "group": "Deep Technical Dissection & Critical Questioning"
-            },
-            {
-              "text": "- Identify common paper red flags: cherry-picked qualitative examples, weak or un-tuned baselines, moving goalposts, and missing ablation studies.",
-              "group": "Deep Technical Dissection & Critical Questioning"
-            }
-          ],
-          "notes": [],
-          "isCapstone": false,
-          "isGap": false,
-          "mentalModel": "Reading a paper is an active peer review where you interrogate every claim against the empirical evidence presented.",
-          "tryIt": "Conduct a 3-pass review of a recent top-tier conference paper, writing a 1-page structured critique evaluating its core claims and baseline fairness.",
-          "outcome": "Read research papers efficiently, extract core insights rapidly, and critically evaluate the validity of scientific claims."
-        },
-        {
-          "id": "M1.3",
-          "name": "Citation Management & Literature Synthesis: Zotero, BibTeX & Taxonomy Building",
-          "sessionCount": 2,
-          "icon": "quote",
-          "objectives": [
-            {
-              "text": "- Organize academic libraries systematically using Zotero with automatic PDF metadata extraction, tag hierarchies, and DOI lookups.",
-              "group": "Systematic Reference Management"
-            },
-            {
-              "text": "- Integrate Zotero with Overleaf and local LaTeX environments via Better BibTeX for automated, clean citation key generation.",
-              "group": "Systematic Reference Management"
-            },
-            {
-              "text": "- Annotate papers with structured research notes linking methodology variants, benchmark scores, and theoretical limitations.",
-              "group": "Systematic Reference Management"
-            },
-            {
-              "text": "- Construct comparative literature synthesis matrices mapping related papers across problem formulations, architectures, and assumptions.",
-              "group": "Synthesizing Related Work & Taxonomy Building"
-            },
-            {
-              "text": "- Develop conceptual taxonomies that categorize existing approaches into clear methodological families with contrasting trade-offs.",
-              "group": "Synthesizing Related Work & Taxonomy Building"
-            },
-            {
-              "text": "- Write polished \"Related Work\" sections that tell a compelling historical narrative rather than providing a disjointed list of summaries.",
-              "group": "Synthesizing Related Work & Taxonomy Building"
-            }
-          ],
-          "notes": [],
-          "isCapstone": false,
-          "isGap": false,
-          "mentalModel": "A literature survey is not a catalog of summaries; it is a structured taxonomy that exposes the boundaries of current human knowledge.",
-          "tryIt": "Build a 15-paper comparative synthesis table in Zotero, mapping existing methods across problem formulation, architecture, datasets, and limitations.",
-          "outcome": "Manage thousands of academic references effortlessly, maintain clean BibTeX registries, and synthesize literature into structured taxonomies."
-        },
-        {
-          "id": "M1.4",
-          "name": "Identifying Research Gaps & Formulating Research Questions (RQs)",
+          "name": "Mapping Academic Laboratories, PIs & Research Group Trajectories",
           "sessionCount": 2,
           "icon": "telescope",
           "objectives": [
             {
-              "text": "- Identify fertile research gaps: methodological oversights, untested domain transfers, computational bottlenecks, and contradictory published findings.",
-              "group": "Systematic Gap Analysis"
+              "text": "- Survey university computer science departments, research institutes, and corporate labs (e.g., DeepMind, FAIR, Microsoft Research) in your area of interest.",
+              "group": "Discovering Research Labs & Active Grants"
             },
             {
-              "text": "- Analyze the \"Limitations and Future Work\" sections of leading conference papers to extract candidate research directions.",
-              "group": "Systematic Gap Analysis"
+              "text": "- Inspect Principal Investigator (PI) profiles: evaluate recent grant funding (NSF, ERC, DARPA, NIH, industry gifts), student graduation records, and lab size.",
+              "group": "Discovering Research Labs & Active Grants"
             },
             {
-              "text": "- Distinguish between incremental \"delta\" tweaks (hyperparameter tuning) and substantial scientific gaps that yield meaningful contributions.",
-              "group": "Systematic Gap Analysis"
+              "text": "- Analyze laboratory publication velocity: identify whether a lab publishes primarily in top-tier conferences (NeurIPS, ICML, CVPR, ACL, KDD) or specialized venues.",
+              "group": "Discovering Research Labs & Active Grants"
             },
             {
-              "text": "- Formulate precise, falsifiable Research Questions (RQ1, RQ2, RQ3) that guide the entire trajectory of an academic investigation.",
-              "group": "Formulating Formal Research Questions"
+              "text": "- Distinguish between advisory styles: hands-on junior tenure-track faculty versus hands-off senior chaired professors.",
+              "group": "Evaluating Laboratory Culture & Advisor Styles"
             },
             {
-              "text": "- Frame research questions spanning capability (Can method X solve Y?), mechanism (Why does X outperform Y?), and trade-off (What is the cost of X?).",
-              "group": "Formulating Formal Research Questions"
+              "text": "- Connect with current PhD students and postdocs in the target lab to inquire about mentorship availability, computational resources, and graduation timelines.",
+              "group": "Evaluating Laboratory Culture & Advisor Styles"
             },
             {
-              "text": "- Define measurable operational definitions and evaluation metrics for each research question to establish clear success criteria.",
-              "group": "Formulating Formal Research Questions"
+              "text": "- Identify active multi-disciplinary collaborations (e.g., computer science labs collaborating with medical hospitals, oncology centers, or cybersecurity centers).",
+              "group": "Evaluating Laboratory Culture & Advisor Styles"
             }
           ],
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "mentalModel": "A well-formulated research question contains its own verification metric; if you cannot measure the answer, the question is not yet scientific.",
-          "tryIt": "Select a sub-field of AI, identify an unaddressed limitation in recent SOTA papers, and formulate three formal, falsifiable Research Questions.",
-          "outcome": "Isolate high-impact research gaps from published literature and formalize rigorous, publication-grade research questions."
+          "mentalModel": "Joining a lab is an intellectual apprenticeship; choosing an advisor who actively mentors and has compute resources matters more than institutional prestige.",
+          "tryIt": "Build an academic spreadsheet profiling 10 research laboratories in your target domain, noting their PI, recent top-tier papers, active grants, and student ratio.",
+          "outcome": "Systematically identify high-impact research laboratories and select advisors aligned with your research ambitions."
         },
         {
-          "id": "M1.5",
-          "name": "Hypothesis Generation, Theoretical Framing & Feasibility Analysis",
+          "id": "M1.2",
+          "name": "Reading Advisor Publications & Formulating Tailored Research Pitches",
+          "sessionCount": 2,
+          "icon": "telescope",
+          "objectives": [
+            {
+              "text": "- Select the 3 most recent conference or journal papers published by the target PI and their senior doctoral students.",
+              "group": "Deep Dissection of Advisor Papers"
+            },
+            {
+              "text": "- Analyze the \"Limitations and Future Work\" sections of these papers to identify immediate, unresolved problems the lab is currently investigating.",
+              "group": "Deep Dissection of Advisor Papers"
+            },
+            {
+              "text": "- Formulate a precise understanding of the lab's technical stack, baseline benchmarks, and primary methodological paradigms.",
+              "group": "Deep Dissection of Advisor Papers"
+            },
+            {
+              "text": "- Develop a 1-page research pitch proposing a concrete extension or solution to an open problem identified in the PI’s recent work.",
+              "group": "Formulating a Targeted Research Pitch"
+            },
+            {
+              "text": "- Frame the pitch with clear benefits to the lab: how your technical skills (e.g., PyTorch engineering, CUDA profiling, dataset curation) can accelerate their active project.",
+              "group": "Formulating a Targeted Research Pitch"
+            },
+            {
+              "text": "- Connect the proposal to domain-specific datasets (e.g., applying their model to MIMIC-IV clinical records or network intrusion telemetry).",
+              "group": "Formulating a Targeted Research Pitch"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "mentalModel": "A generic email asks for an opportunity; a tailored research pitch demonstrates that you are already contributing solutions to their active problems.",
+          "tryIt": "Read two recent papers from a target professor, identify an unaddressed limitation, and write a concise 3-paragraph research extension proposal.",
+          "outcome": "Deconstruct prospective advisors' papers and formulate high-value research pitches that demonstrate immediate intellectual compatibility."
+        },
+        {
+          "id": "M1.3",
+          "name": "Crafting High-Conversion Academic Cold Emails & Professor Outreach",
           "sessionCount": 2,
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Formulate primary and alternative hypotheses (H1, H0) predicting specific empirical outcomes when modifying an algorithmic component.",
-              "group": "Formulating Scientific Hypotheses"
+              "text": "- Analyze why professors ignore 95% of generic student emails (lengthy generic CV dumps, copy-pasted flattery, vague requests for \"any project\").",
+              "group": "The Anatomy of an Academic Cold Email"
             },
             {
-              "text": "- Provide theoretical justification for why the proposed approach should work, grounded in computational complexity, optimization, or statistics.",
-              "group": "Formulating Scientific Hypotheses"
+              "text": "- Master the concise 4-paragraph email structure: who you are, specific citation of their recent work, proposed technical contribution, and polite call to action.",
+              "group": "The Anatomy of an Academic Cold Email"
             },
             {
-              "text": "- Anticipate confounding variables and failure modes that could invalidate the hypothesis under realistic experimental conditions.",
-              "group": "Formulating Scientific Hypotheses"
+              "text": "- Craft professional, high-signal subject lines that stand out in crowded academic inboxes (e.g., \"Prospective RA: Extending [Paper Title] with [Method]\").",
+              "group": "The Anatomy of an Academic Cold Email"
             },
             {
-              "text": "- Evaluate compute feasibility: calculate GPU hours, parameter scales, and dataset storage requirements against available lab resources.",
-              "group": "Research Project Feasibility & Risk De-risking"
+              "text": "- Optimize email delivery timing around academic conference deadlines (avoiding the week before NeurIPS/ICML submissions or major grant deadlines).",
+              "group": "Timing, Persistence & Academic Etiquette"
             },
             {
-              "text": "- Assess timeline feasibility: plan phased milestones from rapid toy proof-of-concept to full-scale empirical validation.",
-              "group": "Research Project Feasibility & Risk De-risking"
+              "text": "- Execute respectful, value-additive follow-up sequences after 7 to 10 days if no response is received, sharing a new insight or reproduction result.",
+              "group": "Timing, Persistence & Academic Etiquette"
             },
             {
-              "text": "- Design early de-risking experiments (quick failure tests) that validate critical assumptions before committing major computational budgets.",
-              "group": "Research Project Feasibility & Risk De-risking"
+              "text": "- Leverage university office hours, departmental seminars, and student reading groups to initiate in-person academic conversations.",
+              "group": "Timing, Persistence & Academic Etiquette"
             }
           ],
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "mentalModel": "Strong research balances theoretical ambition with pragmatic de-risking; fail fast on toy problems before scaling compute.",
-          "tryIt": "Draft a feasibility budget for a research hypothesis, estimating required GPU hours, dataset disk footprints, and a 2-day proof-of-concept milestone.",
-          "outcome": "Formulate grounded research hypotheses, justify theoretical mechanisms, and establish resource-conscious experimental feasibility plans."
+          "mentalModel": "Professors are starved for time but hungry for self-directed, technically capable students who take initiative without constant hand-holding.",
+          "tryIt": "Draft a 200-word cold outreach email to a target professor referencing a specific equation or figure from their latest paper, followed by a polite follow-up template.",
+          "outcome": "Author high-conversion academic outreach emails that secure research interviews and avoid common applicant blunders."
+        },
+        {
+          "id": "M1.4",
+          "name": "Developing an Academic Research CV & Demonstrating Technical Proof-of-Work",
+          "sessionCount": 2,
+          "icon": "telescope",
+          "objectives": [
+            {
+              "text": "- Format a professional academic CV in LaTeX using clean typography (avoiding colorful graphic design templates used for corporate resumes).",
+              "group": "The Academic Curriculum Vitae (CV) Structure"
+            },
+            {
+              "text": "- Structure standard academic sections: Education, Research Interests, Publications/Preprints, Research Experience, Open-Source Contributions, and Technical Skills.",
+              "group": "The Academic Curriculum Vitae (CV) Structure"
+            },
+            {
+              "text": "- Highlight quantitative impact in past projects: benchmark scores, parameter scales, datasets curated, and reproducibility verification.",
+              "group": "The Academic Curriculum Vitae (CV) Structure"
+            },
+            {
+              "text": "- Curate a research-oriented GitHub profile featuring clean reproductions of published papers, modular PyTorch implementations, and reproducible notebooks.",
+              "group": "Scientific Proof-of-Work & GitHub Portfolios"
+            },
+            {
+              "text": "- Include interactive Weights & Biases experiment dashboards and Google Colab demonstrations directly linked from project README files.",
+              "group": "Scientific Proof-of-Work & GitHub Portfolios"
+            },
+            {
+              "text": "- Document course projects and seminar term papers as ArXiv-formatted technical reports rather than basic homework assignments.",
+              "group": "Scientific Proof-of-Work & GitHub Portfolios"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "mentalModel": "An academic CV establishes your credentials; a public, reproducible GitHub implementation provides indisputable proof of your research competence.",
+          "tryIt": "Typeset your academic CV in LaTeX using a clean academic template, linking a public GitHub repository that reproduces a published ML baseline.",
+          "outcome": "Build a stellar academic CV and proof-of-work portfolio that immediately distinguishes you from hundreds of applicant candidates."
+        },
+        {
+          "id": "M1.5",
+          "name": "Passing the Research Assistant (RA) Technical Interview & Screening",
+          "sessionCount": 2,
+          "icon": "telescope",
+          "objectives": [
+            {
+              "text": "- Prepare for standard RA interview questions: deriving gradients, explaining model failure modes, and analyzing statistical trade-offs on a whiteboard.",
+              "group": "Technical Screening & Whiteboard Problem Solving"
+            },
+            {
+              "text": "- Explain past projects with scientific depth: clearly distinguishing what you personally implemented versus what was borrowed from existing libraries.",
+              "group": "Technical Screening & Whiteboard Problem Solving"
+            },
+            {
+              "text": "- Walk through your code live: demonstrating modular architecture, deterministic seeds, and efficient PyTorch tensor operations without for-loops.",
+              "group": "Technical Screening & Whiteboard Problem Solving"
+            },
+            {
+              "text": "- Approach take-home research tasks (e.g., reproducing a baseline in 48 hours or analyzing a novel dataset) with rigorous scientific hygiene.",
+              "group": "The Take-Home Research Trial & Advisor Alignment"
+            },
+            {
+              "text": "- Document assumptions, failure cases, and unexpected empirical findings transparently rather than hiding imperfect results.",
+              "group": "The Take-Home Research Trial & Advisor Alignment"
+            },
+            {
+              "text": "- Evaluate funding structures: understanding graduate Research Assistantships (tuition remission + stipend), undergraduate fellowships, and hourly funding.",
+              "group": "The Take-Home Research Trial & Advisor Alignment"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "mentalModel": "The PI wants to know: Can this student read a paper, write clean code without supervision, and report honest empirical numbers when experiments fail?",
+          "tryIt": "Simulate a 30-minute research interview walkthrough explaining the methodology, ablations, and limitations of a deep learning project you implemented.",
+          "outcome": "Excel in academic research interviews, demonstrate technical competence under pressure, and secure funded Research Assistant positions."
         },
         {
           "id": "M1.6",
-          "name": "Capstone Project: Comprehensive Literature Survey & Research Proposal Specification",
+          "name": "Capstone Project: Research Assistantship (RA) Application & Professor Research Pitch Portfolio",
           "sessionCount": 3,
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Conduct an exhaustive literature survey across 25+ papers in an active AI/ML research area, constructing a multi-dimensional taxonomy matrix.",
-              "group": "Literature Synthesis & Gap Articulation"
+              "text": "- Select 3 active research laboratories in your domain of interest (e.g., medical imaging, cybersecurity, or foundation models) with active funding.",
+              "group": "Target Lab Selection & Deep Technical Dossier"
             },
             {
-              "text": "- Articulate a compelling, well-justified research gap highlighting why existing methodologies fail under specific critical conditions.",
-              "group": "Literature Synthesis & Gap Articulation"
+              "text": "- Deconstruct the latest publication from each lab, identifying open research gaps and formulating a tailored, novel research proposal for each.",
+              "group": "Target Lab Selection & Deep Technical Dossier"
             },
             {
-              "text": "- Define 3 formal Research Questions (RQs) with explicit hypotheses and measurable empirical criteria.",
-              "group": "Literature Synthesis & Gap Articulation"
+              "text": "- Assemble a professional academic portfolio including a LaTeX academic CV, GitHub proof-of-work repository, and reproducible baseline script.",
+              "group": "Target Lab Selection & Deep Technical Dossier"
             },
             {
-              "text": "- Write a formal methodological proposal specifying the proposed model architecture, loss functions, and algorithmic enhancements.",
-              "group": "Methodological Specification & Experimental Blueprint"
+              "text": "- Author personalized 4-paragraph cold outreach emails tailored to the PIs of the target labs, accompanied by a 1-page formal research pitch.",
+              "group": "Pitch Synthesis & Outreach Simulation"
             },
             {
-              "text": "- Design an end-to-end experimental plan detailing benchmark datasets, baseline implementations, metric definitions, and ablation grids.",
-              "group": "Methodological Specification & Experimental Blueprint"
+              "text": "- Package a clean demonstration codebase implementing a toy baseline related to the target lab's recent research focus.",
+              "group": "Pitch Synthesis & Outreach Simulation"
             },
             {
-              "text": "- Author the complete proposal document in LaTeX using a standard conference template (NeurIPS/ICLR), complete with BibTeX bibliography.",
-              "group": "Methodological Specification & Experimental Blueprint"
+              "text": "- Rehearse technical interview defenses addressing potential PI questions regarding methodology, compute feasibility, and experimental timelines.",
+              "group": "Pitch Synthesis & Outreach Simulation"
             }
           ],
           "notes": [
-            "CAPSTONE PROJECT: Comprehensive Literature Survey & Research Proposal Specification",
-            "BRIEF: Author a formal academic research proposal in LaTeX following the official NeurIPS/ICLR conference format. The proposal must synthesize current literature in a chosen AI/ML subfield, identify a significant research gap, formalize falsifiable research questions, and outline a rigorous experimental validation blueprint.",
-            "Build a research proposal that:",
-            "- Surveys at least 25 peer-reviewed papers from top-tier AI/ML venues, organizing them into a structured taxonomic framework.",
-            "- Constructs a comparative analysis table evaluating prior works across assumptions, architectural choices, compute requirements, and empirical limits.",
-            "- Identifies an unaddressed scientific research gap supported by concrete citations and empirical analysis of prior limitations.",
-            "- Formulates three formal Research Questions (RQ1, RQ2, RQ3) accompanied by precise null and alternative hypotheses.",
-            "- Specifies the mathematical formulation of the proposed approach, including loss formulations, architectural modifications, and algorithmic pseudocode.",
-            "- Details the experimental blueprint: choice of benchmark datasets, competitive baseline models to reproduce, evaluation metrics, and planned ablation studies.",
-            "- Provides a detailed compute budget estimating GPU memory requirements, training wall-clock time, and a phased risk-mitigation timeline.",
-            "- Adheres strictly to conference formatting guidelines with clean vector figures, mathematical notation, and an authenticated BibTeX bibliography.",
+            "CAPSTONE PROJECT: Research Assistantship (RA) Application & Professor Research Pitch Portfolio",
+            "BRIEF: Build a complete, professional Research Assistantship (RA) application package targeted at a top academic or industrial research laboratory. The package must include a tailored academic CV in LaTeX, a technical dossier deconstructing a recent paper from the target lab, a 1-page novel research proposal, and a reproducible GitHub proof-of-work repository.",
+            "Build an RA application portfolio that:",
+            "- Profiles an active research laboratory (PI, active grants, recent conference publications, and current PhD student roster).",
+            "- Deconstructs a recent top-tier conference paper from the lab, summarizing its core contribution, methodological formulation, and limitations.",
+            "- Formulates a 1-page structured Research Proposal (LaTeX formatted) proposing a novel extension, domain application (e.g., medical or cyber), or ablation study.",
+            "- Authors an academic Curriculum Vitae (CV) in LaTeX emphasizing mathematical coursework, research experience, publications, and technical skills.",
+            "- Implements a clean, reproducible PyTorch baseline implementation related to the target lab's work on GitHub, complete with W&B logging and a verified README.",
+            "- Drafts a high-impact, personalized 200-word cold outreach email to the Principal Investigator following the proven 4-paragraph academic structure.",
+            "- Prepares a slide deck (5 slides) outlining your proposed research project, computational feasibility budget, and preliminary experimental milestones.",
+            "- Simulates an oral technical screening interview, demonstrating mastery of the underlying mathematics, baselines, and implementation details.",
             "Deliverables:",
-            "- Formally compiled 6-page Research Proposal PDF formatted in LaTeX using the official NeurIPS or ICLR template.",
-            "- Comprehensive BibTeX library (.bib) containing cleanly formatted, verified citations for all referenced works.",
-            "- Markdown summary pitch slide-deck outline for presentation to a thesis advisor or research lab director."
+            "- Formally compiled Academic CV PDF typeset in LaTeX.",
+            "- 1-Page Research Proposal PDF formatted in NeurIPS/ICLR style proposing a novel project for the target laboratory.",
+            "- Public GitHub repository link containing a clean, reproducible baseline implementation with experiment tracking.",
+            "- Complete Professor Outreach Email text and tailored follow-up template."
           ],
           "isCapstone": true,
           "isGap": false,
-          "mentalModel": "A research proposal is an architectural blueprint for a scientific paper; when executed thoroughly, writing the final paper is simply filling in the results.",
-          "tryIt": "Compile your complete literature survey and research proposal into a clean LaTeX PDF, verifying all cross-references, equations, and BibTeX citations.",
-          "outcome": "You can identify high-impact scientific opportunities, review academic literature critically, and formulate publication-grade research proposals."
+          "mentalModel": "Securing an RA position is your official initiation into the global scientific community; treating it with professional rigor unlocks your research career.",
+          "tryIt": "Compile your complete RA application dossier into a clean PDF package, including your LaTeX CV, 1-page research pitch, and verified GitHub reproduction links.",
+          "outcome": "You can systematically discover top academic laboratories, craft compelling scientific research pitches, and successfully secure funded Research Assistant positions."
         }
       ],
       "project": "M1.6",
@@ -614,259 +615,259 @@
     {
       "number": 2,
       "slug": "level-2",
-      "title": "Research Mathematics & Statistical Hypothesis Testing",
+      "title": "Scholarly Literature Search, Paper Reading & Reference Management",
       "sourceFile": "level2-deep-learning-optimization.txt",
-      "scope": "Master the core mathematical tools and statistical hypothesis testing methodologies required to derive machine learning models, prove convergence properties, and rigorously validate empirical claims in academic papers.",
-      "prereqStated": "Level 1 (Literature Review & Scientific Problem Formulation)",
+      "scope": "Master the scientific method of discovering, reading, evaluating, and managing scholarly literature in Computer Science and Data Science: navigating major bibliographic databases (ArXiv, IEEE Xplore, ACM DL, PubMed, DBLP), understanding journal impact factors and conference rankings (CORE A*), Keshav's 3-pass reading method, Zotero/BibTeX workflows, and constructing Systematic Literature Reviews (SLR).",
+      "prereqStated": "Level 1 (Finding an Advisor, Securing an RA Position & Academic Networking)",
       "prerequisites": [
         1
       ],
       "phase": "foundations",
-      "icon": "sigma",
+      "icon": "book-open",
       "modules": [
         {
           "id": "M2.1",
-          "name": "Applied Linear Algebra: High-Dimensional Geometry & Spectral Methods",
+          "name": "Scholarly Search Engines & Bibliographic Databases: ArXiv, IEEE, ACM & PubMed",
           "sessionCount": 2,
-          "icon": "circle-dot",
+          "icon": "database",
           "objectives": [
             {
-              "text": "- Analyze geometric phenomena in high-dimensional vector spaces: the curse of dimensionality, concentration of measure, and orthogonality of random vectors.",
-              "group": "High-Dimensional Geometry & Vector Subspaces"
+              "text": "- Query major computer science and interdisciplinary scientific databases: ArXiv, IEEE Xplore, ACM Digital Library, DBLP, and ScienceDirect.",
+              "group": "Bibliographic Databases & Search Syntax"
             },
             {
-              "text": "- Compute orthogonal projections onto subspaces and derive projection matrices for dimensionality reduction and subspace clustering.",
-              "group": "High-Dimensional Geometry & Vector Subspaces"
+              "text": "- Navigate life science and biomedical databases (PubMed, NCBI, BioMed Central) for medical AI research, using MeSH (Medical Subject Headings) terms.",
+              "group": "Bibliographic Databases & Search Syntax"
             },
             {
-              "text": "- Understand Gram-Schmidt orthogonalization, QR decomposition, and their applications in stable numerical computations.",
-              "group": "High-Dimensional Geometry & Vector Subspaces"
+              "text": "- Construct advanced boolean search strings combining title, abstract, keyword wildcards, and author institutional affiliations.",
+              "group": "Bibliographic Databases & Search Syntax"
             },
             {
-              "text": "- Compute Singular Value Decomposition (SVD) and eigendecompositions of symmetric positive semi-definite kernel and covariance matrices.",
-              "group": "Spectral Decompositions & Energy Concentration"
+              "text": "- Traverse citation graphs forward and backward using Google Scholar, Semantic Scholar, and Connected Papers to uncover seminal ancestral works.",
+              "group": "Citation Networks & Academic Graph Traversal"
             },
             {
-              "text": "- Apply the Eckart-Young-Mirsky theorem to determine optimal low-rank matrix approximations and bound reconstruction error.",
-              "group": "Spectral Decompositions & Energy Concentration"
+              "text": "- Track influential citations and methodology evolutions using citation velocity, co-citation clustering, and paper genealogy trees.",
+              "group": "Citation Networks & Academic Graph Traversal"
             },
             {
-              "text": "- Analyze matrix condition numbers and spectral norms to predict numerical instability in deep linear layers and attention projections.",
-              "group": "Spectral Decompositions & Energy Concentration"
+              "text": "- Set up automated research feeds via ArXiv sanity preserver, Hugging Face Daily Papers, and keyword alert webhooks.",
+              "group": "Citation Networks & Academic Graph Traversal"
             }
           ],
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "mentalModel": "High-dimensional representations concentrate on low-dimensional manifolds; spectral decompositions identify the principal axes of information.",
-          "tryIt": "Implement truncated SVD from scratch in NumPy, decompose a high-dimensional feature matrix, and compute the reconstruction error against theoretical bounds.",
-          "outcome": "Manipulate high-dimensional vector representations, analyze spectral properties of neural representations, and avoid numerical ill-conditioning."
+          "mentalModel": "The academic literature is a sprawling directed graph; following incoming and outgoing citation edges reveals how paradigms form and diverge.",
+          "tryIt": "Construct an advanced boolean search query on IEEE Xplore and PubMed for deep learning in medical image segmentation, mapping the top 10 most cited papers.",
+          "outcome": "Systematically discover scholarly literature across major computer science and domain-specific bibliographic databases."
         },
         {
           "id": "M2.2",
-          "name": "Matrix Calculus & Symbolic Derivations for Gradient Flow",
+          "name": "Deconstructing Journals, Conferences & Venue Rankings: IEEE, ACM, Springer & Nature",
           "sessionCount": 2,
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Master numerator and denominator layout conventions in matrix calculus for vector-valued and matrix-valued functions.",
-              "group": "Matrix Differentials & Tensor Contractions"
+              "text": "- Understand why Computer Science prioritizes peer-reviewed conference proceedings (NeurIPS, ICML, ICLR, KDD, CVPR, ACL) over traditional academic journals.",
+              "group": "The Conference-Driven Nature of Computer Science"
             },
             {
-              "text": "- Compute analytical gradients and Jacobians of composite matrix expressions (trace, determinant, quadratic forms, matrix inverses).",
-              "group": "Matrix Differentials & Tensor Contractions"
+              "text": "- Evaluate conference prestige and selectivity using CORE rankings (CORE A*, A, B), acceptance rates (typically 15-25%), and Google Scholar h5-indices.",
+              "group": "The Conference-Driven Nature of Computer Science"
             },
             {
-              "text": "- Derive the backpropagation equations for standard neural network layers (linear projections, convolutions, self-attention, layer normalization).",
-              "group": "Matrix Differentials & Tensor Contractions"
+              "text": "- Analyze specialized domain conferences: IEEE S&P / USENIX Security for cybersecurity, MICCAI for medical imaging, and CHIL for clinical ML.",
+              "group": "The Conference-Driven Nature of Computer Science"
             },
             {
-              "text": "- Compute the Hessian matrix of loss functions and analyze its eigenvalue spectrum to evaluate local curvature and saddle point geometry.",
-              "group": "Second-Order Curvature & Hessian Analysis"
+              "text": "- Navigate premier AI/ML journals: Journal of Machine Learning Research (JMLR), IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), IEEE TIFS.",
+              "group": "Academic Journals, Impact Factors & Peer-Review Standards"
             },
             {
-              "text": "- Understand the Gauss-Newton approximation and Fisher Information Matrix in natural gradient descent and empirical optimization.",
-              "group": "Second-Order Curvature & Hessian Analysis"
+              "text": "- Analyze high-impact multidisciplinary journals: Nature, Nature Machine Intelligence, Science, and The Lancet Digital Health.",
+              "group": "Academic Journals, Impact Factors & Peer-Review Standards"
             },
             {
-              "text": "- Derive convergence rates for first-order gradient descent on L-smooth and mu-strongly convex objective functions.",
-              "group": "Second-Order Curvature & Hessian Analysis"
+              "text": "- Understand journal indexing metrics: Journal Citation Reports (JCR), Clarivate Impact Factors, CiteScore, and SCImago Journal Rank (Q1 to Q4 quartiles).",
+              "group": "Academic Journals, Impact Factors & Peer-Review Standards"
             }
           ],
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "mentalModel": "Backpropagation is symbolic tensor contraction along the edges of a computational directed acyclic graph.",
-          "tryIt": "Derive the exact analytical matrix gradient of the multi-head self-attention operation with respect to the Query weight matrix on paper, then verify with autograd.",
-          "outcome": "Derive exact mathematical gradients for custom architectural layers and analytically inspect optimization loss curvature."
+          "mentalModel": "Top conferences deliver fast, cutting-edge breakthroughs; prestigious journals publish comprehensive, foundational reference works.",
+          "tryIt": "Identify the top 3 conferences and top 3 Q1 journals in your target research domain (e.g., medical AI or cybersecurity), noting their h5-index and review cycles.",
+          "outcome": "Navigate the academic publishing ecosystem, evaluate venue prestige, and distinguish predatory publishers from reputable venues."
         },
         {
           "id": "M2.3",
-          "name": "Probability Spaces, Density Estimation & Information Theory in ML",
+          "name": "Critical Paper Reading: The Three-Pass Method & Dissecting Scientific Claims",
           "sessionCount": 2,
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "- Formalize probability spaces, random variables, cumulative distribution functions, and multivariate continuous density functions.",
-              "group": "Probability Spaces & Continuous Densities"
+              "text": "- Apply Keshav’s Three-Pass Method to evaluate paper relevance, understand main mechanisms, and dissect deep mathematical assumptions in structured tiers.",
+              "group": "Efficient Multi-Pass Reading Strategy"
             },
             {
-              "text": "- Compute conditional expectations, law of total variance, and covariance matrices for multivariate Gaussian distributions.",
-              "group": "Probability Spaces & Continuous Densities"
+              "text": "- Pass 1 (10 minutes): analyze title, abstract, section headings, and conclusions to determine if the paper is worth reading for your research question.",
+              "group": "Efficient Multi-Pass Reading Strategy"
             },
             {
-              "text": "- Implement maximum likelihood estimation (MLE) and maximum a posteriori (MAP) estimation under Gaussian and Laplace priors.",
-              "group": "Probability Spaces & Continuous Densities"
+              "text": "- Pass 2 (1 hour): grasp the paper's contents, analyze key figures and tables, and identify the core algorithmic contribution without getting bogged down in proofs.",
+              "group": "Efficient Multi-Pass Reading Strategy"
             },
             {
-              "text": "- Calculate Shannon entropy, differential entropy, joint entropy, and conditional entropy for discrete and continuous distributions.",
-              "group": "Information-Theoretic Metrics in Machine Learning"
+              "text": "- Pass 3 (multi-hour): mentally re-implement the paper from scratch, identifying implicit assumptions, unstated tricks, and missing baselines.",
+              "group": "Deep Technical Dissection & Interrogating Claims"
             },
             {
-              "text": "- Compute Kullback-Leibler (KL) divergence and Jensen-Shannon (JS) divergence between empirical and model distributions.",
-              "group": "Information-Theoretic Metrics in Machine Learning"
+              "text": "- Differentiate between rigorous theoretical proofs, validated empirical findings, and unsupported speculative claims.",
+              "group": "Deep Technical Dissection & Interrogating Claims"
             },
             {
-              "text": "- Apply mutual information and the Information Bottleneck principle to quantify feature compression in deep neural representations.",
-              "group": "Information-Theoretic Metrics in Machine Learning"
+              "text": "- Identify common research red flags: cherry-picked qualitative examples, weak or un-tuned baselines, shifting metrics, and missing ablation tables.",
+              "group": "Deep Technical Dissection & Interrogating Claims"
             }
           ],
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "mentalModel": "Information theory measures surprise and uncertainty; learning is compressing the input while preserving mutual information with the target.",
-          "tryIt": "Calculate the analytical KL divergence between two multivariate Gaussians, implement the formula, and verify against Monte Carlo sampling estimates.",
-          "outcome": "Apply formal probabilistic modeling to machine learning problems and compute information-theoretic metrics across learned representations."
+          "mentalModel": "Reading an academic paper is not passive consumption; it is an active peer review where you cross-examine every claim against the empirical data.",
+          "tryIt": "Execute a 3-pass reading of a recent top-tier conference paper, writing a 1-page structured critique evaluating its core claims and baseline fairness.",
+          "outcome": "Read research papers efficiently, extract core insights rapidly, and critically evaluate the validity of scientific claims."
         },
         {
           "id": "M2.4",
-          "name": "Statistical Hypothesis Testing: Parametric & Non-Parametric Significance in ML",
+          "name": "Reference Management & BibTeX Workflows: Zotero, Mendeley & Overleaf",
           "sessionCount": 2,
-          "icon": "ruler",
+          "icon": "workflow",
           "objectives": [
             {
-              "text": "- Formulate null (H0) and alternative (H1) hypotheses to evaluate whether a proposed model genuinely outperforms a baseline.",
-              "group": "The Null Hypothesis & Parametric Testing"
+              "text": "- Organize academic PDF libraries systematically using Zotero with automatic metadata extraction, collection hierarchies, and tag systems.",
+              "group": "Systematic Reference Library Architecture"
             },
             {
-              "text": "- Understand Type I (false positive) and Type II (false negative) errors, significance level alpha, and statistical power (1 - beta).",
-              "group": "The Null Hypothesis & Parametric Testing"
+              "text": "- Configure Better BibTeX for Zotero to generate clean, collision-free, standardized citation keys (e.g., [Author][Year][Keyword]).",
+              "group": "Systematic Reference Library Architecture"
             },
             {
-              "text": "- Apply two-sample Student’s t-tests and paired t-tests when assumptions of normality and equal variance are verified.",
-              "group": "The Null Hypothesis & Parametric Testing"
+              "text": "- Annotate PDFs directly with structured notes, linking research methodologies, dataset benchmarks, and mathematical formulations.",
+              "group": "Systematic Reference Library Architecture"
             },
             {
-              "text": "- Identify why deep learning benchmark metrics often violate normality assumptions, necessitating non-parametric statistical tests.",
-              "group": "Non-Parametric Tests for Machine Learning Benchmarks"
+              "text": "- Integrate Zotero with Overleaf and local LaTeX environments, enabling real-time synchronization of shared .bib reference files across lab members.",
+              "group": "Integrating References with Overleaf & LaTeX"
             },
             {
-              "text": "- Execute the Wilcoxon signed-rank test for paired performance comparisons across multiple test benchmark datasets.",
-              "group": "Non-Parametric Tests for Machine Learning Benchmarks"
+              "text": "- Master BibTeX entry types: @article for journals, @inproceedings for conferences, @book for textbooks, and @misc for preprints.",
+              "group": "Integrating References with Overleaf & LaTeX"
             },
             {
-              "text": "- Apply the Mann-Whitney U test and Kruskal-Wallis test for comparing multi-model distributions without assuming Gaussian distributions.",
-              "group": "Non-Parametric Tests for Machine Learning Benchmarks"
+              "text": "- Maintain clean citation records: verify that ArXiv preprints are updated with official conference/journal publication citations once accepted.",
+              "group": "Integrating References with Overleaf & LaTeX"
             }
           ],
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "mentalModel": "A higher benchmark score without a statistical significance test is an unverified anecdote, not a scientific finding.",
-          "tryIt": "Run 10 random seeds for a proposed model and a baseline, test for normality using Shapiro-Wilk, and execute a Wilcoxon signed-rank test to compute the p-value.",
-          "outcome": "Formulate rigorous statistical hypothesis tests and select appropriate parametric or non-parametric tests for machine learning evaluations."
+          "mentalModel": "A disorganized researcher forgets 80% of what they read; an automated Zotero library turns reading into a searchable intellectual database.",
+          "tryIt": "Build a 30-paper library in Zotero with Better BibTeX keys, sync it to an Overleaf document, and cite three papers with formatted \\cite{} commands.",
+          "outcome": "Manage thousands of scholarly references effortlessly, maintain pristine BibTeX registries, and streamline academic LaTeX authoring."
         },
         {
           "id": "M2.5",
-          "name": "Effect Sizes, Multiple Hypothesis Corrections & Bootstrap Confidence Intervals",
+          "name": "Literature Synthesis, Gap Identification & Research Taxonomies",
           "sessionCount": 2,
-          "icon": "circle-dot",
+          "icon": "telescope",
           "objectives": [
             {
-              "text": "- Differentiate between statistical significance (p < 0.05) and practical significance by computing Cohen’s d and Cliff’s delta effect sizes.",
-              "group": "Effect Size Quantification & Multiple Testing Corrections"
+              "text": "- Build multi-dimensional literature synthesis matrices mapping prior papers across problem formulation, datasets, architectures, and performance.",
+              "group": "Constructing Comparative Literature Synthesis Matrices"
             },
             {
-              "text": "- Control the Family-Wise Error Rate (FWER) across multiple benchmark comparisons using the Bonferroni correction and Holm-Bonferroni method.",
-              "group": "Effect Size Quantification & Multiple Testing Corrections"
+              "text": "- Develop conceptual taxonomies that categorize existing approaches into clear methodological families with contrasting trade-offs.",
+              "group": "Constructing Comparative Literature Synthesis Matrices"
             },
             {
-              "text": "- Control the False Discovery Rate (FDR) in large-scale metric screening using the Benjamini-Hochberg procedure.",
-              "group": "Effect Size Quantification & Multiple Testing Corrections"
+              "text": "- Identify contradictory findings in published literature, isolating variations in dataset preprocessing or hyperparameter tuning as potential causes.",
+              "group": "Constructing Comparative Literature Synthesis Matrices"
             },
             {
-              "text": "- Apply non-parametric bootstrap resampling to compute 95% confidence intervals for complex metrics (F1-score, BLEU, ROUGE, AUC-ROC).",
-              "group": "Bootstrap Resampling & Confidence Intervals"
+              "text": "- Identify fertile research gaps: unaddressed failure modes, untested domain transfers (e.g., applying a vision technique to medical pathology), or scaling limits.",
+              "group": "Isolating Genuine Research Gaps & Novelty Framing"
             },
             {
-              "text": "- Understand stratified bootstrapping to preserve class balance across resampled evaluation test sets.",
-              "group": "Bootstrap Resampling & Confidence Intervals"
+              "text": "- Formulate a clear \"Delta Statement\": articulating precisely how your proposed research extends, challenges, or unifies prior literature.",
+              "group": "Isolating Genuine Research Gaps & Novelty Framing"
             },
             {
-              "text": "- Report evaluation results using mean, standard deviation, and confidence intervals across at least 5 to 10 independent random seeds.",
-              "group": "Bootstrap Resampling & Confidence Intervals"
+              "text": "- Write compelling \"Related Work\" sections that tell a structured historical story rather than providing a disjointed laundry list of paper summaries.",
+              "group": "Isolating Genuine Research Gaps & Novelty Framing"
             }
           ],
           "notes": [],
           "isCapstone": false,
           "isGap": false,
-          "mentalModel": "The p-value tells you if an effect exists; the effect size tells you if anyone should care; confidence intervals show your uncertainty.",
-          "tryIt": "Implement a bootstrap confidence interval function in Python, resample model predictions 1,000 times, and compute the 95% percentile confidence bounds.",
-          "outcome": "Compute effect sizes, correct for multiple hypothesis testing, and report confidence intervals adhering to top-tier empirical standards."
+          "mentalModel": "A literature survey is not a summary of what has been done; it is a map that highlights the unexplored territory waiting for your paper.",
+          "tryIt": "Create a comparative synthesis matrix of 10 papers in a subfield, identify an unaddressed limitation, and write a 3-paragraph Related Work narrative.",
+          "outcome": "Synthesize complex literature into comparative taxonomies, isolate significant research gaps, and frame scientific novelty compellingly."
         },
         {
           "id": "M2.6",
-          "name": "Capstone Project: Statistical Significance & Experimental Power Analysis Suite",
+          "name": "Capstone Project: Systematic Literature Survey (SLR) & PRISMA Flow Diagram",
           "sessionCount": 3,
           "icon": "flag",
           "objectives": [
             {
-              "text": "- Design a standalone scientific evaluation Python package that ingests raw model prediction logs across multiple seeds and benchmark splits.",
-              "group": "Architecture of the Statistical Evaluation Suite"
+              "text": "- Formulate a formal Systematic Literature Review (SLR) protocol following the PRISMA (Preferred Reporting Items for Systematic Reviews) guidelines.",
+              "group": "Protocol Formulation & Systematic Filtering"
             },
             {
-              "text": "- Implement normality testing (Shapiro-Wilk, D’Agostino-Pearson) to automatically route data between parametric and non-parametric tests.",
-              "group": "Architecture of the Statistical Evaluation Suite"
+              "text": "- Define explicit inclusion and exclusion criteria, boolean search strings across 3 major databases, and screening procedures.",
+              "group": "Protocol Formulation & Systematic Filtering"
             },
             {
-              "text": "- Integrate automated two-sample t-tests, paired t-tests, Wilcoxon signed-rank tests, and Mann-Whitney U tests with automated p-value reporting.",
-              "group": "Architecture of the Statistical Evaluation Suite"
+              "text": "- Execute the search across databases, document raw results, remove duplicates, and record exclusion reasons across abstract and full-text screening.",
+              "group": "Protocol Formulation & Systematic Filtering"
             },
             {
-              "text": "- Incorporate Cohen’s d, Cliff’s delta, and non-parametric bootstrap 95% confidence interval estimation.",
-              "group": "Effect Sizes, Power Analysis & Academic Reporting"
+              "text": "- Construct a comprehensive comparative taxonomy matrix evaluating at least 25 screened papers across domain datasets, models, metrics, and limitations.",
+              "group": "Synthesis, Taxonomy & Survey Paper Manuscript"
             },
             {
-              "text": "- Implement a statistical power analysis module that calculates the required sample size and seed count to detect a target effect size at 80% power.",
-              "group": "Effect Sizes, Power Analysis & Academic Reporting"
+              "text": "- Generate a formal PRISMA 2020 flow diagram illustrating the identification, screening, eligibility, and inclusion stages.",
+              "group": "Synthesis, Taxonomy & Survey Paper Manuscript"
             },
             {
-              "text": "- Generate publication-ready LaTeX tables automatically annotating statistically significant improvements with bold markers and p-value asterisks.",
-              "group": "Effect Sizes, Power Analysis & Academic Reporting"
+              "text": "- Author an academic Survey Paper manuscript in LaTeX (NeurIPS/IEEE format) detailing the state of the art, open challenges, and future research directions.",
+              "group": "Synthesis, Taxonomy & Survey Paper Manuscript"
             }
           ],
           "notes": [
-            "CAPSTONE PROJECT: Statistical Significance & Experimental Power Analysis Suite",
-            "BRIEF: Build a modular Python library for AI/ML researchers that takes raw prediction logs and metric scores from multiple random seeds, evaluates statistical distributions, runs appropriate significance tests, computes effect sizes and bootstrap confidence intervals, and formats publication-ready LaTeX tables.",
-            "Build a statistical suite that:",
-            "- Ingests structured JSON/CSV experimental logs containing per-instance predictions and evaluation scores across multiple random seeds and models.",
-            "- Performs automated distribution diagnostics (Shapiro-Wilk normality test, Levene's test for equality of variances).",
-            "- Automatically selects and executes appropriate tests: paired/unpaired Student’s t-test, Welch’s t-test, Wilcoxon signed-rank test, or Mann-Whitney U test.",
-            "- Computes standardized effect sizes including Cohen’s d for parametric data and Cliff’s delta for non-parametric evaluation distributions.",
-            "- Applies multiple hypothesis testing corrections including Bonferroni, Holm-Bonferroni, and Benjamini-Hochberg FDR adjustments.",
-            "- Executes non-parametric stratified bootstrap resampling (1,000+ iterations) to compute 95% percentile and BCa confidence intervals.",
-            "- Conducts statistical power analysis estimating the number of experimental runs or test samples required to achieve 80% power at alpha = 0.05.",
-            "- Emits formatted LaTeX table source code with mean, standard deviation, confidence intervals, and statistical significance indicators (* p < 0.05, ** p < 0.01).",
+            "CAPSTONE PROJECT: Systematic Literature Survey (SLR) & PRISMA Flow Diagram",
+            "BRIEF: Author a publication-grade Systematic Literature Review (SLR) paper in LaTeX following the formal PRISMA guidelines. The review must address an active research question in AI/ML (e.g., deep learning for medical diagnosis or graph neural networks for cybersecurity), evaluate at least 25 peer-reviewed papers, and construct a comprehensive taxonomy matrix.",
+            "Build a literature survey that:",
+            "- Formulates a clear research question (e.g., \"What are the primary failure modes of transformer models in cyber threat detection?\").",
+            "- Constructs structured boolean search queries across at least three major scholarly databases (e.g., IEEE Xplore, ACM DL, PubMed, ArXiv).",
+            "- Defines explicit inclusion criteria (e.g., peer-reviewed CORE A/A* conference or Q1 journal, empirical benchmark evaluated) and exclusion criteria.",
+            "- Implements a PRISMA 2020 flow diagram documenting the number of records identified, duplicates removed, abstracts screened, and final studies included.",
+            "- Builds a comprehensive comparative synthesis matrix evaluating all included papers across problem formulation, architecture, datasets, metrics, and limits.",
+            "- Constructs an original conceptual taxonomy diagram categorizing existing approaches into distinct algorithmic and architectural families.",
+            "- Synthesizes key open research gaps, emerging trends, and unaddressed challenges in the domain.",
+            "- Authors an 8-page academic Survey Paper in LaTeX following the standard IEEE Transactions or ACM Computing Surveys template with BibTeX citations.",
             "Deliverables:",
-            "- Clean, documented Python package with automated CLI (stat_eval --baseline baseline.json --candidate model.json --alpha 0.05).",
-            "- Comprehensive test suite validating statistical calculations against standard R and SciPy reference outputs.",
-            "- Example tutorial notebook demonstrating end-to-end statistical validation of a published conference benchmark comparison."
+            "- Formally compiled 8-page Systematic Literature Review PDF in LaTeX.",
+            "- Vector graphics file of the PRISMA Flow Diagram and the conceptual taxonomy hierarchy.",
+            "- Complete Zotero/BibTeX library (.bib) containing cleanly formatted citations for all referenced works."
           ],
           "isCapstone": true,
           "isGap": false,
-          "mentalModel": "A rigorous statistical analysis suite transforms noisy empirical experiment logs into defensible, publication-ready scientific evidence.",
-          "tryIt": "Run the statistical suite on multi-seed benchmark results comparing two models, producing an annotated LaTeX table with bootstrap confidence intervals.",
-          "outcome": "You can rigorously validate empirical machine learning results, prove statistical significance, and generate publication-grade experimental tables."
+          "mentalModel": "A systematic literature review establishes you as an authoritative domain expert; it is often the first major publication of an MSc or PhD student.",
+          "tryIt": "Compile your complete SLR manuscript into a clean LaTeX PDF, complete with a PRISMA flow diagram, comparative taxonomy table, and 30+ BibTeX citations.",
+          "outcome": "You can systematically discover, critically analyze, and synthesize scientific literature to produce publication-grade survey papers and establish research authority."
         }
       ],
       "project": "M2.6",
@@ -886,7 +887,7 @@
         2
       ],
       "phase": "foundations",
-      "icon": "sliders-horizontal",
+      "icon": "sigma",
       "modules": [
         {
           "id": "M3.1",
@@ -1150,7 +1151,7 @@
         3
       ],
       "phase": "retrieval",
-      "icon": "code",
+      "icon": "database",
       "modules": [
         {
           "id": "M4.1",
@@ -1678,7 +1679,7 @@
         5
       ],
       "phase": "agentic",
-      "icon": "sparkles",
+      "icon": "network",
       "modules": [
         {
           "id": "M6.1",
@@ -1942,7 +1943,7 @@
         6
       ],
       "phase": "trust",
-      "icon": "route",
+      "icon": "sparkles",
       "modules": [
         {
           "id": "M7.1",
@@ -2206,7 +2207,7 @@
         7
       ],
       "phase": "trust",
-      "icon": "microscope",
+      "icon": "sliders-horizontal",
       "modules": [
         {
           "id": "M8.1",
