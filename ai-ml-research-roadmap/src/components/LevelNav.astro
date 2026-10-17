@@ -147,17 +147,42 @@ const next = nextLevel(current);
     gap: 9px;
     padding: 16px 22px;
     border-radius: var(--cx-r-card);
-    background: var(--cx-ink);
-    color: #fff;
-    font-weight: 600;
-    font-size: 14.5px;
-    transition: background-color 0.18s ease;
+    background: var(--cx-map-btn-bg);
+    border: 1px solid var(--cx-map-btn-border);
+    color: var(--cx-map-btn-color);
+    font-family: var(--cx-font-display);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    box-shadow: var(--cx-map-btn-shadow);
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   }
-  .lnav__map:hover { background: var(--cx-purple); }
+  .lnav__map:hover {
+    background: var(--cx-map-btn-hover-bg);
+    border-color: var(--cx-map-btn-hover-border);
+    color: var(--cx-map-btn-hover-color);
+    box-shadow: var(--cx-shadow-btn);
+    transform: translateY(-2px);
+  }
+
+  :global([data-theme='dark']) .lnav__map {
+    background: var(--cx-map-btn-bg);
+    border-color: var(--cx-map-btn-border);
+    color: var(--cx-map-btn-color);
+    box-shadow: var(--cx-map-btn-shadow);
+  }
+  :global([data-theme='dark']) .lnav__map:hover {
+    background: var(--cx-map-btn-hover-bg);
+    border-color: var(--cx-map-btn-hover-border);
+    color: var(--cx-map-btn-hover-color);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px);
+  }
 
   @media (prefers-reduced-motion: reduce) {
     .lnav__side, .lnav__arrow, .lnav__map { transition: none; }
     a.lnav__side:hover { transform: none; }
     .lnav__side:hover .lnav__arrow { transform: none; }
+    .lnav__map:hover { transform: none; }
   }
 </style>

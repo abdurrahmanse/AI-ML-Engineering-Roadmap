@@ -57,6 +57,15 @@
   --cx-shadow-card-hover: 0 4px 6px rgba(15, 23, 42, 0.04), 0 12px 24px rgba(15, 23, 42, 0.06);
   --cx-shadow-btn: 0 2px 4px rgba(37, 99, 235, 0.15), 0 6px 16px rgba(37, 99, 235, 0.2);
 
+  /* Navigation & Action Button Tokens */
+  --cx-map-btn-bg: #0f172a;
+  --cx-map-btn-color: #ffffff;
+  --cx-map-btn-border: #0f172a;
+  --cx-map-btn-hover-bg: #2563eb;
+  --cx-map-btn-hover-border: #2563eb;
+  --cx-map-btn-hover-color: #ffffff;
+  --cx-map-btn-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
+
   /* Emphasis & Gradients */
   --cx-grad: linear-gradient(135deg, #1e3a8a, #2563eb);
 
@@ -201,6 +210,15 @@
   --cx-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 6px 18px rgba(0, 0, 0, 0.3);
   --cx-shadow-card-hover: 0 4px 8px rgba(0, 0, 0, 0.5), 0 14px 28px rgba(0, 0, 0, 0.4);
   --cx-shadow-btn: 0 2px 6px rgba(59, 130, 246, 0.3), 0 8px 20px rgba(59, 130, 246, 0.25);
+
+  /* Navigation & Action Button Tokens */
+  --cx-map-btn-bg: #1e293b;
+  --cx-map-btn-color: #f8fafc;
+  --cx-map-btn-border: #334155;
+  --cx-map-btn-hover-bg: #3b82f6;
+  --cx-map-btn-hover-border: #3b82f6;
+  --cx-map-btn-hover-color: #ffffff;
+  --cx-map-btn-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
 
   /* Emphasis */
   --cx-grad: linear-gradient(135deg, #1d4ed8, #3b82f6);

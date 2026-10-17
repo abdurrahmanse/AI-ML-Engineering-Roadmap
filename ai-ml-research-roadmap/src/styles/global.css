@@ -291,4 +291,16 @@ code, pre, kbd, samp {
 }
 
 [data-theme='dark'] .how__ico { background: var(--cx-surface); }
-[data-theme='dark'] .skip-link { background: var(--cx-ink); }
+[data-theme='dark'] .skip-link { background: #1e293b; color: #f8fafc; }
+[data-theme='dark'] .lnav__map {
+  background: var(--cx-map-btn-bg, #1e293b);
+  color: var(--cx-map-btn-color, #f8fafc);
+  border-color: var(--cx-map-btn-border, #334155);
+}
+[data-theme='dark'] .dots__tip,
+[data-theme='dark'] .sdnav__tip {
+  background: #1e293b;
+  color: #f8fafc;
+  border: 1px solid #334155;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}

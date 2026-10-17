@@ -416,7 +416,7 @@ const howItWorks = [
     position: relative;
   }
   @media (min-width: 900px) { .hero { padding-block: 88px 60px; } }
-  [data-theme='dark'] .hero {
+  :global([data-theme='dark']) .hero {
     background:
       radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59, 130, 246, 0.15), transparent 75%),
       linear-gradient(180deg, var(--cx-violet-bg) 0%, var(--cx-white) 85%);
@@ -513,7 +513,7 @@ const howItWorks = [
     border-block: 1px solid var(--cx-border);
     padding-block: 72px;
   }
-  [data-theme='dark'] .ships {
+  :global([data-theme='dark']) .ships {
     background: #090e1a;
   }
 
@@ -619,7 +619,7 @@ const howItWorks = [
     border-color: var(--cx-ink);
     box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
   }
-  [data-theme='dark'] .ships__filter-btn.is-active {
+  :global([data-theme='dark']) .ships__filter-btn.is-active {
     background: var(--cx-brand);
     border-color: var(--cx-brand);
     color: #ffffff;
@@ -703,7 +703,7 @@ const howItWorks = [
     height: 4px;
     opacity: 1;
   }
-  [data-theme='dark'] .ships__card:hover {
+  :global([data-theme='dark']) .ships__card:hover {
     box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--phase-ac);
   }
 
@@ -802,7 +802,7 @@ const howItWorks = [
     letter-spacing: 0.02em;
     white-space: nowrap;
   }
-  [data-theme='dark'] .ships__tag-pill {
+  :global([data-theme='dark']) .ships__tag-pill {
     background: rgba(255, 255, 255, 0.04);
     border-color: rgba(255, 255, 255, 0.08);
   }
