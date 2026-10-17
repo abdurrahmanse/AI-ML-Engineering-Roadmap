@@ -167,8 +167,8 @@ const here = stops.find((s) => s.key === current)!;
     max-width: 220px;
     padding: 9px 12px;
     border-radius: 10px;
-    background: var(--cx-ink);
-    color: #fff;
+    background: var(--cx-tooltip-bg);
+    color: var(--cx-tooltip-fg);
     font-family: var(--cx-font-body);
     font-size: 13px;
     font-weight: 500;
@@ -186,7 +186,7 @@ const here = stops.find((s) => s.key === current)!;
     font-size: 10px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.65);
+    color: var(--cx-tooltip-muted);
   }
   .sdnav__item:last-child .sdnav__tip { left: auto; right: 0; transform: translateY(-4px); }
   .sdnav__item:last-child .sdnav__link:hover .sdnav__tip,

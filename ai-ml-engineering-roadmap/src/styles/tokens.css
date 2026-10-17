@@ -48,6 +48,12 @@
   --cx-shadow-card-hover: 0 14px 36px rgba(15, 15, 20, 0.09);
   --cx-shadow-btn: 0 10px 28px rgba(108, 92, 231, 0.25);
 
+  /* Tooltip surfaces stay independent from the page ink so both themes
+     preserve readable foreground/background contrast. */
+  --cx-tooltip-bg: #18181b;
+  --cx-tooltip-fg: #ffffff;
+  --cx-tooltip-muted: #d4d4d8;
+
   /* emphasis */
   --cx-grad: linear-gradient(135deg, #4338ca, #6c5ce7);
 
@@ -179,6 +185,11 @@
   --cx-shadow-card: 0 8px 24px rgba(0, 0, 0, 0.35);
   --cx-shadow-card-hover: 0 14px 36px rgba(0, 0, 0, 0.5);
   --cx-shadow-btn: 0 10px 28px rgba(139, 124, 246, 0.35);
+
+  /* Tooltip surfaces stay independent from the page ink in dark mode. */
+  --cx-tooltip-bg: #f8fafc;
+  --cx-tooltip-fg: #0f0f14;
+  --cx-tooltip-muted: #52525b;
 
   /* emphasis */
   --cx-grad: linear-gradient(135deg, #6d5ee8, #8b7cf6);
