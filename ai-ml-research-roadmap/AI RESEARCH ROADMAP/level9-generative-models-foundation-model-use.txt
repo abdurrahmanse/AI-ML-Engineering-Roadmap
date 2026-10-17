@@ -9,6 +9,8 @@ M9.1 · Generative Modeling Principles — (sessions: 5)
 - Explain autoregressive, variational, energy-based, diffusion, and flow-matching perspectives.
 - Implement a small generative model and inspect likelihood, sampling, conditioning, and failure modes.
 - Compare fidelity, diversity, calibration, utility, and memorization rather than relying on visual appeal.
+- Evaluate generated outputs for quality, diversity, calibration, memorization, safety, and downstream usefulness rather than one score.
+- Document sampling settings, data contamination checks, model limitations, and the cost of each evaluation condition.
 Mental model: Generation learns a distribution; a convincing sample does not prove coverage, truth, or usefulness.
 Try: Train a toy diffusion or flow model and evaluate samples with quantitative and qualitative checks.
 Outcome: You can explain and evaluate the basic families of generative models.
@@ -17,6 +19,8 @@ M9.2 · Pretrained Models, Prompting and Retrieval — (sessions: 5)
 - Use model cards, tokenizers, prompts, structured outputs, retrieval, citations, and abstention patterns.
 - Evaluate factuality, robustness, contamination, and sensitivity to prompts and context.
 - Keep retrieved evidence separate from model-generated claims in an analysis pipeline.
+- Evaluate generated outputs for quality, diversity, calibration, memorization, safety, and downstream usefulness rather than one score.
+- Document sampling settings, data contamination checks, model limitations, and the cost of each evaluation condition.
 Mental model: A foundation model is a probabilistic component whose outputs require measurement and provenance.
 Try: Build a small retrieval-augmented experiment with a citation checker and an abstention test set.
 Outcome: You can use pretrained models as research instruments without confusing fluency with truth.
@@ -25,6 +29,8 @@ M9.3 · Adaptation and Efficiency — (sessions: 5)
 - Compare zero-shot, few-shot, supervised fine-tuning, adapters, LoRA, and prompt-based adaptation.
 - Track data provenance, trainable parameters, compute, checkpoints, and evaluation leakage.
 - Decide when adaptation is justified over retrieval, better data, or a simpler baseline.
+- Evaluate generated outputs for quality, diversity, calibration, memorization, safety, and downstream usefulness rather than one score.
+- Document sampling settings, data contamination checks, model limitations, and the cost of each evaluation condition.
 Mental model: Adaptation changes a model's behavior through a data and optimization budget that must be measured.
 Try: Adapt a small open model with LoRA and compare it with retrieval and prompting under a fixed budget.
 Outcome: You can choose and evaluate an adaptation strategy with transparent trade-offs.

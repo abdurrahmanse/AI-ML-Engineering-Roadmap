@@ -9,6 +9,8 @@ M1.1 · Algebra, Functions & Logarithms — (sessions: 4)
 - Manipulate equations, ratios, inequalities, powers, logarithms, and summations.
 - Read a function as an input-output rule and interpret slope, curvature, and scale.
 - Use units, orders of magnitude, and dimensional checks to catch impossible results.
+- Use dimensional analysis, numerical checks, and visualizations to catch incorrect derivations before they enter an experiment.
+- Connect each mathematical object to a modeling decision, an optimization behavior, and a measurable research consequence.
 Mental model: Mathematical notation is a compact language for describing relationships that code can execute.
 Try: Implement and plot linear, polynomial, exponential, and logarithmic functions, then explain where each is useful.
 Outcome: You can translate common quantitative statements between words, equations, plots, and Python.
@@ -17,6 +19,8 @@ M1.2 · Linear Algebra & Geometry — (sessions: 5)
 - Represent vectors, matrices, tensors, basis changes, dot products, norms, and projections.
 - Derive matrix multiplication dimensions and use geometric language to explain distance and similarity.
 - Implement a small neural layer with NumPy and verify it against hand-calculated examples.
+- Use dimensional analysis, numerical checks, and visualizations to catch incorrect derivations before they enter an experiment.
+- Connect each mathematical object to a modeling decision, an optimization behavior, and a measurable research consequence.
 Mental model: Most machine-learning computation is geometry performed efficiently on batches of examples.
 Try: Build a visual notebook for projections, least squares, principal components, and cosine similarity.
 Outcome: You can follow the linear-algebra operations behind regression, embeddings, and neural networks.
@@ -25,6 +29,8 @@ M1.3 · Derivatives and Optimization Intuition — (sessions: 5)
 - Interpret derivatives, partial derivatives, gradients, Jacobians, and Hessians.
 - Apply the chain rule to a small computation graph and check gradients numerically.
 - Explain learning rate, local minima, conditioning, and why normalization affects optimization.
+- Use dimensional analysis, numerical checks, and visualizations to catch incorrect derivations before they enter an experiment.
+- Connect each mathematical object to a modeling decision, an optimization behavior, and a measurable research consequence.
 Mental model: Training adjusts parameters in directions that reduce a chosen error surface.
 Try: Implement gradient descent for a one-variable and two-variable function and compare step sizes.
 Outcome: You can explain and verify the calculus used to train predictive models.

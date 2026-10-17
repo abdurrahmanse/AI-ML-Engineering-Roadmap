@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
-const CONTENT_DIRS = [join(root, 'AI RESEARCH ROADMAP'), join(root, 'AI-ml RESEARCH ROADMAP')];
+const CONTENT_DIRS = [join(root, 'AI RESEARCH ROADMAP')];
 
 const PHASES = [
   { id: 'foundations', name: 'Research Foundations & Lab Onboarding', levels: [0, 1, 2, 3], theme: 'scientific computing, problem formulation, literature search & applied statistics', purpose: 'Become a reliable contributor who can enter a lab, find a gap, and make defensible claims.', color: 'blue', icon: 'terminal' },

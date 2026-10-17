@@ -9,6 +9,8 @@ M2.1 · Probability and Random Variables — (sessions: 4)
 - Work with events, conditional probability, independence, Bayes' rule, and random variables.
 - Interpret expectation, variance, covariance, common distributions, and sampling.
 - Simulate probability experiments and compare empirical frequencies with theoretical values.
+- Report uncertainty with confidence or credible intervals, effect sizes, and the assumptions behind each estimate.
+- Distinguish exploratory patterns from confirmatory tests and document multiple-comparison and sampling decisions.
 Mental model: Probability is a language for reasoning when observations and outcomes are uncertain.
 Try: Simulate a clinical screening example and show how base rates change the meaning of a positive test.
 Outcome: You can model uncertainty and explain conditional reasoning without relying on slogans.
@@ -17,6 +19,8 @@ M2.2 · Estimation, Intervals & Hypothesis Tests — (sessions: 5)
 - Construct point estimates, bootstrap intervals, confidence intervals, and practical effect sizes.
 - State null and alternative hypotheses, choose a test, and report assumptions and limitations.
 - Separate statistical significance, practical importance, and the number of comparisons being made.
+- Report uncertainty with confidence or credible intervals, effect sizes, and the assumptions behind each estimate.
+- Distinguish exploratory patterns from confirmatory tests and document multiple-comparison and sampling decisions.
 Mental model: An estimate without uncertainty is an incomplete scientific claim.
 Try: Bootstrap the difference in two model accuracies and write a result paragraph with an interval.
 Outcome: You can quantify uncertainty and report statistical comparisons responsibly.
@@ -25,6 +29,8 @@ M2.3 · Experimental Data Analysis — (sessions: 5)
 - Use pandas and visualization to inspect distributions, missingness, outliers, and subgroup differences.
 - Detect selection bias, confounding, leakage, survivorship bias, and Simpson's paradox.
 - Choose train, validation, and test splits before looking at test outcomes.
+- Report uncertainty with confidence or credible intervals, effect sizes, and the assumptions behind each estimate.
+- Distinguish exploratory patterns from confirmatory tests and document multiple-comparison and sampling decisions.
 Mental model: Analysis decisions are part of the experiment and must be recorded before results are known.
 Try: Audit a public dataset, create a data-quality report, and list threats to validity before modeling.
 Outcome: You can turn raw observations into a defensible exploratory and statistical analysis.

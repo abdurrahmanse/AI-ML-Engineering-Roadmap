@@ -34,7 +34,7 @@
   15. Publication, Defense and Research Career
 - **Research phases:** The visual progression follows the same data-driven phase model as the engineering roadmap:
   Foundations → Data & modeling → Generative research → Trustworthy AI → Cross-disciplinary research → Thesis portfolio → Publishing, defense & careers.
-- **Source data:** All level content is read from the canonical roadmap folder available at build time (`AI RESEARCH ROADMAP/`, or `AI-ml RESEARCH ROADMAP/` when present) and emitted into `src/data/levels.json`.
+- **Source data:** All level content is read from the canonical `AI RESEARCH ROADMAP/` folder at build time and emitted into `src/data/levels.json`.
 - **Accelerated Route:** Curated 100-Day companion research curriculum with empirical research study projects and research interview defense preparation.
 
 ---
@@ -132,7 +132,7 @@ npm run verify
 
 ## Content Pipeline
 
-All curriculum data originates strictly from the available `AI RESEARCH ROADMAP/level*.txt` files (or the tagged `AI-ml RESEARCH ROADMAP/` folder when present). Filenames describe the learner journey, while stable module IDs (`M{level}.{module}` and `P{level}.{project}`) keep progress and deep links durable. The build pipeline parses these files into type-safe JSON schemas:
+All curriculum data originates strictly from the `AI RESEARCH ROADMAP/level*.txt` files. Filenames describe the learner journey, while stable module IDs (`M{level}.{module}` and `P{level}.{project}`) keep progress and deep links durable. The build pipeline parses these files into type-safe JSON schemas:
 
 ```
 level*.txt ──► npm run parse ──► src/data/levels.json ──► src/data/levels.ts ──► Static Pages

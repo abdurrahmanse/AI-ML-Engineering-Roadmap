@@ -9,6 +9,8 @@ M11.1 · Model Behavior and Interpretability — (sessions: 5)
 - Compare feature attribution, counterfactuals, probing, concept methods, and mechanistic analyses.
 - Test explanation faithfulness, stability, usefulness, and sensitivity to baselines.
 - Treat an explanation as a hypothesis about computation that requires independent validation.
+- Treat explanations, robustness results, and fairness metrics as evidence with validity limits rather than definitive proof of trust.
+- Test subgroup behavior, distribution shift, attack assumptions, and mitigation trade-offs with reproducible evaluation scripts.
 Mental model: An explanation is evidence about a model, not a guarantee that the model used a human-readable reason.
 Try: Evaluate two explanation methods on known synthetic mechanisms before applying them to a real model.
 Outcome: You can make cautious, testable interpretability claims.
@@ -17,6 +19,8 @@ M11.2 · Robustness and Security — (sessions: 5)
 - Test corruption, perturbation, distribution shift, prompt injection, data poisoning, and model extraction risks.
 - Define threat models, attacker capabilities, budgets, and realistic success criteria.
 - Compare robust training, input validation, uncertainty, monitoring, and abstention mitigations.
+- Treat explanations, robustness results, and fairness metrics as evidence with validity limits rather than definitive proof of trust.
+- Test subgroup behavior, distribution shift, attack assumptions, and mitigation trade-offs with reproducible evaluation scripts.
 Mental model: Security claims are conditional statements about a specified attacker and environment.
 Try: Write a threat model and red-team protocol before testing a model; never test against systems you do not own.
 Outcome: You can evaluate and mitigate realistic reliability and security failures.
@@ -25,6 +29,8 @@ M11.3 · Fairness, Privacy and Human Impact — (sessions: 4)
 - Measure subgroup performance, calibration, allocation effects, privacy risk, and representational harms.
 - Explain why fairness metrics can conflict and why context and stakeholder participation matter.
 - Document intended use, excluded use, affected groups, recourse, and residual risk.
+- Treat explanations, robustness results, and fairness metrics as evidence with validity limits rather than definitive proof of trust.
+- Test subgroup behavior, distribution shift, attack assumptions, and mitigation trade-offs with reproducible evaluation scripts.
 Mental model: Responsible AI is a design and governance process, not a single metric added after training.
 Try: Produce an impact assessment with stakeholder questions and a mitigation trade-off table.
 Outcome: You can connect technical evaluation to human consequences and governance decisions.

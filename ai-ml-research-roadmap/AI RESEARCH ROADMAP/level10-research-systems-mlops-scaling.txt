@@ -9,6 +9,8 @@ M10.1 · Packaging, Testing and Data Pipelines — (sessions: 5)
 - Package a research project with locked dependencies, configuration, unit tests, data checks, and continuous integration.
 - Separate exploration, reusable library code, training, evaluation, and reporting.
 - Make pipelines resumable, cacheable, observable, and safe to rerun.
+- Automate experiment configuration, artifact lineage, checkpointing, monitoring, and recovery across local and cluster runs.
+- Report compute budget, hardware utilization, wall-clock time, energy or cost assumptions, and scaling bottlenecks.
 Mental model: Research software is an instrument whose failure modes must be tested like a laboratory device.
 Try: Convert a notebook experiment into a tested command-line pipeline with one-command reproduction.
 Outcome: You can turn exploratory code into maintainable research software.
@@ -17,6 +19,8 @@ M10.2 · Experiment Operations and Model Serving — (sessions: 5)
 - Track datasets, configurations, runs, artifacts, checkpoints, and lineage in an experiment registry.
 - Measure latency, throughput, memory, cost, and reliability for batch and online inference.
 - Add data validation, model monitoring, rollback, and incident documentation.
+- Automate experiment configuration, artifact lineage, checkpointing, monitoring, and recovery across local and cluster runs.
+- Report compute budget, hardware utilization, wall-clock time, energy or cost assumptions, and scaling bottlenecks.
 Mental model: A model is only useful when its behavior remains observable after it leaves the notebook.
 Try: Serve a small model behind an API and measure performance, failure responses, and resource use.
 Outcome: You can operate a model experiment and report its engineering as well as scientific performance.
@@ -25,6 +29,8 @@ M10.3 · GPUs, Distributed Training and Scaling Laws — (sessions: 5)
 - Profile input pipelines, memory, communication, utilization, and numerical precision.
 - Explain data parallelism, gradient accumulation, checkpointing, and distributed failure recovery.
 - Design scaling experiments that vary data, parameters, compute, and context without confounding them.
+- Automate experiment configuration, artifact lineage, checkpointing, monitoring, and recovery across local and cluster runs.
+- Report compute budget, hardware utilization, wall-clock time, energy or cost assumptions, and scaling bottlenecks.
 Mental model: Scaling is a measured systems experiment, not simply adding more hardware.
 Try: Run a controlled single-GPU and multi-GPU comparison and publish throughput, cost, and quality curves.
 Outcome: You can scale an experiment while preserving evidence about what changed and why.

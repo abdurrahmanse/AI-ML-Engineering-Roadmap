@@ -19,6 +19,8 @@ M15.2 · Peer Review, Rebuttal and Revision — (sessions: 5)
 - Review a paper for novelty, correctness, evidence, clarity, significance, ethics, and reproducibility.
 - Respond to reviews with a change table, evidence, clarifications, and respectful boundaries.
 - Revise claims when evidence is weaker than the original narrative and preserve a decision history.
+- Match the contribution to a suitable journal, conference, workshop, preprint, or artifact track using scope and review criteria.
+- Prepare a research statement, academic CV, portfolio walkthrough, and response rubric for exams, viva questions, and interviews.
 Mental model: Peer review is a structured conversation about the strength and limits of evidence.
 Try: Conduct a mock review and rebuttal round with three reviewers who disagree about the main claim.
 Outcome: You can improve research through criticism without becoming defensive or overstating results.
@@ -37,6 +39,8 @@ M15.4 · Career Strategy, Mentorship and Long-Term Growth — (sessions: 4)
 - Compare research assistant, data scientist, ML engineer, PhD, postdoctoral, and research scientist pathways.
 - Build a targeted application list, networking message, reference plan, and portfolio evidence for each path.
 - Set a twelve-month learning and publication plan with feedback, health, ethics, and sustainable work practices.
+- Match the contribution to a suitable journal, conference, workshop, preprint, or artifact track using scope and review criteria.
+- Prepare a research statement, academic CV, portfolio walkthrough, and response rubric for exams, viva questions, and interviews.
 Mental model: A research career is a sequence of credible collaborations and questions, not a single title or publication count.
 Try: Create three role-specific application packets and request feedback from a mentor or experienced researcher.
 Outcome: You can choose a next step and present evidence that you are ready to grow into it.

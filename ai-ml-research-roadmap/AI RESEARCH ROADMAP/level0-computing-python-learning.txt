@@ -15,6 +15,8 @@ Session 2 · Linux and remote work
 Session 3 · Safe and responsible computing
 - Protect credentials, recognize unsafe commands, and keep private data out of repositories.
 - Describe licenses, attribution, accessibility, and responsible use of AI tools.
+- Create a reproducible environment file and record the exact interpreter, package, and operating-system versions.
+- Use small tests, clear error messages, and a research log so another learner can reproduce the same result.
 Mental model: The command line is a precise laboratory instrument, not a mysterious black box.
 Try: Create a small project folder, document every command in a lab notebook, and reproduce the setup on a second machine.
 Outcome: You can work safely in a computing environment and explain what your tools are doing.
@@ -32,6 +34,8 @@ Session 3 · Modules and debugging
 Session 4 · First data script
 - Write a script that loads a dataset, computes summary statistics, and saves a report.
 - Run the same script from a clean terminal and record its inputs and outputs.
+- Separate configuration, code, data, and generated artifacts so an experiment can be rerun without manual edits.
+- Add a smoke test and a machine-readable result summary to every small research script.
 Mental model: Programming is the practice of turning an explicit procedure into repeatable instructions.
 Try: Build a command-line dataset summary tool with tests for empty, missing, and malformed inputs.
 Outcome: You can write, run, debug, and explain small Python programs for data tasks.

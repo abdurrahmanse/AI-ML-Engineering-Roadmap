@@ -14,17 +14,18 @@ A standalone marketing-grade website that presents the AI/ML Research roadmap as
 
 ## 2. Content source (do not invent content)
 
-All level content exists as flat files in `./AI RESEARCH ROADMAP/` (or the tagged `./AI-ml RESEARCH ROADMAP/` folder when present). Parse these — never fabricate level content. Filenames are canonical:
+All level content exists as flat files in `./AI RESEARCH ROADMAP/`. Parse these — never fabricate level content. Filenames are canonical:
 
 ```
-level0-mathematical-foundations.txt          level8-alignment-interpretability.txt
-level1-statistical-learning-theory.txt       level9-scaling-laws-pretraining.txt
-level2-deep-learning-optimization.txt        level10-distributed-training-systems.txt
-level3-sequence-modeling-transformers.txt    level11-generative-modeling-diffusion.txt
-level4-representation-learning.txt           level12-multimodal-foundation-models.txt
-level5-reinforcement-learning.txt            level13-post-training-adaptation.txt
-level6-reasoning-search-compute.txt          level14-projects.txt
-level7-research-evaluation-benchmarking.txt  level15-research-publication-prep.txt
+level0-computing-python-learning.txt              level8-experimental-design-evaluation-causal-reasoning.txt
+level1-mathematics-data-science.txt               level9-generative-models-foundation-model-use.txt
+level2-probability-statistics-uncertainty.txt    level10-research-systems-mlops-scaling.txt
+level3-research-literacy-problem-formulation.txt level11-interpretability-robustness-fairness.txt
+level4-data-collection-sql-stewardship.txt       level12-multimodal-domain-research.txt
+level5-classical-machine-learning-baselines.txt  level13-independent-research-project-leadership.txt
+level6-deep-learning-foundations.txt             level14-thesis-grade-research-portfolio.txt
+level7-modern-architectures-sequences-graphs-transformers.txt
+                                                   level15-publication-defense-research-career.txt
 ```
 
 **Expected content model per level** (parse into this shape; adapt if a file's structure differs, and flag any level that can't be parsed rather than guessing):
@@ -182,7 +183,7 @@ The roadmap must **read as a map, not an article**. Enforce these tactics:
 
 ## 8. Roadmap hero (homepage) spec
 
-A single connected **path/track of 15 nodes** — vertical spine on desktop-narrow, or a winding/segmented track — grouped by the 6 phases with color bands. Each `LevelNode` shows: number, level title, a one-line outcome, a session-count meter, phase color, and completion state. Nodes are clickable → `/level/[n]`. Include a compact legend and a "start here / how it works" strip. This is the signature screen — invest here.
+A single connected **path/track of 16 nodes (levels 0–15)** — vertical spine on desktop-narrow, or a winding/segmented track — grouped by seven phases with color bands. Each `LevelNode` shows: number, level title, a one-line outcome, a session-count meter, phase color, and completion state. Nodes are clickable → `/level/[n]`. Include a compact legend and a "start here / how it works" strip. This is the signature screen — invest here.
 
 ---
 

@@ -132,6 +132,14 @@
             {
               "text": "Describe licenses, attribution, accessibility, and responsible use of AI tools.",
               "group": "Safe and responsible computing"
+            },
+            {
+              "text": "Create a reproducible environment file and record the exact interpreter, package, and operating-system versions.",
+              "group": "Safe and responsible computing"
+            },
+            {
+              "text": "Use small tests, clear error messages, and a research log so another learner can reproduce the same result.",
+              "group": "Safe and responsible computing"
             }
           ],
           "notes": [],
@@ -185,6 +193,14 @@
             {
               "text": "Run the same script from a clean terminal and record its inputs and outputs.",
               "group": "First data script"
+            },
+            {
+              "text": "Separate configuration, code, data, and generated artifacts so an experiment can be rerun without manual edits.",
+              "group": "First data script"
+            },
+            {
+              "text": "Add a smoke test and a machine-readable result summary to every small research script.",
+              "group": "First data script"
             }
           ],
           "notes": [],
@@ -199,6 +215,7 @@
             "research infrastructure",
             "mathematical reasoning",
             "data stewardship",
+            "empirical evaluation",
             "model interpretability"
           ]
         },
@@ -277,7 +294,7 @@
       ],
       "project": "M0.4",
       "moduleCount": 4,
-      "objectiveCount": 23,
+      "objectiveCount": 27,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 16,
@@ -323,6 +340,12 @@
             },
             {
               "text": "Use units, orders of magnitude, and dimensional checks to catch impossible results."
+            },
+            {
+              "text": "Use dimensional analysis, numerical checks, and visualizations to catch incorrect derivations before they enter an experiment."
+            },
+            {
+              "text": "Connect each mathematical object to a modeling decision, an optimization behavior, and a measurable research consequence."
             }
           ],
           "notes": [],
@@ -334,6 +357,9 @@
           "outcome": "You can translate common quantitative statements between words, equations, plots, and Python.",
           "evidence": "Implement and plot linear, polynomial, exponential, and logarithmic functions, then explain where each is useful.",
           "competencyTags": [
+            "mathematical reasoning",
+            "architecture design",
+            "empirical evaluation",
             "model interpretability"
           ]
         },
@@ -351,6 +377,12 @@
             },
             {
               "text": "Implement a small neural layer with NumPy and verify it against hand-calculated examples."
+            },
+            {
+              "text": "Use dimensional analysis, numerical checks, and visualizations to catch incorrect derivations before they enter an experiment."
+            },
+            {
+              "text": "Connect each mathematical object to a modeling decision, an optimization behavior, and a measurable research consequence."
             }
           ],
           "notes": [],
@@ -362,7 +394,9 @@
           "outcome": "You can follow the linear-algebra operations behind regression, embeddings, and neural networks.",
           "evidence": "Build a visual notebook for projections, least squares, principal components, and cosine similarity.",
           "competencyTags": [
+            "mathematical reasoning",
             "modeling",
+            "architecture design",
             "empirical evaluation",
             "model interpretability"
           ]
@@ -381,6 +415,12 @@
             },
             {
               "text": "Explain learning rate, local minima, conditioning, and why normalization affects optimization."
+            },
+            {
+              "text": "Use dimensional analysis, numerical checks, and visualizations to catch incorrect derivations before they enter an experiment."
+            },
+            {
+              "text": "Connect each mathematical object to a modeling decision, an optimization behavior, and a measurable research consequence."
             }
           ],
           "notes": [],
@@ -394,6 +434,7 @@
           "competencyTags": [
             "mathematical reasoning",
             "architecture design",
+            "empirical evaluation",
             "model interpretability"
           ]
         },
@@ -426,7 +467,7 @@
       ],
       "project": "M1.4",
       "moduleCount": 4,
-      "objectiveCount": 12,
+      "objectiveCount": 18,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 20,
@@ -472,6 +513,12 @@
             },
             {
               "text": "Simulate probability experiments and compare empirical frequencies with theoretical values."
+            },
+            {
+              "text": "Report uncertainty with confidence or credible intervals, effect sizes, and the assumptions behind each estimate."
+            },
+            {
+              "text": "Distinguish exploratory patterns from confirmatory tests and document multiple-comparison and sampling decisions."
             }
           ],
           "notes": [],
@@ -485,6 +532,7 @@
           "competencyTags": [
             "mathematical reasoning",
             "empirical evaluation",
+            "foundation models",
             "model interpretability"
           ]
         },
@@ -502,6 +550,12 @@
             },
             {
               "text": "Separate statistical significance, practical importance, and the number of comparisons being made."
+            },
+            {
+              "text": "Report uncertainty with confidence or credible intervals, effect sizes, and the assumptions behind each estimate."
+            },
+            {
+              "text": "Distinguish exploratory patterns from confirmatory tests and document multiple-comparison and sampling decisions."
             }
           ],
           "notes": [],
@@ -514,6 +568,7 @@
           "evidence": "Bootstrap the difference in two model accuracies and write a result paragraph with an interval.",
           "competencyTags": [
             "mathematical reasoning",
+            "foundation models",
             "research career"
           ]
         },
@@ -531,6 +586,12 @@
             },
             {
               "text": "Choose train, validation, and test splits before looking at test outcomes."
+            },
+            {
+              "text": "Report uncertainty with confidence or credible intervals, effect sizes, and the assumptions behind each estimate."
+            },
+            {
+              "text": "Distinguish exploratory patterns from confirmatory tests and document multiple-comparison and sampling decisions."
             }
           ],
           "notes": [],
@@ -581,7 +642,7 @@
       ],
       "project": "M2.4",
       "moduleCount": 4,
-      "objectiveCount": 12,
+      "objectiveCount": 18,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 20,
@@ -627,6 +688,12 @@
             },
             {
               "text": "Maintain a literature matrix containing question, data, method, comparison, result, and unresolved issue."
+            },
+            {
+              "text": "Use a literature matrix, citation graph, and claim-evidence table to distinguish established results from open questions."
+            },
+            {
+              "text": "Write a preregistered research plan with primary outcomes, alternative explanations, stop conditions, and an analysis plan."
             }
           ],
           "notes": [],
@@ -660,6 +727,12 @@
             },
             {
               "text": "Match exploratory, observational, experimental, and qualitative designs to the question."
+            },
+            {
+              "text": "Use a literature matrix, citation graph, and claim-evidence table to distinguish established results from open questions."
+            },
+            {
+              "text": "Write a preregistered research plan with primary outcomes, alternative explanations, stop conditions, and an analysis plan."
             }
           ],
           "notes": [],
@@ -671,6 +744,8 @@
           "outcome": "You can formulate research questions that are feasible, meaningful, and testable.",
           "evidence": "Convert an interesting model idea into three hypotheses and a preregistered experiment outline.",
           "competencyTags": [
+            "research communication",
+            "architecture design",
             "empirical evaluation",
             "foundation models"
           ]
@@ -689,6 +764,12 @@
             },
             {
               "text": "Give and receive feedback using a claim-evidence-limitation structure."
+            },
+            {
+              "text": "Use a literature matrix, citation graph, and claim-evidence table to distinguish established results from open questions."
+            },
+            {
+              "text": "Write a preregistered research plan with primary outcomes, alternative explanations, stop conditions, and an analysis plan."
             }
           ],
           "notes": [],
@@ -701,7 +782,9 @@
           "evidence": "Review a peer's project proposal and request evidence for every major claim.",
           "competencyTags": [
             "research infrastructure",
+            "research communication",
             "data stewardship",
+            "architecture design",
             "model interpretability",
             "research career"
           ]
@@ -738,7 +821,7 @@
       ],
       "project": "M3.4",
       "moduleCount": 4,
-      "objectiveCount": 12,
+      "objectiveCount": 18,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 20,
@@ -784,6 +867,12 @@
             },
             {
               "text": "Record source, access date, version, license, and transformation history for every input."
+            },
+            {
+              "text": "Create a data statement covering provenance, consent, licensing, population coverage, known gaps, and permitted use."
+            },
+            {
+              "text": "Build validation checks for duplicates, leakage, missingness, label quality, temporal splits, and train-test contamination."
             }
           ],
           "notes": [],
@@ -813,6 +902,12 @@
             },
             {
               "text": "Prevent train-test leakage during preprocessing, deduplication, feature selection, and augmentation."
+            },
+            {
+              "text": "Create a data statement covering provenance, consent, licensing, population coverage, known gaps, and permitted use."
+            },
+            {
+              "text": "Build validation checks for duplicates, leakage, missingness, label quality, temporal splits, and train-test contamination."
             }
           ],
           "notes": [],
@@ -842,6 +937,12 @@
             },
             {
               "text": "Explain when consent, review, licensing, or domain expertise is required before analysis."
+            },
+            {
+              "text": "Create a data statement covering provenance, consent, licensing, population coverage, known gaps, and permitted use."
+            },
+            {
+              "text": "Build validation checks for duplicates, leakage, missingness, label quality, temporal splits, and train-test contamination."
             }
           ],
           "notes": [],
@@ -890,7 +991,7 @@
       ],
       "project": "M4.4",
       "moduleCount": 4,
-      "objectiveCount": 12,
+      "objectiveCount": 18,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 20,
@@ -936,6 +1037,12 @@
             },
             {
               "text": "Compare calibration, discrimination, ranking, and error costs instead of relying on accuracy alone."
+            },
+            {
+              "text": "Define a strong simple baseline, a tuning budget, and a fixed evaluation protocol before comparing more complex models."
+            },
+            {
+              "text": "Use repeated seeds, error slices, calibration checks, and confidence intervals to explain when a model improvement is real."
             }
           ],
           "notes": [],
@@ -967,6 +1074,12 @@
             },
             {
               "text": "Explain why visualization is exploratory evidence rather than proof of a natural cluster."
+            },
+            {
+              "text": "Define a strong simple baseline, a tuning budget, and a fixed evaluation protocol before comparing more complex models."
+            },
+            {
+              "text": "Use repeated seeds, error slices, calibration checks, and confidence intervals to explain when a model improvement is real."
             }
           ],
           "notes": [],
@@ -978,6 +1091,7 @@
           "outcome": "You can use unsupervised tools without overinterpreting attractive plots.",
           "evidence": "Cluster a dataset, test cluster stability, and interview the domain meaning of the resulting groups.",
           "competencyTags": [
+            "empirical evaluation",
             "foundation models",
             "model interpretability"
           ]
@@ -996,6 +1110,12 @@
             },
             {
               "text": "Compare models with confidence intervals and subgroup metrics tied to the deployment question."
+            },
+            {
+              "text": "Define a strong simple baseline, a tuning budget, and a fixed evaluation protocol before comparing more complex models."
+            },
+            {
+              "text": "Use repeated seeds, error slices, calibration checks, and confidence intervals to explain when a model improvement is real."
             }
           ],
           "notes": [],
@@ -1007,7 +1127,8 @@
           "outcome": "You can select models using evidence, constraints, and failure analysis.",
           "evidence": "Produce an error-analysis report that changes one modeling decision based on observed failures.",
           "competencyTags": [
-            "empirical evaluation"
+            "empirical evaluation",
+            "model interpretability"
           ]
         },
         {
@@ -1041,7 +1162,7 @@
       ],
       "project": "M5.4",
       "moduleCount": 4,
-      "objectiveCount": 12,
+      "objectiveCount": 18,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 20,
@@ -1087,6 +1208,12 @@
             },
             {
               "text": "Explain initialization, normalization, dropout, weight decay, and overfitting."
+            },
+            {
+              "text": "Track initialization, optimizer settings, learning curves, checkpoints, and failed runs so training behavior is inspectable."
+            },
+            {
+              "text": "Reproduce a published neural result from its equations and implementation, then report deviations and remaining uncertainty."
             }
           ],
           "notes": [],
@@ -1098,7 +1225,9 @@
           "outcome": "You can inspect and debug the complete training loop of a neural network.",
           "evidence": "Implement a small multilayer perceptron twice: once with NumPy gradients and once with PyTorch autograd.",
           "competencyTags": [
-            "model interpretability"
+            "research infrastructure",
+            "model interpretability",
+            "research career"
           ]
         },
         {
@@ -1115,6 +1244,12 @@
             },
             {
               "text": "Inspect saliency and failure cases without treating visual explanations as causal proof."
+            },
+            {
+              "text": "Track initialization, optimizer settings, learning curves, checkpoints, and failed runs so training behavior is inspectable."
+            },
+            {
+              "text": "Reproduce a published neural result from its equations and implementation, then report deviations and remaining uncertainty."
             }
           ],
           "notes": [],
@@ -1129,7 +1264,8 @@
             "research infrastructure",
             "modeling",
             "empirical evaluation",
-            "model interpretability"
+            "model interpretability",
+            "research career"
           ]
         },
         {
@@ -1146,6 +1282,12 @@
             },
             {
               "text": "Profile memory and throughput so training choices are tied to measured bottlenecks."
+            },
+            {
+              "text": "Track initialization, optimizer settings, learning curves, checkpoints, and failed runs so training behavior is inspectable."
+            },
+            {
+              "text": "Reproduce a published neural result from its equations and implementation, then report deviations and remaining uncertainty."
             }
           ],
           "notes": [],
@@ -1157,10 +1299,12 @@
           "outcome": "You can run reliable neural-network experiments and explain why a training run succeeded or failed.",
           "evidence": "Intentionally introduce three training bugs, diagnose them from logs, and document the fixes.",
           "competencyTags": [
+            "research infrastructure",
             "data stewardship",
             "empirical evaluation",
             "systems scaling",
-            "model interpretability"
+            "model interpretability",
+            "research career"
           ]
         },
         {
@@ -1198,7 +1342,7 @@
       ],
       "project": "M6.4",
       "moduleCount": 4,
-      "objectiveCount": 12,
+      "objectiveCount": 18,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 24,
@@ -1244,6 +1388,12 @@
             },
             {
               "text": "Identify temporal leakage caused by random splits, future features, and duplicated entities."
+            },
+            {
+              "text": "Choose an architecture by matching inductive bias, computational complexity, and data structure to the research question."
+            },
+            {
+              "text": "Measure memory, throughput, optimization stability, and long-context or structural failure cases alongside task scores."
             }
           ],
           "notes": [],
@@ -1257,7 +1407,8 @@
           "competencyTags": [
             "data stewardship",
             "architecture design",
-            "empirical evaluation"
+            "empirical evaluation",
+            "trustworthy AI"
           ]
         },
         {
@@ -1274,6 +1425,12 @@
             },
             {
               "text": "Evaluate language models with task metrics, calibration, qualitative error analysis, and contamination awareness."
+            },
+            {
+              "text": "Choose an architecture by matching inductive bias, computational complexity, and data structure to the research question."
+            },
+            {
+              "text": "Measure memory, throughput, optimization stability, and long-context or structural failure cases alongside task scores."
             }
           ],
           "notes": [],
@@ -1285,10 +1442,12 @@
           "outcome": "You can implement and reason about the core transformer training loop.",
           "evidence": "Train a tiny language model on a permitted corpus and write a report on data, objective, and limitations.",
           "competencyTags": [
+            "data stewardship",
             "architecture design",
             "empirical evaluation",
             "systems scaling",
-            "model interpretability"
+            "model interpretability",
+            "trustworthy AI"
           ]
         },
         {
@@ -1305,6 +1464,12 @@
             },
             {
               "text": "Choose an architecture by data structure and scientific question rather than novelty alone."
+            },
+            {
+              "text": "Choose an architecture by matching inductive bias, computational complexity, and data structure to the research question."
+            },
+            {
+              "text": "Measure memory, throughput, optimization stability, and long-context or structural failure cases alongside task scores."
             }
           ],
           "notes": [],
@@ -1318,7 +1483,8 @@
           "competencyTags": [
             "data stewardship",
             "architecture design",
-            "empirical evaluation"
+            "empirical evaluation",
+            "trustworthy AI"
           ]
         },
         {
@@ -1351,7 +1517,7 @@
       ],
       "project": "M7.4",
       "moduleCount": 4,
-      "objectiveCount": 12,
+      "objectiveCount": 18,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 24,
@@ -1397,6 +1563,12 @@
             },
             {
               "text": "Report confidence intervals, calibration, ranking uncertainty, and clinically or operationally meaningful thresholds."
+            },
+            {
+              "text": "Separate primary, secondary, and exploratory analyses while preserving every configuration and decision made during the study."
+            },
+            {
+              "text": "Use compute-matched baselines, controlled ablations, robustness checks, and appropriate statistical comparisons."
             }
           ],
           "notes": [],
@@ -1408,7 +1580,11 @@
           "outcome": "You can design evaluation protocols that measure the claim rather than a convenient proxy.",
           "evidence": "Replace a single accuracy score with an evaluation plan that measures utility, harm, calibration, and subgroup behavior.",
           "competencyTags": [
+            "research infrastructure",
+            "mathematical reasoning",
             "empirical evaluation",
+            "foundation models",
+            "trustworthy AI",
             "applied research"
           ]
         },
@@ -1426,6 +1602,12 @@
             },
             {
               "text": "Use experiment registries and configuration files to make every comparison auditable."
+            },
+            {
+              "text": "Separate primary, secondary, and exploratory analyses while preserving every configuration and decision made during the study."
+            },
+            {
+              "text": "Use compute-matched baselines, controlled ablations, robustness checks, and appropriate statistical comparisons."
             }
           ],
           "notes": [],
@@ -1437,8 +1619,12 @@
           "outcome": "You can distinguish a real contribution from tuning luck or an unfair comparison.",
           "evidence": "Reproduce a headline result with an ablation matrix and identify which component actually matters.",
           "competencyTags": [
+            "research infrastructure",
+            "mathematical reasoning",
             "data stewardship",
-            "empirical evaluation"
+            "empirical evaluation",
+            "foundation models",
+            "trustworthy AI"
           ]
         },
         {
@@ -1455,6 +1641,12 @@
             },
             {
               "text": "Test robustness across sites, time periods, populations, and plausible distribution shifts."
+            },
+            {
+              "text": "Separate primary, secondary, and exploratory analyses while preserving every configuration and decision made during the study."
+            },
+            {
+              "text": "Use compute-matched baselines, controlled ablations, robustness checks, and appropriate statistical comparisons."
             }
           ],
           "notes": [],
@@ -1466,7 +1658,10 @@
           "outcome": "You can state what an experiment identifies and where its conclusions may not transfer.",
           "evidence": "Write a causal diagram for a deployed prediction system and list the assumptions needed for each claim.",
           "competencyTags": [
+            "research infrastructure",
+            "mathematical reasoning",
             "empirical evaluation",
+            "foundation models",
             "model interpretability",
             "trustworthy AI"
           ]
@@ -1502,7 +1697,7 @@
       ],
       "project": "M8.4",
       "moduleCount": 4,
-      "objectiveCount": 12,
+      "objectiveCount": 18,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 20,
@@ -1548,6 +1743,12 @@
             },
             {
               "text": "Compare fidelity, diversity, calibration, utility, and memorization rather than relying on visual appeal."
+            },
+            {
+              "text": "Evaluate generated outputs for quality, diversity, calibration, memorization, safety, and downstream usefulness rather than one score."
+            },
+            {
+              "text": "Document sampling settings, data contamination checks, model limitations, and the cost of each evaluation condition."
             }
           ],
           "notes": [],
@@ -1559,8 +1760,11 @@
           "outcome": "You can explain and evaluate the basic families of generative models.",
           "evidence": "Train a toy diffusion or flow model and evaluate samples with quantitative and qualitative checks.",
           "competencyTags": [
+            "data stewardship",
             "generative modeling",
-            "model interpretability"
+            "empirical evaluation",
+            "model interpretability",
+            "trustworthy AI"
           ]
         },
         {
@@ -1577,6 +1781,12 @@
             },
             {
               "text": "Keep retrieved evidence separate from model-generated claims in an analysis pipeline."
+            },
+            {
+              "text": "Evaluate generated outputs for quality, diversity, calibration, memorization, safety, and downstream usefulness rather than one score."
+            },
+            {
+              "text": "Document sampling settings, data contamination checks, model limitations, and the cost of each evaluation condition."
             }
           ],
           "notes": [],
@@ -1588,6 +1798,8 @@
           "outcome": "You can use pretrained models as research instruments without confusing fluency with truth.",
           "evidence": "Build a small retrieval-augmented experiment with a citation checker and an abstention test set.",
           "competencyTags": [
+            "data stewardship",
+            "empirical evaluation",
             "foundation models",
             "trustworthy AI"
           ]
@@ -1606,6 +1818,12 @@
             },
             {
               "text": "Decide when adaptation is justified over retrieval, better data, or a simpler baseline."
+            },
+            {
+              "text": "Evaluate generated outputs for quality, diversity, calibration, memorization, safety, and downstream usefulness rather than one score."
+            },
+            {
+              "text": "Document sampling settings, data contamination checks, model limitations, and the cost of each evaluation condition."
             }
           ],
           "notes": [],
@@ -1619,7 +1837,8 @@
           "competencyTags": [
             "data stewardship",
             "empirical evaluation",
-            "foundation models"
+            "foundation models",
+            "trustworthy AI"
           ]
         },
         {
@@ -1654,7 +1873,7 @@
       ],
       "project": "M9.4",
       "moduleCount": 4,
-      "objectiveCount": 12,
+      "objectiveCount": 18,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 24,
@@ -1700,6 +1919,12 @@
             },
             {
               "text": "Make pipelines resumable, cacheable, observable, and safe to rerun."
+            },
+            {
+              "text": "Automate experiment configuration, artifact lineage, checkpointing, monitoring, and recovery across local and cluster runs."
+            },
+            {
+              "text": "Report compute budget, hardware utilization, wall-clock time, energy or cost assumptions, and scaling bottlenecks."
             }
           ],
           "notes": [],
@@ -1714,6 +1939,7 @@
             "mathematical reasoning",
             "data stewardship",
             "empirical evaluation",
+            "systems scaling",
             "foundation models"
           ]
         },
@@ -1731,6 +1957,12 @@
             },
             {
               "text": "Add data validation, model monitoring, rollback, and incident documentation."
+            },
+            {
+              "text": "Automate experiment configuration, artifact lineage, checkpointing, monitoring, and recovery across local and cluster runs."
+            },
+            {
+              "text": "Report compute budget, hardware utilization, wall-clock time, energy or cost assumptions, and scaling bottlenecks."
             }
           ],
           "notes": [],
@@ -1743,7 +1975,8 @@
           "evidence": "Serve a small model behind an API and measure performance, failure responses, and resource use.",
           "competencyTags": [
             "data stewardship",
-            "empirical evaluation"
+            "empirical evaluation",
+            "systems scaling"
           ]
         },
         {
@@ -1760,6 +1993,12 @@
             },
             {
               "text": "Design scaling experiments that vary data, parameters, compute, and context without confounding them."
+            },
+            {
+              "text": "Automate experiment configuration, artifact lineage, checkpointing, monitoring, and recovery across local and cluster runs."
+            },
+            {
+              "text": "Report compute budget, hardware utilization, wall-clock time, energy or cost assumptions, and scaling bottlenecks."
             }
           ],
           "notes": [],
@@ -1808,7 +2047,7 @@
       ],
       "project": "M10.4",
       "moduleCount": 4,
-      "objectiveCount": 12,
+      "objectiveCount": 18,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 24,
@@ -1854,6 +2093,12 @@
             },
             {
               "text": "Treat an explanation as a hypothesis about computation that requires independent validation."
+            },
+            {
+              "text": "Treat explanations, robustness results, and fairness metrics as evidence with validity limits rather than definitive proof of trust."
+            },
+            {
+              "text": "Test subgroup behavior, distribution shift, attack assumptions, and mitigation trade-offs with reproducible evaluation scripts."
             }
           ],
           "notes": [],
@@ -1865,9 +2110,11 @@
           "outcome": "You can make cautious, testable interpretability claims.",
           "evidence": "Evaluate two explanation methods on known synthetic mechanisms before applying them to a real model.",
           "competencyTags": [
+            "research infrastructure",
             "mathematical reasoning",
             "empirical evaluation",
             "model interpretability",
+            "trustworthy AI",
             "research career"
           ]
         },
@@ -1885,6 +2132,12 @@
             },
             {
               "text": "Compare robust training, input validation, uncertainty, monitoring, and abstention mitigations."
+            },
+            {
+              "text": "Treat explanations, robustness results, and fairness metrics as evidence with validity limits rather than definitive proof of trust."
+            },
+            {
+              "text": "Test subgroup behavior, distribution shift, attack assumptions, and mitigation trade-offs with reproducible evaluation scripts."
             }
           ],
           "notes": [],
@@ -1896,7 +2149,9 @@
           "outcome": "You can evaluate and mitigate realistic reliability and security failures.",
           "evidence": "Write a threat model and red-team protocol before testing a model; never test against systems you do not own.",
           "competencyTags": [
+            "research infrastructure",
             "data stewardship",
+            "empirical evaluation",
             "trustworthy AI"
           ]
         },
@@ -1914,6 +2169,12 @@
             },
             {
               "text": "Document intended use, excluded use, affected groups, recourse, and residual risk."
+            },
+            {
+              "text": "Treat explanations, robustness results, and fairness metrics as evidence with validity limits rather than definitive proof of trust."
+            },
+            {
+              "text": "Test subgroup behavior, distribution shift, attack assumptions, and mitigation trade-offs with reproducible evaluation scripts."
             }
           ],
           "notes": [],
@@ -1925,6 +2186,7 @@
           "outcome": "You can connect technical evaluation to human consequences and governance decisions.",
           "evidence": "Produce an impact assessment with stakeholder questions and a mitigation trade-off table.",
           "competencyTags": [
+            "research infrastructure",
             "data stewardship",
             "architecture design",
             "empirical evaluation",
@@ -1964,7 +2226,7 @@
       ],
       "project": "M11.4",
       "moduleCount": 4,
-      "objectiveCount": 12,
+      "objectiveCount": 18,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 20,
@@ -2010,6 +2272,12 @@
             },
             {
               "text": "Evaluate whether a multimodal gain comes from useful interaction or simply additional information."
+            },
+            {
+              "text": "Work with domain experts to define clinically, scientifically, or operationally meaningful outcomes and unacceptable failure modes."
+            },
+            {
+              "text": "Align modalities, annotations, and evaluation splits while documenting consent, domain shift, and interdisciplinary assumptions."
             }
           ],
           "notes": [],
@@ -2041,6 +2309,12 @@
             },
             {
               "text": "Distinguish benchmark success from usefulness, safety, and adoption in the real workflow."
+            },
+            {
+              "text": "Work with domain experts to define clinically, scientifically, or operationally meaningful outcomes and unacceptable failure modes."
+            },
+            {
+              "text": "Align modalities, annotations, and evaluation splits while documenting consent, domain shift, and interdisciplinary assumptions."
             }
           ],
           "notes": [],
@@ -2073,6 +2347,12 @@
             },
             {
               "text": "Write a deployment decision record with monitoring, rollback, and ownership."
+            },
+            {
+              "text": "Work with domain experts to define clinically, scientifically, or operationally meaningful outcomes and unacceptable failure modes."
+            },
+            {
+              "text": "Align modalities, annotations, and evaluation splits while documenting consent, domain shift, and interdisciplinary assumptions."
             }
           ],
           "notes": [],
@@ -2085,7 +2365,8 @@
           "evidence": "Create an evaluation plan for a domain partner that includes technical and human success criteria.",
           "competencyTags": [
             "generative modeling",
-            "empirical evaluation"
+            "empirical evaluation",
+            "applied research"
           ]
         },
         {
@@ -2121,7 +2402,7 @@
       ],
       "project": "M12.4",
       "moduleCount": 4,
-      "objectiveCount": 12,
+      "objectiveCount": 18,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 24,
@@ -2167,6 +2448,12 @@
             },
             {
               "text": "Define a minimal publishable question and a sequence of risk-reducing pilot studies."
+            },
+            {
+              "text": "Break an open-ended idea into milestones, decision gates, collaborator responsibilities, and a budget for data and compute."
+            },
+            {
+              "text": "Run a pilot, review progress against the protocol, and make explicit go/no-go decisions when evidence changes the plan."
             }
           ],
           "notes": [],
@@ -2179,6 +2466,7 @@
           "evidence": "Write a novelty matrix comparing a proposed study with ten closest papers.",
           "competencyTags": [
             "research communication",
+            "data stewardship",
             "architecture design",
             "research career"
           ]
@@ -2197,6 +2485,12 @@
             },
             {
               "text": "Track compute, data, ethics, authorship, and schedule risks before they become blockers."
+            },
+            {
+              "text": "Break an open-ended idea into milestones, decision gates, collaborator responsibilities, and a budget for data and compute."
+            },
+            {
+              "text": "Run a pilot, review progress against the protocol, and make explicit go/no-go decisions when evidence changes the plan."
             }
           ],
           "notes": [],
@@ -2226,6 +2520,12 @@
             },
             {
               "text": "Give constructive code, paper, and presentation feedback while preserving the author's agency."
+            },
+            {
+              "text": "Break an open-ended idea into milestones, decision gates, collaborator responsibilities, and a budget for data and compute."
+            },
+            {
+              "text": "Run a pilot, review progress against the protocol, and make explicit go/no-go decisions when evidence changes the plan."
             }
           ],
           "notes": [],
@@ -2238,6 +2538,7 @@
           "evidence": "Deliver the same five-minute result briefing to technical and non-technical listeners and revise it from questions.",
           "competencyTags": [
             "research communication",
+            "data stewardship",
             "empirical evaluation",
             "model interpretability",
             "research career"
@@ -2273,7 +2574,7 @@
       ],
       "project": "M13.4",
       "moduleCount": 4,
-      "objectiveCount": 12,
+      "objectiveCount": 18,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 24,
@@ -2319,6 +2620,12 @@
             },
             {
               "text": "Run a pilot that tests feasibility, data quality, compute needs, and the possibility of a meaningful result."
+            },
+            {
+              "text": "Maintain a complete provenance trail from raw input and configuration to every table, figure, claim, and released artifact."
+            },
+            {
+              "text": "Ask an independent reader to reproduce a result and revise the study when the evidence does not support the original claim."
             }
           ],
           "notes": [],
@@ -2350,6 +2657,12 @@
             },
             {
               "text": "Preserve raw artifacts, configurations, seeds, compute logs, and negative results."
+            },
+            {
+              "text": "Maintain a complete provenance trail from raw input and configuration to every table, figure, claim, and released artifact."
+            },
+            {
+              "text": "Ask an independent reader to reproduce a result and revise the study when the evidence does not support the original claim."
             }
           ],
           "notes": [],
@@ -2361,6 +2674,7 @@
           "outcome": "You can execute a large study without losing the link between claims and evidence.",
           "evidence": "Run a complete experiment batch from a clean environment and reconstruct one result from stored artifacts.",
           "competencyTags": [
+            "research infrastructure",
             "data stewardship",
             "empirical evaluation",
             "foundation models"
@@ -2380,6 +2694,12 @@
             },
             {
               "text": "Package code, environment, data access instructions, model cards, and an artifact checklist."
+            },
+            {
+              "text": "Maintain a complete provenance trail from raw input and configuration to every table, figure, claim, and released artifact."
+            },
+            {
+              "text": "Ask an independent reader to reproduce a result and revise the study when the evidence does not support the original claim."
             }
           ],
           "notes": [],
@@ -2427,7 +2747,7 @@
       ],
       "project": "M14.4",
       "moduleCount": 4,
-      "objectiveCount": 12,
+      "objectiveCount": 18,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 32,
@@ -2509,6 +2829,12 @@
             },
             {
               "text": "Revise claims when evidence is weaker than the original narrative and preserve a decision history."
+            },
+            {
+              "text": "Match the contribution to a suitable journal, conference, workshop, preprint, or artifact track using scope and review criteria."
+            },
+            {
+              "text": "Prepare a research statement, academic CV, portfolio walkthrough, and response rubric for exams, viva questions, and interviews."
             }
           ],
           "notes": [],
@@ -2578,6 +2904,12 @@
             },
             {
               "text": "Set a twelve-month learning and publication plan with feedback, health, ethics, and sustainable work practices."
+            },
+            {
+              "text": "Match the contribution to a suitable journal, conference, workshop, preprint, or artifact track using scope and review criteria."
+            },
+            {
+              "text": "Prepare a research statement, academic CV, portfolio walkthrough, and response rubric for exams, viva questions, and interviews."
             }
           ],
           "notes": [],
@@ -2623,7 +2955,7 @@
       ],
       "project": "M15.5",
       "moduleCount": 5,
-      "objectiveCount": 19,
+      "objectiveCount": 23,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
       "totalSessions": 24,

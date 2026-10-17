@@ -10,7 +10,7 @@ export interface TopicSet {
 
 export const topics: Record<string, TopicSet> = {
   'M0.1': {
-    sig: 'b8e69a72',
+    sig: '9d693d9f',
     labels: [
       "Explain how files, folders, programs, memory, and...",
       "Navigate a terminal, create files, inspect processes,...",
@@ -18,10 +18,12 @@ export const topics: Record<string, TopicSet> = {
       "Organize research notes, downloads, datasets, and code...",
       "Protect credentials, recognize unsafe commands, and keep...",
       "Describe licenses, attribution, accessibility, and responsible use...",
+      "Create a reproducible environment file and record...",
+      "Use small tests, clear error messages, and...",
     ],
   },
   'M0.2': {
-    sig: '6262d2f1',
+    sig: 'cb4f765b',
     labels: [
       "Use variables, strings, numbers, booleans, conditionals, loops,...",
       "Break a task into small functions and...",
@@ -31,6 +33,8 @@ export const topics: Record<string, TopicSet> = {
       "Use type hints and docstrings to make...",
       "Write a script that loads a dataset,...",
       "Run the same script from a clean...",
+      "Separate configuration, code, data, and generated artifacts...",
+      "Add a smoke test and a machine-readable...",
     ],
   },
   'M0.3': {
@@ -53,27 +57,33 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M1.1': {
-    sig: '665ad913',
+    sig: '7b11111c',
     labels: [
       "Manipulate equations, ratios, inequalities, powers, logarithms, and...",
       "Read a function as an input-output rule...",
       "Use units, orders of magnitude, and dimensional...",
+      "Use dimensional analysis, numerical checks, and visualizations...",
+      "Connect each mathematical object to a modeling...",
     ],
   },
   'M1.2': {
-    sig: '539fc355',
+    sig: '7937711a',
     labels: [
       "Represent vectors, matrices, tensors, basis changes, dot...",
       "Derive matrix multiplication dimensions and use geometric...",
       "Implement a small neural layer with NumPy...",
+      "Use dimensional analysis, numerical checks, and visualizations...",
+      "Connect each mathematical object to a modeling...",
     ],
   },
   'M1.3': {
-    sig: '65d42705',
+    sig: 'ceaf584a',
     labels: [
       "Interpret derivatives, partial derivatives, gradients, Jacobians, and...",
       "Apply the chain rule to a small...",
       "Explain learning rate, local minima, conditioning, and...",
+      "Use dimensional analysis, numerical checks, and visualizations...",
+      "Connect each mathematical object to a modeling...",
     ],
   },
   'M1.4': {
@@ -85,27 +95,33 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M2.1': {
-    sig: '4ccceb86',
+    sig: '7b3d297d',
     labels: [
       "Work with events, conditional probability, independence, Bayes'...",
       "Interpret expectation, variance, covariance, common distributions, and...",
       "Simulate probability experiments and compare empirical frequencies...",
+      "Report uncertainty with confidence or credible intervals,...",
+      "Distinguish exploratory patterns from confirmatory tests and...",
     ],
   },
   'M2.2': {
-    sig: 'faa51309',
+    sig: 'c87f4d32',
     labels: [
       "Construct point estimates, bootstrap intervals, confidence intervals,...",
       "State null and alternative hypotheses, choose a...",
       "Separate statistical significance, practical importance, and the...",
+      "Report uncertainty with confidence or credible intervals,...",
+      "Distinguish exploratory patterns from confirmatory tests and...",
     ],
   },
   'M2.3': {
-    sig: '42ba8c88',
+    sig: '054ac073',
     labels: [
       "Use pandas and visualization to inspect distributions,...",
       "Detect selection bias, confounding, leakage, survivorship bias,...",
       "Choose train, validation, and test splits before...",
+      "Report uncertainty with confidence or credible intervals,...",
+      "Distinguish exploratory patterns from confirmatory tests and...",
     ],
   },
   'M2.4': {
@@ -117,27 +133,33 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M3.1': {
-    sig: '8f764f5e',
+    sig: 'b2f85885',
     labels: [
       "Search scholarly databases, follow citation graphs, and...",
       "Read papers in passes: claim and structure,...",
       "Maintain a literature matrix containing question, data,...",
+      "Use a literature matrix, citation graph, and...",
+      "Write a preregistered research plan with primary...",
     ],
   },
   'M3.2': {
-    sig: 'c38bf3a5',
+    sig: '8dd99cfe',
     labels: [
       "Turn a broad interest into a specific,...",
       "Define variables, estimands, baselines, success criteria, and...",
       "Match exploratory, observational, experimental, and qualitative designs...",
+      "Use a literature matrix, citation graph, and...",
+      "Write a preregistered research plan with primary...",
     ],
   },
   'M3.3': {
-    sig: '3dce6735',
+    sig: 'ef9d506e',
     labels: [
       "Use research logs, data statements, code review,...",
       "Explain informed consent, privacy, intellectual property, authorship,...",
       "Give and receive feedback using a claim-evidence-limitation...",
+      "Use a literature matrix, citation graph, and...",
+      "Write a preregistered research plan with primary...",
     ],
   },
   'M3.4': {
@@ -149,27 +171,33 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M4.1': {
-    sig: 'c550cbef',
+    sig: '4c8e681c',
     labels: [
       "Query relational data with SELECT, JOIN, GROUP...",
       "Retrieve data from documented APIs with pagination,...",
       "Record source, access date, version, license, and...",
+      "Create a data statement covering provenance, consent,...",
+      "Build validation checks for duplicates, leakage, missingness,...",
     ],
   },
   'M4.2': {
-    sig: '8db3d265',
+    sig: '6d4002d6',
     labels: [
       "Diagnose missing values, duplicates, inconsistent units, outliers,...",
       "Design annotation guidelines, adjudication workflows, and inter-rater...",
       "Prevent train-test leakage during preprocessing, deduplication, feature...",
+      "Create a data statement covering provenance, consent,...",
+      "Build validation checks for duplicates, leakage, missingness,...",
     ],
   },
   'M4.3': {
-    sig: '02bde732',
+    sig: '79952f21',
     labels: [
       "Apply data minimization, de-identification, access control, retention,...",
       "Write a datasheet describing motivation, composition, collection,...",
       "Explain when consent, review, licensing, or domain...",
+      "Create a data statement covering provenance, consent,...",
+      "Build validation checks for duplicates, leakage, missingness,...",
     ],
   },
   'M4.4': {
@@ -181,27 +209,33 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M5.1': {
-    sig: '340b0488',
+    sig: '93ac225b',
     labels: [
       "Fit and interpret linear models, logistic regression,...",
       "Design features from domain meaning while separating...",
       "Compare calibration, discrimination, ranking, and error costs...",
+      "Define a strong simple baseline, a tuning...",
+      "Use repeated seeds, error slices, calibration checks,...",
     ],
   },
   'M5.2': {
-    sig: '5d1c9de9',
+    sig: 'e2a1e93a',
     labels: [
       "Use clustering, dimensionality reduction, anomaly detection, and...",
       "Compare stability and usefulness of discovered groups...",
       "Explain why visualization is exploratory evidence rather...",
+      "Define a strong simple baseline, a tuning...",
+      "Use repeated seeds, error slices, calibration checks,...",
     ],
   },
   'M5.3': {
-    sig: 'de3a6c8f',
+    sig: 'b98b2c5c',
     labels: [
       "Use cross-validation, nested selection, learning curves, hyperparameter...",
       "Create an error taxonomy and inspect representative...",
       "Compare models with confidence intervals and subgroup...",
+      "Define a strong simple baseline, a tuning...",
+      "Use repeated seeds, error slices, calibration checks,...",
     ],
   },
   'M5.4': {
@@ -213,27 +247,33 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M6.1': {
-    sig: '0b4c8f49',
+    sig: 'f71e7d65',
     labels: [
       "Implement affine layers, activations, losses, backpropagation, and...",
       "Trace tensor shapes, device placement, gradients, and...",
       "Explain initialization, normalization, dropout, weight decay, and...",
+      "Track initialization, optimizer settings, learning curves, checkpoints,...",
+      "Reproduce a published neural result from its...",
     ],
   },
   'M6.2': {
-    sig: '7571b4e2',
+    sig: 'fcb5d04e',
     labels: [
       "Explain convolution, receptive fields, pooling, augmentation, residual...",
       "Build image classification and segmentation pipelines with...",
       "Inspect saliency and failure cases without treating...",
+      "Track initialization, optimizer settings, learning curves, checkpoints,...",
+      "Reproduce a published neural result from its...",
     ],
   },
   'M6.3': {
-    sig: '0b482d48',
+    sig: 'e8979aa4',
     labels: [
       "Use learning-rate schedules, mixed precision, gradient clipping,...",
       "Detect underfitting, overfitting, data bugs, unstable loss,...",
       "Profile memory and throughput so training choices...",
+      "Track initialization, optimizer settings, learning curves, checkpoints,...",
+      "Reproduce a published neural result from its...",
     ],
   },
   'M6.4': {
@@ -245,27 +285,33 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M7.1': {
-    sig: 'd470c3df',
+    sig: '386c0c04',
     labels: [
       "Represent sequences with windows, masks, positional information,...",
       "Forecast or classify time-dependent data using time-aware...",
       "Identify temporal leakage caused by random splits,...",
+      "Choose an architecture by matching inductive bias,...",
+      "Measure memory, throughput, optimization stability, and long-context...",
     ],
   },
   'M7.2': {
-    sig: 'b7032c80',
+    sig: '4b544f5b',
     labels: [
       "Explain tokenization, embeddings, self-attention, masking, positional information,...",
       "Implement a small transformer and inspect attention,...",
       "Evaluate language models with task metrics, calibration,...",
+      "Choose an architecture by matching inductive bias,...",
+      "Measure memory, throughput, optimization stability, and long-context...",
     ],
   },
   'M7.3': {
-    sig: 'ea5f5585',
+    sig: '1435fede',
     labels: [
       "Represent nodes, edges, attributes, graph splits, message...",
       "Compare graph convolution, graph attention, and simple...",
       "Choose an architecture by data structure and...",
+      "Choose an architecture by matching inductive bias,...",
+      "Measure memory, throughput, optimization stability, and long-context...",
     ],
   },
   'M7.4': {
@@ -277,27 +323,33 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M8.1': {
-    sig: 'ecfdf0f9',
+    sig: 'de3ca17e',
     labels: [
       "Define the construct being measured and select...",
       "Build baselines, holdout sets, challenge sets, and...",
       "Report confidence intervals, calibration, ranking uncertainty, and...",
+      "Separate primary, secondary, and exploratory analyses while...",
+      "Use compute-matched baselines, controlled ablations, robustness checks,...",
     ],
   },
   'M8.2': {
-    sig: '476cc923',
+    sig: 'fa6c3aa4',
     labels: [
       "Isolate components with controlled ablations, matched budgets,...",
       "Separate tuning data from final evidence and...",
       "Use experiment registries and configuration files to...",
+      "Separate primary, secondary, and exploratory analyses while...",
+      "Use compute-matched baselines, controlled ablations, robustness checks,...",
     ],
   },
   'M8.3': {
-    sig: 'c2af8533',
+    sig: '3f117eb4',
     labels: [
       "Draw causal diagrams and identify confounders, mediators,...",
       "Distinguish prediction, association, and causal effect claims...",
       "Test robustness across sites, time periods, populations,...",
+      "Separate primary, secondary, and exploratory analyses while...",
+      "Use compute-matched baselines, controlled ablations, robustness checks,...",
     ],
   },
   'M8.4': {
@@ -309,27 +361,33 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M9.1': {
-    sig: 'e0d7b2cd',
+    sig: '3fbede8f',
     labels: [
       "Explain autoregressive, variational, energy-based, diffusion, and flow-matching...",
       "Implement a small generative model and inspect...",
       "Compare fidelity, diversity, calibration, utility, and memorization...",
+      "Evaluate generated outputs for quality, diversity, calibration,...",
+      "Document sampling settings, data contamination checks, model...",
     ],
   },
   'M9.2': {
-    sig: '78ccdccd',
+    sig: '18ef088f',
     labels: [
       "Use model cards, tokenizers, prompts, structured outputs,...",
       "Evaluate factuality, robustness, contamination, and sensitivity to...",
       "Keep retrieved evidence separate from model-generated claims...",
+      "Evaluate generated outputs for quality, diversity, calibration,...",
+      "Document sampling settings, data contamination checks, model...",
     ],
   },
   'M9.3': {
-    sig: 'dcca67b4',
+    sig: 'b7eafff6',
     labels: [
       "Compare zero-shot, few-shot, supervised fine-tuning, adapters, LoRA,...",
       "Track data provenance, trainable parameters, compute, checkpoints,...",
       "Decide when adaptation is justified over retrieval,...",
+      "Evaluate generated outputs for quality, diversity, calibration,...",
+      "Document sampling settings, data contamination checks, model...",
     ],
   },
   'M9.4': {
@@ -341,27 +399,33 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M10.1': {
-    sig: '9e1482e8',
+    sig: '370d82e3',
     labels: [
       "Package a research project with locked dependencies,...",
       "Separate exploration, reusable library code, training, evaluation,...",
       "Make pipelines resumable, cacheable, observable, and safe...",
+      "Automate experiment configuration, artifact lineage, checkpointing, monitoring,...",
+      "Report compute budget, hardware utilization, wall-clock time,...",
     ],
   },
   'M10.2': {
-    sig: '3e810be1',
+    sig: '1b6bb58a',
     labels: [
       "Track datasets, configurations, runs, artifacts, checkpoints, and...",
       "Measure latency, throughput, memory, cost, and reliability...",
       "Add data validation, model monitoring, rollback, and...",
+      "Automate experiment configuration, artifact lineage, checkpointing, monitoring,...",
+      "Report compute budget, hardware utilization, wall-clock time,...",
     ],
   },
   'M10.3': {
-    sig: '7f432159',
+    sig: '9db2b2b2',
     labels: [
       "Profile input pipelines, memory, communication, utilization, and...",
       "Explain data parallelism, gradient accumulation, checkpointing, and...",
       "Design scaling experiments that vary data, parameters,...",
+      "Automate experiment configuration, artifact lineage, checkpointing, monitoring,...",
+      "Report compute budget, hardware utilization, wall-clock time,...",
     ],
   },
   'M10.4': {
@@ -373,27 +437,33 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M11.1': {
-    sig: '4fda44cd',
+    sig: 'd4977f4a',
     labels: [
       "Compare feature attribution, counterfactuals, probing, concept methods,...",
       "Test explanation faithfulness, stability, usefulness, and sensitivity...",
       "Treat an explanation as a hypothesis about...",
+      "Treat explanations, robustness results, and fairness metrics...",
+      "Test subgroup behavior, distribution shift, attack assumptions,...",
     ],
   },
   'M11.2': {
-    sig: 'a6a2ec31',
+    sig: 'e2b52df6',
     labels: [
       "Test corruption, perturbation, distribution shift, prompt injection,...",
       "Define threat models, attacker capabilities, budgets, and...",
       "Compare robust training, input validation, uncertainty, monitoring,...",
+      "Treat explanations, robustness results, and fairness metrics...",
+      "Test subgroup behavior, distribution shift, attack assumptions,...",
     ],
   },
   'M11.3': {
-    sig: '3674f984',
+    sig: '28406ea3',
     labels: [
       "Measure subgroup performance, calibration, allocation effects, privacy...",
       "Explain why fairness metrics can conflict and...",
       "Document intended use, excluded use, affected groups,...",
+      "Treat explanations, robustness results, and fairness metrics...",
+      "Test subgroup behavior, distribution shift, attack assumptions,...",
     ],
   },
   'M11.4': {
@@ -405,27 +475,33 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M12.1': {
-    sig: '3bc059a5',
+    sig: '48cf5081',
     labels: [
       "Align image, text, audio, tabular, and temporal...",
       "Compare early fusion, late fusion, cross-attention, contrastive...",
       "Evaluate whether a multimodal gain comes from...",
+      "Work with domain experts to define clinically,...",
+      "Align modalities, annotations, and evaluation splits while...",
     ],
   },
   'M12.2': {
-    sig: 'b38e0574',
+    sig: '6e1fdab0',
     labels: [
       "Translate a domain workflow into labels, constraints,...",
       "Use domain interviews, annotation pilots, disagreement analysis,...",
       "Distinguish benchmark success from usefulness, safety, and...",
+      "Work with domain experts to define clinically,...",
+      "Align modalities, annotations, and evaluation splits while...",
     ],
   },
   'M12.3': {
-    sig: 'a6d2d686',
+    sig: '39751e42',
     labels: [
       "Design prospective, retrospective, offline, and human-in-the-loop evaluations",
       "Measure workflow time, error costs, calibration, accessibility,...",
       "Write a deployment decision record with monitoring,...",
+      "Work with domain experts to define clinically,...",
+      "Align modalities, annotations, and evaluation splits while...",
     ],
   },
   'M12.4': {
@@ -437,27 +513,33 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M13.1': {
-    sig: 'e9383379',
+    sig: '2c2c492a',
     labels: [
       "Map a field's established findings, open problems,...",
       "Test whether a proposed contribution is novel,...",
       "Define a minimal publishable question and a...",
+      "Break an open-ended idea into milestones, decision...",
+      "Run a pilot, review progress against the...",
     ],
   },
   'M13.2': {
-    sig: 'b479f02d',
+    sig: 'cb97e27e',
     labels: [
       "Break a project into hypotheses, work packages,...",
       "Assign roles, maintain meeting notes, manage review...",
       "Track compute, data, ethics, authorship, and schedule...",
+      "Break an open-ended idea into milestones, decision...",
+      "Run a pilot, review progress against the...",
     ],
   },
   'M13.3': {
-    sig: '11a0a6d7',
+    sig: '71233d04',
     labels: [
       "Explain a contribution to a beginner, peer,...",
       "Design a talk around question, insight, evidence,...",
       "Give constructive code, paper, and presentation feedback...",
+      "Break an open-ended idea into milestones, decision...",
+      "Run a pilot, review progress against the...",
     ],
   },
   'M13.4': {
@@ -469,27 +551,33 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M14.1': {
-    sig: 'f8ab2bd2',
+    sig: '7b760c70',
     labels: [
       "Finalize the question, hypotheses, related work, data...",
       "Complete required permissions, consent or licensing checks,...",
       "Run a pilot that tests feasibility, data...",
+      "Maintain a complete provenance trail from raw...",
+      "Ask an independent reader to reproduce a...",
     ],
   },
   'M14.2': {
-    sig: '629cbcf1',
+    sig: 'f6ff8c53',
     labels: [
       "Implement the method, baselines, data pipeline, logging,...",
       "Run planned experiments before exploratory analyses, then...",
       "Preserve raw artifacts, configurations, seeds, compute logs,...",
+      "Maintain a complete provenance trail from raw...",
+      "Ask an independent reader to reproduce a...",
     ],
   },
   'M14.3': {
-    sig: '82e92c32',
+    sig: '69964750',
     labels: [
       "Analyze effect sizes, uncertainty, subgroup behavior, robustness,...",
       "Separate primary, secondary, exploratory, and unsupported findings",
       "Package code, environment, data access instructions, model...",
+      "Maintain a complete provenance trail from raw...",
+      "Ask an independent reader to reproduce a...",
     ],
   },
   'M14.4': {
@@ -511,11 +599,13 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M15.2': {
-    sig: '99f2e4b4',
+    sig: '3cec03c5',
     labels: [
       "Review a paper for novelty, correctness, evidence,...",
       "Respond to reviews with a change table,...",
       "Revise claims when evidence is weaker than...",
+      "Match the contribution to a suitable journal,...",
+      "Prepare a research statement, academic CV, portfolio...",
     ],
   },
   'M15.3': {
@@ -529,11 +619,13 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M15.4': {
-    sig: '5c3af608',
+    sig: '92baf0b9',
     labels: [
       "Compare research assistant, data scientist, ML engineer,...",
       "Build a targeted application list, networking message,...",
       "Set a twelve-month learning and publication plan...",
+      "Match the contribution to a suitable journal,...",
+      "Prepare a research statement, academic CV, portfolio...",
     ],
   },
   'M15.5': {

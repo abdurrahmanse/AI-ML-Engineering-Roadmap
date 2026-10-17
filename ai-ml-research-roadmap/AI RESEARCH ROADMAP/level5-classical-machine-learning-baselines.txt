@@ -9,6 +9,8 @@ M5.1 · Regression, Classification & Feature Design — (sessions: 5)
 - Fit and interpret linear models, logistic regression, regularized models, trees, and gradient boosting.
 - Design features from domain meaning while separating training-only transformations from evaluation data.
 - Compare calibration, discrimination, ranking, and error costs instead of relying on accuracy alone.
+- Define a strong simple baseline, a tuning budget, and a fixed evaluation protocol before comparing more complex models.
+- Use repeated seeds, error slices, calibration checks, and confidence intervals to explain when a model improvement is real.
 Mental model: A baseline is a scientific control that tells you whether complexity is buying useful signal.
 Try: Build a leakage-safe scikit-learn pipeline and compare a linear model, random forest, and gradient booster.
 Outcome: You can establish strong, interpretable baselines for structured prediction problems.
@@ -17,6 +19,8 @@ M5.2 · Unsupervised Learning and Representation — (sessions: 4)
 - Use clustering, dimensionality reduction, anomaly detection, and similarity search appropriately.
 - Compare stability and usefulness of discovered groups across seeds, samples, and feature choices.
 - Explain why visualization is exploratory evidence rather than proof of a natural cluster.
+- Define a strong simple baseline, a tuning budget, and a fixed evaluation protocol before comparing more complex models.
+- Use repeated seeds, error slices, calibration checks, and confidence intervals to explain when a model improvement is real.
 Mental model: Unsupervised outputs are hypotheses about structure that require validation.
 Try: Cluster a dataset, test cluster stability, and interview the domain meaning of the resulting groups.
 Outcome: You can use unsupervised tools without overinterpreting attractive plots.
@@ -25,6 +29,8 @@ M5.3 · Model Selection and Error Analysis — (sessions: 5)
 - Use cross-validation, nested selection, learning curves, hyperparameter search, and calibration.
 - Create an error taxonomy and inspect representative false positives, false negatives, and edge cases.
 - Compare models with confidence intervals and subgroup metrics tied to the deployment question.
+- Define a strong simple baseline, a tuning budget, and a fixed evaluation protocol before comparing more complex models.
+- Use repeated seeds, error slices, calibration checks, and confidence intervals to explain when a model improvement is real.
 Mental model: Model development is an investigation of failure, not a leaderboard chase.
 Try: Produce an error-analysis report that changes one modeling decision based on observed failures.
 Outcome: You can select models using evidence, constraints, and failure analysis.

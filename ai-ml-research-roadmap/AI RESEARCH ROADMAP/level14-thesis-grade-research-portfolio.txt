@@ -9,6 +9,8 @@ M14.1 · Proposal, Ethics and Pilot — (sessions: 7)
 - Finalize the question, hypotheses, related work, data plan, risk assessment, and success criteria.
 - Complete required permissions, consent or licensing checks, and a reproducibility plan.
 - Run a pilot that tests feasibility, data quality, compute needs, and the possibility of a meaningful result.
+- Maintain a complete provenance trail from raw input and configuration to every table, figure, claim, and released artifact.
+- Ask an independent reader to reproduce a result and revise the study when the evidence does not support the original claim.
 Mental model: The pilot is valuable even when it disproves the original plan because it prevents expensive invalid work.
 Try: Hold a proposal defense with two reviewers and revise the protocol before collecting final evidence.
 Outcome: You can begin a thesis-grade project with a defensible protocol and explicit decision gates.
@@ -17,6 +19,8 @@ M14.2 · Implementation and Evidence Collection — (sessions: 9)
 - Implement the method, baselines, data pipeline, logging, tests, and evaluation scripts as one tracked project.
 - Run planned experiments before exploratory analyses, then label post-hoc discoveries clearly.
 - Preserve raw artifacts, configurations, seeds, compute logs, and negative results.
+- Maintain a complete provenance trail from raw input and configuration to every table, figure, claim, and released artifact.
+- Ask an independent reader to reproduce a result and revise the study when the evidence does not support the original claim.
 Mental model: Evidence is only interpretable when its provenance and selection process are visible.
 Try: Run a complete experiment batch from a clean environment and reconstruct one result from stored artifacts.
 Outcome: You can execute a large study without losing the link between claims and evidence.
@@ -25,6 +29,8 @@ M14.3 · Analysis, Limitations and Reproducibility — (sessions: 7)
 - Analyze effect sizes, uncertainty, subgroup behavior, robustness, and failure cases.
 - Separate primary, secondary, exploratory, and unsupported findings.
 - Package code, environment, data access instructions, model cards, and an artifact checklist.
+- Maintain a complete provenance trail from raw input and configuration to every table, figure, claim, and released artifact.
+- Ask an independent reader to reproduce a result and revise the study when the evidence does not support the original claim.
 Mental model: Limitations are part of the result because they define where the evidence stops.
 Try: Ask an independent reader to reproduce one table and one figure using only the released artifact.
 Outcome: You can audit your own conclusions and make a study usable by another researcher.

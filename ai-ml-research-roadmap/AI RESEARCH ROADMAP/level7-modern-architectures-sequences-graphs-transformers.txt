@@ -9,6 +9,8 @@ M7.1 · Sequences, Time Series & Attention — (sessions: 5)
 - Represent sequences with windows, masks, positional information, recurrence, convolution, and attention.
 - Forecast or classify time-dependent data using time-aware splits and horizon-specific metrics.
 - Identify temporal leakage caused by random splits, future features, and duplicated entities.
+- Choose an architecture by matching inductive bias, computational complexity, and data structure to the research question.
+- Measure memory, throughput, optimization stability, and long-context or structural failure cases alongside task scores.
 Mental model: A sequence model should only use information that would have existed at prediction time.
 Try: Compare a persistence baseline, recurrent model, temporal convolution, and attention model on one forecasting task.
 Outcome: You can design honest experiments for sequential and time-dependent data.
@@ -17,6 +19,8 @@ M7.2 · Transformers and Language Modeling — (sessions: 6)
 - Explain tokenization, embeddings, self-attention, masking, positional information, and next-token prediction.
 - Implement a small transformer and inspect attention, loss, context length, and scaling behavior.
 - Evaluate language models with task metrics, calibration, qualitative error analysis, and contamination awareness.
+- Choose an architecture by matching inductive bias, computational complexity, and data structure to the research question.
+- Measure memory, throughput, optimization stability, and long-context or structural failure cases alongside task scores.
 Mental model: Attention is content-dependent information routing, not an automatic explanation of reasoning.
 Try: Train a tiny language model on a permitted corpus and write a report on data, objective, and limitations.
 Outcome: You can implement and reason about the core transformer training loop.
@@ -25,6 +29,8 @@ M7.3 · Graph Learning and Architecture Choice — (sessions: 4)
 - Represent nodes, edges, attributes, graph splits, message passing, and inductive versus transductive settings.
 - Compare graph convolution, graph attention, and simple non-graph baselines.
 - Choose an architecture by data structure and scientific question rather than novelty alone.
+- Choose an architecture by matching inductive bias, computational complexity, and data structure to the research question.
+- Measure memory, throughput, optimization stability, and long-context or structural failure cases alongside task scores.
 Mental model: An architecture is a prior about which relationships should influence a prediction.
 Try: Build a graph benchmark with a leakage-safe edge or node split and compare it to feature-only models.
 Outcome: You can adapt modern architectures to relational and structured data.

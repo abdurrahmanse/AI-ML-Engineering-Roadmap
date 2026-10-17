@@ -9,6 +9,8 @@ M6.1 · Neural Networks and Automatic Differentiation — (sessions: 5)
 - Implement affine layers, activations, losses, backpropagation, and minibatch training.
 - Trace tensor shapes, device placement, gradients, and parameter updates in PyTorch.
 - Explain initialization, normalization, dropout, weight decay, and overfitting.
+- Track initialization, optimizer settings, learning curves, checkpoints, and failed runs so training behavior is inspectable.
+- Reproduce a published neural result from its equations and implementation, then report deviations and remaining uncertainty.
 Mental model: A neural network is a parameterized function whose behavior is learned through repeated error signals.
 Try: Implement a small multilayer perceptron twice: once with NumPy gradients and once with PyTorch autograd.
 Outcome: You can inspect and debug the complete training loop of a neural network.
@@ -17,6 +19,8 @@ M6.2 · Computer Vision and Convolutional Models — (sessions: 5)
 - Explain convolution, receptive fields, pooling, augmentation, residual connections, and transfer learning.
 - Build image classification and segmentation pipelines with correct spatial transforms and evaluation.
 - Inspect saliency and failure cases without treating visual explanations as causal proof.
+- Track initialization, optimizer settings, learning curves, checkpoints, and failed runs so training behavior is inspectable.
+- Reproduce a published neural result from its equations and implementation, then report deviations and remaining uncertainty.
 Mental model: Convolutions encode local structure, while data and labels determine what the model learns.
 Try: Compare a scratch CNN and a pretrained backbone on a small image dataset with a documented error taxonomy.
 Outcome: You can build and evaluate reproducible computer-vision baselines.
@@ -25,6 +29,8 @@ M6.3 · Training Engineering and Debugging — (sessions: 5)
 - Use learning-rate schedules, mixed precision, gradient clipping, checkpoint recovery, and early stopping.
 - Detect underfitting, overfitting, data bugs, unstable loss, and silent label or preprocessing errors.
 - Profile memory and throughput so training choices are tied to measured bottlenecks.
+- Track initialization, optimizer settings, learning curves, checkpoints, and failed runs so training behavior is inspectable.
+- Reproduce a published neural result from its equations and implementation, then report deviations and remaining uncertainty.
 Mental model: Most failed experiments are diagnosed by checking data, shapes, targets, and instrumentation before changing architecture.
 Try: Intentionally introduce three training bugs, diagnose them from logs, and document the fixes.
 Outcome: You can run reliable neural-network experiments and explain why a training run succeeded or failed.

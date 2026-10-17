@@ -9,6 +9,8 @@ M3.1 · Finding and Reading Research Papers — (sessions: 5)
 - Search scholarly databases, follow citation graphs, and record inclusion and exclusion decisions.
 - Read papers in passes: claim and structure, method and evidence, then limitations and reproduction details.
 - Maintain a literature matrix containing question, data, method, comparison, result, and unresolved issue.
+- Use a literature matrix, citation graph, and claim-evidence table to distinguish established results from open questions.
+- Write a preregistered research plan with primary outcomes, alternative explanations, stop conditions, and an analysis plan.
 Mental model: A paper is an argument supported by evidence, not a list of fashionable techniques.
 Try: Read five papers on one question and create a one-page evidence map with disagreements.
 Outcome: You can find relevant literature and explain what a paper actually establishes.
@@ -17,6 +19,8 @@ M3.2 · Questions, Hypotheses & Research Designs — (sessions: 5)
 - Turn a broad interest into a specific, measurable, falsifiable research question.
 - Define variables, estimands, baselines, success criteria, and plausible alternative explanations.
 - Match exploratory, observational, experimental, and qualitative designs to the question.
+- Use a literature matrix, citation graph, and claim-evidence table to distinguish established results from open questions.
+- Write a preregistered research plan with primary outcomes, alternative explanations, stop conditions, and an analysis plan.
 Mental model: Good research narrows uncertainty by making competing explanations testable.
 Try: Convert an interesting model idea into three hypotheses and a preregistered experiment outline.
 Outcome: You can formulate research questions that are feasible, meaningful, and testable.
@@ -25,6 +29,8 @@ M3.3 · Reproducibility, Ethics & Collaboration — (sessions: 4)
 - Use research logs, data statements, code review, preregistration, and artifact checklists.
 - Explain informed consent, privacy, intellectual property, authorship, conflicts of interest, and dual use.
 - Give and receive feedback using a claim-evidence-limitation structure.
+- Use a literature matrix, citation graph, and claim-evidence table to distinguish established results from open questions.
+- Write a preregistered research plan with primary outcomes, alternative explanations, stop conditions, and an analysis plan.
 Mental model: Trust is an engineering property built through transparent choices and accountable collaboration.
 Try: Review a peer's project proposal and request evidence for every major claim.
 Outcome: You can participate in a research group with ethical judgment and reproducible habits.
