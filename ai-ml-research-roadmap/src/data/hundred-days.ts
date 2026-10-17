@@ -75,7 +75,7 @@ export const hundredDaysModules: DaysModule[] = [
       {
         id: "1.1",
         title: "Vector Spaces, Linear Mappings & SVD",
-        icon: "matrix",
+        icon: "grid-3x3",
         days: [1, 3],
         bullets: [
           {
@@ -102,7 +102,7 @@ export const hundredDaysModules: DaysModule[] = [
       {
         id: "1.2",
         title: "Multivariable Calculus & Autograd Internals",
-        icon: "function-square",
+        icon: "square-function",
         days: [4, 6],
         bullets: [
           {
@@ -506,7 +506,7 @@ export const hundredDaysModules: DaysModule[] = [
       {
         id: "4.3",
         title: "Continuous SDEs & Probability Flow ODEs",
-        icon: "git-commit",
+        icon: "git-commit-horizontal",
         days: [61, 64],
         bullets: [
           {
