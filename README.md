@@ -1,6 +1,6 @@
 # AI/ML Roadmaps
 
-> Interactive learning paths for AI/ML engineering and research.
+> Interactive, source-authored learning paths for AI/ML engineering and research.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-abdurrahmans.vercel.app-6c5ce7?style=flat-square&logo=vercel)](https://abdurrahmans.vercel.app)
 [![Astro](https://img.shields.io/badge/Astro-7.0+-BC52EE?style=flat-square&logo=astro)](https://astro.build)
@@ -13,7 +13,7 @@ This repository contains two independent Astro applications:
 - **[AI/ML Engineering Roadmap](ai-ml-engineering-roadmap/README.md)** — a practical path from software engineering foundations through LLMs, RAG, agents, evaluation, security, and production operations.
 - **[AI/ML Research Roadmap](ai-ml-research-roadmap/README.md)** — a research-focused path from computing and mathematics through experimentation, trustworthy AI, publication, and research careers.
 
-Both applications provide 16 progressive levels, interactive progress tracking, structured learning objectives, capstone projects, and an accelerated 100-day learning track.
+Both applications provide 16 progressive levels, interactive progress tracking, structured learning objectives, capstone projects, and an accelerated 100-day learning track. The curriculum is stored as readable text specifications and compiled into each Astro application during development and production builds.
 
 ## Shared Features
 
@@ -30,18 +30,25 @@ Both applications provide 16 progressive levels, interactive progress tracking, 
 - [Node.js](https://nodejs.org/) 18 or later
 - npm 9 or later
 
-Choose an application and run it from its directory:
+Clone the repository, choose an application, and run it from that application's directory:
 
 ```bash
-git clone https://github.com/abdurrahmanse/AI-ML-Engineering-Roadmap.git
+git clone https://github.com/abdurrahmanse/AI-ML-Roadmap.git
+cd AI-ML-Roadmap
 
 # AI/ML Engineering Roadmap
-cd AI-ML-Engineering-Roadmap/ai-ml-engineering-roadmap
+cd ai-ml-engineering-roadmap
 npm install
 npm run dev
 ```
 
-For the research roadmap, use `ai-ml-research-roadmap` instead.
+To run the research roadmap instead:
+
+```bash
+cd ../ai-ml-research-roadmap
+npm install
+npm run dev
+```
 
 Open `http://localhost:4321` in your browser to explore the selected roadmap.
 
@@ -58,6 +65,19 @@ npm run verify
 
 # Run Astro's type and project checks
 npm run check
+```
+
+Additional scripts are available for focused workflows:
+
+```bash
+# Parse source curriculum files
+npm run parse
+
+# Regenerate topic signatures
+npm run topics
+
+# Preview an existing production build
+npm run preview
 ```
 
 ## Repository Structure
@@ -80,7 +100,7 @@ npm run check
     └── README.md              # Research roadmap documentation
 ```
 
-Curriculum content is maintained in each application's roadmap directory and compiled into typed data during the build process. This keeps the learning material readable, reviewable, and separate from the presentation layer.
+Curriculum content is maintained in each application's roadmap directory and compiled into typed data during the build process. This keeps the learning material readable, reviewable, and separate from the presentation layer. Changes to curriculum text should be made in the relevant `level*.txt` files rather than generated files under `src/data/`.
 
 ## Documentation
 
