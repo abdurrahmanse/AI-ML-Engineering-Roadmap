@@ -78,7 +78,7 @@ body {
   background: var(--cx-white);
   color: var(--cx-g700);
   font-family: var(--cx-font-body);
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 600;
   line-height: 1.6;
   letter-spacing: 0.01em;
@@ -145,7 +145,7 @@ code, pre, kbd, samp {
   background: var(--cx-ink);
   color: #fff;
   border-radius: var(--cx-r-pill);
-  font-size: 14.5px;
+  font-size: 15px;
   font-weight: 500;
   transition: top 0.15s ease;
 }
@@ -173,7 +173,7 @@ code, pre, kbd, samp {
 
 .eyebrow {
   font-family: var(--cx-font-mono);
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -183,12 +183,12 @@ code, pre, kbd, samp {
   align-items: center;
   gap: 7px;
 }
-@media (min-width: 480px) { .eyebrow { font-size: 12.5px; letter-spacing: 0.16em; } }
-@media (min-width: 768px) { .eyebrow { font-size: 13px; } }
+@media (min-width: 480px) { .eyebrow { font-size: 13px; letter-spacing: 0.16em; } }
+@media (min-width: 768px) { .eyebrow { font-size: 13.5px; } }
 
 .mono-label {
   font-family: var(--cx-font-mono);
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -196,20 +196,20 @@ code, pre, kbd, samp {
 }
 
 .h1 {
-  font-size: clamp(33px, 6.5vw, 82px);
+  font-size: clamp(35px, 6.5vw, 86px);
   letter-spacing: -0.035em;
   line-height: 1.08;
 }
-.h2 { font-size: clamp(24px, 3.8vw, 42px); letter-spacing: -0.025em; }
-.h3 { font-size: clamp(19px, 2.2vw, 23px); letter-spacing: -0.02em; }
+.h2 { font-size: clamp(26px, 3.8vw, 44px); letter-spacing: -0.025em; }
+.h3 { font-size: clamp(20px, 2.2vw, 25px); letter-spacing: -0.02em; }
 
 .lede {
-  font-size: clamp(17px, 1.8vw, 20px);
+  font-size: clamp(18px, 1.8vw, 21px);
   line-height: 1.7;
   color: var(--cx-g600);
   font-weight: 600;
 }
-.body-muted { color: var(--cx-g600); font-size: 15.5px; line-height: 1.6; }
+.body-muted { color: var(--cx-g600); font-size: 16.5px; line-height: 1.6; }
 
 /* ---- gradient text utilities ---- */
 
