@@ -45,7 +45,7 @@
 
 *,
 *::before,
-*::after { box-sizing: border-box; }
+*::after { box-sizing: border-box; font-weight: 600; }
 
 html {
   scroll-behavior: smooth;
@@ -78,8 +78,8 @@ body {
   background: var(--cx-white);
   color: var(--cx-g700);
   font-family: var(--cx-font-body);
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   line-height: 1.6;
   letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
@@ -145,7 +145,7 @@ code, pre, kbd, samp {
   background: var(--cx-ink);
   color: #fff;
   border-radius: var(--cx-r-pill);
-  font-size: 13.5px;
+  font-size: 14.5px;
   font-weight: 500;
   transition: top 0.15s ease;
 }
@@ -173,7 +173,7 @@ code, pre, kbd, samp {
 
 .eyebrow {
   font-family: var(--cx-font-mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -183,33 +183,33 @@ code, pre, kbd, samp {
   align-items: center;
   gap: 7px;
 }
-@media (min-width: 480px) { .eyebrow { font-size: 11.5px; letter-spacing: 0.16em; } }
-@media (min-width: 768px) { .eyebrow { font-size: 12px; } }
+@media (min-width: 480px) { .eyebrow { font-size: 12.5px; letter-spacing: 0.16em; } }
+@media (min-width: 768px) { .eyebrow { font-size: 13px; } }
 
 .mono-label {
   font-family: var(--cx-font-mono);
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--cx-g500);
 }
 
 .h1 {
-  font-size: clamp(30px, 6.5vw, 76px);
+  font-size: clamp(33px, 6.5vw, 82px);
   letter-spacing: -0.035em;
   line-height: 1.08;
 }
-.h2 { font-size: clamp(22px, 3.8vw, 38px); letter-spacing: -0.025em; }
-.h3 { font-size: clamp(17px, 2.2vw, 21px); letter-spacing: -0.02em; }
+.h2 { font-size: clamp(24px, 3.8vw, 42px); letter-spacing: -0.025em; }
+.h3 { font-size: clamp(19px, 2.2vw, 23px); letter-spacing: -0.02em; }
 
 .lede {
-  font-size: clamp(15.5px, 1.8vw, 18.5px);
+  font-size: clamp(17px, 1.8vw, 20px);
   line-height: 1.7;
   color: var(--cx-g600);
-  font-weight: 400;
+  font-weight: 600;
 }
-.body-muted { color: var(--cx-g600); font-size: 14.5px; line-height: 1.6; }
+.body-muted { color: var(--cx-g600); font-size: 15.5px; line-height: 1.6; }
 
 /* ---- gradient text utilities ---- */
 
