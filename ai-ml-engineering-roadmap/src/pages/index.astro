@@ -198,8 +198,8 @@ const howItWorks = [
   .hero__copy { display: flex; flex-direction: column; gap: 20px; }
   /* the hero column is ~560px wide on desktop — cap the display size so the
      headline lands on three or four lines instead of six */
-  .hero__title { margin-top: 4px; font-size: clamp(28px, 5.2vw, 58px); max-width: 17ch; }
-  @media (min-width: 1180px) { .hero__title { font-size: 64px; max-width: 17ch; } }
+  .hero__title { margin-top: 4px; font-size: clamp(30px, 5.2vw, 62px); max-width: 17ch; }
+  @media (min-width: 1180px) { .hero__title { font-size: 70px; max-width: 17ch; } }
 
   .hero__lede { max-width: 54ch; }
 
@@ -250,13 +250,13 @@ const howItWorks = [
     align-self: center;
     justify-self: end;
     font-family: var(--cx-font-mono);
-    font-size: 11px;
+    font-size: 12.5px;
     letter-spacing: 0.14em;
     color: var(--cx-g500);
   }
   .how__title {
     grid-area: title;
-    font-size: 19px;
+    font-size: 21px;
     margin-top: 4px;
     background: var(--cx-title-grad-sm);
     -webkit-background-clip: text;
@@ -264,7 +264,7 @@ const howItWorks = [
     color: transparent;
     -webkit-text-fill-color: transparent;
   }
-  .how__body { grid-area: body; font-size: 14.5px; line-height: 1.6; color: var(--cx-g600); }
+  .how__body { grid-area: body; font-size: 16px; line-height: 1.6; color: var(--cx-g600); }
 
   /* ---------- map ---------- */
   .map-section { background: var(--cx-white); padding-top: 24px; scroll-margin-top: 80px; }
@@ -307,13 +307,13 @@ const howItWorks = [
     border: 1px solid var(--phase-br);
     color: var(--phase-ac);
     font-family: var(--cx-font-mono);
-    font-size: 11px;
+    font-size: 12.5px;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
   }
   .ships__name {
     font-family: var(--cx-font-display);
-    font-size: 15.5px;
+    font-size: 17px;
     font-weight: 700;
     line-height: 1.35;
     letter-spacing: -0.01em;
@@ -328,7 +328,7 @@ const howItWorks = [
     margin-left: auto;
     flex: none;
     font-family: var(--cx-font-mono);
-    font-size: 9.5px;
+    font-size: 11px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--cx-g500);
@@ -359,13 +359,13 @@ const howItWorks = [
   .cta__phase-name {
     font-family: var(--cx-font-display);
     font-weight: 700;
-    font-size: 14px;
+    font-size: 15.5px;
     letter-spacing: -0.01em;
   }
   .cta__phase-range {
     margin-left: auto;
     font-family: var(--cx-font-mono);
-    font-size: 10.5px;
+    font-size: 12px;
     letter-spacing: 0.08em;
     opacity: 0.8;
   }
