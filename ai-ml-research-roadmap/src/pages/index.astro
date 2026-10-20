@@ -135,7 +135,7 @@ const howItWorks = [
   ogImage="/og/default.png"
 >
   <!-- ───────────────────────── hero ───────────────────────── -->
-  <section class="hero">
+  <section class="section hero" id="hero">
     <div class="wrap hero__inner">
 
       <!-- Eyebrow badge -->
@@ -493,7 +493,6 @@ const howItWorks = [
 <style>
   /* ── Hero ── */
   .hero {
-    padding-block: 80px 64px;
     background-color: var(--cx-white);
     background-image:
       radial-gradient(ellipse 70% 55% at 50% -5%, rgba(37, 99, 235, 0.09), transparent 70%),
@@ -511,6 +510,7 @@ const howItWorks = [
   }
 
   .hero__inner {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -554,14 +554,18 @@ const howItWorks = [
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 20px;
+    width: 100%;
   }
   @media (min-width: 760px) {
     .hero__headline-block {
       flex-direction: row;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: center;
       text-align: left;
-      gap: 28px;
+      gap: 32px;
+      width: 100%;
     }
   }
   .hero__big-num {
@@ -586,7 +590,7 @@ const howItWorks = [
     display: flex;
     flex-direction: column;
     gap: 12px;
-    max-width: 740px;
+    width: 100%;
   }
   .hero__title {
     margin: 0;
@@ -602,8 +606,9 @@ const howItWorks = [
     line-height: 1.6;
     color: var(--cx-g600);
     margin: 0;
-    max-width: 64ch;
+    max-width: 78ch;
   }
+
 
 
   /* Stats row */
@@ -671,10 +676,12 @@ const howItWorks = [
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 7px;
-    max-width: 880px;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
     padding-top: 4px;
   }
+
   .hero__chip {
     font-family: var(--cx-font-mono);
     font-size: 12.5px;
