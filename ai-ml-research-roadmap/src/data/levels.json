@@ -6,87 +6,87 @@
   "phases": [
     {
       "id": "foundations",
-      "name": "Lab Foundations",
+      "name": "Research Foundations & Lab Onboarding",
       "levels": [
         0,
         1,
         2,
         3
       ],
-      "theme": "computing, problem formulation & statistics",
-      "purpose": "Enter a lab, find a gap, make defensible claims.",
+      "theme": "scientific computing, problem formulation, literature search & applied statistics",
+      "purpose": "Become a reliable contributor who can enter a lab, find a gap, and make defensible claims.",
       "color": "blue",
       "icon": "terminal"
     },
     {
       "id": "retrieval",
-      "name": "Data & Models",
+      "name": "Data Curation & Modeling Paradigms",
       "levels": [
         4,
         5,
         6
       ],
-      "theme": "datasets, classical ML, deep learning & vision",
-      "purpose": "Turn real data and model architectures into research baselines.",
+      "theme": "domain datasets, classical ML, deep learning, computer vision, graphs and sequence models",
+      "purpose": "Turn real-world data and model architectures into testable research baselines.",
       "color": "cyan",
       "icon": "database"
     },
     {
       "id": "agentic",
-      "name": "Generative & Experiments",
+      "name": "Generative Models & Experimental Science",
       "levels": [
         7,
         8,
         9
       ],
-      "theme": "generative modeling, ablations & benchmarks",
-      "purpose": "Design controlled experiments that reveal meaningful behavior.",
+      "theme": "generative modeling, controlled ablations, fair benchmarks and scaled experimental systems",
+      "purpose": "Design controlled experiments and scale them far enough to reveal meaningful behavior.",
       "color": "violet",
       "icon": "flask-conical"
     },
     {
       "id": "trust",
-      "name": "Trustworthy AI",
+      "name": "Scaled Systems, Trustworthy AI & Alignment",
       "levels": [
         10,
         11,
         12
       ],
-      "theme": "interpretability, robustness, fairness & alignment",
-      "purpose": "Evaluate powerful models for behavior, risks, and limits.",
+      "theme": "foundation models, interpretability, robustness, fairness and alignment for high-impact domains",
+      "purpose": "Study powerful models critically and evaluate their behavior, risks, and limits.",
       "color": "emerald",
       "icon": "shield-check"
     },
     {
       "id": "production",
-      "name": "Cross-Disciplinary",
+      "name": "Cross-Disciplinary Research",
       "levels": [
         13
       ],
-      "theme": "multimodal methods & domain collaboration",
-      "purpose": "Bridge disciplines and lead collaborative studies.",
+      "theme": "multimodal methods and domain collaboration",
+      "purpose": "Translate research questions across disciplines and lead collaborative studies.",
       "color": "rose",
       "icon": "microscope"
     },
     {
       "id": "frontier",
-      "name": "Thesis & Portfolio",
+      "name": "Thesis & Research Portfolio",
       "levels": [
         14
       ],
-      "theme": "thesis, reproducibility & research communication",
-      "purpose": "Own a study from protocol to portfolio.",
+      "theme": "thesis-grade evidence, reproducibility, and research communication",
+      "purpose": "Own a substantial study from protocol through evidence and portfolio.",
       "color": "pink",
       "icon": "trophy"
     },
     {
       "id": "interview",
-      "name": "Publish & Launch",
+      "name": "Publishing, Defense & Careers",
       "levels": [
         15
       ],
-      "theme": "publishing, peer review, viva & careers",
-      "purpose": "Publish, defend, and launch your research career.",
+      "theme": "journals, conferences, peer review, viva, interviews, and research careers",
+      "purpose": "Publish, defend, and carry research into academic or industrial employment.",
       "color": "slate",
       "icon": "graduation-cap"
     }

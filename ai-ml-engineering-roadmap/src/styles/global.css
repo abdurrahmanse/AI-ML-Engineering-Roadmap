@@ -40,7 +40,7 @@
 
 *,
 *::before,
-*::after { box-sizing: border-box; }
+*::after { box-sizing: border-box; font-weight: 600; }
 
 html {
   scroll-behavior: smooth;
@@ -73,9 +73,10 @@ body {
   background: var(--cx-white);
   color: var(--cx-ink);
   font-family: var(--cx-font-body);
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 600;
   line-height: 1.6;
+  letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: clip;
@@ -86,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   color: var(--cx-ink);
   margin: 0;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: 1.15;
   text-wrap: balance;
 }
@@ -112,6 +113,9 @@ h3, h4, h5, h6, .h3 {
 
 p { margin: 0; text-wrap: pretty; }
 a { color: inherit; text-decoration: none; }
+button, input, select, textarea {
+  font-family: inherit;
+}
 img, svg { max-width: 100%; }
 svg { display: block; }
 
@@ -131,7 +135,8 @@ svg { display: block; }
   background: var(--cx-ink);
   color: #fff;
   border-radius: var(--cx-r-pill);
-  font-size: 14px;
+  font-size: 15.5px;
+  font-weight: 500;
   transition: top 0.15s ease;
 }
 .skip-link:focus { top: 12px; }
@@ -158,39 +163,40 @@ svg { display: block; }
 
 .eyebrow {
   font-family: var(--cx-font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--cx-purple);
   margin: 0;
 }
-@media (min-width: 480px) { .eyebrow { font-size: 12px; letter-spacing: 0.18em; } }
-@media (min-width: 768px) { .eyebrow { font-size: 13px; } }
+@media (min-width: 480px) { .eyebrow { font-size: 13.5px; letter-spacing: 0.16em; } }
+@media (min-width: 768px) { .eyebrow { font-size: 14px; } }
 
 .mono-label {
   font-family: var(--cx-font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--cx-g500);
 }
 
 .h1 {
-  font-size: clamp(30px, 7.2vw, 86px);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  font-size: clamp(36px, 6.8vw, 88px);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
 }
-.h2 { font-size: clamp(23px, 4.2vw, 42px); }
-.h3 { font-size: clamp(18px, 2.4vw, 22px); }
+.h2 { font-size: clamp(27px, 3.8vw, 45px); letter-spacing: -0.025em; }
+.h3 { font-size: clamp(21px, 2.2vw, 26px); letter-spacing: -0.02em; }
 
 .lede {
-  font-size: clamp(15px, 2vw, 19px);
-  line-height: 1.65;
+  font-size: clamp(19px, 1.8vw, 22px);
+  line-height: 1.7;
   color: var(--cx-g600);
+  font-weight: 600;
 }
-.body-muted { color: var(--cx-g600); font-size: 15px; line-height: 1.6; }
+.body-muted { color: var(--cx-g600); font-size: 17.5px; line-height: 1.6; }
 
 /* ---- gradient text utilities ---- */
 
