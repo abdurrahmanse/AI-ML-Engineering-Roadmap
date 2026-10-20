@@ -1,83 +1,70 @@
-Level 0 · Computing, Python & Learning Habits
+Level 0 · Scientific Computing & Python
 
-Phase: Research Foundations & Lab Onboarding
-Suggested duration: 22 sessions (~5 weeks)
-Prerequisites: None; designed for a complete beginner
-Scope: Build the everyday computing, Python, communication, and study habits needed to learn data science without relying on copy-paste tutorials.
+Phase: Research Foundations
+Suggested duration: 24 sessions (~6 weeks)
+Prerequisites: None; designed for a complete beginner entering scientific computing
+Scope: Build the foundational computing, Linux shell, Python programming, unit testing, and containerized laboratory environment setup required to conduct reproducible research without relying on tutorial code.
 
-M0.1 · Computer and Command-Line Foundations — (sessions: 3)
-Session 1 · Files, processes, and the web
-- Explain how files, folders, programs, memory, and networks work together.
-- Navigate a terminal, create files, inspect processes, and read error messages.
-Session 2 · Linux and remote work
-- Use a Linux shell, SSH, environment variables, and a remote notebook safely.
-- Organize research notes, downloads, datasets, and code with predictable names.
-Session 3 · Safe and responsible computing
-- Protect credentials, recognize unsafe commands, and keep private data out of repositories.
-- Describe licenses, attribution, accessibility, and responsible use of AI tools.
-- Create a reproducible environment file and record the exact interpreter, package, and operating-system versions.
-- Use small tests, clear error messages, and a research log so another learner can reproduce the same result.
-Mental model: The command line is a precise laboratory instrument, not a mysterious black box.
-Try: Create a small project folder, document every command in a lab notebook, and reproduce the setup on a second machine.
-Outcome: You can work safely in a computing environment and explain what your tools are doing.
+M0.1 · Command-Line Foundations, Linux Shell & Remote Laboratory Work — (sessions: 4)
+Session 1 · Linux filesystem, shell navigation & process control
+- Prerequisites & Foundations: Explain how operating systems coordinate processes, memory, file descriptors, and remote network streams during scientific computation.
+- Command-Line Operations: Navigate Linux filesystems, manage process priority with nice, inspect resource usage with htop, and manage background execution with tmux.
+Session 2 · Remote server workflows, SSH & credential security
+- Remote Laboratory Access: Configure SSH key pairs, edit ssh config files, manage persistent remote sessions, and transfer datasets with rsync and scp.
+- Security & Credential Hygiene: Isolate credentials in non-committed environment variables, configure gitignore, and sanitize secret keys from terminal history.
+Mental model: The terminal is an exact scientific instrument; every command should be predictable, auditable, and documented in your laboratory log.
+Try: Set up a remote Linux virtual machine or container, configure SSH keys, create a project directory hierarchy, and transfer a sample dataset using rsync.
+Outcome: You can independently navigate Linux environments, manage background computing jobs, and execute remote laboratory tasks securely.
 
-M0.2 · Python Programming for Data Work — (sessions: 4)
-Session 1 · Values and control flow
-- Use variables, strings, numbers, booleans, conditionals, loops, and functions.
-- Break a task into small functions and test each function with simple examples.
-Session 2 · Collections and files
-- Work with lists, dictionaries, sets, tuples, CSV files, and JSON documents.
-- Handle missing files and malformed input with clear, user-facing errors.
-Session 3 · Modules and debugging
-- Import standard-library modules, read tracebacks, and debug with a small reproducible example.
-- Use type hints and docstrings to make beginner code understandable to collaborators.
-Session 4 · First data script
-- Write a script that loads a dataset, computes summary statistics, and saves a report.
-- Run the same script from a clean terminal and record its inputs and outputs.
-- Separate configuration, code, data, and generated artifacts so an experiment can be rerun without manual edits.
-- Add a smoke test and a machine-readable result summary to every small research script.
-Mental model: Programming is the practice of turning an explicit procedure into repeatable instructions.
-Try: Build a command-line dataset summary tool with tests for empty, missing, and malformed inputs.
-Outcome: You can write, run, debug, and explain small Python programs for data tasks.
+M0.2 · Research-Grade Python Programming & Memory-Aware Vectorization — (sessions: 4)
+Session 1 · Data structures, functional programming & type safety
+- Core Language Mechanics: Write idiomatic Python using list and dictionary comprehensions, generators, custom iterators, and immutable data structures.
+- Type Annotations & Clean Code: Apply type hints with typing and dataclasses, document functions with NumPy-style docstrings, and enforce static verification with mypy.
+Session 2 · Vectorized numerical computation with NumPy
+- Memory Layout & Strides: Understand contiguous memory layouts (C-order vs Fortran-order), tensor dimensions, array slicing, and avoid slow Python-level loops.
+- Broadcasting & Numerical Verification: Master array broadcasting rules, vector operations, and compare hand-derived calculations against vectorized implementations.
+Mental model: Scientific Python is not just syntax; it is the discipline of mapping abstract mathematical operations into memory-efficient, cache-friendly vector instructions.
+Try: Implement a multi-dimensional Euclidean pairwise distance matrix from scratch using pure Python loops, then reimplement it with NumPy broadcasting and measure the 50x speedup.
+Outcome: You can write robust, vectorized, and type-annotated Python code suitable for scientific research workflows.
 
-M0.3 · Git, Documentation & Deliberate Learning — (sessions: 3)
-Session 1 · Version control
-- Initialize a Git repository, make focused commits, inspect diffs, and recover from mistakes.
-- Use branches and pull requests to ask for review without losing working code.
-Session 2 · Technical communication
-- Write a README with purpose, setup, usage, limitations, and an example result.
-- Turn a confusing error or experiment into a concise issue containing evidence and a question.
-Session 3 · Learning system
-- Plan weekly study blocks, use retrieval practice, and maintain a questions-and-evidence log.
-- Distinguish understanding a concept from recognizing a familiar code pattern.
-Mental model: A research career compounds small, documented improvements rather than isolated bursts of motivation.
-Try: Publish a beginner-friendly repository with a README, changelog, issue, and three meaningful commits.
-Outcome: You can learn in public, collaborate with version control, and communicate technical work clearly.
+M0.3 · Software Engineering for Researchers: Testing, Debugging & Profiling — (sessions: 4)
+Session 1 · Automated unit testing with pytest
+- Test-Driven Research Habits: Write parameterized unit tests with pytest to verify numerical edge cases, empty datasets, and invalid feature dimensions.
+- Property-Based Testing: Use hypothesis to generate random inputs and verify mathematical invariants such as matrix symmetry, non-negativity, and triangle inequality.
+Session 2 · Interactive debugging & code profiling
+- Interactive Debugging: Step through failing execution graphs using pdb and breakpoint, inspecting stack frames, local variables, and tensor shapes.
+- Computational Profiling: Profile code bottlenecks using cProfile and line_profiler to isolate memory allocations and expensive subroutines before training models.
+Mental model: A research script without automated unit tests is an uncalibrated measuring tool whose experimental outputs cannot be trusted.
+Try: Write a data preprocessing function with five deliberate edge-case failures, then write a pytest suite that catches each failure and asserts proper exception handling.
+Outcome: You can systematically debug, profile, and unit-test scientific Python code to ensure software correctness.
 
-M0.4 · Research Environments and Experiment Records — (sessions: 3)
-Session 1 · Reproducible setup
-- Create a locked environment file and record interpreter, package, hardware, and operating-system versions.
-- Separate source code, raw data, derived data, configurations, logs, and generated figures.
-Session 2 · Experiment records
-- Keep a dated research log with hypotheses, commands, decisions, failures, and next actions.
-- Use deterministic seeds and machine-readable configuration files for small experiments.
-Session 3 · Verification habits
-- Add smoke tests, input validation, and a clean-run checklist to a research repository.
-- Re-run a result from a fresh environment and compare the output with a stored reference.
-Mental model: Reproducibility starts with ordinary habits long before a paper is written.
-Try: Recreate one analysis on a second machine using only the repository and its setup instructions.
-Outcome: You can create a research environment another person can inspect and reproduce.
+M0.4 · Version Control, Experiment Logs & Lab Notebooks — (sessions: 4)
+Session 1 · Git branching models for empirical research
+- Version Control Disciplines: Initialize Git repositories, write conventional atomic commit messages, and manage branches for distinct experimental hypotheses.
+- Collaborative Workflows: Submit pull requests, conduct peer code reviews on research implementations, and diff Jupyter notebooks cleanly using nbdime.
+Session 2 · Scientific experiment logging & provenance
+- Laboratory Notebook Keeping: Maintain a dated research log recording hypothesis motivations, hardware configurations, exact random seeds, and failed attempts.
+- Provenance Tracking: Bind Git commit hashes and parameter dictionaries to every generated figure, table, and checkpoint file to guarantee full auditability.
+Mental model: A scientific Git history is the legal record of your experimental reasoning, preserving every hypothesis and decision made during a study.
+Try: Publish an open-source research template repository on GitHub with clean branch history, automated GitHub Actions CI, and an informative README.
+Outcome: You can manage research software collaboratively with Git and maintain complete provenance across experimental iterations.
 
-M0.5 · Data Literacy and Scientific Communication — (sessions: 3)
-- Inspect tabular data, missing values, units, distributions, and obvious collection errors.
-- Make a small figure with a caption that states what the data supports and what it does not.
-- Explain a result to a technical peer and a non-specialist without changing its meaning.
-Mental model: A clear artifact is part of the evidence, not decoration added at the end.
-Try: Turn one dataset summary into a notebook, a figure, and a five-sentence research briefing.
-Outcome: You can communicate beginner analysis with accurate scope and limitations.
+M0.5 · Environment Locking, Containerization & Artifact Reproducibility — (sessions: 4)
+Session 1 · Deterministic dependency locking
+- Package Isolation: Configure isolated environments with uv or conda, specifying exact Python minor versions and system-level dependencies.
+- Deterministic Lockfiles: Generate frozen lockfiles (pyproject.toml or conda-lock) that pin package hashes and wheel builds to prevent dependency drift.
+Session 2 · Containerization with Docker & Singularity
+- Docker Containerization: Write reproducible multi-stage Dockerfiles specifying base CUDA drivers, non-root user permissions, and entrypoint scripts.
+- HPC Container Portability: Build Singularity/Apptainer images for high-performance computing clusters where root container execution is restricted.
+Mental model: Software reproducibility means another researcher on a different continent and operating system can reproduce your exact computational environment in one command.
+Try: Containerize a Python numerical benchmark using Docker, mount a local data directory, run the script inside the container, and verify identical outputs.
+Outcome: You can build, lock, and containerize reproducible research environments across workstations and shared compute clusters.
 
-M0.6 · Capstone: Reproducible Beginner Data Project — (sessions: 6)
-- Choose a small open dataset and state one descriptive question without claiming causation.
-- Build a Python analysis with a clean README, requirements file, validation checks, and a results table.
-- Add a short reflection describing what changed between the first and final version.
-Final result: A public, reproducible repository demonstrating safe computing, beginner Python, Git, documentation, and honest interpretation.
+M0.6 · Capstone: Reproducible Research Laboratory Environment & Experiment Harness — (sessions: 4)
+Session 1 · Modular experiment harness architecture
+- Build a modular, object-oriented experiment harness featuring decoupled configuration parsing, automated smoke testing, and deterministic seeding.
+- Integrate automated CLI argument validation, system metrics logging (CPU/RAM/GPU memory), and clean output directory structuring (data, logs, figures).
+Session 2 · End-to-end containerized verification
+- Package the entire experimental harness inside a Docker container with an automated Makefile and comprehensive documentation.
+- Execute a full smoke test from a clean environment on a secondary machine, verifying that outputs match bit-for-bit with stored golden artifacts.
+Final result: A fully reproducible, tested, and containerized research laboratory harness that serves as the foundation for all subsequent machine learning studies.

@@ -1,56 +1,82 @@
-Level 4 · Data Collection, SQL & Data Stewardship
+Level 4 · Data Curation & Pipelines
 
-Phase: Data Curation & Modeling Paradigms
-Suggested duration: 26 sessions (~6 weeks)
+Phase: Data & Modeling
+Suggested duration: 32 sessions (~8 weeks)
 Prerequisites: Level 3
-Scope: Build reliable datasets from messy sources while preserving provenance, privacy, meaning, and the ability to audit every transformation.
+Scope: Discover, curate, explore, clean, engineer features, prevent data leakage, evaluate annotation quality, and govern research-grade datasets across clinical, cybersecurity, vision, and language domains.
 
-M4.1 · SQL, APIs & Data Acquisition — (sessions: 5)
-- Query relational data with SELECT, JOIN, GROUP BY, window functions, and common table expressions.
-- Retrieve data from documented APIs with pagination, retries, rate limits, and schema validation.
-- Record source, access date, version, license, and transformation history for every input.
-- Create a data statement covering provenance, consent, licensing, population coverage, known gaps, and permitted use.
-- Build validation checks for duplicates, leakage, missingness, label quality, temporal splits, and train-test contamination.
-Mental model: A dataset is a claim about the world plus a chain of decisions that produced it.
-Try: Build a small ingestion job that loads API data into SQLite with validation and provenance logs.
-Outcome: You can acquire structured data reproducibly and query it to answer precise questions.
+M4.1 · Multi-Domain Research Dataset Discovery & Acquisition — (sessions: 5)
+Session 1 · Benchmark repositories & domain data standards
+- Open Benchmark Repositories: Navigate Hugging Face Datasets, Papers with Code, PhysioNet (MIMIC-IV, eICU), Kaggle Datasets, and UCI ML Repository.
+- Domain Standards & Compliance: Understand clinical EHR/DICOM standards, cybersecurity network telemetry (CIC-IDS-2017, PCAP packet traces), and large web corpora (FineWeb, Common Crawl).
+Session 2 · Programmatic acquisition & web scraping ethics
+- Programmatic Ingestion: Ingest datasets using APIs, streaming data loaders, and robust rate-limited download scripts with checksum validation (SHA-256).
+- Web Scraping Ethics & Legalities: Adhere to robots.txt, terms of service, copyright fair use, and implement automated text extraction and deduplication with MinHash LSH.
+Mental model: The quality, diversity, and representative validity of your training data establish the theoretical upper bound of your model's real-world generalization.
+Try: Download and verify a clinical cohort from PhysioNet or network flow dataset from Canadian Institute for Cybersecurity, confirming SHA-256 checksums and data integrity.
+Outcome: You can discover, programmatically acquire, and verify domain-specific research datasets while adhering to legal and institutional compliance rules.
 
-M4.2 · Cleaning, Labels & Data Quality — (sessions: 5)
-- Diagnose missing values, duplicates, inconsistent units, outliers, label noise, and schema drift.
-- Design annotation guidelines, adjudication workflows, and inter-rater agreement checks.
-- Prevent train-test leakage during preprocessing, deduplication, feature selection, and augmentation.
-- Create a data statement covering provenance, consent, licensing, population coverage, known gaps, and permitted use.
-- Build validation checks for duplicates, leakage, missingness, label quality, temporal splits, and train-test contamination.
-Mental model: Cleaning changes the measurement process, so every cleaning rule is a research decision.
-Try: Create a data-quality dashboard and a label handbook for a small supervised-learning dataset.
-Outcome: You can make a dataset model-ready without hiding uncertainty or silently changing its meaning.
+M4.2 · Exploratory Data Analysis (EDA) & Distribution Auditing — (sessions: 5)
+Session 1 · Univariate, bivariate & multivariate inspection
+- Statistical Profiling: Compute summary statistics, skewness, kurtosis, and evaluate distribution modalities using kernel density estimations and histograms.
+- Multivariate Relationships: Calculate Pearson, Spearman, and Kendall correlation matrices, and inspect non-linear dependencies with mutual information plots.
+Session 2 · Multicollinearity & dimensionality diagnostics
+- Multicollinearity Diagnostics: Compute Variance Inflation Factors (VIF) to detect severe collinearity among continuous predictors (VIF > 5).
+- Dimensionality Visualization: Project high-dimensional feature spaces into 2D/3D using PCA, t-SNE, and UMAP to inspect class separation and natural clustering tendencies.
+Mental model: Exploratory data analysis is scientific detective work; before training any model, you must understand the shape, noise, and biases embedded in your inputs.
+Try: Conduct a comprehensive EDA on a complex multi-domain dataset, generating a publication-quality statistical profiling report with VIF collinearity analysis.
+Outcome: You can conduct rigorous statistical EDA, detect multicollinearity, and visualize high-dimensional data distributions.
 
-M4.3 · Privacy, Governance & Dataset Documentation — (sessions: 4)
-- Apply data minimization, de-identification, access control, retention, and secure storage principles.
-- Write a datasheet describing motivation, composition, collection, preprocessing, uses, risks, and limitations.
-- Explain when consent, review, licensing, or domain expertise is required before analysis.
-- Create a data statement covering provenance, consent, licensing, population coverage, known gaps, and permitted use.
-- Build validation checks for duplicates, leakage, missingness, label quality, temporal splits, and train-test contamination.
-Mental model: Useful data is not automatically permissible data.
-Try: Complete a data card and risk register before downloading or sharing a sensitive dataset.
-Outcome: You can steward data responsibly and explain who may use it, how, and under which limits.
+M4.3 · Data Cleaning, Missingness Mechanisms & Imputation — (sessions: 5)
+Session 1 · Missing data mechanisms & diagnostic tests
+- Missingness Typology: Distinguish Missing Completely at Random (MCAR), Missing at Random (MAR), and Missing Not at Random (MNAR).
+- Diagnostic Audits: Conduct Little's MCAR test and visualize missingness co-occurrence patterns using missingno matrices and dendrograms.
+Session 2 · Principled imputation & outlier treatment
+- Imputation Strategies: Implement KNN imputation, Multivariate Imputation by Chained Equations (MICE), and domain-specific forward/backward fill for time series.
+- Outlier Diagnostics: Detect multivariate anomalies using Mahalanobis distance, Local Outlier Factor (LOF), and robust Interquartile Range (IQR) bounds.
+Mental model: Deleting rows with missing values introduces severe sampling bias whenever missingness is informative; imputation must be modeled as part of the pipeline.
+Try: Create a dataset with synthetic MCAR and MNAR missingness, evaluate MICE versus mean imputation, and measure the resulting bias on downstream parameter estimates.
+Outcome: You can diagnose missing data mechanisms, apply multiple imputation techniques, and treat multivariate outliers appropriately.
 
-M4.4 · Data Validation, Splits and Leakage Audits — (sessions: 3)
-- Test schema, ranges, duplicates, missingness, label consistency, and temporal or group-based splits.
-- Detect identity, temporal, preprocessing, and benchmark contamination before fitting a model.
-Mental model: A benchmark can be precise and still be invalid if its data-generating process leaks the answer.
-Try: Write a leakage audit that fails loudly when a prohibited field or duplicate crosses a split.
-Outcome: You can establish whether a dataset is fit for a stated research question.
+M4.4 · Feature Engineering, Transformation & Dimensionality Reduction — (sessions: 4)
+Session 1 · Continuous & categorical transformations
+- Numerical Transformations: Apply Box-Cox and Yeo-Johnson power transformations to normalize skewed distributions; compare StandardScaler, MinMaxScaler, and RobustScaler.
+- Categorical Encoding: Implement One-Hot Encoding, Ordinal Encoding, Target Encoding with out-of-fold regularization, and Weight of Evidence (WoE) encoding.
+Session 2 · Interaction features & automated feature selection
+- Interaction Features: Engineer polynomial features, domain-specific ratios, temporal lag features, and rolling window aggregations.
+- Feature Selection Methods: Apply filter methods (mutual information), wrapper methods (Recursive Feature Elimination / RFE), and embedded regularization penalties.
+Mental model: Good feature engineering explicitly injects domain knowledge into the representation space, making complex patterns linearly separable for simpler models.
+Try: Build a scikit-learn ColumnTransformer pipeline that applies distinct scaling and encoding transformations across numerical, categorical, and text columns without leakage.
+Outcome: You can design, implement, and select high-leverage features while packaging them into reproducible transformation pipelines.
 
-M4.5 · Data Statements, Licensing and Privacy — (sessions: 3)
-- Document provenance, consent, population coverage, annotation procedures, licenses, and known gaps.
-- Minimize sensitive data, control access, and explain retention and release decisions.
-Mental model: Data stewardship is part of scientific validity and human accountability.
-Try: Publish a datasheet and a risk register for a small public dataset.
-Outcome: You can share data responsibly without hiding its limitations.
+M4.5 · Data Contamination, Leakage Auditing & Splitting Protocols — (sessions: 5)
+Session 1 · The taxonomy of data leakage
+- Leakage Vectors: Prevent pre-processing leakage (fitting scalers on validation data), feature leakage (proxies for the target variable), and temporal leakage (future data in past training).
+- Group Contamination: Prevent cross-split subject leakage where multiple records from the same patient, device, or user appear in both train and test sets.
+Session 2 · Splitting strategies & out-of-distribution holdouts
+- Resilient Splitting Protocols: Implement StratifiedKFold for imbalanced targets, GroupKFold for clustered entities, and TimeSeriesSplit for temporal data.
+- Out-of-Distribution (OOD) Benchmarks: Curate independent domain-shift holdouts (e.g. testing hospital A on models trained on hospital B) to evaluate real-world transferability.
+Mental model: A model evaluated on a contaminated test set produces fraudulent performance numbers that instantly collapse upon deployment.
+Try: Write an automated test suite that asserts zero patient overlap between training and test folds and detects any feature with suspicious near-perfect target correlation.
+Outcome: You can design leakage-proof splitting protocols and build rigorous out-of-distribution validation splits.
 
-M4.6 · Capstone: Auditable Dataset and Benchmark Pipeline — (sessions: 6)
-- Acquire a public dataset, version its raw and processed forms, and define a leakage-safe split.
-- Implement validation checks, a dataset card, a feature dictionary, and a reproducible benchmark loader.
-- Publish a small sample and an audit report rather than exposing restricted records.
-Final result: A documented, governed, queryable dataset pipeline ready for honest modeling experiments.
+M4.6 · Annotation Protocols, Inter-Rater Reliability & Data Stewardship — (sessions: 4)
+Session 1 · Annotation guidelines & Inter-Annotator Agreement (IAA)
+- Annotation Design: Write comprehensive labeling guidelines, conduct pilot annotation rounds, and resolve ambiguous boundary edge cases.
+- Inter-Rater Reliability: Calculate Cohen's Kappa for paired raters, Fleiss' Kappa for multiple raters, and Krippendorff's Alpha for continuous or ordinal labels.
+Session 2 · Programmatic weak supervision & Datasheets for Datasets
+- Weak Supervision: Implement Snorkel labeling functions to synthesize noisy heuristics and train label models that estimate worker accuracy without ground truth.
+- Datasheets for Datasets: Author an official Datasheet for Datasets (Gebru et al.) documenting Motivation, Composition, Collection Process, Preprocessing, Uses, and Limitations.
+- Privacy & De-Identification: Apply HIPAA Safe Harbor de-identification rules to scrub 18 identifiers from clinical data and audit re-identification risks.
+Mental model: Data stewardship requires treating data as a first-class scientific artifact whose provenance, labeling quality, and social biases are fully documented.
+Try: Run an annotation study with two peer annotators on 100 sample documents, compute Cohen's Kappa, conduct an error adjudication session, and author a formal Datasheet.
+Outcome: You can design labeling protocols, compute inter-annotator agreement metrics, apply weak supervision, and publish governed Datasheets for Datasets.
+
+M4.7 · Capstone: Audited Multi-Domain Research Dataset & Leakage-Proof Pipeline — (sessions: 4)
+Session 1 · End-to-end dataset curation & leakage auditing
+- Curate a raw multi-domain dataset (clinical EHR, cybersecurity logs, or multimodal imagery), implement an automated cleaning pipeline, and verify zero group/temporal leakage.
+- Compute extensive statistical EDA metrics, VIF collinearity scores, and multiple imputation benchmarks (MICE vs KNN).
+Session 2 · Benchmark release & formal documentation
+- Package the dataset into a versioned format (Hugging Face Datasets / Parquet) with deterministic train/validation/test/OOD splits.
+- Write a formal 5-page Data Paper documenting dataset curation methodology, annotation agreement statistics, privacy audits, and a complete Datasheet for Datasets.
+Final result: A fully audited, leakage-proof, documented multi-domain research dataset and reproducible pipeline ready for benchmark model training.

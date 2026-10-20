@@ -1,56 +1,71 @@
-Level 8 · Experimental Design, Evaluation & Causal Reasoning
+Level 8 · Experiments & Ablations
 
-Phase: Generative Models & Experimental Science
-Suggested duration: 26 sessions (~6 weeks)
+Phase: Architectures & Experiments
+Suggested duration: 28 sessions (~7 weeks)
 Prerequisites: Level 7
-Scope: Turn model ideas into experiments whose comparisons, metrics, uncertainty, and limitations can withstand skeptical review.
+Scope: Master the scientific method in machine learning: design controlled experiments, enforce baseline compute parity, conduct definitive component ablations, and report statistical significance for top-tier venues.
 
-M8.1 · Measurement and Evaluation Design — (sessions: 5)
-- Define the construct being measured and select metrics that reflect the real decision or scientific claim.
-- Build baselines, holdout sets, challenge sets, and subgroup slices before tuning on results.
-- Report confidence intervals, calibration, ranking uncertainty, and clinically or operationally meaningful thresholds.
-- Separate primary, secondary, and exploratory analyses while preserving every configuration and decision made during the study.
-- Use compute-matched baselines, controlled ablations, robustness checks, and appropriate statistical comparisons.
-Mental model: A metric is an instrument; its reading is only useful when its validity and failure modes are understood.
-Try: Replace a single accuracy score with an evaluation plan that measures utility, harm, calibration, and subgroup behavior.
-Outcome: You can design evaluation protocols that measure the claim rather than a convenient proxy.
+M8.1 · Scientific Methodology, Variables & Factorial Experimental Design — (sessions: 5)
+Session 1 · Principles of scientific control in AI research
+- Variable Identification: Isolate independent variables (model components, hyperparameters), dependent variables (task metrics, efficiency), and control nuisance variables.
+- Experimental Units & Randomization: Define the unit of analysis, enforce random assignment of seeds, and prevent confounding through stratified block designs.
+Session 2 · Factorial designs & interaction effects
+- OFAT vs Factorial Design: Contrast One-Factor-At-A-Time (OFAT) screening with 2^k Full Factorial Designs to measure non-linear interaction effects between hyperparameters.
+- Fractional Factorial Designs: Apply orthogonal fractional factorial designs to screen high-dimensional hyperparameter spaces under strict compute budgets.
+Mental model: An experiment without rigorous controls is merely an observation; scientific claims require proving that observed improvements stem strictly from the isolated intervention.
+Try: Design a 2^3 factorial experiment testing learning rate, batch size, and weight decay on an image classification task, computing main effects and two-way interaction terms.
+Outcome: You can design factorial experiments, isolate confounding factors, and quantify interaction effects between architectural components.
 
-M8.2 · Ablations, Sensitivity and Compute Matching — (sessions: 5)
-- Isolate components with controlled ablations, matched budgets, seed repeats, and sensitivity analyses.
-- Separate tuning data from final evidence and report unsuccessful configurations.
-- Use experiment registries and configuration files to make every comparison auditable.
-- Separate primary, secondary, and exploratory analyses while preserving every configuration and decision made during the study.
-- Use compute-matched baselines, controlled ablations, robustness checks, and appropriate statistical comparisons.
-Mental model: A contribution is credible only when its claimed cause is isolated from confounding changes.
-Try: Reproduce a headline result with an ablation matrix and identify which component actually matters.
-Outcome: You can distinguish a real contribution from tuning luck or an unfair comparison.
+M8.2 · Fair Baselines, Compute Parity & Hyperparameter Optimization — (sessions: 5)
+Session 1 · The baseline fairness crisis in AI literature
+- The Under-Tuned Baseline Trap: Audit published literature for biased comparisons where a proposed method is heavily tuned while baselines receive default hyperparameters.
+- Compute Budget Parity: Equalize total computational resources (FLOPs, wall-clock hours, or hyperparameter trial counts) across all competing baseline models.
+Session 2 · Principled hyperparameter search protocols
+- Search Algorithms: Compare Random Search against Bayesian Optimization using Gaussian Processes and Tree-structured Parzen Estimators (TPE via Optuna).
+- Nested Cross-Validation: Enforce nested cross-validation (outer loop for model assessment, inner loop for hyperparameter tuning) to prevent test-set over-fitting.
+Mental model: A novel method has not proven superiority if an established baseline, given equal tuning compute and modern training recipes, matches its performance.
+Try: Benchmark a novel attention variant against a tuned standard baseline where both models receive an identical 50-trial Optuna tuning budget, comparing final test distributions.
+Outcome: You can design fair benchmark comparisons under strict compute parity and tune baselines using Bayesian optimization without test leakage.
 
-M8.3 · Causal Thinking and External Validity — (sessions: 4)
-- Draw causal diagrams and identify confounders, mediators, selection effects, and interventions.
-- Distinguish prediction, association, and causal effect claims in model reports.
-- Test robustness across sites, time periods, populations, and plausible distribution shifts.
-- Separate primary, secondary, and exploratory analyses while preserving every configuration and decision made during the study.
-- Use compute-matched baselines, controlled ablations, robustness checks, and appropriate statistical comparisons.
-Mental model: Better prediction does not automatically explain why an outcome happens or what an intervention will change.
-Try: Write a causal diagram for a deployed prediction system and list the assumptions needed for each claim.
-Outcome: You can state what an experiment identifies and where its conclusions may not transfer.
+M8.3 · Ablation Study Design & Component Isolation — (sessions: 5)
+Session 1 · Destructive vs constructive ablation protocols
+- Destructive Ablations: Remove components one by one from the full proposed system to measure the unique performance degradation attributable to each isolated mechanism.
+- Constructive Ablations: Add proposed components step-by-step onto the minimal baseline to verify cumulative, monotonic improvements.
+Session 2 · Multi-dimensional ablation axes
+- Architectural Ablations: Measure impact of removing skip connections, varying layer counts, disabling attention heads, and swapping normalization layers.
+- Objective & Loss Ablations: Evaluate contribution of auxiliary losses, contrastive penalties, and loss weighting coefficients (lambda_1, lambda_2).
+- Data Scaling Ablations: Evaluate performance curves across training data subsamples (1%, 10%, 25%, 50%, 100%) to test sample efficiency claims.
+Mental model: An ablation study is an autopsy of your model that proves which specific parts of your proposed method actually drive the claimed empirical gains.
+Try: Execute a 6-row ablation table on a sequence model systematically removing positional embeddings, layer normalization, and warmup, reporting exact delta metrics.
+Outcome: You can design, execute, and report conclusive destructive and constructive ablation studies that isolate genuine scientific contributions.
 
-M8.4 · Statistical Comparisons and Uncertainty Reporting — (sessions: 3)
-- Choose paired tests, effect sizes, intervals, and multiplicity controls that match the comparison design.
-- Report practical significance, uncertainty, negative results, and the number of comparisons made.
-Mental model: A smaller but certain effect can be more useful than a larger unstable one.
-Try: Rewrite a benchmark table so a reader can see both improvement and uncertainty.
-Outcome: You can make quantitative claims with calibrated statistical support.
+M8.4 · Statistical Hypothesis Testing in Benchmarks & Error Analysis — (sessions: 5)
+Session 1 · Multi-seed replication & non-parametric significance
+- Seed Variance Protocols: Execute every experimental condition across N >= 5 random seeds to report mean and standard deviation (mu +/- sigma).
+- Non-Parametric Significance: Compute the paired Wilcoxon signed-rank test and bootstrap 95% confidence intervals, evaluating whether differences are statistically distinguishable.
+Session 2 · Fine-grained error slicing & failure taxonomies
+- Subgroup Slicing: Stratify test errors across input length, class imbalance, entity frequency, and demographic subgroups to detect hidden performance collapse.
+- Failure Mode Taxonomy: Categorize model errors into explicit failure modes (e.g. hallucination, boundary error, catastrophic forgetting) and analyze representative edge cases.
+Mental model: Aggregate benchmark scores hide critical failure modes; rigorous science requires inspecting error distributions across subgroups and random seeds.
+Try: Construct an automated error-slicing dashboard that categorizes model errors across difficulty deciles and computes bootstrap confidence intervals for subgroup accuracy.
+Outcome: You can execute multi-seed statistical significance tests, perform deep error taxonomies, and report robust confidence intervals.
 
-M8.5 · Benchmark Governance and External Validity — (sessions: 3)
-- Audit contamination, hidden tuning, metric incentives, reproducibility, and representativeness.
-- State which populations, tasks, environments, and deployment conditions the evidence does not cover.
-Mental model: Generalization is a claim about a target population, not a synonym for test-set performance.
-Try: Write a benchmark limitations section that proposes a concrete follow-up study.
-Outcome: You can evaluate whether a result travels beyond its original experiment.
+M8.5 · Composing the Empirical Section of an Academic Paper — (sessions: 4)
+Session 1 · Writing experimental setup & baseline descriptions
+- Experimental Setup Writing: Draft reproducible setup sections documenting datasets, preprocessing, baseline hyperparameter grids, and hardware environments.
+- Metric Justification: Defend the choice of evaluation metrics against target real-world objectives, acknowledging metric limitations.
+Session 2 · Designing publication-grade tables & Pareto plots
+- Scientific Table Formatting: Construct publication-grade LaTeX booktabs tables highlighting statistically significant best results, including standard deviations and sample sizes.
+- Scientific Data Visualization: Plot Pareto frontiers (accuracy vs latency/FLOPs), violin plots over random seeds, and ablation contribution bar charts with error bars.
+Mental model: The empirical section of a paper is a scientific courtroom; your tables and figures are the evidence presented to skeptical reviewers.
+Try: Generate a publication-ready LaTeX results table and a matplotlib Pareto frontier plot comparing accuracy versus parameter count across 5 models.
+Outcome: You can author rigorous experimental setup sections and create publication-grade tables and Pareto frontier visualizations.
 
-M8.6 · Capstone: Peer-Review-Ready Benchmark — (sessions: 6)
-- Build a benchmark suite with preregistered hypotheses, strong baselines, ablations, repeated seeds, and error analysis.
-- Include compute, data, metric, and limitation disclosures.
-- Have a peer review the protocol before running the final experiments and record all changes.
-Final result: A fair, auditable evaluation package suitable for the results section of a research paper.
+M8.6 · Capstone: Publication-Grade Empirical Benchmark & Ablation Study Suite — (sessions: 4)
+Session 1 · Comprehensive benchmark execution under compute parity
+- Select an open research challenge, implement a proposed method, and benchmark it against three strong, equally tuned baselines under compute parity across 5 random seeds.
+- Execute a full 5-part ablation matrix isolating architectural choices, loss function terms, and training data subsamples.
+Session 2 · Manuscript empirical section & open-source package
+- Author a 6-page empirical manuscript section in LaTeX containing Experimental Setup, Main Results Table with Wilcoxon p-values, Ablation Matrix, and Error Analysis.
+- Package the entire experimental harness with automated seed execution scripts, raw log files, and interactive visualization notebooks.
+Final result: A fully verified, publication-grade benchmark and ablation study suite complete with non-parametric statistical significance testing and a LaTeX manuscript draft.

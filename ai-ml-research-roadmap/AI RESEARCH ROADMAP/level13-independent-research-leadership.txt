@@ -1,56 +1,70 @@
-Level 13 · Independent Research and Project Leadership
+Level 13 · Trustworthy AI & Safety
 
-Phase: Cross-Disciplinary Research & Capstones
-Suggested duration: 30 sessions (~7 weeks)
+Phase: Trustworthy AI
+Suggested duration: 32 sessions (~8 weeks)
 Prerequisites: Level 12
-Scope: Move from completing exercises to leading a defensible research program with milestones, collaborators, risks, and a clear contribution.
+Scope: Deconstruct black-box models using post-hoc XAI and mechanistic interpretability (Sparse Autoencoders), audit adversarial robustness (PGD, AutoAttack), measure algorithmic fairness, and lead independent research programs with risk registers and decision gates.
 
-M13.1 · From Literature Gap to Contribution — (sessions: 5)
-- Map a field's established findings, open problems, competing explanations, and available resources.
-- Test whether a proposed contribution is novel, feasible, important, and distinguishable from prior work.
-- Define a minimal publishable question and a sequence of risk-reducing pilot studies.
-- Break an open-ended idea into milestones, decision gates, collaborator responsibilities, and a budget for data and compute.
-- Run a pilot, review progress against the protocol, and make explicit go/no-go decisions when evidence changes the plan.
-Mental model: A contribution is a new, reliable answer to a meaningful question, not just a new implementation.
-Try: Write a novelty matrix comparing a proposed study with ten closest papers.
-Outcome: You can turn a literature gap into a bounded contribution with a credible plan.
+M13.1 · Explainable AI (XAI): Attribution, Saliency & Sanity Checks — (sessions: 5)
+Session 1 · Game-theoretic attribution: SHAP & LIME
+- Shapley Value Foundations: Derive Shapley values from cooperative game theory; prove the axioms of Efficiency, Symmetry, Dummy Player, and Additivity.
+- KernelSHAP & TreeSHAP: Implement TreeSHAP for fast exact computation on tree ensembles and KernelSHAP for black-box surrogate approximations (LIME).
+Session 2 · Gradient attribution & sanity check diagnostics
+- Axiomatic Gradient Attribution: Formulate Integrated Gradients across straight interpolation paths from a neutral baseline, fulfilling Completeness and Implementation Invariance.
+- Saliency Map Sanity Checks: Apply Adebayo et al. sanity checks (randomizing model weights and labels) to detect when visual saliency methods act merely as edge detectors.
+Mental model: An explanation is not an intuitive story; it is an axiomatic measurement of how much each input feature contributed to shifting the model output from a baseline.
+Try: Compute Integrated Gradients and KernelSHAP on a deep neural network, conduct a model-weight randomization sanity check, and identify features with spurious attribution.
+Outcome: You can calculate mathematically grounded feature attributions using SHAP and Integrated Gradients while verifying them with saliency sanity checks.
 
-M13.2 · Research Planning and Collaboration — (sessions: 5)
-- Break a project into hypotheses, work packages, milestones, dependencies, and decision gates.
-- Assign roles, maintain meeting notes, manage review cycles, and resolve disagreements with evidence.
-- Track compute, data, ethics, authorship, and schedule risks before they become blockers.
-- Break an open-ended idea into milestones, decision gates, collaborator responsibilities, and a budget for data and compute.
-- Run a pilot, review progress against the protocol, and make explicit go/no-go decisions when evidence changes the plan.
-Mental model: Research leadership makes uncertainty visible early enough for a team to act.
-Try: Run a weekly research meeting using a decision log, risk register, and next-evidence checklist.
-Outcome: You can coordinate a research project without losing scientific ownership.
+M13.2 · Mechanistic Interpretability & Sparse Autoencoders (SAEs) — (sessions: 6)
+Session 1 · Circuit analysis, residual streams & induction heads
+- Mechanistic Deconstruction: Trace activations through the residual stream, attention heads, and MLP blocks, treating neural networks as readable computational circuits.
+- In-Context Induction Heads: Identify two-head induction circuits that implement pattern copying ([A][B]...[A] -> [B]) to explain in-context few-shot learning in transformers.
+Session 2 · Polysemanticity & Sparse Autoencoders (SAEs)
+- Superposition Theory: Explain why individual neurons fire on unrelated concepts (polysemanticity) as models compress more features than physical neuron dimensions.
+- Dictionary Learning with SAEs: Train Sparse Autoencoders on residual activations using L1 sparsity penalties to extract monosemantic, interpretable feature directions.
+Mental model: Neurons are not the fundamental units of thought; Sparse Autoencoders decompress entangled superposition into true, monosemantic semantic concepts.
+Try: Train a Sparse Autoencoder on the residual stream activations of a small open language model, extracting interpretable dictionary features that activate on specific semantic themes.
+Outcome: You can dissect transformer circuits, locate induction heads, and train Sparse Autoencoders to extract monosemantic features from residual representations.
 
-M13.3 · Scientific Presentation and Mentorship — (sessions: 5)
-- Explain a contribution to a beginner, peer, domain expert, reviewer, and hiring panel.
-- Design a talk around question, insight, evidence, limitations, and next experiment.
-- Give constructive code, paper, and presentation feedback while preserving the author's agency.
-- Break an open-ended idea into milestones, decision gates, collaborator responsibilities, and a budget for data and compute.
-- Run a pilot, review progress against the protocol, and make explicit go/no-go decisions when evidence changes the plan.
-Mental model: If the claim cannot survive a change in audience, it probably has not been understood deeply enough.
-Try: Deliver the same five-minute result briefing to technical and non-technical listeners and revise it from questions.
-Outcome: You can communicate evidence and mentor others through a research process.
+M13.3 · Adversarial Robustness, Evasion Attacks & Certified Defenses — (sessions: 5)
+Session 1 · Adversarial evasion attacks: FGSM, PGD & AutoAttack
+- Adversarial Optimization: Formulate adversarial evasion attacks as constrained optimization: maximize loss subject to an Lp norm bound (||x_adv - x||_p <= epsilon).
+- Gradient-Based Attacks: Implement Fast Gradient Sign Method (FGSM), multi-step Projected Gradient Descent (PGD / Madry defense), and the parameter-free AutoAttack ensemble.
+Session 2 · Robust training, certified bounds & jailbreak defenses
+- Adversarial Training: Train models via robust minimax optimization (Madry defense), generating PGD adversarial examples online during the forward-backward pass.
+- Certified Defenses & LLM Jailbreaks: Formulate randomized smoothing for certified robust radii; evaluate LLM jailbreaking attacks (GCG gradient attacks) and refusal steering.
+Mental model: A model that is 99% accurate on clean test data can be 0% accurate under a tiny, imperceptible perturbation; robustness measures worst-case generalization.
+Try: Implement PGD adversarial training on an image classifier in PyTorch, evaluate robust accuracy against white-box and black-box AutoAttack, and measure the clean-accuracy trade-off.
+Outcome: You can formulate adversarial attack optimization, execute PGD and AutoAttack benchmarks, and train certifiably robust models.
 
-M13.4 · Milestones, Risk Registers and Decision Gates — (sessions: 3)
-- Convert a research question into milestones with evidence criteria, dependencies, owners, and stop conditions.
-- Maintain a risk register for data, ethics, compute, validity, collaboration, and publication risks.
-Mental model: Research leadership makes uncertainty visible early enough for a team to act.
-Try: Hold a project review at the first decision gate and document a changed plan.
-Outcome: You can manage a research project without hiding uncertainty until the deadline.
+M13.4 · Algorithmic Fairness, Bias Auditing & Differential Privacy — (sessions: 5)
+Session 1 · Mathematical fairness criteria & impossibility theorems
+- Fairness Definitions: Formulate Demographic Parity (P(Y_hat=1|A=0) = P(Y_hat=1|A=1)), Equalized Odds (matching TPR and FPR across groups), and Predictive Parity.
+- The Impossibility Theorem: Prove mathematically (Kleinberg et al., Chouldechova) that Demographic Parity, Equalized Odds, and Calibration cannot simultaneously hold when base rates differ.
+Session 2 · Bias mitigation & Differential Privacy (DP-SGD)
+- Mitigation Interventions: Apply pre-processing (reweighing), in-processing (adversarial debiasing), and post-processing (threshold optimization) to equalize subgroup outcomes.
+- Differential Privacy: Formulate (epsilon, delta)-Differential Privacy; implement DP-SGD with per-sample gradient clipping and calibrated Gaussian noise injection.
+Mental model: Fairness is not a single objective to maximize; it is a series of mutually incompatible mathematical criteria requiring explicit ethical and legal trade-offs.
+Try: Audit a clinical risk model across demographic subgroups, calculate disparate impact ratios and equalized odds deltas, and implement fair threshold optimization.
+Outcome: You can audit algorithmic fairness, prove mathematical trade-offs between fairness criteria, and train differentially private models with DP-SGD.
 
-M13.5 · Collaboration, Mentorship and Research Culture — (sessions: 3)
-- Define authorship expectations, contribution records, meeting notes, code review, and escalation paths.
-- Give feedback on claims, evidence, and limitations while preserving psychological safety and intellectual honesty.
-Mental model: Collaboration quality is part of the reproducibility of a research program.
-Try: Create a contributor guide and a decision log for a small research team.
-Outcome: You can lead a healthy, accountable research collaboration.
+M13.5 · Independent Research Leadership, Risk Registers & Decision Gates — (sessions: 5)
+Session 1 · Structuring multi-stage research programs
+- Research Program Roadmapping: Break complex scientific hypotheses into sequential milestones with measurable empirical gates and fallback contingencies.
+- Risk Registers: Maintain an active research risk register tracking data acquisition delays, compute overruns, negative pilot results, and collaboration dependencies.
+Session 2 · Go/No-Go decision gates & mentorship
+- Scientific Decision Gates: Establish objective quantitative criteria for continuing, pivoting, or terminating a research project when empirical evidence disproves initial hypotheses.
+- Collaborative Research Culture: Lead code review sessions, establish lab documentation standards, and mentor junior researchers while maintaining intellectual honesty.
+Mental model: Research leadership is the management of uncertainty; great leaders make uncertainty visible early enough for the team to pivot before wasting resources.
+Try: Create a complete 12-week research roadmap and risk register for a proposed AI project, establishing explicit go/no-go empirical gates at Week 4 and Week 8.
+Outcome: You can direct collaborative research programs, manage project risk registers, and make objective go/no-go decisions based on empirical evidence.
 
-M13.6 · Capstone: Independent Study Plan — (sessions: 9)
-- Produce a six-to-twelve-week study plan with literature, hypotheses, pilot, evaluation, risks, and deliverables.
-- Complete a pilot that can falsify the main idea before committing to full implementation.
-- Present a go/no-go decision supported by evidence and a revised project schedule.
-Final result: A leadership-ready research plan that protects time, compute, collaborators, and scientific validity.
+M13.6 · Capstone: Mechanistic Interpretability & Adversarial Robustness Audit — (sessions: 6)
+Session 1 · Multi-dimensional trust audit of an open foundation model
+- Conduct an exhaustive trustworthiness audit of an open model, combining Sparse Autoencoder feature extraction, white-box PGD adversarial attacks, and demographic fairness audits.
+- Isolate semantic circuits responsible for specific predictions, evaluate robust accuracy degradation under AutoAttack, and quantify subgroup calibration errors.
+Session 2 · Comprehensive audit dossier & leadership presentation
+- Author a formal 6-page Trustworthy AI Research Paper in LaTeX detailing mechanistic findings, adversarial vulnerability surfaces, and mitigation trade-offs.
+- Deliver an executive scientific briefing presenting key audit findings, actionable governance recommendations, and residual risk disclosures to a technical committee.
+Final result: A comprehensive mechanistic interpretability and adversarial robustness audit dossier on an open foundation model, accompanied by a publication-ready paper.

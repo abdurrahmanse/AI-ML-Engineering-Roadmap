@@ -1,56 +1,71 @@
-Level 11 · Interpretability, Robustness and Fairness
+Level 11 · LLMs & Reinforcement Learning
 
-Phase: Scaled Systems, Trustworthy AI & Alignment
-Suggested duration: 26 sessions (~6 weeks)
+Phase: Scaled Systems & LLMs
+Suggested duration: 32 sessions (~8 weeks)
 Prerequisites: Level 10
-Scope: Study model behavior, failure, distribution shift, security, and social impact with methods that support actionable claims.
+Scope: Master reinforcement learning from Bellman equations to PPO, Large Language Model pretraining dynamics, empirical scaling laws, parameter-efficient fine-tuning (LoRA/QLoRA), and preference alignment (RLHF, DPO, KTO).
 
-M11.1 · Model Behavior and Interpretability — (sessions: 5)
-- Compare feature attribution, counterfactuals, probing, concept methods, and mechanistic analyses.
-- Test explanation faithfulness, stability, usefulness, and sensitivity to baselines.
-- Treat an explanation as a hypothesis about computation that requires independent validation.
-- Treat explanations, robustness results, and fairness metrics as evidence with validity limits rather than definitive proof of trust.
-- Test subgroup behavior, distribution shift, attack assumptions, and mitigation trade-offs with reproducible evaluation scripts.
-Mental model: An explanation is evidence about a model, not a guarantee that the model used a human-readable reason.
-Try: Evaluate two explanation methods on known synthetic mechanisms before applying them to a real model.
-Outcome: You can make cautious, testable interpretability claims.
+M11.1 · Reinforcement Learning Foundations: MDPs, Bellman Equations & DQN — (sessions: 5)
+Session 1 · Markov Decision Processes & dynamic programming
+- MDP Mathematical Framework: Formulate Markov Decision Processes: state space S, action space A, transition probability P(s'|s, a), reward function R(s, a), discount factor gamma.
+- Bellman Equations: Derive the Bellman Expectation Equation and Bellman Optimality Equation for state-value V(s) and action-value Q(s, a) functions.
+Session 2 · Q-Learning & Deep Q-Networks (DQN)
+- Temporal Difference Learning: Implement tabular Q-Learning and SARSA; analyze off-policy versus on-policy updates.
+- Deep Q-Networks (DQN): Deconstruct DQN innovations: non-linear function approximation, Experience Replay to break temporal correlation, and Target Networks to stabilize updates.
+Mental model: Reinforcement learning optimizes sequential decision-making under uncertainty by trading immediate rewards against discounted future return.
+Try: Implement a Deep Q-Network from scratch in PyTorch with experience replay and a frozen target network, training an agent to solve a benchmark control environment (CartPole).
+Outcome: You can derive Bellman equations, implement Deep Q-Networks, and evaluate sample efficiency in sequential decision-making.
 
-M11.2 · Robustness and Security — (sessions: 5)
-- Test corruption, perturbation, distribution shift, prompt injection, data poisoning, and model extraction risks.
-- Define threat models, attacker capabilities, budgets, and realistic success criteria.
-- Compare robust training, input validation, uncertainty, monitoring, and abstention mitigations.
-- Treat explanations, robustness results, and fairness metrics as evidence with validity limits rather than definitive proof of trust.
-- Test subgroup behavior, distribution shift, attack assumptions, and mitigation trade-offs with reproducible evaluation scripts.
-Mental model: Security claims are conditional statements about a specified attacker and environment.
-Try: Write a threat model and red-team protocol before testing a model; never test against systems you do not own.
-Outcome: You can evaluate and mitigate realistic reliability and security failures.
+M11.2 · Policy Gradients, Actor-Critic & Proximal Policy Optimization (PPO) — (sessions: 5)
+Session 1 · Policy gradient theorem & REINFORCE
+- Policy Optimization: Formulate parameterized stochastic policies pi_theta(a|s) and derive the Policy Gradient Theorem: grad J(theta) = E[grad log pi_theta(a|s) * Q(s, a)].
+- Variance Reduction: Implement the REINFORCE algorithm with state-value baseline subtraction to reduce Monte Carlo gradient variance without introducing bias.
+Session 2 · Advantage Actor-Critic (A2C) & Proximal Policy Optimization (PPO)
+- Actor-Critic Architecture: Implement Advantage Actor-Critic (A2C), simultaneously learning policy actor pi_theta and value function critic V_phi to compute advantage A(s, a).
+- PPO Clipped Objective: Formulate Proximal Policy Optimization (PPO), clipping probability ratios r_t(theta) to prevent destructive policy updates while avoiding TRPO constraints.
+Mental model: Policy gradients directly climb the expected reward surface; PPO constrains policy updates to a trusted proximal region to guarantee stable monotonic improvement.
+Try: Implement PPO from scratch in PyTorch, verify that the clipped surrogate objective prevents catastrophic policy collapse, and evaluate training reward curves.
+Outcome: You can derive the Policy Gradient Theorem, implement Actor-Critic algorithms, and configure PPO for continuous and discrete action spaces.
 
-M11.3 · Fairness, Privacy and Human Impact — (sessions: 4)
-- Measure subgroup performance, calibration, allocation effects, privacy risk, and representational harms.
-- Explain why fairness metrics can conflict and why context and stakeholder participation matter.
-- Document intended use, excluded use, affected groups, recourse, and residual risk.
-- Treat explanations, robustness results, and fairness metrics as evidence with validity limits rather than definitive proof of trust.
-- Test subgroup behavior, distribution shift, attack assumptions, and mitigation trade-offs with reproducible evaluation scripts.
-Mental model: Responsible AI is a design and governance process, not a single metric added after training.
-Try: Produce an impact assessment with stakeholder questions and a mitigation trade-off table.
-Outcome: You can connect technical evaluation to human consequences and governance decisions.
+M11.3 · Large Language Models: Pre-Training Dynamics & Scaling Laws — (sessions: 5)
+Session 1 · LLM architectural blueprints & KV caching
+- Modern LLM Anatomy: Deconstruct Llama-3 and Mistral architectures: SwiGLU activation functions, RMSNorm, Rotary Position Embeddings (RoPE), and Grouped-Query Attention (GQA).
+- KV Cache Optimization: Implement Key-Value (KV) caching to eliminate redundant quadratic recomputations during autoregressive token generation.
+Session 2 · Empirical scaling laws & compute-optimal training
+- Power Law Scaling: Analyze Kaplan et al. empirical scaling laws connecting cross-entropy loss to parameter count N, dataset size D, and compute budget C.
+- Chinchilla Scaling: Study Hoffmann et al. (Chinchilla, 2022), proving compute-optimal training requires scaling parameters and tokens equally (D approx 20 * N).
+Mental model: Large language models are next-token predictors whose downstream capabilities scale predictably with compute, dataset size, and architectural efficiency.
+Try: Build an autoregressive generation engine with KV caching in PyTorch, benchmark generation speedup against non-cached generation, and calculate token latency percentiles.
+Outcome: You can implement modern LLM architectural components, configure KV caching, and apply Chinchilla scaling laws to budget training runs.
 
-M11.4 · Explanation Validity and Causal Probes — (sessions: 3)
-- Distinguish feature attribution, probing, explanation, and causal intervention claims.
-- Test explanation stability, faithfulness, localization, and sensitivity to baselines or perturbations.
-Mental model: An explanation method is another model whose validity must be evaluated.
-Try: Compare two explanation methods on the same controlled intervention and report disagreement.
-Outcome: You can avoid treating plausible explanations as causal proof.
+M11.4 · Parameter-Efficient Fine-Tuning: PEFT, LoRA & QLoRA — (sessions: 5)
+Session 1 · Full fine-tuning versus low-rank adaptation
+- Catastrophic Forgetting: Analyze the limitations of full parameter fine-tuning: memory consumption, storage overhead, and degradation of general knowledge.
+- Low-Rank Adaptation (LoRA): Derive weight update factorizations Delta W = B * A with rank r << d, scaling factor alpha, and target projection matrices (Q, K, V, MLP).
+Session 2 · Quantized LoRA (QLoRA) & Domain-Adaptive Pre-Training (DAPT)
+- 4-Bit NormalFloat & QLoRA: Deconstruct QLoRA: NormalFloat4 (NF4) data type, double quantization, and paged optimizers to fine-tune 70B models on consumer GPUs.
+- Domain-Adaptive Pre-Training (DAPT): Execute continued pretraining on specialized domain corpora (clinical notes, legal text, cybersecurity code) prior to instruction tuning.
+Mental model: LoRA freezes the original foundational knowledge weights and trains lightweight, low-rank adapter matrices that steer model behavior along specific domain manifolds.
+Try: Fine-tune an open LLM on a domain dataset using QLoRA in 4-bit precision, track GPU VRAM consumption, and evaluate domain adaptation versus full fine-tuning.
+Outcome: You can derive low-rank adaptation, configure QLoRA for memory-efficient training, and execute Domain-Adaptive Pre-Training.
 
-M11.5 · Robustness, Fairness and Privacy Trade-offs — (sessions: 3)
-- Evaluate distribution shift, adversarial assumptions, subgroup performance, privacy leakage, and mitigation costs.
-- Report who benefits, who bears residual risk, and which fairness or privacy definition was chosen.
-Mental model: Trustworthy AI is a negotiated evidence and governance problem, not a single score.
-Try: Build a risk register that connects each mitigation to a measurable trade-off.
-Outcome: You can make trustworthy-AI claims with explicit scope and accountability.
+M11.5 · Preference Alignment: RLHF, Direct Preference Optimization (DPO) & KTO — (sessions: 6)
+Session 1 · RLHF: Bradley-Terry reward modeling & PPO
+- Human Feedback Modeling: Formalize the Bradley-Terry preference probability model over pairs of responses (y_w > y_l) and train a scalar reward model.
+- PPO Alignment Loop: Align the policy using PPO against the reward model with a KL divergence penalty to prevent policy drift away from the base reference model.
+Session 2 · Direct Preference Optimization (DPO) & reference-free alignment
+- DPO Mathematical Derivation: Derive the closed-form implicit reward formulation (Rafailov et al., 2023), eliminating the reward model and optimizing policy weights directly.
+- Alternative Alignment Objectives: Evaluate Kahneman-Tversky Optimization (KTO, prospect theory on un-paired data), Identity Preference Optimization (IPO), and ORPO.
+- Test-Time Compute & Reasoning: Analyze Chain-of-Thought (CoT), self-consistency majority voting, and test-time compute scaling for mathematical and logical reasoning.
+Mental model: Preference alignment shifts language models from raw text completers into helpful, honest, and harmless assistants through reward-guided policy optimization.
+Try: Align a small language model using Direct Preference Optimization (DPO) on an instruction-preference dataset, measuring win rate against the unaligned baseline.
+Outcome: You can derive and execute Direct Preference Optimization (DPO), configure RLHF with PPO, and evaluate preference alignment outcomes.
 
-M11.6 · Capstone: Trustworthy-AI Evaluation — (sessions: 6)
-- Audit one model across interpretability, robustness, fairness, privacy, and documentation dimensions.
-- Prioritize risks by severity and likelihood, then test whether mitigations improve the stated risk.
-- Present unresolved risks plainly to a technical and non-technical audience.
-Final result: A trustworthy-AI audit that demonstrates measurement, threat modeling, stakeholder awareness, and responsible communication.
+M11.6 · Capstone: Reinforcement Learning & Open LLM Alignment Benchmark — (sessions: 6)
+Session 1 · End-to-end domain adaptation & preference alignment pipeline
+- Select an open foundation model, perform Domain-Adaptive Pre-Training using QLoRA on a specialized research corpus, and conduct instruction fine-tuning (SFT).
+- Align the fine-tuned model using Direct Preference Optimization (DPO) on a curated preference dataset, logging implicit reward margins and KL divergence metrics.
+Session 2 · Multi-dimensional evaluation, LLM-as-a-judge & paper report
+- Benchmark the aligned model against base and SFT models across domain accuracy, instruction following, and safety, using automated LLM-as-a-judge with position debiasing.
+- Author a 6-page empirical research paper in LaTeX documenting training recipes, compute requirements, reward dynamics, and comparative benchmark results.
+Final result: A fully adapted and preference-aligned domain LLM, accompanied by a reproducible training pipeline and a publication-quality evaluation paper.

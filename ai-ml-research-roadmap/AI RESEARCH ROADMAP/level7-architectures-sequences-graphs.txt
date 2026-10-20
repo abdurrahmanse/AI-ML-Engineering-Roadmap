@@ -1,56 +1,73 @@
-Level 7 · Modern Architectures: Sequences, Graphs and Transformers
+Level 7 · Sequences, Attention & Graphs
 
-Phase: Data Curation & Modeling Paradigms
-Suggested duration: 30 sessions (~7 weeks)
+Phase: Architectures & Experiments
+Suggested duration: 32 sessions (~8 weeks)
 Prerequisites: Level 6
-Scope: Select and adapt architectures for language, time series, relational data, and long-context problems while connecting design choices to inductive bias.
+Scope: Master sequence modeling, recurrent networks, multi-head transformer attention, modern NLP, graph neural networks (GNN), and linear-time state space models (Mamba).
 
-M7.1 · Sequences, Time Series & Attention — (sessions: 5)
-- Represent sequences with windows, masks, positional information, recurrence, convolution, and attention.
-- Forecast or classify time-dependent data using time-aware splits and horizon-specific metrics.
-- Identify temporal leakage caused by random splits, future features, and duplicated entities.
-- Choose an architecture by matching inductive bias, computational complexity, and data structure to the research question.
-- Measure memory, throughput, optimization stability, and long-context or structural failure cases alongside task scores.
-Mental model: A sequence model should only use information that would have existed at prediction time.
-Try: Compare a persistence baseline, recurrent model, temporal convolution, and attention model on one forecasting task.
-Outcome: You can design honest experiments for sequential and time-dependent data.
+M7.1 · Recurrent Networks (RNN), LSTMs & Time-Series Forecasting — (sessions: 5)
+Session 1 · Vanilla RNNs, BPTT & gradient degradation
+- Recurrence Dynamics: Formulate unrolled recurrent graphs across time steps and derive Backpropagation Through Time (BPTT).
+- Gradient Pathologies: Prove mathematically why repeated matrix multiplications across sequence length T cause gradients to either vanish exponentially or explode.
+Session 2 · Gated architectures: LSTM, GRU & time-series forecasting
+- LSTM Mechanics: Deconstruct the Long Short-Term Memory cell state, forget gate, input gate, and output gate; explain the constant error carousel mechanism.
+- Gated Recurrent Unit (GRU): Compare GRU's reset and update gates to LSTM; evaluate parameter efficiency on sequential tasks.
+- Temporal Forecasting Protocols: Build autoregressive sequence forecasting models, enforcing strict rolling-window validation splits to prevent future leakage.
+Mental model: Recurrent models maintain an evolving hidden memory vector, updating state sequentially as each incoming token is processed.
+Try: Implement an LSTM cell from scratch in PyTorch, train it on a sequential time-series forecasting problem, and verify that it avoids the vanishing gradient failure of a vanilla RNN.
+Outcome: You can derive BPTT, implement gated recurrent architectures from scratch, and evaluate sequential forecasting systems without temporal leakage.
 
-M7.2 · Transformers and Language Modeling — (sessions: 6)
-- Explain tokenization, embeddings, self-attention, masking, positional information, and next-token prediction.
-- Implement a small transformer and inspect attention, loss, context length, and scaling behavior.
-- Evaluate language models with task metrics, calibration, qualitative error analysis, and contamination awareness.
-- Choose an architecture by matching inductive bias, computational complexity, and data structure to the research question.
-- Measure memory, throughput, optimization stability, and long-context or structural failure cases alongside task scores.
-Mental model: Attention is content-dependent information routing, not an automatic explanation of reasoning.
-Try: Train a tiny language model on a permitted corpus and write a report on data, objective, and limitations.
-Outcome: You can implement and reason about the core transformer training loop.
+M7.2 · Transformer Mechanics, Multi-Head Attention & FlashAttention — (sessions: 6)
+Session 1 · Scaled dot-product attention & multi-head mechanisms
+- Scaled Dot-Product Attention: Derive Query, Key, Value projections (Q, K, V), dimension scaling factor sqrt(d_k), and causal autoregressive masking.
+- Multi-Head Attention (MHA): Formulate parallel attention heads, linear output projections, and analyze the quadratic computational and memory complexity O(N^2 * d).
+Session 2 · Positional encodings & hardware-efficient attention
+- Positional Encodings: Compare sinusoidal fixed encodings, learnable embeddings, Rotary Position Embeddings (RoPE), and Attention with Linear Biases (ALiBi).
+- FlashAttention-1 & FlashAttention-2: Deconstruct hardware-aware attention: tiling blocks in fast GPU SRAM, online softmax computation, and avoiding high-bandwidth memory (HBM) IO bottlenecks.
+Mental model: Attention dynamically computes pairwise compatibility weights between every token pair, allowing direct information routing regardless of distance.
+Try: Code a complete Multi-Head Attention layer from scratch in PyTorch with causal masking and RoPE positional embeddings, verifying output tensor shapes and attention distributions.
+Outcome: You can derive, implement, and optimize Multi-Head Attention layers and explain hardware-aware IO optimizations like FlashAttention.
 
-M7.3 · Graph Learning and Architecture Choice — (sessions: 4)
-- Represent nodes, edges, attributes, graph splits, message passing, and inductive versus transductive settings.
-- Compare graph convolution, graph attention, and simple non-graph baselines.
-- Choose an architecture by data structure and scientific question rather than novelty alone.
-- Choose an architecture by matching inductive bias, computational complexity, and data structure to the research question.
-- Measure memory, throughput, optimization stability, and long-context or structural failure cases alongside task scores.
-Mental model: An architecture is a prior about which relationships should influence a prediction.
-Try: Build a graph benchmark with a leakage-safe edge or node split and compare it to feature-only models.
-Outcome: You can adapt modern architectures to relational and structured data.
+M7.3 · Modern NLP: Tokenization, Pretraining Objectives & Language Modeling — (sessions: 5)
+Session 1 · Subword tokenization algorithms
+- Tokenization Mechanics: Deconstruct Byte-Pair Encoding (BPE), WordPiece, and SentencePiece tokenization, analyzing vocabulary size trade-offs and byte-fallback.
+- Tokenization Quirk Diagnostics: Evaluate tokenization artifacts: whitespace handling, number representations, multi-lingual token bloat, and subword segmentation errors.
+Session 2 · Language modeling paradigms: BERT, GPT & T5
+- Encoder-Only (Masked LM): Formulate BERT's bidirectional context and Masked Language Modeling (MLM) objective.
+- Decoder-Only (Causal LM): Formulate GPT's autoregressive next-token prediction and perplexity evaluation.
+- Encoder-Decoder (Seq2Seq): Formulate T5's unified text-to-text span corruption objective.
+Mental model: Subword tokenization breaks raw bytes into statistical vocabulary tokens; pretraining objectives shape whether representations are bidirectional or causal.
+Try: Train a custom BPE tokenizer on a domain corpus, train a small causal language model, and compute validation perplexity across token context horizons.
+Outcome: You can build subword tokenizers, configure autoregressive and masked pretraining loops, and evaluate language modeling perplexity.
 
-M7.4 · Complexity, Memory and Scaling Analysis — (sessions: 3)
-- Compare time, memory, parameter, data, and communication complexity across architecture families.
-- Measure throughput, latency, context behavior, and quality under matched hardware and data budgets.
-Mental model: An architecture is a set of scientific trade-offs, not a leaderboard label.
-Try: Create a scaling table that shows where each candidate becomes preferable.
-Outcome: You can justify architecture choices with evidence beyond task accuracy.
+M7.4 · Graph Neural Networks (GNN): Relational Learning & Message Passing — (sessions: 6)
+Session 1 · Graph representations & Message Passing Neural Networks (MPNN)
+- Graph Mathematical Formalization: Represent graphs with adjacency matrices A, node feature matrices X, and edge feature tensors E.
+- Message Passing Framework: Formulate the message function, permutation-invariant aggregation (sum, mean, max), and update function on local neighborhoods.
+Session 2 · GCN, Graph Attention Networks (GAT) & Graph Transformers
+- Core GNN Architectures: Derive Graph Convolutional Networks (GCN) as localized spectral approximations, Graph Attention Networks (GAT), and GraphSAGE neighborhood sampling.
+- Over-Smoothing Diagnostics: Diagnose over-smoothing in deep GNNs where repeated message passing causes node representations to collapse to uniform vectors.
+- Graph Transformers: Incorporate random walk and Laplacian eigenvector positional encodings into transformer self-attention over graph structures.
+Mental model: Graph neural networks generalize convolutions to non-Euclidean relational topologies by iteratively aggregating permutation-invariant neighborhood messages.
+Try: Implement a Graph Attention Network (GAT) from scratch using PyTorch Geometric (PyG), evaluate on a node classification citation graph, and inspect attention edge weights.
+Outcome: You can represent relational data, implement Message Passing GNNs, and mitigate over-smoothing in deep graph architectures.
 
-M7.5 · Failure Modes and Structural Probes — (sessions: 3)
-- Design synthetic probes for long-range dependence, compositionality, graph structure, order sensitivity, and extrapolation.
-- Separate a representation failure from an optimization, data, or evaluation failure.
-Mental model: A targeted probe makes a model’s inductive bias observable.
-Try: Build two probes that distinguish memorization from structural generalization.
-Outcome: You can test what an architecture has learned, not only whether it scores well.
+M7.5 · State Space Models (SSM) & Linear-Time Architectures (Mamba) — (sessions: 5)
+Session 1 · Continuous state space theory & S4
+- Continuous Dynamical Systems: Formulate continuous state space differential equations (h'(t) = Ah(t) + Bx(t)), discretization via Zero-Order Hold (ZOH), and HiPPO memory initialization.
+- Structured State Spaces (S4): Connect recurrent execution during inference to parallel convolutional execution during training using structured state matrices.
+Session 2 · Selective state spaces & the Mamba architecture
+- Selective State Spaces (S6): Deconstruct Mamba's input-dependent parameterization (B, C, delta as functions of current input x_t) to enable content-based selective filtering.
+- Hardware-Aware Associative Scan: Implement the parallel prefix scan in GPU SRAM, bypassing quadratic sequence length barriers to achieve linear-time O(N) sequence scaling.
+Mental model: State Space Models combine the fast parallel training of CNNs with the constant-memory recurrent inference of RNNs, filtering memory selectively.
+Try: Compare the inference memory footprint and token generation throughput of a Mamba model against an equivalent-parameter Transformer as context length scales to 16k tokens.
+Outcome: You can explain state space discretization, implement selective state space layers, and analyze linear-time sequence modeling trade-offs.
 
-M7.6 · Capstone: Architecture Selection Study — (sessions: 9)
-- Define one task that can be represented as tabular, sequential, or relational data.
-- Compare appropriate model families under matched data, compute, and tuning budgets.
-- Connect each performance difference to an inductive bias, failure mode, or data property.
-Final result: A comparative study that demonstrates architecture reasoning instead of architecture collecting.
+M7.6 · Capstone: Comparative Architecture Benchmark: Transformer vs GNN vs Mamba — (sessions: 5)
+Session 1 · Benchmark experimental design & multi-paradigm modeling
+- Define a complex benchmark task with both sequential and relational dependencies (e.g. molecular property prediction or temporal cyber-attack graph detection).
+- Implement three competing architectural paradigms: an Autoregressive Transformer with RoPE, a Message Passing GNN (GAT), and a Mamba State Space Model.
+Session 2 · Empirical evaluation, ablation & publication write-up
+- Measure task accuracy, inference latency, peak GPU VRAM consumption, and length extrapolation capability under matched parameter counts.
+- Author a 6-page comparative architectural study in LaTeX, isolating the inductive bias advantages and computational scaling limits of each paradigm.
+Final result: A rigorous comparative architectural benchmark paper and code repository evaluating Transformers, GNNs, and State Space Models under equal parameter parity.

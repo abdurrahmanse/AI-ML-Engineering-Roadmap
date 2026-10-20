@@ -17,35 +17,48 @@
 const TERMS = [
   // languages, runtimes, tooling & frameworks
   'Python', 'PyTorch', 'JAX', 'Triton', 'CUDA', 'pytest', 'uv', 'pyproject.toml', '.gitignore', '.dockerignore',
-  'Pydantic', 'dataclass', 'FastAPI', 'Flask', 'Docker', 'Dockerfile', 'Git', 'GitHub',
-  'PostgreSQL', 'SQL', 'pgvector', 'Qdrant', 'curl', 'Postman', 'Bruno',
+  'Pydantic', 'dataclass', 'FastAPI', 'Flask', 'Docker', 'Dockerfile', 'Git', 'GitHub', 'SLURM', 'Optuna',
+  'PostgreSQL', 'SQL', 'pgvector', 'Qdrant', 'Neo4j', 'curl', 'Postman', 'Bruno',
   'OpenAPI', 'Swagger', 'JSON Schema', 'JSON', 'CSV', 'HTTP', 'REST', 'README', 'LaTeX', 'ArXiv', 'OpenReview',
+  'Zotero', 'BibTeX', 'Overleaf', 'Zenodo', 'OSF', 'PRISMA', 'CRediT',
   // architectures & core models
   'Transformer', 'Transformers', 'FlashAttention', 'Multi-Head Attention', 'RoPE', 'ALiBi', 'RMSNorm',
   'Mamba', 'S4', 'SSM', 'SSMs', 'RWKV', 'ViT', 'CLIP', 'SigLIP', 'LLaVA', 'Flamingo', 'Chinchilla',
+  'ResNet', 'ConvNeXt', 'U-Net', 'DETR', 'YOLO', 'BERT', 'GPT', 'T5', 'RoBERTa', 'Whisper',
+  'GNN', 'GNNs', 'GCN', 'GAT', 'GraphSAGE', 'MPNN', 'Graph Transformers', 'Graph Transformer',
+  // classical machine learning & ensembles
+  'XGBoost', 'LightGBM', 'CatBoost', 'SVM', 'SVMs', 'Random Forest', 'Random Forests', 'AdaBoost',
+  'Naive Bayes', 'KNN', 'CART', 'DBSCAN', 'K-Means', 'K-Means++', 'UMAP', 't-SNE', 'Isolation Forest',
   // optimization & training algorithms
-  'AdamW', 'Adam', 'SGD', 'Muon', 'Lion', 'Nesterov', 'L2', 'Weight Decay', 'SVD', 'PCA', 'autograd',
+  'AdamW', 'Adam', 'SGD', 'Muon', 'Lion', 'Nesterov', 'L2', 'L1', 'Weight Decay', 'SVD', 'PCA', 'autograd',
   // distributed systems & hardware
   'DDP', 'FSDP', 'ZeRO', 'ZeRO-1', 'ZeRO-2', 'ZeRO-3', 'Megatron-LM', 'Tensor Parallelism', 'Pipeline Parallelism',
   'Ring All-Reduce', 'NCCL', 'NVLink', 'MFU', 'HFU', 'FLOPs', 'A100', 'H100',
   // reinforcement learning & reasoning
   'MDP', 'MDPs', 'Bellman', 'DQN', 'PPO', 'TRPO', 'SAC', 'MCTS', 'Tree of Thoughts', 'Chain of Thought',
-  'PRM', 'PRMs', 'ORM', 'ORMs', 'ToT', 'ReAct',
+  'PRM', 'PRMs', 'ORM', 'ORMs', 'ToT', 'ReAct', 'Plan-and-Solve', 'Reflexion',
   // alignment & interpretability
   'RLHF', 'RLAIF', 'DPO', 'KTO', 'ORPO', 'SimPO', 'SFT', 'PEFT', 'LoRA', 'QLoRA', 'DoRA', 'EWC',
   'Mechanistic Interpretability', 'Representation Engineering', 'RepE', 'SAE', 'SAEs', 'CKA',
+  'SHAP', 'TreeSHAP', 'KernelSHAP', 'LIME', 'Integrated Gradients', 'Grad-CAM',
   // generative modeling & vision
-  'Diffusion', 'DDPM', 'DDIM', 'SDE', 'SDEs', 'ODE', 'ODEs', 'Flow Matching', 'Score Matching',
+  'Diffusion', 'DDPM', 'DDIM', 'SDE', 'SDEs', 'ODE', 'ODEs', 'Flow Matching', 'OT-CFM', 'Score Matching',
   'ELBO', 'VAE', 'VAEs', 'GAN', 'GANs', 'WGAN-GP', 'VQ-VAE', 'VQ-GAN', 'NeRF',
+  // retrieval, agents & knowledge graphs
+  'RAG', 'GraphRAG', 'BM25', 'ColBERT', 'LangGraph', 'AutoGen', 'CrewAI', 'Ragas', 'TruLens',
+  'TransE', 'RotatE', 'ComplEx', 'HNSW', 'IVF-PQ',
   // evaluation & benchmarks
-  'MMLU-Pro', 'MMLU', 'TruthfulQA', 'GSM8K', 'MATH', 'HumanEval', 'SWE-bench', 'GPQA', 'SimpleQA',
-  'Bradley-Terry', 'Elo', 'BLEU', 'ROUGE', 'F1', 'Recall@k', 'Precision@k', 'MRR',
+  'MMLU-Pro', 'MMLU', 'TruthfulQA', 'GSM8K', 'MATH', 'HumanEval', 'SWE-bench', 'GPQA', 'SimpleQA', 'GAIA',
+  'AUROC', 'AUPRC', 'Brier', 'Bradley-Terry', 'Elo', 'BLEU', 'ROUGE', 'F1', 'Recall@k', 'Precision@k', 'MRR',
+  'FID', 'LPIPS',
+  // robustness & security
+  'PGD', 'FGSM', 'AutoAttack', 'DP-SGD',
   // self-supervised learning
   'InfoNCE', 'SimCLR', 'BYOL', 'Barlow Twins', 'DINO', 'MoCo', 'ArcFace',
-  // governance & safety
-  'PII', 'EU AI Act', 'DPDP',
-  /* Deliberately absent: 'LLM' / 'LLMs'. They are the subject of nearly every
-     sentence on the site, so highlighting them is noise rather than an anchor. */
+  // governance, safety & medical domains
+  'PII', 'EU AI Act', 'DPDP', 'MIMIC-IV', 'CheXpert', 'CIC-IDS-2017', 'CONSORT-AI',
+  // publication venues
+  'NeurIPS', 'ICML', 'ICLR', 'CVPR', 'ICCV', 'ECCV', 'ACL', 'EMNLP', 'KDD', 'AAAI', 'TPAMI', 'JMLR',
 ];
 
 const escapeHtml = (s: string): string =>

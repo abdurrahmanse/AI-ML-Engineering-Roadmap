@@ -1,56 +1,71 @@
-Level 12 · Multimodal and Domain Research
+Level 12 · RAG & AI Agents
 
-Phase: Scaled Systems, Trustworthy AI & Alignment
-Suggested duration: 30 sessions (~7 weeks)
+Phase: Scaled Systems & LLMs
+Suggested duration: 32 sessions (~8 weeks)
 Prerequisites: Level 11
-Scope: Translate research methods across images, text, audio, tables, and domain workflows while working with experts who understand the problem better than the model builder.
+Scope: Master advanced Retrieval-Augmented Generation (RAG), GraphRAG, Knowledge Graph embeddings, autonomous AI agent loops, multi-agent orchestration, and neuro-symbolic reasoning.
 
-M12.1 · Multimodal Representation and Fusion — (sessions: 5)
-- Align image, text, audio, tabular, and temporal representations with suitable encoders and objectives.
-- Compare early fusion, late fusion, cross-attention, contrastive learning, and missing-modality strategies.
-- Evaluate whether a multimodal gain comes from useful interaction or simply additional information.
-- Work with domain experts to define clinically, scientifically, or operationally meaningful outcomes and unacceptable failure modes.
-- Align modalities, annotations, and evaluation splits while documenting consent, domain shift, and interdisciplinary assumptions.
-Mental model: Combining modalities is a measurement and alignment problem before it is an architecture problem.
-Try: Build a two-modality classifier with modality ablations and inspect performance when one modality is missing.
-Outcome: You can design multimodal experiments that expose the source of a claimed improvement.
+M12.1 · Advanced Retrieval-Augmented Generation (RAG) Architecture — (sessions: 5)
+Session 1 · Document parsing, chunking strategies & vector indexing
+- Chunking Methodologies: Compare fixed-size chunking with sliding windows, recursive character splitting, semantic boundary chunking, and document hierarchy parsing.
+- Embedding Spaces & Vector Databases: Benchmark dense embedding models (BGE, OpenAI, Cohere) against sparse BM25; configure vector indexing using HNSW and IVF-PQ.
+Session 2 · Hybrid search & cross-encoder re-ranking
+- Hybrid Search Synthesis: Combine dense semantic cosine similarity with sparse BM25 lexical scores using Reciprocal Rank Fusion (RRF) with tuned rank constants.
+- Cross-Encoder Re-Ranking: Implement two-stage retrieval: rapid bi-encoder recall followed by cross-encoder re-ranking to compute joint query-document attention scores.
+Mental model: RAG grounds probabilistic language generation in verified external documents, separating knowledge retrieval from language synthesis.
+Try: Build a hybrid RAG pipeline combining BM25 and dense embeddings with a cross-encoder reranker, measuring retrieval precision@k and mean reciprocal rank (MRR).
+Outcome: You can design, implement, and optimize multi-stage hybrid retrieval pipelines with vector databases and cross-encoder rerankers.
 
-M12.2 · Domain Adaptation and Expert Collaboration — (sessions: 5)
-- Translate a domain workflow into labels, constraints, outcomes, and reviewable decision points.
-- Use domain interviews, annotation pilots, disagreement analysis, and expert validation.
-- Distinguish benchmark success from usefulness, safety, and adoption in the real workflow.
-- Work with domain experts to define clinically, scientifically, or operationally meaningful outcomes and unacceptable failure modes.
-- Align modalities, annotations, and evaluation splits while documenting consent, domain shift, and interdisciplinary assumptions.
-Mental model: Domain experts are research partners who define validity, not merely label providers.
-Try: Run an annotation pilot with a domain reviewer and revise the codebook from disagreements.
-Outcome: You can conduct cross-disciplinary research without flattening domain knowledge.
+M12.2 · RAG Evaluation, Benchmarking & The RAG Triad — (sessions: 5)
+Session 1 · The RAG Triad framework & hallucination diagnostics
+- The RAG Triad: Deconstruct evaluation into Context Relevance (did retrieval find the right information?), Groundedness / Faithfulness (is the answer derived from context?), and Answer Relevance.
+- Hallucination Auditing: Measure hallucination rates by checking token-level attribution and calculating semantic overlap between retrieved passages and generated claims.
+Session 2 · Automated evaluation pipelines with Ragas & TruLens
+- Automated RAG Evaluation: Build automated benchmark suites using Ragas and TruLens to compute quantitative Triad scores across diverse queries.
+- Synthetic Test Set Generation: Generate question-context-answer ground truth evaluation datasets with verified citation links across simple, multi-hop, and reasoning queries.
+Mental model: Evaluating RAG requires decoupling retrieval quality from generation quality; high accuracy cannot compensate for ungrounded hallucinated assertions.
+Try: Evaluate a RAG system on 100 domain questions using Ragas, generate an automated diagnostic scorecard, and identify failure cases where retrieval succeeded but generation hallucinated.
+Outcome: You can evaluate RAG pipelines quantitatively using the RAG Triad and build automated hallucination diagnostic suites.
 
-M12.3 · Applied Research and Deployment Evidence — (sessions: 5)
-- Design prospective, retrospective, offline, and human-in-the-loop evaluations.
-- Measure workflow time, error costs, calibration, accessibility, adoption barriers, and unintended effects.
-- Write a deployment decision record with monitoring, rollback, and ownership.
-- Work with domain experts to define clinically, scientifically, or operationally meaningful outcomes and unacceptable failure modes.
-- Align modalities, annotations, and evaluation splits while documenting consent, domain shift, and interdisciplinary assumptions.
-Mental model: A research prototype becomes an applied contribution only when its context and limits are demonstrated.
-Try: Create an evaluation plan for a domain partner that includes technical and human success criteria.
-Outcome: You can connect a model result to a defensible applied research decision.
+M12.3 · Knowledge Graphs, GraphRAG & Neuro-Symbolic Reasoning — (sessions: 6)
+Session 1 · Knowledge Graph construction & representation learning
+- Graph Triples & Ontologies: Model knowledge as subject-predicate-object triples (h, r, t) using Resource Description Framework (RDF) and labeled property graphs in Neo4j.
+- Knowledge Graph Embeddings: Formulate TransE (translational distance in embedding space), RotatE (relational rotations in complex vector space), and ComplEx for link prediction.
+Session 2 · GraphRAG & hierarchical community summarization
+- GraphRAG Architecture: Deconstruct Microsoft GraphRAG: extract entities and relations using LLMs, apply the Leiden algorithm for community detection, and generate hierarchical summaries.
+- Global Sensemaking: Compare standard vector RAG against GraphRAG on holistic query understanding ("What are the overarching themes in this corpus?").
+- Neuro-Symbolic Integration: Combine deterministic Cypher/SPARQL graph queries with neural generation to eliminate factual hallucination in structured domains.
+Mental model: Knowledge graphs provide deterministic, symbolic truth structures that anchor neural models, combining logical precision with natural language fluency.
+Try: Extract an entity-relation knowledge graph from an academic literature corpus, construct a GraphRAG index with community summaries, and benchmark global query answering against vector RAG.
+Outcome: You can construct knowledge graphs, train link prediction embeddings, and build hierarchical GraphRAG systems for global corpus reasoning.
 
-M12.4 · Alignment, Fusion and Missing-Modality Analysis — (sessions: 3)
-- Compare early, intermediate, late, and cross-attention fusion under matched data and compute budgets.
-- Test missing modalities, noisy annotations, domain shift, and modality-specific failure modes.
-Mental model: More modalities add opportunities for evidence and more ways for a model to fail silently.
-Try: Create a modality ablation matrix with expert-approved failure categories.
-Outcome: You can evaluate whether multimodal fusion adds reliable information.
+M12.4 · Autonomous AI Agents: ReAct, Planning & Tool Calling — (sessions: 6)
+Session 1 · Agent cognitive architectures & ReAct loops
+- Cognitive Architectures: Implement ReAct (Reasoning + Acting) loops: Thought -> Action -> Observation -> Reflection cycles for multi-step problem solving.
+- Planning & Reflection: Implement Plan-and-Solve decomposition and Reflexion self-evaluating agents that store verbal lessons in episodic memory upon failure.
+Session 2 · Tool calling mechanics & secure execution sandboxes
+- Tool Schema Design: Define OpenAPI and JSON Schema tool specifications for calculators, database queries, and external APIs with strict parameter validation.
+- Sandboxed Code Execution: Execute dynamic Python code safely within isolated Docker containers or WebAssembly runtimes with network and resource constraints.
+Mental model: An AI agent is a language model situated in an environment with tools, memory, and feedback loops, iteratively executing actions to satisfy goals.
+Try: Build an autonomous research agent in pure Python implementing a ReAct loop with tools for search, Python code execution in a Docker sandbox, and a local scratchpad memory.
+Outcome: You can design autonomous agent loops, author strict tool schemas, and execute code safely in containerized sandboxes.
 
-M12.5 · Expert Review and Domain Validity — (sessions: 3)
-- Co-design outcomes, annotation protocols, error taxonomies, and acceptable thresholds with domain experts.
-- Document what the model can support operationally and what still requires human judgment.
-Mental model: Domain expertise changes the question, not just the label quality.
-Try: Run an expert review session and revise the evaluation protocol from disagreement.
-Outcome: You can communicate technical evidence in the language and constraints of a real domain.
+M12.5 · Multi-Agent Orchestration, State Machines & Agentic Benchmarking — (sessions: 5)
+Session 1 · Multi-agent collaboration architectures
+- Coordination Topologies: Implement supervisor-worker hierarchies, sequential pipelines, and multi-agent debate protocols where agents challenge each other's reasoning.
+- State Machine Frameworks: Build complex cyclic agent workflows with LangGraph and AutoGen, managing persistent shared state, checkpoints, and human-in-the-loop approvals.
+Session 2 · Agent evaluation benchmarks: SWE-bench & GAIA
+- Standardized Agent Benchmarks: Evaluate autonomous agents on SWE-bench (resolving real GitHub issues), WebArena (web navigation), and GAIA (multimodal complex tasks).
+- Failure Diagnostics: Measure agent failure modes: infinite execution loops, tool hallucination, context window exhaustion, and error cascading across sub-agents.
+Mental model: Multi-agent systems decompose complex goals into specialized roles, using structured debate and state machines to catch individual reasoning errors.
+Try: Build a two-agent research team (a literature researcher and a skeptical reviewer) in LangGraph that produces an annotated bibliography with verified citations through structured critique.
+Outcome: You can orchestrate multi-agent workflows using state machines, manage persistent agent memory, and benchmark autonomous systems on standardized suites.
 
-M12.6 · Capstone: Cross-Disciplinary Multimodal Study — (sessions: 9)
-- Partner with a domain expert or use a documented public workflow and formulate one measurable question.
-- Build a multimodal baseline, run modality and stakeholder-informed ablations, and report limitations.
-- Deliver a technical report, domain-facing briefing, data statement, and reproducible artifact.
-Final result: A complete cross-disciplinary study showing scientific, technical, and communication maturity.
+M12.6 · Capstone: Enterprise GraphRAG & Multi-Agent Autonomous Research Assistant — (sessions: 5)
+Session 1 · Architecture & implementation of a hybrid research system
+- Build an enterprise-grade GraphRAG index over a domain scientific corpus, combining dense vector embeddings, BM25 retrieval, and a Neo4j knowledge graph.
+- Implement a multi-agent orchestration team consisting of a Query Planner, Graph Retrieval Agent, Python Data Analyst in a sandbox, and an Attribution Verifier.
+Session 2 · Benchmarking, citation audit & scientific manuscript
+- Evaluate the complete system on a 100-query domain benchmark, measuring RAG Triad metrics, citation accuracy, execution latency, and token cost.
+- Author a 6-page research systems paper in LaTeX documenting the neuro-symbolic architecture, Leiden community detection results, and comparative retrieval benchmarks.
+Final result: A fully operational Enterprise GraphRAG and multi-agent scientific research assistant with verified citation grounding, code execution sandboxes, and a technical paper.

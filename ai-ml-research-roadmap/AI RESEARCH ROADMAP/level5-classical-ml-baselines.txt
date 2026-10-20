@@ -1,56 +1,84 @@
-Level 5 · Classical Machine Learning and Baselines
+Level 5 · Classical Machine Learning
 
-Phase: Data Curation & Modeling Paradigms
-Suggested duration: 26 sessions (~6 weeks)
+Phase: Data & Modeling
+Suggested duration: 35 sessions (~9 weeks)
 Prerequisites: Level 4
-Scope: Learn the supervised, unsupervised, and time-aware modeling families that form the baseline for nearly every applied data-science investigation.
+Scope: Master linear models, probabilistic classifiers, instance-based learning, support vector machines, decision trees, gradient boosted ensembles, clustering, and anomaly detection to establish rock-solid scientific baselines.
 
-M5.1 · Regression, Classification & Feature Design — (sessions: 5)
-- Fit and interpret linear models, logistic regression, regularized models, trees, and gradient boosting.
-- Design features from domain meaning while separating training-only transformations from evaluation data.
-- Compare calibration, discrimination, ranking, and error costs instead of relying on accuracy alone.
-- Define a strong simple baseline, a tuning budget, and a fixed evaluation protocol before comparing more complex models.
-- Use repeated seeds, error slices, calibration checks, and confidence intervals to explain when a model improvement is real.
-Mental model: A baseline is a scientific control that tells you whether complexity is buying useful signal.
-Try: Build a leakage-safe scikit-learn pipeline and compare a linear model, random forest, and gradient booster.
-Outcome: You can establish strong, interpretable baselines for structured prediction problems.
+M5.1 · Linear Regression, Polynomial Models & Regularization — (sessions: 5)
+Session 1 · Ordinary Least Squares (OLS) derivation & geometry
+- Normal Equations Derivation: Derive the analytical OLS solution (beta = (X^T X)^(-1) X^T y) from MSE minimization, proving the Gauss-Markov Theorem.
+- Assumptions & Diagnostics: Inspect linear model assumptions (linearity, homoscedasticity, normality of residuals, independence) and diagnose Cook's distance outliers.
+Session 2 · Polynomial regression, Ridge (L2), Lasso (L1) & ElasticNet
+- Non-Linear Basis Expansion: Formulate polynomial feature expansions and analyze the resulting runaway variance and multicollinearity.
+- Regularization Mechanics: Derive Ridge shrinkage analytically, derive Lasso coordinate descent updates, explain L1 sparsity geometry, and tune ElasticNet mixing ratios.
+Mental model: Regularization imposes a geometric prior on parameter magnitudes, trading a small amount of bias for a dramatic reduction in variance.
+Try: Implement Ridge and Lasso coordinate descent from scratch in NumPy, plot the regularization path coefficients as lambda increases, and observe exact zero-weight sparsity in Lasso.
+Outcome: You can derive OLS, implement regularized linear models from scratch, and evaluate residual diagnostic plots.
 
-M5.2 · Unsupervised Learning and Representation — (sessions: 4)
-- Use clustering, dimensionality reduction, anomaly detection, and similarity search appropriately.
-- Compare stability and usefulness of discovered groups across seeds, samples, and feature choices.
-- Explain why visualization is exploratory evidence rather than proof of a natural cluster.
-- Define a strong simple baseline, a tuning budget, and a fixed evaluation protocol before comparing more complex models.
-- Use repeated seeds, error slices, calibration checks, and confidence intervals to explain when a model improvement is real.
-Mental model: Unsupervised outputs are hypotheses about structure that require validation.
-Try: Cluster a dataset, test cluster stability, and interview the domain meaning of the resulting groups.
-Outcome: You can use unsupervised tools without overinterpreting attractive plots.
+M5.2 · Logistic Regression, Probabilistic Classifiers & Calibration — (sessions: 5)
+Session 1 · Logistic regression & iteratively reweighted least squares
+- Sigmoid Function & Odds Ratios: Model log-odds, formulate the cross-entropy negative log-likelihood loss, and calculate analytical gradient and Hessian matrices.
+- Newton-Raphson Optimization: Implement Iteratively Reweighted Least Squares (IRLS) to optimize logistic regression parameters and derive Platt scaling for calibration.
+Session 2 · Naive Bayes classification & generative assumptions
+- Generative Classification: Formulate the Bayes optimal classifier and the conditional independence assumption underlying Naive Bayes.
+- Distribution Variants: Implement Gaussian Naive Bayes for continuous features, Multinomial Naive Bayes with Laplace smoothing for text, and Bernoulli Naive Bayes.
+Mental model: Logistic regression is a discriminative model learning decision boundaries; Naive Bayes is a generative model learning how each class produces features.
+Try: Build a spam detection system comparing Multinomial Naive Bayes against L1-regularized Logistic Regression, computing calibration curves and Brier scores.
+Outcome: You can derive, implement, and calibrate discriminative and generative linear classifiers for binary and multiclass problems.
 
-M5.3 · Model Selection and Error Analysis — (sessions: 5)
-- Use cross-validation, nested selection, learning curves, hyperparameter search, and calibration.
-- Create an error taxonomy and inspect representative false positives, false negatives, and edge cases.
-- Compare models with confidence intervals and subgroup metrics tied to the deployment question.
-- Define a strong simple baseline, a tuning budget, and a fixed evaluation protocol before comparing more complex models.
-- Use repeated seeds, error slices, calibration checks, and confidence intervals to explain when a model improvement is real.
-Mental model: Model development is an investigation of failure, not a leaderboard chase.
-Try: Produce an error-analysis report that changes one modeling decision based on observed failures.
-Outcome: You can select models using evidence, constraints, and failure analysis.
+M5.3 · Instance-Based Learning & Support Vector Machines (SVM) — (sessions: 5)
+Session 1 · K-Nearest Neighbors (KNN) & the curse of dimensionality
+- Non-Parametric Neighborhoods: Implement KNN classification and regression, analyze distance metrics (Euclidean, Manhattan, Minkowski, Mahalanobis), and tune k via cross-validation.
+- Computational Geometry: Analyze the curse of dimensionality in high dimensions and benchmark brute-force search against KD-Tree and Ball-Tree spatial partitioning.
+Session 2 · Support Vector Machines & the Kernel Trick
+- Maximum Margin Geometry: Formulate the primal hard-margin and soft-margin SVM with slack variables and box constraint C; derive the Wolfe dual formulation.
+- The Kernel Trick: Apply Mercer's Theorem to project vectors into infinite-dimensional Hilbert spaces using Radial Basis Function (RBF/Gaussian) and polynomial kernels.
+Mental model: SVM finds the unique hyperplane that maximizes the geometric margin between classes, relying strictly on the subset of data points that lie on the margin boundary.
+Try: Solve an SVM dual quadratic program using cvxpy, extract the active support vectors, and visualize the non-linear decision boundary generated by an RBF kernel.
+Outcome: You can derive soft-margin SVMs, apply the kernel trick to non-linear classification, and evaluate instance-based models.
 
-M5.4 · Cross-Validation, Calibration and Model Selection — (sessions: 3)
-- Choose validation schemes that respect groups, time, and repeated observations in the data.
-- Measure calibration, uncertainty, class imbalance, and threshold trade-offs rather than only ranking accuracy.
-Mental model: Model selection is part of the experiment and must be separated from final evaluation.
-Try: Compare two validation strategies and show how the chosen split changes the conclusion.
-Outcome: You can select and calibrate a baseline without contaminating the test set.
+M5.4 · Decision Trees & Tree-Based Induction Algorithms — (sessions: 4)
+Session 1 · Split criteria & recursive binary splitting
+- Splitting Metrics: Formulate Gini Impurity, Shannon Entropy / Information Gain, and Variance Reduction for regression trees.
+- CART Induction Algorithm: Implement recursive binary splitting from scratch, determining optimal feature thresholds and handling mixed numerical and categorical types.
+Session 2 · Tree regularization & cost-complexity pruning
+- Stopping Rules: Control tree depth, minimum samples per split, minimum samples per leaf, and maximum leaf nodes to prevent memorization of noise.
+- Minimal Cost-Complexity Pruning: Implement alpha-pruning to prune subtrees that fail to improve generalized validation error.
+Mental model: A decision tree recursively partitions the feature space into axis-aligned rectangular regions, assigning the majority class or mean value within each leaf.
+Try: Build a complete CART decision tree classifier from scratch in Python, print the resulting tree logic in human-readable rules, and visualize its axis-aligned 2D decision boundary.
+Outcome: You can code decision tree induction from scratch, compute split criteria, and prune trees to prevent overfitting.
 
-M5.5 · Error Analysis and Baseline Reporting — (sessions: 3)
-- Slice errors by meaningful subgroups, inputs, confidence, and failure mechanism.
-- Report features, preprocessing, tuning budget, compute, seeds, metrics, and limitations so the baseline is reusable.
-Mental model: A strong baseline is a control condition that makes later claims interpretable.
-Try: Produce an error taxonomy and a one-page baseline report for a real dataset.
-Outcome: You can explain where a model works, fails, and what a new method must improve.
+M5.5 · Ensemble Learning: Random Forests & Gradient Boosted Decision Trees — (sessions: 6)
+Session 1 · Bootstrap aggregating (Bagging) & Random Forests
+- Bagging Theory: Prove why bootstrap averaging reduces model variance without increasing bias; calculate Out-Of-Bag (OOB) error estimates.
+- Random Forests: Implement feature subsampling (mtry = sqrt(p)) at each split to decorrelate trees; compute Mean Decrease in Impurity (MDI) and permutation feature importances.
+Session 2 · Boosting theory: AdaBoost & Gradient Boosting
+- Adaptive Boosting: Formulate AdaBoost, exponential loss minimization, and sequential sample re-weighting based on classification errors.
+- Gradient Boosting Machines: Formulate gradient boosting as gradient descent in function space, fitting successive shallow trees to the negative gradient (pseudo-residuals).
+Session 3 · Modern GBDT frameworks: XGBoost, LightGBM & CatBoost
+- XGBoost Innovations: Derive second-order Taylor expansion of the objective function, exact greedy vs weighted quantile sketch splits, and sparsity-aware split finding.
+- LightGBM & CatBoost: Understand Gradient-based One-Side Sampling (GOSS), Exclusive Feature Bundling (EFB), and CatBoost's ordered target encoding for categorical features.
+Mental model: Random Forests combine many independent, overfitted trees in parallel to cancel variance; Gradient Boosting builds a sequence of shallow trees that iteratively correct residuals.
+Try: Benchmark Random Forest, XGBoost, LightGBM, and CatBoost on a complex tabular dataset with mixed categorical variables, measuring training throughput and AUROC.
+Outcome: You can explain ensemble theory, tune modern GBDT libraries, and evaluate feature importances reliably.
 
-M5.6 · Capstone: Reproducible Baseline Study — (sessions: 6)
-- Reproduce a classical ML result on an open dataset with an explicit split and pre-analysis plan.
-- Compare at least three model families, report uncertainty, calibration, cost-sensitive metrics, and failures.
-- Package the code, configuration, data statement, and results table for another person to rerun.
-Final result: A baseline paper-style report proving that you can make a credible first claim before using deep learning.
+M5.6 · Unsupervised Learning: Clustering, Dimensionality Reduction & Anomalies — (sessions: 5)
+Session 1 · Partitioning & density-based clustering
+- K-Means Clustering: Implement Lloyd's algorithm, K-Means++ probabilistic initialization, evaluate the elbow curve, and calculate silhouette coefficients.
+- Density-Based Clustering: Implement DBSCAN, defining core points, border points, epsilon-neighborhoods, and MinPts; contrast against hierarchical agglomerative clustering.
+Session 2 · Dimensionality reduction: PCA, t-SNE & UMAP
+- Spectral & Manifold Learning: Derive Principal Component Analysis (PCA) from the covariance matrix; compare against t-SNE and UMAP for non-linear manifold projection.
+- Anomaly Detection: Detect multivariate tabular outliers using Isolation Forests (measuring average path length in random trees), Local Outlier Factor, and One-Class SVM.
+Mental model: Unsupervised algorithms discover latent structures, clusters, and low-dimensional manifolds in data without teacher guidance, generating hypotheses for scientific validation.
+Try: Run DBSCAN and Isolation Forest on an unlabelled network intrusion dataset to isolate anomalous cyber-attack clusters and visualize them in a 2D UMAP projection.
+Outcome: You can apply partitioning and density clustering, project high-dimensional manifolds, and detect anomalies in unlabelled data.
+
+M5.7 · Capstone: Publication-Quality Empirical Benchmark: Linear Models vs SVM vs GBDT — (sessions: 5)
+Session 1 · Benchmark protocol & compute-parity tuning
+- Formulate an empirical research question: Under what tabular conditions (sample size, sparsity, non-linearity, categorical cardinality) do GBDTs significantly outperform tuned SVMs and regularized linear models?
+- Execute nested cross-validation with Bayesian hyperparameter optimization (Optuna) under matched compute budgets across 5 diverse tabular datasets.
+Session 2 · Statistical analysis, ablation & baseline paper report
+- Compute AUROC, AUPRC, calibration error (ECE), and Brier score; perform paired Wilcoxon signed-rank tests across 10 random seeds with Benjamini-Hochberg FDR correction.
+- Write a formal 6-page research paper detailing experimental setup, baseline configurations, ablation of tree depth and shrinkage, and discussion of failure modes.
+Final result: A publication-quality empirical benchmark paper and code repository establishing rigorous classical ML baselines with statistical significance tests.

@@ -1,56 +1,74 @@
-Level 6 · Deep Learning Foundations
+Level 6 · Deep Learning & Reproduction
 
-Phase: Data Curation & Modeling Paradigms
-Suggested duration: 30 sessions (~7 weeks)
+Phase: Data & Modeling
+Suggested duration: 32 sessions (~8 weeks)
 Prerequisites: Level 5
-Scope: Understand neural networks from tensor operations through training, regularization, debugging, and responsible use of pretrained models.
+Scope: Master neural network architectures from first-principles backpropagation in NumPy to PyTorch autograd, optimization dynamics, convolutional backbones, vision transformers, and rigorous paper reproduction.
 
-M6.1 · Neural Networks and Automatic Differentiation — (sessions: 5)
-- Implement affine layers, activations, losses, backpropagation, and minibatch training.
-- Trace tensor shapes, device placement, gradients, and parameter updates in PyTorch.
-- Explain initialization, normalization, dropout, weight decay, and overfitting.
-- Track initialization, optimizer settings, learning curves, checkpoints, and failed runs so training behavior is inspectable.
-- Reproduce a published neural result from its equations and implementation, then report deviations and remaining uncertainty.
-Mental model: A neural network is a parameterized function whose behavior is learned through repeated error signals.
-Try: Implement a small multilayer perceptron twice: once with NumPy gradients and once with PyTorch autograd.
-Outcome: You can inspect and debug the complete training loop of a neural network.
+M6.1 · Artificial Neural Networks (ANN) & Analytical Backpropagation — (sessions: 5)
+Session 1 · Multi-Layer Perceptrons & non-linear activation functions
+- Architecture Anatomy: Formulate the Multilayer Perceptron (MLP) forward pass as composition of parameterized affine transformations and non-linear activation functions.
+- Activation Analysis: Analyze mathematical gradients, saturation regions, and dying neuron problems across Sigmoid, Tanh, ReLU, LeakyReLU, GELU, and Swish/SiLU.
+Session 2 · Analytical backpropagation derivation & pure-NumPy engine
+- Matrix Gradient Derivation: Derive the analytical backpropagation equations for a deep MLP with cross-entropy loss using the chain rule and Jacobian-vector products.
+- From-Scratch Implementation: Code a complete deep neural network training loop in pure NumPy without deep learning frameworks, verifying gradients via finite differences.
+Mental model: Neural networks are universal function approximators whose parameters are adjusted via recursive chain-rule error signals flowing backward through the computational graph.
+Try: Implement a 3-layer MLP in pure NumPy with backpropagation and train it to classify handwritten digits (MNIST) to >97% accuracy without using PyTorch.
+Outcome: You can derive and implement the forward and backward passes of neural networks from scratch and analyze non-linear activation dynamics.
 
-M6.2 · Computer Vision and Convolutional Models — (sessions: 5)
-- Explain convolution, receptive fields, pooling, augmentation, residual connections, and transfer learning.
-- Build image classification and segmentation pipelines with correct spatial transforms and evaluation.
-- Inspect saliency and failure cases without treating visual explanations as causal proof.
-- Track initialization, optimizer settings, learning curves, checkpoints, and failed runs so training behavior is inspectable.
-- Reproduce a published neural result from its equations and implementation, then report deviations and remaining uncertainty.
-Mental model: Convolutions encode local structure, while data and labels determine what the model learns.
-Try: Compare a scratch CNN and a pretrained backbone on a small image dataset with a documented error taxonomy.
-Outcome: You can build and evaluate reproducible computer-vision baselines.
+M6.2 · Deep Learning Training Dynamics, Normalization & Regularization — (sessions: 6)
+Session 1 · Weight initialization & gradient preservation
+- Variance Preservation: Derive Xavier/Glorot initialization for symmetric activations and He/Kaiming initialization for ReLU to prevent vanishing/exploding variance across layers.
+- Initialization Diagnostics: Track activation distributions and gradient norms across layer depth during step 0 of training to diagnose initialization failures.
+Session 2 · Normalization layers & internal covariate shift
+- Normalization Mechanics: Formulate Batch Normalization (tracking mini-batch statistics vs running evaluation buffers), Layer Normalization, and Group Normalization.
+- Training Stability: Compare LayerNorm's invariance to weight re-scaling against BatchNorm's batch-size sensitivity and communication overhead in distributed settings.
+Session 3 · Regularization & learning rate schedules
+- Regularization Techniques: Implement inverted Dropout, Weight Decay (L2 penalty), Stochastic Depth (DropPath), and label smoothing to prevent overfitting.
+- Optimization Schedules: Implement Cosine Annealing with linear warmup, OneCycleLR, ReduceLROnPlateau, and gradient norm clipping.
+Mental model: Training deep neural networks is the stabilization of a high-dimensional dynamical system; proper initialization and normalization keep signal variances within healthy bounds.
+Try: Intentionally corrupt an MLP's weight initialization to demonstrate gradient explosion, then resolve it with He initialization and Layer Normalization, tracking gradient flow.
+Outcome: You can initialize deep architectures correctly, apply normalization layers, and configure resilient learning rate schedules.
 
-M6.3 · Training Engineering and Debugging — (sessions: 5)
-- Use learning-rate schedules, mixed precision, gradient clipping, checkpoint recovery, and early stopping.
-- Detect underfitting, overfitting, data bugs, unstable loss, and silent label or preprocessing errors.
-- Profile memory and throughput so training choices are tied to measured bottlenecks.
-- Track initialization, optimizer settings, learning curves, checkpoints, and failed runs so training behavior is inspectable.
-- Reproduce a published neural result from its equations and implementation, then report deviations and remaining uncertainty.
-Mental model: Most failed experiments are diagnosed by checking data, shapes, targets, and instrumentation before changing architecture.
-Try: Intentionally introduce three training bugs, diagnose them from logs, and document the fixes.
-Outcome: You can run reliable neural-network experiments and explain why a training run succeeded or failed.
+M6.3 · Convolutional Neural Networks (CNN) & Modern Vision Backbones — (sessions: 6)
+Session 1 · Convolutions, spatial receptive fields & pooling
+- Discrete Convolutions: Formulate 2D and 3D discrete cross-correlations, kernel weights, padding schemes (valid, same), stride, and dilation.
+- Effective Receptive Field (ERF): Calculate the analytical and empirical receptive field of stacked convolutional layers and evaluate spatial downsampling via pooling.
+Session 2 · Architectural evolution: AlexNet to ResNet & ConvNeXt
+- Landmark CNN Paradigms: Trace architectural innovations from AlexNet and VGG to Inception (factorized 1x1 convolutions) and ResNet (residual skip connections).
+- Residual Learning Theory: Prove mathematically why residual connections (y = F(x) + x) eliminate the degradation problem by creating gradient highways directly to early layers.
+- Modern Modernization: Analyze ConvNeXt design choices (7x7 depthwise convolutions, inverted bottlenecks, LayerNorm) modernizing CNNs for modern benchmarks.
+Mental model: Convolutions encode spatial inductive bias—translational equivariance and locality—allowing models to share parameters across image locations efficiently.
+Try: Build a 18-layer ResNet from scratch in PyTorch, verify that removing residual connections causes training error to plateau prematurely, and visualize learned convolutional filters.
+Outcome: You can calculate receptive fields, implement modern residual architectures, and explain spatial inductive biases.
 
-M6.4 · Initialization, Normalization and Optimization Dynamics — (sessions: 3)
-- Diagnose initialization, gradient flow, normalization, optimizer, batch-size, and learning-rate effects.
-- Read learning curves and activation statistics to distinguish underfitting, overfitting, instability, and data bugs.
-Mental model: Training curves are measurements of a dynamical system, not just progress indicators.
-Try: Create controlled failures and use logged evidence to identify their causes.
-Outcome: You can debug neural training from observable behavior.
+M6.4 · Dense Visual Prediction & Vision Transformers (ViT) — (sessions: 5)
+Session 1 · Dense computer vision: Detection & segmentation
+- Semantic Segmentation: Formulate pixel-level classification, U-Net encoder-decoder skip connections, transposed convolutions, and dice loss / focal loss.
+- Object Detection Paradigms: Compare anchor-based detection (Faster R-CNN, YOLO grid anchors) against anchor-free bipartite matching transformers (DETR).
+Session 2 · Vision Transformers (ViT) & patch self-attention
+- ViT Architecture: Deconstruct Vision Transformers: non-overlapping patch tokenization, linear patch projections, learnable [CLS] tokens, and 2D spatial position embeddings.
+- Inductive Bias Trade-off: Contrast ViT's global self-attention (requiring large pretraining corpora) with CNN's spatial locality; evaluate hybrid CNN-Transformer backbones.
+Mental model: Vision Transformers discard spatial convolutions in favor of global self-attention across image patches, allowing dynamic information routing across distant image regions.
+Try: Train a small Vision Transformer and a ResNet backbone on equal compute budgets on CIFAR-100, comparing sample efficiency and attention rollout maps.
+Outcome: You can implement semantic segmentation pipelines, evaluate object detection paradigms, and construct Vision Transformers.
 
-M6.5 · Reproduction Engineering and Ablation Hygiene — (sessions: 3)
-- Translate a paper specification into code, configs, tests, checkpoints, and a documented deviation log.
-- Reproduce a result across seeds and isolate one implementation choice at a time.
-Mental model: Reproduction earns trust by exposing differences, not by forcing agreement with a headline number.
-Try: Reproduce one table from a paper and publish the exact commands and deviations.
-Outcome: You can turn a neural paper into an inspectable reproduction study.
+M6.5 · Seminal Literature Reading & Scientific Reproduction Methodology — (sessions: 5)
+Session 1 · Landmark vision paper deep-dive
+- Paper Analysis: Study He et al. (Deep Residual Learning for Image Recognition, CVPR 2016), Ronneberger et al. (U-Net, MICCAI 2015), and Dosovitskiy et al. (ViT, ICLR 2021).
+- Research Questions: Investigate why residual networks train faster than plain networks of equal depth, and why ViTs exhibit broader effective receptive fields from layer 1.
+Session 2 · Reproduction protocols & deviation logging
+- Reproduction Discipline: Translate paper equations into code, verify official repositories, audit hyperparameter discrepancies, and record deviations in a formal log.
+- Seed Variance & Hardware Discrepancies: Measure performance variance across 5 random seeds and quantify impact of mixed-precision (FP16/BF16) on convergence.
+Mental model: Scientific reproduction is not blindly downloading a GitHub repo; it is the independent verification of claimed empirical phenomena from reported methodologies.
+Try: Replicate Table 1 of the ResNet paper on a smaller dataset, recording all hyperparameter adaptations, training curves, and deviation notes in an open-science report.
+Outcome: You can dissect landmark deep learning literature and execute formal reproduction studies with transparent deviation logs.
 
-M6.6 · Capstone: Deep Learning Reproduction — (sessions: 9)
-- Reimplement a published neural baseline from its paper and public code.
-- Match its data split, preprocessing, metric, training budget, and reported uncertainty as closely as possible.
-- Explain every mismatch and propose one follow-up experiment that would meaningfully test the method.
-Final result: A reproducibility report demonstrating implementation skill, scientific skepticism, and transparent comparison.
+M6.6 · Capstone: PyTorch Deep Learning Baseline Reproduction & Ablation Report — (sessions: 5)
+Session 1 · Deep learning baseline implementation & training
+- Re-implement a published vision architecture (e.g. ResNet or U-Net) in PyTorch, matching reported data augmentations, optimizer settings, and loss formulations.
+- Train the model to convergence across 5 random seeds on a standard benchmark dataset, logging loss curves, validation metrics, and GPU memory utilization.
+Session 2 · Component ablation & scientific manuscript report
+- Conduct a rigorous ablation study isolating three core components: residual connections, normalization type (BatchNorm vs LayerNorm), and learning rate schedule.
+- Author a 6-page scientific reproduction report in LaTeX detailing methodology, empirical results tables with standard deviations, ablation analysis, and failure cases.
+Final result: A fully verified, reproducible PyTorch baseline implementation and a 6-page scientific reproduction paper suitable for submission to a reproducibility track.

@@ -57,15 +57,15 @@ If a level file is prose, extract this structure from it. Keep a single `levels.
 
 **Phase grouping** (use for visual structure and color banding on the map — this is the mental model of the path):
 
-| Phase              | Levels | Theme                                                                         |
-| ------------------ | ------ | ----------------------------------------------------------------------------- |
-| Research Foundations & Lab Onboarding | 0–3    | scientific computing, lab onboarding, literature search & applied statistics |
-| Data Curation & Modeling Paradigms    | 4–6    | domain datasets (medical/cyber), classical ML/CNNs, GNNs & Transformers       |
-| Generative Models & Experimental Science | 7–9    | generative diffusion/flow, controlled OFAT ablations & HPC cluster training  |
-| Scaled Systems, Trustworthy AI & Alignment | 10–12 | foundation models, XAI & interpretability, adversarial defense & safety     |
-| Cross-Disciplinary Research | 13 | multimodal cross-domain methodologies and collaborative studies |
-| Thesis & Research Portfolio | 14 | thesis-grade evidence, reproducibility, and research communication |
-| Publishing, Defense & Careers | 15 | journals, conferences, peer review, viva, interviews, and research careers |
+| Phase                    | Levels | Theme                                                                         |
+| ------------------------ | ------ | ----------------------------------------------------------------------------- |
+| Research Foundations     | 0–3    | scientific computing, lab onboarding, literature search & applied statistics |
+| Data & Modeling          | 4–6    | domain datasets (medical/cyber), classical ML, deep learning & reproduction   |
+| Architectures & Experiments | 7–9 | sequences, attention, GNNs, controlled ablations & generative models         |
+| Scaled Systems & LLMs    | 10–12  | HPC clusters, foundation models, alignment (RLHF/DPO) & AI agents             |
+| Trustworthy AI           | 13     | XAI, mechanistic interpretability, adversarial defense & safety audits        |
+| Thesis Scoping           | 14     | thesis topic formulation, prospectus, and multimodal research                 |
+| Publishing & Defense     | 15     | manuscripts, peer review rebuttals, thesis viva defense, and research careers |
 
 ---
 

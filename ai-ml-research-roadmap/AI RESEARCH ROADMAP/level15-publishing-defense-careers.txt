@@ -1,59 +1,87 @@
-Level 15 · Publication, Defense and Research Career
+Level 15 · Publishing & Thesis Defense
 
-Phase: Publishing, Thesis Defense & Research Careers
-Suggested duration: 27 sessions (~7 weeks)
+Phase: Publishing & Defense
+Suggested duration: 34 sessions (~8 weeks)
 Prerequisites: Level 14
-Scope: Convert research evidence into a clear manuscript, survive review and defense, and build the portfolio, interview skill, and professional habits needed for research employment.
+Scope: Master the complete academic research lifecycle: author top-tier manuscripts, select premier journals and conferences while avoiding predatory publishers, survive peer review and author point-by-point rebuttals, defend your thesis at the oral viva voce, and launch an academic or industrial research career.
 
-M15.1 · Manuscript, Figures and Open Science — (sessions: 5)
-- Write an abstract, introduction, related work, methods, results, limitations, and conclusion around one contribution.
-- Create accessible figures, uncertainty-aware tables, citations, supplementary material, and a reproducibility checklist.
-- Distinguish flagship and society journals, transactions, application journals, methods or survey journals, conferences, workshops, preprints, and artifact tracks.
-- Select a venue by scope, audience, review model, ethics policy, page limits, publication timeline, and realistic contribution fit.
-- Prepare a submission package with a cover letter, author contributions, conflict-of-interest statement, data/code availability, and responsible-use disclosure.
-Mental model: A paper is a compressed argument whose reader must be able to recover the question, evidence, and limits.
-Try: Rewrite the project as a six-page paper and ask a reader to summarize its claim without your help.
-Outcome: You can produce a clear, honest, submission-ready manuscript and artifact package.
+M15.1 · Research Paper Writing: The Anatomy of a Top-Tier Manuscript — (sessions: 5)
+Session 1 · Titles, abstracts & the introduction sales funnel
+- The 5-Sentence Abstract: Draft abstracts following the structured template: Context -> Problem -> Identified Gap -> Proposed Solution -> Primary Quantitative Finding.
+- The Introduction Funnel: Structure paper introductions as a persuasive funnel: broad domain significance -> why existing approaches fail -> core scientific insight -> explicit list of bulleted novel contributions.
+Session 2 · Methodology, experimental reporting & honest limitations
+- Mathematical Formalization: Present algorithms using formal mathematical notation, explicit objective functions, and pseudo-code algorithm blocks.
+- Experimental Section Writing: Author crystal-clear experimental setup sections, baseline configurations, and detailed reproducibility checklists.
+- Limitations & Broader Impact: Write transparent limitations and broader societal impact statements that preempt skeptical reviewer criticisms.
+Mental model: A research paper is not a chronological diary of what you did in the lab; it is an optimized, logical argument designed to convince a skeptical reviewer of a specific new truth.
+Try: Rewrite the introduction and abstract of an existing research paper into the 5-sentence abstract framework and introduction funnel, ensuring every contribution is explicitly claimed.
+Outcome: You can draft compelling, mathematically rigorous scientific manuscripts that structure arguments to maximize reviewer comprehension and enthusiasm.
 
-M15.2 · Peer Review, Rebuttal and Revision — (sessions: 5)
-- Review a paper for novelty, correctness, evidence, clarity, significance, ethics, and reproducibility.
-- Respond to reviews with a change table, evidence, clarifications, and respectful boundaries.
-- Revise claims when evidence is weaker than the original narrative and preserve a decision history.
-- Match the contribution to a suitable journal, conference, workshop, preprint, or artifact track using scope and review criteria.
-- Prepare a research statement, academic CV, portfolio walkthrough, and response rubric for exams, viva questions, and interviews.
-Mental model: Peer review is a structured conversation about the strength and limits of evidence.
-Try: Conduct a mock review and rebuttal round with three reviewers who disagree about the main claim.
-Outcome: You can improve research through criticism without becoming defensive or overstating results.
+M15.2 · Publication Venue Strategy: Conferences, Flagship Journals & Avoiding Predatory Publishers — (sessions: 5)
+Session 1 · Premier computer science conferences vs archival journals
+- Top-Tier AI/ML Conferences: Navigate submission cycles, formatting templates, and supplementary material policies for NeurIPS, ICML, ICLR, CVPR, ICCV, ECCV, ACL, EMNLP, KDD, and AAAI.
+- Premier Archival Journals: Evaluate flagship journals: IEEE TPAMI, Journal of Machine Learning Research (JMLR), Nature Machine Intelligence, Nature Communications, IEEE TNNLS, and ACM Computing Surveys.
+- Domain-Specific Venues: Target domain leaders: Medical Image Analysis (MedIA), IEEE TMI, IEEE Transactions on Dependable and Secure Computing (TDSC), and JAMIA.
+Session 2 · Spotting and avoiding predatory journals & paper mills
+- The Predatory Publishing Threat: Identify predatory publishers, hijacked journals, and paper mills that charge author fees without conducting legitimate peer review.
+- The Think-Check-Submit Protocol: Audit candidate journals against Beall's List criteria, verifying legitimate indexing in Web of Science, Scopus, DBLP, and Directory of Open Access Journals (DOAJ).
+- Red Flag Detection: Recognize fake metrics ("Global Impact Factor", "Universal Impact Factor"), fake editorial boards, unsolicited spam email solicitations, and implausible 48-hour acceptance promises.
+- Preprints & Open Science: Disseminate manuscripts via arXiv, navigate OpenReview public discussion norms, and understand copyright retention under CC-BY licensing.
+Mental model: Publishing in a predatory journal permanently taints your academic record; selecting a legitimate, peer-reviewed venue ensures your work enters the permanent scientific canon.
+Try: Conduct a full Think-Check-Submit audit on a suspicious email call-for-papers, verifying its ISSN, genuine indexing in Web of Science, and editorial board affiliations.
+Outcome: You can navigate top-tier AI conferences and flagship journals while systematically detecting and avoiding predatory publishers and paper mills.
 
-M15.3 · Publication Ethics and Submission Operations — (sessions: 3)
-- Prepare author contributions, conflicts, funding, data and code availability, ethics review, and responsible-use statements.
-- Manage versions, supplementary files, anonymization, cover letters, deadlines, and venue-specific formatting.
-Mental model: Publication is a transparent record of how a contribution was made and what it can support.
-Try: Assemble a complete submission package and audit it against a venue checklist.
-Outcome: You can submit research professionally without hiding process or limitations.
+M15.3 · Peer Review Mastery, Author Rebuttals & Reviewer Response Tables — (sessions: 5)
+Session 1 · The peer review process from the inside
+- Peer Review Mechanics: Understand the roles of Area Chairs (AC), Senior Metareviewers, and Reviewers; deconstruct reviewer scoring rubrics (Novelty, Soundness, Rigor, Clarity).
+- The Reviewer Mindset: Recognize reviewer cognitive biases: fatigue, skimming under tight deadlines, anchoring on minor flaws, and defensive skepticism toward radical claims.
+Session 2 · Author rebuttals & point-by-point response tables
+- The Psychology of Effective Rebuttals: Maintain an objective, appreciative, and respectful tone, avoiding defensive rhetoric or dismissive confrontation.
+- Point-by-Point Response Tables: Construct structured response dossiers: [Reviewer Query] -> [Author Clarification] -> [Concrete Action Taken & Exact Line Numbers in Revised Draft].
+- Emergency Rebuttal Experiments: Design, execute, and report requested baseline comparisons and ablation experiments within tight 1-week conference rebuttal windows.
+Mental model: A peer review rebuttal is not a debate you win by arguing; it is an objective evidentiary hearing where you provide data, code, and revisions that address reviewer concerns.
+Try: Simulate a conference rebuttal round: draft structured responses and additional ablation figures addressing three harsh reviewer critiques on an empirical manuscript.
+Outcome: You can navigate the peer review process, author professional point-by-point rebuttal tables, and execute emergency reviewer-requested experiments under tight deadlines.
 
-M15.4 · Thesis Defense, Job Talk and Research Interviews — (sessions: 5)
-- Defend motivation, novelty, design, results, limitations, and future work under unpredictable questions.
-- Prepare for qualifying exams and comprehensive exams with a concept map spanning mathematics, statistics, machine learning, research methods, and ethics.
-- Practice a viva voce with chapter-level questions, contribution defense, limitations, and an examiner response protocol.
-- Build a research talk, one-page research statement, academic CV, portfolio, and project walkthrough.
-- Practice coding, statistics, ML system design, paper discussion, research proposal, behavioral, and collaboration interviews.
-Mental model: A defense or interview tests reasoning under uncertainty, not memorization of every fact.
-Try: Record a twenty-minute job talk and complete a mock interview using follow-up questions and a structured rubric.
-Outcome: You can explain your research, solve unfamiliar problems, and show how you work with others.
+M15.4 · Dissertation Writing, LaTeX Typesetting & The Oral Thesis Defense (Viva Voce) — (sessions: 6)
+Session 1 · Comprehensive dissertation architecture & LaTeX typesetting
+- Dissertation Formatting: Structure a multi-chapter Master's or PhD dissertation (monograph vs cumulative/sandwich thesis of papers) using professional LaTeX templates.
+- Scientific Typesetting: Master BibTeX/Biber reference engines, booktabs professional tables, TikZ architectural diagrams, and microtype typography.
+Session 2 · Oral thesis defense (Viva Voce) preparation & simulation
+- Oral Defense Presentation: Design a 45-minute defense slide deck communicating motivation, methodology, empirical evidence, limitations, and future work.
+- Anticipating Hostile Questions: Prepare for challenging committee questions interrogating theoretical assumptions, baseline fairness, statistical significance, and negative results.
+- Viva Voce Protocol: Master strategies for responding to questions you cannot answer immediately: decomposing assumptions, discussing analogous mechanisms, and acknowledging bounds.
+Mental model: The oral thesis defense is not a test of perfection; it is a scholarly conversation where you demonstrate that you are an independent, intellectually honest scientist.
+Try: Deliver a 30-minute oral thesis defense simulation before a committee of peers, fielding aggressive methodological challenges and defending empirical conclusions.
+Outcome: You can typeset a professional doctoral dissertation in LaTeX and successfully defend your scientific research in an oral viva voce examination.
 
-M15.5 · Career Strategy, Mentorship and Long-Term Growth — (sessions: 4)
-- Compare research assistant, data scientist, ML engineer, PhD, postdoctoral, and research scientist pathways.
-- Build a targeted application list, networking message, reference plan, and portfolio evidence for each path.
-- Set a twelve-month learning and publication plan with feedback, health, ethics, and sustainable work practices.
-- Match the contribution to a suitable journal, conference, workshop, preprint, or artifact track using scope and review criteria.
-- Prepare a research statement, academic CV, portfolio walkthrough, and response rubric for exams, viva questions, and interviews.
-Mental model: A research career is a sequence of credible collaborations and questions, not a single title or publication count.
-Try: Create three role-specific application packets and request feedback from a mentor or experienced researcher.
-Outcome: You can choose a next step and present evidence that you are ready to grow into it.
+M15.5 · Research Ethics, Authorship Governance & Reproducibility Releases — (sessions: 4)
+Session 1 · Authorship ethics, ghost authors & CRediT compliance
+- Ethical Authorship: Enforce international guidelines against gift authorship, guest authorship, and ghost authorship; document exact contributions using the CRediT taxonomy.
+- Scientific Misconduct Prevention: Prevent data fabrication, falsification, p-hacking, selective reporting of positive seeds, and text recycling/self-plagiarism.
+Session 2 · Open science packaging & persistent artifact DOIs
+- Reproducible Artifact Packaging: Clean, document, and release complete codebases, trained model weights, evaluation scripts, and container recipes.
+- Persistent Scientific Archiving: Archive code and data repositories on Zenodo or OSF to obtain persistent Digital Object Identifiers (DOIs), and link with Papers with Code.
+Mental model: An empirical claim without public code and data is merely an advertisement; true science requires releasing the artifacts necessary for independent verification.
+Try: Package an empirical project into an open-source reproducibility bundle with automated reproduction scripts, license documentation, and an archived Zenodo DOI.
+Outcome: You can govern research authorship ethically and release permanent, citable open-science research artifacts with Zenodo DOIs.
 
-M15.6 · Capstone: Research Scientist Launch Portfolio — (sessions: 5)
-- Submit the final manuscript or thesis package, artifact documentation, defense slides, and research statement.
-- Complete a recorded defense and a full research interview loop, then revise from the rubric.
-- Publish a personal roadmap naming the next question, collaborators, skills, and evidence you will pursue.
-Final result: A complete research scientist portfolio connecting foundational learning, data science practice, independent evidence, publication, defense, and employment.
+M15.6 · Research Career Pathways: Postdoc, Faculty & Industrial Research Labs — (sessions: 4)
+Session 1 · Career trajectories: Academia vs industrial AI labs
+- Pathway Comparison: Compare career trajectories, funding models, intellectual freedom, and evaluation criteria across Academic Tenure-Track, Postdoctoral Fellowships, and Industrial Research Labs (Google DeepMind, FAIR, Microsoft Research, Anthropic).
+- Application Dossier Preparation: Author a compelling 3-5 page Research Statement articulating a coherent long-term scientific vision, an Academic CV, and a Teaching/Diversity Statement.
+Session 2 · Job talks & research scientist interview loops
+- The Job Talk: Structure an engaging 45-minute academic job talk communicating your past doctoral breakthroughs, methodological philosophy, and future 5-year funded research agenda.
+- Technical & Behavioral Interviews: Navigate research scientist interview loops: deep-dive ML theory screenings, coding assessments, research proposal discussions, and collaboration behavioral rounds.
+Mental model: A research career is a compounding portfolio of credible collaborations and meaningful questions, not a single title or publication count.
+Try: Author a formal 3-page Research Statement outlining your 3-year research program, and record a 15-minute condensed job talk presenting your flagship contribution.
+Outcome: You can navigate academic and industrial research career pathways, author competitive application dossiers, and deliver engaging job talks.
+
+M15.7 · Capstone: Camera-Ready Academic Manuscript, Thesis Defense Package & Rebuttal Dossier — (sessions: 5)
+Session 1 · Camera-ready manuscript compilation & artifact release
+- Compile a camera-ready, publication-formatted 9-page research manuscript in LaTeX following official conference/journal templates.
+- Package the complete open-source research artifact repository, including container files, trained weights, reproduction scripts, and a permanent Zenodo DOI link.
+Session 2 · Complete thesis defense & reviewer rebuttal package
+- Author a formal Reviewer Rebuttal Dossier featuring a point-by-point response table addressing multi-reviewer critique scenarios with supplementary experiment charts.
+- Finalize the complete 45-minute oral thesis defense presentation deck and deliver a recorded viva voce examination before an evaluative panel.
+Final result: A complete, professional research scientist launch portfolio comprising a camera-ready manuscript, open reproducibility artifact, reviewer rebuttal dossier, and thesis defense package.

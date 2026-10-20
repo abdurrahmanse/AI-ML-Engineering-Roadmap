@@ -1,56 +1,70 @@
-Level 1 · Mathematics for Data Science
+Level 1 · Mathematical Foundations
 
-Phase: Research Foundations & Lab Onboarding
-Suggested duration: 26 sessions (~6 weeks)
+Phase: Research Foundations
+Suggested duration: 29 sessions (~7 weeks)
 Prerequisites: Level 0
-Scope: Develop the algebra, functions, calculus, and linear algebra intuition required to understand models instead of treating libraries as magic.
+Scope: Master the linear algebra, multivariable vector calculus, matrix differentials, convex optimization, and first-order algorithms essential for deriving and analyzing AI/ML models from scratch.
 
-M1.1 · Algebra, Functions & Logarithms — (sessions: 4)
-- Manipulate equations, ratios, inequalities, powers, logarithms, and summations.
-- Read a function as an input-output rule and interpret slope, curvature, and scale.
-- Use units, orders of magnitude, and dimensional checks to catch impossible results.
-- Use dimensional analysis, numerical checks, and visualizations to catch incorrect derivations before they enter an experiment.
-- Connect each mathematical object to a modeling decision, an optimization behavior, and a measurable research consequence.
-Mental model: Mathematical notation is a compact language for describing relationships that code can execute.
-Try: Implement and plot linear, polynomial, exponential, and logarithmic functions, then explain where each is useful.
-Outcome: You can translate common quantitative statements between words, equations, plots, and Python.
+M1.1 · Vector Spaces, Linear Independence, Projections & Decompositions — (sessions: 5)
+Session 1 · Vector spaces, subspaces & orthogonality
+- Prerequisites & Foundations: Define vector spaces, subspaces, linear independence, basis, span, dimension, inner products, and orthogonality in Euclidean space.
+- Geometry & Projections: Compute vector projections onto subspaces, orthogonal complements, and execute Gram-Schmidt orthogonalization with geometric visualization.
+Session 2 · Matrix operations, rank & fundamental subspaces
+- Matrix Algebra: Connect matrix multiplication to linear transformations, change of basis, kernel/nullspace, and the Rank-Nullity Theorem.
+- Matrix Decompositions: Formulate Eigendecomposition of symmetric matrices, Singular Value Decomposition (SVD), spectral norm, and low-rank matrix approximations.
+Mental model: High-dimensional data points are vectors in geometric spaces; matrix transformations rotate, scale, and project this geometry into lower dimensions.
+Try: Implement SVD from scratch using the power iteration method for top singular vectors and verify against NumPy linalg svd on an image compression task.
+Outcome: You can manipulate high-dimensional geometric spaces, compute matrix decompositions, and derive low-rank approximations analytically.
 
-M1.2 · Linear Algebra & Geometry — (sessions: 5)
-- Represent vectors, matrices, tensors, basis changes, dot products, norms, and projections.
-- Derive matrix multiplication dimensions and use geometric language to explain distance and similarity.
-- Implement a small neural layer with NumPy and verify it against hand-calculated examples.
-- Use dimensional analysis, numerical checks, and visualizations to catch incorrect derivations before they enter an experiment.
-- Connect each mathematical object to a modeling decision, an optimization behavior, and a measurable research consequence.
-Mental model: Most machine-learning computation is geometry performed efficiently on batches of examples.
-Try: Build a visual notebook for projections, least squares, principal components, and cosine similarity.
-Outcome: You can follow the linear-algebra operations behind regression, embeddings, and neural networks.
+M1.2 · Multivariable Vector Calculus & Matrix Differential Calculus — (sessions: 5)
+Session 1 · Gradients, Jacobians, Hessians & Taylor approximations
+- Multivariable Differentiation: Compute partial derivatives, directional derivatives, gradient vectors, Jacobian matrices, and Hessian curvature matrices.
+- Multivariate Taylor Expansions: Construct first-order and second-order Taylor approximations to analyze local curvature and function approximations near stationary points.
+Session 2 · Matrix calculus conventions & computational graphs
+- Matrix Calculus Rules: Derive gradients of scalar loss functions with respect to vectors and matrices using numerator layout conventions and trace tricks.
+- Computation Graphs & Autograd: Trace forward-mode and reverse-mode automatic differentiation on directed graphs, calculating vector-Jacobian products (VJPs).
+Mental model: Matrix calculus allows us to calculate sensitivity across thousands of interacting parameters simultaneously along the tangent spaces of error surfaces.
+Try: Derive the analytical matrix gradient of a two-layer linear autoencoder loss function and verify the computation graph gradient with two-sided numerical finite differences.
+Outcome: You can calculate complex matrix derivatives, trace computational graphs, and verify analytical gradients numerically.
 
-M1.3 · Derivatives and Optimization Intuition — (sessions: 5)
-- Interpret derivatives, partial derivatives, gradients, Jacobians, and Hessians.
-- Apply the chain rule to a small computation graph and check gradients numerically.
-- Explain learning rate, local minima, conditioning, and why normalization affects optimization.
-- Use dimensional analysis, numerical checks, and visualizations to catch incorrect derivations before they enter an experiment.
-- Connect each mathematical object to a modeling decision, an optimization behavior, and a measurable research consequence.
-Mental model: Training adjusts parameters in directions that reduce a chosen error surface.
-Try: Implement gradient descent for a one-variable and two-variable function and compare step sizes.
-Outcome: You can explain and verify the calculus used to train predictive models.
+M1.3 · Convex Optimization Theory, Duality & Constraints — (sessions: 5)
+Session 1 · Convex sets, convex functions & subgradients
+- Convexity Analysis: Identify convex sets, convex functions, affine hulls, epigraphs, and apply Jensen's inequality to establish mathematical bounds.
+- Non-Smooth Optimization: Formulate subgradients and subdifferentials for non-differentiable points such as ReLU activations and L1-norm penalties.
+Session 2 · Constrained optimization, Lagrangian duality & KKT conditions
+- Constrained Formulations: Formulate primal optimization problems with inequality and equality constraints using Lagrange multipliers.
+- Duality & Optimality: Derive the Lagrange dual function, prove weak and strong duality under Slater's condition, and solve Karush-Kuhn-Tucker (KKT) conditions.
+Mental model: Convexity guarantees that any local minimum is a global minimum, providing rigorous theoretical guarantees for machine learning convergence.
+Try: Derive the Wolfe dual formulation and KKT conditions for a soft-margin Support Vector Machine by hand and solve the quadratic program using an analytical toy example.
+Outcome: You can determine function convexity, formulate Lagrangian duals, and apply KKT optimality conditions to constrained ML problems.
 
-M1.4 · Matrix Calculus and Automatic Differentiation — (sessions: 3)
-- Express Jacobians, Hessians, vector-Jacobian products, and matrix derivatives with correct shapes.
-- Verify an automatic-differentiation result with finite differences and diagnose numerical error.
-Mental model: Shape checks and independent derivatives are mathematical unit tests.
-Try: Derive and verify gradients for a two-layer network with a scalar loss.
-Outcome: You can inspect the calculus behind a training implementation.
+M1.4 · First-Order & Adaptive Optimization Algorithms — (sessions: 5)
+Session 1 · Gradient descent variants & momentum mechanics
+- Gradient Descent Dynamics: Analyze convergence rates of Batch Gradient Descent, Stochastic Gradient Descent (SGD), and mini-batch SGD on convex and non-convex surfaces.
+- Accelerated Methods: Implement classical momentum and Nesterov Accelerated Gradient (NAG) to dampen oscillations along high-curvature ravines.
+Session 2 · Adaptive learning rate optimizers & weight decay
+- Adaptive Optimizers: Derive and compare AdaGrad, RMSProp, Adam, and AdamW (decoupled weight decay) to handle sparse gradients and ill-conditioned curvatures.
+- Numerical Stability: Implement numerical guards including the log-sum-exp trick for stable softmax calculations, gradient clipping, and condition number audits.
+Mental model: Optimization is navigation across a high-dimensional loss terrain; adaptive algorithms adjust step sizes along each coordinate based on past gradient variance.
+Try: Build a simulation notebook comparing SGD, Momentum, RMSProp, and AdamW on ill-conditioned quadratic surfaces and the Rosenbrock function, tracking convergence steps.
+Outcome: You can select, implement, and tune first-order and adaptive optimizers while diagnosing numerical instability and ill-conditioning.
 
-M1.5 · Optimization Algorithms and Numerical Stability — (sessions: 3)
-- Compare batch, stochastic, and mini-batch gradient descent under different conditioning and step sizes.
-- Explain exploding updates, vanishing gradients, normalization, regularization, and stable log-domain computation.
-Mental model: Optimization is an experiment whose assumptions and failure modes must be measured.
-Try: Compare optimizers on a controlled loss surface and report convergence, sensitivity, and failure cases.
-Outcome: You can connect mathematical assumptions to optimization behavior.
+M1.5 · Paper Reading & Theoretical Verification in Optimization — (sessions: 4)
+Session 1 · Landmark optimization paper analysis
+- Seminal Paper Reading: Study Boyd & Vandenberghe (Convex Optimization), Kingma & Ba (Adam, 2014), and Loshchilov & Hutter (Decoupled Weight Decay / AdamW, 2017).
+- Research Questions: Investigate why L2 regularization fails in Adam without explicit decoupling, and how learning rate warmups stabilize early training dynamics.
+Session 2 · Numerical verification & ablation experiments
+- Analytical Verification: Write automated finite-difference gradient checkers to validate analytical derivations against numerical approximations (|f'(x) - f_num(x)| < 1e-6).
+- Optimization Ablations: Design an ablation comparing Adam with L2 regularization versus AdamW on generalization performance and parameter weight distributions.
+Mental model: Reading optimization papers requires checking their mathematical proofs against numerical simulations to verify where assumptions hold or break.
+Try: Replicate the core empirical finding of the AdamW paper on a small neural network, demonstrating that AdamW yields superior weight decay dynamics than standard Adam with L2 penalty.
+Outcome: You can critically read optimization literature, reproduce theoretical claims, and perform rigorous numerical verification.
 
-M1.6 · Capstone: Mathematical Model Notebook — (sessions: 6)
-- Derive ordinary least squares from a clearly stated objective and assumptions.
-- Implement the solution with NumPy and compare it with a trusted library.
-- Include plots, dimensional checks, numerical-gradient checks, and a plain-language explanation.
-Final result: A mathematical notebook that connects equations, geometry, optimization, code, and model behavior.
+M1.6 · Capstone: Numerical Optimization Engine & Convex Solver from Scratch — (sessions: 5)
+Session 1 · Architecture of a standalone numerical optimization solver
+- Build a standalone, object-oriented numerical optimization library in pure NumPy containing SGD with Nesterov momentum, AdamW, and L-BFGS.
+- Implement an automated computation graph engine supporting scalar and tensor automatic differentiation with reverse-mode vector-Jacobian products.
+Session 2 · Benchmarking, verification & technical report
+- Benchmark the solver across convex and non-convex test surfaces (Beale, Rosenbrock, Rastrigin), recording convergence rates, trajectory plots, and condition numbers.
+- Write a formal 4-page mathematical technical report documenting the derivation, convergence proofs, numerical verification checks, and experimental results.
+Final result: A fully functional, mathematically verified numerical optimization engine written from scratch, accompanied by a rigorous technical report and benchmark suite.

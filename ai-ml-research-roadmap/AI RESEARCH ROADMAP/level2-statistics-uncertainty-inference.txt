@@ -1,56 +1,71 @@
-Level 2 · Probability, Statistics & Uncertainty
+Level 2 · Probability & Statistics
 
-Phase: Research Foundations & Lab Onboarding
-Suggested duration: 26 sessions (~6 weeks)
+Phase: Research Foundations
+Suggested duration: 28 sessions (~7 weeks)
 Prerequisites: Level 1
-Scope: Learn to describe variation, estimate uncertainty, and distinguish a useful pattern from an accidental result.
+Scope: Master probability theory, statistical estimation, hypothesis testing, uncertainty quantification, non-parametric statistics, and multiple comparison corrections for rigorous scientific claims.
 
-M2.1 · Probability and Random Variables — (sessions: 4)
-- Work with events, conditional probability, independence, Bayes' rule, and random variables.
-- Interpret expectation, variance, covariance, common distributions, and sampling.
-- Simulate probability experiments and compare empirical frequencies with theoretical values.
-- Report uncertainty with confidence or credible intervals, effect sizes, and the assumptions behind each estimate.
-- Distinguish exploratory patterns from confirmatory tests and document multiple-comparison and sampling decisions.
-Mental model: Probability is a language for reasoning when observations and outcomes are uncertain.
-Try: Simulate a clinical screening example and show how base rates change the meaning of a positive test.
-Outcome: You can model uncertainty and explain conditional reasoning without relying on slogans.
+M2.1 · Probability Spaces, Random Variables & Probability Distributions — (sessions: 5)
+Session 1 · Foundations of probability & Bayes' Theorem
+- Probability Axioms: Formulate sample spaces, events, Kolmogorov's axioms of probability, joint distributions, marginalization, and conditional probability.
+- Bayesian Inference Foundations: Apply Bayes' Theorem to update prior beliefs into posterior distributions given empirical likelihood observations.
+Session 2 · Parametric distributions & moment generating functions
+- Discrete & Continuous Distributions: Characterize Bernoulli, Binomial, Poisson, Gaussian/Normal, Beta, Dirichlet, Gamma, and Student's t distributions.
+- Moments & Expectation: Calculate expectation, variance, covariance matrices, skewness, kurtosis, and derive properties using Moment Generating Functions (MGFs).
+Mental model: Probability models quantify our uncertainty about the world before data is observed, providing mathematical structures to interpret empirical phenomena.
+Try: Implement a probability distribution workbench in Python that fits parametric distributions to skewed real-world data and evaluates goodness-of-fit via QQ-plots.
+Outcome: You can formalize uncertain processes with appropriate probability distributions and derive analytical expectations and variances.
 
-M2.2 · Estimation, Intervals & Hypothesis Tests — (sessions: 5)
-- Construct point estimates, bootstrap intervals, confidence intervals, and practical effect sizes.
-- State null and alternative hypotheses, choose a test, and report assumptions and limitations.
-- Separate statistical significance, practical importance, and the number of comparisons being made.
-- Report uncertainty with confidence or credible intervals, effect sizes, and the assumptions behind each estimate.
-- Distinguish exploratory patterns from confirmatory tests and document multiple-comparison and sampling decisions.
-Mental model: An estimate without uncertainty is an incomplete scientific claim.
-Try: Bootstrap the difference in two model accuracies and write a result paragraph with an interval.
-Outcome: You can quantify uncertainty and report statistical comparisons responsibly.
+M2.2 · Information Theory, Entropy & Divergence Measures — (sessions: 5)
+Session 1 · Information measures, entropy & mutual information
+- Information Measures: Define self-information, Shannon entropy for discrete variables, and differential entropy for continuous distributions.
+- Mutual Information: Compute joint entropy, conditional entropy, and mutual information to quantify non-linear dependencies between random variables.
+Session 2 · Divergence metrics & cross-entropy
+- Relative Entropy: Derive Kullback-Leibler (KL) divergence, prove non-negativity via Jensen's inequality, and analyze asymmetric information geometry.
+- Symmetric Metrics: Compare cross-entropy loss, Jensen-Shannon divergence, and Wasserstein distance for measuring statistical distance between probability densities.
+Mental model: Entropy measures the inherent surprise or information content of a distribution; divergence measures the informational cost of approximating reality.
+Try: Code an interactive information theory visualizer calculating KL divergence between two multivariate Gaussians as their covariance matrices shift.
+Outcome: You can apply information-theoretic metrics to measure distribution divergence, loss functions, and non-linear feature dependencies.
 
-M2.3 · Experimental Data Analysis — (sessions: 5)
-- Use pandas and visualization to inspect distributions, missingness, outliers, and subgroup differences.
-- Detect selection bias, confounding, leakage, survivorship bias, and Simpson's paradox.
-- Choose train, validation, and test splits before looking at test outcomes.
-- Report uncertainty with confidence or credible intervals, effect sizes, and the assumptions behind each estimate.
-- Distinguish exploratory patterns from confirmatory tests and document multiple-comparison and sampling decisions.
-Mental model: Analysis decisions are part of the experiment and must be recorded before results are known.
-Try: Audit a public dataset, create a data-quality report, and list threats to validity before modeling.
-Outcome: You can turn raw observations into a defensible exploratory and statistical analysis.
+M2.3 · Point Estimation, Maximum Likelihood & Bayesian Estimation — (sessions: 5)
+Session 1 · Maximum Likelihood Estimation (MLE) & properties
+- Likelihood Principles: Formulate likelihood and log-likelihood functions for Gaussian and Bernoulli models; derive analytical and numerical MLE parameters.
+- Estimator Properties: Prove unbiasedness, asymptotic consistency, efficiency, Fisher Information, and the Cramér-Rao Lower Bound.
+Session 2 · Maximum A Posteriori (MAP) & conjugate priors
+- Bayesian Point Estimation: Formulate Maximum A Posteriori (MAP) estimation, connecting Gaussian priors to L2 weight decay and Laplace priors to L1 penalties.
+- Conjugate Priors: Derive analytical posterior updates using conjugate prior pairs (Beta-Binomial, Dirichlet-Multinomial, Normal-Normal).
+Mental model: Point estimation searches for parameter values that make observed data most probable, balanced against prior regularizing constraints.
+Try: Derive the MLE and MAP estimates for a linear regression model from first principles, code both solutions in NumPy, and verify that MAP regularizes noisy coefficients.
+Outcome: You can formulate, derive, and analyze Maximum Likelihood and Bayesian Maximum A Posteriori estimators for arbitrary statistical models.
 
-M2.4 · Sampling, Resampling and Power — (sessions: 3)
-- Explain sampling frames, selection bias, clustered observations, dependence, and statistical power.
-- Use bootstrap, permutation, and simulation to understand uncertainty when parametric assumptions are weak.
-Mental model: Precision is limited by the information in the sample, not by the confidence of the analyst.
-Try: Simulate a small study and show how sample size, effect size, and variance change its conclusions.
-Outcome: You can design an analysis that makes uncertainty and power visible.
+M2.4 · Hypothesis Testing, Non-Parametric Statistics & Power Analysis — (sessions: 5)
+Session 1 · Null hypothesis testing & parametric comparisons
+- Hypothesis Frameworks: Formulate Null and Alternative Hypotheses (H0, H1), define Type I error rate (alpha) and Type II error rate (beta).
+- Parametric Tests: Execute Student's t-test, paired t-test, and ANOVA, verifying normality via Shapiro-Wilk and homoscedasticity via Levene's test.
+Session 2 · Non-parametric tests & multiple comparison corrections
+- Non-Parametric Benchmarking: Execute the Wilcoxon signed-rank test and Mann-Whitney U test on algorithm comparisons without assuming normal distributions.
+- Multiple Testing Adjustments: Control Family-Wise Error Rate (FWER) with Bonferroni and Holm-Bonferroni, and control False Discovery Rate (FDR) with Benjamini-Hochberg.
+- Statistical Power & Effect Sizes: Conduct a priori power calculations to determine necessary sample sizes and report Cohen's d alongside p-values.
+Mental model: A p-value is not a measure of effect size or importance; statistical rigor requires reporting effect magnitudes, confidence bounds, and sample power.
+Try: Simulate a multi-model benchmark experiment with 10 competing algorithms across 20 datasets, apply Benjamini-Hochberg FDR correction, and detect false discovery spikes.
+Outcome: You can design statistically sound benchmark evaluations, select appropriate non-parametric tests, and apply rigorous multiplicity adjustments.
 
-M2.5 · Bayesian Reasoning and Decision Analysis — (sessions: 3)
-- Use priors, likelihoods, posterior uncertainty, and posterior predictive checks for research decisions.
-- Compare Bayesian and frequentist interpretations without treating either as a universal substitute.
-Mental model: Inference updates what is plausible; it does not turn assumptions into facts.
-Try: Build a simple posterior model and explain how its conclusion changes under reasonable priors.
-Outcome: You can communicate uncertainty as a decision-relevant distribution.
+M2.5 · Resampling, Bootstrap Confidence Intervals & Conformal Prediction — (sessions: 4)
+Session 1 · Empirical bootstrapping & permutation testing
+- Non-Parametric Bootstrap: Generate empirical bootstrap sampling distributions to construct 95% BCa (bias-corrected accelerated) confidence intervals for non-linear metrics.
+- Permutation Tests: Execute two-sample permutation tests to determine whether performance differences between two models could arise purely by chance.
+Session 2 · Conformal prediction & distribution-free coverage
+- Conformal Prediction Principles: Formulate non-conformity scores and construct prediction intervals with distribution-free, finite-sample marginal coverage guarantees (1 - alpha).
+- Uncertainty Calibration: Evaluate predictive interval width versus coverage trade-offs on regression and classification benchmarks.
+Mental model: Bootstrapping allows us to quantify parameter and metric uncertainty directly from data without making unrealistic Gaussian assumptions.
+Try: Implement a bootstrap confidence interval calculator for F1-score and AUROC on an imbalanced classification test set and compare against naive normal approximations.
+Outcome: You can compute distribution-free confidence intervals via bootstrapping and construct guaranteed prediction intervals using conformal prediction.
 
-M2.6 · Capstone: Uncertainty and Bias Audit — (sessions: 6)
-- Select a public dataset and define a population, sampling process, outcome, and estimand.
-- Produce an exploratory report with uncertainty intervals, subgroup checks, and a pre-analysis plan.
-- Explain which conclusions are supported, which are tentative, and which cannot be made.
-Final result: A transparent statistical audit that demonstrates scientific caution, reproducible analysis, and honest limits.
+M2.6 · Capstone: Statistical Rigor & Hypothesis Testing Audit Package — (sessions: 4)
+Session 1 · Engineering a comprehensive statistical evaluation toolkit
+- Build a Python library providing automated hypothesis testing (paired Wilcoxon, Mann-Whitney, Friedman test with Nemenyi post-hoc).
+- Integrate non-parametric bootstrap confidence interval estimation (percentile and BCa), Cohen's d effect sizes, and Benjamini-Hochberg FDR adjustments.
+Session 2 · Benchmarking audit & scientific paper reporting
+- Run an empirical audit on a published machine learning benchmark table, identifying uncorrected p-values, reporting true confidence intervals, and verifying statistical significance.
+- Produce a publication-ready LaTeX table and statistical significance critical difference diagram (Demšar plot).
+Final result: An open-source, automated statistical testing and uncertainty audit package suitable for evaluating and reporting empirical AI/ML research benchmarks.

@@ -1,56 +1,71 @@
-Level 3 · Research Literacy and Problem Formulation
+Level 3 · Research Literacy & Gaps
 
-Phase: Research Foundations & Lab Onboarding
-Suggested duration: 26 sessions (~6 weeks)
+Phase: Research Foundations
+Suggested duration: 28 sessions (~7 weeks)
 Prerequisites: Level 2
-Scope: Learn how research questions are discovered, evaluated, scoped, and communicated before a model is selected.
+Scope: Master the methodology of scholarly literature search, critical paper reading, taxonomy synthesis, research gap identification, hypothesis formulation, and preregistered proposal authoring.
 
-M3.1 · Finding and Reading Research Papers — (sessions: 5)
-- Search scholarly databases, follow citation graphs, and record inclusion and exclusion decisions.
-- Read papers in passes: claim and structure, method and evidence, then limitations and reproduction details.
-- Maintain a literature matrix containing question, data, method, comparison, result, and unresolved issue.
-- Use a literature matrix, citation graph, and claim-evidence table to distinguish established results from open questions.
-- Write a preregistered research plan with primary outcomes, alternative explanations, stop conditions, and an analysis plan.
-Mental model: A paper is an argument supported by evidence, not a list of fashionable techniques.
-Try: Read five papers on one question and create a one-page evidence map with disagreements.
-Outcome: You can find relevant literature and explain what a paper actually establishes.
+M3.1 · Systematic Literature Search & Bibliographic Management — (sessions: 5)
+Session 1 · Scholarly search engines & structured bibliographic querying
+- Academic Database Architecture: Execute advanced boolean and keyword search queries across arXiv, Google Scholar, Semantic Scholar, IEEE Xplore, ACM Digital Library, and PubMed.
+- Search String Formulation: Construct reproducible search strings combining MeSH terms, ACM CCS concepts, wildcards, and explicit field tags (ti, ab, auth).
+Session 2 · Citation graphing & Zotero BibTeX management
+- Citation Graph Traversal: Trace forward citations, backward references, and co-citation networks using Connected Papers, Litmaps, and ResearchRabbit.
+- Reference Management: Organize references in Zotero, automate metadata extraction from DOIs, generate standardized BibTeX citation keys, and manage LaTeX bibliographies.
+Mental model: A literature search is an exhaustive empirical query across the global scientific record; missing relevant prior work invalidates claims of novelty.
+Try: Build a standardized search string for an open machine learning topic, retrieve 50 candidate papers across three databases, and export an annotated BibTeX file.
+Outcome: You can systematically discover scholarly literature, navigate citation graphs, and maintain an organized BibTeX reference repository.
 
-M3.2 · Questions, Hypotheses & Research Designs — (sessions: 5)
-- Turn a broad interest into a specific, measurable, falsifiable research question.
-- Define variables, estimands, baselines, success criteria, and plausible alternative explanations.
-- Match exploratory, observational, experimental, and qualitative designs to the question.
-- Use a literature matrix, citation graph, and claim-evidence table to distinguish established results from open questions.
-- Write a preregistered research plan with primary outcomes, alternative explanations, stop conditions, and an analysis plan.
-Mental model: Good research narrows uncertainty by making competing explanations testable.
-Try: Convert an interesting model idea into three hypotheses and a preregistered experiment outline.
-Outcome: You can formulate research questions that are feasible, meaningful, and testable.
+M3.2 · Critical Paper Reading: The Three-Pass Method & Taxonomy Synthesis — (sessions: 5)
+Session 1 · The Three-Pass paper reading methodology
+- First Pass (Bird's Eye): Read title, abstract, section headings, and conclusions in 10 minutes to categorize the paper type, context, and core contribution.
+- Second Pass (Grasp Content): Examine figures, tables, mathematical formulations, and experimental setups, marking unverified assertions and missing baselines.
+- Third Pass (Deep Dissection): Mentally reconstruct the paper from scratch, identifying hidden assumptions, missing hyperparameters, and potential failure modes.
+Session 2 · Claim-evidence-limitation matrix & taxonomy synthesis
+- Evidence Auditing: Extract claims, dataset characteristics, evaluation metrics, and reported limitations into a structured Claim-Evidence-Limitation Matrix.
+- Methodological Taxonomy: Synthesize competing papers into an overarching taxonomy tree categorizing approaches by inductive biases, objectives, and compute budgets.
+Mental model: A scientific paper is not an authoritative textbook; it is a persuasive argument supported by empirical evidence that must be cross-examined with skepticism.
+Try: Read a landmark AI paper using the Three-Pass Method, construct a Claim-Evidence Matrix, and identify two unstated assumptions or potential baseline weaknesses.
+Outcome: You can critically evaluate scientific manuscripts in under an hour and organize competing literature into rigorous methodological taxonomies.
 
-M3.3 · Reproducibility, Ethics & Collaboration — (sessions: 4)
-- Use research logs, data statements, code review, preregistration, and artifact checklists.
-- Explain informed consent, privacy, intellectual property, authorship, conflicts of interest, and dual use.
-- Give and receive feedback using a claim-evidence-limitation structure.
-- Use a literature matrix, citation graph, and claim-evidence table to distinguish established results from open questions.
-- Write a preregistered research plan with primary outcomes, alternative explanations, stop conditions, and an analysis plan.
-Mental model: Trust is an engineering property built through transparent choices and accountable collaboration.
-Try: Review a peer's project proposal and request evidence for every major claim.
-Outcome: You can participate in a research group with ethical judgment and reproducible habits.
+M3.3 · Identifying Research Gaps & Scoping Original Contributions — (sessions: 5)
+Session 1 · The anatomy of genuine scientific research gaps
+- Gap Typology: Distinguish genuine research gaps (contradictory empirical findings, untested distribution shifts, compute bottlenecks) from trivial engineering deltas.
+- Questioning Unstated Assumptions: Interrogate foundational assumptions in current state-of-the-art methods (e.g. i.i.d. data, stationary distributions, infinite compute).
+Session 2 · The Delta Analysis & contribution scoping
+- Delta Analysis Framework: Formalize the exact difference between the state-of-the-art and your proposed idea across architecture, loss, efficiency, and guarantees.
+- Research Scope Bounding: Narrow a broad research interest into a feasible, high-impact investigation that can be completed within available computational and time budgets.
+Mental model: Great research does not invent problems; it discovers unresolved tensions, contradictory findings, or unexamined assumptions in existing literature.
+Try: Conduct a Delta Analysis comparing three recent papers in a specific subfield, author a 1-page gap analysis, and articulate one high-leverage question they leave unresolved.
+Outcome: You can identify legitimate research gaps in published literature and scope an original, feasible contribution.
 
-M3.4 · Scholarly Search, Synthesis and Citation Practice — (sessions: 3)
-- Search scholarly databases with controlled vocabulary, citation chaining, and explicit inclusion criteria.
-- Synthesize disagreements by comparing claims, data, methods, assumptions, and evidence instead of counting citations.
-Mental model: A literature review is an argument about evidence, not a catalogue of paper summaries.
-Try: Build a claim-evidence matrix for one research question and identify three unresolved tensions.
-Outcome: You can explain the state of knowledge and the gap your study addresses.
+M3.4 · Formulating Research Questions, Hypotheses & Preregistration — (sessions: 5)
+Session 1 · Falsifiable research questions & operational hypotheses
+- Question Formulation: Transform vague research goals into precise, measurable, and falsifiable Research Questions (RQ1: Efficacy, RQ2: Efficiency, RQ3: Generalization).
+- Hypothesis Operationalization: Define the Null Hypothesis (H0) and Alternative Hypothesis (H1), establishing clear quantitative criteria for hypothesis rejection.
+Session 2 · Confirmatory vs exploratory studies & OSF preregistration
+- Study Design Rigor: Separate confirmatory hypothesis testing from post-hoc exploratory data mining to eliminate confirmation bias and HARKing (Hypothesizing After Results are Known).
+- Open Science Preregistration: Write a formal study preregistration protocol on the Open Science Framework (OSF) specifying primary metrics, baselines, and stopping rules.
+Mental model: If an experiment cannot fail or disprove your initial hypothesis, it is not an experiment—it is a demonstration.
+Try: Author a preregistered study plan on OSF for a proposed model comparison, specifying primary metrics, minimum effect size, random seeds, and statistical test protocols.
+Outcome: You can formulate falsifiable research questions, operationalize testable hypotheses, and author formal study preregistrations.
 
-M3.5 · Research Proposal, Preregistration and Ethics — (sessions: 3)
-- Write hypotheses, estimands, primary outcomes, risks, analysis choices, and decision gates before data collection.
-- Identify consent, privacy, authorship, conflicts, dual use, and responsible-release requirements.
-Mental model: A proposal is a contract between the question, the evidence, and the people affected by the study.
-Try: Have a peer challenge your protocol and record every revision and reason.
-Outcome: You can start a study with a feasible, ethical, and reviewable protocol.
+M3.5 · Research Ethics, Authorship Governance & Responsible Conduct — (sessions: 4)
+Session 1 · Ethical compliance, IRB & dual-use risks
+- Institutional Governance: Determine when an AI study requires Institutional Review Board (IRB) human-subjects approval (e.g. crowdsourced evaluations, medical data).
+- Dual-Use & Societal Impact: Evaluate dual-use research of concern (DURC), potential malicious misuse, security vulnerabilities, and societal harms.
+Session 2 · Authorship criteria, CRediT taxonomy & conflicts of interest
+- Scientific Authorship Standards: Apply ICMJE and IEEE guidelines to determine authorship versus acknowledgments, eliminating honorary or gift authorship.
+- CRediT Taxonomy: Assign transparent contributor roles (Conceptualization, Methodology, Software, Validation, Formal Analysis, Writing) and disclose funding sources and conflicts.
+Mental model: Scientific integrity is the foundational currency of research; ethical shortcuts compromise personal credibility and the reproducibility of the scientific record.
+Try: Complete an ethics and reproducibility self-audit for a proposed AI study, documenting data consent protocols, compute footprint disclosures, and a CRediT contributor matrix.
+Outcome: You can navigate research ethics, ensure regulatory and IRB compliance, and govern authorship according to international scientific standards.
 
-M3.6 · Capstone: Literature Review and Research Proposal — (sessions: 6)
-- Select a tractable data-science question and synthesize at least ten relevant sources.
-- Write a proposal containing motivation, gap, hypotheses, data plan, methods, evaluation, risks, and timeline.
-- Defend the proposal in a short presentation and revise it from recorded feedback.
-Final result: A research proposal that turns a beginner's interest into a feasible, evidence-aware study.
+M3.6 · Capstone: PRISMA-Compliant Literature Review & Preregistered Proposal — (sessions: 4)
+Session 1 · Authoring a PRISMA-compliant systematic review
+- Conduct a formal systematic literature review following PRISMA 2020 guidelines, including an identification, screening, eligibility, and inclusion flow diagram.
+- Construct a comprehensive comparative taxonomy matrix evaluating 20+ recent publications along dataset, baseline, metric, compute, and limitation axes.
+Session 2 · Authoring and defending the formal research proposal
+- Write a 6-page formal research proposal including Abstract, Motivation, Related Work Taxonomy, Gap Analysis, Specific Hypotheses, Proposed Methodology, and Work Plan.
+- Deliver a 15-minute mock proposal defense before a peer review panel, defend the study design against skepticism, and revise the protocol from feedback.
+Final result: A submission-ready PRISMA systematic literature survey and a peer-defended, preregistered research proposal with an auditable experimental protocol.

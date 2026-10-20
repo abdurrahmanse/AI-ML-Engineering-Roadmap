@@ -1,56 +1,70 @@
-Level 10 · Research Systems, MLOps and Scaling
+Level 10 · Scaled Systems & HPC
 
-Phase: Scaled Systems, Trustworthy AI & Alignment
-Suggested duration: 30 sessions (~7 weeks)
+Phase: Scaled Systems & LLMs
+Suggested duration: 32 sessions (~8 weeks)
 Prerequisites: Level 9
-Scope: Move from notebooks to reliable research systems that can run, scale, observe, and be reproduced by a team.
+Scope: Scale research experiments from single GPUs to high-performance computing clusters: master SLURM workload management, multi-GPU distributed parallelism (DDP, FSDP, ZeRO, Megatron-LM), hardware profiling, and Model FLOPs Utilization (MFU).
 
-M10.1 · Packaging, Testing and Data Pipelines — (sessions: 5)
-- Package a research project with locked dependencies, configuration, unit tests, data checks, and continuous integration.
-- Separate exploration, reusable library code, training, evaluation, and reporting.
-- Make pipelines resumable, cacheable, observable, and safe to rerun.
-- Automate experiment configuration, artifact lineage, checkpointing, monitoring, and recovery across local and cluster runs.
-- Report compute budget, hardware utilization, wall-clock time, energy or cost assumptions, and scaling bottlenecks.
-Mental model: Research software is an instrument whose failure modes must be tested like a laboratory device.
-Try: Convert a notebook experiment into a tested command-line pipeline with one-command reproduction.
-Outcome: You can turn exploratory code into maintainable research software.
+M10.1 · High-Performance Computing (HPC) Architecture & SLURM Job Scheduling — (sessions: 5)
+Session 1 · Supercomputing hardware topologies & interconnects
+- HPC Infrastructure: Understand cluster topology: login nodes, compute nodes, high-speed InfiniBand fabrics (RoCE, HDR/NDR), NVLink/NVSwitch meshes, and parallel filesystems (Lustre, GPFS).
+- Environment Modules & Containers: Manage cluster modules (module load cuda), build Apptainer/Singularity container images, and execute non-root GPU containers.
+Session 2 · SLURM workload management & batch scripting
+- SBATCH Directives: Author production SLURM scripts specifying nodes, tasks per node, GPUs, CPUs per task, memory allocations, partition queues, and wall-time limits.
+- Job Array Sweeps & Preemption: Configure SLURM job arrays for parallel hyperparameter sweeps and implement automated checkpoint recovery for pre-emptible spot instances.
+Mental model: An HPC cluster is a shared, constrained supercomputing engine; every batch script must maximize node utilization and withstand sudden preemption gracefully.
+Try: Author a parameterized SLURM submission script that launches a 10-node parameter sweep with automatic retry logic and log redirection into separate experiment directories.
+Outcome: You can orchestrate scientific experiments on shared HPC clusters and write fault-tolerant SLURM batch scripts.
 
-M10.2 · Experiment Operations and Model Serving — (sessions: 5)
-- Track datasets, configurations, runs, artifacts, checkpoints, and lineage in an experiment registry.
-- Measure latency, throughput, memory, cost, and reliability for batch and online inference.
-- Add data validation, model monitoring, rollback, and incident documentation.
-- Automate experiment configuration, artifact lineage, checkpointing, monitoring, and recovery across local and cluster runs.
-- Report compute budget, hardware utilization, wall-clock time, energy or cost assumptions, and scaling bottlenecks.
-Mental model: A model is only useful when its behavior remains observable after it leaves the notebook.
-Try: Serve a small model behind an API and measure performance, failure responses, and resource use.
-Outcome: You can operate a model experiment and report its engineering as well as scientific performance.
+M10.2 · Multi-GPU Distributed Data Parallelism: DDP, FSDP & ZeRO — (sessions: 6)
+Session 1 · Distributed Data Parallel (DDP) mechanics
+- Collective Communications: Formulate ring-allreduce, all-gather, reduce-scatter, and broadcast operations via NCCL across multi-GPU nodes.
+- PyTorch DDP: Implement DistributedDataParallel with gradient bucketing, overlapping backward computation with inter-GPU gradient synchronization.
+Session 2 · Sharded data parallelism: DeepSpeed ZeRO & PyTorch FSDP
+- ZeRO Memory Optimizations: Deconstruct ZeRO-Stage 1 (optimizer state partitioning), ZeRO-Stage 2 (gradient partitioning), and ZeRO-Stage 3 (parameter partitioning).
+- Fully Sharded Data Parallel (FSDP): Configure PyTorch FSDP to shard model parameters, gradients, and optimizer states across GPUs, enabling multi-billion parameter model training.
+Mental model: Standard DDP replicates the entire model across all GPUs; FSDP shards model states across nodes, gathering parameters dynamically only when a layer computes.
+Try: Train a transformer model across multiple GPUs comparing vanilla DDP versus PyTorch FSDP, measuring per-GPU VRAM consumption and communication overhead.
+Outcome: You can configure and debug multi-GPU training using PyTorch DDP and scale large architectures across nodes using Fully Sharded Data Parallel (FSDP).
 
-M10.3 · GPUs, Distributed Training and Scaling Laws — (sessions: 5)
-- Profile input pipelines, memory, communication, utilization, and numerical precision.
-- Explain data parallelism, gradient accumulation, checkpointing, and distributed failure recovery.
-- Design scaling experiments that vary data, parameters, compute, and context without confounding them.
-- Automate experiment configuration, artifact lineage, checkpointing, monitoring, and recovery across local and cluster runs.
-- Report compute budget, hardware utilization, wall-clock time, energy or cost assumptions, and scaling bottlenecks.
-Mental model: Scaling is a measured systems experiment, not simply adding more hardware.
-Try: Run a controlled single-GPU and multi-GPU comparison and publish throughput, cost, and quality curves.
-Outcome: You can scale an experiment while preserving evidence about what changed and why.
+M10.3 · Advanced Model Parallelism: Tensor, Pipeline & 3D Parallelism — (sessions: 5)
+Session 1 · Tensor Parallelism (Megatron-LM)
+- Intra-Layer Partitioning: Implement Megatron-LM tensor parallelism by splitting linear layers across column-parallel and row-parallel matrix multiplications.
+- Communication Primitives: Trace forward and backward communication operators (conjugate f and g all-reduce primitives) within multi-head attention blocks.
+Session 2 · Pipeline Parallelism & 3D parallelism composition
+- Pipeline Scheduling: Partition transformer layers across GPUs sequentially, analyze pipeline bubbles, and implement 1F1B (one-forward-one-backward) scheduling.
+- 3D Parallelism: Compose Data Parallelism (DP), Tensor Parallelism (TP), and Pipeline Parallelism (PP) to train models exceeding the capacity of single-node memory.
+Mental model: When a single model cannot fit into the memory of one GPU, Tensor Parallelism splits individual layers across NVLink, while Pipeline Parallelism splits layers across nodes.
+Try: Configure a multi-GPU tensor-parallel training script in PyTorch that partitions a wide projection layer across two GPUs and verifies identical outputs to a single-GPU run.
+Outcome: You can explain tensor and pipeline parallelism, calculate pipeline bubble overhead, and configure 3D parallel distributed training.
 
-M10.4 · Cluster Scheduling and Distributed Experiment Design — (sessions: 3)
-- Use queues, resource requests, checkpointing, retries, and artifact stores on shared compute.
-- Separate data, model, and parallelism decisions and measure communication and utilization overhead.
-Mental model: Scale increases the cost of ambiguity, so operational design is part of experimental design.
-Try: Run a small parameter sweep with resumable jobs and a summary of failed and completed trials.
-Outcome: You can run experiments efficiently without losing provenance.
+M10.4 · Hardware Efficiency, Profiling & Model FLOPs Utilization (MFU) — (sessions: 6)
+Session 1 · Profiling compute bottlenecks with Nsight & PyTorch Profiler
+- Performance Profiling: Profile GPU kernels with NVIDIA Nsight Systems (nsys) and PyTorch Profiler, identifying CPU dispatch delays and CUDA stream stalls.
+- Memory vs Compute Bound: Apply the Roofline Model to classify operations as memory bandwidth bound (attention, normalization) versus compute bound (GEMM matrix multiplies).
+Session 2 · Calculating Theoretical Peak FLOPs & measuring MFU
+- Floating-Point Arithmetic: Calculate total theoretical FLOPs per training step based on model parameters, context length, and backward-pass multiplier (typically 6x FLOPs per token).
+- Model FLOPs Utilization (MFU): Calculate hardware MFU (achieved FLOPs / theoretical peak hardware FLOPs) and diagnose memory overhead and kernel launch latencies.
+Mental model: Raw throughput (tokens per second) is deceptive; Model FLOPs Utilization (MFU) measures how close your training execution is to the theoretical limits of the silicon.
+Try: Profile a transformer training run using PyTorch Profiler, export the Chrome trace JSON, identify GPU idle bubbles, and calculate the exact MFU percentage.
+Outcome: You can profile distributed training bottlenecks, apply the Roofline Model, and calculate verified Model FLOPs Utilization (MFU).
 
-M10.5 · Compute, Energy and Research Operations — (sessions: 3)
-- Report hardware, wall-clock time, memory, energy or cost assumptions, and carbon or access constraints.
-- Build dashboards for run status, data lineage, metrics, alerts, and reproducibility checks.
-Mental model: A research system should make expensive evidence easier to inspect, not merely faster to produce.
-Try: Create an experiment operations review that identifies one reliability and one efficiency improvement.
-Outcome: You can operate a research platform with transparent resource trade-offs.
+M10.5 · Research MLOps, Experiment Registries & Artifact Versioning — (sessions: 5)
+Session 1 · Centralized experiment tracking with Weights & Biases / MLflow
+- Experiment Observability: Log live training curves, learning rate dynamics, gradient norms, GPU VRAM, and system metrics using Weights & Biases (W&B) and MLflow.
+- Hyperparameter Sweeps: Configure automated distributed Bayesian hyperparameter sweeps connected directly to centralized dashboards.
+Session 2 · Data versioning & reproducible container pipelines
+- Data & Model Versioning: Version multi-gigabyte research datasets and model checkpoints using DVC (Data Version Control) backed by remote object storage (S3/GCS).
+- Scientific Artifact Packaging: Build reproducible CI/CD pipelines that automatically validate commit hashes, dependencies, and test suite results before training runs.
+Mental model: Research MLOps is laboratory hygiene at scale; without automated tracking, expensive multi-day cluster experiments become irreproducible black boxes.
+Try: Connect a multi-GPU training script to W&B, log live training loss, hardware MFU, and gradient norm histograms, and version the output checkpoint with DVC.
+Outcome: You can track distributed experiments with centralized registries, version large datasets with DVC, and manage research infrastructure professionally.
 
-M10.6 · Capstone: Reproducible Research Platform — (sessions: 9)
-- Build a template that provisions an environment, validates data, launches a tracked run, evaluates it, and exports a report.
-- Add failure recovery, resource limits, tests, and documentation for a new collaborator.
-- Demonstrate reproduction on a second machine or clean environment.
-Final result: A dependable research platform that supports collaboration, scaling, and artifact evaluation.
+M10.6 · Capstone: Multi-Node Distributed Training & MFU Profiling Suite on SLURM — (sessions: 5)
+Session 1 · Multi-GPU FSDP distributed training suite
+- Author a modular multi-GPU training suite leveraging PyTorch FSDP, gradient checkpointing, and mixed-precision (BF16) on a SLURM-managed multi-GPU environment.
+- Implement fault-tolerant checkpointing that automatically saves sharded model states and resumes seamlessly upon job interruption or node preemption.
+Session 2 · Comprehensive hardware profiling & systems benchmark report
+- Profile the training harness using PyTorch Profiler and Nsight Systems, computing achieved TFLOPs and hardware MFU across varying batch sizes and context lengths.
+- Author a 6-page systems research paper documenting scaling efficiency, communication overhead, MFU benchmarks, and step-by-step reproduction instructions.
+Final result: A production-ready, fault-tolerant distributed training platform on SLURM complete with a verified Model FLOPs Utilization (MFU) audit and technical report.

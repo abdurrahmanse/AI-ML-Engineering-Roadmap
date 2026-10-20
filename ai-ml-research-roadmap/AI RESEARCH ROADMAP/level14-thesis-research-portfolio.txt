@@ -1,49 +1,72 @@
-Level 14 · Thesis-Grade Research Portfolio
+Level 14 · Multimodal & Thesis Scoping
 
-Phase: Cross-Disciplinary Research & Capstones
+Phase: Thesis Scoping
 Suggested duration: 35 sessions (~9 weeks)
 Prerequisites: Level 13
-Scope: Execute one substantial research project from question and ethics review through implementation, evaluation, writing, presentation, and artifact release.
+Scope: Master multimodal foundation models (CLIP, LLaVA, Whisper), translate machine learning across scientific disciplines with domain experts, scope a high-impact thesis topic, conduct pilot feasibility studies, and defend a formal Thesis Prospectus.
 
-M14.1 · Proposal, Ethics and Pilot — (sessions: 7)
-- Finalize the question, hypotheses, related work, data plan, risk assessment, and success criteria.
-- Complete required permissions, consent or licensing checks, and a reproducibility plan.
-- Run a pilot that tests feasibility, data quality, compute needs, and the possibility of a meaningful result.
-- Maintain a complete provenance trail from raw input and configuration to every table, figure, claim, and released artifact.
-- Ask an independent reader to reproduce a result and revise the study when the evidence does not support the original claim.
-Mental model: The pilot is valuable even when it disproves the original plan because it prevents expensive invalid work.
-Try: Hold a proposal defense with two reviewers and revise the protocol before collecting final evidence.
-Outcome: You can begin a thesis-grade project with a defensible protocol and explicit decision gates.
+M14.1 · Multimodal Foundation Models: CLIP, Vision-Language & Audio Architectures — (sessions: 6)
+Session 1 · Contrastive vision-language pretraining: CLIP & SigLIP
+- Dual-Encoder Architecture: Deconstruct CLIP (Contrastive Language-Image Pretraining): image encoder (ViT) and text encoder (Transformer) projecting into a shared latent space.
+- Symmetric InfoNCE Loss: Derive the symmetric cross-entropy contrastive loss over N x N image-text pairs; implement zero-shot classification using prompt embeddings.
+- SigLIP Modernization: Contrast CLIP's softmax normalization with SigLIP's pairwise sigmoid loss, analyzing memory scaling and batch-size independence.
+Session 2 · Autoregressive Vision-Language Models (VLMs): LLaVA & BLIP-2
+- Multimodal Projectors: Implement LLaVA (Large Language and Vision Assistant), projecting frozen ViT patch tokens through a linear or MLP adapter into an autoregressive LLM.
+- Cross-Attention Fusion: Compare linear projections against BLIP-2's Q-Former (querying transformer) and Flamingo's gated cross-attention layers.
+- Audio & Speech Processing: Deconstruct Whisper's encoder-decoder transformer architecture for robust multitask speech recognition and translation.
+Mental model: Multimodal models bind heterogeneous sensory modalities into a unified semantic representation space, translating visual and auditory patterns into language tokens.
+Try: Build a minimal LLaVA visual-question-answering pipeline in PyTorch, projecting image features from a frozen CLIP vision backbone into an open LLM prompt stream.
+Outcome: You can formulate contrastive multimodal objectives, implement visual projection adapters, and configure Vision-Language Models for multimodal inference.
 
-M14.2 · Implementation and Evidence Collection — (sessions: 9)
-- Implement the method, baselines, data pipeline, logging, tests, and evaluation scripts as one tracked project.
-- Run planned experiments before exploratory analyses, then label post-hoc discoveries clearly.
-- Preserve raw artifacts, configurations, seeds, compute logs, and negative results.
-- Maintain a complete provenance trail from raw input and configuration to every table, figure, claim, and released artifact.
-- Ask an independent reader to reproduce a result and revise the study when the evidence does not support the original claim.
-Mental model: Evidence is only interpretable when its provenance and selection process are visible.
-Try: Run a complete experiment batch from a clean environment and reconstruct one result from stored artifacts.
-Outcome: You can execute a large study without losing the link between claims and evidence.
+M14.2 · Cross-Disciplinary Research Translation & Real-World Validation — (sessions: 5)
+Session 1 · Working with non-ML domain experts
+- Interdisciplinary Co-Design: Partner with clinicians, cybersecurity analysts, structural biologists, or climate scientists to translate domain workflows into mathematical formulations.
+- Ground Truth Discrepancies: Identify discrepancies between clinical/domain reality and naive machine learning labels, avoiding surrogate metric fallacies.
+Session 2 · Regulatory compliance & clinical validation standards
+- Clinical AI Standards: Adhere to reporting guidelines (CONSORT-AI, SPIRIT-AI) and regulatory frameworks (FDA AI/ML Software as a Medical Device / SaMD guidance).
+- Prospective vs Retrospective Evidence: Differentiate retrospective historical benchmark evaluation from prospective clinical trials and shadow-deployment user studies.
+Mental model: In applied domain research, domain experts define clinical or scientific validity; model accuracy on an artificial benchmark is meaningless if it optimizes the wrong clinical proxy.
+Try: Co-design an evaluation protocol for an AI diagnostic tool with a domain practitioner, defining clinically meaningful failure criteria and an actionable human-in-the-loop escalation policy.
+Outcome: You can translate complex domain challenges into mathematically sound AI formulations and design regulatory-compliant validation protocols.
 
-M14.3 · Analysis, Limitations and Reproducibility — (sessions: 7)
-- Analyze effect sizes, uncertainty, subgroup behavior, robustness, and failure cases.
-- Separate primary, secondary, exploratory, and unsupported findings.
-- Package code, environment, data access instructions, model cards, and an artifact checklist.
-- Maintain a complete provenance trail from raw input and configuration to every table, figure, claim, and released artifact.
-- Ask an independent reader to reproduce a result and revise the study when the evidence does not support the original claim.
-Mental model: Limitations are part of the result because they define where the evidence stops.
-Try: Ask an independent reader to reproduce one table and one figure using only the released artifact.
-Outcome: You can audit your own conclusions and make a study usable by another researcher.
+M14.3 · Selecting a High-Impact Thesis Topic & Gap Identification — (sessions: 6)
+Session 1 · Strategies for thesis topic selection
+- The Venn Diagram of Thesis Topic Selection: Intersect personal intellectual curiosity, advisor expertise and grant funding, available compute and data resources, and community urgency.
+- Incremental vs Paradigm-Shifting Research: Distinguish incremental parameter tuning ("delta engineering") from high-leverage foundational contributions that resolve key bottlenecks.
+Session 2 · Systematic gap mapping & feasibility auditing
+- White Space Mapping: Construct an exhaustive literature taxonomy to uncover genuine white spaces in contemporary AI research that have been overlooked or prematurely abandoned.
+- Resource & Feasibility Audits: Calculate total required GPU compute hours, dataset access barriers, and institutional permissions before committing multi-year doctoral effort.
+Mental model: A thesis topic is a multi-year investment of your intellectual career; choosing an overcrowded or resource-infeasible problem guarantees frustration and low impact.
+Try: Conduct an exhaustive feasibility audit for three candidate thesis topics, scoring each on novelty, resource feasibility, data accessibility, and 5-year scientific relevance.
+Outcome: You can systematically evaluate potential thesis topics and select a defensible, high-leverage, resource-feasible research problem.
 
-M14.4 · Thesis Writing, Figures and Oral Communication — (sessions: 3)
-- Structure chapters around claims, methods, evidence, limitations, and contributions rather than a chronological lab diary.
-- Design accessible figures, tables, slides, and a plain-language summary for different audiences.
-Mental model: A thesis is a durable explanation of evidence that another researcher can interrogate.
-Try: Give a ten-minute talk, record questions, and revise one figure that caused confusion.
-Outcome: You can communicate a substantial study clearly in writing and speech.
+M14.4 · Designing Thesis Pilot Studies & Risk-Reducing Feasibility Experiments — (sessions: 6)
+Session 1 · Pilot study design & hypothesis falsification
+- The Scientific Purpose of a Pilot: Design focused, small-scale pilot experiments specifically engineered to test core assumptions and attempt to falsify your primary hypothesis quickly.
+- Downscaled Proof-of-Concepts: Execute downscaled experiments on synthetic data or subsampled benchmarks (e.g. 10% data on single GPU) to verify signal presence.
+Session 2 · Pilot data analysis & go/no-go decision gates
+- Signal-to-Noise Evaluation: Evaluate pilot results to determine whether the proposed mechanism yields sufficient empirical effect size to justify full-scale investigation.
+- The Thesis Pivot Protocol: Execute a formal pivot when pilot evidence fails to confirm the hypothesis, salvaging theoretical insights and redirecting methodology.
+Mental model: A failed pilot study is a tremendous scientific success if it prevents two years of wasted effort on an unworkable research direction.
+Try: Execute a 1-week pilot experiment testing the core mathematical assumption of a proposed method on a toy benchmark, producing a formal go/no-go evidence report.
+Outcome: You can design and execute downscaled pilot studies to test hypothesis feasibility before launching large-scale doctoral experiments.
 
-M14.5 · Capstone: Thesis or Conference Research Portfolio — (sessions: 9)
-- Deliver a paper-style manuscript, public or restricted artifact, presentation, and plain-language summary.
-- Defend the work through a mock committee review covering novelty, methods, evidence, limitations, and future work.
-- Revise the project after feedback and record the final contribution statement.
-Final result: A thesis-grade portfolio demonstrating independent research from initial question to defensible communication.
+M14.5 · Authoring the Formal Thesis Prospectus & Proposal Defense — (sessions: 6)
+Session 1 · Structuring the academic thesis prospectus
+- Dissertation Prospectus Anatomy: Author a comprehensive prospectus comprising Abstract, Problem Statement, Related Work Taxonomy, Proposed Methodology, Preliminary Pilot Results, Multi-Chapter Dissertation Outline, and Work Plan.
+- Chapter Scoping: Structure three cohesive research aims corresponding to the foundational baseline, the core methodological contribution, and the real-world domain translation.
+Session 2 · Committee formation & mock oral prospectus defense
+- Advisory Committee Strategy: Select and recruit thesis committee members with complementary theoretical, methodological, and domain expertise.
+- Prospectus Defense Presentation: Deliver a 30-minute formal prospectus presentation defending the novelty, methodology, and feasibility of the proposed dissertation before a skeptical panel.
+Mental model: The thesis prospectus is a binding intellectual contract between you and your doctoral committee, establishing the exact criteria required for final graduation.
+Try: Author a complete 15-page formal Thesis Prospectus, design a slide deck defending the three research aims, and participate in a mock committee oral examination.
+Outcome: You can author a comprehensive doctoral thesis prospectus and defend its scientific validity and feasibility before an academic advisory committee.
+
+M14.6 · Capstone: Multimodal Cross-Domain Research Study & Thesis Prospectus Defense — (sessions: 6)
+Session 1 · Execution of a multimodal cross-domain empirical study
+- Implement and evaluate a multimodal research system combining text, vision, and domain-specific telemetry (clinical EHR or network threat data) using cross-attention fusion.
+- Conduct a controlled ablation study demonstrating the unique empirical contribution of multimodal alignment over unimodal baselines under compute parity.
+Session 2 · Formal thesis prospectus dossier & oral defense
+- Compile a complete, committee-ready Thesis Prospectus package incorporating preliminary pilot results, a 3-chapter dissertation roadmap, and an auditable risk register.
+- Deliver an oral defense of the prospectus before a faculty committee panel, address hostile methodological critiques, and incorporate revisions into the final research protocol.
+Final result: A completed multimodal cross-domain research study and a formally defended, committee-approved doctoral Thesis Prospectus establishing a clear path to publication and graduation.
