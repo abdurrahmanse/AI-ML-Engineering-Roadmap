@@ -9,7 +9,7 @@ import CourseCard from '../../components/CourseCard.astro';
 import Button from '../../components/Button.astro';
 import { coursesFor, AbdurRahman_ONE_URL } from '../../data/courses';
 import { PROJECTS_HREF } from '../../data/hundred-days-projects';
-import type { Module } from '../../data/levels';
+import { getLevel, type Module } from '../../data/levels';
 import {
   hundredDaysModules,
   daysModuleHref,
@@ -105,6 +105,22 @@ const description = `${dayRange(mod.days)} of 100 Days of AI/ML Research. ${mod.
               <span class="dh__prog-fill" style={`width:${cumulativePct}%`}></span>
             </span>
             <span class="dh__fact-value">{cumulativeDays} of {TOTAL_DAYS} days ({cumulativePct}%)</span>
+          </div>
+
+          <div class="dh__fact">
+            <span class="dh__fact-label">Roadmap Alignment</span>
+            <span class="dh__fact-strong">{mod.condensesLevels.length === 1 ? 'Level' : 'Levels'} {mod.condensesLevels.join(', ')}</span>
+            <span class="dh__fact-chips">
+              {mod.condensesLevels.map((lvl) => {
+                const l = getLevel(lvl);
+                return l ? (
+                  <a href={`/level/${lvl}/`} class="dh__chip" data-phase={l.phase} title={`Level ${lvl}: ${l.title}`}>
+                    <span>L{lvl}: {l.title}</span>
+                    <Icon name="arrow-up-right" size={11} />
+                  </a>
+                ) : null;
+              })}
+            </span>
           </div>
 
           <div class="dh__fact">
@@ -321,8 +337,39 @@ const description = `${dayRange(mod.days)} of 100 Days of AI/ML Research. ${mod.
     border: 1px solid var(--phase-br);
     border-radius: var(--cx-r-card);
   }
-  @media (min-width: 820px) {
-    .dh__facts { grid-template-columns: repeat(3, 1fr); gap: 26px; padding: 20px 24px; }
+  @media (min-width: 700px) and (max-width: 1040px) {
+    .dh__facts { grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 20px 24px; }
+  }
+  @media (min-width: 1041px) {
+    .dh__facts { grid-template-columns: 0.9fr 1.1fr 1.35fr 1.65fr; gap: 22px; padding: 20px 24px; }
+  }
+
+  .dh__fact-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 2px;
+  }
+  .dh__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--phase-bg);
+    border: 1px solid var(--phase-br);
+    color: var(--phase-ac);
+    font-family: var(--cx-font-mono);
+    font-size: 11.5px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-decoration: none;
+    transition: background 0.14s ease, border-color 0.14s ease, transform 0.14s ease;
+  }
+  .dh__chip:hover {
+    background: var(--cx-surface);
+    border-color: var(--phase-ac);
+    transform: translateY(-1px);
   }
 
   .dh__fact { display: flex; flex-direction: column; gap: 7px; min-width: 0; }

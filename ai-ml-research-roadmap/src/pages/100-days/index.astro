@@ -48,9 +48,9 @@ const publishedThrough = hundredDaysModules.at(-1)?.days[1] ?? 0;
   <section class="dhero">
     <div class="wrap dhero__grid">
       <div class="dhero__copy">
-        <Eyebrow text="A companion to the roadmap" />
+        <Eyebrow text="The accelerated mini version of the roadmap" />
         <h1 class="h1 dhero__title">100 Days of <span class="grad-text">AI/ML Research</span></h1>
-        <p class="lede dhero__lede">Master foundations, architectures, generative modeling, reasoning, and empirical scaling in 100 days.</p>
+        <p class="lede dhero__lede">The complete 16-level AI/ML Research Roadmap condensed into an intensive, 100-day mathematically rigorous curriculum. Master foundational theory, modern architectures, generative diffusion, reasoning loops, and empirical scaling laws.</p>
         <div class="dhero__ctas">
           <Button href={daysModuleHref(first)} variant="primary" size="lg" icon="arrow-right" track="days_cta_start">
             Start Day 1
@@ -96,7 +96,13 @@ const publishedThrough = hundredDaysModules.at(-1)?.days[1] ?? 0;
   <!-- ───────────────── modules ───────────────── -->
   <section class="section dsec" aria-labelledby="mods-h">
     <div class="wrap">
-      <SectionHeader eyebrow="The route" title="Six modules, in order." class="dsec__head" id="mods-h" />
+      <SectionHeader
+        eyebrow="The route"
+        title="Six modules condensing all 16 levels."
+        subhead="An accelerated, mathematically rigorous track covering every foundational milestone and research frontier of the full curriculum in 100 days."
+        class="dsec__head"
+        id="mods-h"
+      />
 
       <div class="route" aria-hidden="true">
         <div class="route__bar">
@@ -122,7 +128,10 @@ const publishedThrough = hundredDaysModules.at(-1)?.days[1] ?? 0;
               <span class="dmod__ico"><Icon name={m.icon} size={18} /></span>
               <span class="dmod__main">
                 <span class="dmod__title">{m.title}</span>
-                <span class="dmod__meta">{dayRange(m.days)} · {m.units.length} units</span>
+                <span class="dmod__meta">
+                  <span class="dmod__timing">{dayRange(m.days)} · {m.units.length} units</span>
+                  <span class="dmod__levels">Condenses {m.condensesLevels.map((lvl) => `Level ${lvl}`).join(' · ')}</span>
+                </span>
               </span>
               <Icon name="arrow-right" size={18} class="dmod__go" />
             </a>
@@ -419,10 +428,26 @@ const publishedThrough = hundredDaysModules.at(-1)?.days[1] ?? 0;
     -webkit-text-fill-color: transparent;
   }
   .dmod__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 10px;
     font-family: var(--cx-font-mono);
     font-size: 12.5px;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
     color: var(--cx-g600);
+  }
+  .dmod__levels {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: var(--phase-bg);
+    border: 1px solid var(--phase-br);
+    color: var(--phase-ac);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.04em;
   }
 
   .dmod__go { color: var(--cx-g400); }

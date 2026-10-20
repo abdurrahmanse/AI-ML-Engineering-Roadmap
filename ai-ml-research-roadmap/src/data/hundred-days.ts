@@ -52,6 +52,7 @@ export interface DaysModule {
   coursesFrom: { level: number; only?: string[] }[];
   shortVersionOf?: number;
   alsoCovers?: { level: number; topic: string; plural?: boolean }[];
+  condensesLevels: number[];
 }
 
 export const hundredDaysModules: DaysModule[] = [
@@ -71,6 +72,7 @@ export const hundredDaysModules: DaysModule[] = [
     coursesFrom: [{ level: 1 }, { level: 2 }],
     shortVersionOf: 1,
     alsoCovers: [{ level: 2, topic: "Probability, entropy & statistical learning" }],
+    condensesLevels: [1, 2],
     units: [
       {
         id: "1.1",
@@ -209,6 +211,7 @@ export const hundredDaysModules: DaysModule[] = [
     coursesFrom: [{ level: 6 }, { level: 7 }],
     shortVersionOf: 6,
     alsoCovers: [{ level: 7, topic: "Transformer architectures & SSMs" }],
+    condensesLevels: [6, 7],
     units: [
       {
         id: "2.1",
@@ -341,7 +344,12 @@ export const hundredDaysModules: DaysModule[] = [
       "Derive InfoNCE as a mutual information bound, implement ArcFace, and probe latent geometry using Centered Kernel Alignment.",
     coursesFrom: [{ level: 5 }, { level: 12 }],
     shortVersionOf: 5,
-    alsoCovers: [{ level: 12, topic: "Dense metric retrieval" }],
+    alsoCovers: [
+      { level: 3, topic: "Manifold learning, PCA & dimensionality reduction" },
+      { level: 4, topic: "Metric margins & discriminative representations", plural: true },
+      { level: 12, topic: "Dense metric retrieval" },
+    ],
+    condensesLevels: [3, 4, 5],
     units: [
       {
         id: "3.1",
@@ -448,6 +456,7 @@ export const hundredDaysModules: DaysModule[] = [
     coursesFrom: [{ level: 9 }],
     shortVersionOf: 9,
     alsoCovers: [{ level: 14, topic: "Multimodal generative representations" }],
+    condensesLevels: [9, 14],
     units: [
       {
         id: "4.1",
@@ -584,6 +593,7 @@ export const hundredDaysModules: DaysModule[] = [
       { level: 12, topic: "Search over reasoning thought trees" },
       { level: 13, topic: "Mechanistic interpretability & alignment theory" },
     ],
+    condensesLevels: [11, 12, 13],
     units: [
       {
         id: "5.1",
@@ -720,6 +730,7 @@ export const hundredDaysModules: DaysModule[] = [
       { level: 8, topic: "Empirical benchmarking & ablation science" },
       { level: 15, topic: "Scientific publication & research defense" },
     ],
+    condensesLevels: [8, 10, 15],
     units: [
       {
         id: "6.1",
