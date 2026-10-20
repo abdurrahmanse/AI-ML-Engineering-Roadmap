@@ -68,9 +68,9 @@ export const hundredDaysModules: DaysModule[] = [
       "Basic multivariable calculus, introductory linear algebra, and scientific Python (NumPy).",
     outcome:
       "Derive SVD and autograd equations analytically, formulate PAC generalization bounds, and compute analytical KL divergences.",
-    coursesFrom: [{ level: 0 }, { level: 1 }],
-    shortVersionOf: 0,
-    alsoCovers: [{ level: 1, topic: "Statistical learning theory" }],
+    coursesFrom: [{ level: 1 }, { level: 2 }],
+    shortVersionOf: 1,
+    alsoCovers: [{ level: 2, topic: "Probability, entropy & statistical learning" }],
     units: [
       {
         id: "1.1",
@@ -183,14 +183,14 @@ export const hundredDaysModules: DaysModule[] = [
     ],
     skipped: [
       {
-        topic: "Classical non-parametric density estimation",
-        why: "Modern deep learning focuses primarily on parametric foundation architectures",
+        topic: "Second-order optimization (Quasi-Newton, BFGS / L-BFGS)",
+        why: "Modern deep foundation models exclusively use first-order adaptive optimizers (AdamW) due to O(D^2) Hessian memory bounds",
         where: [{ level: 1, href: "/level/1/#m1-4" }],
       },
       {
-        topic: "Exact graphical model junction tree algorithms",
-        why: "Exact inference is NP-hard; modern AI relies on sampling and variational inference",
-        where: [{ level: 1, href: "/level/1/#m1-5" }],
+        topic: "Classical parametric hypothesis testing & ANOVA",
+        why: "Empirical deep learning benchmarks rely on non-parametric bootstrap resampling and permutation testing",
+        where: [{ level: 2, href: "/level/2/#m2-4" }],
       },
     ],
   },
@@ -203,12 +203,12 @@ export const hundredDaysModules: DaysModule[] = [
     summary:
       "The theoretical mechanics of deep neural networks: expressivity, loss landscapes, adaptive optimization (AdamW), normalization, and Transformer self-attention architecture internals.",
     days: [16, 35],
-    before: "Level 0 mathematical foundations and autograd mechanics.",
+    before: "Level 1 mathematical foundations, matrix decompositions, and autograd mechanics.",
     outcome:
       "Analyze Hessian spectra, derive RoPE and online Softmax (FlashAttention), and train an autoregressive Transformer.",
-    coursesFrom: [{ level: 2 }, { level: 3 }],
-    shortVersionOf: 2,
-    alsoCovers: [{ level: 3, topic: "Transformer architectures" }],
+    coursesFrom: [{ level: 6 }, { level: 7 }],
+    shortVersionOf: 6,
+    alsoCovers: [{ level: 7, topic: "Transformer architectures & SSMs" }],
     units: [
       {
         id: "2.1",
@@ -321,9 +321,9 @@ export const hundredDaysModules: DaysModule[] = [
     ],
     skipped: [
       {
-        topic: "Legacy LSTM and GRU architectures",
-        why: "Attention and state space models have superseded recurrent gating in modern AI research",
-        where: [{ level: 3, href: "/level/3/#m3-1" }],
+        topic: "Legacy LSTM and GRU recurrent architectures",
+        why: "Self-attention and state space models have superseded sequential recurrent gating in frontier foundation models",
+        where: [{ level: 7, href: "/level/7/#m7-1" }],
       },
     ],
   },
@@ -339,9 +339,9 @@ export const hundredDaysModules: DaysModule[] = [
     before: "Transformer architectures and vector calculus.",
     outcome:
       "Derive InfoNCE as a mutual information bound, implement ArcFace, and probe latent geometry using Centered Kernel Alignment.",
-    coursesFrom: [{ level: 4 }],
-    shortVersionOf: 4,
-    alsoCovers: [{ level: 4, topic: "Representation learning" }],
+    coursesFrom: [{ level: 5 }, { level: 12 }],
+    shortVersionOf: 5,
+    alsoCovers: [{ level: 12, topic: "Dense metric retrieval" }],
     units: [
       {
         id: "3.1",
@@ -427,9 +427,9 @@ export const hundredDaysModules: DaysModule[] = [
     ],
     skipped: [
       {
-        topic: "TF-IDF and BM25 sparse retrieval engines",
-        why: "Covered thoroughly in engineering curricula; research focus is on dense metric representations",
-        where: [{ level: 4, href: "/level/4/#m4-4" }],
+        topic: "Lexical BM25 indexing and inverted index pipelines",
+        why: "Covered thoroughly in standard information retrieval; research focus is on dense metric latent spaces and neural representations",
+        where: [{ level: 12, href: "/level/12/#m12-1" }],
       },
     ],
   },
@@ -445,9 +445,9 @@ export const hundredDaysModules: DaysModule[] = [
     before: "Probability theory, multivariable calculus, and neural network optimization.",
     outcome:
       "Derive continuous probability flow ODEs, implement optimal transport flow matching, and evaluate samples with FID.",
-    coursesFrom: [{ level: 11 }],
-    shortVersionOf: 11,
-    alsoCovers: [{ level: 11, topic: "Generative modeling" }],
+    coursesFrom: [{ level: 9 }],
+    shortVersionOf: 9,
+    alsoCovers: [{ level: 14, topic: "Multimodal generative representations" }],
     units: [
       {
         id: "4.1",
@@ -560,9 +560,9 @@ export const hundredDaysModules: DaysModule[] = [
     ],
     skipped: [
       {
-        topic: "Autoregressive pixel generation (PixelCNN)",
-        why: "Continuous diffusion and flow matching have replaced sequential pixel autoregression in research",
-        where: [{ level: 11, href: "/level/11/#m11-3" }],
+        topic: "Sequential pixel autoregression (PixelCNN / PixelRNN)",
+        why: "Continuous diffusion, probability flow ODEs, and flow matching have replaced step-by-step pixel autoregression in research",
+        where: [{ level: 9, href: "/level/9/#m9-1" }],
       },
     ],
   },
@@ -578,11 +578,11 @@ export const hundredDaysModules: DaysModule[] = [
     before: "Sequence models, reinforcement learning theory, and optimization dynamics.",
     outcome:
       "Train a process reward model, fit test-time compute scaling curves, derive DPO loss, and steer activations with mechanistic probes.",
-    coursesFrom: [{ level: 5 }, { level: 6 }, { level: 8 }],
-    shortVersionOf: 6,
+    coursesFrom: [{ level: 11 }, { level: 13 }],
+    shortVersionOf: 11,
     alsoCovers: [
-      { level: 5, topic: "Reinforcement learning" },
-      { level: 8, topic: "Alignment theory" },
+      { level: 12, topic: "Search over reasoning thought trees" },
+      { level: 13, topic: "Mechanistic interpretability & alignment theory" },
     ],
     units: [
       {
@@ -696,9 +696,9 @@ export const hundredDaysModules: DaysModule[] = [
     ],
     skipped: [
       {
-        topic: "Prompt engineering heuristics and templates",
-        why: "Research focus is on internal mechanisms, representation steering, and algorithmic search",
-        where: [{ level: 8, href: "/level/8/#m8-4" }],
+        topic: "Prompt engineering heuristics and template tricks",
+        why: "Research focus is on mathematical loss functions (DPO), internal activation steering, and algorithmic search (PRMs / MCTS)",
+        where: [{ level: 11, href: "/level/11/#m11-4" }],
       },
     ],
   },
@@ -714,12 +714,11 @@ export const hundredDaysModules: DaysModule[] = [
     before: "Transformer architectures, distributed computing basics, and scientific evaluation.",
     outcome:
       "Fit Chinchilla scaling law curves, configure FSDP with MFU profiling, audit benchmark contamination, and draft conference papers.",
-    coursesFrom: [{ level: 9 }, { level: 10 }, { level: 7 }, { level: 15 }],
-    shortVersionOf: 9,
+    coursesFrom: [{ level: 10 }, { level: 8 }, { level: 15 }],
+    shortVersionOf: 10,
     alsoCovers: [
-      { level: 10, topic: "Distributed ML systems" },
-      { level: 7, topic: "Empirical benchmarking" },
-      { level: 15, topic: "Research publication" },
+      { level: 8, topic: "Empirical benchmarking & ablation science" },
+      { level: 15, topic: "Scientific publication & research defense" },
     ],
     units: [
       {
@@ -806,8 +805,8 @@ export const hundredDaysModules: DaysModule[] = [
     ],
     skipped: [
       {
-        topic: "Cloud billing dashboards and quota management",
-        why: "Engineering operations; research focus is on computational theory, MFU efficiency, and scaling",
+        topic: "SLURM job array scripting and cluster queuing administration",
+        why: "Engineering operations; research focus is on computational scaling theory, 3D parallelism, and MFU efficiency",
         where: [{ level: 10, href: "/level/10/#m10-1" }],
       },
     ],

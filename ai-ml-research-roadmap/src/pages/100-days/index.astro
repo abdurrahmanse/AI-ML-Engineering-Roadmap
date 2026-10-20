@@ -19,17 +19,20 @@ const first = hundredDaysModules[0];
 
 /* What the track assumes; each links to its refresher module in Level 0. */
 const prerequisites = [
-  { icon: 'code', title: 'Basic Python', text: 'Write and run small scripts.', module: 1 },
-  { icon: 'cloud-download', title: 'Calling an API', text: 'Send a request and read the JSON that comes back.', module: 2 },
-  { icon: 'git-branch', title: 'Git', text: 'Commit, branch and push your code.', module: 5 },
+  { icon: 'terminal', title: 'Linux & Remote Shell', text: 'Filesystem navigation, SSH keys, process control, and background tmux sessions.', module: 1 },
+  { icon: 'code', title: 'Scientific Python', text: 'Idiomatic Python, memory layout, array slicing, and memory-aware vectorization.', module: 2 },
+  { icon: 'database', title: 'Data Structures & SQL', text: 'Algorithmic complexity (Big-O), hash maps, binary heaps, and scientific SQL in DuckDB.', module: 3 },
+  { icon: 'git-branch', title: 'Git & Provenance', text: 'Atomic commit hygiene, branching for hypotheses, and auditable experiment logging.', module: 5 },
 ];
 
 /* Where the full roadmap goes deeper than this track. */
 const after = [
-  { title: 'Explainability & Trustworthy AI', levels: [11] },
-  { title: 'AI Alignment & Adversarial Robustness', levels: [12] },
-  { title: 'Multimodal & Cross-Disciplinary Research', levels: [13] },
-  { title: 'Controlled Ablation & Scaled Systems', levels: [8, 9] },
+  { title: 'Empirical Benchmarking & Ablation Science', levels: [8] },
+  { title: 'Supercomputing Infrastructure & Scaled Systems', levels: [10] },
+  { title: 'Autonomous RAG, GraphRAG & AI Agent Loops', levels: [12] },
+  { title: 'Trustworthy AI, Red Teaming & Safety Alignment', levels: [13] },
+  { title: 'Multimodal Vision-Language & Audio Architectures', levels: [14] },
+  { title: 'Research Methodology, Publication & Defense', levels: [15] },
 ].map((a) => ({ ...a, refs: a.levels.map((n) => getLevel(n)!) }));
 
 const unitCount = hundredDaysModules.reduce((n, m) => n + m.units.length, 0);

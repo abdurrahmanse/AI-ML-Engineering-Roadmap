@@ -196,34 +196,36 @@ const howItWorks = [
       <!-- Topic chip row -->
       <div class="hero__topics" aria-label="Topics covered across 16 levels">
         {[
-          'Scientific Python & Linux',
-          'Linear Algebra & SVD',
-          'Matrix Calculus & AdamW',
-          'Statistical Inference & FDR',
-          'PRISMA Gap Analysis',
-          'MIMIC-IV & Cybersecurity Data',
-          'Classical ML & XGBoost',
-          'Autograd Engine from Scratch',
-          'ResNet & Vision Transformers',
-          'Attention, RoPE & FlashAttention',
-          'Graph Neural Networks',
-          'Mamba State Space Models',
-          'OFAT Ablation Studies',
-          'Continuous Flow Matching',
-          'Diffusion Models (DDPM)',
-          'SLURM & Multi-GPU FSDP',
-          'LLMs, LoRA & DPO Alignment',
-          'GraphRAG & Neo4j',
-          'Autonomous AI Agents',
-          'Mechanistic XAI & SAE Circuits',
-          'Adversarial PGD & DP-SGD',
-          'Multimodal Vision-Language',
-          'Camera-Ready LaTeX Manuscripts',
-          'NeurIPS · ICML · JMLR',
-          'OpenReview Rebuttal Matrices',
-          'Doctoral Viva Voce Defense',
+          { label: 'Scientific Python & Linux', level: 0 },
+          { label: 'Data Structures & SQL', level: 0 },
+          { label: 'Linear Algebra & SVD', level: 1 },
+          { label: 'Matrix Calculus & AdamW', level: 1 },
+          { label: 'Statistical Inference & FDR', level: 2 },
+          { label: 'PRISMA Gap Analysis', level: 3 },
+          { label: 'MIMIC-IV & Cybersecurity Data', level: 4 },
+          { label: 'Classical ML & XGBoost', level: 5 },
+          { label: 'Autograd Engine from Scratch', level: 6 },
+          { label: 'ResNet & Vision Transformers', level: 6 },
+          { label: 'Attention, RoPE & FlashAttention', level: 7 },
+          { label: 'Graph Neural Networks & Mamba', level: 7 },
+          { label: 'OFAT Ablation Studies', level: 8 },
+          { label: 'Continuous Flow Matching', level: 9 },
+          { label: 'Diffusion Models (DDPM)', level: 9 },
+          { label: 'SLURM & Multi-GPU FSDP', level: 10 },
+          { label: 'LLMs, LoRA & DPO Alignment', level: 11 },
+          { label: 'GraphRAG & Neo4j', level: 12 },
+          { label: 'Autonomous AI Agents', level: 12 },
+          { label: 'Mechanistic XAI & SAE Circuits', level: 13 },
+          { label: 'Adversarial PGD & DP-SGD', level: 13 },
+          { label: 'Multimodal Vision-Language (LLaVA)', level: 14 },
+          { label: 'Doctoral Thesis Prospectus', level: 14 },
+          { label: 'Camera-Ready LaTeX Manuscripts', level: 15 },
+          { label: 'OpenReview Rebuttal Matrices', level: 15 },
+          { label: 'Doctoral Viva Voce Defense', level: 15 },
         ].map((t) => (
-          <span class="hero__chip">{t}</span>
+          <a href={`/level/${t.level}/`} class="hero__chip" title={`Explore Level ${t.level}: ${t.label}`}>
+            {t.label}
+          </a>
         ))}
       </div>
 
@@ -692,11 +694,15 @@ const howItWorks = [
     border: 1px solid var(--cx-border);
     color: var(--cx-g600);
     white-space: nowrap;
-    transition: border-color 0.16s ease, color 0.16s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: border-color 0.16s ease, color 0.16s ease, transform 0.16s ease;
   }
   .hero__chip:hover {
     border-color: var(--cx-brand);
     color: var(--cx-brand);
+    transform: translateY(-1px);
   }
   :global([data-theme='dark']) .hero__chip {
     background: rgba(255,255,255,0.04);

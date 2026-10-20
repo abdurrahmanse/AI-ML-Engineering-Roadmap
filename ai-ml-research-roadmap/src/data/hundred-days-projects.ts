@@ -105,7 +105,7 @@ export const projects: Project[] = [
       'A step-level Process Reward Model (PRM) fine-tuned to guide Monte Carlo Tree Search (MCTS) decoding on mathematical reasoning benchmarks.',
     forWho: 'Researchers working on reasoning frontiers, test-time compute scaling, and verifiable generation.',
     skills: 'Process supervision, reward modeling, MCTS, Best-of-N rejection sampling, reasoning verifiers.',
-    buildsOn: [1, 4, 5],
+    buildsOn: [1, 2, 5],
     mustHaves: [
       'Construct a step-delimited dataset with binary step-level correctness annotations.',
       'Train a Process Reward Model and compare step-score calibration against an Outcome Reward Model.',
@@ -181,7 +181,7 @@ export const projects: Project[] = [
       'An automated evaluation framework that scans pre-training corpora for benchmark contamination and fits Bradley-Terry Elo ratings from pairwise comparisons.',
     forWho: 'Empirical research scientists focusing on evaluation methodology, leaderboards, and reproducibility.',
     skills: 'Contamination detection, n-gram indexing, Bradley-Terry modeling, bootstrap confidence intervals.',
-    buildsOn: [1, 5],
+    buildsOn: [1, 6],
     mustHaves: [
       'Implement an efficient 13-gram overlap and MinHash LSH contamination detection scanner.',
       'Quantify verbatim and paraphrased test set overlap in pre-training dataset slices.',
@@ -200,7 +200,7 @@ export const projects: Project[] = [
       'A programmatic data generation and filtering engine producing multi-step reasoning traces validated by formal solvers to prevent model collapse.',
     forWho: 'Researchers studying synthetic data curation, distillation, and reasoning capability elicitation.',
     skills: 'Synthetic data synthesis, execution-based verification, model collapse mitigation, student distillation.',
-    buildsOn: [3, 4, 6],
+    buildsOn: [2, 5, 6],
     mustHaves: [
       'Synthesize complex multi-step reasoning problems paired with ground-truth verifiable solutions.',
       'Validate intermediate reasoning steps deterministically using Python execution and formal logic solvers.',
@@ -238,7 +238,7 @@ export const projects: Project[] = [
       'A comparative empirical study analyzing training stability, reward overoptimization, and KL divergence in Direct Preference Optimization (DPO) versus PPO.',
     forWho: 'Alignment researchers studying post-training preference tuning, safety bounds, and reinforcement learning.',
     skills: 'DPO, RLHF, Bradley-Terry loss, reward hacking, KL drift tracking.',
-    buildsOn: [4, 5],
+    buildsOn: [2, 5],
     mustHaves: [
       'Derive and implement the DPO loss function with reference policy regularization.',
       'Train an alignment model on pairwise human preference datasets (e.g. UltraFeedback).',
