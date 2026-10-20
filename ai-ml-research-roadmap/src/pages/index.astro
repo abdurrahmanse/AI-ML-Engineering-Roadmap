@@ -141,20 +141,30 @@ const howItWorks = [
       <!-- Eyebrow badge -->
       <div class="hero__eyebrow">
         <span class="hero__pulse-dot" aria-hidden="true"></span>
-        <span>Thesis &amp; Research Publication Track</span>
+        <span>16-Level Academic Curriculum · Zero to Top-Tier AI/ML Researcher</span>
       </div>
 
       <!-- Big number + headline -->
       <div class="hero__headline-block">
         <span class="hero__big-num">16</span>
         <div class="hero__headline-text">
-          <h1 class="hero__title">Levels. One research track.<br><span class="grad-text">From first principles to a career.</span></h1>
-          <p class="hero__sub">A complete path for aspiring computer science researchers: learn the foundations, find questions, run defensible experiments, write papers, defend your thesis, and earn your next research role.</p>
+          <h1 class="hero__title">
+            Progressive Levels. One Continuous Track.<br />
+            <span class="grad-text">From Absolute Zero to Published Researcher.</span>
+          </h1>
+          <p class="hero__sub">
+            A comprehensive, implementation-first roadmap spanning mathematical foundations, classical baselines, autograd from scratch, modern Transformers, scalable HPC systems, generative modeling, and the complete academic research lifecycle — from literature gap analysis to NeurIPS/ICML manuscripts and oral thesis defense.
+          </p>
         </div>
       </div>
 
       <!-- Stats row -->
       <div class="hero__stats" role="list" aria-label="Curriculum stats">
+        <div class="hero__stat" role="listitem">
+          <span class="hero__stat-val">{levels.length}</span>
+          <span class="hero__stat-label">Levels</span>
+        </div>
+        <div class="hero__stat-div" aria-hidden="true"></div>
         <div class="hero__stat" role="listitem">
           <span class="hero__stat-val">{totalSessions}</span>
           <span class="hero__stat-label">Sessions</span>
@@ -179,17 +189,42 @@ const howItWorks = [
       <!-- CTAs -->
       <div class="hero__ctas">
         <Button href="/level/0/" variant="primary" size="lg" track="hero_start">Start at Level 0</Button>
-        <Button href="#map" variant="secondary" size="lg" track="hero_map">View the roadmap</Button>
+        <Button href="#map" variant="secondary" size="lg" track="hero_map">Explore 16 Levels</Button>
+        <Button href="/100-days/" variant="ghost" size="lg" track="hero_100_days">100-Day Fast Track</Button>
       </div>
 
       <!-- Topic chip row -->
-      <div class="hero__topics" aria-label="Topics covered">
+      <div class="hero__topics" aria-label="Topics covered across 16 levels">
         {[
-          'Classical ML', 'Deep Learning', 'Transformers', 'Graph NNs',
-          'Diffusion Models', 'State Space Models', 'XAI', 'Trustworthy AI',
-          'Medical Data', 'Cybersecurity', 'Ablation Studies', 'LaTeX Manuscripts',
-          'NeurIPS · ICML', 'Thesis Defense',
-        ].map(t => <span class="hero__chip">{t}</span>)}
+          'Scientific Python & Linux',
+          'Linear Algebra & SVD',
+          'Matrix Calculus & AdamW',
+          'Statistical Inference & FDR',
+          'PRISMA Gap Analysis',
+          'MIMIC-IV & Cybersecurity Data',
+          'Classical ML & XGBoost',
+          'Autograd Engine from Scratch',
+          'ResNet & Vision Transformers',
+          'Attention, RoPE & FlashAttention',
+          'Graph Neural Networks',
+          'Mamba State Space Models',
+          'OFAT Ablation Studies',
+          'Continuous Flow Matching',
+          'Diffusion Models (DDPM)',
+          'SLURM & Multi-GPU FSDP',
+          'LLMs, LoRA & DPO Alignment',
+          'GraphRAG & Neo4j',
+          'Autonomous AI Agents',
+          'Mechanistic XAI & SAE Circuits',
+          'Adversarial PGD & DP-SGD',
+          'Multimodal Vision-Language',
+          'Camera-Ready LaTeX Manuscripts',
+          'NeurIPS · ICML · JMLR',
+          'OpenReview Rebuttal Matrices',
+          'Doctoral Viva Voce Defense',
+        ].map((t) => (
+          <span class="hero__chip">{t}</span>
+        ))}
       </div>
 
     </div>
@@ -551,11 +586,11 @@ const howItWorks = [
     display: flex;
     flex-direction: column;
     gap: 12px;
-    max-width: 600px;
+    max-width: 740px;
   }
   .hero__title {
     margin: 0;
-    font-size: clamp(28px, 4vw, 52px);
+    font-size: clamp(28px, 4vw, 50px);
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: -0.02em;
@@ -563,12 +598,13 @@ const howItWorks = [
     text-wrap: balance;
   }
   .hero__sub {
-    font-size: 17px;
+    font-size: 16.5px;
     line-height: 1.6;
     color: var(--cx-g600);
     margin: 0;
-    max-width: 54ch;
+    max-width: 64ch;
   }
+
 
   /* Stats row */
   .hero__stats {
@@ -586,8 +622,13 @@ const howItWorks = [
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 14px 28px;
+    padding: 12px 20px;
     gap: 2px;
+  }
+  @media (min-width: 768px) {
+    .hero__stat {
+      padding: 14px 24px;
+    }
   }
   .hero__stat-val {
     font-family: var(--cx-font-display);
@@ -631,7 +672,7 @@ const howItWorks = [
     flex-wrap: wrap;
     justify-content: center;
     gap: 7px;
-    max-width: 720px;
+    max-width: 880px;
     padding-top: 4px;
   }
   .hero__chip {
