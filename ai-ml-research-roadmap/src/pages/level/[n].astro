@@ -1,15 +1,15 @@
 ---
-import Base from '../../layouts/Base.astro';
-import Icon from '../../components/Icon.astro';
-import Eyebrow from '../../components/Eyebrow.astro';
-import SectionHeader from '../../components/SectionHeader.astro';
-import ModuleRow from '../../components/ModuleRow.astro';
-import ShipItCallout from '../../components/ShipItCallout.astro';
-import CourseCard from '../../components/CourseCard.astro';
-import LevelNav from '../../components/LevelNav.astro';
-import StickyLevelNav from '../../components/StickyLevelNav.astro';
-import Button from '../../components/Button.astro';
-import { coursesFor, booksFor, AbdurRahman_ONE_URL } from '../../data/courses';
+import Base from "../../layouts/Base.astro";
+import Icon from "../../components/Icon.astro";
+import Eyebrow from "../../components/Eyebrow.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import ModuleRow from "../../components/ModuleRow.astro";
+import ShipItCallout from "../../components/ShipItCallout.astro";
+import CourseCard from "../../components/CourseCard.astro";
+import LevelNav from "../../components/LevelNav.astro";
+import StickyLevelNav from "../../components/StickyLevelNav.astro";
+import Button from "../../components/Button.astro";
+import { coursesFor, booksFor, AbdurRahman_ONE_URL } from "../../data/courses";
 import {
   levels,
   phases,
@@ -21,10 +21,18 @@ import {
   sentence,
   totalSessions,
   type Level,
-} from '../../data/levels';
-import { shortVersionOfLevel, coveredInModule, daysModuleHref } from '../../data/hundred-days';
-import WeightCard from '../../components/WeightCard.astro';
-import { interviewWeights, jobWeights, WEIGHT_MAX } from '../../data/level-weights';
+} from "../../data/levels";
+import {
+  shortVersionOfLevel,
+  coveredInModule,
+  daysModuleHref,
+} from "../../data/hundred-days";
+import WeightCard from "../../components/WeightCard.astro";
+import {
+  interviewWeights,
+  jobWeights,
+  WEIGHT_MAX,
+} from "../../data/level-weights";
 
 export function getStaticPaths() {
   return levels.map((level) => ({
@@ -33,7 +41,9 @@ export function getStaticPaths() {
   }));
 }
 
-interface Props { level: Level; }
+interface Props {
+  level: Level;
+}
 const { level } = Astro.props;
 
 const phase = phaseOfLevel(level.number);
@@ -61,11 +71,15 @@ const coveredIn = shortVersion ? undefined : coveredInModule(level.number);
 const interviewWeight = interviewWeights[level.number];
 const jobWeight = jobWeights[level.number];
 
-const description = `Level ${level.number} of the AI/ML Research Roadmap by AbdurRahman: ${level.scope}`.slice(0, 300);
+const description =
+  `Level ${level.number} of the AI\ML Researcher Roadmap by AbdurRahman: ${level.scope}`.slice(
+    0,
+    300,
+  );
 ---
 
 <Base
-  title={`Level ${level.number} · ${level.title} — AI/ML Research Roadmap`}
+  title={`Level ${level.number} · ${level.title} — AI\ML Researcher Roadmap`}
   description={description}
   page="level"
   levelNumber={level.number}
@@ -73,9 +87,13 @@ const description = `Level ${level.number} of the AI/ML Research Roadmap by Abdu
 >
   <Fragment slot="head">
     {/* Maintainer note: fields the source .txt did not provide. */}
-    {level.todos.length > 0 && (
-      <Fragment set:html={`<!-- TODO (${level.sourceFile}): ${level.todos.join(' | ')} -->`} />
-    )}
+    {
+      level.todos.length > 0 && (
+        <Fragment
+          set:html={`<!-- TODO (${level.sourceFile}): ${level.todos.join(" | ")} -->`}
+        />
+      )
+    }
   </Fragment>
 
   <Fragment slot="subnav">
@@ -95,50 +113,85 @@ const description = `Level ${level.number} of the AI/ML Research Roadmap by Abdu
         <div class="lh__top">
           <span class="lh__num" aria-hidden="true">{level.number}</span>
           <div class="lh__headings">
-            <Eyebrow text={`Phase ${phaseIndex + 1} · ${phase.name}`} class="lh__eyebrow" />
+            <Eyebrow
+              text={`Phase ${phaseIndex + 1} · ${phase.name}`}
+              class="lh__eyebrow"
+            />
             <h1 class="h1 lh__title">{level.title}</h1>
           </div>
         </div>
 
         <p class="lede lh__scope">{sentence(level.scope)}</p>
 
-        {shortVersion && (
-          <a class="lh__short" href={daysModuleHref(shortVersion)} data-track="level_short_version" data-track-data={String(level.number)}>
-            <Icon name="calendar-days" size={15} />
-            <span>
-              Short on time? Do the {shortVersion.days[1] - shortVersion.days[0] + 1}-day version in
-              <b>100 Days of AI/ML Research</b>
-            </span>
-            <Icon name="arrow-right" size={14} class="lh__short-go" />
-          </a>
-        )}
+        {
+          shortVersion && (
+            <a
+              class="lh__short"
+              href={daysModuleHref(shortVersion)}
+              data-track="level_short_version"
+              data-track-data={String(level.number)}
+            >
+              <Icon name="calendar-days" size={15} />
+              <span>
+                Short on time? Do the{" "}
+                {shortVersion.days[1] - shortVersion.days[0] + 1}-day version in
+                <b>100 Days of AI/ML Research</b>
+              </span>
+              <Icon name="arrow-right" size={14} class="lh__short-go" />
+            </a>
+          )
+        }
 
-        {coveredIn && (
-          <a class="lh__short" href={daysModuleHref(coveredIn.module)} data-track="level_covered_in" data-track-data={String(level.number)}>
-            <Icon name="calendar-days" size={15} />
-            <span>
-              {coveredIn.topic} {coveredIn.plural ? 'are' : 'is'} covered inside the {coveredIn.module.title} module of
-              <b>100 Days of AI/ML Research</b>
-            </span>
-            <Icon name="arrow-right" size={14} class="lh__short-go" />
-          </a>
-        )}
+        {
+          coveredIn && (
+            <a
+              class="lh__short"
+              href={daysModuleHref(coveredIn.module)}
+              data-track="level_covered_in"
+              data-track-data={String(level.number)}
+            >
+              <Icon name="calendar-days" size={15} />
+              <span>
+                {coveredIn.topic} {coveredIn.plural ? "are" : "is"} covered
+                inside the {coveredIn.module.title} module of
+                <b>100 Days of AI/ML Research</b>
+              </span>
+              <Icon name="arrow-right" size={14} class="lh__short-go" />
+            </a>
+          )
+        }
 
-        {(interviewWeight || jobWeight) && (
-          <div class="lh__weights">
-            {interviewWeight && (
-              <WeightCard title="Technical Screening" icon="microscope" score={interviewWeight.score} max={WEIGHT_MAX} reason={interviewWeight.reason} />
-            )}
-            {jobWeight && (
-              <WeightCard title="Lab & Thesis Execution" icon="flask-conical" score={jobWeight.score} max={WEIGHT_MAX} reason={jobWeight.reason} />
-            )}
-          </div>
-        )}
+        {
+          (interviewWeight || jobWeight) && (
+            <div class="lh__weights">
+              {interviewWeight && (
+                <WeightCard
+                  title="Technical Screening"
+                  icon="microscope"
+                  score={interviewWeight.score}
+                  max={WEIGHT_MAX}
+                  reason={interviewWeight.reason}
+                />
+              )}
+              {jobWeight && (
+                <WeightCard
+                  title="Lab & Thesis Execution"
+                  icon="flask-conical"
+                  score={jobWeight.score}
+                  max={WEIGHT_MAX}
+                  reason={jobWeight.reason}
+                />
+              )}
+            </div>
+          )
+        }
 
         <div class="lh__facts">
           <div class="lh__fact lh__fact--career">
             <span class="lh__fact-label">Research progression</span>
-            <span class="lh__career-stage">{level.proficiency} · {level.researchStage}</span>
+            <span class="lh__career-stage"
+              >{level.proficiency} · {level.researchStage}</span
+            >
             <span class="lh__fact-value">{level.lifecycle}</span>
           </div>
 
@@ -150,39 +203,63 @@ const description = `Level ${level.number} of the AI/ML Research Roadmap by Abdu
 
           <div class="lh__fact">
             <span class="lh__fact-label">This level</span>
-            <span class="lh__prog" role="img" aria-label={`${level.totalSessions} of ${totalSessions} sessions in the roadmap`}>
+            <span
+              class="lh__prog"
+              role="img"
+              aria-label={`${level.totalSessions} of ${totalSessions} sessions in the roadmap`}
+            >
               <span class="lh__prog-fill" style={`width:${levelPct}%`}></span>
             </span>
-            <span class="lh__fact-value">{level.totalSessions} of {totalSessions} sessions ({levelPct}%)</span>
+            <span class="lh__fact-value"
+              >{level.totalSessions} of {totalSessions} sessions ({
+                levelPct
+              }%)</span
+            >
           </div>
 
           <div class="lh__fact">
             <span class="lh__fact-label">Cumulative</span>
             <span class="lh__prog">
-              <span class="lh__prog-fill" style={`width:${cumulativePct}%`}></span>
+              <span class="lh__prog-fill" style={`width:${cumulativePct}%`}
+              ></span>
             </span>
-            <span class="lh__fact-value">{cumulative} of {totalSessions} sessions ({cumulativePct}%)</span>
+            <span class="lh__fact-value"
+              >{cumulative} of {totalSessions} sessions ({cumulativePct}%)</span
+            >
           </div>
 
           <div class="lh__fact lh__fact--pre">
             <span class="lh__fact-label">Assumes</span>
-            {prereqs.length > 0 ? (
-              <ul class="lh__pres" role="list">
-                {prereqs.map((p) => (
-                  <li>
-                    <a class="lh__pre" href={`/level/${p.number}/`} data-track="prereq_click" data-track-data={String(p.number)}>
-                      <Icon name="corner-left-up" size={14} />
-                      <span>Level {p.number} · {p.title}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <span class="lh__pre lh__pre--none">
-                <Icon name="flag-triangle-right" size={14} />
-                <span>{level.number === 0 ? 'Nothing — this is the start' : level.prereqStated}</span>
-              </span>
-            )}
+            {
+              prereqs.length > 0 ? (
+                <ul class="lh__pres" role="list">
+                  {prereqs.map((p) => (
+                    <li>
+                      <a
+                        class="lh__pre"
+                        href={`/level/${p.number}/`}
+                        data-track="prereq_click"
+                        data-track-data={String(p.number)}
+                      >
+                        <Icon name="corner-left-up" size={14} />
+                        <span>
+                          Level {p.number} · {p.title}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <span class="lh__pre lh__pre--none">
+                  <Icon name="flag-triangle-right" size={14} />
+                  <span>
+                    {level.number === 0
+                      ? "Nothing — this is the start"
+                      : level.prereqStated}
+                  </span>
+                </span>
+              )
+            }
           </div>
         </div>
       </div>
@@ -192,80 +269,100 @@ const description = `Level ${level.number} of the AI/ML Research Roadmap by Abdu
     <section class="section lsec" aria-labelledby="modules-h">
       <div class="wrap">
         <h2 class="lsec__label" id="modules-h">
-          <span class="lsec__label-ico"><Icon name="list-ordered" size={18} /></span>
+          <span class="lsec__label-ico"
+            ><Icon name="list-ordered" size={18} /></span
+          >
           <span>Modules</span>
           <span class="lsec__label-count">{level.modules.length}</span>
         </h2>
         <div class="mods">
-          {level.modules.map((m, i) => (
-            <ModuleRow module={m} index={i} levelNumber={level.number} />
-          ))}
+          {
+            level.modules.map((m, i) => (
+              <ModuleRow module={m} index={i} levelNumber={level.number} />
+            ))
+          }
         </div>
       </div>
     </section>
 
     <!-- ───────────────── ship it ───────────────── -->
-    {capstones.length > 0 && (
-      <section class="section lsec lsec--tight" id="ship">
-        <div class="wrap ship-stack">
-          {capstones.map((c) => (
-            <ShipItCallout module={c} levelNumber={level.number} />
-          ))}
-        </div>
-      </section>
-    )}
+    {
+      capstones.length > 0 && (
+        <section class="section lsec lsec--tight" id="ship">
+          <div class="wrap ship-stack">
+            {capstones.map((c) => (
+              <ShipItCallout module={c} levelNumber={level.number} />
+            ))}
+          </div>
+        </section>
+      )
+    }
 
     <!-- ───────────────── AbdurRahman ───────────────── -->
     <section class="section lsec courses" aria-labelledby="courses-h">
       <div class="wrap">
         <SectionHeader
           eyebrow="Learn this on AbdurRahman"
-          title={courses.length > 0 ? 'Courses that cover this level.' : 'No direct course mapping yet.'}
-          subhead={
-            courses.length > 0
-              ? 'Included with AbdurRahman One. Items marked coming soon are still in production.'
-              : 'This level has no mapped catalog item yet — AbdurRahman One is still the place to ask questions while you work through it.'
-          }
+          title={courses.length > 0
+            ? "Courses that cover this level."
+            : "No direct course mapping yet."}
+          subhead={courses.length > 0
+            ? "Included with AbdurRahman One. Items marked coming soon are still in production."
+            : "This level has no mapped catalog item yet — AbdurRahman One is still the place to ask questions while you work through it."}
           class="lsec__head"
         />
 
-        {courses.length > 0 && (
-          <ul class="courses__grid" id="courses-h" role="list">
-            {courses.map((c) => (
-              <li><CourseCard course={c} levelNumber={level.number} /></li>
-            ))}
-          </ul>
-        )}
-
-        {books.length > 0 && (
-          <div class="reading">
-            <h3 class="reading__label">
-              <Icon name="book-marked" size={14} />
-              <span>Further reading</span>
-            </h3>
-            <ul class="reading__list" role="list">
-              {books.map((book) => {
-                const Tag = book.url ? 'a' : 'div';
-                return (
-                  <li>
-                    <Tag
-                      class="reading__item"
-                      href={book.url}
-                      target={book.url ? '_blank' : undefined}
-                      rel={book.url ? 'noopener noreferrer' : undefined}
-                      data-track={book.url ? 'reading_click' : undefined}
-                      data-track-data={book.url ? `${level.number}:${book.title}` : undefined}
-                    >
-                      <span class="reading__title">{book.title}</span>
-                      <span class="reading__author">{book.author}</span>
-                      {book.url && <Icon name="arrow-up-right" size={14} class="reading__go" />}
-                    </Tag>
-                  </li>
-                );
-              })}
+        {
+          courses.length > 0 && (
+            <ul class="courses__grid" id="courses-h" role="list">
+              {courses.map((c) => (
+                <li>
+                  <CourseCard course={c} levelNumber={level.number} />
+                </li>
+              ))}
             </ul>
-          </div>
-        )}
+          )
+        }
+
+        {
+          books.length > 0 && (
+            <div class="reading">
+              <h3 class="reading__label">
+                <Icon name="book-marked" size={14} />
+                <span>Further reading</span>
+              </h3>
+              <ul class="reading__list" role="list">
+                {books.map((book) => {
+                  const Tag = book.url ? "a" : "div";
+                  return (
+                    <li>
+                      <Tag
+                        class="reading__item"
+                        href={book.url}
+                        target={book.url ? "_blank" : undefined}
+                        rel={book.url ? "noopener noreferrer" : undefined}
+                        data-track={book.url ? "reading_click" : undefined}
+                        data-track-data={
+                          book.url ? `${level.number}:${book.title}` : undefined
+                        }
+                      >
+                        <span class="reading__title">{book.title}</span>
+                        <span class="reading__author">{book.author}</span>
+                        {book.url && (
+                          <Icon
+                            name="arrow-up-right"
+                            size={14}
+                            class="reading__go"
+                          />
+                        )}
+                      </Tag>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )
+        }
 
         <div class="courses__cta">
           <Button
@@ -294,11 +391,23 @@ const description = `Level ${level.number} of the AI/ML Research Roadmap by Abdu
   /* ---------- header ---------- */
   .lh {
     padding-block: 40px 34px;
-    background: linear-gradient(180deg, var(--phase-bg) 0%, var(--cx-white) 100%);
+    background: linear-gradient(
+      180deg,
+      var(--phase-bg) 0%,
+      var(--cx-white) 100%
+    );
   }
-  @media (min-width: 768px) { .lh { padding-block: 56px 44px; } }
+  @media (min-width: 768px) {
+    .lh {
+      padding-block: 56px 44px;
+    }
+  }
 
-  .lh__inner { display: flex; flex-direction: column; gap: 18px; }
+  .lh__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
 
   .lh__crumbs {
     display: flex;
@@ -310,11 +419,24 @@ const description = `Level ${level.number} of the AI/ML Research Roadmap by Abdu
     text-transform: uppercase;
     color: var(--cx-g500);
   }
-  .lh__crumb:hover { color: var(--cx-purple); }
-  .lh__crumb--phase { color: var(--phase-ac); }
+  .lh__crumb:hover {
+    color: var(--cx-purple);
+  }
+  .lh__crumb--phase {
+    color: var(--phase-ac);
+  }
 
-  .lh__top { display: flex; align-items: flex-start; gap: 16px; }
-  @media (min-width: 768px) { .lh__top { gap: 24px; align-items: center; } }
+  .lh__top {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  @media (min-width: 768px) {
+    .lh__top {
+      gap: 24px;
+      align-items: center;
+    }
+  }
 
   .lh__num {
     flex: none;
@@ -333,16 +455,44 @@ const description = `Level ${level.number} of the AI/ML Research Roadmap by Abdu
     font-variant-numeric: tabular-nums;
     box-shadow: var(--cx-shadow-card);
   }
-  @media (min-width: 768px) { .lh__num { width: 88px; height: 88px; font-size: 46px; border-radius: 26px; } }
+  @media (min-width: 768px) {
+    .lh__num {
+      width: 88px;
+      height: 88px;
+      font-size: 46px;
+      border-radius: 26px;
+    }
+  }
 
-  .lh__headings { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-  .lh__eyebrow { color: var(--phase-ac) !important; }
-  .lh__title { font-size: clamp(28px, 4.2vw, 48px); line-height: 1.14; }
+  .lh__headings {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+  .lh__eyebrow {
+    color: var(--phase-ac) !important;
+  }
+  .lh__title {
+    font-size: clamp(28px, 4.2vw, 48px);
+    line-height: 1.14;
+  }
 
-  .lh__scope { max-width: none; }
+  .lh__scope {
+    max-width: none;
+  }
 
-  .lh__weights { display: grid; grid-template-columns: 1fr; gap: 14px; }
-  @media (min-width: 820px) { .lh__weights { grid-template-columns: 1fr 1fr; gap: 18px; } }
+  .lh__weights {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  @media (min-width: 820px) {
+    .lh__weights {
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+  }
 
   .lh__short {
     display: inline-flex;
@@ -358,18 +508,42 @@ const description = `Level ${level.number} of the AI/ML Research Roadmap by Abdu
     color: var(--cx-g700);
     transition: border-color 0.16s ease;
   }
-  .lh__short :global(svg) { flex: none; color: var(--phase-ac); }
-  .lh__short b { font-weight: 600; color: var(--phase-ac); }
-  .lh__short:hover { border-color: var(--phase-ac); }
-  @media (prefers-reduced-motion: reduce) { .lh__short { transition: none; } }
-
-  @media (max-width: 440px) {
-    .lh__top { gap: 12px; }
-    .lh__num { width: 48px; height: 48px; font-size: 24px; border-radius: 14px; }
-    .lh__title { font-size: clamp(23px, 5.5vw, 32px); }
-    .lh__short { border-radius: 14px; padding: 10px 12px; font-size: 14.5px; }
+  .lh__short :global(svg) {
+    flex: none;
+    color: var(--phase-ac);
+  }
+  .lh__short b {
+    font-weight: 600;
+    color: var(--phase-ac);
+  }
+  .lh__short:hover {
+    border-color: var(--phase-ac);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lh__short {
+      transition: none;
+    }
   }
 
+  @media (max-width: 440px) {
+    .lh__top {
+      gap: 12px;
+    }
+    .lh__num {
+      width: 48px;
+      height: 48px;
+      font-size: 24px;
+      border-radius: 14px;
+    }
+    .lh__title {
+      font-size: clamp(23px, 5.5vw, 32px);
+    }
+    .lh__short {
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-size: 14.5px;
+    }
+  }
 
   .lh__facts {
     display: grid;
@@ -383,10 +557,19 @@ const description = `Level ${level.number} of the AI/ML Research Roadmap by Abdu
     border-radius: var(--cx-r-card);
   }
   @media (min-width: 820px) {
-    .lh__facts { grid-template-columns: repeat(5, 1fr); gap: 22px; padding: 20px 24px; }
+    .lh__facts {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 22px;
+      padding: 20px 24px;
+    }
   }
 
-  .lh__fact { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+  .lh__fact {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+  }
   .lh__fact-label {
     font-family: var(--cx-font-mono);
     font-size: 11.5px;
@@ -413,10 +596,29 @@ const description = `Level ${level.number} of the AI/ML Research Roadmap by Abdu
     white-space: normal;
   }
 
-  .lh__prog { display: block; height: 6px; border-radius: 999px; background: var(--cx-border-2); overflow: hidden; }
-  .lh__prog-fill { display: block; height: 100%; border-radius: 999px; background: var(--phase-ac); opacity: 0.85; }
+  .lh__prog {
+    display: block;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--cx-border-2);
+    overflow: hidden;
+  }
+  .lh__prog-fill {
+    display: block;
+    height: 100%;
+    border-radius: 999px;
+    background: var(--phase-ac);
+    opacity: 0.85;
+  }
 
-  .lh__pres { display: flex; flex-direction: column; gap: 5px; margin: 0; padding: 0; list-style: none; }
+  .lh__pres {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
   .lh__pre {
     display: inline-flex;
     align-items: center;
@@ -426,15 +628,33 @@ const description = `Level ${level.number} of the AI/ML Research Roadmap by Abdu
     color: var(--phase-ac);
     line-height: 1.4;
   }
-  .lh__pre:hover { text-decoration: underline; text-underline-offset: 3px; }
-  .lh__pre--none { color: var(--cx-g500); }
-  .lh__pre--none:hover { text-decoration: none; }
+  .lh__pre:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .lh__pre--none {
+    color: var(--cx-g500);
+  }
+  .lh__pre--none:hover {
+    text-decoration: none;
+  }
 
   /* ---------- sections ---------- */
-  .lsec { padding-block: 44px; }
-  @media (min-width: 768px) { .lsec { padding-block: 56px; } }
-  .lsec--tight { padding-block: 22px; }
-  .lsec__head { margin-bottom: 26px; max-width: 640px; }
+  .lsec {
+    padding-block: 44px;
+  }
+  @media (min-width: 768px) {
+    .lsec {
+      padding-block: 56px;
+    }
+  }
+  .lsec--tight {
+    padding-block: 22px;
+  }
+  .lsec__head {
+    margin-bottom: 26px;
+    max-width: 640px;
+  }
   .lsec__label {
     display: flex;
     align-items: center;
@@ -472,10 +692,16 @@ const description = `Level ${level.number} of the AI/ML Research Roadmap by Abdu
     letter-spacing: 0.04em;
   }
 
-  .mods { border-radius: var(--cx-r-card); overflow: hidden; }
+  .mods {
+    border-radius: var(--cx-r-card);
+    overflow: hidden;
+  }
 
-
-  .ship-stack { display: flex; flex-direction: column; gap: 16px; }
+  .ship-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 
   /* ---------- courses ---------- */
   .courses__grid {
@@ -486,15 +712,27 @@ const description = `Level ${level.number} of the AI/ML Research Roadmap by Abdu
     padding: 0;
     list-style: none;
   }
-  @media (min-width: 620px) { .courses__grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1000px) { .courses__grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 620px) {
+    .courses__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1000px) {
+    .courses__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 
-  .courses__cta { margin-top: 22px; }
+  .courses__cta {
+    margin-top: 22px;
+  }
 
   /* ---------- further reading ---------- */
   /* Visually quieter than a course card: this is a pointer to someone else's
      work, not a AbdurRahman catalog item. */
-  .reading { margin-top: 26px; }
+  .reading {
+    margin-top: 26px;
+  }
 
   .reading__label {
     display: flex;
@@ -511,7 +749,14 @@ const description = `Level ${level.number} of the AI/ML Research Roadmap by Abdu
     -webkit-text-fill-color: var(--cx-g500);
   }
 
-  .reading__list { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+  .reading__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
   .reading__item {
     display: flex;
@@ -522,8 +767,15 @@ const description = `Level ${level.number} of the AI/ML Research Roadmap by Abdu
     border-radius: var(--cx-r-card-sm);
     background: var(--cx-gray);
   }
-  a.reading__item { transition: border-color 0.18s ease, background-color 0.18s ease; }
-  a.reading__item:hover { border-color: var(--cx-purple); background: var(--cx-surface); }
+  a.reading__item {
+    transition:
+      border-color 0.18s ease,
+      background-color 0.18s ease;
+  }
+  a.reading__item:hover {
+    border-color: var(--cx-purple);
+    background: var(--cx-surface);
+  }
 
   .reading__title {
     font-family: var(--cx-font-display);
@@ -536,10 +788,23 @@ const description = `Level ${level.number} of the AI/ML Research Roadmap by Abdu
     color: transparent;
     -webkit-text-fill-color: transparent;
   }
-  .reading__author { font-size: 14.5px; color: var(--cx-g600); }
-  .reading__go { align-self: center; color: var(--cx-g500); }
+  .reading__author {
+    font-size: 14.5px;
+    color: var(--cx-g600);
+  }
+  .reading__go {
+    align-self: center;
+    color: var(--cx-g500);
+  }
 
-  @media (prefers-reduced-motion: reduce) { a.reading__item { transition: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    a.reading__item {
+      transition: none;
+    }
+  }
 
-  .lnav-section { padding-top: 12px; padding-bottom: 72px; }
+  .lnav-section {
+    padding-top: 12px;
+    padding-bottom: 72px;
+  }
 </style>

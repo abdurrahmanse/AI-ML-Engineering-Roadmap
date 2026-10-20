@@ -1,6 +1,6 @@
-# AI/ML Research Roadmap
+# AI/ML AI\ML Researcher Roadmap
 
-> A comprehensive, interactive 16-level journey from complete beginner to proficient data scientist and research scientist — covering computing, mathematics, statistics, data stewardship, machine learning, experimentation, trustworthy AI, publication, thesis defense, interviews, and employment.
+> A comprehensive, interactive 16-level journey from complete beginner to published AI/ML researcher and research scientist — covering scientific computing, mathematics, statistical rigor, literature gap analysis, deep learning reproduction, controlled ablations, generative diffusion, HPC systems, peer-reviewed publication (NeurIPS/ICML), doctoral viva defense, and research careers.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-abdurrahmans.vercel.app-6c5ce7?style=flat-square&logo=vercel)](https://abdurrahmans.vercel.app)
 [![Astro](https://img.shields.io/badge/Astro-7.0+-BC52EE?style=flat-square&logo=astro)](https://astro.build)
@@ -12,11 +12,10 @@
 
 ## Overview
 
-**AI/ML Research Roadmap** provides an end-to-end pedagogical blueprint designed for complete beginners, undergraduate researchers, graduate students, aspiring data scientists, and future research scientists. It maps **16 progressive levels**, source-authored modules, structured sessions, practical capstones, and an accelerated **100 Days of AI/ML Research** track across the complete research lifecycle.
+**AI/ML AI\ML Researcher Roadmap** provides an end-to-end pedagogical blueprint designed for complete beginners, undergraduate researchers, graduate students, doctoral candidates, and future research scientists. It maps **16 progressive levels**, source-authored modules, structured sessions, practical capstones, and an accelerated **100 Days of AI/ML Research** track across the complete research lifecycle.
 
 - **Live Platform:** [https://abdurrahmans.vercel.app](https://abdurrahmans.vercel.app)
-- **Primary Roadmap:** 16 progressive levels spanning the complete scientific research lifecycle:
-  0. Computing, Python & Learning Habits
+- **Primary Roadmap:** 16 progressive levels spanning the complete scientific research lifecycle: 0. Computing, Python & Learning Habits
   1. Mathematics for Data Science
   2. Probability, Statistics & Uncertainty
   3. Research Literacy and Problem Formulation
@@ -32,7 +31,7 @@
   13. Independent Research and Project Leadership
   14. Thesis-Grade Research Portfolio
   15. Publication, Defense and Research Career
-- **Research phases:** The visual progression follows the same data-driven phase model as the engineering roadmap:
+- **Research phases:** The visual progression is structured across 7 rigorous academic research phases:
   Foundations → Data & modeling → Generative research → Trustworthy AI → Cross-disciplinary research → Thesis portfolio → Publishing, defense & careers.
 - **Source data:** All level content is read from the canonical `AI RESEARCH ROADMAP/` folder at build time and emitted into `src/data/levels.json`.
 - **Accelerated Route:** Curated 100-Day companion research curriculum with empirical research study projects and research interview defense preparation.
@@ -52,13 +51,13 @@
 
 ## Tech Stack
 
-| Layer | Technology | Description |
-|---|---|---|
-| **Framework** | [Astro](https://astro.build) | Static Site Generator (SSG) with zero-JS default |
-| **Styling** | [Tailwind CSS v4](https://tailwindcss.com) + CSS Tokens | Modern CSS variables with `@theme` token binding |
-| **Icons** | [Lucide](https://lucide.dev) (`@iconify-json/lucide`) | Inlined SVG icons compiled statically at build time |
-| **Typography** | Rajdhani | Used consistently across the roadmap with display swap |
-| **Social Images** | `@resvg/resvg-js` + Sharp | Headless build-time Open Graph image generation |
+| Layer             | Technology                                              | Description                                            |
+| ----------------- | ------------------------------------------------------- | ------------------------------------------------------ |
+| **Framework**     | [Astro](https://astro.build)                            | Static Site Generator (SSG) with zero-JS default       |
+| **Styling**       | [Tailwind CSS v4](https://tailwindcss.com) + CSS Tokens | Modern CSS variables with `@theme` token binding       |
+| **Icons**         | [Lucide](https://lucide.dev) (`@iconify-json/lucide`)   | Inlined SVG icons compiled statically at build time    |
+| **Typography**    | Rajdhani                                                | Used consistently across the roadmap with display swap |
+| **Social Images** | `@resvg/resvg-js` + Sharp                               | Headless build-time Open Graph image generation        |
 
 ---
 
@@ -73,8 +72,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/abdurrahmanse/AI-ML-Engineering-Roadmap.git
-cd AI-ML-Engineering-Roadmap/ai-ml-research-roadmap
+git clone https://github.com/abdurrahmanse/AI-ML-Roadmap.git
+cd AI-ML-Roadmap/ai-ml-research-roadmap
 
 # Install dependencies
 npm install
@@ -158,6 +157,7 @@ SITE_URL=https://abdurrahmans.vercel.app
 ```
 
 The deployment automatically provisions:
+
 - Canonical `<link rel="canonical">` and Open Graph metadata
 - Dynamic XML sitemaps (`sitemap-index.xml`)
 - Strict caching policies for generated social share assets

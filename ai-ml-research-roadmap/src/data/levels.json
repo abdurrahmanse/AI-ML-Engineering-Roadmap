@@ -53,7 +53,7 @@
         12
       ],
       "theme": "HPC scaling, foundation models, alignment (RLHF/DPO), RAG, AI agents & knowledge graphs",
-      "purpose": "Scale training to clusters and engineer agentic, retrieval-augmented systems.",
+      "purpose": "Scale training to clusters and advance agentic, retrieval-augmented research systems.",
       "color": "emerald",
       "icon": "shield-check"
     },
@@ -3635,7 +3635,7 @@
       "statedSessions": 32,
       "estimatedWeeks": 8,
       "proficiency": "Advanced",
-      "researchStage": "Engineer RAG, AI agents, and knowledge graphs",
+      "researchStage": "Architect grounded RAG, AI agents, and knowledge graphs",
       "lifecycle": "Retrieval → RAG Triad → GraphRAG → ReAct agents",
       "artifact": "Enterprise GraphRAG & multi-agent system",
       "careerSignal": "Can build grounded retrieval systems, neuro-symbolic knowledge graphs, and tool-using agents.",

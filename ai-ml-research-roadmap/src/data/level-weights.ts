@@ -67,7 +67,7 @@ export const interviewWeights: Record<number, LevelWeight> = {
   10: {
     score: 9,
     reason:
-      'High-performance research engineering: **navigating SLURM supercomputing clusters, multi-node PyTorch FSDP, DeepSpeed ZeRO-3 sharding, Megatron tensor parallelism, and profiling Model FLOPs Utilization (MFU)**.',
+      'High-performance research computing: **navigating SLURM supercomputing clusters, multi-node PyTorch FSDP, DeepSpeed ZeRO-3 sharding, Megatron tensor parallelism, and profiling Model FLOPs Utilization (MFU)**.',
   },
   11: {
     score: 9,
