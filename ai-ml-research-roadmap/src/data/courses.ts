@@ -33,6 +33,12 @@ export const coursesByLevel: Record<number, Course[]> = {
       status: "live",
       source: "NumPy / SciPy Scientific Computing Consortium",
     },
+    {
+      title: "CS50's Introduction to Databases with SQL",
+      status: "live",
+      url: "https://cs50.harvard.edu/sql/",
+      source: "Harvard University (Relational Schemas, Joins, Aggregations & SQLite)",
+    },
   ],
   1: [
     {
@@ -356,6 +362,12 @@ export const booksByLevel: Record<number, Book[]> = {
       author: "Luciano Ramalho",
       url: "https://www.oreilly.com/library/view/fluent-python-2nd/9781492056348/",
       venue: "O'Reilly Media",
+    },
+    {
+      title: "Algorithms (4th Edition): Data Structures & Analysis",
+      author: "Robert Sedgewick, Kevin Wayne",
+      url: "https://algs4.cs.princeton.edu/home/",
+      venue: "Addison-Wesley Professional",
     },
   ],
   1: [

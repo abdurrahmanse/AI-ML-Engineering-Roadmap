@@ -1,8 +1,8 @@
 {
   "generatedFrom": "./AI RESEARCH ROADMAP",
   "totalLevels": 16,
-  "totalSessions": 497,
-  "totalModules": 99,
+  "totalSessions": 501,
+  "totalModules": 100,
   "phases": [
     {
       "id": "foundations",
@@ -97,7 +97,7 @@
       "slug": "level-0",
       "title": "Scientific Computing & Python",
       "sourceFile": "level0-research-computing-python.txt",
-      "scope": "Build the foundational computing, Linux shell, Python programming, unit testing, and containerized laboratory environment setup required to conduct reproducible research without relying on tutorial code.",
+      "scope": "Build the foundational computing, Linux shell, Python programming, data structures, computational complexity, relational SQL, unit testing, and containerized laboratory environment setup required to conduct reproducible research without relying on tutorial code.",
       "prereqStated": "None; designed for a complete beginner entering scientific computing",
       "prerequisites": [],
       "phase": "foundations",
@@ -180,6 +180,43 @@
         },
         {
           "id": "M0.3",
+          "name": "Data Structures, Computational Complexity & Scientific SQL",
+          "sessionCount": 4,
+          "icon": "database",
+          "objectives": [
+            {
+              "text": "Data Structure Foundations: Master primitive and compound data structures: dynamic arrays, hash tables (hash functions, load factors, collision resolution), stacks, queues, priority queues (binary heaps), and search trees.",
+              "group": "Fundamental data structures & asymptotic computational complexity"
+            },
+            {
+              "text": "Algorithmic Complexity: Formulate asymptotic analysis using Big-O notation for time and auxiliary space; benchmark empirical execution scaling across O(1), O(log N), O(N), O(N log N), and O(N^2) algorithms.",
+              "group": "Fundamental data structures & asymptotic computational complexity"
+            },
+            {
+              "text": "Relational Schema Foundations: Model tabular research data with relational schemas, primary keys, foreign keys, and indexes for fast scientific lookups.",
+              "group": "Relational database querying & scientific SQL with DuckDB / SQLite"
+            },
+            {
+              "text": "Declarative SQL Querying: Author multi-table inner, left, and full outer JOINs, aggregations with GROUP BY and HAVING, and analytical window functions to extract clean cohorts from SQLite and DuckDB.",
+              "group": "Relational database querying & scientific SQL with DuckDB / SQLite"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Prepare evidence",
+          "mentalModel": "Choosing the right data structure and query strategy transforms an intractable multi-hour computation into an efficient, cache-aligned operation that executes in milliseconds.",
+          "tryIt": "Implement an in-memory hash map with bucket chaining from scratch in Python, benchmark its O(1) lookup against linear array search, and query a 100,000-row tabular dataset using DuckDB SQL.",
+          "outcome": "You can select optimal data structures, calculate computational complexity, and extract research cohorts using SQL queries in DuckDB and SQLite.",
+          "evidence": "Implement an in-memory hash map with bucket chaining from scratch in Python, benchmark its O(1) lookup against linear array search, and query a 100,000-row tabular dataset using DuckDB SQL.",
+          "competencyTags": [
+            "data stewardship",
+            "empirical evaluation",
+            "systems scaling"
+          ]
+        },
+        {
+          "id": "M0.4",
           "name": "Software Engineering for Researchers: Testing, Debugging & Profiling",
           "sessionCount": 4,
           "icon": "telescope",
@@ -219,7 +256,7 @@
           ]
         },
         {
-          "id": "M0.4",
+          "id": "M0.5",
           "name": "Version Control, Experiment Logs & Lab Notebooks",
           "sessionCount": 4,
           "icon": "git-branch",
@@ -258,7 +295,7 @@
           ]
         },
         {
-          "id": "M0.5",
+          "id": "M0.6",
           "name": "Environment Locking, Containerization & Artifact Reproducibility",
           "sessionCount": 4,
           "icon": "container",
@@ -294,7 +331,7 @@
           ]
         },
         {
-          "id": "M0.6",
+          "id": "M0.7",
           "name": "Capstone: Reproducible Research Laboratory Environment & Experiment Harness",
           "sessionCount": 4,
           "icon": "flag",
@@ -331,22 +368,23 @@
           ]
         }
       ],
-      "project": "M0.6",
-      "moduleCount": 6,
-      "objectiveCount": 24,
+      "project": "M0.7",
+      "moduleCount": 7,
+      "objectiveCount": 28,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 24,
-      "statedSessions": 24,
-      "estimatedWeeks": 6,
+      "totalSessions": 28,
+      "statedSessions": 28,
+      "estimatedWeeks": 7,
       "proficiency": "Beginner",
       "researchStage": "Establish research computing foundations",
-      "lifecycle": "Shell → Python → Docker → Git",
+      "lifecycle": "Shell → Python → SQL & Algorithms → Docker → Git",
       "artifact": "Reproducible research laboratory environment",
       "careerSignal": "Can set up deterministic, isolated computing environments and experiment harnesses.",
       "completionOutcomes": [
         "You can independently navigate Linux environments, manage background computing jobs, and execute remote laboratory tasks securely.",
         "You can write robust, vectorized, and type-annotated Python code suitable for scientific research workflows.",
+        "You can select optimal data structures, calculate computational complexity, and extract research cohorts using SQL queries in DuckDB and SQLite.",
         "You can systematically debug, profile, and unit-test scientific Python code to ensure software correctness.",
         "You can manage research software collaboratively with Git and maintain complete provenance across experimental iterations.",
         "You can build, lock, and containerize reproducible research environments across workstations and shared compute clusters.",

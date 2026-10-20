@@ -38,7 +38,7 @@ const LEVEL_ICONS = {
 /* Curated progression metadata keeps the technical syllabus in the source
  * files while making the research-career journey explicit in generated data. */
 const LEVEL_GUIDANCE = {
-  0: { proficiency: 'Beginner', researchStage: 'Establish research computing foundations', lifecycle: 'Shell → Python → Docker → Git', artifact: 'Reproducible research laboratory environment', careerSignal: 'Can set up deterministic, isolated computing environments and experiment harnesses.' },
+  0: { proficiency: 'Beginner', researchStage: 'Establish research computing foundations', lifecycle: 'Shell → Python → SQL & Algorithms → Docker → Git', artifact: 'Reproducible research laboratory environment', careerSignal: 'Can set up deterministic, isolated computing environments and experiment harnesses.' },
   1: { proficiency: 'Beginner', researchStage: 'Build mathematical and optimization intuition', lifecycle: 'Linear algebra → calculus → optimization theory', artifact: 'Numerical optimization engine & gradient solver', careerSignal: 'Can derive, analyze, and numerically verify loss functions and optimization dynamics.' },
   2: { proficiency: 'Beginner', researchStage: 'Master statistical inference and uncertainty', lifecycle: 'Probability → estimation → hypothesis testing', artifact: 'Statistical rigor & hypothesis audit package', careerSignal: 'Can design non-parametric hypothesis tests and calculate bootstrap confidence intervals.' },
   3: { proficiency: 'Developing', researchStage: 'Identify literature gaps and scope questions', lifecycle: 'Search → synthesis → gap analysis → proposal', artifact: 'PRISMA systematic review & research proposal', careerSignal: 'Can turn broad curiosity into a falsifiable, preregistered research study.' },

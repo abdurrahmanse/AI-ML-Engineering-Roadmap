@@ -28,6 +28,15 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M0.3': {
+    sig: '771e4d3d',
+    labels: [
+      "Data Structure Foundations: Master primitive and compound...",
+      "Algorithmic Complexity: Formulate asymptotic analysis using Big-O...",
+      "Relational Schema Foundations: Model tabular research data...",
+      "Declarative SQL Querying: Author multi-table inner, left,...",
+    ],
+  },
+  'M0.4': {
     sig: '5b085387',
     labels: [
       "Test-Driven Research Habits: Write parameterized unit tests...",
@@ -36,7 +45,7 @@ export const topics: Record<string, TopicSet> = {
       "Computational Profiling: Profile code bottlenecks using cProfile...",
     ],
   },
-  'M0.4': {
+  'M0.5': {
     sig: 'c4d33d44',
     labels: [
       "Version Control Disciplines: Initialize Git repositories, write...",
@@ -45,7 +54,7 @@ export const topics: Record<string, TopicSet> = {
       "Provenance Tracking: Bind Git commit hashes and...",
     ],
   },
-  'M0.5': {
+  'M0.6': {
     sig: 'ccee4461',
     labels: [
       "Package Isolation: Configure isolated environments with uv...",
@@ -54,7 +63,7 @@ export const topics: Record<string, TopicSet> = {
       "HPC Container Portability: Build Singularity/Apptainer images for...",
     ],
   },
-  'M0.6': {
+  'M0.7': {
     sig: '2de29942',
     labels: [
       "Build a modular, object-oriented experiment harness featuring...",

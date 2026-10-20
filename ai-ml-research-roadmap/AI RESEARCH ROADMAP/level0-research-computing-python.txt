@@ -1,9 +1,9 @@
 Level 0 · Scientific Computing & Python
 
 Phase: Research Foundations
-Suggested duration: 24 sessions (~6 weeks)
+Suggested duration: 28 sessions (~7 weeks)
 Prerequisites: None; designed for a complete beginner entering scientific computing
-Scope: Build the foundational computing, Linux shell, Python programming, unit testing, and containerized laboratory environment setup required to conduct reproducible research without relying on tutorial code.
+Scope: Build the foundational computing, Linux shell, Python programming, data structures, computational complexity, relational SQL, unit testing, and containerized laboratory environment setup required to conduct reproducible research without relying on tutorial code.
 
 M0.1 · Command-Line Foundations, Linux Shell & Remote Laboratory Work — (sessions: 4)
 Session 1 · Linux filesystem, shell navigation & process control
@@ -27,7 +27,18 @@ Mental model: Scientific Python is not just syntax; it is the discipline of mapp
 Try: Implement a multi-dimensional Euclidean pairwise distance matrix from scratch using pure Python loops, then reimplement it with NumPy broadcasting and measure the 50x speedup.
 Outcome: You can write robust, vectorized, and type-annotated Python code suitable for scientific research workflows.
 
-M0.3 · Software Engineering for Researchers: Testing, Debugging & Profiling — (sessions: 4)
+M0.3 · Data Structures, Computational Complexity & Scientific SQL — (sessions: 4)
+Session 1 · Fundamental data structures & asymptotic computational complexity
+- Data Structure Foundations: Master primitive and compound data structures: dynamic arrays, hash tables (hash functions, load factors, collision resolution), stacks, queues, priority queues (binary heaps), and search trees.
+- Algorithmic Complexity: Formulate asymptotic analysis using Big-O notation for time and auxiliary space; benchmark empirical execution scaling across O(1), O(log N), O(N), O(N log N), and O(N^2) algorithms.
+Session 2 · Relational database querying & scientific SQL with DuckDB / SQLite
+- Relational Schema Foundations: Model tabular research data with relational schemas, primary keys, foreign keys, and indexes for fast scientific lookups.
+- Declarative SQL Querying: Author multi-table inner, left, and full outer JOINs, aggregations with GROUP BY and HAVING, and analytical window functions to extract clean cohorts from SQLite and DuckDB.
+Mental model: Choosing the right data structure and query strategy transforms an intractable multi-hour computation into an efficient, cache-aligned operation that executes in milliseconds.
+Try: Implement an in-memory hash map with bucket chaining from scratch in Python, benchmark its O(1) lookup against linear array search, and query a 100,000-row tabular dataset using DuckDB SQL.
+Outcome: You can select optimal data structures, calculate computational complexity, and extract research cohorts using SQL queries in DuckDB and SQLite.
+
+M0.4 · Software Engineering for Researchers: Testing, Debugging & Profiling — (sessions: 4)
 Session 1 · Automated unit testing with pytest
 - Test-Driven Research Habits: Write parameterized unit tests with pytest to verify numerical edge cases, empty datasets, and invalid feature dimensions.
 - Property-Based Testing: Use hypothesis to generate random inputs and verify mathematical invariants such as matrix symmetry, non-negativity, and triangle inequality.
@@ -38,7 +49,7 @@ Mental model: A research script without automated unit tests is an uncalibrated 
 Try: Write a data preprocessing function with five deliberate edge-case failures, then write a pytest suite that catches each failure and asserts proper exception handling.
 Outcome: You can systematically debug, profile, and unit-test scientific Python code to ensure software correctness.
 
-M0.4 · Version Control, Experiment Logs & Lab Notebooks — (sessions: 4)
+M0.5 · Version Control, Experiment Logs & Lab Notebooks — (sessions: 4)
 Session 1 · Git branching models for empirical research
 - Version Control Disciplines: Initialize Git repositories, write conventional atomic commit messages, and manage branches for distinct experimental hypotheses.
 - Collaborative Workflows: Submit pull requests, conduct peer code reviews on research implementations, and diff Jupyter notebooks cleanly using nbdime.
@@ -49,7 +60,7 @@ Mental model: A scientific Git history is the legal record of your experimental 
 Try: Publish an open-source research template repository on GitHub with clean branch history, automated GitHub Actions CI, and an informative README.
 Outcome: You can manage research software collaboratively with Git and maintain complete provenance across experimental iterations.
 
-M0.5 · Environment Locking, Containerization & Artifact Reproducibility — (sessions: 4)
+M0.6 · Environment Locking, Containerization & Artifact Reproducibility — (sessions: 4)
 Session 1 · Deterministic dependency locking
 - Package Isolation: Configure isolated environments with uv or conda, specifying exact Python minor versions and system-level dependencies.
 - Deterministic Lockfiles: Generate frozen lockfiles (pyproject.toml or conda-lock) that pin package hashes and wheel builds to prevent dependency drift.
@@ -60,7 +71,7 @@ Mental model: Software reproducibility means another researcher on a different c
 Try: Containerize a Python numerical benchmark using Docker, mount a local data directory, run the script inside the container, and verify identical outputs.
 Outcome: You can build, lock, and containerize reproducible research environments across workstations and shared compute clusters.
 
-M0.6 · Capstone: Reproducible Research Laboratory Environment & Experiment Harness — (sessions: 4)
+M0.7 · Capstone: Reproducible Research Laboratory Environment & Experiment Harness — (sessions: 4)
 Session 1 · Modular experiment harness architecture
 - Build a modular, object-oriented experiment harness featuring decoupled configuration parsing, automated smoke testing, and deterministic seeding.
 - Integrate automated CLI argument validation, system metrics logging (CPU/RAM/GPU memory), and clean output directory structuring (data, logs, figures).
