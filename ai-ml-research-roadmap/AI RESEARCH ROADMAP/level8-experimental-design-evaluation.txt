@@ -1,9 +1,9 @@
 Level 8 · Experiments & Ablations
 
 Phase: Architectures & Experiments
-Suggested duration: 28 sessions (~7 weeks)
+Suggested duration: 36 sessions (~9 weeks)
 Prerequisites: Level 7
-Scope: Master the scientific method in machine learning: design controlled experiments, enforce baseline compute parity, conduct definitive component ablations, and report statistical significance for top-tier venues.
+Scope: Master the scientific method in machine learning: design controlled experiments, enforce baseline compute parity, conduct definitive component ablations, report statistical significance for top-tier venues, design evaluation frameworks for generative AI systems, and conduct adversarial red-teaming studies.
 
 M8.1 · Scientific Methodology, Variables & Factorial Experimental Design — (sessions: 5)
 Session 1 · Principles of scientific control in AI research
@@ -69,3 +69,29 @@ Session 2 · Manuscript empirical section & open-source package
 - Author a 6-page empirical manuscript section in LaTeX containing Experimental Setup, Main Results Table with Wilcoxon p-values, Ablation Matrix, and Error Analysis.
 - Package the entire experimental harness with automated seed execution scripts, raw log files, and interactive visualization notebooks.
 Final result: A fully verified, publication-grade benchmark and ablation study suite complete with non-parametric statistical significance testing and a LaTeX manuscript draft.
+
+M8.7 · Evaluation Design for Generative AI Systems — (sessions: 4)
+Session 1 · Designing evaluation frameworks for RAG pipelines and agentic systems
+- RAG Pipeline Evaluation Design: Design an end-to-end evaluation study for a RAG system that separately measures retrieval quality (Recall@k, NDCG) and generation quality (faithfulness, answer relevance, context utilization) using the RAGAS evaluation framework, understanding why optimizing one component can degrade the other.
+- Agentic Task Completion Evaluation: Design a controlled evaluation study for an autonomous agent on a multi-step task benchmark (SWE-bench, GAIA, or WebArena), defining the completion criteria, partial credit scoring, trajectory validity checks, and maximum step limits that make results comparable across agents.
+- Instruction-Following Evaluation: Measure instruction-following quality on the IFEval (Instruction-Following Evaluation) benchmark and MT-Bench, understanding what each measures and how to detect prompt-format sensitivity (performance changes when prompt wording changes without semantic difference).
+Session 2 · Human evaluation design and inter-rater reliability for generative AI
+- Pairwise Preference Study Design: Design a controlled human preference study comparing two generative AI systems on a specific capability (e.g. summarization quality, code correctness, factual accuracy), specifying annotation interface design, annotator qualification criteria, pairwise presentation randomization, and sample size power calculations.
+- Detecting and Correcting Evaluation Bias: Measure and correct for verbosity bias (annotators preferring longer outputs independent of quality), position bias (annotators preferring the first response), and instruction sycophancy (the evaluated model agreeing with the user to appear helpful) by running counterbalanced presentation orders and reporting agreement statistics.
+- LLM-as-Judge Calibration: Evaluate the reliability of using an LLM as the primary judge of generation quality by measuring the judge's agreement with human annotators on a calibration set, detecting self-preference bias (the judging model favoring its own model family), and reporting Spearman rank correlation between LLM judge scores and human preference rates.
+Mental model: Evaluating generative AI requires decomposing the system into independently measurable components and designing each evaluation to answer exactly one question; systems evaluated only holistically produce uninterpretable results when performance changes.
+Try: Design and execute a complete evaluation study for a RAG system on 200 questions from a domain corpus: separately measure retrieval Recall@5 using ground-truth passages, faithfulness using RAGAS, and answer quality using GPT-4-as-judge with position-debiased scoring — then compute inter-rater reliability between GPT-4-as-judge and 3 human annotators on a 50-question calibration subset.
+Outcome: You can design rigorous, decomposed evaluation frameworks for RAG pipelines and agentic AI systems, measure inter-rater reliability for human evaluation studies, and detect and correct biases in LLM-as-judge evaluation.
+
+M8.8 · Red Teaming & Adversarial Evaluation as Research — (sessions: 4)
+Session 1 · Designing adversarial evaluation studies as scientific research
+- Red Teaming as Controlled Experiment: Design adversarial evaluation as a scientific study rather than an ad-hoc exercise: define the attack surface (input types, model capabilities being tested), specify the adversary model (what the attacker knows about the system), design a stratified attack corpus covering distinct attack categories (direct injection, indirect injection, jailbreaking, prompt leakage, data poisoning), and measure attack success rate with confidence intervals.
+- Prompt Injection Attack Taxonomy: Systematically categorize prompt injection attacks into direct (attacker-controlled input), indirect (attacker-controlled retrieved documents), and multi-turn (attack spread across conversation history) variants; measure attack success rate for each category independently on a fixed target model.
+- Defense Evaluation Methodology: Design a controlled study comparing the effectiveness of multiple defenses (input sanitization, instruction hierarchy enforcement, output filtering, system prompt guardrails) against a fixed attack set, measuring the trade-off between defense effectiveness (attack success rate reduction) and false positive rate (rate at which the defense blocks legitimate queries).
+Session 2 · Responsible disclosure and publishing AI security research
+- Responsible Disclosure Protocol: Follow AI security responsible disclosure norms: conduct adversarial research under a controlled scope, avoid publishing working attack code for maximally harmful capabilities before affected parties have been notified, and distinguish scientific finding papers (publishing the vulnerability and defense together) from pure attack papers (publishing only the attack).
+- Publishing AI Security Findings: Structure an AI security research paper with a formal threat model section (specifying attacker capabilities, knowledge, and goals), a controlled attack evaluation section with statistical significance testing, a defense section, and a limitations section disclosing what the paper cannot claim.
+- Evaluating Published Red Teaming Papers: Critically evaluate published red teaming papers for scope validity (does the attack work in realistic conditions or only in a contrived lab setting?), generalization (was the attack tested on one model or multiple?), and base rate context (how frequently would this attack succeed in practice compared to simpler alternatives?).
+Mental model: Adversarial evaluation is only scientific when the attack corpus is fixed before evaluation begins, attack success rate is measured with confidence intervals, and the study design would allow a negative result (attacks fail) to be published as a meaningful finding.
+Try: Design and execute a structured red teaming study on an open-source RAG system: define a taxonomy of 5 attack categories (direct injection, indirect injection via retrieved documents, role-play jailbreaking, prompt leakage, and refusal bypass), construct 20 test cases per category, measure attack success rate for each category with 95% confidence intervals, and write a 4-page responsible disclosure report documenting findings and recommended defenses.
+Outcome: You can design adversarial evaluation studies with rigorous experimental controls, measure attack and defense effectiveness statistically, and write responsible disclosure reports that meet AI security research publication standards.
