@@ -24,7 +24,7 @@ export const SITE =
   process.env.SITE_URL ??
   (productionUrl
     ? `https://${productionUrl}`
-    : "https://abdurrahmans.vercel.app");
+    : "https://ai-ml-research-roadmap.vercel.app");
 
 export default defineConfig({
   site: SITE,

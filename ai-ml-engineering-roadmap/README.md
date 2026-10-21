@@ -2,7 +2,7 @@
 
 > A comprehensive, interactive 16-level curriculum and structured learning path for modern AI/ML Engineering — from software engineering fundamentals to frontier multi-agent architectures and LLMOps.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-abdurrahmans.vercel.app-6c5ce7?style=flat-square&logo=vercel)](https://abdurrahmans.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-ai--ml--engineering--roadmap.vercel.app-38BDF8?style=flat-square&logo=vercel)](https://ai-ml-engineering-roadmap.vercel.app/)
 [![Astro](https://img.shields.io/badge/Astro-7.0+-BC52EE?style=flat-square&logo=astro)](https://astro.build)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38BDF8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
@@ -14,7 +14,8 @@
 
 **AI/ML Engineering Roadmap** provides an end-to-end pedagogical blueprint designed for software engineers transitioning into AI engineering. It maps **16 progressive levels**, **165 modules**, and **286 structured sessions** across seven distinct engineering phases, accompanied by real-world capstone projects, automated progress tracking, and an accelerated **100 Days of AI Engineering** track.
 
-- **Live Platform:** [https://abdurrahmans.vercel.app](https://abdurrahmans.vercel.app)
+- **Live Platform:** [https://ai-ml-engineering-roadmap.vercel.app/](https://ai-ml-engineering-roadmap.vercel.app/)
+- **Companion Research Roadmap:** [https://ai-ml-research-roadmap.vercel.app](https://ai-ml-research-roadmap.vercel.app)
 - **Primary Roadmap:** 16 progressive levels covering Foundations, Retrieval (RAG), Agentic Systems, Trust & Security, Production Engineering, and Frontier Research.
 - **Accelerated Route:** Curated 100-Day companion curriculum with practical portfolio projects and interview preparation.
 
@@ -54,8 +55,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/abdurrahmanse/AI-ML-Engineering-Roadmap.git
-cd AI-ML-Engineering-Roadmap/ai-ml-engineering-roadmap
+git clone https://github.com/abdurrahmanse/AI-ML-Roadmap.git
+cd AI-ML-Roadmap/ai-ml-engineering-roadmap
 
 # Install dependencies
 npm install
@@ -135,7 +136,7 @@ Domain resolution and metadata canonicals resolve dynamically via `astro.config.
 
 ```bash
 # Set production domain override (optional)
-SITE_URL=https://abdurrahmans.vercel.app
+SITE_URL=https://ai-ml-engineering-roadmap.vercel.app
 ```
 
 The deployment automatically provisions:

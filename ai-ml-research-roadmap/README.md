@@ -1,8 +1,8 @@
-# AI/ML AI\ML Researcher Roadmap
+# AI/ML Researcher Roadmap
 
 > A comprehensive, interactive 16-level journey from complete beginner to published AI/ML researcher and research scientist — covering scientific computing, mathematics, statistical rigor, literature gap analysis, deep learning reproduction, controlled ablations, generative diffusion, HPC systems, peer-reviewed publication (NeurIPS/ICML), doctoral viva defense, and research careers.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-abdurrahmans.vercel.app-6c5ce7?style=flat-square&logo=vercel)](https://abdurrahmans.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-ai--ml--research--roadmap.vercel.app-BC52EE?style=flat-square&logo=vercel)](https://ai-ml-research-roadmap.vercel.app)
 [![Astro](https://img.shields.io/badge/Astro-7.0+-BC52EE?style=flat-square&logo=astro)](https://astro.build)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38BDF8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
@@ -12,9 +12,10 @@
 
 ## Overview
 
-**AI/ML AI\ML Researcher Roadmap** provides an end-to-end pedagogical blueprint designed for complete beginners, undergraduate researchers, graduate students, doctoral candidates, and future research scientists. It maps **16 progressive levels**, source-authored modules, structured sessions, practical capstones, and an accelerated **100 Days of AI/ML Research** track across the complete research lifecycle.
+**AI/ML Researcher Roadmap** provides an end-to-end pedagogical blueprint designed for complete beginners, undergraduate researchers, graduate students, doctoral candidates, and future research scientists. It maps **16 progressive levels**, source-authored modules, structured sessions, practical capstones, and an accelerated **100 Days of AI/ML Research** track across the complete research lifecycle.
 
-- **Live Platform:** [https://abdurrahmans.vercel.app](https://abdurrahmans.vercel.app)
+- **Live Platform:** [https://ai-ml-research-roadmap.vercel.app](https://ai-ml-research-roadmap.vercel.app)
+- **Companion Engineering Roadmap:** [https://ai-ml-engineering-roadmap.vercel.app/](https://ai-ml-engineering-roadmap.vercel.app/)
 - **Primary Roadmap:** 16 progressive levels spanning the complete scientific research lifecycle: 0. Computing, Python & Learning Habits
   1. Mathematics for Data Science
   2. Probability, Statistics & Uncertainty
@@ -153,7 +154,7 @@ Domain resolution and metadata canonicals resolve dynamically via `astro.config.
 
 ```bash
 # Set production domain override (optional)
-SITE_URL=https://abdurrahmans.vercel.app
+SITE_URL=https://ai-ml-research-roadmap.vercel.app
 ```
 
 The deployment automatically provisions:
