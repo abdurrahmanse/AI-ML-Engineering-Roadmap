@@ -47,12 +47,12 @@ const prerequisites = [
 
 /* Where the full roadmap goes deeper than this track. */
 const after = [
-  { title: "Empirical Benchmarking & Ablation Science", levels: [8] },
-  { title: "Supercomputing Infrastructure & Scaled Systems", levels: [10] },
-  { title: "Autonomous RAG, GraphRAG & AI Agent Loops", levels: [12] },
-  { title: "Trustworthy AI, Red Teaming & Safety Alignment", levels: [13] },
-  { title: "Multimodal Vision-Language & Audio Architectures", levels: [14] },
-  { title: "Research Methodology, Publication & Defense", levels: [15] },
+  { title: "Experiments & Ablations — Fair baselines, ablation science, stats", levels: [8] },
+  { title: "Scaled Systems & HPC — FSDP, 3D parallelism, MFU profiling", levels: [10] },
+  { title: "RAG & AI Agents — GraphRAG, agent loops, multi-agent orchestration", levels: [12] },
+  { title: "Trustworthy AI & Safety — Red teaming, robustness, safety research", levels: [13] },
+  { title: "Multimodal & Thesis Scoping — Vision-language, audio, thesis planning", levels: [14] },
+  { title: "Publishing & Thesis Defense — Manuscripts, peer review, research careers", levels: [15] },
 ].map((a) => ({ ...a, refs: a.levels.map((n) => getLevel(n)!) }));
 
 const unitCount = hundredDaysModules.reduce((n, m) => n + m.units.length, 0);
@@ -151,8 +151,8 @@ const publishedThrough = hundredDaysModules.at(-1)?.days[1] ?? 0;
     <div class="wrap">
       <SectionHeader
         eyebrow="The route"
-        title="Six modules condensing all 16 levels."
-        subhead="An accelerated, mathematically rigorous track covering every foundational milestone and research frontier of the full curriculum in 100 days."
+        title="Six modules. 100 days. All 16 levels."
+        subhead="Math & computing foundations, deep learning internals, RAG research methodology, generative models, reasoning & safety, and scaled empirical research — all in 100 days."
         class="dsec__head"
         id="mods-h"
       />
