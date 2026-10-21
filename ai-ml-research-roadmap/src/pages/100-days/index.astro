@@ -21,26 +21,26 @@ const first = hundredDaysModules[0];
 const prerequisites = [
   {
     icon: "terminal",
-    title: "Linux & Remote Shell",
-    text: "Filesystem navigation, SSH keys, process control, and background tmux sessions.",
+    title: "Linux & Shell",
+    text: "SSH, file system, process control, tmux.",
     module: 1,
   },
   {
     icon: "code",
-    title: "Scientific Python",
-    text: "Idiomatic Python, memory layout, array slicing, and memory-aware vectorization.",
+    title: "Python & NumPy",
+    text: "Idiomatic Python, array slicing, vectorization.",
     module: 2,
   },
   {
     icon: "database",
     title: "Data Structures & SQL",
-    text: "Algorithmic complexity (Big-O), hash maps, binary heaps, and scientific SQL in DuckDB.",
+    text: "Big-O, hash maps, heaps, DuckDB basics.",
     module: 3,
   },
   {
     icon: "git-branch",
-    title: "Git & Provenance",
-    text: "Atomic commit hygiene, branching for hypotheses, and auditable experiment logging.",
+    title: "Git & Experiment Logs",
+    text: "Atomic commits, hypothesis branches, reproducibility.",
     module: 5,
   },
 ];
@@ -60,25 +60,22 @@ const publishedThrough = hundredDaysModules.at(-1)?.days[1] ?? 0;
 ---
 
 <Base
-  title="100 Days of AI/ML Research — Mini Roadmap | AbdurRahman"
-  description="Master mathematical foundations, transformer mechanics, generative models, reasoning, and empirical scaling laws in 100 days. The accelerated mini version of the 16-level AI\ML Researcher Roadmap."
+  title="100 Days of AI/ML Research | AbdurRahman"
+  description="16-level AI/ML Researcher Roadmap in 100 days. Math, deep learning, RAG, generative models, alignment, and empirical research methodology."
   page="days_overview"
 >
   <!-- ───────────────── hero ───────────────── -->
   <section class="dhero">
     <div class="wrap dhero__grid">
       <div class="dhero__copy">
-        <Eyebrow
-          text="The accelerated mini version of the AI\ML Researcher Roadmap"
-        />
+        <Eyebrow text="Accelerated · 16 levels · 100 days" />
         <h1 class="h1 dhero__title">
           100 Days of <span class="grad-text">AI/ML Research</span>
         </h1>
         <p class="lede dhero__lede">
-          The complete 16-level AI\ML Researcher Roadmap condensed into an
-          intensive, 100-day mathematically rigorous curriculum. Master
-          foundational theory, modern architectures, generative diffusion,
-          reasoning loops, and empirical scaling laws.
+          The full 16-level AI/ML Researcher Roadmap — math, transformers,
+          RAG, generative models, alignment, and empirical research — compressed
+          into an intensive 100-day curriculum.
         </p>
         <div class="dhero__ctas">
           <Button
@@ -107,10 +104,8 @@ const publishedThrough = hundredDaysModules.at(-1)?.days[1] ?? 0;
 
       <aside class="prereq" aria-labelledby="prereq-h">
         <div class="prereq__head">
-          <span class="prereq__eyebrow">Before you start</span>
-          <h2 class="prereq__title" id="prereq-h">
-            What you should already know
-          </h2>
+          <span class="prereq__eyebrow">Prerequisites</span>
+          <h2 class="prereq__title" id="prereq-h">What you need first</h2>
         </div>
         <ul class="prereq__list" role="list">
           {
@@ -137,9 +132,7 @@ const publishedThrough = hundredDaysModules.at(-1)?.days[1] ?? 0;
           }
         </ul>
         <a class="prereq__foot" href="/level/0/" data-track="days_level0_click">
-          <span
-            >New to coding? <b>Start with Level 0 of the full roadmap.</b></span
-          >
+          <span>Beginner? <b>Start with Level 0.</b></span>
           <Icon name="arrow-right" size={16} />
         </a>
       </aside>
