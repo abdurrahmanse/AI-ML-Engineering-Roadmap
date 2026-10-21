@@ -1,9 +1,9 @@
 Level 11 · LLMs & Reinforcement Learning
 
 Phase: Scaled Systems & LLMs
-Suggested duration: 32 sessions (~8 weeks)
+Suggested duration: 36 sessions (~9 weeks)
 Prerequisites: Level 10
-Scope: Master reinforcement learning from Bellman equations to PPO, Large Language Model pretraining dynamics, empirical scaling laws, parameter-efficient fine-tuning (LoRA/QLoRA), and preference alignment (RLHF, DPO, KTO).
+Scope: Master reinforcement learning from Bellman equations to PPO, Large Language Model pretraining dynamics, empirical scaling laws, parameter-efficient fine-tuning (LoRA/QLoRA), preference alignment (RLHF, DPO, KTO), and the research methodology of studying AI safety and security scientifically.
 
 M11.1 · Reinforcement Learning Foundations: MDPs, Bellman Equations & DQN — (sessions: 5)
 Session 1 · Markov Decision Processes & dynamic programming
@@ -69,3 +69,16 @@ Session 2 · Multi-dimensional evaluation, LLM-as-a-judge & paper report
 - Benchmark the aligned model against base and SFT models across domain accuracy, instruction following, and safety, using automated LLM-as-a-judge with position debiasing.
 - Author a 6-page empirical research paper in LaTeX documenting training recipes, compute requirements, reward dynamics, and comparative benchmark results.
 Final result: A fully adapted and preference-aligned domain LLM, accompanied by a reproducible training pipeline and a publication-quality evaluation paper.
+
+M11.7 · AI Safety & Security Research Methodology — (sessions: 4)
+Session 1 · Studying alignment failures and jailbreaking empirically
+- Alignment Tax Measurement: Design a controlled experiment measuring the "alignment tax" — the loss in benchmark task performance that results from applying safety fine-tuning (RLHF or DPO) to a base language model — by comparing the base model, SFT model, and aligned model across a comprehensive benchmark suite (MMLU, GSM8K, HumanEval, and domain-specific tasks), measuring the performance delta attributable to alignment fine-tuning alone.
+- Jailbreaking Success Rate Measurement: Design a rigorous study measuring jailbreak attack success rates on a fixed open language model using a controlled attack corpus: implement GCG (Greedy Coordinate Gradient) suffix optimization attacks, human-written jailbreak templates, and roleplay attacks; measure success rate as the fraction of harmful completions triggered per attack category with 95% confidence intervals; replicate the methodology of Zou et al. (2023) "Universal and Transferable Adversarial Attacks on Aligned Language Models".
+- Refusal Mechanism Interpretability: Investigate where in the network refusal behavior originates by ablating the model's safety fine-tuning at the representation level using activation steering: add a "harmless" direction vector to the residual stream and measure how this changes refusal rates, using the methodology of Turner et al. (2023) "Activation Addition: Steering Language Models Without Optimization".
+Session 2 · Scalable oversight and AI safety benchmarks
+- Scalable Oversight Research Design: Design a study testing a scalable oversight protocol (e.g. debate, amplification, or process reward modeling) on a domain where the verifier (human or model) has limited domain expertise: measure whether the oversight mechanism successfully identifies correct from incorrect answers above chance when the verifier cannot directly evaluate the answer quality.
+- Safety Benchmark Design Methodology: Critically evaluate existing AI safety benchmarks (TruthfulQA, BBQ Bias, WinoBias, BOLD, HarmBench) for construct validity — does the benchmark measure what it claims to measure? — by testing whether human annotators agree with the benchmark's notion of "harmful" or "biased" on a 100-question sample; identify cases where the benchmark's scoring function disagrees with human judgment.
+- Red Team Research Protocol: Plan a structured red team research study as a scientific contribution: define the threat model, pre-register the attack taxonomy, pre-specify the success rate threshold that would constitute a meaningful finding, and design the disclosure protocol before running any experiments.
+Mental model: AI safety research requires the same scientific discipline as any other empirical field — pre-registered hypotheses, controlled experiments, confidence intervals, and honest reporting of negative results — rather than the ad-hoc "I found a jailbreak" anecdote that currently dominates the field.
+Try: Design and execute a measurement study on jailbreaking resistance of an open aligned model (e.g. Llama-3-8B-Instruct): construct a stratified attack corpus of 60 prompts covering 3 attack categories (direct harmful requests, roleplay-wrapped requests, and indirect goal completion), measure refusal rate per category with 95% confidence intervals, and test whether one defensive system prompt significantly improves refusal rate using McNemar's test.
+Outcome: You can design controlled studies measuring alignment tax, jailbreak success rates, and scalable oversight effectiveness; critically evaluate AI safety benchmarks for construct validity; and plan pre-registered red team studies that meet scientific publication standards.

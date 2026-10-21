@@ -1,9 +1,9 @@
 Level 9 · Generative Models
 
 Phase: Architectures & Experiments
-Suggested duration: 32 sessions (~8 weeks)
+Suggested duration: 36 sessions (~9 weeks)
 Prerequisites: Level 8
-Scope: Master probabilistic generative models: derive and implement Variational Autoencoders, Generative Adversarial Networks, Denoising Diffusion Probabilistic Models, Continuous Flow Matching, and generative distribution metrics.
+Scope: Master probabilistic generative models: derive and implement Variational Autoencoders, Generative Adversarial Networks, Denoising Diffusion Probabilistic Models, Continuous Flow Matching, generative distribution metrics, and the empirical methodology of researching LLMs as generative systems.
 
 M9.1 · Variational Autoencoders (VAE) & Latent Variable Models — (sessions: 5)
 Session 1 · Latent variable formulations & the ELBO derivation
@@ -51,7 +51,7 @@ Outcome: You can formulate continuous-time neural ODEs, implement Optimal Transp
 
 M9.5 · Generative Evaluation Metrics, Distribution Fidelity & Memorization Audits — (sessions: 5)
 Session 1 · Distribution fidelity: FID & Inception Score
-- Fréchet Inception Distance (FID): Formulate the Wasserstein-2 distance between Gaussian-approximated Inception feature representations of real and synthetic distributions.
+- Frechet Inception Distance (FID): Formulate the Wasserstein-2 distance between Gaussian-approximated Inception feature representations of real and synthetic distributions.
 - Inception Score (IS) & Limitations: Calculate IS combining conditional confidence and marginal entropy; analyze sensitivity to class priors and sample counts.
 Session 2 · Precision, recall & training data memorization audits
 - Precision & Recall for Distributions: Disentangle sample quality (precision) from mode coverage (recall) using k-nearest neighbor hyperspheres in feature space.
@@ -68,3 +68,16 @@ Session 2 · Empirical distribution benchmarking & scientific manuscript
 - Evaluate sample quality using FID, Precision, Recall, and perceptual similarity (LPIPS) across varying sampling step counts (5, 10, 20, 50, 100, 500 steps).
 - Author a 6-page comparative research paper in LaTeX documenting theoretical foundations, generation speedup of Flow Matching over DDPM, and memorization audit findings.
 Final result: A comprehensive comparative benchmark paper and code repository evaluating Denoising Diffusion and Optimal Transport Flow Matching under equal compute parity.
+
+M9.7 · Researching Large Language Models as Generative Systems — (sessions: 4)
+Session 1 · Studying in-context learning and emergent capabilities empirically
+- In-Context Learning Experimental Protocol: Design a controlled study of in-context learning (ICL) that systematically isolates the contribution of: (1) label format (what the output label tokens look like), (2) label correctness (using random wrong labels vs correct labels), and (3) example ordering (first vs last examples) — following Min et al. (2022) "Rethinking the Role of Demonstrations" methodology — to determine what ICL examples actually teach the model.
+- Emergent Capabilities Measurement: Critically evaluate claims of emergent capabilities in large language models (Wei et al., 2022) by testing whether apparent emergence is a consequence of metric discontinuity (using accuracy rather than a continuous metric like log-probability) or genuine qualitative capability jumps; replicate the analysis of Schaeffer et al. (2023) "Are Emergent Abilities of Large Language Models a Mirage?" on a small open model.
+- Chain-of-Thought Research: Design a study measuring how chain-of-thought prompting (Wei et al., 2022) affects reasoning performance across problem difficulty levels, measuring the marginal benefit of CoT over direct prompting on GSM8K grade school math problems stratified by number of reasoning steps required.
+Session 2 · Hallucination measurement and memorization auditing in LLMs
+- Hallucination Rate Measurement Protocol: Define and operationalize LLM hallucination precisely for a specific domain (e.g. medical question answering, biographical facts, scientific citations); design a test set where ground truth is verifiable from authoritative sources; measure hallucination rate as the fraction of generated claims that cannot be verified in the source corpus; compute 95% confidence intervals.
+- Detecting Training Data Memorization in LLMs: Apply the Carlini et al. (2021) membership inference methodology to test whether an open LLM has memorized specific training documents: prompt the model with a prefix from a suspected training document and measure whether the continuation matches the original text at above-chance rates using perplexity comparison between the memorized and non-memorized continuation.
+- Distinguishing Generalization from Pattern Matching: Design an experiment using held-out perturbed test cases (e.g. GSM8K problems with numbers changed to values not seen in training) to test whether LLM mathematical performance reflects genuine arithmetic generalization or memorized answer patterns.
+Mental model: Researching LLMs as generative systems requires treating every impressive capability claim as a hypothesis to be falsified, not a fact to be celebrated — the questions are always "does this capability hold under distribution shift?" and "does removing training data contamination eliminate the capability?".
+Try: Design and execute a study testing whether in-context few-shot learning examples help an open LLM (e.g. Llama-3-8B) on a classification task because of their label format or their label correctness: use 4 conditions (correct labels, wrong labels, no labels, no examples), run 500 test examples per condition, and compute McNemar significance tests comparing all condition pairs.
+Outcome: You can design controlled experiments to study in-context learning, measure hallucination rates with rigorous protocols, detect training data memorization in LLMs, and evaluate whether capability claims survive distribution shift testing.

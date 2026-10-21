@@ -1,9 +1,9 @@
 Level 10 · Scaled Systems & HPC
 
 Phase: Scaled Systems & LLMs
-Suggested duration: 32 sessions (~8 weeks)
+Suggested duration: 36 sessions (~9 weeks)
 Prerequisites: Level 9
-Scope: Scale research experiments from single GPUs to high-performance computing clusters: master SLURM workload management, multi-GPU distributed parallelism (DDP, FSDP, ZeRO, Megatron-LM), hardware profiling, and Model FLOPs Utilization (MFU).
+Scope: Scale research experiments from single GPUs to high-performance computing clusters: master SLURM workload management, multi-GPU distributed parallelism (DDP, FSDP, ZeRO, Megatron-LM), hardware profiling, Model FLOPs Utilization (MFU), and the research methodology of studying LLM inference and serving systems scientifically.
 
 M10.1 · High-Performance Computing (HPC) Architecture & SLURM Job Scheduling — (sessions: 5)
 Session 1 · Supercomputing hardware topologies & interconnects
@@ -68,3 +68,15 @@ Session 2 · Comprehensive hardware profiling & systems benchmark report
 - Profile the training harness using PyTorch Profiler and Nsight Systems, computing achieved TFLOPs and hardware MFU across varying batch sizes and context lengths.
 - Author a 6-page systems research paper documenting scaling efficiency, communication overhead, MFU benchmarks, and step-by-step reproduction instructions.
 Final result: A production-ready, fault-tolerant distributed training platform on SLURM complete with a verified Model FLOPs Utilization (MFU) audit and technical report.
+
+M10.7 · Researching LLM Inference & Serving Systems — (sessions: 4)
+Session 1 · Designing controlled experiments on LLM inference optimization
+- Quantization Research Methodology: Design a controlled study measuring the quality-latency-cost tradeoffs of LLM quantization across precision levels (FP16, BF16, INT8, INT4, NF4) using the same model family (e.g. Llama-3 at 8B and 70B): measure perplexity on a held-out text corpus, downstream task accuracy on MMLU, throughput (tokens/second), GPU VRAM consumption, and first-token latency — and report all metrics together rather than cherry-picking the ones that favor quantization.
+- KV Cache Ablation Study: Design a study isolating the contribution of KV caching to generation latency by measuring time-to-first-token (TTFT) and tokens-per-second at varying context lengths (256, 512, 1024, 2048, 4096, 8192 tokens) with and without KV caching enabled, computing the empirical speedup factor and its dependence on context length.
+- Speculative Decoding Measurement: Measure the empirical acceptance rate and wall-clock speedup of speculative decoding (using a draft model to predict multiple tokens, then verifying with the target model) as a function of the quality mismatch between draft and target models — following the methodology of Chen et al. (2023) "Accelerating Large Language Model Decoding with Speculative Sampling".
+Session 2 · Scaling experiments and serving infrastructure research
+- Throughput vs Latency Tradeoff Measurement: Conduct a systematic experiment measuring the throughput-latency Pareto frontier for an open LLM served with vLLM: vary request batch size (1, 4, 8, 16, 32), measure mean and p99 latency and throughput simultaneously, and plot the Pareto frontier — identifying the operating point that maximizes throughput subject to a p99 latency constraint.
+- Comparing Managed vs Self-Hosted Serving: Design a cost-efficiency comparison between using a managed LLM API (e.g. OpenAI, Anthropic, Google) versus self-hosting an equivalent open-weight model (e.g. Llama-3-70B on A100s) for a fixed inference workload: measure cost per million tokens, average latency, p99 latency, and reliability (uptime fraction), and determine the break-even request volume above which self-hosting becomes cheaper.
+Mental model: LLM serving research requires simultaneously measuring quality (does the optimization degrade task performance?), speed (latency and throughput), and cost (GPU-hours and dollars) — optimizing any one dimension without measuring the others produces an incomplete and potentially misleading result.
+Try: Using vLLM to serve Llama-3-8B on a single A100, design and execute a serving benchmark that measures throughput (tokens/second) and p50/p99 latency across batch sizes 1, 4, 8, and 16 for a fixed 512-token input / 256-token output workload, then compute the throughput-latency Pareto curve and identify the optimal batch size for a "respond within 2 seconds p99" SLA.
+Outcome: You can design controlled experiments measuring quality-latency-cost tradeoffs for LLM inference optimizations, conduct serving throughput-latency Pareto analyses, and evaluate the economic break-even between managed API and self-hosted model serving.
