@@ -1,9 +1,9 @@
 Level 6 · Deep Learning & Reproduction
 
 Phase: Data & Modeling
-Suggested duration: 32 sessions (~8 weeks)
+Suggested duration: 36 sessions (~9 weeks)
 Prerequisites: Level 5
-Scope: Master neural network architectures from first-principles backpropagation in NumPy to PyTorch autograd, optimization dynamics, convolutional backbones, vision transformers, and rigorous paper reproduction.
+Scope: Master neural network architectures from first-principles backpropagation in NumPy to PyTorch autograd, optimization dynamics, convolutional backbones, vision transformers, rigorous paper reproduction, and the specific methodology of reproducing LLM fine-tuning and PEFT research.
 
 M6.1 · Artificial Neural Networks (ANN) & Analytical Backpropagation — (sessions: 5)
 Session 1 · Multi-Layer Perceptrons & non-linear activation functions
@@ -38,7 +38,7 @@ Session 2 · Architectural evolution: AlexNet to ResNet & ConvNeXt
 - Landmark CNN Paradigms: Trace architectural innovations from AlexNet and VGG to Inception (factorized 1x1 convolutions) and ResNet (residual skip connections).
 - Residual Learning Theory: Prove mathematically why residual connections (y = F(x) + x) eliminate the degradation problem by creating gradient highways directly to early layers.
 - Modern Modernization: Analyze ConvNeXt design choices (7x7 depthwise convolutions, inverted bottlenecks, LayerNorm) modernizing CNNs for modern benchmarks.
-Mental model: Convolutions encode spatial inductive bias—translational equivariance and locality—allowing models to share parameters across image locations efficiently.
+Mental model: Convolutions encode spatial inductive bias — translational equivariance and locality — allowing models to share parameters across image locations efficiently.
 Try: Build a 18-layer ResNet from scratch in PyTorch, verify that removing residual connections causes training error to plateau prematurely, and visualize learned convolutional filters.
 Outcome: You can calculate receptive fields, implement modern residual architectures, and explain spatial inductive biases.
 
@@ -72,3 +72,15 @@ Session 2 · Component ablation & scientific manuscript report
 - Conduct a rigorous ablation study isolating three core components: residual connections, normalization type (BatchNorm vs LayerNorm), and learning rate schedule.
 - Author a 6-page scientific reproduction report in LaTeX detailing methodology, empirical results tables with standard deviations, ablation analysis, and failure cases.
 Final result: A fully verified, reproducible PyTorch baseline implementation and a 6-page scientific reproduction paper suitable for submission to a reproducibility track.
+
+M6.7 · Reproducing LLM Fine-Tuning & PEFT Research — (sessions: 4)
+Session 1 · Replicating LoRA and QLoRA papers from scratch
+- LoRA Reproduction Protocol: Reproduce the core empirical finding from Hu et al. (LoRA: Low-Rank Adaptation of Large Language Models, 2021) on a small open model (e.g. Phi-2 or Mistral-7B): match reported rank-r configurations (r=4, r=8, r=16), target projection matrices (Q, K, V, MLP), and alpha scaling values; evaluate on the same benchmark type (GLUE or instruction-following) and compare your reproduced accuracy to the reported number.
+- Sources of Irreproducibility in PEFT Papers: Identify and measure the three most common sources of PEFT reproduction failures: (1) chat template mismatch (the fine-tuned model received training examples formatted for a different chat template than the base model was trained with), (2) random seed variance across initialization of the adapter matrices, and (3) hardware-dependent numerical precision differences between A100 and V100/T4 GPUs under BF16 vs FP16 training.
+Session 2 · Honest variance reporting & failed reproductions
+- Multi-Seed Variance Protocol: Execute the same LoRA fine-tuning run across 5 different random seeds, reporting mean and standard deviation of the final evaluation metric — understanding why single-seed results reported in many PEFT papers are scientifically unreliable.
+- Documenting Failed Reproductions: Follow the ML Reproducibility Challenge convention of documenting reproduction failures honestly: when your reproduced numbers differ from the paper's reported numbers, investigate and document each hypothesis for the gap (different data splits, unreported preprocessing, model version differences, evaluation prompt formatting differences) without fabricating results.
+- Instruction Tuning Data Quality Research: Design an experiment testing how data quality affects instruction fine-tuning outcome: compare fine-tuning on 1,000 high-quality human-written examples versus 10,000 synthetically generated examples using GPT-4, measuring downstream instruction-following quality on the AlpacaEval or MT-Bench benchmark.
+Mental model: Reproducing a PEFT paper is harder than it looks because most papers omit the chat template, the exact data preprocessing, and the precise evaluation prompt format — the three details that matter most for getting the numbers right.
+Try: Reproduce the central table of any LoRA paper using a Llama-3 or Phi-2 base model on a publicly available instruction-tuning dataset, document every deviation from the paper's described procedure, and report honest confidence intervals across 3 random seeds.
+Outcome: You can execute disciplined LoRA and QLoRA paper reproductions, identify the most common sources of PEFT irreproducibility, and report variance-aware results that meet scientific standards.

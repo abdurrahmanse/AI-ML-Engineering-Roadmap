@@ -1,9 +1,9 @@
 Level 3 · Research Literacy & Gaps
 
 Phase: Research Foundations
-Suggested duration: 28 sessions (~7 weeks)
+Suggested duration: 36 sessions (~9 weeks)
 Prerequisites: Level 2
-Scope: Master the methodology of scholarly literature search, critical paper reading, taxonomy synthesis, research gap identification, hypothesis formulation, and preregistered proposal authoring.
+Scope: Master the methodology of scholarly literature search, critical paper reading, taxonomy synthesis, research gap identification, hypothesis formulation, preregistered proposal authoring, and the specialized skills needed to read and critique modern GenAI research papers.
 
 M3.1 · Systematic Literature Search & Bibliographic Management — (sessions: 5)
 Session 1 · Scholarly search engines & structured bibliographic querying
@@ -46,7 +46,7 @@ Session 1 · Falsifiable research questions & operational hypotheses
 Session 2 · Confirmatory vs exploratory studies & OSF preregistration
 - Study Design Rigor: Separate confirmatory hypothesis testing from post-hoc exploratory data mining to eliminate confirmation bias and HARKing (Hypothesizing After Results are Known).
 - Open Science Preregistration: Write a formal study preregistration protocol on the Open Science Framework (OSF) specifying primary metrics, baselines, and stopping rules.
-Mental model: If an experiment cannot fail or disprove your initial hypothesis, it is not an experiment—it is a demonstration.
+Mental model: If an experiment cannot fail or disprove your initial hypothesis, it is not an experiment — it is a demonstration.
 Try: Author a preregistered study plan on OSF for a proposed model comparison, specifying primary metrics, minimum effect size, random seeds, and statistical test protocols.
 Outcome: You can formulate falsifiable research questions, operationalize testable hypotheses, and author formal study preregistrations.
 
@@ -69,3 +69,29 @@ Session 2 · Authoring and defending the formal research proposal
 - Write a 6-page formal research proposal including Abstract, Motivation, Related Work Taxonomy, Gap Analysis, Specific Hypotheses, Proposed Methodology, and Work Plan.
 - Deliver a 15-minute mock proposal defense before a peer review panel, defend the study design against skepticism, and revise the protocol from feedback.
 Final result: A submission-ready PRISMA systematic literature survey and a peer-defended, preregistered research proposal with an auditable experimental protocol.
+
+M3.7 · Reading & Critiquing GenAI Research Papers — (sessions: 4)
+Session 1 · Unique failure modes in LLM and GenAI papers
+- Benchmark Overfitting Detection: Identify the benchmark overfitting pattern in LLM papers where a model achieves SOTA on a benchmark that later turns out to be contaminated in pretraining data; learn the specific red flags (no confidence intervals, no contamination analysis, no ablation on benchmark-free evaluation).
+- Closed vs Open Evaluation: Distinguish papers using open held-out test sets reproducible by any reader from papers using proprietary evaluation datasets or internal human rater pools — understanding that closed evaluation results cannot be independently verified.
+- Cherry-Picked Example Auditing: Detect when a paper's qualitative examples section has been curated to show only successes by checking whether the paper reports failure rate statistics alongside the selected examples.
+- Scaling Excuse Anti-Pattern: Recognize the "our method needs larger scale to work" anti-pattern where authors attribute negative results to insufficient compute rather than to methodological flaws.
+Session 2 · Applying the Three-Pass method to LLM papers specifically
+- Reading System Papers vs Empirical Papers: Distinguish technical system papers (describing engineering implementations like GPT-4 or Gemini) from empirical science papers (testing specific scientific hypotheses with controlled experiments) and apply different critical lenses to each.
+- Evaluating LLM-as-Judge Studies: Critically evaluate papers that use an LLM (e.g. GPT-4) as the primary evaluator, checking for position bias controls, verbosity bias controls, self-preference (the judging model favoring its own family's outputs), and calibration against human rater agreement.
+- Citation Chain Tracing: Trace the citation lineage of key claims in a GenAI paper back to primary experimental evidence, identifying where chains of citations lead back to single unreplicated studies or industry blog posts rather than peer-reviewed findings.
+Mental model: GenAI papers have unique failure modes — benchmark contamination, closed evaluation, and LLM-as-judge bias — that require a specialized critical vocabulary beyond the standard Three-Pass method.
+Try: Apply the GenAI-specific critique checklist to three recent arXiv preprints about LLM capabilities: score each paper on benchmark contamination disclosure, evaluation openness, confidence interval reporting, and baseline tuning fairness, then write a 1-page peer-review style critique for the weakest paper.
+Outcome: You can identify the specific failure modes and scientific weaknesses unique to LLM and generative AI research papers and write rigorous peer-review quality critiques.
+
+M3.8 · Formulating a Research Question on a Modern AI Topic — (sessions: 4)
+Session 1 · Scoping a research question on LLMs, RAG, agents, or multimodal AI
+- The Modern AI Research Landscape: Survey the current frontier research directions (LLM scaling, retrieval-augmented generation, agentic AI, vision-language models, AI alignment, mechanistic interpretability) and identify sub-areas with open empirical questions accessible with academic resources.
+- The Academic Resource Constraint: Explicitly scope research questions to what is achievable without billion-dollar compute: using open models (Llama, Mistral, Phi), open datasets (The Pile, FineWeb, LAION), and a budget of 8–80 GPU-hours rather than 10,000+ GPU-hours.
+- Falsifiable Hypothesis Formulation for Modern AI: Transform a vague modern AI research interest (e.g. "RAG systems sometimes hallucinate") into a precise, falsifiable hypothesis (e.g. "Cross-encoder reranking reduces hallucination rate on multi-hop questions from 34% to below 20% on the MuSiQue benchmark when using the BGE-reranker-v2-m3 model").
+Session 2 · Gap identification in the LLM-era research literature
+- Systematic Gap Mapping for LLM Research: Apply the M3.3 Delta Analysis methodology specifically to modern AI topics: search arXiv cs.CL, cs.LG, and cs.AI for papers published in the last 12 months on your topic, build a comparison table of datasets, metrics, model scales, and findings, then identify the specific row in the table that no existing paper fills.
+- Contribution Types for Resource-Constrained Researchers: Identify research contribution types that are high-impact but computationally accessible — evaluation methodology papers (showing an existing benchmark is flawed), dataset papers (curating a missing evaluation benchmark), and analysis papers (explaining why an existing phenomenon occurs) — contrasting them with compute-intensive pretraining papers that require industrial resources.
+Mental model: The best academic research questions in the LLM era are not "build a better GPT-4" but "rigorously explain, evaluate, or find the limits of what current systems can and cannot do."
+Try: Using only arXiv papers from the last 6 months, identify a genuine open question about RAG, agentic AI, or LLM evaluation that no existing paper directly addresses, write a 2-page research proposal with a falsifiable hypothesis, and estimate the GPU-hours required using only open models.
+Outcome: You can identify genuine research gaps in the modern LLM-era literature, formulate precise falsifiable hypotheses about modern AI systems, and scope contributions achievable with academic compute budgets.

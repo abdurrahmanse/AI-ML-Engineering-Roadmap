@@ -1,9 +1,9 @@
 Level 7 · Sequences, Attention & Graphs
 
 Phase: Architectures & Experiments
-Suggested duration: 32 sessions (~8 weeks)
+Suggested duration: 36 sessions (~9 weeks)
 Prerequisites: Level 6
-Scope: Master sequence modeling, recurrent networks, multi-head transformer attention, modern NLP, graph neural networks (GNN), and linear-time state space models (Mamba).
+Scope: Master sequence modeling, recurrent networks, multi-head transformer attention, modern NLP, graph neural networks (GNN), linear-time state space models (Mamba), and the methodology of conducting principled architecture ablation studies.
 
 M7.1 · Recurrent Networks (RNN), LSTMs & Time-Series Forecasting — (sessions: 5)
 Session 1 · Vanilla RNNs, BPTT & gradient degradation
@@ -71,3 +71,16 @@ Session 2 · Empirical evaluation, ablation & publication write-up
 - Measure task accuracy, inference latency, peak GPU VRAM consumption, and length extrapolation capability under matched parameter counts.
 - Author a 6-page comparative architectural study in LaTeX, isolating the inductive bias advantages and computational scaling limits of each paradigm.
 Final result: A rigorous comparative architectural benchmark paper and code repository evaluating Transformers, GNNs, and State Space Models under equal parameter parity.
+
+M7.7 · Conducting Architecture Ablation Studies on Transformers — (sessions: 4)
+Session 1 · Systematic component isolation in transformer research
+- The Component Isolation Principle: Design a transformer ablation study that varies exactly one component at a time — attention heads, positional encoding type, normalization placement (pre-norm vs post-norm), feed-forward expansion ratio, activation function (ReLU vs SwiGLU vs GELU), or attention mechanism (full vs grouped-query vs sliding-window) — while holding parameter count, training tokens, and optimizer constant across conditions.
+- Controlling for Parameter Count in Architecture Comparisons: Understand why naive comparisons of two architectures are confounded when one has more parameters than the other; implement parameter-matched configurations by adjusting hidden dimension or number of layers to equalize total trainable parameter counts within ±2%.
+- The Compute Budget Parity Rule: Control for total training compute (measured in FLOPs) rather than training epochs when comparing architectures that have different per-step compute costs — e.g. a Mamba layer and a full-attention transformer layer with the same hidden dimension have different FLOPs per token.
+Session 2 · Publishing architecture ablation findings
+- Ablation Table Design for Architecture Papers: Structure a publication-grade architecture ablation table where each row removes or replaces exactly one component from the full proposed system, the baseline row (no proposed components) is the first row, the full proposed system is the last row, and delta columns show the isolated contribution of each component.
+- Identifying and Reporting Interaction Effects: Detect non-additive interaction effects where removing two components together degrades performance more than removing each component individually, using a 2x2 factorial design for the two most important components.
+- Writing the Architecture Section of a Paper: Draft the architecture section and ablation section of a research paper describing a modified transformer, including a formal mathematical description of each proposed component, a clear comparison to the prior component it replaces, and a pointer to the ablation table row that validates the contribution.
+Mental model: Architecture ablation is the scientific proof that each proposed modification independently contributes to the claimed improvement; without it, a better result could be explained entirely by one component while the others add noise.
+Try: Take an existing open-source small transformer (e.g. GPT-2 small or a small Llama variant) and design a 6-row ablation study testing the contribution of RoPE vs sinusoidal embeddings, pre-norm vs post-norm, and SwiGLU vs ReLU activation — training each configuration from scratch on a 1B token subset of FineWeb and reporting perplexity with standard deviation across 3 seeds.
+Outcome: You can design parameter-matched, compute-parity-controlled transformer ablation studies, structure publication-grade ablation tables, and identify interaction effects between architectural components.

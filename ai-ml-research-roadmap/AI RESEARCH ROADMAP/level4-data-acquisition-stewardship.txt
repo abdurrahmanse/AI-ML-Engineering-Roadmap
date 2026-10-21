@@ -1,9 +1,9 @@
 Level 4 · Data Curation & Pipelines
 
 Phase: Data & Modeling
-Suggested duration: 32 sessions (~8 weeks)
+Suggested duration: 36 sessions (~9 weeks)
 Prerequisites: Level 3
-Scope: Discover, curate, explore, clean, engineer features, prevent data leakage, evaluate annotation quality, and govern research-grade datasets across clinical, cybersecurity, vision, and language domains.
+Scope: Discover, curate, explore, clean, engineer features, prevent data leakage, evaluate annotation quality, govern research-grade datasets across clinical, cybersecurity, vision, and language domains, and apply data science methodology to the study of retrieval-augmented systems.
 
 M4.1 · Multi-Domain Research Dataset Discovery & Acquisition — (sessions: 5)
 Session 1 · Benchmark repositories & domain data standards
@@ -80,3 +80,16 @@ Session 2 · Benchmark release & formal documentation
 - Package the dataset into a versioned format (Hugging Face Datasets / Parquet) with deterministic train/validation/test/OOD splits.
 - Write a formal 5-page Data Paper documenting dataset curation methodology, annotation agreement statistics, privacy audits, and a complete Datasheet for Datasets.
 Final result: A fully audited, leakage-proof, documented multi-domain research dataset and reproducible pipeline ready for benchmark model training.
+
+M4.8 · Researching Retrieval-Augmented Systems — (sessions: 4)
+Session 1 · Constructing evaluation corpora for retrieval research
+- RAG Evaluation Dataset Construction: Build a question-context-answer evaluation corpus for a retrieval system from scratch: define question types (factoid, multi-hop, abstractive), source documents, and ground-truth context passages; understand why a test set constructed using the same document chunking strategy as the system under evaluation is contaminated.
+- Measuring Retrieval Quality: Compute Recall@k (what fraction of correct passages appear in the top-k retrieved results), Mean Reciprocal Rank (MRR), and Normalized Discounted Cumulative Gain (NDCG@k) on an evaluation corpus, understanding the statistical significance requirements for claiming retrieval improvement.
+- Avoiding RAG Benchmark Contamination: Audit whether evaluation questions were generated from the same document chunks used in the retrieval index, whether the embedding model was trained on similar text, and whether the LLM generator could answer questions from memory without any retrieved context.
+Session 2 · Designing controlled ablations to isolate RAG components
+- The RAG Component Isolation Problem: Design a controlled ablation study that isolates the contribution of each RAG pipeline component (chunking strategy, embedding model, retrieval algorithm, reranker, and generator) by varying one component at a time while holding all others fixed under identical compute budgets.
+- Reproducing Published RAG Benchmarks: Reproduce retrieval metric results from a published RAG paper (e.g. the RAG paper by Lewis et al. 2020, or a BEIR benchmark evaluation) by replicating the document corpus, chunking, embedding, and retrieval configuration exactly, then documenting deviations that prevent exact match.
+- Chunking Strategy Research: Design an experiment that systematically compares fixed-size, recursive character, semantic boundary, and document-hierarchy chunking strategies on a fixed embedding model and retrieval algorithm, isolating chunking's independent contribution to retrieval Recall@10.
+Mental model: Studying RAG scientifically requires treating the retrieval pipeline as a system with multiple interacting components, isolating each with controlled ablations rather than evaluating the full pipeline as a black box.
+Try: Build a controlled RAG ablation experiment on the MS-MARCO passage ranking dataset: hold the generator (a fixed open LLM) and embedding model constant, vary only chunking strategy (fixed-size 256/512/1024 tokens vs recursive splitting), and measure Recall@10 with 95% bootstrap confidence intervals across all conditions.
+Outcome: You can construct contamination-free RAG evaluation corpora, compute proper retrieval metrics with statistical significance, and design controlled ablations that isolate the contribution of individual RAG pipeline components.

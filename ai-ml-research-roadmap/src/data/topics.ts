@@ -72,6 +72,17 @@ export const topics: Record<string, TopicSet> = {
       "Execute a full smoke test from a...",
     ],
   },
+  'M0.8': {
+    sig: 'd5bb4a08',
+    labels: [
+      "Responsible Literature Acceleration: Use LLMs (ChatGPT, Claude,...",
+      "Hallucination Auditing Protocol: Verify every LLM-generated citation,...",
+      "Hypothesis Brainstorming: Prompt LLMs to identify tensions...",
+      "Coding Agent Workflows: Use AI coding agents...",
+      "Research Experiment Scripting: Prompt a coding agent...",
+      "Critical Verification Habit: Treat AI-generated code as...",
+    ],
+  },
   'M1.1': {
     sig: 'cf7abd62',
     labels: [
@@ -126,6 +137,17 @@ export const topics: Record<string, TopicSet> = {
       "Write a formal 4-page mathematical technical report...",
     ],
   },
+  'M1.7': {
+    sig: '991e2435',
+    labels: [
+      "Attention as Matrix Multiplication: Derive the Scaled...",
+      "Embedding Geometry: Explain why learned token embeddings...",
+      "Softmax & Cross-Entropy: Connect your knowledge of...",
+      "Neural Scaling Laws: Interpret Kaplan et al....",
+      "Loss Landscape Geometry: Connect your knowledge of...",
+      "Why Gradient Descent Works on Non-Convex LLM...",
+    ],
+  },
   'M2.1': {
     sig: '7c699325',
     labels: [
@@ -173,12 +195,23 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M2.6': {
-    sig: '6661dc7f',
+    sig: '125ce12d',
     labels: [
       "Build a Python library providing automated hypothesis...",
       "Integrate non-parametric bootstrap confidence interval estimation (percentile...",
       "Run an empirical audit on a published...",
       "Produce a publication-ready LaTeX table and statistical...",
+    ],
+  },
+  'M2.7': {
+    sig: 'fc03181e',
+    labels: [
+      "Benchmark Contamination Auditing: Understand why LLM benchmark...",
+      "Confidence Intervals on Accuracy Metrics: Compute proper...",
+      "Paired Significance Testing Across Models: Apply the...",
+      "Human Evaluation Study Design: Design a human...",
+      "Position Bias & Order Effects: Measure and...",
+      "Reporting Standards: Apply the HELM (Holistic Evaluation...",
     ],
   },
   'M3.1': {

@@ -1,9 +1,9 @@
 Level 5 · Classical Machine Learning
 
 Phase: Data & Modeling
-Suggested duration: 35 sessions (~9 weeks)
+Suggested duration: 39 sessions (~10 weeks)
 Prerequisites: Level 4
-Scope: Master linear models, probabilistic classifiers, instance-based learning, support vector machines, decision trees, gradient boosted ensembles, clustering, and anomaly detection to establish rock-solid scientific baselines.
+Scope: Master linear models, probabilistic classifiers, instance-based learning, support vector machines, decision trees, gradient boosted ensembles, clustering, anomaly detection, and the methodology of establishing scientifically fair classical ML baselines in modern AI research.
 
 M5.1 · Linear Regression, Polynomial Models & Regularization — (sessions: 5)
 Session 1 · Ordinary Least Squares (OLS) derivation & geometry
@@ -58,27 +58,39 @@ Session 2 · Boosting theory: AdaBoost & Gradient Boosting
 - Gradient Boosting Machines: Formulate gradient boosting as gradient descent in function space, fitting successive shallow trees to the negative gradient (pseudo-residuals).
 Session 3 · Modern GBDT frameworks: XGBoost, LightGBM & CatBoost
 - XGBoost Innovations: Derive second-order Taylor expansion of the objective function, exact greedy vs weighted quantile sketch splits, and sparsity-aware split finding.
-- LightGBM & CatBoost: Understand Gradient-based One-Side Sampling (GOSS), Exclusive Feature Bundling (EFB), and CatBoost's ordered target encoding for categorical features.
-Mental model: Random Forests combine many independent, overfitted trees in parallel to cancel variance; Gradient Boosting builds a sequence of shallow trees that iteratively correct residuals.
-Try: Benchmark Random Forest, XGBoost, LightGBM, and CatBoost on a complex tabular dataset with mixed categorical variables, measuring training throughput and AUROC.
-Outcome: You can explain ensemble theory, tune modern GBDT libraries, and evaluate feature importances reliably.
+- LightGBM & CatBoost: Analyze Gradient-Based One-Side Sampling (GOSS) and Exclusive Feature Bundling (EFB) in LightGBM; evaluate ordered boosting and symmetric tree growth in CatBoost.
+Mental model: Gradient boosting sequentially fits shallow trees to residual errors, converting a collection of weak prediction signals into a single powerful ensemble.
+Try: Train XGBoost and LightGBM on a Kaggle tabular benchmark using Optuna Bayesian hyperparameter search under a fixed 100-trial budget and report test performance with 95% bootstrap confidence intervals.
+Outcome: You can implement gradient boosting from scratch, configure modern GBDT frameworks, and tune ensemble hyperparameters with Bayesian search.
 
-M5.6 · Unsupervised Learning: Clustering, Dimensionality Reduction & Anomalies — (sessions: 5)
-Session 1 · Partitioning & density-based clustering
-- K-Means Clustering: Implement Lloyd's algorithm, K-Means++ probabilistic initialization, evaluate the elbow curve, and calculate silhouette coefficients.
-- Density-Based Clustering: Implement DBSCAN, defining core points, border points, epsilon-neighborhoods, and MinPts; contrast against hierarchical agglomerative clustering.
-Session 2 · Dimensionality reduction: PCA, t-SNE & UMAP
-- Spectral & Manifold Learning: Derive Principal Component Analysis (PCA) from the covariance matrix; compare against t-SNE and UMAP for non-linear manifold projection.
-- Anomaly Detection: Detect multivariate tabular outliers using Isolation Forests (measuring average path length in random trees), Local Outlier Factor, and One-Class SVM.
-Mental model: Unsupervised algorithms discover latent structures, clusters, and low-dimensional manifolds in data without teacher guidance, generating hypotheses for scientific validation.
-Try: Run DBSCAN and Isolation Forest on an unlabelled network intrusion dataset to isolate anomalous cyber-attack clusters and visualize them in a 2D UMAP projection.
-Outcome: You can apply partitioning and density clustering, project high-dimensional manifolds, and detect anomalies in unlabelled data.
+M5.6 · Unsupervised Learning: Clustering & Anomaly Detection — (sessions: 5)
+Session 1 · Clustering algorithms & cluster validity
+- K-Means & K-Means++: Implement Lloyd's algorithm and K-Means++ seeding; compute the inertia elbow curve and Silhouette Coefficient to select k.
+- DBSCAN & Gaussian Mixture Models (GMM): Apply density-based DBSCAN to discover arbitrary-shaped clusters with noise; derive the Expectation-Maximization (EM) algorithm for GMMs.
+Session 2 · Anomaly detection paradigms
+- Statistical Anomaly Detection: Detect anomalies using Mahalanobis distance, Isolation Forest, and One-Class SVM.
+- AutoEncoder-Based Anomaly Detection: Train a compact autoencoder to reconstruct normal samples and threshold reconstruction error as an anomaly score.
+Mental model: Clustering discovers latent structure without labels; anomaly detection identifies rare deviations from established normal behavior patterns.
+Try: Cluster a cybersecurity network flow dataset using DBSCAN and GMM, compute the Silhouette Coefficient for each method, and detect injection attack anomalies using Isolation Forest.
+Outcome: You can apply clustering and anomaly detection algorithms, evaluate cluster validity, and deploy reconstruction-error anomaly detectors.
 
-M5.7 · Capstone: Publication-Quality Empirical Benchmark: Linear Models vs SVM vs GBDT — (sessions: 5)
-Session 1 · Benchmark protocol & compute-parity tuning
-- Formulate an empirical research question: Under what tabular conditions (sample size, sparsity, non-linearity, categorical cardinality) do GBDTs significantly outperform tuned SVMs and regularized linear models?
-- Execute nested cross-validation with Bayesian hyperparameter optimization (Optuna) under matched compute budgets across 5 diverse tabular datasets.
-Session 2 · Statistical analysis, ablation & baseline paper report
-- Compute AUROC, AUPRC, calibration error (ECE), and Brier score; perform paired Wilcoxon signed-rank tests across 10 random seeds with Benjamini-Hochberg FDR correction.
-- Write a formal 6-page research paper detailing experimental setup, baseline configurations, ablation of tree depth and shrinkage, and discussion of failure modes.
-Final result: A publication-quality empirical benchmark paper and code repository establishing rigorous classical ML baselines with statistical significance tests.
+M5.7 · Capstone: Classical ML Research Baseline Pipeline & Benchmark Report — (sessions: 5)
+Session 1 · End-to-end classical ML benchmark pipeline
+- Implement a full comparative benchmark pipeline (Logistic Regression, SVM, Random Forest, XGBoost, LightGBM) on a tabular research dataset with proper nested cross-validation, Bayesian hyperparameter search per model, and equal trial budgets.
+- Compute Paired Wilcoxon signed-rank tests and Benjamini-Hochberg FDR corrections across all pairwise model comparisons.
+Session 2 · Scientific benchmark report & critical difference visualization
+- Author a 5-page research benchmark paper in LaTeX reporting mean +/- std metrics in booktabs tables, a Demsar critical difference diagram for statistical rankings, and an error taxonomy of failure cases.
+- Package the benchmark as a reproducible open-source Python project with Makefile, requirements lockfile, and automated seed execution.
+Final result: A statistically rigorous, reproducible classical ML benchmark pipeline and a publication-quality comparative benchmark report.
+
+M5.8 · Establishing Fair Baselines in Modern AI Research — (sessions: 4)
+Session 1 · The weak-baseline fallacy and how to avoid it
+- The Baseline Fairness Crisis: Analyze published papers in LLM and deep learning that report improvements over weak, under-tuned baselines — identifying specific signals of baseline undertuning: default hyperparameters, insufficient training epochs, smaller model size than the proposed method, or absence of modern training recipes (e.g. comparing a proposed model trained with AdamW + cosine warmup against a baseline trained with vanilla SGD).
+- Compute Parity for Classical Baselines: When comparing an LLM or deep learning method against classical ML baselines (e.g. Logistic Regression, XGBoost), ensure classical models receive equally intensive Bayesian hyperparameter search (same number of Optuna trials, same cross-validation folds) before being reported as inferior.
+- The "Strong Baseline" Verification Protocol: Before claiming a new method is SOTA, explicitly verify that: (1) the strongest prior baseline was trained with its optimal modern configuration, (2) both methods are evaluated on the same exact held-out test set, and (3) performance differences are statistically significant under a paired test.
+Session 2 · Classical ML as a research baseline for LLM-era claims
+- When Classical ML Should Beat LLMs: Understand the specific conditions under which classical ML models (XGBoost, LightGBM, logistic regression on engineered features) empirically outperform fine-tuned LLMs: small structured tabular datasets, high-cardinality categorical features, well-defined feature schemas, and tabular problems without natural language structure.
+- Designing Fair Cross-Paradigm Comparisons: Design an experiment that fairly compares a fine-tuned LLM against a tuned XGBoost model on a tabular classification task, controlling for training data size, label quality, inference cost, and hyperparameter search budget — and reporting results with confidence intervals rather than point estimates.
+Mental model: A novel method that defeats a poorly tuned baseline has proven nothing; scientific contribution requires demonstrating improvement over the best achievable performance of the strongest existing approach, given equal resources.
+Try: Select a benchmark task from the Papers with Code leaderboard that has been claimed to be solved by an LLM; implement and properly tune XGBoost with 200 Optuna trials as an alternative baseline; compare results with 95% bootstrap confidence intervals and determine whether the LLM advantage is statistically significant.
+Outcome: You can identify the weak-baseline fallacy in published ML research, design fair cross-paradigm comparisons between classical ML and deep learning methods, and verify statistical significance of performance claims.

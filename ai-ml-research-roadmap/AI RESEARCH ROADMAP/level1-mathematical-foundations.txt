@@ -1,9 +1,9 @@
 Level 1 · Mathematical Foundations
 
 Phase: Research Foundations
-Suggested duration: 29 sessions (~7 weeks)
+Suggested duration: 33 sessions (~8 weeks)
 Prerequisites: Level 0
-Scope: Master the linear algebra, multivariable vector calculus, matrix differentials, convex optimization, and first-order algorithms essential for deriving and analyzing AI/ML models from scratch.
+Scope: Master the linear algebra, multivariable vector calculus, matrix differentials, convex optimization, first-order algorithms, and the mathematics of modern neural architectures essential for deriving and analyzing AI/ML models from scratch.
 
 M1.1 · Vector Spaces, Linear Independence, Projections & Decompositions — (sessions: 5)
 Session 1 · Vector spaces, subspaces & orthogonality
@@ -68,3 +68,16 @@ Session 2 · Benchmarking, verification & technical report
 - Benchmark the solver across convex and non-convex test surfaces (Beale, Rosenbrock, Rastrigin), recording convergence rates, trajectory plots, and condition numbers.
 - Write a formal 4-page mathematical technical report documenting the derivation, convergence proofs, numerical verification checks, and experimental results.
 Final result: A fully functional, mathematically verified numerical optimization engine written from scratch, accompanied by a rigorous technical report and benchmark suite.
+
+M1.7 · The Mathematics of Modern AI: Connecting Theory to Transformers — (sessions: 4)
+Session 1 · From linear algebra to attention & embeddings
+- Attention as Matrix Multiplication: Derive the Scaled Dot-Product Attention formula (softmax(QK^T / sqrt(d_k)) * V) from first principles using your knowledge of matrix multiplication, inner products, and the softmax function; explain why dividing by sqrt(d_k) prevents gradient vanishing in deep networks.
+- Embedding Geometry: Explain why learned token embeddings form vector spaces where arithmetic relationships (king - man + woman = queen) emerge from SVD-like low-rank structure in training data co-occurrence matrices.
+- Softmax & Cross-Entropy: Connect your knowledge of probability distributions, the log-sum-exp numerical trick, and KL divergence to the cross-entropy next-token prediction loss used in all autoregressive language model training.
+Session 2 · Scaling laws, loss landscapes & why large models generalize
+- Neural Scaling Laws: Interpret Kaplan et al. (2020) scaling law power equations (L ~ C^(-0.054)) using your knowledge of optimization convergence rates and function approximation theory.
+- Loss Landscape Geometry: Connect your knowledge of Hessian curvature, saddle points, and flat minima to empirical observations about why large language models find wide, flat minima that generalize better than sharp narrow ones.
+- Why Gradient Descent Works on Non-Convex LLM Objectives: Reconcile convex optimization theory (which guarantees global minima) with the non-convex reality of neural network training, explaining why SGD with warmup reliably finds good solutions despite theoretical non-convexity.
+Mental model: Every component of a modern transformer — attention, positional encoding, layer normalization, weight initialization — is a direct application of the linear algebra, calculus, and optimization you have just mastered.
+Try: Implement Scaled Dot-Product Attention in pure NumPy from the formula, run a gradient check to verify the backward pass, and visualize the attention weight matrix for a 10-token input sentence to confirm it produces interpretable patterns.
+Outcome: You can derive and explain every mathematical operation inside a transformer block using your foundational knowledge of linear algebra, calculus, and convex optimization.

@@ -1,9 +1,9 @@
 Level 0 · Scientific Computing & Python
 
 Phase: Research Foundations
-Suggested duration: 28 sessions (~7 weeks)
+Suggested duration: 32 sessions (~8 weeks)
 Prerequisites: None; designed for a complete beginner entering scientific computing
-Scope: Build the foundational computing, Linux shell, Python programming, data structures, computational complexity, relational SQL, unit testing, and containerized laboratory environment setup required to conduct reproducible research without relying on tutorial code.
+Scope: Build the foundational computing, Linux shell, Python programming, data structures, computational complexity, relational SQL, unit testing, containerized laboratory environment setup, and AI-assisted research workflows required to conduct reproducible research without relying on tutorial code.
 
 M0.1 · Command-Line Foundations, Linux Shell & Remote Laboratory Work — (sessions: 4)
 Session 1 · Linux filesystem, shell navigation & process control
@@ -79,3 +79,16 @@ Session 2 · End-to-end containerized verification
 - Package the entire experimental harness inside a Docker container with an automated Makefile and comprehensive documentation.
 - Execute a full smoke test from a clean environment on a secondary machine, verifying that outputs match bit-for-bit with stored golden artifacts.
 Final result: A fully reproducible, tested, and containerized research laboratory harness that serves as the foundation for all subsequent machine learning studies.
+
+M0.8 · AI-Assisted Research: LLMs & Coding Agents as Research Tools — (sessions: 4)
+Session 1 · Using LLMs for literature synthesis & hypothesis generation
+- Responsible Literature Acceleration: Use LLMs (ChatGPT, Claude, Gemini, Perplexity) to accelerate paper discovery, generate structured summaries, and synthesize competing arguments across dozens of papers — while understanding that LLMs hallucinate citations and must never be used as a primary source.
+- Hallucination Auditing Protocol: Verify every LLM-generated citation, fact, and formula against authoritative primary sources before including it in any research document.
+- Hypothesis Brainstorming: Prompt LLMs to identify tensions between papers, suggest unexplored experimental conditions, and generate alternative explanations for observed phenomena — treating the output as brainstorming scaffolding, not scientific truth.
+Session 2 · Agentic coding assistants for research implementation
+- Coding Agent Workflows: Use AI coding agents (GitHub Copilot, Cursor, Antigravity) to accelerate boilerplate code generation, debugging, and paper algorithm implementation while owning every line you commit.
+- Research Experiment Scripting: Prompt a coding agent to scaffold a complete experiment harness — configuration parsing, seed management, metric logging, and output archival — then review, test, and verify the generated code against the paper's pseudocode.
+- Critical Verification Habit: Treat AI-generated code as a first draft that must pass unit tests, gradient checks, and output verification before being used for any scientific claim.
+Mental model: AI coding agents are powerful research accelerators that eliminate boilerplate; your job is to direct them precisely, verify everything they produce, and never outsource scientific judgment.
+Try: Use an AI coding agent to implement a paper algorithm from pseudocode in 30 minutes, then write a unit test suite that independently verifies the implementation matches the paper's stated mathematical properties.
+Outcome: You can use LLMs and coding agents to responsibly accelerate literature synthesis and experiment implementation while maintaining rigorous scientific verification standards.

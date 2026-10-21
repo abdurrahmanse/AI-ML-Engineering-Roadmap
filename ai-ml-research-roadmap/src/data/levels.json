@@ -1,8 +1,8 @@
 {
   "generatedFrom": "./AI RESEARCH ROADMAP",
   "totalLevels": 16,
-  "totalSessions": 501,
-  "totalModules": 100,
+  "totalSessions": 513,
+  "totalModules": 103,
   "phases": [
     {
       "id": "foundations",
@@ -97,7 +97,7 @@
       "slug": "level-0",
       "title": "Scientific Computing & Python",
       "sourceFile": "level0-research-computing-python.txt",
-      "scope": "Build the foundational computing, Linux shell, Python programming, data structures, computational complexity, relational SQL, unit testing, and containerized laboratory environment setup required to conduct reproducible research without relying on tutorial code.",
+      "scope": "Build the foundational computing, Linux shell, Python programming, data structures, computational complexity, relational SQL, unit testing, containerized laboratory environment setup, and AI-assisted research workflows required to conduct reproducible research without relying on tutorial code.",
       "prereqStated": "None; designed for a complete beginner entering scientific computing",
       "prerequisites": [],
       "phase": "foundations",
@@ -366,16 +366,64 @@
             "empirical evaluation",
             "systems scaling"
           ]
+        },
+        {
+          "id": "M0.8",
+          "name": "AI-Assisted Research: LLMs & Coding Agents as Research Tools",
+          "sessionCount": 4,
+          "icon": "bot-message-square",
+          "objectives": [
+            {
+              "text": "Responsible Literature Acceleration: Use LLMs (ChatGPT, Claude, Gemini, Perplexity) to accelerate paper discovery, generate structured summaries, and synthesize competing arguments across dozens of papers — while understanding that LLMs hallucinate citations and must never be used as a primary source.",
+              "group": "Using LLMs for literature synthesis & hypothesis generation"
+            },
+            {
+              "text": "Hallucination Auditing Protocol: Verify every LLM-generated citation, fact, and formula against authoritative primary sources before including it in any research document.",
+              "group": "Using LLMs for literature synthesis & hypothesis generation"
+            },
+            {
+              "text": "Hypothesis Brainstorming: Prompt LLMs to identify tensions between papers, suggest unexplored experimental conditions, and generate alternative explanations for observed phenomena — treating the output as brainstorming scaffolding, not scientific truth.",
+              "group": "Using LLMs for literature synthesis & hypothesis generation"
+            },
+            {
+              "text": "Coding Agent Workflows: Use AI coding agents (GitHub Copilot, Cursor, Antigravity) to accelerate boilerplate code generation, debugging, and paper algorithm implementation while owning every line you commit.",
+              "group": "Agentic coding assistants for research implementation"
+            },
+            {
+              "text": "Research Experiment Scripting: Prompt a coding agent to scaffold a complete experiment harness — configuration parsing, seed management, metric logging, and output archival — then review, test, and verify the generated code against the paper's pseudocode.",
+              "group": "Agentic coding assistants for research implementation"
+            },
+            {
+              "text": "Critical Verification Habit: Treat AI-generated code as a first draft that must pass unit tests, gradient checks, and output verification before being used for any scientific claim.",
+              "group": "Agentic coding assistants for research implementation"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "AI coding agents are powerful research accelerators that eliminate boilerplate; your job is to direct them precisely, verify everything they produce, and never outsource scientific judgment.",
+          "tryIt": "Use an AI coding agent to implement a paper algorithm from pseudocode in 30 minutes, then write a unit test suite that independently verifies the implementation matches the paper's stated mathematical properties.",
+          "outcome": "You can use LLMs and coding agents to responsibly accelerate literature synthesis and experiment implementation while maintaining rigorous scientific verification standards.",
+          "evidence": "Use an AI coding agent to implement a paper algorithm from pseudocode in 30 minutes, then write a unit test suite that independently verifies the implementation matches the paper's stated mathematical properties.",
+          "competencyTags": [
+            "research infrastructure",
+            "research communication",
+            "mathematical reasoning",
+            "generative modeling",
+            "empirical evaluation",
+            "research career"
+          ]
         }
       ],
       "project": "M0.7",
-      "moduleCount": 7,
-      "objectiveCount": 28,
+      "moduleCount": 8,
+      "objectiveCount": 34,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 28,
-      "statedSessions": 28,
-      "estimatedWeeks": 7,
+      "totalSessions": 32,
+      "statedSessions": 32,
+      "estimatedWeeks": 8,
       "proficiency": "Beginner",
       "researchStage": "Establish research computing foundations",
       "lifecycle": "Shell → Python → SQL & Algorithms → Docker → Git",
@@ -388,7 +436,8 @@
         "You can systematically debug, profile, and unit-test scientific Python code to ensure software correctness.",
         "You can manage research software collaboratively with Git and maintain complete provenance across experimental iterations.",
         "You can build, lock, and containerize reproducible research environments across workstations and shared compute clusters.",
-        "A fully reproducible, tested, and containerized research laboratory harness that serves as the foundation for all subsequent machine learning studies."
+        "A fully reproducible, tested, and containerized research laboratory harness that serves as the foundation for all subsequent machine learning studies.",
+        "You can use LLMs and coding agents to responsibly accelerate literature synthesis and experiment implementation while maintaining rigorous scientific verification standards."
       ],
       "todos": []
     },
@@ -397,7 +446,7 @@
       "slug": "level-1",
       "title": "Mathematical Foundations",
       "sourceFile": "level1-mathematical-foundations.txt",
-      "scope": "Master the linear algebra, multivariable vector calculus, matrix differentials, convex optimization, and first-order algorithms essential for deriving and analyzing AI/ML models from scratch.",
+      "scope": "Master the linear algebra, multivariable vector calculus, matrix differentials, convex optimization, first-order algorithms, and the mathematics of modern neural architectures essential for deriving and analyzing AI/ML models from scratch.",
       "prereqStated": "Level 0",
       "prerequisites": [
         0
@@ -617,16 +666,63 @@
             "architecture design",
             "empirical evaluation"
           ]
+        },
+        {
+          "id": "M1.7",
+          "name": "The Mathematics of Modern AI: Connecting Theory to Transformers",
+          "sessionCount": 4,
+          "icon": "brain-circuit",
+          "objectives": [
+            {
+              "text": "Attention as Matrix Multiplication: Derive the Scaled Dot-Product Attention formula (softmax(QK^T / sqrt(d_k)) * V) from first principles using your knowledge of matrix multiplication, inner products, and the softmax function; explain why dividing by sqrt(d_k) prevents gradient vanishing in deep networks.",
+              "group": "From linear algebra to attention & embeddings"
+            },
+            {
+              "text": "Embedding Geometry: Explain why learned token embeddings form vector spaces where arithmetic relationships (king - man + woman = queen) emerge from SVD-like low-rank structure in training data co-occurrence matrices.",
+              "group": "From linear algebra to attention & embeddings"
+            },
+            {
+              "text": "Softmax & Cross-Entropy: Connect your knowledge of probability distributions, the log-sum-exp numerical trick, and KL divergence to the cross-entropy next-token prediction loss used in all autoregressive language model training.",
+              "group": "From linear algebra to attention & embeddings"
+            },
+            {
+              "text": "Neural Scaling Laws: Interpret Kaplan et al. (2020) scaling law power equations (L ~ C^(-0.054)) using your knowledge of optimization convergence rates and function approximation theory.",
+              "group": "Scaling laws, loss landscapes & why large models generalize"
+            },
+            {
+              "text": "Loss Landscape Geometry: Connect your knowledge of Hessian curvature, saddle points, and flat minima to empirical observations about why large language models find wide, flat minima that generalize better than sharp narrow ones.",
+              "group": "Scaling laws, loss landscapes & why large models generalize"
+            },
+            {
+              "text": "Why Gradient Descent Works on Non-Convex LLM Objectives: Reconcile convex optimization theory (which guarantees global minima) with the non-convex reality of neural network training, explaining why SGD with warmup reliably finds good solutions despite theoretical non-convexity.",
+              "group": "Scaling laws, loss landscapes & why large models generalize"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "Every component of a modern transformer — attention, positional encoding, layer normalization, weight initialization — is a direct application of the linear algebra, calculus, and optimization you have just mastered.",
+          "tryIt": "Implement Scaled Dot-Product Attention in pure NumPy from the formula, run a gradient check to verify the backward pass, and visualize the attention weight matrix for a 10-token input sentence to confirm it produces interpretable patterns.",
+          "outcome": "You can derive and explain every mathematical operation inside a transformer block using your foundational knowledge of linear algebra, calculus, and convex optimization.",
+          "evidence": "Implement Scaled Dot-Product Attention in pure NumPy from the formula, run a gradient check to verify the backward pass, and visualize the attention weight matrix for a 10-token input sentence to confirm it produces interpretable patterns.",
+          "competencyTags": [
+            "mathematical reasoning",
+            "data stewardship",
+            "architecture design",
+            "systems scaling",
+            "model interpretability"
+          ]
         }
       ],
       "project": "M1.6",
-      "moduleCount": 6,
-      "objectiveCount": 24,
+      "moduleCount": 7,
+      "objectiveCount": 30,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 29,
-      "statedSessions": 29,
-      "estimatedWeeks": 7,
+      "totalSessions": 33,
+      "statedSessions": 33,
+      "estimatedWeeks": 8,
       "proficiency": "Beginner",
       "researchStage": "Build mathematical and optimization intuition",
       "lifecycle": "Linear algebra → calculus → optimization theory",
@@ -638,7 +734,8 @@
         "You can determine function convexity, formulate Lagrangian duals, and apply KKT optimality conditions to constrained ML problems.",
         "You can select, implement, and tune first-order and adaptive optimizers while diagnosing numerical instability and ill-conditioning.",
         "You can critically read optimization literature, reproduce theoretical claims, and perform rigorous numerical verification.",
-        "A fully functional, mathematically verified numerical optimization engine written from scratch, accompanied by a rigorous technical report and benchmark suite."
+        "A fully functional, mathematically verified numerical optimization engine written from scratch, accompanied by a rigorous technical report and benchmark suite.",
+        "You can derive and explain every mathematical operation inside a transformer block using your foundational knowledge of linear algebra, calculus, and convex optimization."
       ],
       "todos": []
     },
@@ -647,7 +744,7 @@
       "slug": "level-2",
       "title": "Probability & Statistics",
       "sourceFile": "level2-statistics-uncertainty-inference.txt",
-      "scope": "Master probability theory, statistical estimation, hypothesis testing, uncertainty quantification, non-parametric statistics, and multiple comparison corrections for rigorous scientific claims.",
+      "scope": "Master probability theory, statistical estimation, hypothesis testing, uncertainty quantification, non-parametric statistics, multiple comparison corrections, and the statistical rigour required to evaluate modern generative AI systems.",
       "prereqStated": "Level 1",
       "prerequisites": [
         1
@@ -861,7 +958,7 @@
               "group": "Benchmarking audit & scientific paper reporting"
             },
             {
-              "text": "Produce a publication-ready LaTeX table and statistical significance critical difference diagram (Demšar plot).",
+              "text": "Produce a publication-ready LaTeX table and statistical significance critical difference diagram (Demsar plot).",
               "group": "Benchmarking audit & scientific paper reporting"
             }
           ],
@@ -877,16 +974,64 @@
             "empirical evaluation",
             "research career"
           ]
+        },
+        {
+          "id": "M2.7",
+          "name": "Statistical Rigour in LLM Evaluation",
+          "sessionCount": 4,
+          "icon": "flask-conical",
+          "objectives": [
+            {
+              "text": "Benchmark Contamination Auditing: Understand why LLM benchmark scores can be inflated by training data contamination; apply n-gram overlap tests (e.g. comparing model training data with benchmark test sets using MinHash deduplication) to audit whether a model has memorized benchmark answers.",
+              "group": "Benchmark validity, contamination & confidence intervals for LLMs"
+            },
+            {
+              "text": "Confidence Intervals on Accuracy Metrics: Compute proper bootstrap confidence intervals around benchmark accuracy scores (e.g. MMLU, HellaSwag, GSM8K) rather than reporting point estimates; understand why a 1-point improvement with N=1,000 questions is not statistically significant without a confidence interval.",
+              "group": "Benchmark validity, contamination & confidence intervals for LLMs"
+            },
+            {
+              "text": "Paired Significance Testing Across Models: Apply the McNemar test and paired bootstrap to compare two language models on the same question set, distinguishing genuine performance differences from random seed variance.",
+              "group": "Benchmark validity, contamination & confidence intervals for LLMs"
+            },
+            {
+              "text": "Human Evaluation Study Design: Design a human preference evaluation study for a generative AI system specifying annotator selection, pairwise vs rating scales, inter-annotator agreement targets (Fleiss' Kappa > 0.6), and sample size power calculations.",
+              "group": "Designing statistically valid human evaluation studies for generative AI"
+            },
+            {
+              "text": "Position Bias & Order Effects: Measure and correct for position bias (annotators preferring the first response), verbosity bias (preferring longer outputs), and sycophancy in LLM-as-judge evaluations using randomized counterbalancing.",
+              "group": "Designing statistically valid human evaluation studies for generative AI"
+            },
+            {
+              "text": "Reporting Standards: Apply the HELM (Holistic Evaluation of Language Models) and BIG-bench reporting conventions to report multi-metric evaluation results with proper uncertainty quantification and scenario breakdowns.",
+              "group": "Designing statistically valid human evaluation studies for generative AI"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Evaluate claims",
+          "mentalModel": "An LLM benchmark score without a confidence interval and contamination audit is marketing material, not science; rigorous evaluation requires the same statistical discipline as any controlled experiment.",
+          "tryIt": "Evaluate two open language models on 500 questions from the MMLU benchmark, compute bootstrap confidence intervals around their accuracy scores, run a McNemar significance test, and audit both models for n-gram contamination against the benchmark test set.",
+          "outcome": "You can design statistically valid LLM evaluation studies, compute contamination-adjusted confidence intervals on benchmark scores, and detect spurious performance differences between models.",
+          "evidence": "Evaluate two open language models on 500 questions from the MMLU benchmark, compute bootstrap confidence intervals around their accuracy scores, run a McNemar significance test, and audit both models for n-gram contamination against the benchmark test set.",
+          "competencyTags": [
+            "research communication",
+            "mathematical reasoning",
+            "data stewardship",
+            "generative modeling",
+            "empirical evaluation",
+            "trustworthy AI"
+          ]
         }
       ],
       "project": "M2.6",
-      "moduleCount": 6,
-      "objectiveCount": 25,
+      "moduleCount": 7,
+      "objectiveCount": 31,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 28,
-      "statedSessions": 28,
-      "estimatedWeeks": 7,
+      "totalSessions": 32,
+      "statedSessions": 32,
+      "estimatedWeeks": 8,
       "proficiency": "Beginner",
       "researchStage": "Master statistical inference and uncertainty",
       "lifecycle": "Probability → estimation → hypothesis testing",
@@ -898,7 +1043,8 @@
         "You can formulate, derive, and analyze Maximum Likelihood and Bayesian Maximum A Posteriori estimators for arbitrary statistical models.",
         "You can design statistically sound benchmark evaluations, select appropriate non-parametric tests, and apply rigorous multiplicity adjustments.",
         "You can compute distribution-free confidence intervals via bootstrapping and construct guaranteed prediction intervals using conformal prediction.",
-        "An open-source, automated statistical testing and uncertainty audit package suitable for evaluating and reporting empirical AI/ML research benchmarks."
+        "An open-source, automated statistical testing and uncertainty audit package suitable for evaluating and reporting empirical AI/ML research benchmarks.",
+        "You can design statistically valid LLM evaluation studies, compute contamination-adjusted confidence intervals on benchmark scores, and detect spurious performance differences between models."
       ],
       "todos": []
     },

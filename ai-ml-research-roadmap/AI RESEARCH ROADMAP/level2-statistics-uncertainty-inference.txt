@@ -1,9 +1,9 @@
 Level 2 · Probability & Statistics
 
 Phase: Research Foundations
-Suggested duration: 28 sessions (~7 weeks)
+Suggested duration: 32 sessions (~8 weeks)
 Prerequisites: Level 1
-Scope: Master probability theory, statistical estimation, hypothesis testing, uncertainty quantification, non-parametric statistics, and multiple comparison corrections for rigorous scientific claims.
+Scope: Master probability theory, statistical estimation, hypothesis testing, uncertainty quantification, non-parametric statistics, multiple comparison corrections, and the statistical rigour required to evaluate modern generative AI systems.
 
 M2.1 · Probability Spaces, Random Variables & Probability Distributions — (sessions: 5)
 Session 1 · Foundations of probability & Bayes' Theorem
@@ -67,5 +67,18 @@ Session 1 · Engineering a comprehensive statistical evaluation toolkit
 - Integrate non-parametric bootstrap confidence interval estimation (percentile and BCa), Cohen's d effect sizes, and Benjamini-Hochberg FDR adjustments.
 Session 2 · Benchmarking audit & scientific paper reporting
 - Run an empirical audit on a published machine learning benchmark table, identifying uncorrected p-values, reporting true confidence intervals, and verifying statistical significance.
-- Produce a publication-ready LaTeX table and statistical significance critical difference diagram (Demšar plot).
+- Produce a publication-ready LaTeX table and statistical significance critical difference diagram (Demsar plot).
 Final result: An open-source, automated statistical testing and uncertainty audit package suitable for evaluating and reporting empirical AI/ML research benchmarks.
+
+M2.7 · Statistical Rigour in LLM Evaluation — (sessions: 4)
+Session 1 · Benchmark validity, contamination & confidence intervals for LLMs
+- Benchmark Contamination Auditing: Understand why LLM benchmark scores can be inflated by training data contamination; apply n-gram overlap tests (e.g. comparing model training data with benchmark test sets using MinHash deduplication) to audit whether a model has memorized benchmark answers.
+- Confidence Intervals on Accuracy Metrics: Compute proper bootstrap confidence intervals around benchmark accuracy scores (e.g. MMLU, HellaSwag, GSM8K) rather than reporting point estimates; understand why a 1-point improvement with N=1,000 questions is not statistically significant without a confidence interval.
+- Paired Significance Testing Across Models: Apply the McNemar test and paired bootstrap to compare two language models on the same question set, distinguishing genuine performance differences from random seed variance.
+Session 2 · Designing statistically valid human evaluation studies for generative AI
+- Human Evaluation Study Design: Design a human preference evaluation study for a generative AI system specifying annotator selection, pairwise vs rating scales, inter-annotator agreement targets (Fleiss' Kappa > 0.6), and sample size power calculations.
+- Position Bias & Order Effects: Measure and correct for position bias (annotators preferring the first response), verbosity bias (preferring longer outputs), and sycophancy in LLM-as-judge evaluations using randomized counterbalancing.
+- Reporting Standards: Apply the HELM (Holistic Evaluation of Language Models) and BIG-bench reporting conventions to report multi-metric evaluation results with proper uncertainty quantification and scenario breakdowns.
+Mental model: An LLM benchmark score without a confidence interval and contamination audit is marketing material, not science; rigorous evaluation requires the same statistical discipline as any controlled experiment.
+Try: Evaluate two open language models on 500 questions from the MMLU benchmark, compute bootstrap confidence intervals around their accuracy scores, run a McNemar significance test, and audit both models for n-gram contamination against the benchmark test set.
+Outcome: You can design statistically valid LLM evaluation studies, compute contamination-adjusted confidence intervals on benchmark scores, and detect spurious performance differences between models.
