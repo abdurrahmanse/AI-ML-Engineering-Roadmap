@@ -1,9 +1,9 @@
 Level 12 · RAG & AI Agents
 
 Phase: Scaled Systems & LLMs
-Suggested duration: 32 sessions (~8 weeks)
+Suggested duration: 36 sessions (~9 weeks)
 Prerequisites: Level 11
-Scope: Master advanced Retrieval-Augmented Generation (RAG), GraphRAG, Knowledge Graph embeddings, autonomous AI agent loops, multi-agent orchestration, and neuro-symbolic reasoning.
+Scope: Master advanced Retrieval-Augmented Generation (RAG), GraphRAG, Knowledge Graph embeddings, autonomous AI agent loops, multi-agent orchestration, neuro-symbolic reasoning, and the research methodology of studying vision-language models empirically.
 
 M12.1 · Advanced Retrieval-Augmented Generation (RAG) Architecture — (sessions: 5)
 Session 1 · Document parsing, chunking strategies & vector indexing
@@ -69,3 +69,15 @@ Session 2 · Benchmarking, citation audit & scientific manuscript
 - Evaluate the complete system on a 100-query domain benchmark, measuring RAG Triad metrics, citation accuracy, execution latency, and token cost.
 - Author a 6-page research systems paper in LaTeX documenting the neuro-symbolic architecture, Leiden community detection results, and comparative retrieval benchmarks.
 Final result: A fully operational Enterprise GraphRAG and multi-agent scientific research assistant with verified citation grounding, code execution sandboxes, and a technical paper.
+
+M12.7 · Researching Vision-Language Models — (sessions: 4)
+Session 1 · Designing controlled experiments on VLM capabilities and limitations
+- VLM Capability Evaluation Protocol: Design a controlled evaluation study on a vision-language model (e.g. LLaVA, InternVL, Qwen-VL, or CogVLM) that separately evaluates visual perception (does the model correctly describe what is in the image?), cross-modal grounding (does the model correctly connect image regions to text spans?), and visual reasoning (does the model correctly reason about spatial relationships, counts, and relative attributes?) — using separate evaluation benchmarks for each capability (MME, MMBench, SeedBench) rather than a single aggregate score.
+- VLM Hallucination Measurement: Measure object hallucination in a VLM using the CHAIR (Caption Hallucination Assessment with Image Relevance) metric: generate image captions for 500 images, compute the fraction of mentioned objects that do not appear in the image according to ground-truth COCO annotations, and compare hallucination rates across different decoding strategies (greedy, beam search, nucleus sampling with different temperatures).
+- Multimodal vs Unimodal Ablation: Design an experiment that tests whether the visual component of a VLM actually contributes to performance on a visual question answering task: compare the full VLM against a text-only LLM given only the question (no image), a text-only LLM given the question plus a text description of the image, and the full VLM given the image — measuring the marginal contribution of visual input over text description.
+Session 2 · Cross-modal alignment research and domain adaptation of VLMs
+- Contrastive Pretraining Ablation for CLIP: Replicate a CLIP-style contrastive pretraining ablation from scratch on a small dataset: vary the batch size (128, 512, 2048), the temperature parameter (0.01, 0.07, 0.1), and the image and text encoder architecture (ViT-B/16 vs ResNet-50 vs ViT-S/8), measuring zero-shot classification accuracy and zero-shot retrieval Recall@1 as a function of each variable — following the ablation table structure of the original CLIP paper.
+- Domain-Specific VLM Fine-Tuning Research: Design a study testing whether instruction fine-tuning a general-purpose VLM on a domain-specific visual QA dataset (e.g. medical image QA using VQA-RAD or PathVQA) improves domain accuracy without catastrophically forgetting general visual understanding: measure both domain benchmark accuracy and general VLM benchmark accuracy (MMBench) before and after fine-tuning, reporting the domain accuracy gain and the general capability degradation as separate metrics.
+Mental model: Studying vision-language models scientifically requires decomposing the "VLM capability" claim into independently verifiable sub-skills — perception, grounding, and reasoning — and testing each separately, because a model can appear capable on an aggregate benchmark while actually relying on language shortcuts rather than genuine visual understanding.
+Try: Evaluate LLaVA-1.6 on a visual question answering task using three conditions — (1) full VLM with image, (2) text-only LLM with image caption, (3) text-only LLM with question only — on 300 examples from the OKVQA benchmark; compute accuracy per condition, measure whether the image provides statistically significant information beyond the caption using McNemar's test, and compute the CHAIR hallucination rate on a 100-image caption generation evaluation.
+Outcome: You can design controlled studies decomposing VLM capabilities into perception, grounding, and reasoning sub-tasks; measure object hallucination using CHAIR; design multimodal vs unimodal ablations; and evaluate domain fine-tuning tradeoffs using paired pre/post benchmark measurements.
