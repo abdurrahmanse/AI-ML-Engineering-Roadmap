@@ -1,9 +1,9 @@
 Level 13 · Trustworthy AI & Safety
 
 Phase: Trustworthy AI
-Suggested duration: 32 sessions (~8 weeks)
+Suggested duration: 36 sessions (~9 weeks)
 Prerequisites: Level 12
-Scope: Deconstruct black-box models using post-hoc XAI and mechanistic interpretability (Sparse Autoencoders), audit adversarial robustness (PGD, AutoAttack), measure algorithmic fairness, and lead independent research programs with risk registers and decision gates.
+Scope: Deconstruct black-box models using post-hoc XAI and mechanistic interpretability (Sparse Autoencoders), audit adversarial robustness (PGD, AutoAttack), measure algorithmic fairness, lead independent research programs with risk registers, and systematically identify your own original research gap in the modern AI landscape.
 
 M13.1 · Explainable AI (XAI): Attribution, Saliency & Sanity Checks — (sessions: 5)
 Session 1 · Game-theoretic attribution: SHAP & LIME
@@ -68,3 +68,15 @@ Session 2 · Comprehensive audit dossier & leadership presentation
 - Author a formal 6-page Trustworthy AI Research Paper in LaTeX detailing mechanistic findings, adversarial vulnerability surfaces, and mitigation trade-offs.
 - Deliver an executive scientific briefing presenting key audit findings, actionable governance recommendations, and residual risk disclosures to a technical committee.
 Final result: A comprehensive mechanistic interpretability and adversarial robustness audit dossier on an open foundation model, accompanied by a publication-ready paper.
+
+M13.7 · Finding a Research Gap in the Modern AI Landscape — (sessions: 4)
+Session 1 · Mapping the modern AI research frontier systematically
+- The 2024–2025 AI Research Landscape Audit: Conduct a systematic audit of the current AI research frontier using Semantic Scholar, arXiv cs.AI/cs.LG/cs.CL, and conference proceedings (NeurIPS 2024, ICML 2024, ACL 2024, ICLR 2025) to build a comprehensive taxonomy of active research directions — covering LLM alignment, mechanistic interpretability, multimodal models, agentic AI, AI safety, data-centric AI, and AI for science — and identify which sub-areas have the highest paper volume (saturated), which are growing rapidly (emerging), and which have fewer than 20 papers despite clear unsolved problems (white space).
+- Gap Classification by Academic Resource Accessibility: Classify identified gaps by resource requirements, separating gaps that require industrial compute (pretraining 70B+ models) from gaps that are accessible to academic researchers (fine-tuning open models, evaluation methodology papers, interpretability of smaller models, dataset curation, and analysis of existing deployed systems) — focusing your gap search on the academically accessible tier.
+- The Tension Identification Method: Apply the tension identification method to find research gaps: scan the "Limitations" sections of 20 recent top-conference papers in your focus area and identify recurring unresolved limitations that multiple authors acknowledge but none address — these recurring limitations represent validated gaps that the community agrees exist.
+Session 2 · From gap to concrete research question
+- The Gap-to-Hypothesis Pipeline: Transform an identified research gap through the pipeline: (1) Gap ("existing RAG evaluation benchmarks don't measure multi-hop reasoning ability"), (2) Research Question ("does cross-encoder reranking improve multi-hop question answering accuracy more than single-hop factoid answering?"), (3) Falsifiable Hypothesis ("cross-encoder reranking will improve Recall@5 on MuSiQue multi-hop questions by more than 10 percentage points over bi-encoder retrieval, but will improve Recall@5 on TriviaQA single-hop questions by less than 3 percentage points"), (4) Null Hypothesis and significance threshold.
+- Novelty Verification Protocol: Verify that your identified gap and proposed hypothesis are genuinely unaddressed by searching arXiv using three distinct keyword combinations, checking all cited papers in the 20 most relevant papers for any work on your exact hypothesis, and posting a brief summary to an AI research forum or asking a domain expert to confirm novelty before investing significant compute.
+Mental model: A research gap worth pursuing exists at the intersection of three criteria: it is acknowledged by multiple authors in the field as unsolved, it is accessible with your available compute and data resources, and it is specific enough that you can design a concrete falsifiable experiment to address it.
+Try: Following the full gap identification workflow, identify one concrete research gap in one of the following areas: RAG evaluation methodology, LLM hallucination measurement, VLM capability assessment, AI agent benchmarking, or mechanistic interpretability of open language models — write a 3-page research proposal including the gap evidence (citations to papers acknowledging the gap), the falsifiable hypothesis, the experimental design, the expected compute cost, and a novelty verification statement.
+Outcome: You can systematically map the modern AI research frontier, identify genuine academically accessible research gaps using the tension identification method, verify novelty rigorously, and transform a validated gap into a concrete falsifiable research hypothesis ready for experimental execution.

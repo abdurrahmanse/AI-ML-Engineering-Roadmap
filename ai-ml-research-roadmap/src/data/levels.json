@@ -1,8 +1,8 @@
 {
   "generatedFrom": "./AI RESEARCH ROADMAP",
   "totalLevels": 16,
-  "totalSessions": 513,
-  "totalModules": 103,
+  "totalSessions": 574,
+  "totalModules": 118,
   "phases": [
     {
       "id": "foundations",
@@ -1053,7 +1053,7 @@
       "slug": "level-3",
       "title": "Research Literacy & Gaps",
       "sourceFile": "level3-research-literacy-question-design.txt",
-      "scope": "Master the methodology of scholarly literature search, critical paper reading, taxonomy synthesis, research gap identification, hypothesis formulation, and preregistered proposal authoring.",
+      "scope": "Master the methodology of scholarly literature search, critical paper reading, taxonomy synthesis, research gap identification, hypothesis formulation, preregistered proposal authoring, and the specialized skills needed to read and critique modern GenAI research papers.",
       "prereqStated": "Level 2",
       "prerequisites": [
         2
@@ -1210,7 +1210,7 @@
           "isCapstone": false,
           "isGap": false,
           "researchMode": "Study and implement",
-          "mentalModel": "If an experiment cannot fail or disprove your initial hypothesis, it is not an experiment—it is a demonstration.",
+          "mentalModel": "If an experiment cannot fail or disprove your initial hypothesis, it is not an experiment — it is a demonstration.",
           "tryIt": "Author a preregistered study plan on OSF for a proposed model comparison, specifying primary metrics, minimum effect size, random seeds, and statistical test protocols.",
           "outcome": "You can formulate falsifiable research questions, operationalize testable hypotheses, and author formal study preregistrations.",
           "evidence": "Author a preregistered study plan on OSF for a proposed model comparison, specifying primary metrics, minimum effect size, random seeds, and statistical test protocols.",
@@ -1297,16 +1297,120 @@
             "empirical evaluation",
             "research career"
           ]
+        },
+        {
+          "id": "M3.7",
+          "name": "Reading & Critiquing GenAI Research Papers",
+          "sessionCount": 4,
+          "icon": "telescope",
+          "objectives": [
+            {
+              "text": "Benchmark Overfitting Detection: Identify the benchmark overfitting pattern in LLM papers where a model achieves SOTA on a benchmark that later turns out to be contaminated in pretraining data; learn the specific red flags (no confidence intervals, no contamination analysis, no ablation on benchmark-free evaluation).",
+              "group": "Unique failure modes in LLM and GenAI papers"
+            },
+            {
+              "text": "Closed vs Open Evaluation: Distinguish papers using open held-out test sets reproducible by any reader from papers using proprietary evaluation datasets or internal human rater pools — understanding that closed evaluation results cannot be independently verified.",
+              "group": "Unique failure modes in LLM and GenAI papers"
+            },
+            {
+              "text": "Cherry-Picked Example Auditing: Detect when a paper's qualitative examples section has been curated to show only successes by checking whether the paper reports failure rate statistics alongside the selected examples.",
+              "group": "Unique failure modes in LLM and GenAI papers"
+            },
+            {
+              "text": "Scaling Excuse Anti-Pattern: Recognize the \"our method needs larger scale to work\" anti-pattern where authors attribute negative results to insufficient compute rather than to methodological flaws.",
+              "group": "Unique failure modes in LLM and GenAI papers"
+            },
+            {
+              "text": "Reading System Papers vs Empirical Papers: Distinguish technical system papers (describing engineering implementations like GPT-4 or Gemini) from empirical science papers (testing specific scientific hypotheses with controlled experiments) and apply different critical lenses to each.",
+              "group": "Applying the Three-Pass method to LLM papers specifically"
+            },
+            {
+              "text": "Evaluating LLM-as-Judge Studies: Critically evaluate papers that use an LLM (e.g. GPT-4) as the primary evaluator, checking for position bias controls, verbosity bias controls, self-preference (the judging model favoring its own family's outputs), and calibration against human rater agreement.",
+              "group": "Applying the Three-Pass method to LLM papers specifically"
+            },
+            {
+              "text": "Citation Chain Tracing: Trace the citation lineage of key claims in a GenAI paper back to primary experimental evidence, identifying where chains of citations lead back to single unreplicated studies or industry blog posts rather than peer-reviewed findings.",
+              "group": "Applying the Three-Pass method to LLM papers specifically"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Formulate questions",
+          "mentalModel": "GenAI papers have unique failure modes — benchmark contamination, closed evaluation, and LLM-as-judge bias — that require a specialized critical vocabulary beyond the standard Three-Pass method.",
+          "tryIt": "Apply the GenAI-specific critique checklist to three recent arXiv preprints about LLM capabilities: score each paper on benchmark contamination disclosure, evaluation openness, confidence interval reporting, and baseline tuning fairness, then write a 1-page peer-review style critique for the weakest paper.",
+          "outcome": "You can identify the specific failure modes and scientific weaknesses unique to LLM and generative AI research papers and write rigorous peer-review quality critiques.",
+          "evidence": "Apply the GenAI-specific critique checklist to three recent arXiv preprints about LLM capabilities: score each paper on benchmark contamination disclosure, evaluation openness, confidence interval reporting, and baseline tuning fairness, then write a 1-page peer-review style critique for the weakest paper.",
+          "competencyTags": [
+            "research infrastructure",
+            "research communication",
+            "mathematical reasoning",
+            "data stewardship",
+            "generative modeling",
+            "empirical evaluation",
+            "systems scaling",
+            "foundation models",
+            "trustworthy AI",
+            "research career"
+          ]
+        },
+        {
+          "id": "M3.8",
+          "name": "Formulating a Research Question on a Modern AI Topic",
+          "sessionCount": 4,
+          "icon": "telescope",
+          "objectives": [
+            {
+              "text": "The Modern AI Research Landscape: Survey the current frontier research directions (LLM scaling, retrieval-augmented generation, agentic AI, vision-language models, AI alignment, mechanistic interpretability) and identify sub-areas with open empirical questions accessible with academic resources.",
+              "group": "Scoping a research question on LLMs, RAG, agents, or multimodal AI"
+            },
+            {
+              "text": "The Academic Resource Constraint: Explicitly scope research questions to what is achievable without billion-dollar compute: using open models (Llama, Mistral, Phi), open datasets (The Pile, FineWeb, LAION), and a budget of 8–80 GPU-hours rather than 10,000+ GPU-hours.",
+              "group": "Scoping a research question on LLMs, RAG, agents, or multimodal AI"
+            },
+            {
+              "text": "Falsifiable Hypothesis Formulation for Modern AI: Transform a vague modern AI research interest (e.g. \"RAG systems sometimes hallucinate\") into a precise, falsifiable hypothesis (e.g. \"Cross-encoder reranking reduces hallucination rate on multi-hop questions from 34% to below 20% on the MuSiQue benchmark when using the BGE-reranker-v2-m3 model\").",
+              "group": "Scoping a research question on LLMs, RAG, agents, or multimodal AI"
+            },
+            {
+              "text": "Systematic Gap Mapping for LLM Research: Apply the M3.3 Delta Analysis methodology specifically to modern AI topics: search arXiv cs.CL, cs.LG, and cs.AI for papers published in the last 12 months on your topic, build a comparison table of datasets, metrics, model scales, and findings, then identify the specific row in the table that no existing paper fills.",
+              "group": "Gap identification in the LLM-era research literature"
+            },
+            {
+              "text": "Contribution Types for Resource-Constrained Researchers: Identify research contribution types that are high-impact but computationally accessible — evaluation methodology papers (showing an existing benchmark is flawed), dataset papers (curating a missing evaluation benchmark), and analysis papers (explaining why an existing phenomenon occurs) — contrasting them with compute-intensive pretraining papers that require industrial resources.",
+              "group": "Gap identification in the LLM-era research literature"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "The best academic research questions in the LLM era are not \"build a better GPT-4\" but \"rigorously explain, evaluate, or find the limits of what current systems can and cannot do.\"",
+          "tryIt": "Using only arXiv papers from the last 6 months, identify a genuine open question about RAG, agentic AI, or LLM evaluation that no existing paper directly addresses, write a 2-page research proposal with a falsifiable hypothesis, and estimate the GPU-hours required using only open models.",
+          "outcome": "You can identify genuine research gaps in the modern LLM-era literature, formulate precise falsifiable hypotheses about modern AI systems, and scope contributions achievable with academic compute budgets.",
+          "evidence": "Using only arXiv papers from the last 6 months, identify a genuine open question about RAG, agentic AI, or LLM evaluation that no existing paper directly addresses, write a 2-page research proposal with a falsifiable hypothesis, and estimate the GPU-hours required using only open models.",
+          "competencyTags": [
+            "research communication",
+            "mathematical reasoning",
+            "data stewardship",
+            "modeling",
+            "empirical evaluation",
+            "systems scaling",
+            "foundation models",
+            "model interpretability",
+            "applied research",
+            "research career"
+          ]
         }
       ],
       "project": "M3.6",
-      "moduleCount": 6,
-      "objectiveCount": 25,
+      "moduleCount": 8,
+      "objectiveCount": 37,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 28,
-      "statedSessions": 28,
-      "estimatedWeeks": 7,
+      "totalSessions": 36,
+      "statedSessions": 36,
+      "estimatedWeeks": 9,
       "proficiency": "Developing",
       "researchStage": "Identify literature gaps and scope questions",
       "lifecycle": "Search → synthesis → gap analysis → proposal",
@@ -1318,7 +1422,9 @@
         "You can identify legitimate research gaps in published literature and scope an original, feasible contribution.",
         "You can formulate falsifiable research questions, operationalize testable hypotheses, and author formal study preregistrations.",
         "You can navigate research ethics, ensure regulatory and IRB compliance, and govern authorship according to international scientific standards.",
-        "A submission-ready PRISMA systematic literature survey and a peer-defended, preregistered research proposal with an auditable experimental protocol."
+        "A submission-ready PRISMA systematic literature survey and a peer-defended, preregistered research proposal with an auditable experimental protocol.",
+        "You can identify the specific failure modes and scientific weaknesses unique to LLM and generative AI research papers and write rigorous peer-review quality critiques.",
+        "You can identify genuine research gaps in the modern LLM-era literature, formulate precise falsifiable hypotheses about modern AI systems, and scope contributions achievable with academic compute budgets."
       ],
       "todos": []
     },
@@ -1327,7 +1433,7 @@
       "slug": "level-4",
       "title": "Data Curation & Pipelines",
       "sourceFile": "level4-data-acquisition-stewardship.txt",
-      "scope": "Discover, curate, explore, clean, engineer features, prevent data leakage, evaluate annotation quality, and govern research-grade datasets across clinical, cybersecurity, vision, and language domains.",
+      "scope": "Discover, curate, explore, clean, engineer features, prevent data leakage, evaluate annotation quality, govern research-grade datasets across clinical, cybersecurity, vision, and language domains, and apply data science methodology to the study of retrieval-augmented systems.",
       "prereqStated": "Level 3",
       "prerequisites": [
         3
@@ -1603,16 +1709,64 @@
             "applied research",
             "research career"
           ]
+        },
+        {
+          "id": "M4.8",
+          "name": "Researching Retrieval-Augmented Systems",
+          "sessionCount": 4,
+          "icon": "flask-conical",
+          "objectives": [
+            {
+              "text": "RAG Evaluation Dataset Construction: Build a question-context-answer evaluation corpus for a retrieval system from scratch: define question types (factoid, multi-hop, abstractive), source documents, and ground-truth context passages; understand why a test set constructed using the same document chunking strategy as the system under evaluation is contaminated.",
+              "group": "Constructing evaluation corpora for retrieval research"
+            },
+            {
+              "text": "Measuring Retrieval Quality: Compute Recall@k (what fraction of correct passages appear in the top-k retrieved results), Mean Reciprocal Rank (MRR), and Normalized Discounted Cumulative Gain (NDCG@k) on an evaluation corpus, understanding the statistical significance requirements for claiming retrieval improvement.",
+              "group": "Constructing evaluation corpora for retrieval research"
+            },
+            {
+              "text": "Avoiding RAG Benchmark Contamination: Audit whether evaluation questions were generated from the same document chunks used in the retrieval index, whether the embedding model was trained on similar text, and whether the LLM generator could answer questions from memory without any retrieved context.",
+              "group": "Constructing evaluation corpora for retrieval research"
+            },
+            {
+              "text": "The RAG Component Isolation Problem: Design a controlled ablation study that isolates the contribution of each RAG pipeline component (chunking strategy, embedding model, retrieval algorithm, reranker, and generator) by varying one component at a time while holding all others fixed under identical compute budgets.",
+              "group": "Designing controlled ablations to isolate RAG components"
+            },
+            {
+              "text": "Reproducing Published RAG Benchmarks: Reproduce retrieval metric results from a published RAG paper (e.g. the RAG paper by Lewis et al. 2020, or a BEIR benchmark evaluation) by replicating the document corpus, chunking, embedding, and retrieval configuration exactly, then documenting deviations that prevent exact match.",
+              "group": "Designing controlled ablations to isolate RAG components"
+            },
+            {
+              "text": "Chunking Strategy Research: Design an experiment that systematically compares fixed-size, recursive character, semantic boundary, and document-hierarchy chunking strategies on a fixed embedding model and retrieval algorithm, isolating chunking's independent contribution to retrieval Recall@10.",
+              "group": "Designing controlled ablations to isolate RAG components"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Build research systems",
+          "mentalModel": "Studying RAG scientifically requires treating the retrieval pipeline as a system with multiple interacting components, isolating each with controlled ablations rather than evaluating the full pipeline as a black box.",
+          "tryIt": "Build a controlled RAG ablation experiment on the MS-MARCO passage ranking dataset: hold the generator (a fixed open LLM) and embedding model constant, vary only chunking strategy (fixed-size 256/512/1024 tokens vs recursive splitting), and measure Recall@10 with 95% bootstrap confidence intervals across all conditions.",
+          "outcome": "You can construct contamination-free RAG evaluation corpora, compute proper retrieval metrics with statistical significance, and design controlled ablations that isolate the contribution of individual RAG pipeline components.",
+          "evidence": "Build a controlled RAG ablation experiment on the MS-MARCO passage ranking dataset: hold the generator (a fixed open LLM) and embedding model constant, vary only chunking strategy (fixed-size 256/512/1024 tokens vs recursive splitting), and measure Recall@10 with 95% bootstrap confidence intervals across all conditions.",
+          "competencyTags": [
+            "research infrastructure",
+            "research communication",
+            "mathematical reasoning",
+            "data stewardship",
+            "empirical evaluation",
+            "research career"
+          ]
         }
       ],
       "project": "M4.7",
-      "moduleCount": 7,
-      "objectiveCount": 29,
+      "moduleCount": 8,
+      "objectiveCount": 35,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 32,
-      "statedSessions": 32,
-      "estimatedWeeks": 8,
+      "totalSessions": 36,
+      "statedSessions": 36,
+      "estimatedWeeks": 9,
       "proficiency": "Developing",
       "researchStage": "Curate, govern, and audit research data",
       "lifecycle": "Acquisition → leakage audit → annotation → datasheet",
@@ -1625,7 +1779,8 @@
         "You can design, implement, and select high-leverage features while packaging them into reproducible transformation pipelines.",
         "You can design leakage-proof splitting protocols and build rigorous out-of-distribution validation splits.",
         "You can design labeling protocols, compute inter-annotator agreement metrics, apply weak supervision, and publish governed Datasheets for Datasets.",
-        "A fully audited, leakage-proof, documented multi-domain research dataset and reproducible pipeline ready for benchmark model training."
+        "A fully audited, leakage-proof, documented multi-domain research dataset and reproducible pipeline ready for benchmark model training.",
+        "You can construct contamination-free RAG evaluation corpora, compute proper retrieval metrics with statistical significance, and design controlled ablations that isolate the contribution of individual RAG pipeline components."
       ],
       "todos": []
     },
@@ -1634,7 +1789,7 @@
       "slug": "level-5",
       "title": "Classical Machine Learning",
       "sourceFile": "level5-classical-ml-baselines.txt",
-      "scope": "Master linear models, probabilistic classifiers, instance-based learning, support vector machines, decision trees, gradient boosted ensembles, clustering, and anomaly detection to establish rock-solid scientific baselines.",
+      "scope": "Master linear models, probabilistic classifiers, instance-based learning, support vector machines, decision trees, gradient boosted ensembles, clustering, anomaly detection, and the methodology of establishing scientifically fair classical ML baselines in modern AI research.",
       "prereqStated": "Level 4",
       "prerequisites": [
         4
@@ -1814,7 +1969,7 @@
               "group": "Modern GBDT frameworks: XGBoost, LightGBM & CatBoost"
             },
             {
-              "text": "LightGBM & CatBoost: Understand Gradient-based One-Side Sampling (GOSS), Exclusive Feature Bundling (EFB), and CatBoost's ordered target encoding for categorical features.",
+              "text": "LightGBM & CatBoost: Analyze Gradient-Based One-Side Sampling (GOSS) and Exclusive Feature Bundling (EFB) in LightGBM; evaluate ordered boosting and symmetric tree growth in CatBoost.",
               "group": "Modern GBDT frameworks: XGBoost, LightGBM & CatBoost"
             }
           ],
@@ -1822,97 +1977,147 @@
           "isCapstone": false,
           "isGap": false,
           "researchMode": "Study and implement",
-          "mentalModel": "Random Forests combine many independent, overfitted trees in parallel to cancel variance; Gradient Boosting builds a sequence of shallow trees that iteratively correct residuals.",
-          "tryIt": "Benchmark Random Forest, XGBoost, LightGBM, and CatBoost on a complex tabular dataset with mixed categorical variables, measuring training throughput and AUROC.",
-          "outcome": "You can explain ensemble theory, tune modern GBDT libraries, and evaluate feature importances reliably.",
-          "evidence": "Benchmark Random Forest, XGBoost, LightGBM, and CatBoost on a complex tabular dataset with mixed categorical variables, measuring training throughput and AUROC.",
+          "mentalModel": "Gradient boosting sequentially fits shallow trees to residual errors, converting a collection of weak prediction signals into a single powerful ensemble.",
+          "tryIt": "Train XGBoost and LightGBM on a Kaggle tabular benchmark using Optuna Bayesian hyperparameter search under a fixed 100-trial budget and report test performance with 95% bootstrap confidence intervals.",
+          "outcome": "You can implement gradient boosting from scratch, configure modern GBDT frameworks, and tune ensemble hyperparameters with Bayesian search.",
+          "evidence": "Train XGBoost and LightGBM on a Kaggle tabular benchmark using Optuna Bayesian hyperparameter search under a fixed 100-trial budget and report test performance with 95% bootstrap confidence intervals.",
           "competencyTags": [
             "mathematical reasoning",
             "modeling",
-            "model interpretability",
+            "empirical evaluation",
             "trustworthy AI"
           ]
         },
         {
           "id": "M5.6",
-          "name": "Unsupervised Learning: Clustering, Dimensionality Reduction & Anomalies",
+          "name": "Unsupervised Learning: Clustering & Anomaly Detection",
           "sessionCount": 5,
           "icon": "circle-dot",
           "objectives": [
             {
-              "text": "K-Means Clustering: Implement Lloyd's algorithm, K-Means++ probabilistic initialization, evaluate the elbow curve, and calculate silhouette coefficients.",
-              "group": "Partitioning & density-based clustering"
+              "text": "K-Means & K-Means++: Implement Lloyd's algorithm and K-Means++ seeding; compute the inertia elbow curve and Silhouette Coefficient to select k.",
+              "group": "Clustering algorithms & cluster validity"
             },
             {
-              "text": "Density-Based Clustering: Implement DBSCAN, defining core points, border points, epsilon-neighborhoods, and MinPts; contrast against hierarchical agglomerative clustering.",
-              "group": "Partitioning & density-based clustering"
+              "text": "DBSCAN & Gaussian Mixture Models (GMM): Apply density-based DBSCAN to discover arbitrary-shaped clusters with noise; derive the Expectation-Maximization (EM) algorithm for GMMs.",
+              "group": "Clustering algorithms & cluster validity"
             },
             {
-              "text": "Spectral & Manifold Learning: Derive Principal Component Analysis (PCA) from the covariance matrix; compare against t-SNE and UMAP for non-linear manifold projection.",
-              "group": "Dimensionality reduction: PCA, t-SNE & UMAP"
+              "text": "Statistical Anomaly Detection: Detect anomalies using Mahalanobis distance, Isolation Forest, and One-Class SVM.",
+              "group": "Anomaly detection paradigms"
             },
             {
-              "text": "Anomaly Detection: Detect multivariate tabular outliers using Isolation Forests (measuring average path length in random trees), Local Outlier Factor, and One-Class SVM.",
-              "group": "Dimensionality reduction: PCA, t-SNE & UMAP"
+              "text": "AutoEncoder-Based Anomaly Detection: Train a compact autoencoder to reconstruct normal samples and threshold reconstruction error as an anomaly score.",
+              "group": "Anomaly detection paradigms"
             }
           ],
           "notes": [],
           "isCapstone": false,
           "isGap": false,
           "researchMode": "Study and implement",
-          "mentalModel": "Unsupervised algorithms discover latent structures, clusters, and low-dimensional manifolds in data without teacher guidance, generating hypotheses for scientific validation.",
-          "tryIt": "Run DBSCAN and Isolation Forest on an unlabelled network intrusion dataset to isolate anomalous cyber-attack clusters and visualize them in a 2D UMAP projection.",
-          "outcome": "You can apply partitioning and density clustering, project high-dimensional manifolds, and detect anomalies in unlabelled data.",
-          "evidence": "Run DBSCAN and Isolation Forest on an unlabelled network intrusion dataset to isolate anomalous cyber-attack clusters and visualize them in a 2D UMAP projection.",
+          "mentalModel": "Clustering discovers latent structure without labels; anomaly detection identifies rare deviations from established normal behavior patterns.",
+          "tryIt": "Cluster a cybersecurity network flow dataset using DBSCAN and GMM, compute the Silhouette Coefficient for each method, and detect injection attack anomalies using Isolation Forest.",
+          "outcome": "You can apply clustering and anomaly detection algorithms, evaluate cluster validity, and deploy reconstruction-error anomaly detectors.",
+          "evidence": "Cluster a cybersecurity network flow dataset using DBSCAN and GMM, compute the Silhouette Coefficient for each method, and detect injection attack anomalies using Isolation Forest.",
           "competencyTags": [
-            "data stewardship"
+            "mathematical reasoning",
+            "model interpretability"
           ]
         },
         {
           "id": "M5.7",
-          "name": "Capstone: Publication-Quality Empirical Benchmark: Linear Models vs SVM vs GBDT",
+          "name": "Capstone: Classical ML Research Baseline Pipeline & Benchmark Report",
           "sessionCount": 5,
           "icon": "flag",
           "objectives": [
             {
-              "text": "Formulate an empirical research question: Under what tabular conditions (sample size, sparsity, non-linearity, categorical cardinality) do GBDTs significantly outperform tuned SVMs and regularized linear models?",
-              "group": "Benchmark protocol & compute-parity tuning"
+              "text": "Implement a full comparative benchmark pipeline (Logistic Regression, SVM, Random Forest, XGBoost, LightGBM) on a tabular research dataset with proper nested cross-validation, Bayesian hyperparameter search per model, and equal trial budgets.",
+              "group": "End-to-end classical ML benchmark pipeline"
             },
             {
-              "text": "Execute nested cross-validation with Bayesian hyperparameter optimization (Optuna) under matched compute budgets across 5 diverse tabular datasets.",
-              "group": "Benchmark protocol & compute-parity tuning"
+              "text": "Compute Paired Wilcoxon signed-rank tests and Benjamini-Hochberg FDR corrections across all pairwise model comparisons.",
+              "group": "End-to-end classical ML benchmark pipeline"
             },
             {
-              "text": "Compute AUROC, AUPRC, calibration error (ECE), and Brier score; perform paired Wilcoxon signed-rank tests across 10 random seeds with Benjamini-Hochberg FDR correction.",
-              "group": "Statistical analysis, ablation & baseline paper report"
+              "text": "Author a 5-page research benchmark paper in LaTeX reporting mean +/- std metrics in booktabs tables, a Demsar critical difference diagram for statistical rankings, and an error taxonomy of failure cases.",
+              "group": "Scientific benchmark report & critical difference visualization"
             },
             {
-              "text": "Write a formal 6-page research paper detailing experimental setup, baseline configurations, ablation of tree depth and shrinkage, and discussion of failure modes.",
-              "group": "Statistical analysis, ablation & baseline paper report"
+              "text": "Package the benchmark as a reproducible open-source Python project with Makefile, requirements lockfile, and automated seed execution.",
+              "group": "Scientific benchmark report & critical difference visualization"
             }
           ],
           "notes": [],
           "isCapstone": true,
           "isGap": false,
           "researchMode": "Ship evidence",
-          "finalResult": "A publication-quality empirical benchmark paper and code repository establishing rigorous classical ML baselines with statistical significance tests.",
-          "evidence": "A publication-quality empirical benchmark paper and code repository establishing rigorous classical ML baselines with statistical significance tests.",
+          "finalResult": "A statistically rigorous, reproducible classical ML benchmark pipeline and a publication-quality comparative benchmark report.",
+          "evidence": "A statistically rigorous, reproducible classical ML benchmark pipeline and a publication-quality comparative benchmark report.",
+          "competencyTags": [
+            "research infrastructure",
+            "research communication",
+            "mathematical reasoning",
+            "data stewardship",
+            "modeling",
+            "empirical evaluation",
+            "research career"
+          ]
+        },
+        {
+          "id": "M5.8",
+          "name": "Establishing Fair Baselines in Modern AI Research",
+          "sessionCount": 4,
+          "icon": "telescope",
+          "objectives": [
+            {
+              "text": "The Baseline Fairness Crisis: Analyze published papers in LLM and deep learning that report improvements over weak, under-tuned baselines — identifying specific signals of baseline undertuning: default hyperparameters, insufficient training epochs, smaller model size than the proposed method, or absence of modern training recipes (e.g. comparing a proposed model trained with AdamW + cosine warmup against a baseline trained with vanilla SGD).",
+              "group": "The weak-baseline fallacy and how to avoid it"
+            },
+            {
+              "text": "Compute Parity for Classical Baselines: When comparing an LLM or deep learning method against classical ML baselines (e.g. Logistic Regression, XGBoost), ensure classical models receive equally intensive Bayesian hyperparameter search (same number of Optuna trials, same cross-validation folds) before being reported as inferior.",
+              "group": "The weak-baseline fallacy and how to avoid it"
+            },
+            {
+              "text": "The \"Strong Baseline\" Verification Protocol: Before claiming a new method is SOTA, explicitly verify that: (1) the strongest prior baseline was trained with its optimal modern configuration, (2) both methods are evaluated on the same exact held-out test set, and (3) performance differences are statistically significant under a paired test.",
+              "group": "The weak-baseline fallacy and how to avoid it"
+            },
+            {
+              "text": "When Classical ML Should Beat LLMs: Understand the specific conditions under which classical ML models (XGBoost, LightGBM, logistic regression on engineered features) empirically outperform fine-tuned LLMs: small structured tabular datasets, high-cardinality categorical features, well-defined feature schemas, and tabular problems without natural language structure.",
+              "group": "Classical ML as a research baseline for LLM-era claims"
+            },
+            {
+              "text": "Designing Fair Cross-Paradigm Comparisons: Design an experiment that fairly compares a fine-tuned LLM against a tuned XGBoost model on a tabular classification task, controlling for training data size, label quality, inference cost, and hyperparameter search budget — and reporting results with confidence intervals rather than point estimates.",
+              "group": "Classical ML as a research baseline for LLM-era claims"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "A novel method that defeats a poorly tuned baseline has proven nothing; scientific contribution requires demonstrating improvement over the best achievable performance of the strongest existing approach, given equal resources.",
+          "tryIt": "Select a benchmark task from the Papers with Code leaderboard that has been claimed to be solved by an LLM; implement and properly tune XGBoost with 200 Optuna trials as an alternative baseline; compare results with 95% bootstrap confidence intervals and determine whether the LLM advantage is statistically significant.",
+          "outcome": "You can identify the weak-baseline fallacy in published ML research, design fair cross-paradigm comparisons between classical ML and deep learning methods, and verify statistical significance of performance claims.",
+          "evidence": "Select a benchmark task from the Papers with Code leaderboard that has been claimed to be solved by an LLM; implement and properly tune XGBoost with 200 Optuna trials as an alternative baseline; compare results with 95% bootstrap confidence intervals and determine whether the LLM advantage is statistically significant.",
           "competencyTags": [
             "research communication",
+            "mathematical reasoning",
             "data stewardship",
+            "modeling",
             "empirical evaluation",
+            "foundation models",
+            "trustworthy AI",
             "research career"
           ]
         }
       ],
       "project": "M5.7",
-      "moduleCount": 7,
-      "objectiveCount": 30,
+      "moduleCount": 8,
+      "objectiveCount": 35,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 35,
-      "statedSessions": 35,
-      "estimatedWeeks": 9,
+      "totalSessions": 39,
+      "statedSessions": 39,
+      "estimatedWeeks": 10,
       "proficiency": "Developing",
       "researchStage": "Establish robust classical baselines",
       "lifecycle": "Feature pipeline → classical models → error taxonomy",
@@ -1923,9 +2128,10 @@
         "You can derive, implement, and calibrate discriminative and generative linear classifiers for binary and multiclass problems.",
         "You can derive soft-margin SVMs, apply the kernel trick to non-linear classification, and evaluate instance-based models.",
         "You can code decision tree induction from scratch, compute split criteria, and prune trees to prevent overfitting.",
-        "You can explain ensemble theory, tune modern GBDT libraries, and evaluate feature importances reliably.",
-        "You can apply partitioning and density clustering, project high-dimensional manifolds, and detect anomalies in unlabelled data.",
-        "A publication-quality empirical benchmark paper and code repository establishing rigorous classical ML baselines with statistical significance tests."
+        "You can implement gradient boosting from scratch, configure modern GBDT frameworks, and tune ensemble hyperparameters with Bayesian search.",
+        "You can apply clustering and anomaly detection algorithms, evaluate cluster validity, and deploy reconstruction-error anomaly detectors.",
+        "A statistically rigorous, reproducible classical ML benchmark pipeline and a publication-quality comparative benchmark report.",
+        "You can identify the weak-baseline fallacy in published ML research, design fair cross-paradigm comparisons between classical ML and deep learning methods, and verify statistical significance of performance claims."
       ],
       "todos": []
     },
@@ -1934,7 +2140,7 @@
       "slug": "level-6",
       "title": "Deep Learning & Reproduction",
       "sourceFile": "level6-deep-learning-reproduction.txt",
-      "scope": "Master neural network architectures from first-principles backpropagation in NumPy to PyTorch autograd, optimization dynamics, convolutional backbones, vision transformers, and rigorous paper reproduction.",
+      "scope": "Master neural network architectures from first-principles backpropagation in NumPy to PyTorch autograd, optimization dynamics, convolutional backbones, vision transformers, rigorous paper reproduction, and the specific methodology of reproducing LLM fine-tuning and PEFT research.",
       "prereqStated": "Level 5",
       "prerequisites": [
         5
@@ -2055,7 +2261,7 @@
           "isCapstone": false,
           "isGap": false,
           "researchMode": "Study and implement",
-          "mentalModel": "Convolutions encode spatial inductive bias—translational equivariance and locality—allowing models to share parameters across image locations efficiently.",
+          "mentalModel": "Convolutions encode spatial inductive bias — translational equivariance and locality — allowing models to share parameters across image locations efficiently.",
           "tryIt": "Build a 18-layer ResNet from scratch in PyTorch, verify that removing residual connections causes training error to plateau prematurely, and visualize learned convolutional filters.",
           "outcome": "You can calculate receptive fields, implement modern residual architectures, and explain spatial inductive biases.",
           "evidence": "Build a 18-layer ResNet from scratch in PyTorch, verify that removing residual connections causes training error to plateau prematurely, and visualize learned convolutional filters.",
@@ -2180,16 +2386,62 @@
             "systems scaling",
             "research career"
           ]
+        },
+        {
+          "id": "M6.7",
+          "name": "Reproducing LLM Fine-Tuning & PEFT Research",
+          "sessionCount": 4,
+          "icon": "sliders-horizontal",
+          "objectives": [
+            {
+              "text": "LoRA Reproduction Protocol: Reproduce the core empirical finding from Hu et al. (LoRA: Low-Rank Adaptation of Large Language Models, 2021) on a small open model (e.g. Phi-2 or Mistral-7B): match reported rank-r configurations (r=4, r=8, r=16), target projection matrices (Q, K, V, MLP), and alpha scaling values; evaluate on the same benchmark type (GLUE or instruction-following) and compare your reproduced accuracy to the reported number.",
+              "group": "Replicating LoRA and QLoRA papers from scratch"
+            },
+            {
+              "text": "Sources of Irreproducibility in PEFT Papers: Identify and measure the three most common sources of PEFT reproduction failures: (1) chat template mismatch (the fine-tuned model received training examples formatted for a different chat template than the base model was trained with), (2) random seed variance across initialization of the adapter matrices, and (3) hardware-dependent numerical precision differences between A100 and V100/T4 GPUs under BF16 vs FP16 training.",
+              "group": "Replicating LoRA and QLoRA papers from scratch"
+            },
+            {
+              "text": "Multi-Seed Variance Protocol: Execute the same LoRA fine-tuning run across 5 different random seeds, reporting mean and standard deviation of the final evaluation metric — understanding why single-seed results reported in many PEFT papers are scientifically unreliable.",
+              "group": "Honest variance reporting & failed reproductions"
+            },
+            {
+              "text": "Documenting Failed Reproductions: Follow the ML Reproducibility Challenge convention of documenting reproduction failures honestly: when your reproduced numbers differ from the paper's reported numbers, investigate and document each hypothesis for the gap (different data splits, unreported preprocessing, model version differences, evaluation prompt formatting differences) without fabricating results.",
+              "group": "Honest variance reporting & failed reproductions"
+            },
+            {
+              "text": "Instruction Tuning Data Quality Research: Design an experiment testing how data quality affects instruction fine-tuning outcome: compare fine-tuning on 1,000 high-quality human-written examples versus 10,000 synthetically generated examples using GPT-4, measuring downstream instruction-following quality on the AlpacaEval or MT-Bench benchmark.",
+              "group": "Honest variance reporting & failed reproductions"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "Reproducing a PEFT paper is harder than it looks because most papers omit the chat template, the exact data preprocessing, and the precise evaluation prompt format — the three details that matter most for getting the numbers right.",
+          "tryIt": "Reproduce the central table of any LoRA paper using a Llama-3 or Phi-2 base model on a publicly available instruction-tuning dataset, document every deviation from the paper's described procedure, and report honest confidence intervals across 3 random seeds.",
+          "outcome": "You can execute disciplined LoRA and QLoRA paper reproductions, identify the most common sources of PEFT irreproducibility, and report variance-aware results that meet scientific standards.",
+          "evidence": "Reproduce the central table of any LoRA paper using a Llama-3 or Phi-2 base model on a publicly available instruction-tuning dataset, document every deviation from the paper's described procedure, and report honest confidence intervals across 3 random seeds.",
+          "competencyTags": [
+            "research infrastructure",
+            "research communication",
+            "mathematical reasoning",
+            "data stewardship",
+            "empirical evaluation",
+            "systems scaling",
+            "foundation models",
+            "research career"
+          ]
         }
       ],
       "project": "M6.6",
-      "moduleCount": 6,
-      "objectiveCount": 27,
+      "moduleCount": 7,
+      "objectiveCount": 32,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 32,
-      "statedSessions": 32,
-      "estimatedWeeks": 8,
+      "totalSessions": 36,
+      "statedSessions": 36,
+      "estimatedWeeks": 9,
       "proficiency": "Intermediate",
       "researchStage": "Build neural models and reproduce literature",
       "lifecycle": "Tensors → autograd → CNN/ViT → reproduction",
@@ -2201,7 +2453,8 @@
         "You can calculate receptive fields, implement modern residual architectures, and explain spatial inductive biases.",
         "You can implement semantic segmentation pipelines, evaluate object detection paradigms, and construct Vision Transformers.",
         "You can dissect landmark deep learning literature and execute formal reproduction studies with transparent deviation logs.",
-        "A fully verified, reproducible PyTorch baseline implementation and a 6-page scientific reproduction paper suitable for submission to a reproducibility track."
+        "A fully verified, reproducible PyTorch baseline implementation and a 6-page scientific reproduction paper suitable for submission to a reproducibility track.",
+        "You can execute disciplined LoRA and QLoRA paper reproductions, identify the most common sources of PEFT irreproducibility, and report variance-aware results that meet scientific standards."
       ],
       "todos": []
     },
@@ -2210,7 +2463,7 @@
       "slug": "level-7",
       "title": "Sequences, Attention & Graphs",
       "sourceFile": "level7-architectures-sequences-graphs.txt",
-      "scope": "Master sequence modeling, recurrent networks, multi-head transformer attention, modern NLP, graph neural networks (GNN), and linear-time state space models (Mamba).",
+      "scope": "Master sequence modeling, recurrent networks, multi-head transformer attention, modern NLP, graph neural networks (GNN), linear-time state space models (Mamba), and the methodology of conducting principled architecture ablation studies.",
       "prereqStated": "Level 6",
       "prerequisites": [
         6
@@ -2453,16 +2706,63 @@
             "trustworthy AI",
             "applied research"
           ]
+        },
+        {
+          "id": "M7.7",
+          "name": "Conducting Architecture Ablation Studies on Transformers",
+          "sessionCount": 4,
+          "icon": "brain-circuit",
+          "objectives": [
+            {
+              "text": "The Component Isolation Principle: Design a transformer ablation study that varies exactly one component at a time — attention heads, positional encoding type, normalization placement (pre-norm vs post-norm), feed-forward expansion ratio, activation function (ReLU vs SwiGLU vs GELU), or attention mechanism (full vs grouped-query vs sliding-window) — while holding parameter count, training tokens, and optimizer constant across conditions.",
+              "group": "Systematic component isolation in transformer research"
+            },
+            {
+              "text": "Controlling for Parameter Count in Architecture Comparisons: Understand why naive comparisons of two architectures are confounded when one has more parameters than the other; implement parameter-matched configurations by adjusting hidden dimension or number of layers to equalize total trainable parameter counts within ±2%.",
+              "group": "Systematic component isolation in transformer research"
+            },
+            {
+              "text": "The Compute Budget Parity Rule: Control for total training compute (measured in FLOPs) rather than training epochs when comparing architectures that have different per-step compute costs — e.g. a Mamba layer and a full-attention transformer layer with the same hidden dimension have different FLOPs per token.",
+              "group": "Systematic component isolation in transformer research"
+            },
+            {
+              "text": "Ablation Table Design for Architecture Papers: Structure a publication-grade architecture ablation table where each row removes or replaces exactly one component from the full proposed system, the baseline row (no proposed components) is the first row, the full proposed system is the last row, and delta columns show the isolated contribution of each component.",
+              "group": "Publishing architecture ablation findings"
+            },
+            {
+              "text": "Identifying and Reporting Interaction Effects: Detect non-additive interaction effects where removing two components together degrades performance more than removing each component individually, using a 2x2 factorial design for the two most important components.",
+              "group": "Publishing architecture ablation findings"
+            },
+            {
+              "text": "Writing the Architecture Section of a Paper: Draft the architecture section and ablation section of a research paper describing a modified transformer, including a formal mathematical description of each proposed component, a clear comparison to the prior component it replaces, and a pointer to the ablation table row that validates the contribution.",
+              "group": "Publishing architecture ablation findings"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Evaluate claims",
+          "mentalModel": "Architecture ablation is the scientific proof that each proposed modification independently contributes to the claimed improvement; without it, a better result could be explained entirely by one component while the others add noise.",
+          "tryIt": "Take an existing open-source small transformer (e.g. GPT-2 small or a small Llama variant) and design a 6-row ablation study testing the contribution of RoPE vs sinusoidal embeddings, pre-norm vs post-norm, and SwiGLU vs ReLU activation — training each configuration from scratch on a 1B token subset of FineWeb and reporting perplexity with standard deviation across 3 seeds.",
+          "outcome": "You can design parameter-matched, compute-parity-controlled transformer ablation studies, structure publication-grade ablation tables, and identify interaction effects between architectural components.",
+          "evidence": "Take an existing open-source small transformer (e.g. GPT-2 small or a small Llama variant) and design a 6-row ablation study testing the contribution of RoPE vs sinusoidal embeddings, pre-norm vs post-norm, and SwiGLU vs ReLU activation — training each configuration from scratch on a 1B token subset of FineWeb and reporting perplexity with standard deviation across 3 seeds.",
+          "competencyTags": [
+            "research communication",
+            "mathematical reasoning",
+            "architecture design",
+            "empirical evaluation",
+            "research career"
+          ]
         }
       ],
       "project": "M7.6",
-      "moduleCount": 6,
-      "objectiveCount": 27,
+      "moduleCount": 7,
+      "objectiveCount": 33,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 32,
-      "statedSessions": 32,
-      "estimatedWeeks": 8,
+      "totalSessions": 36,
+      "statedSessions": 36,
+      "estimatedWeeks": 9,
       "proficiency": "Intermediate",
       "researchStage": "Select sequence, NLP, and graph architectures",
       "lifecycle": "Transformers → attention → GNNs → state space (Mamba)",
@@ -2474,7 +2774,8 @@
         "You can build subword tokenizers, configure autoregressive and masked pretraining loops, and evaluate language modeling perplexity.",
         "You can represent relational data, implement Message Passing GNNs, and mitigate over-smoothing in deep graph architectures.",
         "You can explain state space discretization, implement selective state space layers, and analyze linear-time sequence modeling trade-offs.",
-        "A rigorous comparative architectural benchmark paper and code repository evaluating Transformers, GNNs, and State Space Models under equal parameter parity."
+        "A rigorous comparative architectural benchmark paper and code repository evaluating Transformers, GNNs, and State Space Models under equal parameter parity.",
+        "You can design parameter-matched, compute-parity-controlled transformer ablation studies, structure publication-grade ablation tables, and identify interaction effects between architectural components."
       ],
       "todos": []
     },
@@ -2483,7 +2784,7 @@
       "slug": "level-8",
       "title": "Experiments & Ablations",
       "sourceFile": "level8-experimental-design-evaluation.txt",
-      "scope": "Master the scientific method in machine learning: design controlled experiments, enforce baseline compute parity, conduct definitive component ablations, and report statistical significance for top-tier venues.",
+      "scope": "Master the scientific method in machine learning: design controlled experiments, enforce baseline compute parity, conduct definitive component ablations, report statistical significance for top-tier venues, design evaluation frameworks for generative AI systems, and conduct adversarial red-teaming studies.",
       "prereqStated": "Level 7",
       "prerequisites": [
         7
@@ -2719,16 +3020,112 @@
             "data stewardship",
             "empirical evaluation"
           ]
+        },
+        {
+          "id": "M8.7",
+          "name": "Evaluation Design for Generative AI Systems",
+          "sessionCount": 4,
+          "icon": "flask-conical",
+          "objectives": [
+            {
+              "text": "RAG Pipeline Evaluation Design: Design an end-to-end evaluation study for a RAG system that separately measures retrieval quality (Recall@k, NDCG) and generation quality (faithfulness, answer relevance, context utilization) using the RAGAS evaluation framework, understanding why optimizing one component can degrade the other.",
+              "group": "Designing evaluation frameworks for RAG pipelines and agentic systems"
+            },
+            {
+              "text": "Agentic Task Completion Evaluation: Design a controlled evaluation study for an autonomous agent on a multi-step task benchmark (SWE-bench, GAIA, or WebArena), defining the completion criteria, partial credit scoring, trajectory validity checks, and maximum step limits that make results comparable across agents.",
+              "group": "Designing evaluation frameworks for RAG pipelines and agentic systems"
+            },
+            {
+              "text": "Instruction-Following Evaluation: Measure instruction-following quality on the IFEval (Instruction-Following Evaluation) benchmark and MT-Bench, understanding what each measures and how to detect prompt-format sensitivity (performance changes when prompt wording changes without semantic difference).",
+              "group": "Designing evaluation frameworks for RAG pipelines and agentic systems"
+            },
+            {
+              "text": "Pairwise Preference Study Design: Design a controlled human preference study comparing two generative AI systems on a specific capability (e.g. summarization quality, code correctness, factual accuracy), specifying annotation interface design, annotator qualification criteria, pairwise presentation randomization, and sample size power calculations.",
+              "group": "Human evaluation design and inter-rater reliability for generative AI"
+            },
+            {
+              "text": "Detecting and Correcting Evaluation Bias: Measure and correct for verbosity bias (annotators preferring longer outputs independent of quality), position bias (annotators preferring the first response), and instruction sycophancy (the evaluated model agreeing with the user to appear helpful) by running counterbalanced presentation orders and reporting agreement statistics.",
+              "group": "Human evaluation design and inter-rater reliability for generative AI"
+            },
+            {
+              "text": "LLM-as-Judge Calibration: Evaluate the reliability of using an LLM as the primary judge of generation quality by measuring the judge's agreement with human annotators on a calibration set, detecting self-preference bias (the judging model favoring its own model family), and reporting Spearman rank correlation between LLM judge scores and human preference rates.",
+              "group": "Human evaluation design and inter-rater reliability for generative AI"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Evaluate claims",
+          "mentalModel": "Evaluating generative AI requires decomposing the system into independently measurable components and designing each evaluation to answer exactly one question; systems evaluated only holistically produce uninterpretable results when performance changes.",
+          "tryIt": "Design and execute a complete evaluation study for a RAG system on 200 questions from a domain corpus: separately measure retrieval Recall@5 using ground-truth passages, faithfulness using RAGAS, and answer quality using GPT-4-as-judge with position-debiased scoring — then compute inter-rater reliability between GPT-4-as-judge and 3 human annotators on a 50-question calibration subset.",
+          "outcome": "You can design rigorous, decomposed evaluation frameworks for RAG pipelines and agentic AI systems, measure inter-rater reliability for human evaluation studies, and detect and correct biases in LLM-as-judge evaluation.",
+          "evidence": "Design and execute a complete evaluation study for a RAG system on 200 questions from a domain corpus: separately measure retrieval Recall@5 using ground-truth passages, faithfulness using RAGAS, and answer quality using GPT-4-as-judge with position-debiased scoring — then compute inter-rater reliability between GPT-4-as-judge and 3 human annotators on a 50-question calibration subset.",
+          "competencyTags": [
+            "research communication",
+            "mathematical reasoning",
+            "generative modeling",
+            "empirical evaluation",
+            "trustworthy AI"
+          ]
+        },
+        {
+          "id": "M8.8",
+          "name": "Red Teaming & Adversarial Evaluation as Research",
+          "sessionCount": 4,
+          "icon": "shield-alert",
+          "objectives": [
+            {
+              "text": "Red Teaming as Controlled Experiment: Design adversarial evaluation as a scientific study rather than an ad-hoc exercise: define the attack surface (input types, model capabilities being tested), specify the adversary model (what the attacker knows about the system), design a stratified attack corpus covering distinct attack categories (direct injection, indirect injection, jailbreaking, prompt leakage, data poisoning), and measure attack success rate with confidence intervals.",
+              "group": "Designing adversarial evaluation studies as scientific research"
+            },
+            {
+              "text": "Prompt Injection Attack Taxonomy: Systematically categorize prompt injection attacks into direct (attacker-controlled input), indirect (attacker-controlled retrieved documents), and multi-turn (attack spread across conversation history) variants; measure attack success rate for each category independently on a fixed target model.",
+              "group": "Designing adversarial evaluation studies as scientific research"
+            },
+            {
+              "text": "Defense Evaluation Methodology: Design a controlled study comparing the effectiveness of multiple defenses (input sanitization, instruction hierarchy enforcement, output filtering, system prompt guardrails) against a fixed attack set, measuring the trade-off between defense effectiveness (attack success rate reduction) and false positive rate (rate at which the defense blocks legitimate queries).",
+              "group": "Designing adversarial evaluation studies as scientific research"
+            },
+            {
+              "text": "Responsible Disclosure Protocol: Follow AI security responsible disclosure norms: conduct adversarial research under a controlled scope, avoid publishing working attack code for maximally harmful capabilities before affected parties have been notified, and distinguish scientific finding papers (publishing the vulnerability and defense together) from pure attack papers (publishing only the attack).",
+              "group": "Responsible disclosure and publishing AI security research"
+            },
+            {
+              "text": "Publishing AI Security Findings: Structure an AI security research paper with a formal threat model section (specifying attacker capabilities, knowledge, and goals), a controlled attack evaluation section with statistical significance testing, a defense section, and a limitations section disclosing what the paper cannot claim.",
+              "group": "Responsible disclosure and publishing AI security research"
+            },
+            {
+              "text": "Evaluating Published Red Teaming Papers: Critically evaluate published red teaming papers for scope validity (does the attack work in realistic conditions or only in a contrived lab setting?), generalization (was the attack tested on one model or multiple?), and base rate context (how frequently would this attack succeed in practice compared to simpler alternatives?).",
+              "group": "Responsible disclosure and publishing AI security research"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Evaluate claims",
+          "mentalModel": "Adversarial evaluation is only scientific when the attack corpus is fixed before evaluation begins, attack success rate is measured with confidence intervals, and the study design would allow a negative result (attacks fail) to be published as a meaningful finding.",
+          "tryIt": "Design and execute a structured red teaming study on an open-source RAG system: define a taxonomy of 5 attack categories (direct injection, indirect injection via retrieved documents, role-play jailbreaking, prompt leakage, and refusal bypass), construct 20 test cases per category, measure attack success rate for each category with 95% confidence intervals, and write a 4-page responsible disclosure report documenting findings and recommended defenses.",
+          "outcome": "You can design adversarial evaluation studies with rigorous experimental controls, measure attack and defense effectiveness statistically, and write responsible disclosure reports that meet AI security research publication standards.",
+          "evidence": "Design and execute a structured red teaming study on an open-source RAG system: define a taxonomy of 5 attack categories (direct injection, indirect injection via retrieved documents, role-play jailbreaking, prompt leakage, and refusal bypass), construct 20 test cases per category, measure attack success rate for each category with 95% confidence intervals, and write a 4-page responsible disclosure report documenting findings and recommended defenses.",
+          "competencyTags": [
+            "research infrastructure",
+            "research communication",
+            "mathematical reasoning",
+            "data stewardship",
+            "empirical evaluation",
+            "trustworthy AI",
+            "research career"
+          ]
         }
       ],
       "project": "M8.6",
-      "moduleCount": 6,
-      "objectiveCount": 25,
+      "moduleCount": 8,
+      "objectiveCount": 37,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 28,
-      "statedSessions": 28,
-      "estimatedWeeks": 7,
+      "totalSessions": 36,
+      "statedSessions": 36,
+      "estimatedWeeks": 9,
       "proficiency": "Advanced",
       "researchStage": "Design controlled experiments and ablations",
       "lifecycle": "Hypothesis → OFAT ablations → compute parity → tests",
@@ -2740,7 +3137,9 @@
         "You can design, execute, and report conclusive destructive and constructive ablation studies that isolate genuine scientific contributions.",
         "You can execute multi-seed statistical significance tests, perform deep error taxonomies, and report robust confidence intervals.",
         "You can author rigorous experimental setup sections and create publication-grade tables and Pareto frontier visualizations.",
-        "A fully verified, publication-grade benchmark and ablation study suite complete with non-parametric statistical significance testing and a LaTeX manuscript draft."
+        "A fully verified, publication-grade benchmark and ablation study suite complete with non-parametric statistical significance testing and a LaTeX manuscript draft.",
+        "You can design rigorous, decomposed evaluation frameworks for RAG pipelines and agentic AI systems, measure inter-rater reliability for human evaluation studies, and detect and correct biases in LLM-as-judge evaluation.",
+        "You can design adversarial evaluation studies with rigorous experimental controls, measure attack and defense effectiveness statistically, and write responsible disclosure reports that meet AI security research publication standards."
       ],
       "todos": []
     },
@@ -2749,7 +3148,7 @@
       "slug": "level-9",
       "title": "Generative Models",
       "sourceFile": "level9-generative-models-evaluation.txt",
-      "scope": "Master probabilistic generative models: derive and implement Variational Autoencoders, Generative Adversarial Networks, Denoising Diffusion Probabilistic Models, Continuous Flow Matching, and generative distribution metrics.",
+      "scope": "Master probabilistic generative models: derive and implement Variational Autoencoders, Generative Adversarial Networks, Denoising Diffusion Probabilistic Models, Continuous Flow Matching, generative distribution metrics, and the empirical methodology of researching LLMs as generative systems.",
       "prereqStated": "Level 8",
       "prerequisites": [
         8
@@ -2911,7 +3310,7 @@
           "icon": "flask-conical",
           "objectives": [
             {
-              "text": "Fréchet Inception Distance (FID): Formulate the Wasserstein-2 distance between Gaussian-approximated Inception feature representations of real and synthetic distributions.",
+              "text": "Frechet Inception Distance (FID): Formulate the Wasserstein-2 distance between Gaussian-approximated Inception feature representations of real and synthetic distributions.",
               "group": "Distribution fidelity: FID & Inception Score"
             },
             {
@@ -2978,16 +3377,63 @@
             "systems scaling",
             "research career"
           ]
+        },
+        {
+          "id": "M9.7",
+          "name": "Researching Large Language Models as Generative Systems",
+          "sessionCount": 4,
+          "icon": "telescope",
+          "objectives": [
+            {
+              "text": "In-Context Learning Experimental Protocol: Design a controlled study of in-context learning (ICL) that systematically isolates the contribution of: (1) label format (what the output label tokens look like), (2) label correctness (using random wrong labels vs correct labels), and (3) example ordering (first vs last examples) — following Min et al. (2022) \"Rethinking the Role of Demonstrations\" methodology — to determine what ICL examples actually teach the model.",
+              "group": "Studying in-context learning and emergent capabilities empirically"
+            },
+            {
+              "text": "Emergent Capabilities Measurement: Critically evaluate claims of emergent capabilities in large language models (Wei et al., 2022) by testing whether apparent emergence is a consequence of metric discontinuity (using accuracy rather than a continuous metric like log-probability) or genuine qualitative capability jumps; replicate the analysis of Schaeffer et al. (2023) \"Are Emergent Abilities of Large Language Models a Mirage?\" on a small open model.",
+              "group": "Studying in-context learning and emergent capabilities empirically"
+            },
+            {
+              "text": "Chain-of-Thought Research: Design a study measuring how chain-of-thought prompting (Wei et al., 2022) affects reasoning performance across problem difficulty levels, measuring the marginal benefit of CoT over direct prompting on GSM8K grade school math problems stratified by number of reasoning steps required.",
+              "group": "Studying in-context learning and emergent capabilities empirically"
+            },
+            {
+              "text": "Hallucination Rate Measurement Protocol: Define and operationalize LLM hallucination precisely for a specific domain (e.g. medical question answering, biographical facts, scientific citations); design a test set where ground truth is verifiable from authoritative sources; measure hallucination rate as the fraction of generated claims that cannot be verified in the source corpus; compute 95% confidence intervals.",
+              "group": "Hallucination measurement and memorization auditing in LLMs"
+            },
+            {
+              "text": "Detecting Training Data Memorization in LLMs: Apply the Carlini et al. (2021) membership inference methodology to test whether an open LLM has memorized specific training documents: prompt the model with a prefix from a suspected training document and measure whether the continuation matches the original text at above-chance rates using perplexity comparison between the memorized and non-memorized continuation.",
+              "group": "Hallucination measurement and memorization auditing in LLMs"
+            },
+            {
+              "text": "Distinguishing Generalization from Pattern Matching: Design an experiment using held-out perturbed test cases (e.g. GSM8K problems with numbers changed to values not seen in training) to test whether LLM mathematical performance reflects genuine arithmetic generalization or memorized answer patterns.",
+              "group": "Hallucination measurement and memorization auditing in LLMs"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Build research systems",
+          "mentalModel": "Researching LLMs as generative systems requires treating every impressive capability claim as a hypothesis to be falsified, not a fact to be celebrated — the questions are always \"does this capability hold under distribution shift?\" and \"does removing training data contamination eliminate the capability?\".",
+          "tryIt": "Design and execute a study testing whether in-context few-shot learning examples help an open LLM (e.g. Llama-3-8B) on a classification task because of their label format or their label correctness: use 4 conditions (correct labels, wrong labels, no labels, no examples), run 500 test examples per condition, and compute McNemar significance tests comparing all condition pairs.",
+          "outcome": "You can design controlled experiments to study in-context learning, measure hallucination rates with rigorous protocols, detect training data memorization in LLMs, and evaluate whether capability claims survive distribution shift testing.",
+          "evidence": "Design and execute a study testing whether in-context few-shot learning examples help an open LLM (e.g. Llama-3-8B) on a classification task because of their label format or their label correctness: use 4 conditions (correct labels, wrong labels, no labels, no examples), run 500 test examples per condition, and compute McNemar significance tests comparing all condition pairs.",
+          "competencyTags": [
+            "mathematical reasoning",
+            "data stewardship",
+            "architecture design",
+            "generative modeling",
+            "empirical evaluation"
+          ]
         }
       ],
       "project": "M9.6",
-      "moduleCount": 6,
-      "objectiveCount": 24,
+      "moduleCount": 7,
+      "objectiveCount": 30,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 32,
-      "statedSessions": 32,
-      "estimatedWeeks": 8,
+      "totalSessions": 36,
+      "statedSessions": 36,
+      "estimatedWeeks": 9,
       "proficiency": "Advanced",
       "researchStage": "Develop and evaluate generative systems",
       "lifecycle": "VAE → GAN → diffusion (DDPM) → flow matching",
@@ -2999,7 +3445,8 @@
         "You can derive forward and reverse diffusion processes, implement DDPM training and sampling loops, and apply Classifier-Free Guidance.",
         "You can formulate continuous-time neural ODEs, implement Optimal Transport Flow Matching, and sample high-quality generations with fast numerical solvers.",
         "You can evaluate generative models using FID, Inception Score, and Precision/Recall, while conducting automated training data memorization audits.",
-        "A comprehensive comparative benchmark paper and code repository evaluating Denoising Diffusion and Optimal Transport Flow Matching under equal compute parity."
+        "A comprehensive comparative benchmark paper and code repository evaluating Denoising Diffusion and Optimal Transport Flow Matching under equal compute parity.",
+        "You can design controlled experiments to study in-context learning, measure hallucination rates with rigorous protocols, detect training data memorization in LLMs, and evaluate whether capability claims survive distribution shift testing."
       ],
       "todos": []
     },
@@ -3008,7 +3455,7 @@
       "slug": "level-10",
       "title": "Scaled Systems & HPC",
       "sourceFile": "level10-research-systems-mlops.txt",
-      "scope": "Scale research experiments from single GPUs to high-performance computing clusters: master SLURM workload management, multi-GPU distributed parallelism (DDP, FSDP, ZeRO, Megatron-LM), hardware profiling, and Model FLOPs Utilization (MFU).",
+      "scope": "Scale research experiments from single GPUs to high-performance computing clusters: master SLURM workload management, multi-GPU distributed parallelism (DDP, FSDP, ZeRO, Megatron-LM), hardware profiling, Model FLOPs Utilization (MFU), and the research methodology of studying LLM inference and serving systems scientifically.",
       "prereqStated": "Level 9",
       "prerequisites": [
         9
@@ -3239,16 +3686,56 @@
             "systems scaling",
             "research career"
           ]
+        },
+        {
+          "id": "M10.7",
+          "name": "Researching LLM Inference & Serving Systems",
+          "sessionCount": 4,
+          "icon": "ship",
+          "objectives": [
+            {
+              "text": "Quantization Research Methodology: Design a controlled study measuring the quality-latency-cost tradeoffs of LLM quantization across precision levels (FP16, BF16, INT8, INT4, NF4) using the same model family (e.g. Llama-3 at 8B and 70B): measure perplexity on a held-out text corpus, downstream task accuracy on MMLU, throughput (tokens/second), GPU VRAM consumption, and first-token latency — and report all metrics together rather than cherry-picking the ones that favor quantization.",
+              "group": "Designing controlled experiments on LLM inference optimization"
+            },
+            {
+              "text": "KV Cache Ablation Study: Design a study isolating the contribution of KV caching to generation latency by measuring time-to-first-token (TTFT) and tokens-per-second at varying context lengths (256, 512, 1024, 2048, 4096, 8192 tokens) with and without KV caching enabled, computing the empirical speedup factor and its dependence on context length.",
+              "group": "Designing controlled experiments on LLM inference optimization"
+            },
+            {
+              "text": "Speculative Decoding Measurement: Measure the empirical acceptance rate and wall-clock speedup of speculative decoding (using a draft model to predict multiple tokens, then verifying with the target model) as a function of the quality mismatch between draft and target models — following the methodology of Chen et al. (2023) \"Accelerating Large Language Model Decoding with Speculative Sampling\".",
+              "group": "Designing controlled experiments on LLM inference optimization"
+            },
+            {
+              "text": "Throughput vs Latency Tradeoff Measurement: Conduct a systematic experiment measuring the throughput-latency Pareto frontier for an open LLM served with vLLM: vary request batch size (1, 4, 8, 16, 32), measure mean and p99 latency and throughput simultaneously, and plot the Pareto frontier — identifying the operating point that maximizes throughput subject to a p99 latency constraint.",
+              "group": "Scaling experiments and serving infrastructure research"
+            },
+            {
+              "text": "Comparing Managed vs Self-Hosted Serving: Design a cost-efficiency comparison between using a managed LLM API (e.g. OpenAI, Anthropic, Google) versus self-hosting an equivalent open-weight model (e.g. Llama-3-70B on A100s) for a fixed inference workload: measure cost per million tokens, average latency, p99 latency, and reliability (uptime fraction), and determine the break-even request volume above which self-hosting becomes cheaper.",
+              "group": "Scaling experiments and serving infrastructure research"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Build research systems",
+          "mentalModel": "LLM serving research requires simultaneously measuring quality (does the optimization degrade task performance?), speed (latency and throughput), and cost (GPU-hours and dollars) — optimizing any one dimension without measuring the others produces an incomplete and potentially misleading result.",
+          "tryIt": "Using vLLM to serve Llama-3-8B on a single A100, design and execute a serving benchmark that measures throughput (tokens/second) and p50/p99 latency across batch sizes 1, 4, 8, and 16 for a fixed 512-token input / 256-token output workload, then compute the throughput-latency Pareto curve and identify the optimal batch size for a \"respond within 2 seconds p99\" SLA.",
+          "outcome": "You can design controlled experiments measuring quality-latency-cost tradeoffs for LLM inference optimizations, conduct serving throughput-latency Pareto analyses, and evaluate the economic break-even between managed API and self-hosted model serving.",
+          "evidence": "Using vLLM to serve Llama-3-8B on a single A100, design and execute a serving benchmark that measures throughput (tokens/second) and p50/p99 latency across batch sizes 1, 4, 8, and 16 for a fixed 512-token input / 256-token output workload, then compute the throughput-latency Pareto curve and identify the optimal batch size for a \"respond within 2 seconds p99\" SLA.",
+          "competencyTags": [
+            "empirical evaluation",
+            "systems scaling"
+          ]
         }
       ],
       "project": "M10.6",
-      "moduleCount": 6,
-      "objectiveCount": 24,
+      "moduleCount": 7,
+      "objectiveCount": 29,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 32,
-      "statedSessions": 32,
-      "estimatedWeeks": 8,
+      "totalSessions": 36,
+      "statedSessions": 36,
+      "estimatedWeeks": 9,
       "proficiency": "Advanced",
       "researchStage": "Scale training across HPC clusters",
       "lifecycle": "SLURM → DDP/FSDP → profiling → MFU tracking",
@@ -3260,7 +3747,8 @@
         "You can explain tensor and pipeline parallelism, calculate pipeline bubble overhead, and configure 3D parallel distributed training.",
         "You can profile distributed training bottlenecks, apply the Roofline Model, and calculate verified Model FLOPs Utilization (MFU).",
         "You can track distributed experiments with centralized registries, version large datasets with DVC, and manage research infrastructure professionally.",
-        "A production-ready, fault-tolerant distributed training platform on SLURM complete with a verified Model FLOPs Utilization (MFU) audit and technical report."
+        "A production-ready, fault-tolerant distributed training platform on SLURM complete with a verified Model FLOPs Utilization (MFU) audit and technical report.",
+        "You can design controlled experiments measuring quality-latency-cost tradeoffs for LLM inference optimizations, conduct serving throughput-latency Pareto analyses, and evaluate the economic break-even between managed API and self-hosted model serving."
       ],
       "todos": []
     },
@@ -3269,7 +3757,7 @@
       "slug": "level-11",
       "title": "LLMs & Reinforcement Learning",
       "sourceFile": "level11-interpretability-robustness-trust.txt",
-      "scope": "Master reinforcement learning from Bellman equations to PPO, Large Language Model pretraining dynamics, empirical scaling laws, parameter-efficient fine-tuning (LoRA/QLoRA), and preference alignment (RLHF, DPO, KTO).",
+      "scope": "Master reinforcement learning from Bellman equations to PPO, Large Language Model pretraining dynamics, empirical scaling laws, parameter-efficient fine-tuning (LoRA/QLoRA), preference alignment (RLHF, DPO, KTO), and the research methodology of studying AI safety and security scientifically.",
       "prereqStated": "Level 10",
       "prerequisites": [
         10
@@ -3507,16 +3995,63 @@
             "trustworthy AI",
             "research career"
           ]
+        },
+        {
+          "id": "M11.7",
+          "name": "AI Safety & Security Research Methodology",
+          "sessionCount": 4,
+          "icon": "shield",
+          "objectives": [
+            {
+              "text": "Alignment Tax Measurement: Design a controlled experiment measuring the \"alignment tax\" — the loss in benchmark task performance that results from applying safety fine-tuning (RLHF or DPO) to a base language model — by comparing the base model, SFT model, and aligned model across a comprehensive benchmark suite (MMLU, GSM8K, HumanEval, and domain-specific tasks), measuring the performance delta attributable to alignment fine-tuning alone.",
+              "group": "Studying alignment failures and jailbreaking empirically"
+            },
+            {
+              "text": "Jailbreaking Success Rate Measurement: Design a rigorous study measuring jailbreak attack success rates on a fixed open language model using a controlled attack corpus: implement GCG (Greedy Coordinate Gradient) suffix optimization attacks, human-written jailbreak templates, and roleplay attacks; measure success rate as the fraction of harmful completions triggered per attack category with 95% confidence intervals; replicate the methodology of Zou et al. (2023) \"Universal and Transferable Adversarial Attacks on Aligned Language Models\".",
+              "group": "Studying alignment failures and jailbreaking empirically"
+            },
+            {
+              "text": "Refusal Mechanism Interpretability: Investigate where in the network refusal behavior originates by ablating the model's safety fine-tuning at the representation level using activation steering: add a \"harmless\" direction vector to the residual stream and measure how this changes refusal rates, using the methodology of Turner et al. (2023) \"Activation Addition: Steering Language Models Without Optimization\".",
+              "group": "Studying alignment failures and jailbreaking empirically"
+            },
+            {
+              "text": "Scalable Oversight Research Design: Design a study testing a scalable oversight protocol (e.g. debate, amplification, or process reward modeling) on a domain where the verifier (human or model) has limited domain expertise: measure whether the oversight mechanism successfully identifies correct from incorrect answers above chance when the verifier cannot directly evaluate the answer quality.",
+              "group": "Scalable oversight and AI safety benchmarks"
+            },
+            {
+              "text": "Safety Benchmark Design Methodology: Critically evaluate existing AI safety benchmarks (TruthfulQA, BBQ Bias, WinoBias, BOLD, HarmBench) for construct validity — does the benchmark measure what it claims to measure? — by testing whether human annotators agree with the benchmark's notion of \"harmful\" or \"biased\" on a 100-question sample; identify cases where the benchmark's scoring function disagrees with human judgment.",
+              "group": "Scalable oversight and AI safety benchmarks"
+            },
+            {
+              "text": "Red Team Research Protocol: Plan a structured red team research study as a scientific contribution: define the threat model, pre-register the attack taxonomy, pre-specify the success rate threshold that would constitute a meaningful finding, and design the disclosure protocol before running any experiments.",
+              "group": "Scalable oversight and AI safety benchmarks"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "AI safety research requires the same scientific discipline as any other empirical field — pre-registered hypotheses, controlled experiments, confidence intervals, and honest reporting of negative results — rather than the ad-hoc \"I found a jailbreak\" anecdote that currently dominates the field.",
+          "tryIt": "Design and execute a measurement study on jailbreaking resistance of an open aligned model (e.g. Llama-3-8B-Instruct): construct a stratified attack corpus of 60 prompts covering 3 attack categories (direct harmful requests, roleplay-wrapped requests, and indirect goal completion), measure refusal rate per category with 95% confidence intervals, and test whether one defensive system prompt significantly improves refusal rate using McNemar's test.",
+          "outcome": "You can design controlled studies measuring alignment tax, jailbreak success rates, and scalable oversight effectiveness; critically evaluate AI safety benchmarks for construct validity; and plan pre-registered red team studies that meet scientific publication standards.",
+          "evidence": "Design and execute a measurement study on jailbreaking resistance of an open aligned model (e.g. Llama-3-8B-Instruct): construct a stratified attack corpus of 60 prompts covering 3 attack categories (direct harmful requests, roleplay-wrapped requests, and indirect goal completion), measure refusal rate per category with 95% confidence intervals, and test whether one defensive system prompt significantly improves refusal rate using McNemar's test.",
+          "competencyTags": [
+            "mathematical reasoning",
+            "empirical evaluation",
+            "foundation models",
+            "model interpretability",
+            "trustworthy AI"
+          ]
         }
       ],
       "project": "M11.6",
-      "moduleCount": 6,
-      "objectiveCount": 25,
+      "moduleCount": 7,
+      "objectiveCount": 31,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 32,
-      "statedSessions": 32,
-      "estimatedWeeks": 8,
+      "totalSessions": 36,
+      "statedSessions": 36,
+      "estimatedWeeks": 9,
       "proficiency": "Advanced",
       "researchStage": "Train, fine-tune, and align foundation models",
       "lifecycle": "Scaling laws → PEFT/LoRA → SFT → RLHF/DPO",
@@ -3528,7 +4063,8 @@
         "You can implement modern LLM architectural components, configure KV caching, and apply Chinchilla scaling laws to budget training runs.",
         "You can derive low-rank adaptation, configure QLoRA for memory-efficient training, and execute Domain-Adaptive Pre-Training.",
         "You can derive and execute Direct Preference Optimization (DPO), configure RLHF with PPO, and evaluate preference alignment outcomes.",
-        "A fully adapted and preference-aligned domain LLM, accompanied by a reproducible training pipeline and a publication-quality evaluation paper."
+        "A fully adapted and preference-aligned domain LLM, accompanied by a reproducible training pipeline and a publication-quality evaluation paper.",
+        "You can design controlled studies measuring alignment tax, jailbreak success rates, and scalable oversight effectiveness; critically evaluate AI safety benchmarks for construct validity; and plan pre-registered red team studies that meet scientific publication standards."
       ],
       "todos": []
     },
@@ -3537,7 +4073,7 @@
       "slug": "level-12",
       "title": "RAG & AI Agents",
       "sourceFile": "level12-multimodal-domain-studies.txt",
-      "scope": "Master advanced Retrieval-Augmented Generation (RAG), GraphRAG, Knowledge Graph embeddings, autonomous AI agent loops, multi-agent orchestration, and neuro-symbolic reasoning.",
+      "scope": "Master advanced Retrieval-Augmented Generation (RAG), GraphRAG, Knowledge Graph embeddings, autonomous AI agent loops, multi-agent orchestration, neuro-symbolic reasoning, and the research methodology of studying vision-language models empirically.",
       "prereqStated": "Level 11",
       "prerequisites": [
         11
@@ -3770,16 +4306,62 @@
             "empirical evaluation",
             "research career"
           ]
+        },
+        {
+          "id": "M12.7",
+          "name": "Researching Vision-Language Models",
+          "sessionCount": 4,
+          "icon": "eye",
+          "objectives": [
+            {
+              "text": "VLM Capability Evaluation Protocol: Design a controlled evaluation study on a vision-language model (e.g. LLaVA, InternVL, Qwen-VL, or CogVLM) that separately evaluates visual perception (does the model correctly describe what is in the image?), cross-modal grounding (does the model correctly connect image regions to text spans?), and visual reasoning (does the model correctly reason about spatial relationships, counts, and relative attributes?) — using separate evaluation benchmarks for each capability (MME, MMBench, SeedBench) rather than a single aggregate score.",
+              "group": "Designing controlled experiments on VLM capabilities and limitations"
+            },
+            {
+              "text": "VLM Hallucination Measurement: Measure object hallucination in a VLM using the CHAIR (Caption Hallucination Assessment with Image Relevance) metric: generate image captions for 500 images, compute the fraction of mentioned objects that do not appear in the image according to ground-truth COCO annotations, and compare hallucination rates across different decoding strategies (greedy, beam search, nucleus sampling with different temperatures).",
+              "group": "Designing controlled experiments on VLM capabilities and limitations"
+            },
+            {
+              "text": "Multimodal vs Unimodal Ablation: Design an experiment that tests whether the visual component of a VLM actually contributes to performance on a visual question answering task: compare the full VLM against a text-only LLM given only the question (no image), a text-only LLM given the question plus a text description of the image, and the full VLM given the image — measuring the marginal contribution of visual input over text description.",
+              "group": "Designing controlled experiments on VLM capabilities and limitations"
+            },
+            {
+              "text": "Contrastive Pretraining Ablation for CLIP: Replicate a CLIP-style contrastive pretraining ablation from scratch on a small dataset: vary the batch size (128, 512, 2048), the temperature parameter (0.01, 0.07, 0.1), and the image and text encoder architecture (ViT-B/16 vs ResNet-50 vs ViT-S/8), measuring zero-shot classification accuracy and zero-shot retrieval Recall@1 as a function of each variable — following the ablation table structure of the original CLIP paper.",
+              "group": "Cross-modal alignment research and domain adaptation of VLMs"
+            },
+            {
+              "text": "Domain-Specific VLM Fine-Tuning Research: Design a study testing whether instruction fine-tuning a general-purpose VLM on a domain-specific visual QA dataset (e.g. medical image QA using VQA-RAD or PathVQA) improves domain accuracy without catastrophically forgetting general visual understanding: measure both domain benchmark accuracy and general VLM benchmark accuracy (MMBench) before and after fine-tuning, reporting the domain accuracy gain and the general capability degradation as separate metrics.",
+              "group": "Cross-modal alignment research and domain adaptation of VLMs"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "Studying vision-language models scientifically requires decomposing the \"VLM capability\" claim into independently verifiable sub-skills — perception, grounding, and reasoning — and testing each separately, because a model can appear capable on an aggregate benchmark while actually relying on language shortcuts rather than genuine visual understanding.",
+          "tryIt": "Evaluate LLaVA-1.6 on a visual question answering task using three conditions — (1) full VLM with image, (2) text-only LLM with image caption, (3) text-only LLM with question only — on 300 examples from the OKVQA benchmark; compute accuracy per condition, measure whether the image provides statistically significant information beyond the caption using McNemar's test, and compute the CHAIR hallucination rate on a 100-image caption generation evaluation.",
+          "outcome": "You can design controlled studies decomposing VLM capabilities into perception, grounding, and reasoning sub-tasks; measure object hallucination using CHAIR; design multimodal vs unimodal ablations; and evaluate domain fine-tuning tradeoffs using paired pre/post benchmark measurements.",
+          "evidence": "Evaluate LLaVA-1.6 on a visual question answering task using three conditions — (1) full VLM with image, (2) text-only LLM with image caption, (3) text-only LLM with question only — on 300 examples from the OKVQA benchmark; compute accuracy per condition, measure whether the image provides statistically significant information beyond the caption using McNemar's test, and compute the CHAIR hallucination rate on a 100-image caption generation evaluation.",
+          "competencyTags": [
+            "research communication",
+            "mathematical reasoning",
+            "data stewardship",
+            "modeling",
+            "empirical evaluation",
+            "foundation models",
+            "applied research",
+            "research career"
+          ]
         }
       ],
       "project": "M12.6",
-      "moduleCount": 6,
-      "objectiveCount": 25,
+      "moduleCount": 7,
+      "objectiveCount": 30,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 32,
-      "statedSessions": 32,
-      "estimatedWeeks": 8,
+      "totalSessions": 36,
+      "statedSessions": 36,
+      "estimatedWeeks": 9,
       "proficiency": "Advanced",
       "researchStage": "Architect grounded RAG, AI agents, and knowledge graphs",
       "lifecycle": "Retrieval → RAG Triad → GraphRAG → ReAct agents",
@@ -3791,7 +4373,8 @@
         "You can construct knowledge graphs, train link prediction embeddings, and build hierarchical GraphRAG systems for global corpus reasoning.",
         "You can design autonomous agent loops, author strict tool schemas, and execute code safely in containerized sandboxes.",
         "You can orchestrate multi-agent workflows using state machines, manage persistent agent memory, and benchmark autonomous systems on standardized suites.",
-        "A fully operational Enterprise GraphRAG and multi-agent scientific research assistant with verified citation grounding, code execution sandboxes, and a technical paper."
+        "A fully operational Enterprise GraphRAG and multi-agent scientific research assistant with verified citation grounding, code execution sandboxes, and a technical paper.",
+        "You can design controlled studies decomposing VLM capabilities into perception, grounding, and reasoning sub-tasks; measure object hallucination using CHAIR; design multimodal vs unimodal ablations; and evaluate domain fine-tuning tradeoffs using paired pre/post benchmark measurements."
       ],
       "todos": []
     },
@@ -3800,7 +4383,7 @@
       "slug": "level-13",
       "title": "Trustworthy AI & Safety",
       "sourceFile": "level13-independent-research-leadership.txt",
-      "scope": "Deconstruct black-box models using post-hoc XAI and mechanistic interpretability (Sparse Autoencoders), audit adversarial robustness (PGD, AutoAttack), measure algorithmic fairness, and lead independent research programs with risk registers and decision gates.",
+      "scope": "Deconstruct black-box models using post-hoc XAI and mechanistic interpretability (Sparse Autoencoders), audit adversarial robustness (PGD, AutoAttack), measure algorithmic fairness, lead independent research programs with risk registers, and systematically identify your own original research gap in the modern AI landscape.",
       "prereqStated": "Level 12",
       "prerequisites": [
         12
@@ -4029,16 +4612,64 @@
             "trustworthy AI",
             "research career"
           ]
+        },
+        {
+          "id": "M13.7",
+          "name": "Finding a Research Gap in the Modern AI Landscape",
+          "sessionCount": 4,
+          "icon": "git-fork",
+          "objectives": [
+            {
+              "text": "The 2024–2025 AI Research Landscape Audit: Conduct a systematic audit of the current AI research frontier using Semantic Scholar, arXiv cs.AI/cs.LG/cs.CL, and conference proceedings (NeurIPS 2024, ICML 2024, ACL 2024, ICLR 2025) to build a comprehensive taxonomy of active research directions — covering LLM alignment, mechanistic interpretability, multimodal models, agentic AI, AI safety, data-centric AI, and AI for science — and identify which sub-areas have the highest paper volume (saturated), which are growing rapidly (emerging), and which have fewer than 20 papers despite clear unsolved problems (white space).",
+              "group": "Mapping the modern AI research frontier systematically"
+            },
+            {
+              "text": "Gap Classification by Academic Resource Accessibility: Classify identified gaps by resource requirements, separating gaps that require industrial compute (pretraining 70B+ models) from gaps that are accessible to academic researchers (fine-tuning open models, evaluation methodology papers, interpretability of smaller models, dataset curation, and analysis of existing deployed systems) — focusing your gap search on the academically accessible tier.",
+              "group": "Mapping the modern AI research frontier systematically"
+            },
+            {
+              "text": "The Tension Identification Method: Apply the tension identification method to find research gaps: scan the \"Limitations\" sections of 20 recent top-conference papers in your focus area and identify recurring unresolved limitations that multiple authors acknowledge but none address — these recurring limitations represent validated gaps that the community agrees exist.",
+              "group": "Mapping the modern AI research frontier systematically"
+            },
+            {
+              "text": "The Gap-to-Hypothesis Pipeline: Transform an identified research gap through the pipeline: (1) Gap (\"existing RAG evaluation benchmarks don't measure multi-hop reasoning ability\"), (2) Research Question (\"does cross-encoder reranking improve multi-hop question answering accuracy more than single-hop factoid answering?\"), (3) Falsifiable Hypothesis (\"cross-encoder reranking will improve Recall@5 on MuSiQue multi-hop questions by more than 10 percentage points over bi-encoder retrieval, but will improve Recall@5 on TriviaQA single-hop questions by less than 3 percentage points\"), (4) Null Hypothesis and significance threshold.",
+              "group": "From gap to concrete research question"
+            },
+            {
+              "text": "Novelty Verification Protocol: Verify that your identified gap and proposed hypothesis are genuinely unaddressed by searching arXiv using three distinct keyword combinations, checking all cited papers in the 20 most relevant papers for any work on your exact hypothesis, and posting a brief summary to an AI research forum or asking a domain expert to confirm novelty before investing significant compute.",
+              "group": "From gap to concrete research question"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "A research gap worth pursuing exists at the intersection of three criteria: it is acknowledged by multiple authors in the field as unsolved, it is accessible with your available compute and data resources, and it is specific enough that you can design a concrete falsifiable experiment to address it.",
+          "tryIt": "Following the full gap identification workflow, identify one concrete research gap in one of the following areas: RAG evaluation methodology, LLM hallucination measurement, VLM capability assessment, AI agent benchmarking, or mechanistic interpretability of open language models — write a 3-page research proposal including the gap evidence (citations to papers acknowledging the gap), the falsifiable hypothesis, the experimental design, the expected compute cost, and a novelty verification statement.",
+          "outcome": "You can systematically map the modern AI research frontier, identify genuine academically accessible research gaps using the tension identification method, verify novelty rigorously, and transform a validated gap into a concrete falsifiable research hypothesis ready for experimental execution.",
+          "evidence": "Following the full gap identification workflow, identify one concrete research gap in one of the following areas: RAG evaluation methodology, LLM hallucination measurement, VLM capability assessment, AI agent benchmarking, or mechanistic interpretability of open language models — write a 3-page research proposal including the gap evidence (citations to papers acknowledging the gap), the falsifiable hypothesis, the experimental design, the expected compute cost, and a novelty verification statement.",
+          "competencyTags": [
+            "research communication",
+            "mathematical reasoning",
+            "data stewardship",
+            "modeling",
+            "empirical evaluation",
+            "foundation models",
+            "model interpretability",
+            "trustworthy AI",
+            "applied research",
+            "research career"
+          ]
         }
       ],
       "project": "M13.6",
-      "moduleCount": 6,
-      "objectiveCount": 24,
+      "moduleCount": 7,
+      "objectiveCount": 29,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 32,
-      "statedSessions": 32,
-      "estimatedWeeks": 8,
+      "totalSessions": 36,
+      "statedSessions": 36,
+      "estimatedWeeks": 9,
       "proficiency": "Research-ready",
       "researchStage": "Audit model trust, interpretability, and safety",
       "lifecycle": "XAI → mechanistic SAEs → adversarial attacks → fairness",
@@ -4050,7 +4681,8 @@
         "You can formulate adversarial attack optimization, execute PGD and AutoAttack benchmarks, and train certifiably robust models.",
         "You can audit algorithmic fairness, prove mathematical trade-offs between fairness criteria, and train differentially private models with DP-SGD.",
         "You can direct collaborative research programs, manage project risk registers, and make objective go/no-go decisions based on empirical evidence.",
-        "A comprehensive mechanistic interpretability and adversarial robustness audit dossier on an open foundation model, accompanied by a publication-ready paper."
+        "A comprehensive mechanistic interpretability and adversarial robustness audit dossier on an open foundation model, accompanied by a publication-ready paper.",
+        "You can systematically map the modern AI research frontier, identify genuine academically accessible research gaps using the tension identification method, verify novelty rigorously, and transform a validated gap into a concrete falsifiable research hypothesis ready for experimental execution."
       ],
       "todos": []
     },
@@ -4059,7 +4691,7 @@
       "slug": "level-14",
       "title": "Multimodal & Thesis Scoping",
       "sourceFile": "level14-thesis-research-portfolio.txt",
-      "scope": "Master multimodal foundation models (CLIP, LLaVA, Whisper), translate machine learning across scientific disciplines with domain experts, scope a high-impact thesis topic, conduct pilot feasibility studies, and defend a formal Thesis Prospectus.",
+      "scope": "Master multimodal foundation models (CLIP, LLaVA, Whisper), translate machine learning across scientific disciplines with domain experts, scope a high-impact thesis topic, conduct pilot feasibility studies, defend a formal Thesis Prospectus, and build a modern AI research portfolio.",
       "prereqStated": "Level 13",
       "prerequisites": [
         13
@@ -4308,16 +4940,67 @@
             "applied research",
             "research career"
           ]
+        },
+        {
+          "id": "M14.7",
+          "name": "Building a Modern AI Research Portfolio",
+          "sessionCount": 5,
+          "icon": "telescope",
+          "objectives": [
+            {
+              "text": "The Modern AI Research Portfolio: Understand that a competitive AI research portfolio in the LLM era requires demonstrating breadth across multiple contribution types — not only traditional model-architecture papers but also evaluation methodology contributions, dataset papers, analysis papers, and open-source tools — because hiring committees at top labs and universities evaluate researchers on their ability to identify important problems, not just their ability to improve SOTA numbers.",
+              "group": "Constructing a research portfolio for the LLM era"
+            },
+            {
+              "text": "GitHub as a Research Portfolio: Build a GitHub research portfolio that communicates your scientific identity: a pinned repository for each completed research project with a compelling README that explains the research question, key findings, reproducible code, and a link to the paper or preprint; understand how to write a README that speaks to both technical reviewers (who want to run your code) and non-technical decision-makers (who want to understand your contribution).",
+              "group": "Constructing a research portfolio for the LLM era"
+            },
+            {
+              "text": "The Research Statement as Portfolio Narrative: Draft a 2-page research statement that constructs a coherent intellectual narrative connecting your completed projects — explaining not just what you did but why the sequence of your research choices reveals a scientific perspective and research vision — following the \"past work, current work, future directions\" structure used in academic faculty applications and industrial research scientist interviews.",
+              "group": "Constructing a research portfolio for the LLM era"
+            },
+            {
+              "text": "Open-Sourcing Research Artifacts: Package your research contributions as community-usable open-source tools: write documentation targeting two audiences simultaneously (researchers who want to use your method in their work, and practitioners who want to apply your method to real problems); release model weights on HuggingFace Hub with a Model Card following the Hugging Face model card template; and archive code on Zenodo for a permanent DOI citation.",
+              "group": "Open-source contributions and research community building"
+            },
+            {
+              "text": "Building Research Visibility: Understand the research visibility strategies that are legitimate and effective in the modern AI community: posting paper summaries on Twitter/X and LinkedIn targeting specific communities (e.g. #MachineLearning, AI alignment forums, interpretability reading groups), presenting at workshops rather than only main conference tracks when your work is at an early stage, and engaging with related papers through citing them correctly and reaching out to authors for collaboration.",
+              "group": "Open-source contributions and research community building"
+            },
+            {
+              "text": "Maintaining a Living Research Website: Build a minimal academic research website (using GitHub Pages, Hugo, or Jekyll) that contains: a brief bio, a research interests paragraph, a publications list with PDF links, a projects section showcasing your GitHub portfolio, and a CV link — understanding that this is the first thing hiring committees look at before reading your application.",
+              "group": "Open-source contributions and research community building"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Ship evidence",
+          "mentalModel": "A modern AI research portfolio is not a collection of impressive benchmark numbers — it is a curated argument that you have a genuine scientific perspective, the technical skills to execute research independently, and the communication skills to make your work useful to others.",
+          "tryIt": "Package a completed research project as a full open-source release: write a compelling README explaining the research question and key findings in 500 words for a non-expert reader; write a second technical README section in 500 words for an expert who wants to reproduce your results; release model weights to HuggingFace with a complete Model Card; and write a 500-word Twitter thread summarizing your key finding that would be comprehensible to an ML-interested audience.",
+          "outcome": "You can construct a modern AI research portfolio that communicates scientific identity through GitHub projects, an academic website, and a research statement; package research artifacts for open-source release with HuggingFace Model Cards and Zenodo DOIs; and build research community visibility through legitimate professional communication strategies.",
+          "evidence": "Package a completed research project as a full open-source release: write a compelling README explaining the research question and key findings in 500 words for a non-expert reader; write a second technical README section in 500 words for an expert who wants to reproduce your results; release model weights to HuggingFace with a complete Model Card; and write a 500-word Twitter thread summarizing your key finding that would be comprehensible to an ML-interested audience.",
+          "competencyTags": [
+            "research infrastructure",
+            "research communication",
+            "data stewardship",
+            "modeling",
+            "architecture design",
+            "empirical evaluation",
+            "foundation models",
+            "model interpretability",
+            "research career"
+          ]
         }
       ],
       "project": "M14.6",
-      "moduleCount": 6,
-      "objectiveCount": 26,
+      "moduleCount": 7,
+      "objectiveCount": 32,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 35,
-      "statedSessions": 35,
-      "estimatedWeeks": 9,
+      "totalSessions": 40,
+      "statedSessions": 40,
+      "estimatedWeeks": 10,
       "proficiency": "Research-ready",
       "researchStage": "Scope thesis topics and multimodal research",
       "lifecycle": "Multimodal VLM → domain translation → thesis proposal",
@@ -4329,7 +5012,8 @@
         "You can systematically evaluate potential thesis topics and select a defensible, high-leverage, resource-feasible research problem.",
         "You can design and execute downscaled pilot studies to test hypothesis feasibility before launching large-scale doctoral experiments.",
         "You can author a comprehensive doctoral thesis prospectus and defend its scientific validity and feasibility before an academic advisory committee.",
-        "A completed multimodal cross-domain research study and a formally defended, committee-approved doctoral Thesis Prospectus establishing a clear path to publication and graduation."
+        "A completed multimodal cross-domain research study and a formally defended, committee-approved doctoral Thesis Prospectus establishing a clear path to publication and graduation.",
+        "You can construct a modern AI research portfolio that communicates scientific identity through GitHub projects, an academic website, and a research statement; package research artifacts for open-source release with HuggingFace Model Cards and Zenodo DOIs; and build research community visibility through legitimate professional communication strategies."
       ],
       "todos": []
     },
@@ -4338,7 +5022,7 @@
       "slug": "level-15",
       "title": "Publishing & Thesis Defense",
       "sourceFile": "level15-publishing-defense-careers.txt",
-      "scope": "Master the complete academic research lifecycle: author top-tier manuscripts, select premier journals and conferences while avoiding predatory publishers, survive peer review and author point-by-point rebuttals, defend your thesis at the oral viva voce, and launch an academic or industrial research career.",
+      "scope": "Master the complete academic research lifecycle: author top-tier manuscripts, select premier journals and conferences while avoiding predatory publishers, survive peer review and author point-by-point rebuttals, defend your thesis at the oral viva voce, launch an academic or industrial research career, and navigate research careers in the LLM era.",
       "prereqStated": "Level 14",
       "prerequisites": [
         14
@@ -4636,16 +5320,66 @@
             "empirical evaluation",
             "research career"
           ]
+        },
+        {
+          "id": "M15.8",
+          "name": "Research Careers in the LLM Era",
+          "sessionCount": 4,
+          "icon": "briefcase",
+          "objectives": [
+            {
+              "text": "The Shifting Research Landscape: Understand how the emergence of large foundation models has restructured AI research career paths: the rise of prompt engineering and evaluation as research disciplines; the shift from training-focused to alignment, safety, and interpretability research at frontier labs; the growth of AI application research (AI for science, AI for code, AI for healthcare) as a distinct career path from core AI methods research; and why \"AI engineering\" (productionizing LLMs) has become a valued skillset alongside traditional research.",
+              "group": "How the LLM revolution is reshaping AI research careers"
+            },
+            {
+              "text": "Academic vs Industry Research in the LLM Era: Analyze the current divergence between academic and industry research trajectories caused by the compute gap: industrial labs (OpenAI, Anthropic, Google DeepMind, Meta AI) can train frontier models; academics cannot — understanding which research questions are therefore uniquely suited to academia (evaluation, interpretability, analysis of deployed systems, theoretical understanding, domain-specific applications, data-centric methods) and which require industrial collaboration.",
+              "group": "How the LLM revolution is reshaping AI research careers"
+            },
+            {
+              "text": "The Open vs Closed Research Culture Tension: Navigate the tension between publishing openly (traditional academic norm) and the increasing trend of industrial AI labs publishing blog posts and technical reports rather than peer-reviewed papers — understanding when to collaborate with industrial labs and how to maintain academic credibility when your research depends on proprietary models.",
+              "group": "How the LLM revolution is reshaping AI research careers"
+            },
+            {
+              "text": "Building a Research Identity Around Open Models: Develop a research identity that is competitive regardless of access to proprietary frontier models by specializing in areas where open models are sufficient: mechanistic interpretability (open models like Llama-3 are ideal), alignment research using open preference datasets, evaluation methodology, domain-specific fine-tuning, and AI safety measurement — understanding that papers studying open models are more reproducible and therefore more impactful for the scientific community.",
+              "group": "Positioning yourself as a researcher in the LLM era"
+            },
+            {
+              "text": "The Interdisciplinary Research Opportunity: Identify the growing demand for researchers who can bridge AI methods with domain expertise in medicine, biology, law, climate science, and materials science — understanding that domain-specific AI research is one of the highest-impact areas for academic researchers because domain experts cannot do it without AI knowledge and AI researchers often lack domain access.",
+              "group": "Positioning yourself as a researcher in the LLM era"
+            },
+            {
+              "text": "Staying Current in a Rapidly Evolving Field: Develop a sustainable system for staying current in AI research without spending every waking hour reading papers: curate a focused reading list of 3–5 newsletters (The Batch, Ahead of AI, Interconnects, Papers in 100 Words), follow 10–15 researchers whose judgment you trust on Twitter/X, set aside one focused 2-hour paper reading session per week targeting your specific research area, and use AI-assisted literature tools (Semantic Scholar AI, Elicit, ResearchRabbit) to track new work in your topic without reading everything.",
+              "group": "Positioning yourself as a researcher in the LLM era"
+            }
+          ],
+          "notes": [],
+          "isCapstone": false,
+          "isGap": false,
+          "researchMode": "Study and implement",
+          "mentalModel": "A sustainable AI research career in the LLM era requires finding the intersection of your unique expertise, available compute resources, and community-recognized open problems — and the researchers who thrive are those who build a distinctive scientific identity rather than chasing the latest benchmark.",
+          "tryIt": "Write a 1-page \"Research Career Positioning Statement\" that answers four specific questions: (1) What is the one research question you are most uniquely positioned to answer given your background and resources? (2) Which three open-source models and three open datasets form the foundation of your research capability? (3) Which three venues (conferences or journals) are your primary publication targets in the next 2 years and why? (4) Which one interdisciplinary domain could you collaborate with to make your AI research more impactful? Share this statement with a senior researcher for feedback.",
+          "outcome": "You can articulate how the LLM era has restructured AI research career opportunities; identify the research areas where academics have competitive advantages over industry; build a research identity based on open models and reproducible science; and develop a sustainable strategy for staying current in a rapidly evolving field while maintaining focused research productivity.",
+          "evidence": "Write a 1-page \"Research Career Positioning Statement\" that answers four specific questions: (1) What is the one research question you are most uniquely positioned to answer given your background and resources? (2) Which three open-source models and three open datasets form the foundation of your research capability? (3) Which three venues (conferences or journals) are your primary publication targets in the next 2 years and why? (4) Which one interdisciplinary domain could you collaborate with to make your AI research more impactful? Share this statement with a senior researcher for feedback.",
+          "competencyTags": [
+            "research infrastructure",
+            "research communication",
+            "data stewardship",
+            "empirical evaluation",
+            "foundation models",
+            "model interpretability",
+            "trustworthy AI",
+            "research career"
+          ]
         }
       ],
       "project": "M15.7",
-      "moduleCount": 7,
-      "objectiveCount": 34,
+      "moduleCount": 8,
+      "objectiveCount": 40,
       "capstoneCount": 1,
       "assessmentStandard": "Complete the objectives, submit the evidence artifact, and defend the capstone result with limitations.",
-      "totalSessions": 34,
-      "statedSessions": 34,
-      "estimatedWeeks": 8,
+      "totalSessions": 38,
+      "statedSessions": 38,
+      "estimatedWeeks": 10,
       "proficiency": "Career-ready",
       "researchStage": "Publish, defend dissertation, and launch career",
       "lifecycle": "Manuscript → peer review → rebuttal → viva defense",
@@ -4658,7 +5392,8 @@
         "You can typeset a professional doctoral dissertation in LaTeX and successfully defend your scientific research in an oral viva voce examination.",
         "You can govern research authorship ethically and release permanent, citable open-science research artifacts with Zenodo DOIs.",
         "You can navigate academic and industrial research career pathways, author competitive application dossiers, and deliver engaging job talks.",
-        "A complete, professional research scientist launch portfolio comprising a camera-ready manuscript, open reproducibility artifact, reviewer rebuttal dossier, and thesis defense package."
+        "A complete, professional research scientist launch portfolio comprising a camera-ready manuscript, open reproducibility artifact, reviewer rebuttal dossier, and thesis defense package.",
+        "You can articulate how the LLM era has restructured AI research career opportunities; identify the research areas where academics have competitive advantages over industry; build a research identity based on open models and reproducible science; and develop a sustainable strategy for staying current in a rapidly evolving field while maintaining focused research productivity."
       ],
       "todos": []
     }

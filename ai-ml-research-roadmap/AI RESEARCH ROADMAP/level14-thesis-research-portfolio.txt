@@ -1,9 +1,9 @@
 Level 14 · Multimodal & Thesis Scoping
 
 Phase: Thesis Scoping
-Suggested duration: 35 sessions (~9 weeks)
+Suggested duration: 40 sessions (~10 weeks)
 Prerequisites: Level 13
-Scope: Master multimodal foundation models (CLIP, LLaVA, Whisper), translate machine learning across scientific disciplines with domain experts, scope a high-impact thesis topic, conduct pilot feasibility studies, and defend a formal Thesis Prospectus.
+Scope: Master multimodal foundation models (CLIP, LLaVA, Whisper), translate machine learning across scientific disciplines with domain experts, scope a high-impact thesis topic, conduct pilot feasibility studies, defend a formal Thesis Prospectus, and build a modern AI research portfolio.
 
 M14.1 · Multimodal Foundation Models: CLIP, Vision-Language & Audio Architectures — (sessions: 6)
 Session 1 · Contrastive vision-language pretraining: CLIP & SigLIP
@@ -70,3 +70,16 @@ Session 2 · Formal thesis prospectus dossier & oral defense
 - Compile a complete, committee-ready Thesis Prospectus package incorporating preliminary pilot results, a 3-chapter dissertation roadmap, and an auditable risk register.
 - Deliver an oral defense of the prospectus before a faculty committee panel, address hostile methodological critiques, and incorporate revisions into the final research protocol.
 Final result: A completed multimodal cross-domain research study and a formally defended, committee-approved doctoral Thesis Prospectus establishing a clear path to publication and graduation.
+
+M14.7 · Building a Modern AI Research Portfolio — (sessions: 5)
+Session 1 · Constructing a research portfolio for the LLM era
+- The Modern AI Research Portfolio: Understand that a competitive AI research portfolio in the LLM era requires demonstrating breadth across multiple contribution types — not only traditional model-architecture papers but also evaluation methodology contributions, dataset papers, analysis papers, and open-source tools — because hiring committees at top labs and universities evaluate researchers on their ability to identify important problems, not just their ability to improve SOTA numbers.
+- GitHub as a Research Portfolio: Build a GitHub research portfolio that communicates your scientific identity: a pinned repository for each completed research project with a compelling README that explains the research question, key findings, reproducible code, and a link to the paper or preprint; understand how to write a README that speaks to both technical reviewers (who want to run your code) and non-technical decision-makers (who want to understand your contribution).
+- The Research Statement as Portfolio Narrative: Draft a 2-page research statement that constructs a coherent intellectual narrative connecting your completed projects — explaining not just what you did but why the sequence of your research choices reveals a scientific perspective and research vision — following the "past work, current work, future directions" structure used in academic faculty applications and industrial research scientist interviews.
+Session 2 · Open-source contributions and research community building
+- Open-Sourcing Research Artifacts: Package your research contributions as community-usable open-source tools: write documentation targeting two audiences simultaneously (researchers who want to use your method in their work, and practitioners who want to apply your method to real problems); release model weights on HuggingFace Hub with a Model Card following the Hugging Face model card template; and archive code on Zenodo for a permanent DOI citation.
+- Building Research Visibility: Understand the research visibility strategies that are legitimate and effective in the modern AI community: posting paper summaries on Twitter/X and LinkedIn targeting specific communities (e.g. #MachineLearning, AI alignment forums, interpretability reading groups), presenting at workshops rather than only main conference tracks when your work is at an early stage, and engaging with related papers through citing them correctly and reaching out to authors for collaboration.
+- Maintaining a Living Research Website: Build a minimal academic research website (using GitHub Pages, Hugo, or Jekyll) that contains: a brief bio, a research interests paragraph, a publications list with PDF links, a projects section showcasing your GitHub portfolio, and a CV link — understanding that this is the first thing hiring committees look at before reading your application.
+Mental model: A modern AI research portfolio is not a collection of impressive benchmark numbers — it is a curated argument that you have a genuine scientific perspective, the technical skills to execute research independently, and the communication skills to make your work useful to others.
+Try: Package a completed research project as a full open-source release: write a compelling README explaining the research question and key findings in 500 words for a non-expert reader; write a second technical README section in 500 words for an expert who wants to reproduce your results; release model weights to HuggingFace with a complete Model Card; and write a 500-word Twitter thread summarizing your key finding that would be comprehensible to an ML-interested audience.
+Outcome: You can construct a modern AI research portfolio that communicates scientific identity through GitHub projects, an academic website, and a research statement; package research artifacts for open-source release with HuggingFace Model Cards and Zenodo DOIs; and build research community visibility through legitimate professional communication strategies.

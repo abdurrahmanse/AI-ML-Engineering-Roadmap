@@ -269,6 +269,28 @@ export const topics: Record<string, TopicSet> = {
       "Deliver a 15-minute mock proposal defense before...",
     ],
   },
+  'M3.7': {
+    sig: 'f57ed838',
+    labels: [
+      "Benchmark Overfitting Detection: Identify the benchmark overfitting...",
+      "Closed vs Open Evaluation: Distinguish papers using...",
+      "Cherry-Picked Example Auditing: Detect when a paper's...",
+      "Scaling Excuse Anti-Pattern: Recognize the \"our method...",
+      "Reading System Papers vs Empirical Papers: Distinguish...",
+      "Evaluating LLM-as-Judge Studies: Critically evaluate papers that...",
+      "Citation Chain Tracing: Trace the citation lineage...",
+    ],
+  },
+  'M3.8': {
+    sig: 'fd2d258a',
+    labels: [
+      "The Modern AI Research Landscape: Survey the...",
+      "The Academic Resource Constraint: Explicitly scope research...",
+      "Falsifiable Hypothesis Formulation for Modern AI: Transform...",
+      "Systematic Gap Mapping for LLM Research: Apply...",
+      "Contribution Types for Resource-Constrained Researchers: Identify research...",
+    ],
+  },
   'M4.1': {
     sig: 'f367db90',
     labels: [
@@ -333,6 +355,17 @@ export const topics: Record<string, TopicSet> = {
       "Write a formal 5-page Data Paper documenting...",
     ],
   },
+  'M4.8': {
+    sig: '8ad427e9',
+    labels: [
+      "RAG Evaluation Dataset Construction: Build a question-context-answer...",
+      "Measuring Retrieval Quality: Compute Recall@k (what fraction...",
+      "Avoiding RAG Benchmark Contamination: Audit whether evaluation...",
+      "The RAG Component Isolation Problem: Design a...",
+      "Reproducing Published RAG Benchmarks: Reproduce retrieval metric...",
+      "Chunking Strategy Research: Design an experiment that...",
+    ],
+  },
   'M5.1': {
     sig: 'cc85abe4',
     labels: [
@@ -370,32 +403,42 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M5.5': {
-    sig: 'b4769507',
+    sig: '1688207f',
     labels: [
       "Bagging Theory: Prove why bootstrap averaging reduces...",
       "Random Forests: Implement feature subsampling (mtry =...",
       "Adaptive Boosting: Formulate AdaBoost, exponential loss minimization,...",
       "Gradient Boosting Machines: Formulate gradient boosting as...",
       "XGBoost Innovations: Derive second-order Taylor expansion of...",
-      "LightGBM & CatBoost: Understand Gradient-based One-Side Sampling...",
+      "LightGBM & CatBoost: Analyze Gradient-Based One-Side Sampling...",
     ],
   },
   'M5.6': {
-    sig: 'ee7c7cb6',
+    sig: '97904980',
     labels: [
-      "K-Means Clustering: Implement Lloyd's algorithm, K-Means++ probabilistic...",
-      "Density-Based Clustering: Implement DBSCAN, defining core points,...",
-      "Spectral & Manifold Learning: Derive Principal Component...",
-      "Anomaly Detection: Detect multivariate tabular outliers using...",
+      "K-Means & K-Means++: Implement Lloyd's algorithm and...",
+      "DBSCAN & Gaussian Mixture Models (GMM): Apply...",
+      "Statistical Anomaly Detection: Detect anomalies using Mahalanobis...",
+      "AutoEncoder-Based Anomaly Detection: Train a compact autoencoder...",
     ],
   },
   'M5.7': {
-    sig: 'a5f501d7',
+    sig: '1a306e47',
     labels: [
-      "Formulate an empirical research question: Under what...",
-      "Execute nested cross-validation with Bayesian hyperparameter optimization...",
-      "Compute AUROC, AUPRC, calibration error (ECE), and...",
-      "Write a formal 6-page research paper detailing...",
+      "Implement a full comparative benchmark pipeline (Logistic...",
+      "Compute Paired Wilcoxon signed-rank tests and Benjamini-Hochberg...",
+      "Author a 5-page research benchmark paper in...",
+      "Package the benchmark as a reproducible open-source...",
+    ],
+  },
+  'M5.8': {
+    sig: '137ae2c6',
+    labels: [
+      "The Baseline Fairness Crisis: Analyze published papers...",
+      "Compute Parity for Classical Baselines: When comparing...",
+      "The \"Strong Baseline\" Verification Protocol: Before claiming...",
+      "When Classical ML Should Beat LLMs: Understand...",
+      "Designing Fair Cross-Paradigm Comparisons: Design an experiment...",
     ],
   },
   'M6.1': {
@@ -455,6 +498,16 @@ export const topics: Record<string, TopicSet> = {
       "Author a 6-page scientific reproduction report in...",
     ],
   },
+  'M6.7': {
+    sig: '72d0834e',
+    labels: [
+      "LoRA Reproduction Protocol: Reproduce the core empirical...",
+      "Sources of Irreproducibility in PEFT Papers: Identify...",
+      "Multi-Seed Variance Protocol: Execute the same LoRA...",
+      "Documenting Failed Reproductions: Follow the ML Reproducibility...",
+      "Instruction Tuning Data Quality Research: Design an...",
+    ],
+  },
   'M7.1': {
     sig: 'f86789e6',
     labels: [
@@ -512,6 +565,17 @@ export const topics: Record<string, TopicSet> = {
       "Author a 6-page comparative architectural study in...",
     ],
   },
+  'M7.7': {
+    sig: '23aed282',
+    labels: [
+      "The Component Isolation Principle: Design a transformer...",
+      "Controlling for Parameter Count in Architecture Comparisons:...",
+      "The Compute Budget Parity Rule: Control for...",
+      "Ablation Table Design for Architecture Papers: Structure...",
+      "Identifying and Reporting Interaction Effects: Detect non-additive...",
+      "Writing the Architecture Section of a Paper:...",
+    ],
+  },
   'M8.1': {
     sig: '86ea84ea',
     labels: [
@@ -567,6 +631,28 @@ export const topics: Record<string, TopicSet> = {
       "Package the entire experimental harness with automated...",
     ],
   },
+  'M8.7': {
+    sig: '50474422',
+    labels: [
+      "RAG Pipeline Evaluation Design: Design an end-to-end...",
+      "Agentic Task Completion Evaluation: Design a controlled...",
+      "Instruction-Following Evaluation: Measure instruction-following quality on the...",
+      "Pairwise Preference Study Design: Design a controlled...",
+      "Detecting and Correcting Evaluation Bias: Measure and...",
+      "LLM-as-Judge Calibration: Evaluate the reliability of using...",
+    ],
+  },
+  'M8.8': {
+    sig: '617f85be',
+    labels: [
+      "Red Teaming as Controlled Experiment: Design adversarial...",
+      "Prompt Injection Attack Taxonomy: Systematically categorize prompt...",
+      "Defense Evaluation Methodology: Design a controlled study...",
+      "Responsible Disclosure Protocol: Follow AI security responsible...",
+      "Publishing AI Security Findings: Structure an AI...",
+      "Evaluating Published Red Teaming Papers: Critically evaluate...",
+    ],
+  },
   'M9.1': {
     sig: '3cdf72f6',
     labels: [
@@ -604,9 +690,9 @@ export const topics: Record<string, TopicSet> = {
     ],
   },
   'M9.5': {
-    sig: '179c9b79',
+    sig: 'ab2a9575',
     labels: [
-      "Fréchet Inception Distance (FID): Formulate the Wasserstein-2...",
+      "Frechet Inception Distance (FID): Formulate the Wasserstein-2...",
       "Inception Score (IS) & Limitations: Calculate IS...",
       "Precision & Recall for Distributions: Disentangle sample...",
       "Memorization & Privacy Auditing: Audit generative models...",
@@ -619,6 +705,17 @@ export const topics: Record<string, TopicSet> = {
       "Train both models to convergence under equal...",
       "Evaluate sample quality using FID, Precision, Recall,...",
       "Author a 6-page comparative research paper in...",
+    ],
+  },
+  'M9.7': {
+    sig: '94a4dd3d',
+    labels: [
+      "In-Context Learning Experimental Protocol: Design a controlled...",
+      "Emergent Capabilities Measurement: Critically evaluate claims of...",
+      "Chain-of-Thought Research: Design a study measuring how...",
+      "Hallucination Rate Measurement Protocol: Define and operationalize...",
+      "Detecting Training Data Memorization in LLMs: Apply...",
+      "Distinguishing Generalization from Pattern Matching: Design an...",
     ],
   },
   'M10.1': {
@@ -673,6 +770,16 @@ export const topics: Record<string, TopicSet> = {
       "Implement fault-tolerant checkpointing that automatically saves sharded...",
       "Profile the training harness using PyTorch Profiler...",
       "Author a 6-page systems research paper documenting...",
+    ],
+  },
+  'M10.7': {
+    sig: 'cf54b209',
+    labels: [
+      "Quantization Research Methodology: Design a controlled study...",
+      "KV Cache Ablation Study: Design a study...",
+      "Speculative Decoding Measurement: Measure the empirical acceptance...",
+      "Throughput vs Latency Tradeoff Measurement: Conduct a...",
+      "Comparing Managed vs Self-Hosted Serving: Design a...",
     ],
   },
   'M11.1': {
@@ -730,6 +837,17 @@ export const topics: Record<string, TopicSet> = {
       "Author a 6-page empirical research paper in...",
     ],
   },
+  'M11.7': {
+    sig: 'c87d44d8',
+    labels: [
+      "Alignment Tax Measurement: Design a controlled experiment...",
+      "Jailbreaking Success Rate Measurement: Design a rigorous...",
+      "Refusal Mechanism Interpretability: Investigate where in the...",
+      "Scalable Oversight Research Design: Design a study...",
+      "Safety Benchmark Design Methodology: Critically evaluate existing...",
+      "Red Team Research Protocol: Plan a structured...",
+    ],
+  },
   'M12.1': {
     sig: '00325d59',
     labels: [
@@ -783,6 +901,16 @@ export const topics: Record<string, TopicSet> = {
       "Implement a multi-agent orchestration team consisting of...",
       "Evaluate the complete system on a 100-query...",
       "Author a 6-page research systems paper in...",
+    ],
+  },
+  'M12.7': {
+    sig: '6bb4ad27',
+    labels: [
+      "VLM Capability Evaluation Protocol: Design a controlled...",
+      "VLM Hallucination Measurement: Measure object hallucination in...",
+      "Multimodal vs Unimodal Ablation: Design an experiment...",
+      "Contrastive Pretraining Ablation for CLIP: Replicate a...",
+      "Domain-Specific VLM Fine-Tuning Research: Design a study...",
     ],
   },
   'M13.1': {
@@ -839,6 +967,16 @@ export const topics: Record<string, TopicSet> = {
       "Deliver an executive scientific briefing presenting key...",
     ],
   },
+  'M13.7': {
+    sig: '6a80918a',
+    labels: [
+      "The 2024–2025 AI Research Landscape Audit: Conduct...",
+      "Gap Classification by Academic Resource Accessibility: Classify...",
+      "The Tension Identification Method: Apply the tension...",
+      "The Gap-to-Hypothesis Pipeline: Transform an identified research...",
+      "Novelty Verification Protocol: Verify that your identified...",
+    ],
+  },
   'M14.1': {
     sig: '4636347c',
     labels: [
@@ -893,6 +1031,17 @@ export const topics: Record<string, TopicSet> = {
       "Conduct a controlled ablation study demonstrating the...",
       "Compile a complete, committee-ready Thesis Prospectus package...",
       "Deliver an oral defense of the prospectus...",
+    ],
+  },
+  'M14.7': {
+    sig: 'ae8b214a',
+    labels: [
+      "The Modern AI Research Portfolio: Understand that...",
+      "GitHub as a Research Portfolio: Build a...",
+      "The Research Statement as Portfolio Narrative: Draft...",
+      "Open-Sourcing Research Artifacts: Package your research contributions...",
+      "Building Research Visibility: Understand the research visibility...",
+      "Maintaining a Living Research Website: Build a...",
     ],
   },
   'M15.1': {
@@ -962,6 +1111,17 @@ export const topics: Record<string, TopicSet> = {
       "Package the complete open-source research artifact repository,...",
       "Author a formal Reviewer Rebuttal Dossier featuring...",
       "Finalize the complete 45-minute oral thesis defense...",
+    ],
+  },
+  'M15.8': {
+    sig: 'edad789c',
+    labels: [
+      "The Shifting Research Landscape: Understand how the...",
+      "Academic vs Industry Research in the LLM...",
+      "The Open vs Closed Research Culture Tension:...",
+      "Building a Research Identity Around Open Models:...",
+      "The Interdisciplinary Research Opportunity: Identify the growing...",
+      "Staying Current in a Rapidly Evolving Field:...",
     ],
   },
 };
