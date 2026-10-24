@@ -4,18 +4,6 @@
   <strong>Interactive, source-verified learning roadmaps for modern AI/ML Engineering and Scientific Research.</strong>
 </p>
 
-<p align="center">
-  <a href="https://ai-ml-engineering-roadmap.vercel.app/"><img src="https://img.shields.io/badge/Live_Demo-Engineering_Roadmap-38BDF8?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo: Engineering" /></a>
-  <a href="https://ai-ml-research-roadmap.vercel.app"><img src="https://img.shields.io/badge/Live_Demo-Research_Roadmap-BC52EE?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo: Research" /></a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Astro-7.0+-BC52EE?style=flat-square&logo=astro&logoColor=white" alt="Astro" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-v4-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/TypeScript-Strict-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" alt="License: MIT" />
-</p>
-
 ---
 
 ## 🎯 Choose Your Track
